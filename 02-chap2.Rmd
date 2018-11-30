@@ -2,6 +2,10 @@
 chapter: 2
 knit: "bookdown::render_book"
 ---
+<!-- #REFERENCE EXAMPLES: -->
+<!-- [@Brown59;@Brown63;@Holt57;@Winters60]. Because of their computational simplicity and interpretability, they became widely used in practice. -->
+
+<!-- Empirical studies by @MH79 and @Metal82 found little difference... proposition [see @CKOS01]. -->
 
 # Literature Review {#ch:litreview}
 
@@ -16,12 +20,32 @@ You will need to organize the literature review around themes, and within each t
 All citations should be done using markdown notation as shown below. This way, your bibliography will be compiled automatically and correctly.
 
 
-## Exponential Smoothing {#sec:expsmooth}
+## Touring {#sec:tour}
 
-Exponential smoothing was originally developed in the late 1950s [@Brown59;@Brown63;@Holt57;@Winters60]. Because of their computational simplicity and interpretability, they became widely used in practice.
+### Overview
 
-Empirical studies by @MH79 and @Metal82 found little difference in forecast accuracy between exponential smoothing and ARIMA models. This made the family of exponential smoothing procedures an attractive proposition [see @CKOS01].
+Touring is a linear dimensonality reduction technique that orthagonally projects $p$-space down to $d$-space. Many of these projections are interpolated while varying the rotation of $p$-space and viewed in order to the effect of watching an animation of the lower dimensional embedding changing as $p$-space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2-dimensional shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow corrispondingly changes. Observers watching only the shadow are functionally watching a 2-dimensional tour as the 3-dimensional object is manipulated.
 
-The methods were less popular in academic circles until  @OKS97 introduced a state space formulation of some of the methods, which was extended in @HKSG02 to cover the full range of exponential smoothing methods.
+Each of the original variables assumes some contribution to the resulting embedding, as described by a linear combination of the variables. We call the view of this linear combination on a unit-circle the 'reference frame'. Reference frames 
+
+### History
+
+### Typology
+
+A fundamental aspect of touring is the path of rotation. There are four primary methods of defining such paths[@Buja05]:
+
+- Random choice such as Asimov's grand tour[@Asimov85].
+- Precomputed choice, *e.g.* the little tour[@McDonald82].
+- Data driven - a guided tour performing (stochastic) gradient descent on some objective function[@Hurley90].
+- Manual control, where maniulation variable and vector are selected, a manular tour[@Cook97].
+
+### Linear vs non-linear dimensonality reduction
+
+## Virtual reality
+
+### History
+
+### CHIC
+
 
 
