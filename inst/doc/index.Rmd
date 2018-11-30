@@ -1,8 +1,8 @@
 ---
-title: 'Dynamic visualization of high-dimensional functions via low-dimension projections and sectioning across 2D and 3D display devices'
+title: 'Thesis title'
 degreetype: 'Doctor of Philosophy'
-author: 'Nicholas S Spyrison'
-degrees: 'B.Sc. Statistics, Iowa State University'
+author: 'Joe Bloggs'
+degrees: 'B.Sc. (Hons), University of Tangambalanga'
 output: bookdown::pdf_book
 site: bookdown::bookdown_site
 link-citations: yes
