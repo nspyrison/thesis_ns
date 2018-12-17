@@ -24,28 +24,47 @@ All citations should be done using markdown notation as shown below. This way, y
 
 ### Overview
 
+In a univariate data set historgrams, or other forms of 1-d density plots are employed to visualize data. In bivariate data scatterplots, contour plots (2-d density), are commonly employeed to visualize continous variables. In three dimensions; 
+
 Touring is a linear dimensonality reduction technique that orthagonally projects $p$-space down to $d$-space. Many of these projections are interpolated while varying the rotation of $p$-space and viewed in order to the effect of watching an animation of the lower dimensional embedding changing as $p$-space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2-dimensional shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow corrispondingly changes. Observers watching only the shadow are functionally watching a 2-dimensional tour as the 3-dimensional object is manipulated.
 
 Each of the original variables assumes some contribution to the resulting embedding, as described by a linear combination of the variables. We call the view of this linear combination on a unit-circle the 'reference frame'. Reference frames 
 
+
+
 ### History
+
+In 1974 Friedman and Tukey purposed Projection Pursuit[@friedman_projection_1974] (sometimes refered to as PP) while working at Bell Labs. Projection Pursuit involves identifying "interesting" projection, remove a single component of the data, and then iterate in this newly embedded subspace. Within each subspace the projection seeks for a local extrema via gradient descent (historically refered to as hill climbing algorithms), hence the nomenclature pursuit.
+
+Touring was first introduced by Asimov in 1985 with his purposed Grand Tour[@asimov_grand_1985] at Staford University. In which, Asimov suggested three types of Grand Tours: torus, at-random, and random-walk.
+
+- torus: where a $p$-dimensional torus, $T^p$ is created from a Cartesian product of $p$ unit circles with $T^p \in \mathbb{R}^p$. Unfortunatly uniformity of the parameters do not corrilate to uniform points on the surface of the torus. If step distance between frames is fixed, disproportionate time is spent between subspaces. If step distance is change to account for uniform points on the torus then the continuity of the tour is lost.  
+- at-random: where each 2-frame is choosen at random without replacement. This affords an assured uniform distribution of subspaces, but is far to discontinuous for observation. It also leaves no parameters to control.
+- random-walk: combines the coninuity of the torus method and the uniformity of the at-random method while leaving room for a control parameter. 
 
 ### Typology
 
-A fundamental aspect of touring is the path of rotation. There are four primary methods of defining such paths[@Buja05]:
+#### Movement
 
-- Random choice such as Asimov's grand tour[@Asimov85].
-- Precomputed choice, *e.g.* the little tour[@McDonald82].
-- Data driven - a guided tour performing (stochastic) gradient descent on some objective function[@Hurley90].
-- Manual control, where maniulation variable and vector are selected, a manular tour[@Cook97].
+A fundamental aspect of touring is the path of rotation. There are four primary methods of defining such paths[@buja_computational_2005]:
+
+- Random choice such as Asimov's grand tour[@asimov_grand_1985].
+- Precomputed choice, *e.g.* the little tour[@mcdonald_interactive_1982].
+- Data driven - a guided tour performing (stochastic) gradient descent on some objective function[@hurley_analyzing_1990].
+- Manual control, where maniulation variable and vector are selected, a manular tour[@cook_manual_1997].
+
+#### Geoms
+
+Scatterplots offer a simple, general case for veiwing lower-dimenson embeddings of higher-dimensions. Such visualiazation offer $p$-dim down to $d$-dim, typically two in the case of a standard monitor. Yet, no intrinsic value stops touring being used in other graphics or geoms (geometrics). For instance using parrelel coordinate plots (PCP)[@...], Andrews plots [@...], chernoff faces [@...], all offer perfectly valid graphs in $p$-dimensions. these can also be toured. 
+
+This works well when the number of dimensions being toured is small (in the neiboghhood of 5-10), yet the number of view, or 2-frames and we can produce from $p$-space sufferes from the so called blessing/curse of dimensionality. In which the plethora of degrees of freedom either offer many (non-unique) solutions to a problem or something that becomes ever increasing unlikely, ie) a bivariate square needs . 
+
 
 ### Linear vs non-linear dimensonality reduction
 
 ## Virtual reality
 
-### History
 
-### CHIC
 
 
 
