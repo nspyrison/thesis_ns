@@ -22,8 +22,18 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Literature Review}{5}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Exponential Smoothing}{6}{section.2.1}
+\contentsline {section}{\numberline {2.1}Touring}{6}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Additional stuff}{7}{appendix.A}
+\contentsline {subsection}{\numberline {2.1.1}Overview}{6}{subsection.2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{9}{appendix*.7}
+\contentsline {subsection}{\numberline {2.1.2}History}{6}{subsection.2.1.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.3}Typology}{7}{subsection.2.1.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.4}Linear vs non-linear dimensonality reduction}{7}{subsection.2.1.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Virtual reality}{7}{section.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Additional stuff}{9}{appendix.A}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{11}{appendix*.7}
