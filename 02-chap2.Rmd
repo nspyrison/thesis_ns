@@ -23,11 +23,11 @@ knit: "bookdown::render_book"
 
 ### Overview
 
-In univariate dataseta historgrams, or smoothed density curves are employed to visualize data. In bivariate data scatterplots and contour plots (2-d density) can be employeed. In three dimensions the two most common techniques are: 2-d scatter plot with the 3rd variable as an asthetic (such as, color, size, height, $etc.$) or rendering the data in a 3-d volume using some perceptive cues giving information describing the seeming depth of the image \footnote{Graphs of data depicting 3 dimension are typically printed on paper, or rendered on a 2-d monitor, they are intrinsically 2-d images. They are sometimes refered to as 2.5-d, or more frequently erroneously refered to as 3-d, more on this later.}. When there are 4 variables: 3 variables as spatial-dimensions and a 4th as asethetic, or a scatterplot matrix consisting of 4 histograms, and 6 unique combinations of bivariate scatterplots. 
+In univariate datasets histograms, or smoothed density curves are employed to visualize data. In bivariate data scatterplots and contour plots (2-d density) can be employed. In three dimensions the two most common techniques are: 2-d scatter plot with the 3rd variable as an aesthetic (such as, color, size, height, $etc.$) or rendering the data in a 3-d volume using some perceptive cues giving information describing the seeming depth of the image \footnote{Graphs of data depicting 3 dimension are typically printed on paper, or rendered on a 2-d monitor, they are intrinsically 2-d images. They are sometimes referred to as 2.5-d, or more frequently erroneously referred to as 3-d, more on this later.}. When there are 4 variables: 3 variables as spatial-dimensions and a 4th as aesthetic, or a scatterplot matrix consisting of 4 histograms, and 6 unique combinations of bivariate scatterplots. 
 
-Let $p$ be the number of numeric variables; how do we visualize data for even modest values of $p$? It's far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse, long tables of statistics without visuals[@@REMOVING THE BLINDFOLD]. Yet, we all know of the risks and posible mis-leadingness of reliying too heavily on parameters alone[@@ANSCOMBE;@SAME STATS DIFF GRAPHS]. So why do we get aware from visualizing in data-space; scalability, in a word, we are not familiar with methods that allow us to consisely depict and digest $p \geq 5$ or so dimensions. This is where touring comes in; using the wide range of touring techniques we are able to preserve the visualization of data-space, and the instrinsic understanding of structure and the data, beyond looking at statistic values alone.
+Let $p$ be the number of numeric variables; how do we visualize data for even modest values of $p$ (say 6 or 12)? It's far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse, long tables of statistics without visuals[@wickham_visualizing_2015]. Yet, we all know of the risks and possible mis-leadingness of relying too heavily on parameters alone[@anscombe_graphs_1973;@matejka_same_2017]. So why do we get aware from visualizing in data-space? Scalability, in a word, we are not familiar with methods that allow us to concisely depict and digest $p \geq 5$ or so dimensions. This is where touring comes in; using the wide range of touring techniques we are able to preserve the visualization of data-space, and the intrinsic understanding of structure and the data, beyond looking at statistic values alone.
 
-Touring is a linear dimensonality reduction technique that orthagonally projects $p$-space down to $d$-space. Many of these projections are interpolated while varying the rotation of $p$-space and viewed in order to the effect of watching an animation of the lower dimensional embedding changing as $p$-space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2-dimensional shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow corrispondingly changes. Observers watching only the shadow are functionally watching a 2-dimensional tour as the 3-dimensional object is manipulated.
+Touring is a linear dimensonality reduction technique that orthagonally projects $p$-space down to $d$-space. Many of these projections are interpolated while varying the rotation of $p$-space and viewed in order to the effect of watching an animation of the lower dimensional embedding changing as $p$-space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2-dimensional shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a 2-dimensional tour as the 3-dimensional object is manipulated.
 
 <!-- Each of the original variables assumes some magnidute and direction in the resulting embedding, as described by a linear combination of the orthonormal basis. We call the view of this linear combination on a unit-circle the 'reference frame'. Reference frames  -->
 
@@ -35,23 +35,45 @@ Touring is a linear dimensonality reduction technique that orthagonally projects
 
 ### History
 
-In 1974 Friedman and Tukey purposed Projection Pursuit[@friedman_projection_1974] (sometimes refered to as PP) while working at Bell Labs. Projection Pursuit involves identifying "interesting" projection, remove a single component of the data, and then iterate in this newly embedded subspace. Within each subspace the projection seeks for a local extrema via gradient descent (historically refered to as hill climbing algorithms), hence the nomenclature pursuit.
+In 1974 Friedman and Tukey purposed Projection Pursuit[@friedman_projection_1974] (sometimes referred to as PP) while working at Bell Labs. Projection Pursuit involves identifying "interesting" projection, remove a single component of the data, and then iterate in this newly embedded subspace. Within each subspace the projection seeks for a local extrema via gradient descent (historically referred to as hill climbing algorithms), hence the nomenclature pursuit.
 
-Touring was first introduced by Asimov in 1985 with his purposed Grand Tour[@asimov_grand_1985] at Staford University. In which, Asimov suggested three types of Grand Tours: torus, at-random, and random-walk. The specifics of which will be discussed below in the Typology section.
+Touring was first introduced by Asimov in 1985 with his purposed Grand Tour[@asimov_grand_1985] at Stanford University. In which, Asimov suggested three types of Grand Tours: torus, at-random, and random-walk. The specifics of which will be discussed below in the Typology section.
 
 ... 
 
-below is a list of software implementations in accending year:
+below is a list of software implementations in ascending year:
 
-<!-- \begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  } -->
-<!--  \hline -->
-<!--  \multicolumn{3}{|c|}{Country List} \\ -->
-<!--  \hline -->
-<!--  tour implementations    software & year & reference & notes\\ -->
-<!--  \hline -->
-<!--  GGobi & 2003 & Swayne & Swayne, Temple-Lang, Cook, and Buja & Linux and MS Windows -->
-<!--  \hline -->
-<!-- \end{tabular} -->
+<!-- \begin{center} -->
+<!--   \begin{tabular}{|c c c c|} -->
+    software & reference & operating system & note \\
+    \hline\hline
+    Tourr & [@wickham_tourr_2011] & Linux, Unix, Windows & na \\
+    Lisp-Stat & [@tierney_lisp-stat:_2009] & na & na \\
+    CyrstalVision & [@wegman_visual_2003] & Windows & na \\
+    GGobi & [@swayne_ggobi:_2003] & Linux and Windows & na \\
+    XGobi & [@swayne_xgobi:_1991] & Unix, Linux, (emulated from) Windows & na \\
+    ExploreN & [@carr_explorn:_1996] & SGI Unix & na \\
+    Lisp-Stat & [@tierney_lisp-stat:_2009] & na & na \\
+<!--     \hline -->
+<!--   \end{tabular} -->
+<!-- \end{center} -->
+
+\begin{table}[h!]
+\centering
+ \begin{tabular}{||c c c c||} 
+ \hline
+ software & reference & operating system & note \\
+ \hline\hline
+ Tourr & - & Linux, Unix, Windows & na \\
+ Lisp-Stat & - & na & na \\
+ CyrstalVision & - & Windows & na \\
+ GGobi & - & Linux and Windows & na \\
+ XGobi & - & Unix, Linux, (emulated from) Windows & na \\
+ ExploreN & - & SGI Unix & na \\
+ Lisp-Stat & - & na & na \\
+ \hline
+ \end{tabular}
+\end{table}
 
 
 
@@ -64,18 +86,18 @@ A fundamental aspect of touring is the path of rotation. There are four primary 
 - Random choice such as Asimov's grand tour[@asimov_grand_1985].
 - Precomputed choice, *e.g.* the little tour[@mcdonald_interactive_1982].
 - Data driven - a guided tour performing (stochastic) gradient descent on some objective function[@hurley_analyzing_1990].
-- Manual control, where maniulation variable and vector are selected, a manular tour[@cook_manual_1997].
+- Manual control, a constrained rotation on selected manipulation variable and magnitude[@cook_manual_1997].
 
 ...
-- torus: where a $p$-dimensional torus, $T^p$ is created from a Cartesian product of $p$ unit circles with $T^p \in \mathbb{R}^p$. Unfortunatly uniformity of the parameters do not corrilate to uniform points on the surface of the torus. If step distance between frames is fixed, disproportionate time is spent between subspaces. If step distance is change to account for uniform points on the torus then the continuity of the tour is lost.  
-- at-random: where each 2-frame is choosen at random without replacement. This affords an assured uniform distribution of subspaces, but is far to discontinuous for observation. It also leaves no parameters to control.
-- random-walk: combines the coninuity of the torus method and the uniformity of the at-random method while leaving room for a control parameter. 
+- torus: where a $p$-dimensional torus, $T^p$ is created from a Cartesian product of $p$ unit circles with $T^p \in \mathbb{R}^p$. Unfortunately uniformity of the parameters do not correlate to uniform points on the surface of the torus. If step distance between frames is fixed, disproportionate time is spent between subspaces. If step distance is change to account for uniform points on the torus then the continuity of the tour is lost.  
+- at-random: where each 2-frame is chosen at random without replacement. This affords an assured uniform distribution of subspaces, but is far to discontinuous for observation. It also leaves no parameters to control.
+- random-walk: combines the continuity of the torus method and the uniformity of the at-random method while leaving room for a control parameter. 
 
 #### Geoms
 
-Scatterplots offer a simple, general case for veiwing lower-dimenson embeddings of higher-dimensions. Such visualiazation offer $p$-dim down to $d$-dim, typically two in the case of a standard monitor. Yet, no intrinsic value stops touring being used in other graphics or geoms (geometrics). For instance using parrelel coordinate plots (PCP)[@...], Andrews plots [@...], chernoff faces [@...], all offer perfectly valid graphs in $p$-dimensions. these can also be toured. 
+Scatterplots offer a simple, general case for viewing lower-dimension embeddings of higher-dimensions. Such visualization offer $p$-dim down to $d$-dim, typically two in the case of a standard monitor. Yet, no intrinsic value stops touring being used in other graphics or geoms (geometrics). For instance using parallel coordinate plots (PCP)[@...], Andrews plots [@...], Chernoff faces [@...], all offer perfectly valid graphs in $p$-dimensions. these can also be toured. 
 
-This works well when the number of dimensions being toured is small (in the neiboghhood of 5-10), yet the number of view, or 2-frames and we can produce from $p$-space sufferes from the so called blessing/curse of dimensionality. In which the plethora of degrees of freedom either offer many (non-unique) solutions to a problem or something that becomes ever increasing unlikely, ie) a bivariate square needs . 
+This works well when the number of dimensions being toured is small (in the neighborhood of 5-10), yet the number of view, or 2-frames and we can produce from $p$-space suffers from the so called blessing/curse of dimensionality. In which the plethora of degrees of freedom either offer many (non-unique) solutions to a problem or something that becomes ever increasing unlikely, $ie.$ a bivariate square needs . 
 
 
 ### Linear vs non-linear dimensonality reduction
