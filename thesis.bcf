@@ -1996,9 +1996,9 @@
     <bcf:datasource type="file" datatype="bibtex">thesisrefs.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">REMOVING</bcf:citekey>
-    <bcf:citekey order="2">ANSCOMBE</bcf:citekey>
-    <bcf:citekey order="3">SAME</bcf:citekey>
+    <bcf:citekey order="1">wickham_visualizing_2015</bcf:citekey>
+    <bcf:citekey order="2">anscombe_graphs_1973</bcf:citekey>
+    <bcf:citekey order="3">matejka_same_2017</bcf:citekey>
     <bcf:citekey order="4">friedman_projection_1974</bcf:citekey>
     <bcf:citekey order="5">asimov_grand_1985</bcf:citekey>
     <bcf:citekey order="6">buja_computational_2005</bcf:citekey>
