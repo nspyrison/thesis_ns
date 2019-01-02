@@ -1,0 +1,11 @@
+---
+chapter: 4
+knit: "bookdown::render_book"
+---
+
+# Display dimensionality {#ch:disp_dim}
+
+## My work
+
+### XGobbi vs the C2
+
