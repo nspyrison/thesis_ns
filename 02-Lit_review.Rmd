@@ -6,7 +6,7 @@ knit: "bookdown::render_book"
 <!-- [@Brown59;@Brown63;@Holt57;@Winters60]. Because of their computational simplicity and interpretability, they became widely used in practice. -->
 <!-- Empirical studies by @MH79 and @Metal82 found little difference... proposition [see @CKOS01]. -->
 
-# Literature Review {#ch:litreview}
+# Literature review {#ch:lit_review}
 
 <!-- This chapter contains a summary of the context in which your research is set.  -->
 

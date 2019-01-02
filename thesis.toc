@@ -1,21 +1,53 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {1}Literature Review}{v}{chapter.1}
+\contentsline {chapter}{Acknowledgements}{v}{chapter*.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.1}Touring}{v}{section.1.1}
+\contentsline {chapter}{Declaration}{vii}{chapter*.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.1}Overview}{v}{subsection.1.1.1}
+\contentsline {chapter}{Preface}{ix}{chapter*.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.2}History}{vi}{subsection.1.1.2}
+\contentsline {chapter}{Abstract}{xi}{chapter*.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.3}Typology}{vii}{subsection.1.1.3}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Movement}{vii}{subsubsection*.2}
+\contentsline {chapter}{\numberline {2}Literature review}{3}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Geoms}{viii}{subsubsection*.3}
+\contentsline {section}{\numberline {2.1}Touring}{3}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.4}Linear vs non-linear dimensonality reduction}{viii}{subsection.1.1.4}
+\contentsline {subsection}{\numberline {2.1.1}Overview}{3}{subsection.2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Virtual reality}{viii}{section.1.2}
+\contentsline {subsection}{\numberline {2.1.2}History}{4}{subsection.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{ix}{chapter*.4}
+\contentsline {subsection}{\numberline {2.1.3}Typology}{5}{subsection.2.1.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Movement}{5}{subsubsection*.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Geoms}{6}{subsubsection*.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.4}Linear vs non-linear dimensonality reduction}{6}{subsection.2.1.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Virtual reality}{6}{section.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Tour methodology}{7}{chapter.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}Spinnifex}{7}{section.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.1}Tourr}{7}{subsection.3.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.2}Plottly}{7}{subsection.3.1.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Display dimensionality}{9}{chapter.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}My work}{9}{section.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.1}XGobbi vs the C2}{9}{subsection.4.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{11}{chapter.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Tour in 3D}{11}{section.5.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1.1}ImAxes / IATK}{11}{subsection.5.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Additional stuff}{13}{appendix.A}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{15}{appendix*.8}
