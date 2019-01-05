@@ -20,34 +20,34 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.3}Typology}{5}{subsection.2.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Movement}{5}{subsubsection*.6}
+\contentsline {subsubsection}{Movement}{5}{subsubsection*.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Geoms}{6}{subsubsection*.7}
+\contentsline {subsubsection}{Geoms}{6}{subsubsection*.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.4}Linear vs non-linear dimensonality reduction}{6}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.4}Linear vs non-linear dimensonality reduction}{7}{subsection.2.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Virtual reality}{6}{section.2.2}
+\contentsline {section}{\numberline {2.2}Virtual reality}{7}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Tour methodology}{7}{chapter.3}
+\contentsline {chapter}{\numberline {3}Tour methodology}{9}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Spinnifex}{7}{section.3.1}
+\contentsline {section}{\numberline {3.1}Spinnifex}{9}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.1}Tourr}{7}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.1}Tourr}{9}{subsection.3.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.2}Plottly}{7}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.2}Plottly}{9}{subsection.3.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Display dimensionality}{9}{chapter.4}
+\contentsline {chapter}{\numberline {4}Display dimensionality}{11}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}My work}{9}{section.4.1}
+\contentsline {section}{\numberline {4.1}My work}{11}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.1}XGobbi vs the C2}{9}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.1}XGobbi vs the C2}{11}{subsection.4.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{11}{chapter.5}
+\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{13}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Tour in 3D}{11}{section.5.1}
+\contentsline {section}{\numberline {5.1}Tour in 3D}{13}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.1}ImAxes / IATK}{11}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.1}ImAxes / IATK}{13}{subsection.5.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Additional stuff}{13}{appendix.A}
+\contentsline {chapter}{\numberline {A}Additional stuff}{15}{appendix.A}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{15}{appendix*.8}
+\contentsline {chapter}{Bibliography}{17}{appendix*.7}

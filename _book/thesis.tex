@@ -144,63 +144,101 @@ Asimov suggested three types of Grand Tours: torus, at-random, and
 random-walk. The specifics of which will be discussed below in the
 Typology section.
 
-\ldots{}
+\ldots{} Note that the the above methods have no imput from the user
+aside from the starting basis. the remainder touring development has
+largely been around user interaction and application.
 
-below is a list of software implementations in ascending year:
-TEST\autocite{wickham_tourr_2011}. TEST
-\autocite{wickham_tourr_2011}\autocite{wickham_tourr_2011}
+Below is a non-exhaustive list of software implementing touring in some
+degree, ordered by descending year:
 
-\begin{table}[h!]
-\centering
- \begin{tabular}{|c c c|} 
- software & reference & operating system \\
- \hline\hline
- TourrGui & @TOURRGUI & Linux, Unix, and Windows \\
- Tourr & [@wickham\_tourr\_2011] & Linux, Unix, and Windows \\
- CyrstalVision & [@wegman\_visual\_2003] & Windows \\
- GGobi & [@swayne\_ggobi:\_2003] & Linux and Windows \\
- XGobi & [@swayne\_xgobi:\_1991] & Linux, Unix, and Windows (via emulation) \\
- ExploreN & [@carr\_explorn:\_1996] & SGI Unix \\
- Lisp-Stat & [@tierney\_lisp-stat:\_1990] & Unix, and Windows \\
- Prim-9 & ref & internal os? \\
- \hline
- \end{tabular}
-\end{table}
+\begin{itemize}
+\tightlist
+\item
+  Spinifex\autocite{spinifex} -- 2018 for Linux, Unix, and Windows.
+\item
+  Tourr\autocite{wickham_tourr_2011} -- 2011 for Linux, Unix, and
+  Windows. R package.
+\item
+  CyrstalVision\autocite{wegman_visual_2003} -- 2003 for Windows
+\item
+  GGobi\autocite{swayne_ggobi:_2003} -- 2003 for Linux and Windows
+\item
+  VRGobi\autocite{nelson_xgobi_1998} -- 1998 for use with the C2 in
+  steroscopic 3d spaces
+\item
+  ExplorN\autocite{carr_explorn:_1996} -- 1996 for SGI Unix
+\item
+  XGobi\autocite{swayne_xgobi:_1991} -- 1991 for Linux, Unix, and
+  Windows (via emulation)
+\item
+  XLispStat\autocite{tierney_lisp-stat:_1990} -- 1991 for Unix, and
+  Windows
+\item
+  Prim-9\autocites{asimov_grand_1985}{fisherkeller_prim-9:_1974} -- 1985
+  on internal os
+\end{itemize}
+
+additionally there have been a number of graphical user interfaces (gui)
+that have been produced including{[}\textcite{huang_tourrgui:_2012};{]}
 
 \subsection{Typology}\label{typology}
 
 \subsubsection{Movement}\label{movement}
 
-A fundamental aspect of touring is the path of rotation. There are four
-primary methods of defining such
-paths\autocite{buja_computational_2005}:
+A fundamental aspect of touring is the path of rotation. Of which there
+are four primary distinctions\autocite{buja_computational_2005}: random
+choice, precomputed choice, data driven, and manual control.
 
 \begin{itemize}
 \tightlist
 \item
   Random choice such as Asimov's grand tour\autocite{asimov_grand_1985}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    torus
+  \item
+    at-random
+  \item
+    random-walk
+  \end{itemize}
 \item
   Precomputed choice, \emph{e.g.} the little
   tour\autocite{mcdonald_interactive_1982}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    little tour
+  \end{itemize}
 \item
   Data driven - a guided tour performing (stochastic) gradient descent
   on some objective function\autocite{hurley_analyzing_1990}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    holes
+  \item
+    cmass
+  \end{itemize}
 \item
   Manual control, a constrained rotation on selected manipulation
   variable and magnitude\autocite{cook_manual_1997}.
 \end{itemize}
 
-\ldots{} - torus: where a \(p\)-dimensional torus, \(T^p\) is created
+\ldots{} * torus: where a \(p\)-dimensional torus, \(T^p\) is created
 from a Cartesian product of \(p\) unit circles with
 \(T^p \in \mathbb{R}^p\). Unfortunately uniformity of the parameters do
 not correlate to uniform points on the surface of the torus. If step
 distance between frames is fixed, disproportionate time is spent between
 subspaces. If step distance is change to account for uniform points on
 the torus then the continuity of the tour is lost.\\
-- at-random: where each 2-frame is chosen at random without replacement.
+* at-random: where each 2-frame is chosen at random without replacement.
 This affords an assured uniform distribution of subspaces, but is far to
 discontinuous for observation. It also leaves no parameters to control.
-- random-walk: combines the continuity of the torus method and the
+* random-walk: combines the continuity of the torus method and the
 uniformity of the at-random method while leaving room for a control
 parameter.
 
@@ -211,9 +249,12 @@ embeddings of higher-dimensions. Such visualization offer \(p\)-dim down
 to \(d\)-dim, typically two in the case of a standard monitor. Yet, no
 intrinsic value stops touring being used in other graphics or geoms
 (geometrics). For instance using parallel coordinate plots
-(PCP){[}@\ldots{}{]}, Andrews plots {[}@\ldots{}{]}, Chernoff faces
-{[}@\ldots{}{]}, all offer perfectly valid graphs in \(p\)-dimensions.
-these can also be toured.
+(PCP)\autocite{ocagne_coordonnees_1885}, Andrews plots
+\autocite{andrews_plots_1972}, Chernoff faces
+\autocite{chernoff_use_1973}, anaglyphs \autocite{rollmann_zwei_1853},
+star glyphs \autocite{siegel_surgical_1972}, scatterplot matrix
+\autocite{chambers_graphical_1983}, and even pictures all offer
+perfectly valid graphs in \(p\)-dimensions.
 
 This works well when the number of dimensions being toured is small (in
 the neighborhood of 5-10), yet the number of view, or 2-frames and we
