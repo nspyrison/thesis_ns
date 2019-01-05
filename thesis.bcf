@@ -2001,14 +2001,29 @@
     <bcf:citekey order="3">matejka_same_2017</bcf:citekey>
     <bcf:citekey order="4">friedman_projection_1974</bcf:citekey>
     <bcf:citekey order="5">asimov_grand_1985</bcf:citekey>
-    <bcf:citekey order="6">wickham_tourr_2011</bcf:citekey>
+    <bcf:citekey order="6">spinifex</bcf:citekey>
     <bcf:citekey order="7">wickham_tourr_2011</bcf:citekey>
-    <bcf:citekey order="8">wickham_tourr_2011</bcf:citekey>
-    <bcf:citekey order="9">buja_computational_2005</bcf:citekey>
-    <bcf:citekey order="10">asimov_grand_1985</bcf:citekey>
-    <bcf:citekey order="11">mcdonald_interactive_1982</bcf:citekey>
-    <bcf:citekey order="12">hurley_analyzing_1990</bcf:citekey>
-    <bcf:citekey order="13">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="8">wegman_visual_2003</bcf:citekey>
+    <bcf:citekey order="9">swayne_ggobi:_2003</bcf:citekey>
+    <bcf:citekey order="10">nelson_xgobi_1998</bcf:citekey>
+    <bcf:citekey order="11">carr_explorn:_1996</bcf:citekey>
+    <bcf:citekey order="12">swayne_xgobi:_1991</bcf:citekey>
+    <bcf:citekey order="13">tierney_lisp-stat:_1990</bcf:citekey>
+    <bcf:citekey order="14">asimov_grand_1985</bcf:citekey>
+    <bcf:citekey order="15">fisherkeller_prim-9:_1974</bcf:citekey>
+    <bcf:citekey order="16">huang_tourrgui:_2012</bcf:citekey>
+    <bcf:citekey order="17">huang_tourrgui:_2012</bcf:citekey>
+    <bcf:citekey order="18">buja_computational_2005</bcf:citekey>
+    <bcf:citekey order="19">asimov_grand_1985</bcf:citekey>
+    <bcf:citekey order="20">mcdonald_interactive_1982</bcf:citekey>
+    <bcf:citekey order="21">hurley_analyzing_1990</bcf:citekey>
+    <bcf:citekey order="22">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="23">ocagne_coordonnees_1885</bcf:citekey>
+    <bcf:citekey order="24">andrews_plots_1972</bcf:citekey>
+    <bcf:citekey order="25">chernoff_use_1973</bcf:citekey>
+    <bcf:citekey order="26">rollmann_zwei_1853</bcf:citekey>
+    <bcf:citekey order="27">siegel_surgical_1972</bcf:citekey>
+    <bcf:citekey order="28">chambers_graphical_1983</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
