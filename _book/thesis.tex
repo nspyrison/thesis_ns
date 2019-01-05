@@ -27,20 +27,6 @@ projections and sectioning across 2D and 3D display devices},
 
 \bibliography{thesisrefs}
 
-\usepackage{amsthm}
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{lemma}{Lemma}[chapter]
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
-\newtheorem{corollary}{Corollary}[chapter]
-\newtheorem{proposition}{Proposition}[chapter]
-\theoremstyle{definition}
-\newtheorem{example}{Example}[chapter]
-\theoremstyle{definition}
-\newtheorem{exercise}{Exercise}[chapter]
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-\newtheorem*{solution}{Solution}
 \begin{document}
 
 \pagenumbering{roman}
@@ -161,32 +147,22 @@ Typology section.
 \ldots{}
 
 below is a list of software implementations in ascending year:
-
-\begin{verbatim}
-software & reference & operating system & note \\
-\hline\hline
-Tourr & [@wickham_tourr_2011] & Linux, Unix, Windows & na \\
-Lisp-Stat & [@tierney_lisp-stat:_2009] & na & na \\
-CyrstalVision & [@wegman_visual_2003] & Windows & na \\
-GGobi & [@swayne_ggobi:_2003] & Linux and Windows & na \\
-XGobi & [@swayne_xgobi:_1991] & Unix, Linux, (emulated from) Windows & na \\
-ExploreN & [@carr_explorn:_1996] & SGI Unix & na \\
-Lisp-Stat & [@tierney_lisp-stat:_2009] & na & na \\
-\end{verbatim}
+TEST\autocite{wickham_tourr_2011}. TEST
+\autocite{wickham_tourr_2011}\autocite{wickham_tourr_2011}
 
 \begin{table}[h!]
 \centering
- \begin{tabular}{||c c c c||} 
- \hline
- software & reference & operating system & note \\
+ \begin{tabular}{|c c c|} 
+ software & reference & operating system \\
  \hline\hline
- Tourr & - & Linux, Unix, Windows & na \\
- Lisp-Stat & - & na & na \\
- CyrstalVision & - & Windows & na \\
- GGobi & - & Linux and Windows & na \\
- XGobi & - & Unix, Linux, (emulated from) Windows & na \\
- ExploreN & - & SGI Unix & na \\
- Lisp-Stat & - & na & na \\
+ TourrGui & @TOURRGUI & Linux, Unix, and Windows \\
+ Tourr & [@wickham\_tourr\_2011] & Linux, Unix, and Windows \\
+ CyrstalVision & [@wegman\_visual\_2003] & Windows \\
+ GGobi & [@swayne\_ggobi:\_2003] & Linux and Windows \\
+ XGobi & [@swayne\_xgobi:\_1991] & Linux, Unix, and Windows (via emulation) \\
+ ExploreN & [@carr\_explorn:\_1996] & SGI Unix \\
+ Lisp-Stat & [@tierney\_lisp-stat:\_1990] & Unix, and Windows \\
+ Prim-9 & ref & internal os? \\
  \hline
  \end{tabular}
 \end{table}

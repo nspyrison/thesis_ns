@@ -42,35 +42,21 @@ Touring was first introduced by Asimov in 1985 with his purposed Grand Tour[@asi
 ... 
 
 below is a list of software implementations in ascending year:
-
-<!-- \begin{center} -->
-<!--   \begin{tabular}{|c c c c|} -->
-    software & reference & operating system & note \\
-    \hline\hline
-    Tourr & [@wickham_tourr_2011] & Linux, Unix, Windows & na \\
-    Lisp-Stat & [@tierney_lisp-stat:_2009] & na & na \\
-    CyrstalVision & [@wegman_visual_2003] & Windows & na \\
-    GGobi & [@swayne_ggobi:_2003] & Linux and Windows & na \\
-    XGobi & [@swayne_xgobi:_1991] & Unix, Linux, (emulated from) Windows & na \\
-    ExploreN & [@carr_explorn:_1996] & SGI Unix & na \\
-    Lisp-Stat & [@tierney_lisp-stat:_2009] & na & na \\
-<!--     \hline -->
-<!--   \end{tabular} -->
-<!-- \end{center} -->
+TEST[@wickham_tourr_2011]. TEST [@wickham_tourr_2011][@wickham_tourr_2011]
 
 \begin{table}[h!]
 \centering
- \begin{tabular}{||c c c c||} 
- \hline
- software & reference & operating system & note \\
+ \begin{tabular}{|c c c|} 
+ software & reference & operating system \\
  \hline\hline
- Tourr & - & Linux, Unix, Windows & na \\
- Lisp-Stat & - & na & na \\
- CyrstalVision & - & Windows & na \\
- GGobi & - & Linux and Windows & na \\
- XGobi & - & Unix, Linux, (emulated from) Windows & na \\
- ExploreN & - & SGI Unix & na \\
- Lisp-Stat & - & na & na \\
+ TourrGui & @TOURRGUI & Linux, Unix, and Windows \\
+ Tourr & [@wickham\_tourr\_2011] & Linux, Unix, and Windows \\
+ CyrstalVision & [@wegman\_visual\_2003] & Windows \\
+ GGobi & [@swayne\_ggobi:\_2003] & Linux and Windows \\
+ XGobi & [@swayne\_xgobi:\_1991] & Linux, Unix, and Windows (via emulation) \\
+ ExploreN & [@carr\_explorn:\_1996] & SGI Unix \\
+ Lisp-Stat & [@tierney\_lisp-stat:\_1990] & Unix, and Windows \\
+ Prim-9 & ref & internal os? \\
  \hline
  \end{tabular}
 \end{table}
