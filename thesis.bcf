@@ -2001,11 +2001,14 @@
     <bcf:citekey order="3">matejka_same_2017</bcf:citekey>
     <bcf:citekey order="4">friedman_projection_1974</bcf:citekey>
     <bcf:citekey order="5">asimov_grand_1985</bcf:citekey>
-    <bcf:citekey order="6">buja_computational_2005</bcf:citekey>
-    <bcf:citekey order="7">asimov_grand_1985</bcf:citekey>
-    <bcf:citekey order="8">mcdonald_interactive_1982</bcf:citekey>
-    <bcf:citekey order="9">hurley_analyzing_1990</bcf:citekey>
-    <bcf:citekey order="10">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="6">wickham_tourr_2011</bcf:citekey>
+    <bcf:citekey order="7">wickham_tourr_2011</bcf:citekey>
+    <bcf:citekey order="8">wickham_tourr_2011</bcf:citekey>
+    <bcf:citekey order="9">buja_computational_2005</bcf:citekey>
+    <bcf:citekey order="10">asimov_grand_1985</bcf:citekey>
+    <bcf:citekey order="11">mcdonald_interactive_1982</bcf:citekey>
+    <bcf:citekey order="12">hurley_analyzing_1990</bcf:citekey>
+    <bcf:citekey order="13">cook_manual_1997</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
