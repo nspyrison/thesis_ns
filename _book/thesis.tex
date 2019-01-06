@@ -107,12 +107,15 @@ parameter-space, model-space, or worse, long tables of statistics
 without visuals\autocite{wickham_visualizing_2015}. Yet, we all know of
 the risks and possible mis-leadingness of relying too heavily on
 parameters alone\autocites{anscombe_graphs_1973}{matejka_same_2017}. So
-why do we get aware from visualizing in data-space? Scalability, in a
+why do we move away from visualizing in data-space? Scalability, in a
 word, we are not familiar with methods that allow us to concisely depict
-and digest \(p \geq 5\) or so dimensions. This is where touring comes
-in; using the wide range of touring techniques we are able to preserve
-the visualization of data-space, and the intrinsic understanding of
-structure and the data, beyond looking at statistic values alone.
+and digest \(p \geq 5\) or so dimensions. This is where dimensonality
+reduction comes in. Specifically, we will be focusing on touring. In the
+interest of time I will not belabor a taxonomy of dimentionality
+reduction here, see \autocite[ REDU]{DIM} for a treaties. Using the wide
+range of touring techniques we are able to preserve the visualization of
+data-space, and the intrinsic understanding of structure and the data,
+beyond looking at statistic values alone.
 
 Touring is a linear dimensonality reduction technique that orthagonally
 projects \(p\)-space down to \(d\)-space. Many of these projections are
@@ -129,24 +132,16 @@ changes. Observers watching only the shadow are functionally watching a
 
 \subsection{History}\label{history}
 
-In 1974 Friedman and Tukey purposed Projection
-Pursuit\autocite{friedman_projection_1974} (sometimes referred to as PP)
-while working at Bell Labs. Projection Pursuit involves identifying
-``interesting'' projection, remove a single component of the data, and
-then iterate in this newly embedded subspace. Within each subspace the
-projection seeks for a local extrema via gradient descent (historically
-referred to as hill climbing algorithms), hence the nomenclature
-pursuit.
-
 Touring was first introduced by Asimov in 1985 with his purposed Grand
 Tour\autocite{asimov_grand_1985} at Stanford University. In which,
 Asimov suggested three types of Grand Tours: torus, at-random, and
 random-walk. The specifics of which will be discussed below in the
 Typology section.
 
-\ldots{} Note that the the above methods have no imput from the user
-aside from the starting basis. the remainder touring development has
-largely been around user interaction and application.
+Note that the the above methods have no input from the user aside from
+the starting basis. The bulk of touring development has largely been
+around dynamic display, user interaction, geometric representation, and
+application.
 
 Below is a non-exhaustive list of software implementing touring in some
 degree, ordered by descending year:
@@ -154,32 +149,38 @@ degree, ordered by descending year:
 \begin{itemize}
 \tightlist
 \item
-  Spinifex\autocite{spinifex} -- 2018 for Linux, Unix, and Windows.
+  Spinifex \autocite{spinifex} -- for Linux, Unix, and Windows.
 \item
-  Tourr\autocite{wickham_tourr_2011} -- 2011 for Linux, Unix, and
-  Windows. R package.
+  Tourr \autocite{wickham_tourr_2011} -- for Linux, Unix, and Windows. R
+  package.
 \item
-  CyrstalVision\autocite{wegman_visual_2003} -- 2003 for Windows
+  CyrstalVision \autocite{wegman_visual_2003} -- for Windows.
 \item
-  GGobi\autocite{swayne_ggobi:_2003} -- 2003 for Linux and Windows
+  GGobi \autocite{swayne_ggobi:_2003} -- for Linux and Windows.
 \item
-  VRGobi\autocite{nelson_xgobi_1998} -- 1998 for use with the C2 in
-  steroscopic 3d spaces
+  DAVIS \autocite{huh_davis:_2002} -- Java based, with GUI.
 \item
-  ExplorN\autocite{carr_explorn:_1996} -- 1996 for SGI Unix
+  VRGobi \autocite{nelson_xgobi_1998} -- for use with the C2 in
+  steroscopic 3d displays.
 \item
-  XGobi\autocite{swayne_xgobi:_1991} -- 1991 for Linux, Unix, and
-  Windows (via emulation)
+  ExplorN \autocite{carr_explorn:_1996} -- for SGI Unix.
 \item
-  XLispStat\autocite{tierney_lisp-stat:_1990} -- 1991 for Unix, and
-  Windows
+  XGobi \autocite{swayne_xgobi:_1991} -- for Linux, Unix, and Windows
+  (via emulation).
 \item
-  Prim-9\autocites{asimov_grand_1985}{fisherkeller_prim-9:_1974} -- 1985
-  on internal os
+  XLispStat \autocite{tierney_lisp-stat:_1990} -- for Unix, and Windows.
+\item
+  Prim-9 \autocites{asimov_grand_1985}{fisherkeller_prim-9:_1974} -- on
+  an internal operating system.
 \end{itemize}
 
-additionally there have been a number of graphical user interfaces (gui)
-that have been produced including{[}\textcite{huang_tourrgui:_2012};{]}
+Support and maintenance of such implementations give them a particularly
+short life span, while conceptual abscraction and technically heavier
+implementations have hampered user growth. There have been notable
+efforts to deminish the barriers to entry and make touring more
+approachable as a data exploration tool {[}\textcite{huh_davis:_2002};
+\textcite{swayne_ggobi:_2003}; \textcite{wegman_visual_2003};
+\textcite{wickham_tourr_2011}; huang\_tourrgui:\_2012{]}.
 
 \subsection{Typology}\label{typology}
 
@@ -192,32 +193,39 @@ choice, precomputed choice, data driven, and manual control.
 \begin{itemize}
 \tightlist
 \item
-  Random choice such as Asimov's grand tour\autocite{asimov_grand_1985}.
+  \emph{Grand tour}, random choice such as Asimov's grand
+  tour\autocite{asimov_grand_1985}.
 
   \begin{itemize}
   \tightlist
   \item
-    torus
+    torus-surface
+  \item
+    Geodesic constrained
   \item
     at-random
   \item
     random-walk
   \end{itemize}
 \item
-  Precomputed choice, \emph{e.g.} the little
-  tour\autocite{mcdonald_interactive_1982}.
+  Precomputed choice, In which the path has already been generated or
+  defined
 
   \begin{itemize}
   \tightlist
   \item
-    little tour
+    little tour \autocite{mcdonald_interactive_1982}, where every
+    permutation of variables is stepped through in order, analogous to a
+    brute-force or exhaustive search.
   \end{itemize}
 \item
   Data driven - a guided tour performing (stochastic) gradient descent
-  on some objective function\autocite{hurley_analyzing_1990}.
+  on some objective function{[}\textcite{hurley_analyzing_1990}; {]}.
 
   \begin{itemize}
   \tightlist
+  \item
+    correlation
   \item
     holes
   \item
@@ -226,6 +234,9 @@ choice, precomputed choice, data driven, and manual control.
 \item
   Manual control, a constrained rotation on selected manipulation
   variable and magnitude\autocite{cook_manual_1997}.
+\item
+  \emph{dependance tour}; wouldn't this be data driven? why does tourr
+  distinguish?
 \end{itemize}
 
 \ldots{} * torus: where a \(p\)-dimensional torus, \(T^p\) is created
