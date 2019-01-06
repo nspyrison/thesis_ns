@@ -25,7 +25,8 @@ knit: "bookdown::render_book"
 
 In univariate datasets histograms, or smoothed density curves are employed to visualize data. In bivariate data scatterplots and contour plots (2-d density) can be employed. In three dimensions the two most common techniques are: 2-d scatter plot with the 3rd variable as an aesthetic (such as, color, size, height, $etc.$) or rendering the data in a 3-d volume using some perceptive cues giving information describing the seeming depth of the image \footnote{Graphs of data depicting 3 dimension are typically printed on paper, or rendered on a 2-d monitor, they are intrinsically 2-d images. They are sometimes referred to as 2.5-d, or more frequently erroneously referred to as 3-d, more on this later.}. When there are 4 variables: 3 variables as spatial-dimensions and a 4th as aesthetic, or a scatterplot matrix consisting of 4 histograms, and 6 unique combinations of bivariate scatterplots. 
 
-Let $p$ be the number of numeric variables; how do we visualize data for even modest values of $p$ (say 6 or 12)? It's far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse, long tables of statistics without visuals[@wickham_visualizing_2015]. Yet, we all know of the risks and possible mis-leadingness of relying too heavily on parameters alone[@anscombe_graphs_1973;@matejka_same_2017]. So why do we get aware from visualizing in data-space? Scalability, in a word, we are not familiar with methods that allow us to concisely depict and digest $p \geq 5$ or so dimensions. This is where touring comes in; using the wide range of touring techniques we are able to preserve the visualization of data-space, and the intrinsic understanding of structure and the data, beyond looking at statistic values alone.
+Let $p$ be the number of numeric variables; how do we visualize data for even modest values of $p$ (say 6 or 12)? It's far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse, long tables of statistics without visuals[@wickham_visualizing_2015]. Yet, we all know of the risks and possible mis-leadingness of relying too heavily on parameters alone[@anscombe_graphs_1973; @matejka_same_2017]. So why do we move away from visualizing in data-space? Scalability, in a word, we are not familiar with methods that allow us to concisely depict and digest $p \geq 5$ or so dimensions. This is where dimensonality reduction comes in. Specifically, we will be focusing on touring.
+ In the interest of time I will not belabor a taxonomy of dimentionality reduction here, see [@DIM REDU] for a treaties. Using the wide range of touring techniques we are able to preserve the visualization of data-space, and the intrinsic understanding of structure and the data, beyond looking at statistic values alone.
 
 Touring is a linear dimensonality reduction technique that orthagonally projects $p$-space down to $d$-space. Many of these projections are interpolated while varying the rotation of $p$-space and viewed in order to the effect of watching an animation of the lower dimensional embedding changing as $p$-space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2-dimensional shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a 2-dimensional tour as the 3-dimensional object is manipulated.
 
@@ -35,28 +36,31 @@ Touring is a linear dimensonality reduction technique that orthagonally projects
 
 ### History
 
-In 1974 Friedman and Tukey purposed Projection Pursuit[@friedman_projection_1974] (sometimes referred to as PP) while working at Bell Labs. Projection Pursuit involves identifying "interesting" projection, remove a single component of the data, and then iterate in this newly embedded subspace. Within each subspace the projection seeks for a local extrema via gradient descent (historically referred to as hill climbing algorithms), hence the nomenclature pursuit.
+<!-- In 1974 Friedman and Tukey purposed Projection Pursuit[@friedman_projection_1974] (sometimes referred to as PP) while working at Bell Labs. Projection Pursuit involves identifying "interesting" projection, remove a single component of the data, and then iterate in this newly embedded subspace. Within each subspace the projection seeks for a local extrema via gradient descent (historically referred to as hill climbing algorithms), hence the nomenclature pursuit. -->
 
 Touring was first introduced by Asimov in 1985 with his purposed Grand Tour[@asimov_grand_1985] at Stanford University. In which, Asimov suggested three types of Grand Tours: torus, at-random, and random-walk. The specifics of which will be discussed below in the Typology section.
 
-... Note that the the above methods have no imput from the user aside from the starting basis. the remainder touring development has largely been around user interaction and application. 
+
+
+Note that the the above methods have no input from the user aside from the starting basis. The bulk of touring development has largely been around dynamic display, user interaction, geometric representation,  and application. 
 
 <!-- from c2 paper: buja & asimov 1986, Hurley & Buja 1990, Wegman 1991, cook, buja, cabrera, & hurley 1995, buja, cook asimov & hurley 1997,cook & buja 1997. -->
 
 Below is a non-exhaustive list of software implementing touring in some degree, ordered by descending year:
 <!-- See hadley's thesis and, C2 paper for lists. -->
 
-* Spinifex[@spinifex] -- 2018 for Linux, Unix, and Windows.
-* Tourr[@wickham_tourr_2011] -- 2011 for Linux, Unix, and Windows. R package.
-* CyrstalVision[@wegman_visual_2003] -- 2003 for Windows
-* GGobi[@swayne_ggobi:_2003] -- 2003 for Linux and Windows
-* VRGobi[@nelson_xgobi_1998] -- 1998 for use with the C2 in steroscopic 3d spaces
-* ExplorN[@carr_explorn:_1996] -- 1996 for SGI Unix
-* XGobi[@swayne_xgobi:_1991] -- 1991 for Linux, Unix, and Windows (via emulation)
-* XLispStat[@tierney_lisp-stat:_1990] -- 1991 for Unix, and Windows
-* Prim-9[@asimov_grand_1985;@fisherkeller_prim-9:_1974] -- 1985 on internal os
+* Spinifex [@spinifex] -- for Linux, Unix, and Windows.
+* Tourr [@wickham_tourr_2011] -- for Linux, Unix, and Windows. R package.
+* CyrstalVision [@wegman_visual_2003] -- for Windows.
+* GGobi [@swayne_ggobi:_2003] -- for Linux and Windows.
+* DAVIS [@huh_davis:_2002] -- Java based, with GUI.
+* VRGobi [@nelson_xgobi_1998] -- for use with the C2 in steroscopic 3d displays.
+* ExplorN [@carr_explorn:_1996] -- for SGI Unix.
+* XGobi [@swayne_xgobi:_1991] -- for Linux, Unix, and Windows (via emulation).
+* XLispStat [@tierney_lisp-stat:_1990] -- for Unix, and Windows.
+* Prim-9 [@asimov_grand_1985;@fisherkeller_prim-9:_1974] -- on an internal operating system.
 
-additionally there have been a number of graphical user interfaces (gui) that have been produced including[@huang_tourrgui:_2012;]
+Support and maintenance of such implementations give them a particularly short life span, while conceptual abscraction and technically heavier implementations have hampered user growth. There have been notable efforts to deminish the barriers to entry and make touring more approachable as a data exploration tool [@huh_davis:_2002; @swayne_ggobi:_2003; @wegman_visual_2003; @wickham_tourr_2011; huang_tourrgui:_2012].
 
 ### Typology
 
@@ -64,16 +68,19 @@ additionally there have been a number of graphical user interfaces (gui) that ha
 
 A fundamental aspect of touring is the path of rotation. Of which there are four primary distinctions[@buja_computational_2005]: random choice, precomputed choice, data driven, and manual control.
 
-* Random choice such as Asimov's grand tour[@asimov_grand_1985].
-    + torus
+* *Grand tour*, random choice such as Asimov's grand tour[@asimov_grand_1985].
+    + torus-surface
+    + Geodesic constrained 
     + at-random
     + random-walk
-* Precomputed choice, *e.g.* the little tour[@mcdonald_interactive_1982].
-    + little tour
-* Data driven - a guided tour performing (stochastic) gradient descent on some objective function[@hurley_analyzing_1990].
+* Precomputed choice, In which the path has already been generated or defined
+    + little tour [@mcdonald_interactive_1982], where every permutation of variables is stepped through in order, analogous to a brute-force or exhaustive search.
+* Data driven - a guided tour performing (stochastic) gradient descent on some objective function[@hurley_analyzing_1990; ].
+    + correlation
     + holes
     + cmass
 * Manual control, a constrained rotation on selected manipulation variable and magnitude[@cook_manual_1997].
+* *dependance tour*; wouldn't this be data driven? why does tourr distinguish?
 
 ...
 * torus: where a $p$-dimensional torus, $T^p$ is created from a Cartesian product of $p$ unit circles with $T^p \in \mathbb{R}^p$. Unfortunately uniformity of the parameters do not correlate to uniform points on the surface of the torus. If step distance between frames is fixed, disproportionate time is spent between subspaces. If step distance is change to account for uniform points on the torus then the continuity of the tour is lost.  
