@@ -16,17 +16,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.1}Overview}{3}{subsection.2.1.1}
 \defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Terminology}{4}{subsubsection*.5}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.2}History}{4}{subsection.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.3}Typology}{5}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.3}Tour path}{5}{subsection.2.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Movement}{5}{subsubsection*.5}
+\contentsline {subsection}{\numberline {2.1.4}Geometrics and display dimension}{6}{subsection.2.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Geoms}{6}{subsubsection*.6}
+\contentsline {subsection}{\numberline {2.1.5}Aplication}{8}{subsection.2.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.4}Linear vs non-linear dimensonality reduction}{7}{subsection.2.1.4}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Virtual reality}{7}{section.2.2}
+\contentsline {section}{\numberline {2.2}Virtual reality}{8}{section.2.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Tour methodology}{9}{chapter.3}
 \defcounter {refsection}{0}\relax 
@@ -50,4 +50,4 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {A}Additional stuff}{15}{appendix.A}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{17}{appendix*.7}
+\contentsline {chapter}{Bibliography}{17}{appendix*.6}
