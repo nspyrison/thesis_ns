@@ -1,0 +1,26 @@
+---
+chapter: 3
+knit: "bookdown::render_book"
+---
+
+# spinifex {#ch:tour}
+
+
+## Spinnifex
+
+* Supply an orthonormal basis, *B_{[p x d]}*.
+* Select a manip var, $k$, and orthornormalize(*B*|$e_k$) for the manipulation space, *M_{[p x d+1]}*.
+* Select $\theta$, angle of with-in plane (of the XY projection) roation, and a vector of values for $\phi$, the angle of out-of plane rotation (orthagonal to the projection plane). 
+*For i in 1 to n_slide:*
+* For each $\phi_i$, post multiplying *M_{[p x d+1]}* by a rotation matrix, *R_{d+1 x d+1}* producing as many basis-projection, *P_{b[p x d+1]}*.
+* To get back to data-space post multply each projection by the data, *D_{[n x p]}*, for P_{d[n x d+1]}.
+* View the first two variable each projection in sequence for an XY scatterplot of the prjected data, the thrid variable is sometimes utilized to produce depth cues used in conjunction with the XY scatterplot.
+
+
+
+
+
+<!-- ### Tourr -->
+
+<!-- ### Plottly -->
+
