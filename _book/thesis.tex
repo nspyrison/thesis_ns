@@ -150,12 +150,12 @@ Asimov suggested three types of Grand Tours: torus, at-random, and
 random-walk. The specifics of which will be discussed below in the
 Typology section.
 
+TALK ABOUT maths Here::
+
 Note that the the above methods have no input from the user aside from
 the starting basis. The bulk of touring development since has largely
 been around dynamic display, user interaction, geometric representation,
 and application.
-
-TALK ABOUT
 
 This works well when the number of dimensions being toured is small (in
 the neighborhood of 5-10), yet the number of view, or 2-frames and we
@@ -282,7 +282,7 @@ orthonormal projections as well.
   \item
   \end{itemize}
 \item
-  2.5d geoms
+  2.5d, 3d geoms \{ADD FOOTNOTE ABOUT 2.5d vs 3d\}
 
   \begin{itemize}
   \tightlist
@@ -312,12 +312,12 @@ orthonormal projections as well.
     any number of variables are ploted in parallel with observations
     linked to their cooresponding variable value by polylines.
   \item
-    Scatterplot matrix \autocite{emerson_generalized_2013}, showing a
+    Scatterplot matrix \autocite{becker_brushing_1987}, showing a
     triangle matrix of bivariate scatterplots with 1-d density on the
     diagonal.
   \item
-    Radial glyphs \autocite{Glyphs}, radial variants of parallel
-    coordinates including radar, spider, and star glyphs.
+    Radial glyphs, radial variants of parallel coordinates including
+    radar, spider, and star glyphs \autocite{siegel_surgical_1972}.
   \end{itemize}
 \end{itemize}
 
@@ -364,13 +364,35 @@ approachable as a data exploration tool {[}\textcite{huh_davis:_2002};
 
 \section{Virtual reality}\label{virtual-reality}
 
-\chapter{Tour methodology}\label{ch:tour}
+\chapter{spinifex}\label{ch:tour}
 
 \section{Spinnifex}\label{spinnifex}
 
-\subsection{Tourr}\label{tourr}
-
-\subsection{Plottly}\label{plottly}
+\begin{itemize}
+\tightlist
+\item
+  Supply an orthonormal basis, \emph{B\_\{{[}p x d{]}\}}.
+\item
+  Select a manip var, \(k\), and
+  orthornormalize(\emph{B}\textbar{}\(e_k\)) for the manipulation space,
+  \emph{M\_\{{[}p x d+1{]}\}}.
+\item
+  Select \(\theta\), angle of with-in plane (of the XY projection)
+  roation, and a vector of values for \(\phi\), the angle of out-of
+  plane rotation (orthagonal to the projection plane).
+\item
+  For each value of \(\phi\), post multiplying \emph{M\_\{{[}p x
+  d+1{]}\}} by a rotation matrix, \emph{R\_\{d+1 x d+1\}} producing as
+  many basis-projection, \emph{P\_\{b{[}p x d+1{]}\}}.
+\item
+  To get back to data-space post multply each projection by the data,
+  \emph{D\_\{{[}n x p{]}\}}, for P\_\{d{[}n x d+1{]}\}.
+\item
+  View the first two variable each projection in sequence for an XY
+  scatterplot of the prjected data, the thrid variable is sometimes
+  utilized to produce depth cues used in conjunction with the XY
+  scatterplot.
+\end{itemize}
 
 \chapter{Display dimensionality}\label{ch:disp_dim}
 

@@ -9,7 +9,7 @@ rmd_files: ["index.Rmd",
   "00-abstract.Rmd",
   "01-Introduction.Rmd",
   "02-Lit_review.Rmd",
-  "03-Tour_methodology.Rmd",
+  "03-spinifex.Rmd",
   "04-Display_dimensionality.Rmd",
   "05-HCI_3d_tours.Rmd",
   "A-appA.Rmd"
