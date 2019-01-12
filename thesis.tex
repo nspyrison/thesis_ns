@@ -380,58 +380,31 @@ approachable as a data exploration tool {[}\textcite{huh_davis:_2002};
   \textbf{M}\_\{{[}p x d+1{]}\}.
 \end{itemize}
 
-\[ \textbf{M} = Orthnormalize_{GS}( \textbf{B}_{[p x d]}|\textbf{e}_k )\\
-= Orthnormalize_{GS}( 
-  \begin{bmatrix}
-  B_{1,1} & B_{1,2}\\
-  B_{2,1} & B_{2,2}\\
-  \vdots  & \vdots \\
-  B_{k,1} & B_{k,2}\\
-  \vdots  & \vdots \\
-  B_{p,1} & B_{p,2}
-  \end{bmatrix} 
-|
-  \begin{bmatrix}
-  0 \\
-  0 \\
-  \vdots \\
-  1 \\
-  \vdots \\
-  0
-  \end{bmatrix}
-)
-\] \[X = \begin{bmatrix}1 & x_{1}\\
-1 & x_{2}\\
-1 & x_{3}
-\end{bmatrix}\]
-
-\begin{equation*}
-        =~Orthonormalise(
-        \left[
-        \left[
-        \begin{matrix}
-            b_{1,x} & b_{1,y}\\
-            b_{2,x} & b_{2,y}\\
-            \vdots  & \vdots \\
-            b_{k,x} & b_{k,y}\\
-            \vdots  & \vdots \\
-            b_{p,x} & b_{p,y}
-        \end{matrix}
-        \right]
-        ||
-        \left[
-        \begin{matrix}
-            z_1~=~0\\
-            z_2~=~0\\
-            \vdots\\
-            z_k~=~1\\
-            \vdots\\
-            z_p~=~0\\
-        \end{matrix}
-        \right]
-        \right] 
-        )
-    \end{equation*}
+\[ 
+\begin{align} 
+  \textbf{M}_{[p,~d+1]} 
+    &= Orthnormalize_{GS}( \textbf{B}_{[p,~d]}|\textbf{e}_{k~[p,~1]} )
+    &= Orthnormalize_{GS}( 
+      \begin{bmatrix}
+        B_{1,1} & B_{1,2}\\
+        B_{2,1} & B_{2,2}\\
+        \vdots  & \vdots \\
+        B_{k,1} & B_{k,2}\\
+        \vdots  & \vdots \\
+        B_{p,1} & B_{p,2}
+      \end{bmatrix} 
+      |
+      \begin{bmatrix}
+      0 \\
+      0 \\
+      \vdots \\
+      1 \\
+      \vdots \\
+      0
+      \end{bmatrix}
+    )
+\end{align}
+\]
 
 \begin{itemize}
 \tightlist
