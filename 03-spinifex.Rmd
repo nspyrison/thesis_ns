@@ -5,11 +5,40 @@ knit: "bookdown::render_book"
 
 # spinifex {#ch:tour}
 
+## Spinifex
 
-## Spinnifex
+* Supply an orthonormal basis, **B**_{[p x d]}. \\
+Let *d = 2* for illustration.
+* Select a manip var, *k*, and use the Gram-Schmidt process to orthornormalize the concatenation of the zero vector with the *k*-th element set to 1, yielding the manipulation space, **M**_{[p x d+1]}.
 
-* Supply an orthonormal basis, *B_{[p x d]}*.
-* Select a manip var, $k$, and orthornormalize(*B*|$e_k$) for the manipulation space, *M_{[p x d+1]}*.
+
+$$ 
+\begin{align} 
+  \textbf{M}_{[p,~d+1]} 
+    &= Orthnormalize_{GS}( \textbf{B}_{[p,~d]}|\textbf{e}_{k~[p,~1]} )
+    &= Orthnormalize_{GS}( 
+      \begin{bmatrix}
+        B_{1,1} & B_{1,2}\\
+        B_{2,1} & B_{2,2}\\
+        \vdots  & \vdots \\
+        B_{k,1} & B_{k,2}\\
+        \vdots  & \vdots \\
+        B_{p,1} & B_{p,2}
+      \end{bmatrix} 
+      |
+      \begin{bmatrix}
+      0 \\
+      0 \\
+      \vdots \\
+      1 \\
+      \vdots \\
+      0
+      \end{bmatrix}
+    )
+\end{align}
+$$
+
+
 * Select $\theta$, angle of with-in plane (of the XY projection) roation, and a vector of values for $\phi$, the angle of out-of plane rotation (orthagonal to the projection plane). 
 *For i in 1 to n_slide:*
 * For each $\phi_i$, post multiplying *M_{[p x d+1]}* by a rotation matrix, *R_{d+1 x d+1}* producing as many basis-projection, *P_{b[p x d+1]}*.
@@ -17,10 +46,4 @@ knit: "bookdown::render_book"
 * View the first two variable each projection in sequence for an XY scatterplot of the prjected data, the thrid variable is sometimes utilized to produce depth cues used in conjunction with the XY scatterplot.
 
 
-
-
-
-<!-- ### Tourr -->
-
-<!-- ### Plottly -->
 
