@@ -364,15 +364,38 @@ approachable as a data exploration tool {[}\textcite{huh_davis:_2002};
 
 \section{Virtual reality}\label{virtual-reality}
 
-\chapter{spinifex}\label{ch:tour}
+\chapter{\texorpdfstring{\emph{spinifex}: extending \emph{tourr} with
+manual tours and graphic
+display}{spinifex: extending tourr with manual tours and graphic display}}\label{ch:spinifex}
 
-\section{Spinifex}\label{spinifex}
+\section{Abstract}\label{abstract-1}
+
+Touring teqniques offer a great opertunity for data-space vizualization
+of (\(p _gt 3\)) multivariate data sets. This paper discusses the
+\emph{R} package \emph{spinifex}, which adds support for the manual
+tour, which is particularly usefuly for exploring the local structure
+after identifying a feature of interest, perhaps via guided tour.
+Additionally, \emph{spinifex} extends graphic outputs to \emph{plotly}
+and \emph{gganimation}. This work extends the functionality of and is
+compatible with \emph{tourr}.
+
+Keywords: grand tour, projection pursuit, manual tour, tourr, touring,
+high dimenson visualization, hihg dim vis, dimensionality reduction,
+visualization, statistical graphics, data-space.
+
+\section{Introduction}\label{introduction}
+
+\begin{itemize}
+\item
+\end{itemize}
+
+\section{Other content:}\label{other-content}
 
 \begin{itemize}
 \tightlist
 \item
-  Supply an orthonormal basis, \textbf{B}\_\{{[}p x d{]}\}.
-  \textbackslash{} Let \emph{d = 2} for illustration.
+  Supply an orthonormal basis, \textbf{B}\_\{{[}p x d{]}\}. Let \emph{d
+  = 2} for illustration.
 \item
   Select a manip var, \emph{k}, and use the Gram-Schmidt process to
   orthornormalize the concatenation of the zero vector with the
@@ -380,79 +403,114 @@ approachable as a data exploration tool {[}\textcite{huh_davis:_2002};
   \textbf{M}\_\{{[}p x d+1{]}\}.
 \end{itemize}
 
-\[ \textbf{M} = Orthnormalize_{GS}( \textbf{B}_{[p x d]}|\textbf{e}_k )\\
-= Orthnormalize_{GS}( 
-  \begin{bmatrix}
-  B_{1,1} & B_{1,2}\\
-  B_{2,1} & B_{2,2}\\
-  \vdots  & \vdots \\
-  B_{k,1} & B_{k,2}\\
-  \vdots  & \vdots \\
-  B_{p,1} & B_{p,2}
-  \end{bmatrix} 
-|
-  \begin{bmatrix}
-  0 \\
-  0 \\
-  \vdots \\
-  1 \\
-  \vdots \\
-  0
-  \end{bmatrix}
-)
-\] \[X = \begin{bmatrix}1 & x_{1}\\
-1 & x_{2}\\
-1 & x_{3}
-\end{bmatrix}\]
-
-\begin{equation*}
-        =~Orthonormalise(
-        \left[
-        \left[
-        \begin{matrix}
-            b_{1,x} & b_{1,y}\\
-            b_{2,x} & b_{2,y}\\
-            \vdots  & \vdots \\
-            b_{k,x} & b_{k,y}\\
-            \vdots  & \vdots \\
-            b_{p,x} & b_{p,y}
-        \end{matrix}
-        \right]
-        ||
-        \left[
-        \begin{matrix}
-            z_1~=~0\\
-            z_2~=~0\\
-            \vdots\\
-            z_k~=~1\\
-            \vdots\\
-            z_p~=~0\\
-        \end{matrix}
-        \right]
-        \right] 
-        )
-    \end{equation*}
+\begin{align*}
+  \textbf{M}_{[p,~d+1]}
+    &= Orthnormalize_{GS}( \textbf{B}_{[p,~d]}|\textbf{e}_{k~[p,~1]} ) \\
+    &= Orthnormalize_{GS}
+    \left(
+      \begin{bmatrix}
+        B_{1,~1} & B_{1,~2}\\
+        B_{2,~1} & B_{2,~2}\\
+        \vdots   & \vdots  \\
+        B_{k,~1} & B_{k,~2}\\
+        \vdots   & \vdots  \\
+        B_{p,~1} & B_{p,~2}
+      \end{bmatrix}
+    ~|~
+      \begin{bmatrix}
+      0 \\
+      0 \\
+      \vdots \\
+      1 \\
+      \vdots \\
+      0
+      \end{bmatrix}
+    \right)
+\end{align*}
 
 \begin{itemize}
 \tightlist
 \item
-  Select \(\theta\), angle of with-in plane (of the XY projection)
-  roation, and a vector of values for \(\phi\), the angle of out-of
-  plane rotation (orthagonal to the projection plane). \emph{For i in 1
-  to n\_slide:}
-\item
-  For each \(\phi_i\), post multiplying \emph{M\_\{{[}p x d+1{]}\}} by a
-  rotation matrix, \emph{R\_\{d+1 x d+1\}} producing as many
-  basis-projection, \emph{P\_\{b{[}p x d+1{]}\}}.
-\item
-  To get back to data-space post multply each projection by the data,
-  \emph{D\_\{{[}n x p{]}\}}, for P\_\{d{[}n x d+1{]}\}.
-\item
-  View the first two variable each projection in sequence for an XY
-  scatterplot of the prjected data, the thrid variable is sometimes
-  utilized to produce depth cues used in conjunction with the XY
-  scatterplot.
+  Select \(\theta\), angle of rotation with-in the plane of the XY
+  projection, and a vector of \(\phi_i\), the angle of out-of plane
+  rotation, orthagonal to the projection plane (relative to \(\phi_1\),
+  the transformation \(\phi_i\) - \(\phi_1\) proved to be helpful to
+  discuss \(\phi\) relative to the Z axis.)
 \end{itemize}
+
+\textbf{For \(i\) in 1 to n\_slide:}
+
+\begin{itemize}
+\tightlist
+\item
+  For each \(\phi_i\), post multiplying
+\end{itemize}
+
+\textbf{M}\emph{\{{[}p, d+1{]}\} by a rotation matrix, \textbf{R}}\{d+1,
+d+1\} producing as many basis-projections, \textbf{P}\_\{b{[}p,
+d+1{]}\}.
+
+\begin{align}
+  \textbf{P}_{b[p,~d+1]}
+    &= \textbf{M}_{[p,~d+1]} ~*~ \textbf{R}_{[d+1,~d+1]}
+    &= \begin{bmatrix}
+        M_{1,~1} & M_{1,~2} & M_{1,~3} \\
+        M_{2,~1} & M_{2,~2} & M_{2,~3} \\
+        \vdots   & \vdots   & \vdots   \\
+        M_{p,~1} & M_{p,~2} & M_{p,~3}
+    \end{bmatrix}
+      ~*~
+    \begin{bmatrix}
+      c_\theta^2 c_\phi s_\theta^2 &
+      -c_\theta s_\theta (1 - c_\phi) &
+      -c_\theta s_\phi \\
+      -c_\theta s_\theta (1 - c_\phi) &
+      s_\theta^2 c_\phi + c_\theta^2 &
+      -s_\theta s_\phi \\
+      c_\theta s_\phi &
+      s_\theta s_\phi &
+      c_\phi
+    \end{bmatrix}
+\end{align}
+
+\begin{itemize}
+\tightlist
+\item
+  To get back to data-space post multply each projection basis by the
+  data, \textbf{X}\emph{\{{[}n x p{]}\}, for \textbf{P}}\{d{[}n x
+  d+1{]}\}.
+\end{itemize}
+
+\begin{align}
+  \textbf{P}_{d[n,~d+1]}
+    &= \textbf{X}_{[n,~p]} ~*~ \textbf{P}_{b[p,~d+1]}
+    &= \begin{bmatrix}
+      X_{1,~1} & \dots & X_{1,~p} \\
+      X_{2,~1} & \dots & X_{2,~p} \\
+      \vdots   & \vdots & \vdots  \\
+      X_{n,~1} & \dots & X_{n,~p}
+    \end{bmatrix}
+      ~*~
+    \begin{bmatrix}
+      P_{b:1,~1} & P_{b:1,~2} & P_{b:1,~3} \\
+      P_{b:2,~1} & P_{b:2,~2} & P_{b:2,~3} \\
+      \vdots     & \vdots     & \vdots     \\
+      P_{b:p,~1} & P_{b:p,~2} & P_{b:p,~3}
+    \end{bmatrix}
+\end{align}
+
+\begin{itemize}
+\tightlist
+\item
+  View the first two variables from each projection in sequence for an
+  XY scatterplot. The remaining variable is sometimes utilized to
+  produce depth cues used in conjunction with the XY scatterplot.
+\end{itemize}
+
+\chapter{\texorpdfstring{\texttt{\{r\}\ \#\ library(spinifex)\ \#\ flea\_std\ \textless{}-\ tourr::rescale(tourr::flea{[},1:6{]})\ \#\ rb\ \textless{}-\ tourr::basis\_random(n\ =\ ncol(flea\_std))\ \#\ \ \#\ spinifex(data\ =\ flea\_std,\ basis\ =\ rb,\ manip\_var\ =\ 4)\ \#}}{\{r\} \# library(spinifex) \# flea\_std \textless{}- tourr::rescale(tourr::flea{[},1:6{]}) \# rb \textless{}- tourr::basis\_random(n = ncol(flea\_std)) \#  \# spinifex(data = flea\_std, basis = rb, manip\_var = 4) \#}}\label{r-libraryspinifex-flea_std---tourrrescaletourrflea16-rb---tourrbasis_randomn-ncolflea_std-spinifexdata-flea_std-basis-rb-manip_var-4}
+
+\chapter{\texorpdfstring{could not find function
+``render\_slideshow''..}{could not find function render\_slideshow..}}\label{could-not-find-function-render_slideshow..}
 
 \chapter{Display dimensionality}\label{ch:disp_dim}
 
