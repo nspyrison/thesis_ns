@@ -371,10 +371,10 @@ display}{spinifex: extending tourr with manual tours and graphic display}}\label
 \section{Abstract}\label{abstract-1}
 
 Touring teqniques offer a great opertunity for data-space vizualization
-of (\(p _gt 3\)) multivariate data sets. This paper discusses the
-\emph{R} package \emph{spinifex}, which adds support for the manual
-tour, which is particularly usefuly for exploring the local structure
-after identifying a feature of interest, perhaps via guided tour.
+of (\(p > 3\)) multivariate data sets. This paper discusses the \emph{R}
+package \emph{spinifex}, which adds support for the manual tour, which
+is particularly usefuly for exploring the local structure after
+identifying a feature of interest, perhaps via guided tour.
 Additionally, \emph{spinifex} extends graphic outputs to \emph{plotly}
 and \emph{gganimation}. This work extends the functionality of and is
 compatible with \emph{tourr}.
@@ -385,11 +385,45 @@ visualization, statistical graphics, data-space.
 
 \section{Introduction}\label{introduction}
 
-\begin{itemize}
-\item
-\end{itemize}
+Both classical and contemorary visualizations of data are presented in
+two dimensions, that of a computer monitor or in print. How is it that
+we come to view and share data that exsists in \(p > 3\) dimensions? In
+an appeal to brievity we shall ignore model and parameter summarization
+due to there shortcomings
+\autocites{anscombe_graphs_1973}{matejka_same_2017}. Within the realm of
+data-space visualization we are left with projecting higher volumes and
+embedding them within lower dimensional spaces that we can vizualize.
 
-\section{Other content:}\label{other-content}
+This is not a new phenomena, such linear projections have been in use
+for quite some time. \autocites{PCA}{LDA-FISCHer1936} and all single
+value deconcomposistion (SVD) techniques from numerous disciplines use
+such embeddings. Previous application look at data in one (or few)
+static orientations, after some objective optimization. For instance in
+PCA, we reorient \(p\)-dimensions such that we ordered components that
+describe a descending ammount of variation held within the data. Yet we
+still have \(p\) components remaining, \(p\) dimensions to visualize.
+Where does the reduction come from? \ldots{}
+
+More recently non-linear dimensionality techniques have become popular,
+such as t-distributed stchocastic neighbor embedding (t-SNE)
+\autocite{tSNE}, building off of sammon mappings \autocite[
+mappings]{sammon}. \ldots{}
+
+\section{The process:}\label{the-process}
+
+For every \(p\)-dimensional space can be described by the direction and
+magnitude of axes in a square matrix that we call a basis. Imgine 3 axes
+of an XYZ Caresian volume (\emph{ie.} a basis \(\in \mathbb{R}^p\)),
+each at a right angle and pointing 1 unit in each direction. In
+matimatical form we would write this as a diagonal identity matrix of
+demention 3.
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]    1    0    0
+## [2,]    0    1    0
+## [3,]    0    0    1
+\end{verbatim}
 
 \begin{itemize}
 \tightlist
@@ -507,10 +541,12 @@ d+1{]}\}.
   produce depth cues used in conjunction with the XY scatterplot.
 \end{itemize}
 
-\chapter{\texorpdfstring{\texttt{\{r\}\ \#\ library(spinifex)\ \#\ flea\_std\ \textless{}-\ tourr::rescale(tourr::flea{[},1:6{]})\ \#\ rb\ \textless{}-\ tourr::basis\_random(n\ =\ ncol(flea\_std))\ \#\ \ \#\ spinifex(data\ =\ flea\_std,\ basis\ =\ rb,\ manip\_var\ =\ 4)\ \#}}{\{r\} \# library(spinifex) \# flea\_std \textless{}- tourr::rescale(tourr::flea{[},1:6{]}) \# rb \textless{}- tourr::basis\_random(n = ncol(flea\_std)) \#  \# spinifex(data = flea\_std, basis = rb, manip\_var = 4) \#}}\label{r-libraryspinifex-flea_std---tourrrescaletourrflea16-rb---tourrbasis_randomn-ncolflea_std-spinifexdata-flea_std-basis-rb-manip_var-4}
+\begin{verbatim}
+## Warning: Only one `frame` variable is allowed
+\end{verbatim}
 
-\chapter{\texorpdfstring{could not find function
-``render\_slideshow''..}{could not find function render\_slideshow..}}\label{could-not-find-function-render_slideshow..}
+\includegraphics{thesis_files/figure-latex/unnamed-chunk-2-1.pdf} \#
+could not find function ``render\_slideshow''..
 
 \chapter{Display dimensionality}\label{ch:disp_dim}
 
