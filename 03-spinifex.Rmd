@@ -7,18 +7,34 @@ knit: "bookdown::render_book"
 
 ## Abstract
 
-$\theta$ $\lt$
-
-Touring teqniques offer a great opertunity for data-space vizualization of ($p _gt 3$) multivariate data sets. This paper discusses the *R* package *spinifex*, which adds support for the manual tour, which is particularly usefuly for exploring the local structure after identifying a feature of interest, perhaps via guided tour. Additionally, *spinifex* extends graphic outputs to *plotly* and *gganimation*. This work extends the functionality of and is compatible with *tourr*.
+Touring teqniques offer a great opertunity for data-space vizualization of ($p > 3$) multivariate data sets. This paper discusses the *R* package *spinifex*, which adds support for the manual tour, which is particularly usefuly for exploring the local structure after identifying a feature of interest, perhaps via guided tour. Additionally, *spinifex* extends graphic outputs to *plotly* and *gganimation*. This work extends the functionality of and is compatible with *tourr*.
 
 Keywords: grand tour, projection pursuit, manual tour, tourr, touring, high dimenson visualization, hihg dim vis, dimensionality reduction, visualization, statistical graphics, data-space.
 
 
 ## Introduction
 
-*
+Both classical and contemorary visualizations of data are presented in two dimensions, that of a computer monitor or in print. How is it that we come to view and share data that exsists in $p > 3$ dimensions? In an appeal to brievity we shall ignore model and parameter summarization due to there shortcomings [@anscombe_graphs_1973; @matejka_same_2017]. Within the realm of data-space visualization we are left with projecting higher volumes and embedding them within lower dimensional spaces that we can vizualize.
 
-## Other content:
+This is not a new phenomena, such linear projections have been in use for quite some time. [@PCA; @LDA-FISCHer1936] and all single value deconcomposistion (SVD) techniques from numerous disciplines use such embeddings. Previous application look at data in one (or few) static orientations, after some objective optimization. For instance in PCA, we reorient $p$-dimensions such that we  ordered components that describe a descending ammount of variation held within the data. Yet we still have $p$ components remaining, $p$ dimensions to visualize. Where does the reduction come from? ...
+
+More recently non-linear dimensionality techniques have become popular, such as t-distributed stchocastic neighbor embedding (t-SNE) [@tSNE], building off of sammon mappings [@sammon mappings]. ...
+
+[@asimov_grand_1985] suggested grand tour in which random walks in $p$-space can be interpolated and embedded in $d$ dimensions which are then viewed in sequence, such a technique keep the original dimensionality in tact
+
+## The process:
+
+For every $p$-dimensional space can be described by the direction and magnitude of  axes in a square matrix that we call a basis. Imgine 3 axes of an XYZ Caresian volume (*ie.* a basis $\in \mathbb{R}^p$). In matimatical form we would write this as a diagonal identity matrix of demension 3.
+
+```{r}
+b <- diag(3)
+xyz <- c("X", "Y", "Z")
+rownames(b) <- xyz
+colnames(b) <- xyz
+b
+```
+This basis has some nice properties that are mathimatically nice to preserve, namely, that each axis as 
+
 
 * Supply an orthonormal basis, **B**_{[p x d]}.
 Let *d = 2* for illustration.
@@ -104,11 +120,11 @@ Let *d = 2* for illustration.
 
 * View the first two variables from each projection in sequence for an XY scatterplot. The remaining variable is sometimes utilized to produce depth cues used in conjunction with the XY scatterplot.
 
-# ```{r}
-# library(spinifex)
-# flea_std <- tourr::rescale(tourr::flea[,1:6])
-# rb <- tourr::basis_random(n = ncol(flea_std))
-# 
-# spinifex(data = flea_std, basis = rb, manip_var = 4)
-# ```
-#could not find function "render_slideshow"..
+```{r}
+library(spinifex)
+flea_std <- tourr::rescale(tourr::flea[,1:6])
+rb <- tourr::basis_random(n = ncol(flea_std))
+
+spinifex(data = flea_std, basis = rb, manip_var = 4)
+```
+  # could not find function "render_slideshow"..
