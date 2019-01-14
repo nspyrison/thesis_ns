@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.15)  12 JAN 2019 12:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.15)  14 JAN 2019 11:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1544,22 +1544,23 @@ Underfull \hbox (badness 1057) in paragraph at lines 357--364
 
 [8]
 Chapter 3.
+LaTeX Font Info:    Font shape `T1/fvs/b/it' will be
+(Font)              scaled to size 22.39185pt on input line 369.
 
-! Package amsmath Error: Erroneous nesting of equation structures;
-(amsmath)                trying to recover with `aligned'.
+Underfull \hbox (badness 1342) in paragraph at lines 369--369
+|\T1/fvs/b/it/24.88 spinifex\T1/fvs/b/n/24.88 : ex-tend-ing \T1/fvs/b/it/24.88 
+tourr \T1/fvs/b/n/24.88 with
+ []
 
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.406 \end{align}
-                  
+! Undefined control sequence.
+l.373 \(\theta\) \(\lt
+                      \) 
 Here is how much of TeX's memory you used:
- 27424 strings out of 494585
- 488363 string characters out of 6176383
+ 27425 strings out of 494585
+ 488196 string characters out of 6176383
  959614 words of memory out of 5000000
- 30582 multiletter control sequences out of 15000+600000
- 635108 words of font info for 212 fonts, out of 8000000 for 9000
+ 30585 multiletter control sequences out of 15000+600000
+ 637551 words of font info for 212 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  48i,12n,65p,1005b,16522s stack positions out of 5000i,500n,10000p,200000b,80000s
 
