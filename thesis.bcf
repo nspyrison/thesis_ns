@@ -2047,8 +2047,10 @@
     <bcf:citekey order="49">matejka_same_2017</bcf:citekey>
     <bcf:citekey order="50">PCA</bcf:citekey>
     <bcf:citekey order="51">LDA-FISCHer1936</bcf:citekey>
-    <bcf:citekey order="52">tSNE</bcf:citekey>
-    <bcf:citekey order="53">sammon</bcf:citekey>
+    <bcf:citekey order="52">maaten_visualizing_2008</bcf:citekey>
+    <bcf:citekey order="53">sammon_nonlinear_1969</bcf:citekey>
+    <bcf:citekey order="54">asimov_grand_1985</bcf:citekey>
+    <bcf:citekey order="55">buja_grand_1986</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

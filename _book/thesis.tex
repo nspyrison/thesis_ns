@@ -55,12 +55,12 @@ thesis.
 \chapter*{Preface}\label{preface}
 \addcontentsline{toc}{chapter}{Preface}
 
-The material in Chapter \ref{ch:intro} has been submitted to the journal
-\emph{Journal of Impossible Results} for possible publication.
+The material in Chapter \ref{ch:intro} has been submitted to
+\emph{Something interesting jornal} for possible publication.
 
-The contribution in Chapter \ref{ch:litreview} of this thesis was
-presented in the International Symposium on Nonsense held in Dublin,
-Ireland, in July 2015.
+The contribution in Chapter \ref{ch:spinifex} of this thesis was
+presented in the super awesome confrence held in Dublin, Ireland, in
+July 2015.
 
 \chapter*{Abstract}\label{abstract}
 \addcontentsline{toc}{chapter}{Abstract}
@@ -395,47 +395,103 @@ data-space visualization we are left with projecting higher volumes and
 embedding them within lower dimensional spaces that we can vizualize.
 
 This is not a new phenomena, such linear projections have been in use
-for quite some time. \autocites{PCA}{LDA-FISCHer1936} and all single
-value deconcomposistion (SVD) techniques from numerous disciplines use
-such embeddings. Previous application look at data in one (or few)
-static orientations, after some objective optimization. For instance in
-PCA, we reorient \(p\)-dimensions such that we ordered components that
-describe a descending ammount of variation held within the data. Yet we
-still have \(p\) components remaining, \(p\) dimensions to visualize.
-Where does the reduction come from? \ldots{}
+for quite some time. \autocites{PCA}{LDA-FISCHer1936} and the myriad of
+single value deconcomposistion (SVD) techniques from numerous
+disciplines use such embeddings. Previous application look at data in
+one (or few) static orientations, after some objective optimization. For
+instance in PCA, we reorient \(p\)-dimensions such that we have a
+reference to the ordered components that describe a descending ammount
+of variation held within the data. Yet we still have \(p\) components
+remaining to visualize. Where does the dimension reduction come in? From
+plotting only the first two or three and potenially another dimension
+tied to data point asthetic. This is maximizes the ammount of variation
+that can be display in an emedding, but regually discards a large
+proportion of the variation held within the data.
 
 More recently non-linear dimensionality techniques have become popular,
 such as t-distributed stchocastic neighbor embedding (t-SNE)
-\autocite{tSNE}, building off of sammon mappings \autocite[
-mappings]{sammon}. \ldots{}
+\autocite{maaten_visualizing_2008}, building off of sammon mappings
+\autocite{sammon_nonlinear_1969}. Such non-linear methods make for
+astounding distinction when in low \(d\) embeddings, but contain
+inhearant shortcomings. Namely: that the non-linear tranformations break
+inter-operability back to the original data-space, and that they can
+suffer from overfitting. If there is no inherent clustering with the
+data, it's posible that noise within the variables may become the
+proment feature and be displayed erroneously as group clustering.
 
-\section{The process:}\label{the-process}
+\autocites{asimov_grand_1985}{buja_grand_1986} suggested grand tours in
+which random walks in \(p\)-space can be interpolated and embedded in
+\(d\) dimensions which are then viewed in sequence. The broader scope of
+touring has some beneficial features, namely: touring keeps the original
+dimensionality in tact unlike tradition static linear-projections, and
+maintains inter-operabilty in the orginal dimensions, a primary drawback
+of non-linear dimensionality reduction.
+
+TODO: clean up above, talk about what
+
+\section{Terminology and demystifying
+projection:}\label{terminology-and-demystifying-projection}
+
+Suppose that we have tri-variate data, \(\textbf{X}_{[8,~3]}\), the
+corners points of a rectanguloid. We can describe the relative
+orientation by defining
 
 For every \(p\)-dimensional space can be described by the direction and
 magnitude of axes in a square matrix that we call a basis. Imgine 3 axes
-of an XYZ Caresian volume (\emph{ie.} a basis \(\in \mathbb{R}^p\)),
-each at a right angle and pointing 1 unit in each direction. In
+of an XYZ Caresian volume (\emph{ie.} a basis \(\in \mathbb{R}^p\)). In
 matimatical form we would write this as a diagonal identity matrix of
-demention 3.
+demension 3.
 
 \begin{verbatim}
-##      [,1] [,2] [,3]
-## [1,]    1    0    0
-## [2,]    0    1    0
-## [3,]    0    0    1
+##   X Y Z
+## X 1 0 0
+## Y 0 1 0
+## Z 0 0 1
 \end{verbatim}
 
-\begin{itemize}
-\tightlist
-\item
-  Supply an orthonormal basis, \textbf{B}\_\{{[}p x d{]}\}. Let \emph{d
-  = 2} for illustration.
-\item
-  Select a manip var, \emph{k}, and use the Gram-Schmidt process to
-  orthornormalize the concatenation of the zero vector with the
-  \emph{k}-th element set to 1, yielding the manipulation space,
-  \textbf{M}\_\{{[}p x d+1{]}\}.
-\end{itemize}
+This basis has some nice properties that are mathimatically nice to
+preserve, namely, that each axis as is at a right angle to the other
+(\emph{orthagonal}), and are unit \emph{normal} (length or norm equal to
+one). If matrix meets both of these criteria we call it
+\emph{orthonormal}.
+
+\section{Manual tour}\label{manual-tour}
+
+Let's explore the process behind the manual tour
+
+Given:
+
+\begin{description}
+  \item[$\textbf{X}_{[n,~p]}$] A dataset contaning $n$ observations of $p$ numeric variables. 
+  \item[$\textbf{B}_{[p,~d]}$] An orthonormal \footnote{Where each variable is both: orthagonal, at right angles (dot product is 0) to the other variabels, and unit vectors, a norm = 1} basis describing the current orientation projecting $p$ down to $d$ dimension.
+\end{description}
+
+\begin{align*}
+  \textbf{X}_{[n,~p]} ~=
+  \begin{bmatrix}
+    X_{1,~1} & \dots  & X_{1,~p} \\
+    X_{2,~1} & \dots  & X_{2,~p} \\
+    \vdots   & \ddots & \vdots   \\
+    X_{n,~1} & \dots  & X_{n,~p}
+  \end{bmatrix}
+\end{align*}
+
+\begin{align*}
+  \textbf{B}_{[p,~d]} ~=
+  \begin{bmatrix}
+    B_{1,~1} & \dots  & B_{1,~d} \\
+    B_{2,~1} & \dots  & B_{2,~d} \\
+    \vdots   & \ddots & \vdots   \\
+    B_{p,~1} & \dots  & B_{p,~d}
+  \end{bmatrix}
+\end{align*}
+
+Let \emph{d = 2} for the sake of illustration.
+
+Select a manip var, \emph{k}, and use the Gram-Schmidt process to
+orthornormalize the concatenation of the zero vector with the
+\emph{k}-th element set to 1, yielding the manipulation space,
+\(\textbf{M}_{[p,~d+1]}\).
 
 \begin{align*}
   \textbf{M}_{[p,~d+1]}
@@ -472,7 +528,7 @@ demention 3.
   discuss \(\phi\) relative to the Z axis.)
 \end{itemize}
 
-\textbf{For \(i\) in 1 to n\_slide:}
+\textbf{For } \(i\) \textbf{in 1 to n\_slides:}
 
 \begin{itemize}
 \tightlist
@@ -480,9 +536,9 @@ demention 3.
   For each \(\phi_i\), post multiplying
 \end{itemize}
 
-\textbf{M}\emph{\{{[}p, d+1{]}\} by a rotation matrix, \textbf{R}}\{d+1,
-d+1\} producing as many basis-projections, \textbf{P}\_\{b{[}p,
-d+1{]}\}.
+\(\textbf{M}_{[p, d+1]}\) by a rotation matrix,
+\(\textbf{R}_{d+1, d+1}\) producing as many basis-projections,
+\(\textbf{P}_{b[p, d+1]}\).
 
 \begin{align}
   \textbf{P}_{b[p,~d+1]}
@@ -507,12 +563,22 @@ d+1{]}\}.
     \end{bmatrix}
 \end{align}
 
+where:
+
+\begin{description}
+  \item[$\theta$] is the angle that lies on the projection plane ($ie.$ on the XY plane)
+  \item[$\phi$] is the angle orthagonal to the projection plane ($ie.$ in the Z direction)
+  \item[$c_\theta$] is the cosine of $\theta$
+  \item[$c_\phi$]   is the cosine of $\phi$
+  \item[$s_\theta$] is the sine of   $\theta$
+  \item[$s_\phi$]   is the sine of   $\phi$
+\end{description}
+
 \begin{itemize}
 \tightlist
 \item
   To get back to data-space post multply each projection basis by the
-  data, \textbf{X}\emph{\{{[}n x p{]}\}, for \textbf{P}}\{d{[}n x
-  d+1{]}\}.
+  data, \(\textbf{X}_{[n x p]}\), for \(\textbf{P}_{d[n x d+1]}\).
 \end{itemize}
 
 \begin{align}
@@ -545,8 +611,8 @@ d+1{]}\}.
 ## Warning: Only one `frame` variable is allowed
 \end{verbatim}
 
-\includegraphics{thesis_files/figure-latex/unnamed-chunk-2-1.pdf} \#
-could not find function ``render\_slideshow''..
+\includegraphics{thesis_files/figure-latex/unnamed-chunk-3-1.pdf} TODO:
+PDF output is a static image w/ play slider.
 
 \chapter{Display dimensionality}\label{ch:disp_dim}
 
