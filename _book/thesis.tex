@@ -395,18 +395,19 @@ data-space visualization we are left with projecting higher volumes and
 embedding them within lower dimensional spaces that we can vizualize.
 
 This is not a new phenomena, such linear projections have been in use
-for quite some time. \autocites{PCA}{LDA-FISCHer1936} and the myriad of
-single value deconcomposistion (SVD) techniques from numerous
-disciplines use such embeddings. Previous application look at data in
-one (or few) static orientations, after some objective optimization. For
-instance in PCA, we reorient \(p\)-dimensions such that we have a
-reference to the ordered components that describe a descending ammount
-of variation held within the data. Yet we still have \(p\) components
-remaining to visualize. Where does the dimension reduction come in? From
-plotting only the first two or three and potenially another dimension
-tied to data point asthetic. This is maximizes the ammount of variation
-that can be display in an emedding, but regually discards a large
-proportion of the variation held within the data.
+for quite some time. \autocites{pearson_liii._1901}{fisher_use_1936} and
+the myriad of single value deconcomposistion (SVD) techniques from
+numerous disciplines use such embeddings. Previous application look at
+data in one (or few) static orientations, after some objective
+optimization. For instance in PCA, we reorient \(p\)-dimensions such
+that we have a reference to the ordered components that describe a
+descending ammount of variation held within the data. Yet we still have
+\(p\) components remaining to visualize. Where does the dimension
+reduction come in? From plotting only the first two or three and
+potenially another dimension tied to data point asthetic. This is
+maximizes the ammount of variation that can be display in an emedding,
+but regually discards a large proportion of the variation held within
+the data.
 
 More recently non-linear dimensionality techniques have become popular,
 such as t-distributed stchocastic neighbor embedding (t-SNE)
@@ -432,6 +433,10 @@ TODO: clean up above, talk about what
 \section{Terminology and demystifying
 projection:}\label{terminology-and-demystifying-projection}
 
+TODO: clean up the terminology section
+
+basis, data, n, p, d,
+
 Suppose that we have tri-variate data, \(\textbf{X}_{[8,~3]}\), the
 corners points of a rectanguloid. We can describe the relative
 orientation by defining
@@ -441,13 +446,6 @@ magnitude of axes in a square matrix that we call a basis. Imgine 3 axes
 of an XYZ Caresian volume (\emph{ie.} a basis \(\in \mathbb{R}^p\)). In
 matimatical form we would write this as a diagonal identity matrix of
 demension 3.
-
-\begin{verbatim}
-##   X Y Z
-## X 1 0 0
-## Y 0 1 0
-## Z 0 0 1
-\end{verbatim}
 
 This basis has some nice properties that are mathimatically nice to
 preserve, namely, that each axis as is at a right angle to the other
@@ -486,84 +484,78 @@ Given:
   \end{bmatrix}
 \end{align*}
 
-Let \emph{d = 2} for the sake of illustration.
+TODO: move this down to a usage example.
 
-Select a manip var, \emph{k}, and use the Gram-Schmidt process to
-orthornormalize the concatenation of the zero vector with the
-\emph{k}-th element set to 1, yielding the manipulation space,
-\(\textbf{M}_{[p,~d+1]}\).
+For ease of computation we will be wroking mostly with the basis and not
+the data, once basis manipulation is done postmultiply the data by the
+basis to get back to data-space.
+
+Select a manipulation variable, \(k\). Initialize a zero vector \(e\),
+and set the \(k\)-th element set to 1. Use the Gram-Schmidt process to
+orthornormalize the concatenation of the basis and \(e\) yielding the
+manipulation space.
 
 \begin{align*}
   \textbf{M}_{[p,~d+1]}
-    &= Orthnormalize_{GS}( \textbf{B}_{[p,~d]}|\textbf{e}_{k~[p,~1]} ) \\
-    &= Orthnormalize_{GS}
-    \left(
-      \begin{bmatrix}
-        B_{1,~1} & B_{1,~2}\\
-        B_{2,~1} & B_{2,~2}\\
-        \vdots   & \vdots  \\
-        B_{k,~1} & B_{k,~2}\\
-        \vdots   & \vdots  \\
-        B_{p,~1} & B_{p,~2}
-      \end{bmatrix}
-    ~|~
-      \begin{bmatrix}
+  &= Orthnormalize_{GS}( \textbf{B}_{[p,~d]}|\textbf{e}_{k~[p,~1]} ) \\
+  &= Orthnormalize_{GS}
+  \left(
+    \begin{bmatrix}
+      B_{1,~1} & \dots  & B_{1,~d} \\
+      B_{2,~1} & \dots  & B_{2,~d} \\
+      \vdots   & \ddots & \vdots   \\
+      B_{k,~1} & \dots  & B_{k,~d} \\
+      \vdots   & \ddots & \vdots   \\
+      B_{p,~1} & \dots  & B_{p,~d}
+    \end{bmatrix}
+  ~|~
+    \begin{bmatrix}
       0 \\
       0 \\
       \vdots \\
       1 \\
       \vdots \\
       0
-      \end{bmatrix}
-    \right)
+    \end{bmatrix}
+  \right)
 \end{align*}
 
-\begin{itemize}
-\tightlist
-\item
-  Select \(\theta\), angle of rotation with-in the plane of the XY
-  projection, and a vector of \(\phi_i\), the angle of out-of plane
-  rotation, orthagonal to the projection plane (relative to \(\phi_1\),
-  the transformation \(\phi_i\) - \(\phi_1\) proved to be helpful to
-  discuss \(\phi\) relative to the Z axis.)
-\end{itemize}
+TODO: clean up the langue of phi, tie to manip var.
+
+Select a vector \(\phi_i\), the angle of out-of plane rotation,
+orthagonal to the projection plane (relative to \(\phi_1\), the
+transformation \(\phi_i\) - \(\phi_1\) proved to be helpful to discuss
+\(\phi\) relative to the Z axis).
 
 \textbf{For } \(i\) \textbf{in 1 to n\_slides:}
 
-\begin{itemize}
-\tightlist
-\item
-  For each \(\phi_i\), post multiplying
-\end{itemize}
+For each \(\phi_i\), postmultiply the manipulation space by a rotation
+matrix, producing as many basis-projections.
 
-\(\textbf{M}_{[p, d+1]}\) by a rotation matrix,
-\(\textbf{R}_{d+1, d+1}\) producing as many basis-projections,
-\(\textbf{P}_{b[p, d+1]}\).
+\begin{align*}
+  \textbf{P}_{b[p,~d+1,~i]}
+  &= \textbf{M}_{[p,~d+1]} ~*~ \textbf{R}_{[d+1,~d+1]} \\
+  &= \begin{bmatrix}
+    M_{1,~1} & M_{1,~2} & M_{1,~3} \\
+    M_{2,~1} & M_{2,~2} & M_{2,~3} \\
+    \vdots   & \vdots   & \vdots   \\
+    M_{p,~1} & M_{p,~2} & M_{p,~3}
+  \end{bmatrix}_{[p,~d+1]}
+    ~*~
+  \begin{bmatrix}
+    c_\theta^2 c_\phi s_\theta^2 &
+    -c_\theta s_\theta (1 - c_\phi) &
+    -c_\theta s_\phi \\
+    -c_\theta s_\theta (1 - c_\phi) &
+    s_\theta^2 c_\phi + c_\theta^2 &
+    -s_\theta s_\phi \\
+    c_\theta s_\phi &
+    s_\theta s_\phi &
+    c_\phi
+  \end{bmatrix}_{[3,~3]}\text{For the $d=2$ case.}
+\end{align*}
 
-\begin{align}
-  \textbf{P}_{b[p,~d+1]}
-    &= \textbf{M}_{[p,~d+1]} ~*~ \textbf{R}_{[d+1,~d+1]}
-    &= \begin{bmatrix}
-        M_{1,~1} & M_{1,~2} & M_{1,~3} \\
-        M_{2,~1} & M_{2,~2} & M_{2,~3} \\
-        \vdots   & \vdots   & \vdots   \\
-        M_{p,~1} & M_{p,~2} & M_{p,~3}
-    \end{bmatrix}
-      ~*~
-    \begin{bmatrix}
-      c_\theta^2 c_\phi s_\theta^2 &
-      -c_\theta s_\theta (1 - c_\phi) &
-      -c_\theta s_\phi \\
-      -c_\theta s_\theta (1 - c_\phi) &
-      s_\theta^2 c_\phi + c_\theta^2 &
-      -s_\theta s_\phi \\
-      c_\theta s_\phi &
-      s_\theta s_\phi &
-      c_\phi
-    \end{bmatrix}
-\end{align}
-
-where:
+Where:
 
 \begin{description}
   \item[$\theta$] is the angle that lies on the projection plane ($ie.$ on the XY plane)
