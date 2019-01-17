@@ -1,0 +1,531 @@
+---
+title: 'Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices'
+degreetype: 'Doctor of Philosophy'
+author: 'Nicholas S Spyrison'
+degrees: 'B.Sc. Statistics, Iowa State University'
+output: bookdown::pdf_book
+site: bookdown::bookdown_site
+link-citations: yes
+knit: "bookdown::render_book"
+---
+
+<!-- 
+Edit these lines as appropriate.
+The actual thesis content is in several Rmd files.
+
+You'll need to edit the _bookdown.yml file to set the order in which you'd like them to appear. 
+
+If you have specific LaTeX packages to add, put them in monashthesis.tex.
+
+You will need to ensure you have installed the knitr and bookdown packages for R.
+
+You will also need LaTeX installed on your computer.
+-->
+
+<!--chapter:end:index.Rmd-->
+
+---
+knit: "bookdown::render_book"
+---
+
+# Acknowledgements {-}
+
+I would like to thank \dots
+
+<!--chapter:end:00-acknowledge.Rmd-->
+
+---
+knit: "bookdown::render_book"
+---
+
+# Declaration {-}
+
+I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma in any university or equivalent institution, and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
+
+
+
+\vspace*{2cm}\par\authorname
+
+<!--chapter:end:00-declaration.Rmd-->
+
+---
+knit: "bookdown::render_book"
+---
+
+# Preface {-}
+
+The material in Chapter \ref{ch:intro} has been submitted to *Something interesting jornal* for possible publication.
+
+The contribution in Chapter \ref{ch:spinifex} of this thesis was presented in the super awesome confrence held in Dublin, Ireland, in July 2015.
+
+
+<!--chapter:end:00-preface.Rmd-->
+
+---
+knit: "bookdown::render_book"
+---
+
+# Abstract {-}
+
+This thesis is about ...
+
+
+
+<!-- 
+The following line is required to re-set page numbering after preliminary material. Do not remove
+-->
+\clearpage\pagenumbering{arabic}\setcounter{page}{0}
+
+<!--chapter:end:00-abstract.Rmd-->
+
+---
+chapter: 1
+knit: "bookdown::render_book"
+---
+
+
+
+# Introduction {#ch:intro}
+
+This is where you introduce the main ideas of your thesis, and an overview of the context and background.
+
+In a PhD, Chapter 2 would normally contain a literature review. Typically, Chapters 3--5 would contain your own contributions. Think of each of these as potential papers to be submitted to journals. Finally, Chapter 6 provides some concluding remarks, discussion, ideas for future research, and so on. Appendixes can contain additional material that don't fit into any chapters, but that you want to put on record. For example, additional tables, output, etc.
+
+<!--chapter:end:01-Introduction.Rmd-->
+
+---
+chapter: 2
+knit: "bookdown::render_book"
+---
+<!-- #REFERENCE EXAMPLES: -->
+<!-- [@Brown59;@Brown63;@Holt57;@Winters60]. Because of their computational simplicity and interpretability, they became widely used in practice. -->
+<!-- Empirical studies by @MH79 and @Metal82 found little difference... proposition [see @CKOS01]. -->
+
+# Literature review {#ch:lit_review}
+
+<!-- This chapter contains a summary of the context in which your research is set.  -->
+
+<!-- Imagine you are writing for your fellow PhD students. Topics that are well-known to them do not have to be included here. But things that they may not know about should be included. -->
+
+<!-- Resist the temptation to discuss everything you've read in the last few years. And you are not writing a textbook either. This chapter is meant to provide the background necessary to understand the material in subsequent chapters. Stick to that. -->
+
+<!-- You will need to organize the literature review around themes, and within each theme provide a story explaining the development of ideas to date. In each theme, you should get to the point where your ideas will fit in. But leave your ideas to later chapters. This way it is clear what has been done beforehand, and what new contributions you are making to the research field. -->
+
+<!-- All citations should be done using markdown notation as shown below. This way, your bibliography will be compiled automatically and correctly. -->
+
+
+## Touring {#sec:tour}
+
+### Overview
+
+In univariate data sets histograms, or smoothed density curves are employed to visualize data. In bivariate data scatterplots and contour plots (2-d density) can be employed. In three dimensions the two most common techniques are: 2-d scatter plot with the 3rd variable as an aesthetic (such as, color, size, height, $etc.$) or rendering the data in a 3-d volume using some perceptive cues giving information describing the seeming depth of the image \footnote{Graphs of data depicting 3 dimension are typically printed on paper, or rendered on a 2-d monitor, they are intrinsically 2-d images. They are sometimes referred to as 2.5-d, or more frequently erroneously referred to as 3-d, more on this later.}. When there are 4 variables: 3 variables as spatial-dimensions and a 4th as aesthetic, or a scatterplot matrix consisting of 4 histograms, and 6 unique combinations of bivariate scatterplots. 
+
+Let $p$ be the number of numeric variables; how do we visualize data for even modest values of $p$ (say 6 or 12)? It's far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse: long tables of statistics without visuals [@wickham_visualizing_2015]. Yet, we all know of the risks inherent in relying too heavily on parameters alone [@anscombe_graphs_1973; @matejka_same_2017]. So why do we move away from visualizing in data-space? Scalability, in a word, we are not familiar with methods that allow us to concisely depict and digest $p \geq 5$ or so dimensions. This is where dimensionality reduction comes in. Specifically, we will be focusing on a specific group called touring. In the interest of time I will not belabor the diversity of dimensionality reduction, (see [@grinstein_high-dimensional_2002; @carreira-perpinan_review_1997; heer_tour_2010] for a quick summary). Suffice it to say that touring has a couple of salient features: linear transformations such that we can interpolate back to the original variable space and does not discard dimensions, something that is common to other linear techniques. By employing the breadth of tours we are able to preserve the visualization of data-space, and with it, the intrinsic understanding of structure and distribution of data that is more succinct or beyond the reach of statistic values alone.
+
+Touring is a linear dimensionality reduction technique that orthogonally projects $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making local rotations in $p$-space. These frames are then viewed in order to the effect of watching an animation of the lower dimensional embedding changing as $p$-space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2-dimensional shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a 2-dimensional tour as the 3-dimensional object is manipulated.
+
+<!-- Each of the original variables assumes some magnidute and direction in the resulting embedding, as described by a linear combination of the orthonormal basis. We call the view of this linear combination on a unit-circle the 'reference frame'. Reference frames  -->
+
+#### Terminology
+
+n, p (sometimes called d by Wegman, or n ), d (sometimes called k by wegman, or d in tourr)
+
+### History
+
+<!-- In 1974 Friedman and Tukey purposed Projection Pursuit[@friedman_projection_1974] (sometimes referred to as PP) while working at Bell Labs. Projection Pursuit involves identifying "interesting" projection, remove a single component of the data, and then iterate in this newly embedded subspace. Within each subspace the projection seeks for a local extrema via gradient descent (historically referred to as hill climbing algorithms), hence the nomenclature pursuit. -->
+
+Touring was first introduced by Asimov in 1985 with his purposed Grand Tour[@asimov_grand_1985] at Stanford University. In which, Asimov suggested three types of Grand Tours: torus, at-random, and random-walk. The specifics of which will be discussed below in the Typology section.
+
+TALK ABOUT maths Here::
+
+
+
+Note that the the above methods have no input from the user aside from the starting basis. The bulk of touring development since has largely been around dynamic display, user interaction, geometric representation, and application. 
+<!--above claim from c2 paper: buja & asimov 1986, Hurley & Buja 1990, Wegman 1991, cook, buja, cabrera, & hurley 1995, buja, cook asimov & hurley 1997,cook & buja 1997. -->
+
+
+
+This works well when the number of dimensions being toured is small (in the neighborhood of 5-10), yet the number of view, or 2-frames and we can produce from $p$-space suffers from the so called blessing/curse of dimensionality. In which the plethora of degrees of freedom either offer many (non-unique) solutions to a problem or something that becomes ever increasing unlikely, 
+
+
+### Tour path
+
+A fundamental aspect of touring is the path of rotation. Of which there are four primary distinctions[@buja_computational_2005]: random choice, precomputed choice, data driven, and manual control.
+
+* *grand tour*, a constrained random choice $p$-space. Paths are constrained for changes in direction small enough to maintain continuity and aid in user comprehension
+    + torus-surface [@asimov_grand_1985]
+    + Geodesic 
+    + at-random
+    + random-walk
+    + *local tour*, a sort of grand tour on leash, such that it goes to a nearby random projection before returning to the original position and iterating
+* *guided tour*, data driven tour optimizing some objective function via (stochastic) gradient descent [@hurley_analyzing_1990].
+    + holes [@cook_projection_1993] - iterates projections that add more white space to the center of the projection.
+    + cmass [@cook_projection_1993] - find the projection with the most density or mass in the center.
+    + lda [@lee_projection_2005] - linear discriminant analysis, seeks a projection where 2 or more classes are most separated.
+    + pda - principal component analysis finding where the data is most spread (1d only).
+    + other user-defined objective function [@wickham_tourr_2011].
+* *planned tour*, Precomputed choice, In which the path has already been generated or defined.
+    + *little tour* [@mcdonald_interactive_1982], where every permutation of variables is stepped through in order, analogous to a brute-force or exhaustive search.
+    + a saved path of any other tour
+* *manual tour* - Manual control, a constrained rotation on selected manipulation variable and magnitude[@cook_manual_1997]. Typically used to explore the local area after identifying an interesting feature from another tour.
+
+* *dependance tour*, combination of $n$ independent 1d tours. A vector describes the axis each variable will be displayed on. **ie** $c(1, 1, 2, 2)$ is a 4 to 2d tour with the first 2 variables on on the first axis, and the remaining on the second.  
+    + *correlation tour* [@buja_data_1987], a special case of the dependence tour, analogous to canonical correlation analysis
+
+<!-- ... -->
+<!-- * torus: where a $p$-dimensional torus, $T^p$ is created from a Cartesian product of $p$ unit circles with $T^p \in \mathbb{R}^p$. Unfortunately uniformity of the parameters do not correlate to uniform points on the surface of the torus. If step distance between frames is fixed, disproportionate time is spent between subspaces. If step distance is change to account for uniform points on the torus then the continuity of the tour is lost.   -->
+<!-- * at-random: where each 2-frame is chosen at random without replacement. This affords an assured uniform distribution of subspaces, but is far to discontinuous for observation. It also leaves no parameters to control. -->
+<!-- * random-walk: combines the continuity of the torus method and the uniformity of the at-random method while leaving room for a control parameter.  -->
+
+
+### Geometrics and display dimension
+
+Up to this point we have been talking about 2d scatterplots, which offer the first and a simple case for viewing lower-dimensional embeddings of $p$-space. However, other geometrics (or geoms) offer perfectly valid orthonormal projections as well.
+
+* 1d geoms
+    + 1-d densities: such as histogram, average shifted histograms[@scott85], and kernel density[@scott95].
+    + image: [@Wegman 2001]
+    + time series: where multivariate values are independently lagged to view peak and trough alignment. Currently no package implementation, but use case is discussed in [@cook_manual_1997]. 
+* 2d geoms
+    + 2-d density [@NS GITHUB]
+    + scatterplot
+    +
+* 2.5d, 3d geoms {ADD FOOTNOTE ABOUT 2.5d vs 3d}
+    + Anaglyphs, sometimes called stereo, where (typically) red images are positioned for the left channel and cyan for the right, when viewed with corresponding filter glasses give the depth perception of the image.
+    + Depth, which use some subset of depth cues, most commonly size and/or color of data points.
+* $d$-dim geoms
+    + Andrews curves [@andrews_plots_1972], smoothed variant of parallel coordinate plots, discussed below. 
+    + Chernoff faces [@chernoff_use_1973], variables linked to size of facial features for rapid cursory like-ness comparison of observations.
+    + Parallel coordinate plots [@ocagne_coordonnees_1885], where any number of variables are plotted in parallel with observations linked to their corresponding variable value by polylines.
+    + Scatterplot matrix [@becker_brushing_1987], showing a triangle matrix of bivariate scatterplots with 1-d density on the diagonal.
+    + Radial glyphs, radial variants of parallel coordinates including radar, spider, and star glyphs [@siegel_surgical_1972]. 
+
+
+### Aplication
+
+Below is a non-exhaustive list of software implementing touring in some degree, ordered by descending year:
+<!-- See hadley's thesis and, C2 paper for lists. -->
+
+* Spinifex [@spinifex] -- for Linux, Unix, and Windows.
+* Tourr [@wickham_tourr_2011] -- for Linux, Unix, and Windows. R package.
+* CyrstalVision [@wegman_visual_2003] -- for Windows.
+* GGobi [@swayne_ggobi:_2003] -- for Linux and Windows.
+* DAVIS [@huh_davis:_2002] -- Java based, with GUI.
+* VRGobi [@nelson_xgobi_1998] -- for use with the C2 in stereoscopic 3d displays.
+* ExplorN [@carr_explorn:_1996] -- for SGI Unix.
+* XGobi [@swayne_xgobi:_1991] -- for Linux, Unix, and Windows (via emulation).
+* XLispStat [@tierney_lisp-stat:_1990] -- for Unix, and Windows.
+* Prim-9 [@asimov_grand_1985;@fisherkeller_prim-9:_1974] -- on an internal operating system.
+
+Support and maintenance of such implementations give them a particularly short life span, while conceptual abstraction and technically heavier implementations have hampered user growth. There have been notable efforts to diminish the barriers to entry and make touring more approachable as a data exploration tool [@huh_davis:_2002; @swayne_ggobi:_2003; @wegman_visual_2003; @wickham_tourr_2011; huang_tourrgui:_2012].
+
+## Virtual reality
+
+
+
+
+
+
+<!--chapter:end:02-Lit_review.Rmd-->
+
+---
+chapter: 3
+knit: "bookdown::render_book"
+---
+
+
+
+# *spinifex*: extending *tourr* with manual tours and graphic display {#ch:spinifex}
+
+## Abstract
+
+Touring techniques offer a great opportunity for data-space visualizations of ($\textbf{X} \in \mathbb{R}^p,~p > 3$) multivariate data sets. This paper discusses the *R* package *spinifex*, which adds support for the manual tour, which is particularly usefully for exploring the local structure after identifying a feature of interest, perhaps via guided tour. Additionally, *spinifex* extends graphic outputs to *plotly* and *gganimation*. This work extends the functionality of and is compatible with *tourr*.
+
+Keywords: grand tour, projection pursuit, manual tour, tourr, touring, high dimensional visualization, high dim vis, dimensionality reduction, visualization, statistical graphics, data-space.
+
+
+## Introduction
+
+Both classical and contemporary visualizations of data are presented in ($d=2$) two dimensions, that of a computer monitor or in print. How is it that we come to view and share data that exists in $p > 3$ dimensions? In an appeal to brevity we shall ignore model and parameter summarization due to there shortcomings [@anscombe_graphs_1973; @matejka_same_2017]. Within the realm of data-space visualization we are left with projecting higher volumes and embedding them within lower dimensional spaces that we can visualize.
+
+This is not a new phenomena, such linear projections have been in use for quite some time. [@pearson_liii._1901; @fisher_use_1936] and the myriad of single value decomposition (SVD) techniques from numerous disciplines use such embeddings. Previous application look at data in one (or few) static orientations, after some objective optimization. For instance in PCA, we reorient $p$-dimensions such that we have a reference to the ordered components that describe a descending amount of variation held within the data. Yet we still have $p$ components remaining to visualize. Where does the dimension reduction come in? From plotting only the first two or three and potentially another dimension tied to data point aesthetic. This is maximizes the amount of variation that can be display in an embedding, but regularly discards a large proportion of the variation held within the data.
+
+More recently non-linear dimensionality techniques have become popular, such as t-distributed stochastic neighbor embedding (t-SNE) [@maaten_visualizing_2008], building off of Sammon mappings [@sammon_nonlinear_1969]. Such non-linear methods make for astounding distinction when in lower embeddings, but contain inherent shortcomings. Namely: that the non-linear transformations break inter-operability back to the original data-space, and that they can suffer from overfitting. If there is no inherent clustering with the data, it's possible that noise within the variables may become the prominent feature and be displayed erroneously as group clustering.
+
+TODO: Clean up touring, , below
+
+[@asimov_grand_1985; @buja_grand_1986] first suggested grand tours in which random walks in $p$-space can be interpolated and embedded in $d$ dimensions which are then viewed in sequence. Imagine. Consider, 
+
+
+The broader scope of touring has some beneficial features, namely: touring keeps the original dimensionality in tact unlike tradition static linear-projections, and maintains inter-operability back to the original dimensions, a primary drawback of non-linear dimensionality reduction.
+
+TODO: clean up above, talk about touring in general first
+
+<!-- ## Terminology and demystifying projection: -->
+<!-- TODO: clean up the terminology section -->
+<!-- basis, data, n, p, d,  -->
+
+<!-- Suppose that we have tri-variate data, $\textbf{X}_{[8,~3]}$, the corners points of a rectanguloid. We can describe the relative orientation by defining  -->
+
+<!-- For every $p$-dimensional space can be described by the direction and magnitude of axes in a square matrix that we call a basis. Imgine 3 axes of an XYZ Caresian volume (*ie.* a basis $\in \mathbb{R}^p$). In matimatical form we would write this as a diagonal identity matrix of demension 3. -->
+
+<!-- ```{r} -->
+<!-- # b <- diag(3) -->
+<!-- # xyz <- c("X", "Y", "Z") -->
+<!-- # rownames(b) <- xyz -->
+<!-- # colnames(b) <- xyz -->
+<!-- # b -->
+<!-- ``` -->
+
+<!-- This basis has some nice properties that are mathimatically nice to preserve, namely, that each axis as is at a right angle to the other (*orthagonal*), and are unit *normal* (length or norm equal to one). If matrix meets both of these criteria we call it *orthonormal*. -->
+
+<!-- ```{r} -->
+<!-- # set.seed(15) -->
+<!-- # library(plotly) -->
+<!-- # library(processx) -->
+<!-- # X = 9*runif(100) # X = 9*c(0,1,1,0,0,1,1,0) -->
+<!-- # Y = 6*runif(100) # Y = 6*c(0,0,1,1,0,0,1,1) -->
+<!-- # Z = 2*runif(100) # Z = 2*c(0,0,0,0,1,1,1,1) -->
+<!-- #  -->
+<!-- # p <- plot_ly(x=X, y=Y, z=Z, type="scatter3d", mode="markers") -->
+<!-- # ###STATIC OUTPUT REQURIES ORCA SETUP, NOT TRANsFERABLE... -->
+<!-- # # orca(p, "cube_demo.png") # but, needs orca setup,  -->
+<!-- # # plotly_IMAGE(p, format = "png", out_file = "output.png") -->
+<!-- ``` -->
+
+
+## Manual tour
+
+The manual tour[@cook_manual_1997; @cook_grand_2008] allows the user rotate a specified manipulation variable into and out of the current projection. This reveals the extent that this variable contributes to the current structure of the projection. In an appeal to the so called curse/blessing of dimensionality, volume contained within $\mathbb{R}^p$ increases exponentially as $p$ increases. Exploring $p$-space by defining specific rotations on specific variables quickly becomes time-prohibited.
+
+However, manual touring can be particularly useful in exploring the local structure once a feature of interest has been identified. Features of interest can be quickly identified by a guided tour[@hurley_analyzing_1990]. In guided tours an index of interest is defined and gradient descent is performed on the projection, analogous to projection pursuit [@friedman_projection_1974]. 
+
+Let's explore the process behind the manual tour:
+
+Given:
+\begin{description}
+  \item[$\textbf{X}_{[n,~p]}$] A data set containing $n$ observations of $p$ numeric variables. 
+  \item[$\textbf{B}_{[p,~d]}$] An orthonormal \footnote{Where each variable is both: orthogonal, at right angles (dot product is 0) to the other variables, and unit vectors, a norm = 1} basis describing the current orientation projecting $p$ down to $d$ dimension.
+\end{description}
+
+\begin{align*}
+  \textbf{X}_{[n,~p]} ~=
+  \begin{bmatrix}
+    X_{1,~1} & \dots  & X_{1,~p} \\
+    X_{2,~1} & \dots  & X_{2,~p} \\
+    \vdots   & \ddots & \vdots   \\
+    X_{n,~1} & \dots  & X_{n,~p}
+  \end{bmatrix}
+\end{align*}
+
+\begin{align*}
+  \textbf{B}_{[p,~d]} ~=
+  \begin{bmatrix}
+    B_{1,~1} & \dots  & B_{1,~d} \\
+    B_{2,~1} & \dots  & B_{2,~d} \\
+    \vdots   & \ddots & \vdots   \\
+    B_{p,~1} & \dots  & B_{p,~d}
+  \end{bmatrix}
+\end{align*}
+
+For ease of computation we will be working mostly with the basis and not the data, once basis manipulation is done post multiply the data by the basis to get back to data-space.  
+
+Select a manipulation variable, $k$. Initialize a zero vector $e$, and set the $k$-th element set to 1. Use the Gram-Schmidt process to orthonormalize the concatenation of the basis and $e$ yielding the manipulation space.
+
+\begin{align*}
+  \textbf{M}_{[p,~d+1]}
+  &= Orthonormalize_{GS}( \textbf{B}_{[p,~d]}|\textbf{e}_{k~[p,~1]} ) \\
+  &= Orthonormalize_{GS}
+  \left(
+    \begin{bmatrix}
+      B_{1,~1} & \dots  & B_{1,~d} \\
+      B_{2,~1} & \dots  & B_{2,~d} \\
+      \vdots   & \ddots & \vdots   \\
+      B_{k,~1} & \dots  & B_{k,~d} \\
+      \vdots   & \ddots & \vdots   \\
+      B_{p,~1} & \dots  & B_{p,~d}
+    \end{bmatrix}
+  ~|~
+    \begin{bmatrix}
+      0 \\
+      0 \\
+      \vdots \\
+      1 \\
+      \vdots \\
+      0
+    \end{bmatrix}
+  \right)
+\end{align*}
+
+TODO: (below) clean up the language of phi, tie to manipulation var. Make sure to paint the picture for the  Z-direction of manip_sp. 
+
+Select a vector $\phi_i$, the angle of out-of plane rotation, orthogonal to the projection plane (relative to $\phi_1$, the transformation $\phi_i$ - $\phi_1$ proved to be helpful to discuss $\phi$ relative to the Z axis). 
+
+**For ** $i$ **in 1 to n_slides:**
+<!-- Don't fix the above, it's not going to happen... -->
+
+For each $\phi_i$, post multiply the manipulation space by a rotation matrix,  producing as many basis-projections.
+
+\begin{align*}
+  \textbf{P}_{b[p,~d+1,~i]}
+  &= \textbf{M}_{[p,~d+1]} ~*~ \textbf{R}_{[d+1,~d+1]} 
+    ~~~~~~~~~~~~~~~~~~~\text{For the $d=2$ case:} \\
+  &= \begin{bmatrix}
+    M_{1,~1} & M_{1,~2} & M_{1,~3} \\
+    M_{2,~1} & M_{2,~2} & M_{2,~3} \\
+    \vdots   & \vdots   & \vdots   \\
+    M_{p,~1} & M_{p,~2} & M_{p,~3}
+  \end{bmatrix}_{[p,~d+1]}
+    ~*~
+  \begin{bmatrix}
+    c_\theta^2 c_\phi s_\theta^2 &
+    -c_\theta s_\theta (1 - c_\phi) &
+    -c_\theta s_\phi \\
+    -c_\theta s_\theta (1 - c_\phi) &
+    s_\theta^2 c_\phi + c_\theta^2 &
+    -s_\theta s_\phi \\
+    c_\theta s_\phi &
+    s_\theta s_\phi &
+    c_\phi
+  \end{bmatrix}_{[3,~3]}
+\end{align*}
+
+
+Where:
+\begin{description}
+  \item[$\theta$] is the angle that lies on the projection plane ($ie.$ on the XY plane)
+  \item[$\phi$] is the angle orthogonal to the projection plane ($ie.$ in the Z direction)
+  \item[$c_\theta$] is the cosine of $\theta$
+  \item[$c_\phi$]   is the cosine of $\phi$
+  \item[$s_\theta$] is the sine of   $\theta$
+  \item[$s_\phi$]   is the sine of   $\phi$
+\end{description}
+
+To get back to data-space post multiply each projection basis by the data, for  the data projection.
+
+\begin{align}
+  \textbf{P}_{d[n,~d+1]}
+    &= \textbf{X}_{[n,~p]} ~*~ \textbf{P}_{b[p,~d+1]} \\
+    &= \begin{bmatrix}
+      X_{1,~1} & \dots & X_{1,~p} \\
+      X_{2,~1} & \dots & X_{2,~p} \\
+      \vdots   & \vdots & \vdots  \\
+      X_{n,~1} & \dots & X_{n,~p}
+    \end{bmatrix}_{[n,~p]}
+      ~*~
+    \begin{bmatrix}
+      P_{b:1,~1} & P_{b:1,~2} & P_{b:1,~3} \\
+      P_{b:2,~1} & P_{b:2,~2} & P_{b:2,~3} \\
+      \vdots     & \vdots     & \vdots     \\
+      P_{b:p,~1} & P_{b:p,~2} & P_{b:p,~3}
+    \end{bmatrix}_{b[p,~d+1]}
+\end{align}
+
+Plot the first two variables from each projection in sequence for an XY scatterplot. The remaining variable is sometimes linked to a data point aesthetic to produce depth cues used in conjunction with the XY scatterplot.
+
+
+## Usage
+
+### Flea
+
+Let's start off with the flea data set from the R package *tourr* [@wickham_tourr_2011], which performs different tours on the same data. The flea data contains 74 observations of flea beetles across 6 variables, physical measurements of the flea. Each individual belonged to one of three species being observed.
+
+Let:
+\begin{description}
+  \item[$d=2$] For the sake of illustration we'll embed into two dimensions.
+\end{description}
+
+Given:
+\begin{description}
+  \item[$\bf{X}_{[74,~6]}$] Flea data, 74 observations by 6 variables, $\bf{X} \in \mathbb{R}^6, ~p=6$.
+  \item[$p=6$]
+\end{description}
+
+Let's initialize a random orthonormal basis of dimensions [$p,~d$], which describes a random orientation projected from six down to two dimensions. Check how each of the dimensions is contributing the XY components with `view_basis()`
+
+![(\#fig:unnamed-chunk-1)Random basis, flea data](thesis_files/figure-latex/unnamed-chunk-1-1.pdf) 
+
+```
+##             X        Y norm_XY   theta
+## [1,]  0.08073  0.45268 0.45982  1.3943
+## [2,]  0.49166 -0.68137 0.84023 -0.9457
+## [3,]  0.35320 -0.24222 0.42828 -0.6011
+## [4,]  0.76457  0.51785 0.92344  0.5953
+## [5,]  0.20421 -0.05406 0.21125 -0.2588
+## [6,] -0.02704  0.03259 0.04235 -0.8783
+```
+
+![(\#fig:unnamed-chunk-2)Random basis, flea data](thesis_files/figure-latex/unnamed-chunk-2-1.pdf) 
+
+```
+##             X        Y norm_XY   theta
+## [1,]  0.14689 -0.07195  0.1636 -0.4555
+## [2,] -0.32013  0.54295  0.6303 -1.0380
+## [3,]  0.49601  0.21246  0.5396  0.4047
+## [4,]  0.65298  0.30858  0.7222  0.4415
+## [5,] -0.44751  0.18089  0.4827 -0.3841
+## [6,]  0.05723 -0.72591  0.7282 -1.4921
+```
+
+
+### Breast Cancer
+
+Let's apply a manual tour to the Wisconsin Breast Cancer Database, formated from the machine learning benchmarking data sets in the *R* package [@leisch_mlbench:_2010].
+
+
+```
+## Classes 'tbl_df', 'tbl' and 'data.frame':	675 obs. of  10 variables:
+##  $ Id             : Factor w/ 630 levels "1000025","1002025",..: 1 4 5 6 8 9 10 11 15 15 ...
+##  $ Cl.thickness   : num  5 5 3 6 4 8 1 2 2 4 ...
+##  $ Cell.size      : num  1 4 1 8 1 10 1 1 1 2 ...
+##  $ Cell.shape     : num  1 4 1 8 1 10 1 2 1 1 ...
+##  $ Marg.adhesion  : num  1 5 1 1 3 8 1 1 1 1 ...
+##  $ Epith.c.size   : num  2 7 2 3 2 7 2 2 2 2 ...
+##  $ Bare.nuclei    : num  1 10 2 4 1 10 10 1 1 1 ...
+##  $ Bl.cromatin    : num  3 3 3 3 3 9 3 3 1 2 ...
+##  $ Normal.nucleoli: num  1 2 1 7 1 7 1 1 1 1 ...
+##  $ Class          : Factor w/ 2 levels "benign","malignant": 1 1 1 1 1 2 1 1 1 1 ...
+```
+
+TODO: Address figure output. PDF output is a static image w/ play slider.
+
+<!--chapter:end:03-spinifex.Rmd-->
+
+---
+chapter: 4
+knit: "bookdown::render_book"
+---
+
+# Display dimensionality {#ch:disp_dim}
+
+* XGobbi vs the C2
+
+
+<!--chapter:end:04-Display_dimensionality.Rmd-->
+
+---
+chapter: 5
+knit: "bookdown::render_book"
+---
+
+# Human-computer interaction of 3d projections {#ch:hci_3dproj}
+
+* Tour in 3D
+* ImAxes / IATK
+
+<!--chapter:end:05-HCI_3d_tours.Rmd-->
+
+---
+knit: "bookdown::render_book"
+---
+
+\appendix
+
+# Additional stuff
+
+You might put some computer output here, or maybe additional tables.
+
+Note that line 5 must appear before your first appendix. But other appendices can just start like any other chapter.
+
+<!--chapter:end:A-appA.Rmd-->
+
