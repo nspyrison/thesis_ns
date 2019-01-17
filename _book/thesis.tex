@@ -10,7 +10,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \author{Nicholas S Spyrison}
-\title{Dynamic visualization of high-dimensional functions via low-dimension
+\title{Dynamic visualization of high-dimensional data via low-dimension
 projections and sectioning across 2D and 3D display devices}
 \degrees{B.Sc. Statistics, Iowa State University}
 \def\degreetitle{Doctor of Philosophy}
@@ -19,7 +19,7 @@ projections and sectioning across 2D and 3D display devices}
      %pdfsubject={The Subject},
      %pdfkeywords={Some Keywords},
      pdfauthor={Nicholas S Spyrison},
-     pdftitle={Dynamic visualization of high-dimensional functions via low-dimension
+     pdftitle={Dynamic visualization of high-dimensional data via low-dimension
 projections and sectioning across 2D and 3D display devices},
      pdfproducer={Bookdown with LaTeX}
 }
@@ -88,7 +88,7 @@ example, additional tables, output, etc.
 
 \subsection{Overview}\label{overview}
 
-In univariate datasets histograms, or smoothed density curves are
+In univariate data sets histograms, or smoothed density curves are
 employed to visualize data. In bivariate data scatterplots and contour
 plots (2-d density) can be employed. In three dimensions the two most
 common techniques are: 2-d scatter plot with the 3rd variable as an
@@ -105,25 +105,25 @@ for even modest values of \(p\) (say 6 or 12)? It's far too common that
 visualizing in data-space is dropped altogether in favor of modeling
 parameter-space, model-space, or worse: long tables of statistics
 without visuals \autocite{wickham_visualizing_2015}. Yet, we all know of
-the risks inherant in relying too heavily on parameters alone
+the risks inherent in relying too heavily on parameters alone
 \autocites{anscombe_graphs_1973}{matejka_same_2017}. So why do we move
 away from visualizing in data-space? Scalability, in a word, we are not
 familiar with methods that allow us to concisely depict and digest
-\(p \geq 5\) or so dimensions. This is where dimensonality reduction
+\(p \geq 5\) or so dimensions. This is where dimensionality reduction
 comes in. Specifically, we will be focusing on a specific group called
 touring. In the interest of time I will not belabor the diversity of
-dimentionality reduction, (see
+dimensionality reduction, (see
 {[}\textcite{grinstein_high-dimensional_2002};
 \textcite{carreira-perpinan_review_1997}; heer\_tour\_2010{]} for a
 quick summary). Suffice it to say that touring has a couple of salient
-features: linear transfromations such that we can interpolate back to
-the oiginal variable space and does not discard dimensions, something
-that is common to other linear techniques. By emploring the bredth of
+features: linear transformations such that we can interpolate back to
+the original variable space and does not discard dimensions, something
+that is common to other linear techniques. By employing the breadth of
 tours we are able to preserve the visualization of data-space, and with
 it, the intrinsic understanding of structure and distribution of data
-that is more susinct or beyond the reach of statistic valules alone.
+that is more succinct or beyond the reach of statistic values alone.
 
-Touring is a linear dimensonality reduction technique that orthagonally
+Touring is a linear dimensionality reduction technique that orthogonally
 projects \(p\)-space down to \(d(\leq p)\) dimensions. Many such
 projections are interpolated, each making local rotations in
 \(p\)-space. These frames are then viewed in order to the effect of
@@ -172,9 +172,9 @@ choice, precomputed choice, data driven, and manual control.
 
 \begin{itemize}
 \item
-  \emph{grand tour}, a constrained random choice p-space. Paths are
+  \emph{grand tour}, a constrained random choice \(p\)-space. Paths are
   constrained for changes in direction small enough to maintain
-  continuity and allow for user comphrehension
+  continuity and aid in user comprehension
 
   \begin{itemize}
   \tightlist
@@ -192,7 +192,7 @@ choice, precomputed choice, data driven, and manual control.
     position and iterating
   \end{itemize}
 \item
-  \emph{guided tour}, data driven tour optimiazing some objective
+  \emph{guided tour}, data driven tour optimizing some objective
   function via (stochastic) gradient descent
   \autocite{hurley_analyzing_1990}.
 
@@ -205,10 +205,10 @@ choice, precomputed choice, data driven, and manual control.
     cmass \autocite{cook_projection_1993} - find the projection with the
     most density or mass in the center.
   \item
-    lda \autocite{lee_projection_2005} - linear discrimin ant analysis,
+    lda \autocite{lee_projection_2005} - linear discriminant analysis,
     seeks a projection where 2 or more classes are most separated.
   \item
-    pda - pricipal component analysis finding where the data is most
+    pda - principal component analysis finding where the data is most
     spread (1d only).
   \item
     other user-defined objective function \autocite{wickham_tourr_2011}.
@@ -241,7 +241,7 @@ choice, precomputed choice, data driven, and manual control.
   \tightlist
   \item
     \emph{correlation tour} \autocite{buja_data_1987}, a special case of
-    the dependance tour, analogous to canonical correlation analysis
+    the dependence tour, analogous to canonical correlation analysis
   \end{itemize}
 \end{itemize}
 
@@ -262,14 +262,13 @@ orthonormal projections as well.
   \tightlist
   \item
     1-d densities: such as histogram, average shifted
-    histograms\autocite{scott85}, and kernal density\autocite{scott95}.
+    histograms\autocite{scott85}, and kernel density\autocite{scott95}.
   \item
     image: \autocite[ 2001]{Wegman}
   \item
-    time series: where multivariate values are independantly lagged to
-    view peak and trough allignment. Currently no package
-    implementation, but use case is discussed in
-    \autocite{cook_manual_1997}.
+    time series: where multivariate values are independently lagged to
+    view peak and trough alignment. Currently no package implementation,
+    but use case is discussed in \autocite{cook_manual_1997}.
   \end{itemize}
 \item
   2d geoms
@@ -287,7 +286,7 @@ orthonormal projections as well.
   \begin{itemize}
   \tightlist
   \item
-    Anaglyphs, sometimes called stero, where (typically) red images are
+    Anaglyphs, sometimes called stereo, where (typically) red images are
     positioned for the left channel and cyan for the right, when viewed
     with corresponding filter glasses give the depth perception of the
     image.
@@ -301,7 +300,7 @@ orthonormal projections as well.
   \begin{itemize}
   \tightlist
   \item
-    Andrews crurves \autocite{andrews_plots_1972}, smoothed variant of
+    Andrews curves \autocite{andrews_plots_1972}, smoothed variant of
     parallel coordinate plots, discussed below.
   \item
     Chernoff faces \autocite{chernoff_use_1973}, variables linked to
@@ -309,8 +308,8 @@ orthonormal projections as well.
     observations.
   \item
     Parallel coordinate plots \autocite{ocagne_coordonnees_1885}, where
-    any number of variables are ploted in parallel with observations
-    linked to their cooresponding variable value by polylines.
+    any number of variables are plotted in parallel with observations
+    linked to their corresponding variable value by polylines.
   \item
     Scatterplot matrix \autocite{becker_brushing_1987}, showing a
     triangle matrix of bivariate scatterplots with 1-d density on the
@@ -341,7 +340,7 @@ degree, ordered by descending year:
   DAVIS \autocite{huh_davis:_2002} -- Java based, with GUI.
 \item
   VRGobi \autocite{nelson_xgobi_1998} -- for use with the C2 in
-  steroscopic 3d displays.
+  stereoscopic 3d displays.
 \item
   ExplorN \autocite{carr_explorn:_1996} -- for SGI Unix.
 \item
@@ -355,9 +354,9 @@ degree, ordered by descending year:
 \end{itemize}
 
 Support and maintenance of such implementations give them a particularly
-short life span, while conceptual abscraction and technically heavier
+short life span, while conceptual abstraction and technically heavier
 implementations have hampered user growth. There have been notable
-efforts to deminish the barriers to entry and make touring more
+efforts to diminish the barriers to entry and make touring more
 approachable as a data exploration tool {[}\textcite{huh_davis:_2002};
 \textcite{swayne_ggobi:_2003}; \textcite{wegman_visual_2003};
 \textcite{wickham_tourr_2011}; huang\_tourrgui:\_2012{]}.
@@ -370,98 +369,95 @@ display}{spinifex: extending tourr with manual tours and graphic display}}\label
 
 \section{Abstract}\label{abstract-1}
 
-Touring teqniques offer a great opertunity for data-space vizualization
-of (\(p > 3\)) multivariate data sets. This paper discusses the \emph{R}
-package \emph{spinifex}, which adds support for the manual tour, which
-is particularly usefuly for exploring the local structure after
-identifying a feature of interest, perhaps via guided tour.
-Additionally, \emph{spinifex} extends graphic outputs to \emph{plotly}
-and \emph{gganimation}. This work extends the functionality of and is
-compatible with \emph{tourr}.
+Touring techniques offer a great opportunity for data-space
+visualizations of (\(\textbf{X} \in \mathbb{R}^p,~p > 3\)) multivariate
+data sets. This paper discusses the \emph{R} package \emph{spinifex},
+which adds support for the manual tour, which is particularly usefully
+for exploring the local structure after identifying a feature of
+interest, perhaps via guided tour. Additionally, \emph{spinifex} extends
+graphic outputs to \emph{plotly} and \emph{gganimation}. This work
+extends the functionality of and is compatible with \emph{tourr}.
 
 Keywords: grand tour, projection pursuit, manual tour, tourr, touring,
-high dimenson visualization, hihg dim vis, dimensionality reduction,
+high dimensional visualization, high dim vis, dimensionality reduction,
 visualization, statistical graphics, data-space.
 
 \section{Introduction}\label{introduction}
 
-Both classical and contemorary visualizations of data are presented in
-two dimensions, that of a computer monitor or in print. How is it that
-we come to view and share data that exsists in \(p > 3\) dimensions? In
-an appeal to brievity we shall ignore model and parameter summarization
-due to there shortcomings
+Both classical and contemporary visualizations of data are presented in
+(\(d=2\)) two dimensions, that of a computer monitor or in print. How is
+it that we come to view and share data that exists in \(p > 3\)
+dimensions? In an appeal to brevity we shall ignore model and parameter
+summarization due to there shortcomings
 \autocites{anscombe_graphs_1973}{matejka_same_2017}. Within the realm of
 data-space visualization we are left with projecting higher volumes and
-embedding them within lower dimensional spaces that we can vizualize.
+embedding them within lower dimensional spaces that we can visualize.
 
 This is not a new phenomena, such linear projections have been in use
 for quite some time. \autocites{pearson_liii._1901}{fisher_use_1936} and
-the myriad of single value deconcomposistion (SVD) techniques from
-numerous disciplines use such embeddings. Previous application look at
-data in one (or few) static orientations, after some objective
-optimization. For instance in PCA, we reorient \(p\)-dimensions such
-that we have a reference to the ordered components that describe a
-descending ammount of variation held within the data. Yet we still have
-\(p\) components remaining to visualize. Where does the dimension
-reduction come in? From plotting only the first two or three and
-potenially another dimension tied to data point asthetic. This is
-maximizes the ammount of variation that can be display in an emedding,
-but regually discards a large proportion of the variation held within
-the data.
+the myriad of single value decomposition (SVD) techniques from numerous
+disciplines use such embeddings. Previous application look at data in
+one (or few) static orientations, after some objective optimization. For
+instance in PCA, we reorient \(p\)-dimensions such that we have a
+reference to the ordered components that describe a descending amount of
+variation held within the data. Yet we still have \(p\) components
+remaining to visualize. Where does the dimension reduction come in? From
+plotting only the first two or three and potentially another dimension
+tied to data point aesthetic. This is maximizes the amount of variation
+that can be display in an embedding, but regularly discards a large
+proportion of the variation held within the data.
 
 More recently non-linear dimensionality techniques have become popular,
-such as t-distributed stchocastic neighbor embedding (t-SNE)
-\autocite{maaten_visualizing_2008}, building off of sammon mappings
+such as t-distributed stochastic neighbor embedding (t-SNE)
+\autocite{maaten_visualizing_2008}, building off of Sammon mappings
 \autocite{sammon_nonlinear_1969}. Such non-linear methods make for
-astounding distinction when in low \(d\) embeddings, but contain
-inhearant shortcomings. Namely: that the non-linear tranformations break
+astounding distinction when in lower embeddings, but contain inherent
+shortcomings. Namely: that the non-linear transformations break
 inter-operability back to the original data-space, and that they can
 suffer from overfitting. If there is no inherent clustering with the
-data, it's posible that noise within the variables may become the
-proment feature and be displayed erroneously as group clustering.
+data, it's possible that noise within the variables may become the
+prominent feature and be displayed erroneously as group clustering.
 
-\autocites{asimov_grand_1985}{buja_grand_1986} suggested grand tours in
-which random walks in \(p\)-space can be interpolated and embedded in
-\(d\) dimensions which are then viewed in sequence. The broader scope of
-touring has some beneficial features, namely: touring keeps the original
-dimensionality in tact unlike tradition static linear-projections, and
-maintains inter-operabilty in the orginal dimensions, a primary drawback
-of non-linear dimensionality reduction.
+TODO: Clean up touring, , below
 
-TODO: clean up above, talk about what
+\autocites{asimov_grand_1985}{buja_grand_1986} first suggested grand
+tours in which random walks in \(p\)-space can be interpolated and
+embedded in \(d\) dimensions which are then viewed in sequence. Imagine.
+Consider,
 
-\section{Terminology and demystifying
-projection:}\label{terminology-and-demystifying-projection}
+The broader scope of touring has some beneficial features, namely:
+touring keeps the original dimensionality in tact unlike tradition
+static linear-projections, and maintains inter-operability back to the
+original dimensions, a primary drawback of non-linear dimensionality
+reduction.
 
-TODO: clean up the terminology section
-
-basis, data, n, p, d,
-
-Suppose that we have tri-variate data, \(\textbf{X}_{[8,~3]}\), the
-corners points of a rectanguloid. We can describe the relative
-orientation by defining
-
-For every \(p\)-dimensional space can be described by the direction and
-magnitude of axes in a square matrix that we call a basis. Imgine 3 axes
-of an XYZ Caresian volume (\emph{ie.} a basis \(\in \mathbb{R}^p\)). In
-matimatical form we would write this as a diagonal identity matrix of
-demension 3.
-
-This basis has some nice properties that are mathimatically nice to
-preserve, namely, that each axis as is at a right angle to the other
-(\emph{orthagonal}), and are unit \emph{normal} (length or norm equal to
-one). If matrix meets both of these criteria we call it
-\emph{orthonormal}.
+TODO: clean up above, talk about touring in general first
 
 \section{Manual tour}\label{manual-tour}
 
-Let's explore the process behind the manual tour
+The manual tour\autocites{cook_manual_1997}{cook_grand_2008} allows the
+user rotate a specified manipulation variable into and out of the
+current projection. This reveals the extent that this variable
+contributes to the current structure of the projection. In an appeal to
+the so called curse/blessing of dimensionality, volume contained within
+\(\mathbb{R}^p\) increases exponentially as \(p\) increases. Exploring
+\(p\)-space by defining specific rotations on specific variables quickly
+becomes time-prohibited.
+
+However, manual touring can be particularly useful in exploring the
+local structure once a feature of interest has been identified. Features
+of interest can be quickly identified by a guided
+tour\autocite{hurley_analyzing_1990}. In guided tours an index of
+interest is defined and gradient descent is performed on the projection,
+analogous to projection pursuit \autocite{friedman_projection_1974}.
+
+Let's explore the process behind the manual tour:
 
 Given:
 
 \begin{description}
-  \item[$\textbf{X}_{[n,~p]}$] A dataset contaning $n$ observations of $p$ numeric variables. 
-  \item[$\textbf{B}_{[p,~d]}$] An orthonormal \footnote{Where each variable is both: orthagonal, at right angles (dot product is 0) to the other variabels, and unit vectors, a norm = 1} basis describing the current orientation projecting $p$ down to $d$ dimension.
+  \item[$\textbf{X}_{[n,~p]}$] A data set containing $n$ observations of $p$ numeric variables. 
+  \item[$\textbf{B}_{[p,~d]}$] An orthonormal \footnote{Where each variable is both: orthogonal, at right angles (dot product is 0) to the other variables, and unit vectors, a norm = 1} basis describing the current orientation projecting $p$ down to $d$ dimension.
 \end{description}
 
 \begin{align*}
@@ -484,21 +480,19 @@ Given:
   \end{bmatrix}
 \end{align*}
 
-TODO: move this down to a usage example.
-
-For ease of computation we will be wroking mostly with the basis and not
-the data, once basis manipulation is done postmultiply the data by the
+For ease of computation we will be working mostly with the basis and not
+the data, once basis manipulation is done post multiply the data by the
 basis to get back to data-space.
 
 Select a manipulation variable, \(k\). Initialize a zero vector \(e\),
 and set the \(k\)-th element set to 1. Use the Gram-Schmidt process to
-orthornormalize the concatenation of the basis and \(e\) yielding the
+orthonormalize the concatenation of the basis and \(e\) yielding the
 manipulation space.
 
 \begin{align*}
   \textbf{M}_{[p,~d+1]}
-  &= Orthnormalize_{GS}( \textbf{B}_{[p,~d]}|\textbf{e}_{k~[p,~1]} ) \\
-  &= Orthnormalize_{GS}
+  &= Orthonormalize_{GS}( \textbf{B}_{[p,~d]}|\textbf{e}_{k~[p,~1]} ) \\
+  &= Orthonormalize_{GS}
   \left(
     \begin{bmatrix}
       B_{1,~1} & \dots  & B_{1,~d} \\
@@ -520,21 +514,23 @@ manipulation space.
   \right)
 \end{align*}
 
-TODO: clean up the langue of phi, tie to manip var.
+TODO: (below) clean up the language of phi, tie to manipulation var.
+Make sure to paint the picture for the Z-direction of manip\_sp.
 
 Select a vector \(\phi_i\), the angle of out-of plane rotation,
-orthagonal to the projection plane (relative to \(\phi_1\), the
+orthogonal to the projection plane (relative to \(\phi_1\), the
 transformation \(\phi_i\) - \(\phi_1\) proved to be helpful to discuss
 \(\phi\) relative to the Z axis).
 
 \textbf{For } \(i\) \textbf{in 1 to n\_slides:}
 
-For each \(\phi_i\), postmultiply the manipulation space by a rotation
+For each \(\phi_i\), post multiply the manipulation space by a rotation
 matrix, producing as many basis-projections.
 
 \begin{align*}
   \textbf{P}_{b[p,~d+1,~i]}
-  &= \textbf{M}_{[p,~d+1]} ~*~ \textbf{R}_{[d+1,~d+1]} \\
+  &= \textbf{M}_{[p,~d+1]} ~*~ \textbf{R}_{[d+1,~d+1]} 
+    ~~~~~~~~~~~~~~~~~~~\text{For the $d=2$ case:} \\
   &= \begin{bmatrix}
     M_{1,~1} & M_{1,~2} & M_{1,~3} \\
     M_{2,~1} & M_{2,~2} & M_{2,~3} \\
@@ -552,72 +548,147 @@ matrix, producing as many basis-projections.
     c_\theta s_\phi &
     s_\theta s_\phi &
     c_\phi
-  \end{bmatrix}_{[3,~3]}\text{For the $d=2$ case.}
+  \end{bmatrix}_{[3,~3]}
 \end{align*}
 
 Where:
 
 \begin{description}
   \item[$\theta$] is the angle that lies on the projection plane ($ie.$ on the XY plane)
-  \item[$\phi$] is the angle orthagonal to the projection plane ($ie.$ in the Z direction)
+  \item[$\phi$] is the angle orthogonal to the projection plane ($ie.$ in the Z direction)
   \item[$c_\theta$] is the cosine of $\theta$
   \item[$c_\phi$]   is the cosine of $\phi$
   \item[$s_\theta$] is the sine of   $\theta$
   \item[$s_\phi$]   is the sine of   $\phi$
 \end{description}
 
-\begin{itemize}
-\tightlist
-\item
-  To get back to data-space post multply each projection basis by the
-  data, \(\textbf{X}_{[n x p]}\), for \(\textbf{P}_{d[n x d+1]}\).
-\end{itemize}
+To get back to data-space post multiply each projection basis by the
+data, for the data projection.
 
 \begin{align}
   \textbf{P}_{d[n,~d+1]}
-    &= \textbf{X}_{[n,~p]} ~*~ \textbf{P}_{b[p,~d+1]}
+    &= \textbf{X}_{[n,~p]} ~*~ \textbf{P}_{b[p,~d+1]} \\
     &= \begin{bmatrix}
       X_{1,~1} & \dots & X_{1,~p} \\
       X_{2,~1} & \dots & X_{2,~p} \\
       \vdots   & \vdots & \vdots  \\
       X_{n,~1} & \dots & X_{n,~p}
-    \end{bmatrix}
+    \end{bmatrix}_{[n,~p]}
       ~*~
     \begin{bmatrix}
       P_{b:1,~1} & P_{b:1,~2} & P_{b:1,~3} \\
       P_{b:2,~1} & P_{b:2,~2} & P_{b:2,~3} \\
       \vdots     & \vdots     & \vdots     \\
       P_{b:p,~1} & P_{b:p,~2} & P_{b:p,~3}
-    \end{bmatrix}
+    \end{bmatrix}_{b[p,~d+1]}
 \end{align}
+
+Plot the first two variables from each projection in sequence for an XY
+scatterplot. The remaining variable is sometimes linked to a data point
+aesthetic to produce depth cues used in conjunction with the XY
+scatterplot.
+
+\section{Usage}\label{usage}
+
+\subsection{Flea}\label{flea}
+
+Let's start off with the flea data set from the R package \emph{tourr}
+\autocite{wickham_tourr_2011}, which performs different tours on the
+same data. The flea data contains 74 observations of flea beetles across
+6 variables, physical measurements of the flea. Each individual belonged
+to one of three species being observed.
+
+Let:
+
+\begin{description}
+  \item[$d=2$] For the sake of illustration we'll embed into two dimensions.
+\end{description}
+
+Given:
+
+\begin{description}
+  \item[$\bf{X}_{[74,~6]}$] Flea data, 74 observations by 6 variables, $\bf{X} \in \mathbb{R}^6, ~p=6$.
+  \item[$p=6$]
+\end{description}
+
+Let's initialize a random orthonormal basis of dimensions
+{[}\(p,~d\){]}, which describes a random orientation projected from six
+down to two dimensions. Check how each of the dimensions is contributing
+the XY components with \texttt{view\_basis()}
+
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/unnamed-chunk-1-1.pdf}
+\caption{\label{fig:unnamed-chunk-1}Random basis, flea data}
+\end{figure}
+
+\begin{verbatim}
+##             X        Y norm_XY   theta
+## [1,]  0.08073  0.45268 0.45982  1.3943
+## [2,]  0.49166 -0.68137 0.84023 -0.9457
+## [3,]  0.35320 -0.24222 0.42828 -0.6011
+## [4,]  0.76457  0.51785 0.92344  0.5953
+## [5,]  0.20421 -0.05406 0.21125 -0.2588
+## [6,] -0.02704  0.03259 0.04235 -0.8783
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/unnamed-chunk-2-1.pdf}
+\caption{\label{fig:unnamed-chunk-2}Random basis, flea data}
+\end{figure}
+
+\begin{verbatim}
+##             X        Y norm_XY   theta
+## [1,]  0.14689 -0.07195  0.1636 -0.4555
+## [2,] -0.32013  0.54295  0.6303 -1.0380
+## [3,]  0.49601  0.21246  0.5396  0.4047
+## [4,]  0.65298  0.30858  0.7222  0.4415
+## [5,] -0.44751  0.18089  0.4827 -0.3841
+## [6,]  0.05723 -0.72591  0.7282 -1.4921
+\end{verbatim}
+
+\subsection{Breast Cancer}\label{breast-cancer}
+
+Let's apply a manual tour to the Wisconsin Breast Cancer Database,
+formated from the machine learning benchmarking data sets in the
+\emph{R} package \autocite{leisch_mlbench:_2010}.
+
+\begin{verbatim}
+## Classes 'tbl_df', 'tbl' and 'data.frame':    675 obs. of  10 variables:
+##  $ Id             : Factor w/ 630 levels "1000025","1002025",..: 1 4 5 6 8 9 10 11 15 15 ...
+##  $ Cl.thickness   : num  5 5 3 6 4 8 1 2 2 4 ...
+##  $ Cell.size      : num  1 4 1 8 1 10 1 1 1 2 ...
+##  $ Cell.shape     : num  1 4 1 8 1 10 1 2 1 1 ...
+##  $ Marg.adhesion  : num  1 5 1 1 3 8 1 1 1 1 ...
+##  $ Epith.c.size   : num  2 7 2 3 2 7 2 2 2 2 ...
+##  $ Bare.nuclei    : num  1 10 2 4 1 10 10 1 1 1 ...
+##  $ Bl.cromatin    : num  3 3 3 3 3 9 3 3 1 2 ...
+##  $ Normal.nucleoli: num  1 2 1 7 1 7 1 1 1 1 ...
+##  $ Class          : Factor w/ 2 levels "benign","malignant": 1 1 1 1 1 2 1 1 1 1 ...
+\end{verbatim}
+
+TODO: Address figure output. PDF output is a static image w/ play
+slider.
+
+\chapter{Display dimensionality}\label{ch:disp_dim}
 
 \begin{itemize}
 \tightlist
 \item
-  View the first two variables from each projection in sequence for an
-  XY scatterplot. The remaining variable is sometimes utilized to
-  produce depth cues used in conjunction with the XY scatterplot.
+  XGobbi vs the C2
 \end{itemize}
-
-\begin{verbatim}
-## Warning: Only one `frame` variable is allowed
-\end{verbatim}
-
-\includegraphics{thesis_files/figure-latex/unnamed-chunk-3-1.pdf} TODO:
-PDF output is a static image w/ play slider.
-
-\chapter{Display dimensionality}\label{ch:disp_dim}
-
-\section{My work}\label{my-work}
-
-\subsection{XGobbi vs the C2}\label{xgobbi-vs-the-c2}
 
 \chapter{Human-computer interaction of 3d
 projections}\label{ch:hci_3dproj}
 
-\section{Tour in 3D}\label{tour-in-3d}
-
-\subsection{ImAxes / IATK}\label{imaxes-iatk}
+\begin{itemize}
+\tightlist
+\item
+  Tour in 3D
+\item
+  ImAxes / IATK
+\end{itemize}
 
 \appendix
 
