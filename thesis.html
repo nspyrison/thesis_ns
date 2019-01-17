@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Dynamic visualization of high-dimensional functions via low-dimension projections and sectioning across 2D and 3D display devices" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Nicholas S Spyrison" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="Dynamic visualization of high-dimensional functions via low-dimension projections and sectioning across 2D and 3D display devices">
+
+<title>Dynamic visualization of high-dimensional functions via low-dimension projections and sectioning across 2D and 3D display devices</title>
+
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<link rel="stylesheet" href="toc.css" type="text/css" />
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Dynamic visualization of high-dimensional functions via low-dimension projections and sectioning across 2D and 3D display devices</h1>
+<h4 class="author"><em>Nicholas S Spyrison</em></h4>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div id="TOC">
+<ul>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+<li><a href="#declaration">Declaration</a></li>
+<li><a href="#preface">Preface</a></li>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#ch:intro"><span class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#ch:lit_review"><span class="toc-section-number">2</span> Literature review</a><ul>
+<li><a href="#sec:tour"><span class="toc-section-number">2.1</span> Touring</a><ul>
+<li><a href="#overview"><span class="toc-section-number">2.1.1</span> Overview</a></li>
+<li><a href="#history"><span class="toc-section-number">2.1.2</span> History</a></li>
+<li><a href="#tour-path"><span class="toc-section-number">2.1.3</span> Tour path</a></li>
+<li><a href="#geometrics-and-display-dimension"><span class="toc-section-number">2.1.4</span> Geometrics and display dimension</a></li>
+<li><a href="#aplication"><span class="toc-section-number">2.1.5</span> Aplication</a></li>
+</ul></li>
+<li><a href="#virtual-reality"><span class="toc-section-number">2.2</span> Virtual reality</a></li>
+</ul></li>
+<li><a href="#ch:spinifex"><span class="toc-section-number">3</span> <em>spinifex</em>: extending <em>tourr</em> with manual tours and graphic display</a><ul>
+<li><a href="#abstract-1"><span class="toc-section-number">3.1</span> Abstract</a></li>
+<li><a href="#introduction"><span class="toc-section-number">3.2</span> Introduction</a></li>
+<li><a href="#manual-tour"><span class="toc-section-number">3.3</span> Manual tour</a></li>
+<li><a href="#usage"><span class="toc-section-number">3.4</span> Usage</a><ul>
+<li><a href="#flea"><span class="toc-section-number">3.4.1</span> Flea</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#r-mtour---manual_tourib-manip_var-3-create_slidestour-mtour-data-flea_std"><span class="toc-section-number">4</span> <code>{r} # # mtour &lt;- manual_tour(ib, manip_var = 3) # # create_slides(tour = mtour, data = flea_std) #</code></a></li>
+<li><a href="#ch:disp_dim"><span class="toc-section-number">5</span> Display dimensionality</a><ul>
+<li><a href="#my-work"><span class="toc-section-number">5.1</span> My work</a><ul>
+<li><a href="#xgobbi-vs-the-c2"><span class="toc-section-number">5.1.1</span> XGobbi vs the C2</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#ch:hci_3dproj"><span class="toc-section-number">6</span> Human-computer interaction of 3d projections</a><ul>
+<li><a href="#tour-in-3d"><span class="toc-section-number">6.1</span> Tour in 3D</a><ul>
+<li><a href="#imaxes-iatk"><span class="toc-section-number">6.1.1</span> ImAxes / IATK</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#additional-stuff"><span class="toc-section-number">7</span> Additional stuff</a></li>
+</ul>
+</div>
+<!--bookdown:toc:end-->
+
+<!--bookdown:body:start-->
+<!-- 
+Edit these lines as appropriate.
+The actual thesis content is in several Rmd files.
+
+You'll need to edit the _bookdown.yml file to set the order in which you'd like them to appear. 
+
+If you have specific LaTeX packages to add, put them in monashthesis.tex.
+
+You will need to ensure you have installed the knitr and bookdown packages for R.
+
+You will also need LaTeX installed on your computer.
+-->
+<!--chapter:end:index.Rmd-->
+<div id="acknowledgements" class="section level1 unnumbered">
+<h1>Acknowledgements</h1>
+<p>I would like to thank </p>
+<!--chapter:end:00-acknowledge.Rmd-->
+</div>
+<div id="declaration" class="section level1 unnumbered">
+<h1>Declaration</h1>
+<p>I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma in any university or equivalent institution, and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.</p>
+<p></p>
+<!--chapter:end:00-declaration.Rmd-->
+</div>
+<div id="preface" class="section level1 unnumbered">
+<h1>Preface</h1>
+<p>The material in Chapter  has been submitted to <em>Something interesting jornal</em> for possible publication.</p>
+<p>The contribution in Chapter  of this thesis was presented in the super awesome confrence held in Dublin, Ireland, in July 2015.</p>
+<!--chapter:end:00-preface.Rmd-->
+</div>
+<div id="abstract" class="section level1 unnumbered">
+<h1>Abstract</h1>
+<p>This thesis is about …</p>
+<!-- 
+The following line is required to re-set page numbering after preliminary material. Do not remove
+-->
+<p></p>
+<!--chapter:end:00-abstract.Rmd-->
+</div>
+<div id="ch:intro" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>This is where you introduce the main ideas of your thesis, and an overview of the context and background.</p>
+<p>In a PhD, Chapter 2 would normally contain a literature review. Typically, Chapters 3–5 would contain your own contributions. Think of each of these as potential papers to be submitted to journals. Finally, Chapter 6 provides some concluding remarks, discussion, ideas for future research, and so on. Appendixes can contain additional material that don’t fit into any chapters, but that you want to put on record. For example, additional tables, output, etc.</p>
+<!--chapter:end:01-Introduction.Rmd-->
+<!-- #REFERENCE EXAMPLES: -->
+<!-- [@Brown59;@Brown63;@Holt57;@Winters60]. Because of their computational simplicity and interpretability, they became widely used in practice. -->
+<!-- Empirical studies by @MH79 and @Metal82 found little difference... proposition [see @CKOS01]. -->
+</div>
+<div id="ch:lit_review" class="section level1">
+<h1><span class="header-section-number">2</span> Literature review</h1>
+<!-- This chapter contains a summary of the context in which your research is set.  -->
+<!-- Imagine you are writing for your fellow PhD students. Topics that are well-known to them do not have to be included here. But things that they may not know about should be included. -->
+<!-- Resist the temptation to discuss everything you've read in the last few years. And you are not writing a textbook either. This chapter is meant to provide the background necessary to understand the material in subsequent chapters. Stick to that. -->
+<!-- You will need to organize the literature review around themes, and within each theme provide a story explaining the development of ideas to date. In each theme, you should get to the point where your ideas will fit in. But leave your ideas to later chapters. This way it is clear what has been done beforehand, and what new contributions you are making to the research field. -->
+<!-- All citations should be done using markdown notation as shown below. This way, your bibliography will be compiled automatically and correctly. -->
+<div id="sec:tour" class="section level2">
+<h2><span class="header-section-number">2.1</span> Touring</h2>
+<div id="overview" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Overview</h3>
+<p>In univariate data sets histograms, or smoothed density curves are employed to visualize data. In bivariate data scatterplots and contour plots (2-d density) can be employed. In three dimensions the two most common techniques are: 2-d scatter plot with the 3rd variable as an aesthetic (such as, color, size, height, <span class="math inline">\(etc.\)</span>) or rendering the data in a 3-d volume using some perceptive cues giving information describing the seeming depth of the image . When there are 4 variables: 3 variables as spatial-dimensions and a 4th as aesthetic, or a scatterplot matrix consisting of 4 histograms, and 6 unique combinations of bivariate scatterplots.</p>
+<p>Let <span class="math inline">\(p\)</span> be the number of numeric variables; how do we visualize data for even modest values of <span class="math inline">\(p\)</span> (say 6 or 12)? It’s far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse: long tables of statistics without visuals <span class="citation">[@wickham_visualizing_2015]</span>. Yet, we all know of the risks inherent in relying too heavily on parameters alone <span class="citation">[@anscombe_graphs_1973; @matejka_same_2017]</span>. So why do we move away from visualizing in data-space? Scalability, in a word, we are not familiar with methods that allow us to concisely depict and digest <span class="math inline">\(p \geq 5\)</span> or so dimensions. This is where dimensionality reduction comes in. Specifically, we will be focusing on a specific group called touring. In the interest of time I will not belabor the diversity of dimensionality reduction, (see [<span class="citation">@grinstein_high-dimensional_2002</span>; <span class="citation">@carreira-perpinan_review_1997</span>; heer_tour_2010] for a quick summary). Suffice it to say that touring has a couple of salient features: linear transformations such that we can interpolate back to the original variable space and does not discard dimensions, something that is common to other linear techniques. By employing the breadth of tours we are able to preserve the visualization of data-space, and with it, the intrinsic understanding of structure and distribution of data that is more succinct or beyond the reach of statistic values alone.</p>
+<p>Touring is a linear dimensionality reduction technique that orthogonally projects <span class="math inline">\(p\)</span>-space down to <span class="math inline">\(d(\leq p)\)</span> dimensions. Many such projections are interpolated, each making local rotations in <span class="math inline">\(p\)</span>-space. These frames are then viewed in order to the effect of watching an animation of the lower dimensional embedding changing as <span class="math inline">\(p\)</span>-space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2-dimensional shadow onto the wall. This is a physical representation of a simple projection, that from <span class="math inline">\(p=3\)</span> down to <span class="math inline">\(d=2\)</span>. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a 2-dimensional tour as the 3-dimensional object is manipulated.</p>
+<!-- Each of the original variables assumes some magnidute and direction in the resulting embedding, as described by a linear combination of the orthonormal basis. We call the view of this linear combination on a unit-circle the 'reference frame'. Reference frames  -->
+<div id="terminology" class="section level4">
+<h4><span class="header-section-number">2.1.1.1</span> Terminology</h4>
+<p>n, p (sometimes called d by Wegman, or n ), d (sometimes called k by wegman, or d in tourr)</p>
+</div>
+</div>
+<div id="history" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> History</h3>
+<!-- In 1974 Friedman and Tukey purposed Projection Pursuit[@friedman_projection_1974] (sometimes referred to as PP) while working at Bell Labs. Projection Pursuit involves identifying "interesting" projection, remove a single component of the data, and then iterate in this newly embedded subspace. Within each subspace the projection seeks for a local extrema via gradient descent (historically referred to as hill climbing algorithms), hence the nomenclature pursuit. -->
+<p>Touring was first introduced by Asimov in 1985 with his purposed Grand Tour<span class="citation">[@asimov_grand_1985]</span> at Stanford University. In which, Asimov suggested three types of Grand Tours: torus, at-random, and random-walk. The specifics of which will be discussed below in the Typology section.</p>
+<p>TALK ABOUT maths Here::</p>
+<p>Note that the the above methods have no input from the user aside from the starting basis. The bulk of touring development since has largely been around dynamic display, user interaction, geometric representation, and application. <!--above claim from c2 paper: buja & asimov 1986, Hurley & Buja 1990, Wegman 1991, cook, buja, cabrera, & hurley 1995, buja, cook asimov & hurley 1997,cook & buja 1997. --></p>
+<p>This works well when the number of dimensions being toured is small (in the neighborhood of 5-10), yet the number of view, or 2-frames and we can produce from <span class="math inline">\(p\)</span>-space suffers from the so called blessing/curse of dimensionality. In which the plethora of degrees of freedom either offer many (non-unique) solutions to a problem or something that becomes ever increasing unlikely,</p>
+</div>
+<div id="tour-path" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Tour path</h3>
+<p>A fundamental aspect of touring is the path of rotation. Of which there are four primary distinctions<span class="citation">[@buja_computational_2005]</span>: random choice, precomputed choice, data driven, and manual control.</p>
+<ul>
+<li><em>grand tour</em>, a constrained random choice <span class="math inline">\(p\)</span>-space. Paths are constrained for changes in direction small enough to maintain continuity and aid in user comprehension
+<ul>
+<li>torus-surface <span class="citation">[@asimov_grand_1985]</span></li>
+<li>Geodesic</li>
+<li>at-random</li>
+<li>random-walk</li>
+<li><em>local tour</em>, a sort of grand tour on leash, such that it goes to a nearby random projection before returning to the original position and iterating</li>
+</ul></li>
+<li><em>guided tour</em>, data driven tour optimizing some objective function via (stochastic) gradient descent <span class="citation">[@hurley_analyzing_1990]</span>.
+<ul>
+<li>holes <span class="citation">[@cook_projection_1993]</span> - iterates projections that add more white space to the center of the projection.</li>
+<li>cmass <span class="citation">[@cook_projection_1993]</span> - find the projection with the most density or mass in the center.</li>
+<li>lda <span class="citation">[@lee_projection_2005]</span> - linear discriminant analysis, seeks a projection where 2 or more classes are most separated.</li>
+<li>pda - principal component analysis finding where the data is most spread (1d only).</li>
+<li>other user-defined objective function <span class="citation">[@wickham_tourr_2011]</span>.</li>
+</ul></li>
+<li><em>planned tour</em>, Precomputed choice, In which the path has already been generated or defined.
+<ul>
+<li><em>little tour</em> <span class="citation">[@mcdonald_interactive_1982]</span>, where every permutation of variables is stepped through in order, analogous to a brute-force or exhaustive search.</li>
+<li>a saved path of any other tour</li>
+</ul></li>
+<li><p><em>manual tour</em> - Manual control, a constrained rotation on selected manipulation variable and magnitude<span class="citation">[@cook_manual_1997]</span>. Typically used to explore the local area after identifying an interesting feature from another tour.</p></li>
+<li><em>dependance tour</em>, combination of <span class="math inline">\(n\)</span> independent 1d tours. A vector describes the axis each variable will be displayed on. <strong>ie</strong> <span class="math inline">\(c(1, 1, 2, 2)\)</span> is a 4 to 2d tour with the first 2 variables on on the first axis, and the remaining on the second.
+<ul>
+<li><em>correlation tour</em> <span class="citation">[@buja_data_1987]</span>, a special case of the dependence tour, analogous to canonical correlation analysis</li>
+</ul></li>
+</ul>
+<!-- ... -->
+<!-- * torus: where a $p$-dimensional torus, $T^p$ is created from a Cartesian product of $p$ unit circles with $T^p \in \mathbb{R}^p$. Unfortunately uniformity of the parameters do not correlate to uniform points on the surface of the torus. If step distance between frames is fixed, disproportionate time is spent between subspaces. If step distance is change to account for uniform points on the torus then the continuity of the tour is lost.   -->
+<!-- * at-random: where each 2-frame is chosen at random without replacement. This affords an assured uniform distribution of subspaces, but is far to discontinuous for observation. It also leaves no parameters to control. -->
+<!-- * random-walk: combines the continuity of the torus method and the uniformity of the at-random method while leaving room for a control parameter.  -->
+</div>
+<div id="geometrics-and-display-dimension" class="section level3">
+<h3><span class="header-section-number">2.1.4</span> Geometrics and display dimension</h3>
+<p>Up to this point we have been talking about 2d scatterplots, which offer the first and a simple case for viewing lower-dimensional embeddings of <span class="math inline">\(p\)</span>-space. However, other geometrics (or geoms) offer perfectly valid orthonormal projections as well.</p>
+<ul>
+<li>1d geoms
+<ul>
+<li>1-d densities: such as histogram, average shifted histograms<span class="citation">[@scott85]</span>, and kernel density<span class="citation">[@scott95]</span>.</li>
+<li>image: <span class="citation">[@Wegman 2001]</span></li>
+<li>time series: where multivariate values are independently lagged to view peak and trough alignment. Currently no package implementation, but use case is discussed in <span class="citation">[@cook_manual_1997]</span>.</li>
+</ul></li>
+<li>2d geoms
+<ul>
+<li>2-d density <span class="citation">[@NS GITHUB]</span></li>
+<li>scatterplot</li>
+<li></li>
+</ul></li>
+<li>2.5d, 3d geoms {ADD FOOTNOTE ABOUT 2.5d vs 3d}
+<ul>
+<li>Anaglyphs, sometimes called stereo, where (typically) red images are positioned for the left channel and cyan for the right, when viewed with corresponding filter glasses give the depth perception of the image.</li>
+<li>Depth, which use some subset of depth cues, most commonly size and/or color of data points.</li>
+</ul></li>
+<li><span class="math inline">\(d\)</span>-dim geoms
+<ul>
+<li>Andrews curves <span class="citation">[@andrews_plots_1972]</span>, smoothed variant of parallel coordinate plots, discussed below.</li>
+<li>Chernoff faces <span class="citation">[@chernoff_use_1973]</span>, variables linked to size of facial features for rapid cursory like-ness comparison of observations.</li>
+<li>Parallel coordinate plots <span class="citation">[@ocagne_coordonnees_1885]</span>, where any number of variables are plotted in parallel with observations linked to their corresponding variable value by polylines.</li>
+<li>Scatterplot matrix <span class="citation">[@becker_brushing_1987]</span>, showing a triangle matrix of bivariate scatterplots with 1-d density on the diagonal.</li>
+<li>Radial glyphs, radial variants of parallel coordinates including radar, spider, and star glyphs <span class="citation">[@siegel_surgical_1972]</span>.</li>
+</ul></li>
+</ul>
+</div>
+<div id="aplication" class="section level3">
+<h3><span class="header-section-number">2.1.5</span> Aplication</h3>
+<p>Below is a non-exhaustive list of software implementing touring in some degree, ordered by descending year: <!-- See hadley's thesis and, C2 paper for lists. --></p>
+<ul>
+<li>Spinifex <span class="citation">[@spinifex]</span> – for Linux, Unix, and Windows.</li>
+<li>Tourr <span class="citation">[@wickham_tourr_2011]</span> – for Linux, Unix, and Windows. R package.</li>
+<li>CyrstalVision <span class="citation">[@wegman_visual_2003]</span> – for Windows.</li>
+<li>GGobi <span class="citation">[@swayne_ggobi:_2003]</span> – for Linux and Windows.</li>
+<li>DAVIS <span class="citation">[@huh_davis:_2002]</span> – Java based, with GUI.</li>
+<li>VRGobi <span class="citation">[@nelson_xgobi_1998]</span> – for use with the C2 in stereoscopic 3d displays.</li>
+<li>ExplorN <span class="citation">[@carr_explorn:_1996]</span> – for SGI Unix.</li>
+<li>XGobi <span class="citation">[@swayne_xgobi:_1991]</span> – for Linux, Unix, and Windows (via emulation).</li>
+<li>XLispStat <span class="citation">[@tierney_lisp-stat:_1990]</span> – for Unix, and Windows.</li>
+<li>Prim-9 <span class="citation">[@asimov_grand_1985;@fisherkeller_prim-9:_1974]</span> – on an internal operating system.</li>
+</ul>
+<p>Support and maintenance of such implementations give them a particularly short life span, while conceptual abstraction and technically heavier implementations have hampered user growth. There have been notable efforts to diminish the barriers to entry and make touring more approachable as a data exploration tool [<span class="citation">@huh_davis:_2002</span>; <span class="citation">@swayne_ggobi:_2003</span>; <span class="citation">@wegman_visual_2003</span>; <span class="citation">@wickham_tourr_2011</span>; huang_tourrgui:_2012].</p>
+</div>
+</div>
+<div id="virtual-reality" class="section level2">
+<h2><span class="header-section-number">2.2</span> Virtual reality</h2>
+<!--chapter:end:02-Lit_review.Rmd-->
+</div>
+</div>
+<div id="ch:spinifex" class="section level1">
+<h1><span class="header-section-number">3</span> <em>spinifex</em>: extending <em>tourr</em> with manual tours and graphic display</h1>
+<div id="abstract-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Abstract</h2>
+<p>Touring techniques offer a great opportunity for data-space visualizations of (<span class="math inline">\(\textbf{X} \in \mathbb{R}^p,~p &gt; 3\)</span>) multivariate data sets. This paper discusses the <em>R</em> package <em>spinifex</em>, which adds support for the manual tour, which is particularly usefully for exploring the local structure after identifying a feature of interest, perhaps via guided tour. Additionally, <em>spinifex</em> extends graphic outputs to <em>plotly</em> and <em>gganimation</em>. This work extends the functionality of and is compatible with <em>tourr</em>.</p>
+<p>Keywords: grand tour, projection pursuit, manual tour, tourr, touring, high dimensional visualization, high dim vis, dimensionality reduction, visualization, statistical graphics, data-space.</p>
+</div>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">3.2</span> Introduction</h2>
+<p>Both classical and contemporary visualizations of data are presented in (<span class="math inline">\(d=2\)</span>) two dimensions, that of a computer monitor or in print. How is it that we come to view and share data that exists in <span class="math inline">\(p &gt; 3\)</span> dimensions? In an appeal to brevity we shall ignore model and parameter summarization due to there shortcomings <span class="citation">[@anscombe_graphs_1973; @matejka_same_2017]</span>. Within the realm of data-space visualization we are left with projecting higher volumes and embedding them within lower dimensional spaces that we can visualize.</p>
+<p>This is not a new phenomena, such linear projections have been in use for quite some time. <span class="citation">[@pearson_liii._1901; @fisher_use_1936]</span> and the myriad of single value decomposition (SVD) techniques from numerous disciplines use such embeddings. Previous application look at data in one (or few) static orientations, after some objective optimization. For instance in PCA, we reorient <span class="math inline">\(p\)</span>-dimensions such that we have a reference to the ordered components that describe a descending amount of variation held within the data. Yet we still have <span class="math inline">\(p\)</span> components remaining to visualize. Where does the dimension reduction come in? From plotting only the first two or three and potentially another dimension tied to data point aesthetic. This is maximizes the amount of variation that can be display in an embedding, but regularly discards a large proportion of the variation held within the data.</p>
+<p>More recently non-linear dimensionality techniques have become popular, such as t-distributed stochastic neighbor embedding (t-SNE) <span class="citation">[@maaten_visualizing_2008]</span>, building off of Sammon mappings <span class="citation">[@sammon_nonlinear_1969]</span>. Such non-linear methods make for astounding distinction when in lower embeddings, but contain inherent shortcomings. Namely: that the non-linear transformations break inter-operability back to the original data-space, and that they can suffer from overfitting. If there is no inherent clustering with the data, it’s possible that noise within the variables may become the prominent feature and be displayed erroneously as group clustering.</p>
+<p>TODO: Clean up touring, , below</p>
+<p><span class="citation">[@asimov_grand_1985; @buja_grand_1986]</span> first suggested grand tours in which random walks in <span class="math inline">\(p\)</span>-space can be interpolated and embedded in <span class="math inline">\(d\)</span> dimensions which are then viewed in sequence. Imagine. Consider,</p>
+<p>The broader scope of touring has some beneficial features, namely: touring keeps the original dimensionality in tact unlike tradition static linear-projections, and maintains inter-operability back to the original dimensions, a primary drawback of non-linear dimensionality reduction.</p>
+<p>TODO: clean up above, talk about touring in general first</p>
+<!-- ## Terminology and demystifying projection: -->
+<!-- TODO: clean up the terminology section -->
+<!-- basis, data, n, p, d,  -->
+<!-- Suppose that we have tri-variate data, $\textbf{X}_{[8,~3]}$, the corners points of a rectanguloid. We can describe the relative orientation by defining  -->
+<!-- For every $p$-dimensional space can be described by the direction and magnitude of axes in a square matrix that we call a basis. Imgine 3 axes of an XYZ Caresian volume (*ie.* a basis $\in \mathbb{R}^p$). In matimatical form we would write this as a diagonal identity matrix of demension 3. -->
+<!-- ```{r} -->
+<!-- # b <- diag(3) -->
+<!-- # xyz <- c("X", "Y", "Z") -->
+<!-- # rownames(b) <- xyz -->
+<!-- # colnames(b) <- xyz -->
+<!-- # b -->
+<!-- ``` -->
+<!-- This basis has some nice properties that are mathimatically nice to preserve, namely, that each axis as is at a right angle to the other (*orthagonal*), and are unit *normal* (length or norm equal to one). If matrix meets both of these criteria we call it *orthonormal*. -->
+<!-- ```{r} -->
+<!-- # set.seed(15) -->
+<!-- # library(plotly) -->
+<!-- # library(processx) -->
+<!-- # X = 9*runif(100) # X = 9*c(0,1,1,0,0,1,1,0) -->
+<!-- # Y = 6*runif(100) # Y = 6*c(0,0,1,1,0,0,1,1) -->
+<!-- # Z = 2*runif(100) # Z = 2*c(0,0,0,0,1,1,1,1) -->
+<!-- #  -->
+<!-- # p <- plot_ly(x=X, y=Y, z=Z, type="scatter3d", mode="markers") -->
+<!-- # ###STATIC OUTPUT REQURIES ORCA SETUP, NOT TRANsFERABLE... -->
+<!-- # # orca(p, "cube_demo.png") # but, needs orca setup,  -->
+<!-- # # plotly_IMAGE(p, format = "png", out_file = "output.png") -->
+<!-- ``` -->
+</div>
+<div id="manual-tour" class="section level2">
+<h2><span class="header-section-number">3.3</span> Manual tour</h2>
+<p>The manual tour<span class="citation">[@cook_manual_1997; @cook_grand_2008]</span> allows the user rotate a specified manipulation variable into and out of the current projection. This reveals the extent that this variable contributes to the current structure of the projection. In an appeal to the so called curse/blessing of dimensionality, volume contained within <span class="math inline">\(\mathbb{R}^p\)</span> increases exponentially as <span class="math inline">\(p\)</span> increases. Exploring <span class="math inline">\(p\)</span>-space by defining specific rotations on specific variables quickly becomes time-prohibited.</p>
+<p>However, manual touring can be particularly useful in exploring the local structure once a feature of interest has been identified. Features of interest can be quickly identified by a guided tour<span class="citation">[@hurley_analyzing_1990]</span>. In guided tours an index of interest is defined and gradient descent is performed on the projection, analogous to projection pursuit <span class="citation">[@friedman_projection_1974]</span>.</p>
+<p>Let’s explore the process behind the manual tour:</p>
+Given:
+
+<span class="math display">\[\begin{align*}
+  \textbf{X}_{[n,~p]} ~=
+  \begin{bmatrix}
+    X_{1,~1} &amp; \dots  &amp; X_{1,~p} \\
+    X_{2,~1} &amp; \dots  &amp; X_{2,~p} \\
+    \vdots   &amp; \ddots &amp; \vdots   \\
+    X_{n,~1} &amp; \dots  &amp; X_{n,~p}
+  \end{bmatrix}
+\end{align*}\]</span>
+<span class="math display">\[\begin{align*}
+  \textbf{B}_{[p,~d]} ~=
+  \begin{bmatrix}
+    B_{1,~1} &amp; \dots  &amp; B_{1,~d} \\
+    B_{2,~1} &amp; \dots  &amp; B_{2,~d} \\
+    \vdots   &amp; \ddots &amp; \vdots   \\
+    B_{p,~1} &amp; \dots  &amp; B_{p,~d}
+  \end{bmatrix}
+\end{align*}\]</span>
+<p>For ease of computation we will be working mostly with the basis and not the data, once basis manipulation is done post multiply the data by the basis to get back to data-space.</p>
+<p>Select a manipulation variable, <span class="math inline">\(k\)</span>. Initialize a zero vector <span class="math inline">\(e\)</span>, and set the <span class="math inline">\(k\)</span>-th element set to 1. Use the Gram-Schmidt process to orthonormalize the concatenation of the basis and <span class="math inline">\(e\)</span> yielding the manipulation space.</p>
+<span class="math display">\[\begin{align*}
+  \textbf{M}_{[p,~d+1]}
+  &amp;= Orthonormalize_{GS}( \textbf{B}_{[p,~d]}|\textbf{e}_{k~[p,~1]} ) \\
+  &amp;= Orthonormalize_{GS}
+  \left(
+    \begin{bmatrix}
+      B_{1,~1} &amp; \dots  &amp; B_{1,~d} \\
+      B_{2,~1} &amp; \dots  &amp; B_{2,~d} \\
+      \vdots   &amp; \ddots &amp; \vdots   \\
+      B_{k,~1} &amp; \dots  &amp; B_{k,~d} \\
+      \vdots   &amp; \ddots &amp; \vdots   \\
+      B_{p,~1} &amp; \dots  &amp; B_{p,~d}
+    \end{bmatrix}
+  ~|~
+    \begin{bmatrix}
+      0 \\
+      0 \\
+      \vdots \\
+      1 \\
+      \vdots \\
+      0
+    \end{bmatrix}
+  \right)
+\end{align*}\]</span>
+<p>TODO: (below) clean up the language of phi, tie to manipulation var. Make sure to paint the picture for the Z-direction of manip_sp.</p>
+<p>Select a vector <span class="math inline">\(\phi_i\)</span>, the angle of out-of plane rotation, orthogonal to the projection plane (relative to <span class="math inline">\(\phi_1\)</span>, the transformation <span class="math inline">\(\phi_i\)</span> - <span class="math inline">\(\phi_1\)</span> proved to be helpful to discuss <span class="math inline">\(\phi\)</span> relative to the Z axis).</p>
+<p><strong>For </strong> <span class="math inline">\(i\)</span> <strong>in 1 to n_slides:</strong> <!-- Don't fix the above, it's not going to happen... --></p>
+<p>For each <span class="math inline">\(\phi_i\)</span>, post multiply the manipulation space by a rotation matrix, producing as many basis-projections.</p>
+<span class="math display">\[\begin{align*}
+  \textbf{P}_{b[p,~d+1,~i]}
+  &amp;= \textbf{M}_{[p,~d+1]} ~*~ \textbf{R}_{[d+1,~d+1]} ~~~~~~~~~\text{For the $d=2$ case:}\\
+  &amp;= \begin{bmatrix}
+    M_{1,~1} &amp; M_{1,~2} &amp; M_{1,~3} \\
+    M_{2,~1} &amp; M_{2,~2} &amp; M_{2,~3} \\
+    \vdots   &amp; \vdots   &amp; \vdots   \\
+    M_{p,~1} &amp; M_{p,~2} &amp; M_{p,~3}
+  \end{bmatrix}_{[p,~d+1]}
+    ~*~
+  \begin{bmatrix}
+    c_\theta^2 c_\phi s_\theta^2 &amp;
+    -c_\theta s_\theta (1 - c_\phi) &amp;
+    -c_\theta s_\phi \\
+    -c_\theta s_\theta (1 - c_\phi) &amp;
+    s_\theta^2 c_\phi + c_\theta^2 &amp;
+    -s_\theta s_\phi \\
+    c_\theta s_\phi &amp;
+    s_\theta s_\phi &amp;
+    c_\phi
+  \end{bmatrix}_{[3,~3]}
+\end{align*}\]</span>
+Where:
+
+<p>To get back to data-space post multiply each projection basis by the data, for the data projection.</p>
+<span class="math display">\[\begin{align}
+  \textbf{P}_{d[n,~d+1]}
+    &amp;= \textbf{X}_{[n,~p]} ~*~ \textbf{P}_{b[p,~d+1]} \\
+    &amp;= \begin{bmatrix}
+      X_{1,~1} &amp; \dots &amp; X_{1,~p} \\
+      X_{2,~1} &amp; \dots &amp; X_{2,~p} \\
+      \vdots   &amp; \vdots &amp; \vdots  \\
+      X_{n,~1} &amp; \dots &amp; X_{n,~p}
+    \end{bmatrix}_{[n,~p]}
+      ~*~
+    \begin{bmatrix}
+      P_{b:1,~1} &amp; P_{b:1,~2} &amp; P_{b:1,~3} \\
+      P_{b:2,~1} &amp; P_{b:2,~2} &amp; P_{b:2,~3} \\
+      \vdots     &amp; \vdots     &amp; \vdots     \\
+      P_{b:p,~1} &amp; P_{b:p,~2} &amp; P_{b:p,~3}
+    \end{bmatrix}_{b[p,~d+1]}
+\end{align}\]</span>
+<p>Plot the first two variables from each projection in sequence for an XY scatterplot. The remaining variable is sometimes linked to a data point aesthetic to produce depth cues used in conjunction with the XY scatterplot.</p>
+</div>
+<div id="usage" class="section level2">
+<h2><span class="header-section-number">3.4</span> Usage</h2>
+<div id="flea" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Flea</h3>
+<p>Let’s start off with the flea data set from the R package <em>tourr</em> <span class="citation">[@wickham_tourr_2011]</span>, which performs different tours on the same data. The flea data contains 74 observations of flea beetles across 6 variables, physical measurements of the flea. Each individual belonged to one of three species being observed.</p>
+Let:
+
+Given:
+
+<p>Let’s initialize a random orthonormal basis of dimensions [<span class="math inline">\(p,~d\)</span>], which describes a random orientation projected from six down to two dimensions. Check how each of the dimensions is contributing the XY components with <code>view_basis()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(spinifex)
+
+flea_std &lt;-<span class="st"> </span><span class="kw">rescale</span>(flea[, <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>])
+rb &lt;-<span class="st"> </span><span class="kw">basis_random</span>(<span class="kw">ncol</span>(flea_std), <span class="dv">2</span>)
+<span class="kw">view_basis</span>(rb, <span class="kw">colnames</span>(flea_std)) </code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="thesis_files/figure-html/1view_basis-1.png" alt="Random basis, flea data" width="576" />
+<p class="caption">
+(#fig:1view_basis)Random basis, flea data
+</p>
+</div>
+<pre><code>            X        Y norm_XY    theta
+[1,]  0.47971  0.17044  0.5091  0.34139
+[2,]  0.26435 -0.54382  0.6047 -1.11834
+[3,] -0.09225  0.53325  0.5412 -1.39949
+[4,] -0.79037 -0.05875  0.7925  0.07419
+[5,] -0.20223  0.15879  0.2571 -0.66565
+[6,]  0.16097  0.60182  0.6230  1.30944</code></pre>
+<!-- # tpath <- tourr::save_history(flea_std, tourr::guided_tour(tourr::cmass) ) -->
+<!-- # play_tour(tour = tpath, data = flea_std, render_type = render_plotly) -->
+<!-- # # # plotly obj gives a static image. -->
+<!-- # # play_tour(tour = tpath, data = flea_std, render_type = render_gganimate) -->
+<!-- # # # gganimate throws:   Error: Unsupported device -->
+</div>
+</div>
+</div>
+<div id="r-mtour---manual_tourib-manip_var-3-create_slidestour-mtour-data-flea_std" class="section level1">
+<h1><span class="header-section-number">4</span> <code>{r} # # mtour &lt;- manual_tour(ib, manip_var = 3) # # create_slides(tour = mtour, data = flea_std) #</code></h1>
+<!-- ### Breast Cancer -->
+<!-- Let's apply a manual tour to the Wisconsin Breast Cancer Database, formated from the machine learning benchmarking data sets in the *R* package [@leisch_mlbench:_2010]. -->
+<!-- ```{r} -->
+<!-- library(spinifex) -->
+<!-- library(tourr) -->
+<!-- str(spinifex::breastcancer) -->
+<!-- bc_std <- tourr::rescale(breastcancer[,2:9]) -->
+<!-- ib <- tourr::basis_init(n = ncol(bc_std), 2) # theta ill-defined for 0 rows. -->
+<!-- view_basis(ib) -->
+<!-- ``` -->
+<!--   TODO: PDF output is a static image w/ play slider. -->
+<!--chapter:end:03-spinifex.Rmd-->
+</div>
+<div id="ch:disp_dim" class="section level1">
+<h1><span class="header-section-number">5</span> Display dimensionality</h1>
+<div id="my-work" class="section level2">
+<h2><span class="header-section-number">5.1</span> My work</h2>
+<div id="xgobbi-vs-the-c2" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> XGobbi vs the C2</h3>
+<!--chapter:end:04-Display_dimensionality.Rmd-->
+</div>
+</div>
+</div>
+<div id="ch:hci_3dproj" class="section level1">
+<h1><span class="header-section-number">6</span> Human-computer interaction of 3d projections</h1>
+<div id="tour-in-3d" class="section level2">
+<h2><span class="header-section-number">6.1</span> Tour in 3D</h2>
+<div id="imaxes-iatk" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> ImAxes / IATK</h3>
+<!--chapter:end:05-HCI_3d_tours.Rmd-->
+
+</div>
+</div>
+</div>
+<div id="additional-stuff" class="section level1">
+<h1><span class="header-section-number">7</span> Additional stuff</h1>
+<p>You might put some computer output here, or maybe additional tables.</p>
+<p>Note that line 5 must appear before your first appendix. But other appendices can just start like any other chapter.</p>
+<!--chapter:end:A-appA.Rmd-->
+</div>
+<!--bookdown:body:end-->
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>
