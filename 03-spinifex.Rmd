@@ -3,70 +3,91 @@ chapter: 3
 knit: "bookdown::render_book"
 ---
 
+```{r setup_03, include=FALSE,}
+knitr::opts_chunk$set(
+  echo = TRUE, 
+  fig.width = 6, 
+  fig.asp = 1/1.61, 
+  fig.align = "center",
+  message = FALSE,
+  warning = FALSE,
+  collapse = TRUE,
+  comment = "",
+  cache = FALSE
+)
+```
+
 # *spinifex*: extending *tourr* with manual tours and graphic display {#ch:spinifex}
 
 ## Abstract
 
-Touring teqniques offer a great opertunity for data-space vizualization of ($p > 3$) multivariate data sets. This paper discusses the *R* package *spinifex*, which adds support for the manual tour, which is particularly usefuly for exploring the local structure after identifying a feature of interest, perhaps via guided tour. Additionally, *spinifex* extends graphic outputs to *plotly* and *gganimation*. This work extends the functionality of and is compatible with *tourr*.
+Touring techniques offer a great opportunity for data-space visualizations of ($\textbf{X} \in \mathbb{R}^p,~p > 3$) multivariate data sets. This paper discusses the *R* package *spinifex*, which adds support for the manual tour, which is particularly usefully for exploring the local structure after identifying a feature of interest, perhaps via guided tour. Additionally, *spinifex* extends graphic outputs to *plotly* and *gganimation*. This work extends the functionality of and is compatible with *tourr*.
 
-Keywords: grand tour, projection pursuit, manual tour, tourr, touring, high dimenson visualization, hihg dim vis, dimensionality reduction, visualization, statistical graphics, data-space.
+Keywords: grand tour, projection pursuit, manual tour, tourr, touring, high dimensional visualization, high dim vis, dimensionality reduction, visualization, statistical graphics, data-space.
 
 
 ## Introduction
 
-Both classical and contemorary visualizations of data are presented in two dimensions, that of a computer monitor or in print. How is it that we come to view and share data that exsists in $p > 3$ dimensions? In an appeal to brievity we shall ignore model and parameter summarization due to there shortcomings [@anscombe_graphs_1973; @matejka_same_2017]. Within the realm of data-space visualization we are left with projecting higher volumes and embedding them within lower dimensional spaces that we can vizualize.
+Both classical and contemporary visualizations of data are presented in ($d=2$) two dimensions, that of a computer monitor or in print. How is it that we come to view and share data that exists in $p > 3$ dimensions? In an appeal to brevity we shall ignore model and parameter summarization due to there shortcomings [@anscombe_graphs_1973; @matejka_same_2017]. Within the realm of data-space visualization we are left with projecting higher volumes and embedding them within lower dimensional spaces that we can visualize.
 
-This is not a new phenomena, such linear projections have been in use for quite some time. [@pearson_liii._1901; @fisher_use_1936] and the myriad of single value deconcomposistion (SVD) techniques from numerous disciplines use such embeddings. Previous application look at data in one (or few) static orientations, after some objective optimization. For instance in PCA, we reorient $p$-dimensions such that we have a reference to the ordered components that describe a descending ammount of variation held within the data. Yet we still have $p$ components remaining to visualize. Where does the dimension reduction come in? From plotting only the first two or three and potenially another dimension tied to data point asthetic. This is maximizes the ammount of variation that can be display in an emedding, but regually discards a large proportion of the variation held within the data.
+This is not a new phenomena, such linear projections have been in use for quite some time. [@pearson_liii._1901; @fisher_use_1936] and the myriad of single value decomposition (SVD) techniques from numerous disciplines use such embeddings. Previous application look at data in one (or few) static orientations, after some objective optimization. For instance in PCA, we reorient $p$-dimensions such that we have a reference to the ordered components that describe a descending amount of variation held within the data. Yet we still have $p$ components remaining to visualize. Where does the dimension reduction come in? From plotting only the first two or three and potentially another dimension tied to data point aesthetic. This is maximizes the amount of variation that can be display in an embedding, but regularly discards a large proportion of the variation held within the data.
 
-More recently non-linear dimensionality techniques have become popular, such as t-distributed stchocastic neighbor embedding (t-SNE) [@maaten_visualizing_2008], building off of sammon mappings [@sammon_nonlinear_1969]. Such non-linear methods make for astounding distinction when in low $d$ embeddings, but contain inhearant shortcomings. Namely: that the non-linear tranformations break inter-operability back to the original data-space, and that they can suffer from overfitting. If there is no inherent clustering with the data, it's posible that noise within the variables may become the proment feature and be displayed erroneously as group clustering.
+More recently non-linear dimensionality techniques have become popular, such as t-distributed stochastic neighbor embedding (t-SNE) [@maaten_visualizing_2008], building off of Sammon mappings [@sammon_nonlinear_1969]. Such non-linear methods make for astounding distinction when in lower embeddings, but contain inherent shortcomings. Namely: that the non-linear transformations break inter-operability back to the original data-space, and that they can suffer from overfitting. If there is no inherent clustering with the data, it's possible that noise within the variables may become the prominent feature and be displayed erroneously as group clustering.
 
-[@asimov_grand_1985; @buja_grand_1986] suggested grand tours in which random walks in $p$-space can be interpolated and embedded in $d$ dimensions which are then viewed in sequence. The broader scope of touring has some beneficial features, namely: touring keeps the original dimensionality in tact unlike tradition static linear-projections, and maintains inter-operabilty in the orginal dimensions, a primary drawback of non-linear dimensionality reduction.
+TODO: Clean up touring, , below
 
-TODO: clean up above, talk about what 
+[@asimov_grand_1985; @buja_grand_1986] first suggested grand tours in which random walks in $p$-space can be interpolated and embedded in $d$ dimensions which are then viewed in sequence. Imagine. Consider, 
 
-## Terminology and demystifying projection:
 
-TODO: clean up the terminology section
+The broader scope of touring has some beneficial features, namely: touring keeps the original dimensionality in tact unlike tradition static linear-projections, and maintains inter-operability back to the original dimensions, a primary drawback of non-linear dimensionality reduction.
 
-basis, data, n, p, d, 
+TODO: clean up above, talk about touring in general first
 
-Suppose that we have tri-variate data, $\textbf{X}_{[8,~3]}$, the corners points of a rectanguloid. We can describe the relative orientation by defining 
+<!-- ## Terminology and demystifying projection: -->
+<!-- TODO: clean up the terminology section -->
+<!-- basis, data, n, p, d,  -->
 
-For every $p$-dimensional space can be described by the direction and magnitude of axes in a square matrix that we call a basis. Imgine 3 axes of an XYZ Caresian volume (*ie.* a basis $\in \mathbb{R}^p$). In matimatical form we would write this as a diagonal identity matrix of demension 3.
+<!-- Suppose that we have tri-variate data, $\textbf{X}_{[8,~3]}$, the corners points of a rectanguloid. We can describe the relative orientation by defining  -->
 
-```{r}
-# b <- diag(3)
-# xyz <- c("X", "Y", "Z")
-# rownames(b) <- xyz
-# colnames(b) <- xyz
-# b
-```
+<!-- For every $p$-dimensional space can be described by the direction and magnitude of axes in a square matrix that we call a basis. Imgine 3 axes of an XYZ Caresian volume (*ie.* a basis $\in \mathbb{R}^p$). In matimatical form we would write this as a diagonal identity matrix of demension 3. -->
 
-This basis has some nice properties that are mathimatically nice to preserve, namely, that each axis as is at a right angle to the other (*orthagonal*), and are unit *normal* (length or norm equal to one). If matrix meets both of these criteria we call it *orthonormal*.
+<!-- ```{r} -->
+<!-- # b <- diag(3) -->
+<!-- # xyz <- c("X", "Y", "Z") -->
+<!-- # rownames(b) <- xyz -->
+<!-- # colnames(b) <- xyz -->
+<!-- # b -->
+<!-- ``` -->
 
-```{r}
-# set.seed(15)
-# library(plotly)
-# library(processx)
-# X = 9*runif(100) # X = 9*c(0,1,1,0,0,1,1,0)
-# Y = 6*runif(100) # Y = 6*c(0,0,1,1,0,0,1,1)
-# Z = 2*runif(100) # Z = 2*c(0,0,0,0,1,1,1,1)
-# 
-# p <- plot_ly(x=X, y=Y, z=Z, type="scatter3d", mode="markers")
-# ###STATIC OUTPUT REQURIES ORCA SETUP, NOT TRANsFERABLE...
-# # orca(p, "cube_demo.png") # but, needs orca setup, 
-# # plotly_IMAGE(p, format = "png", out_file = "output.png")
-```
+<!-- This basis has some nice properties that are mathimatically nice to preserve, namely, that each axis as is at a right angle to the other (*orthagonal*), and are unit *normal* (length or norm equal to one). If matrix meets both of these criteria we call it *orthonormal*. -->
+
+<!-- ```{r} -->
+<!-- # set.seed(15) -->
+<!-- # library(plotly) -->
+<!-- # library(processx) -->
+<!-- # X = 9*runif(100) # X = 9*c(0,1,1,0,0,1,1,0) -->
+<!-- # Y = 6*runif(100) # Y = 6*c(0,0,1,1,0,0,1,1) -->
+<!-- # Z = 2*runif(100) # Z = 2*c(0,0,0,0,1,1,1,1) -->
+<!-- #  -->
+<!-- # p <- plot_ly(x=X, y=Y, z=Z, type="scatter3d", mode="markers") -->
+<!-- # ###STATIC OUTPUT REQURIES ORCA SETUP, NOT TRANsFERABLE... -->
+<!-- # # orca(p, "cube_demo.png") # but, needs orca setup,  -->
+<!-- # # plotly_IMAGE(p, format = "png", out_file = "output.png") -->
+<!-- ``` -->
 
 
 ## Manual tour
 
-Let's explore the process behind the manual tour
+The manual tour[@cook_manual_1997; @cook_grand_2008] allows the user rotate a specified manipulation variable into and out of the current projection. This reveals the extent that this variable contributes to the current structure of the projection. In an appeal to the so called curse/blessing of dimensionality, volume contained within $\mathbb{R}^p$ increases exponentially as $p$ increases. Exploring $p$-space by defining specific rotations on specific variables quickly becomes time-prohibited.
+
+However, manual touring can be particularly useful in exploring the local structure once a feature of interest has been identified. Features of interest can be quickly identified by a guided tour[@hurley_analyzing_1990]. In guided tours an index of interest is defined and gradient descent is performed on the projection, analogous to projection pursuit [@friedman_projection_1974]. 
+
+Let's explore the process behind the manual tour:
 
 Given:
 \begin{description}
-  \item[$\textbf{X}_{[n,~p]}$] A dataset contaning $n$ observations of $p$ numeric variables. 
-  \item[$\textbf{B}_{[p,~d]}$] An orthonormal \footnote{Where each variable is both: orthagonal, at right angles (dot product is 0) to the other variabels, and unit vectors, a norm = 1} basis describing the current orientation projecting $p$ down to $d$ dimension.
+  \item[$\textbf{X}_{[n,~p]}$] A data set containing $n$ observations of $p$ numeric variables. 
+  \item[$\textbf{B}_{[p,~d]}$] An orthonormal \footnote{Where each variable is both: orthogonal, at right angles (dot product is 0) to the other variables, and unit vectors, a norm = 1} basis describing the current orientation projecting $p$ down to $d$ dimension.
 \end{description}
 
 \begin{align*}
@@ -89,20 +110,14 @@ Given:
   \end{bmatrix}
 \end{align*}
 
-<!-- Let: -->
-<!-- \begin{description} -->
-<!--   \item[$d=2$] For the sake of illustration. -->
-<!-- \end{description} -->
-TODO: move this down to a usage example.
+For ease of computation we will be working mostly with the basis and not the data, once basis manipulation is done post multiply the data by the basis to get back to data-space.  
 
-For ease of computation we will be wroking mostly with the basis and not the data, once basis manipulation is done postmultiply the data by the basis to get back to data-space.  
-
-Select a manipulation variable, $k$. Initialize a zero vector $e$, and set the $k$-th element set to 1. Use the Gram-Schmidt process to orthornormalize the concatenation of the basis and $e$ yielding the manipulation space.
+Select a manipulation variable, $k$. Initialize a zero vector $e$, and set the $k$-th element set to 1. Use the Gram-Schmidt process to orthonormalize the concatenation of the basis and $e$ yielding the manipulation space.
 
 \begin{align*}
   \textbf{M}_{[p,~d+1]}
-  &= Orthnormalize_{GS}( \textbf{B}_{[p,~d]}|\textbf{e}_{k~[p,~1]} ) \\
-  &= Orthnormalize_{GS}
+  &= Orthonormalize_{GS}( \textbf{B}_{[p,~d]}|\textbf{e}_{k~[p,~1]} ) \\
+  &= Orthonormalize_{GS}
   \left(
     \begin{bmatrix}
       B_{1,~1} & \dots  & B_{1,~d} \\
@@ -124,18 +139,19 @@ Select a manipulation variable, $k$. Initialize a zero vector $e$, and set the $
   \right)
 \end{align*}
 
-TODO: clean up the langue of phi, tie to manip var.
+TODO: (below) clean up the language of phi, tie to manipulation var. Make sure to paint the picture for the  Z-direction of manip_sp. 
 
-Select a vector $\phi_i$, the angle of out-of plane rotation, orthagonal to the projection plane (relative to $\phi_1$, the transformation $\phi_i$ - $\phi_1$ proved to be helpful to discuss $\phi$ relative to the Z axis). 
+Select a vector $\phi_i$, the angle of out-of plane rotation, orthogonal to the projection plane (relative to $\phi_1$, the transformation $\phi_i$ - $\phi_1$ proved to be helpful to discuss $\phi$ relative to the Z axis). 
 
 **For ** $i$ **in 1 to n_slides:**
 <!-- Don't fix the above, it's not going to happen... -->
 
-For each $\phi_i$, postmultiply the manipulation space by a rotation matrix,  producing as many basis-projections.
+For each $\phi_i$, post multiply the manipulation space by a rotation matrix,  producing as many basis-projections.
 
 \begin{align*}
   \textbf{P}_{b[p,~d+1,~i]}
-  &= \textbf{M}_{[p,~d+1]} ~*~ \textbf{R}_{[d+1,~d+1]} \\
+  &= \textbf{M}_{[p,~d+1]} ~*~ \textbf{R}_{[d+1,~d+1]} 
+    ~~~~~~~~~~~~~~~~~~~\text{For the $d=2$ case:} \\
   &= \begin{bmatrix}
     M_{1,~1} & M_{1,~2} & M_{1,~3} \\
     M_{2,~1} & M_{2,~2} & M_{2,~3} \\
@@ -155,19 +171,19 @@ For each $\phi_i$, postmultiply the manipulation space by a rotation matrix,  pr
     c_\phi
   \end{bmatrix}_{[3,~3]}
 \end{align*}
-For the $d=2$ case.
+
 
 Where:
 \begin{description}
   \item[$\theta$] is the angle that lies on the projection plane ($ie.$ on the XY plane)
-  \item[$\phi$] is the angle orthagonal to the projection plane ($ie.$ in the Z direction)
+  \item[$\phi$] is the angle orthogonal to the projection plane ($ie.$ in the Z direction)
   \item[$c_\theta$] is the cosine of $\theta$
   \item[$c_\phi$]   is the cosine of $\phi$
   \item[$s_\theta$] is the sine of   $\theta$
   \item[$s_\phi$]   is the sine of   $\phi$
 \end{description}
 
-To get back to data-space post multply each projection basis by the data, for  the data projection.
+To get back to data-space post multiply each projection basis by the data, for  the data projection.
 
 \begin{align}
   \textbf{P}_{d[n,~d+1]}
@@ -187,34 +203,43 @@ To get back to data-space post multply each projection basis by the data, for  t
     \end{bmatrix}_{b[p,~d+1]}
 \end{align}
 
-Plot the first two variables from each projection in sequence for an XY scatterplot. The remaining variable is sometimes linked to a data point asethetic to produce depth cues used in conjunction with the XY scatterplot.
+Plot the first two variables from each projection in sequence for an XY scatterplot. The remaining variable is sometimes linked to a data point aesthetic to produce depth cues used in conjunction with the XY scatterplot.
 
 
 ## Usage
 
 ### Flea
 
-Let's start off with the flea dataset from the R package *tourr* [@wickham_tourr_2011], which offers other tours of the flea dataset. The flea data contains 74 observations of flea bettles across 6-physical mesurement variables. Each observation belongs to one of three spieces being observered.
+Let's start off with the flea data set from the R package *tourr* [@wickham_tourr_2011], which performs different tours on the same data. The flea data contains 74 observations of flea beetles across 6 variables, physical measurements of the flea. Each individual belonged to one of three species being observed.
 
-The data exisits in $p=6$ dimensions, for ease of illustration let $d=2$ we need a basis, describing the projection from 6 down to 2 dimensions. Let's find an initial basis to work with doing a guided tour from the *tourr*, using pca as the index, stochastic gradent descent optimizing the variation explained in the two dimensional embedding. Let's see
+Let:
+\begin{description}
+  \item[$d=2$] For the sake of illustration we'll embed into two dimensions.
+\end{description}
 
-```{r}
+Given:
+\begin{description}
+  \item[$\bf{X}_{[74,~6]}$] Flea data, 74 observations by 6 variables, $\bf{X} \in \mathbb{R}^6, ~p=6$.
+  \item[$p=6$]
+\end{description}
+
+Let's initialize a random orthonormal basis of dimensions [$p,~d$], which describes a random orientation projected from six down to two dimensions. Check how each of the dimensions is contributing the XY components with `view_basis()`
+
+```{r, fig.cap="Random basis, flea data"}
 library(spinifex)
-library(tourr)
 
-flea_std <- tourr::rescale(flea[, 1:6])
-tpath <- tourr::save_history(flea_std, tourr::guided_tour(tourr::cmass))
-play_tour(tour = tpath, data = flea_std)
+flea_std <- rescale(flea[, 1:6])
+rb <- basis_random(ncol(flea_std), 2)
+view_basis(rb, colnames(flea_std)) 
 ```
 
-We'll select the the third variable, *head*, currently not contributing to the projection to manually 
+```{r, fig.cap="Random basis, flea data"}
+library(spinifex)
 
-```{r}
-mtour <- manual_tour(ib, manip_var = 3)
-create_slides(tour = mtour, data = flea_std)
+flea_std <- rescale(flea[, 1:6])
+rb <- basis_random(ncol(flea_std), 2)
+view_basis(rb, colnames(flea_std)) 
 ```
-
-
 
 
 ### Breast Cancer
@@ -223,11 +248,16 @@ Let's apply a manual tour to the Wisconsin Breast Cancer Database, formated from
 
 ```{r}
 library(spinifex)
-library(tourr)
-str(spinifex::breastcancer)
+str(breastcancer)
 
-bc_std <- tourr::rescale(breastcancer[,2:9])
-ib <- tourr::basis_init(n = ncol(bc_std), 2)
-view_basis(ib)
+bc_std <- rescale(breastcancer[, 2:9])
+
+# tpath <- save_history(bc_std, guided_tour(tourr::pca) )
+# play_tour(tour = tpath, data = bc_std, render_type = render_plotly)
+
+#   # plotly obj gives a static image.
+# play_tour(tour = tpath, data = flea_std, render_type = render_gganimate)
+#   # gganimate throws:   Error: Unsupported device
 ```
-  TODO: PDF output is a static image w/ play slider.
+
+TODO: Address figure output. PDF output is a static image w/ play slider.
