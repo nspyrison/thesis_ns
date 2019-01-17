@@ -616,6 +616,10 @@ Let's initialize a random orthonormal basis of dimensions
 down to two dimensions. Check how each of the dimensions is contributing
 the XY components with \texttt{view\_basis()}
 
+TODO: reference fig 1, keep in mind that the figure floats more than the
+table. TODO: consider adding a \texttt{view\_manip\_sp} function with
+phi and theata, etc.
+
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/unnamed-chunk-1-1.pdf}
@@ -632,21 +636,30 @@ the XY components with \texttt{view\_basis()}
 ## [6,] -0.02704  0.03259 0.04235 -0.8783
 \end{verbatim}
 
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/unnamed-chunk-2-1.pdf}
-\caption{\label{fig:unnamed-chunk-2}Random basis, flea data}
-\end{figure}
+Perform a manual tour on the random basis with \texttt{manual\_tour()},
+We'll arbitratrily choose the 4th variable, aede1, and let the default
+selection of \texttt{phi} go from it's start, to 0 radians, to pi/2
+radians, and back to the start position. In turn the norm of
+manipualtion variable goes to 1 and then 0, before returning to it's
+inital position.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtour <-}\StringTok{ }\KeywordTok{manual_tour}\NormalTok{(}\DataTypeTok{basis =}\NormalTok{ rb, }\DataTypeTok{manip_var =} \DecValTok{4}\NormalTok{)}
+\NormalTok{mslides <-}\StringTok{ }\KeywordTok{create_slides}\NormalTok{(}\DataTypeTok{tour =}\NormalTok{ mtour, }\DataTypeTok{data =}\NormalTok{ flea_std)}
+
+\KeywordTok{render_plotly}\NormalTok{(mslides)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
-##             X        Y norm_XY   theta
-## [1,]  0.14689 -0.07195  0.1636 -0.4555
-## [2,] -0.32013  0.54295  0.6303 -1.0380
-## [3,]  0.49601  0.21246  0.5396  0.4047
-## [4,]  0.65298  0.30858  0.7222  0.4415
-## [5,] -0.44751  0.18089  0.4827 -0.3841
-## [6,]  0.05723 -0.72591  0.7282 -1.4921
+## Warning: Only one `frame` variable is allowed
 \end{verbatim}
+
+\includegraphics{thesis_files/figure-latex/unnamed-chunk-2-1.pdf} TODO:
+write follow up and segway into breast cancer; play\_tour (holes),
+explore local area. TODO: note that render\_plotly didn't add the figure
+caption.
 
 \subsection{Breast Cancer}\label{breast-cancer}
 
@@ -667,6 +680,81 @@ formated from the machine learning benchmarking data sets in the
 ##  $ Normal.nucleoli: num  1 2 1 7 1 7 1 1 1 1 ...
 ##  $ Class          : Factor w/ 2 levels "benign","malignant": 1 1 1 1 1 2 1 1 1 1 ...
 \end{verbatim}
+
+\begin{verbatim}
+## Value 0.265 4.2% better (0.294 away) - NEW BASIS
+## Value 0.288 13.3% better (0.616 away) - NEW BASIS
+## Value 0.334 16.1% better (0.685 away) - NEW BASIS
+## Value 0.382 14.3% better (0.733 away) - NEW BASIS
+## Value 0.427 11.8% better (0.602 away) - NEW BASIS
+## Value 0.445 4.2% better (0.431 away) - NEW BASIS
+## Value 0.463 4.1% better (0.535 away) - NEW BASIS
+## Value 0.465 0.5% better (0.127 away) - NEW BASIS
+## Value 0.469 0.7% better (0.198 away) - NEW BASIS
+## Value 0.470 0.1% better (0.055 away) - NEW BASIS
+## Value 0.472 0.6% better (0.253 away) - NEW BASIS
+## Value 0.473 0.1% better (0.056 away)
+## Value 0.473 0.1% better (0.063 away)
+## Value 0.473 0.0% better (0.030 away)
+## Value 0.473 0.1% better (0.067 away)
+## Value 0.473 0.0% better (0.035 away)
+## Value 0.473 0.1% better (0.090 away) - NEW BASIS
+## Value 0.473 0.0% better (0.033 away)
+## Value 0.473 0.1% better (0.062 away)
+## Value 0.473 0.1% better (0.064 away)
+## Value 0.474 0.1% better (0.071 away)
+## Value 0.473 0.1% better (0.038 away)
+## Value 0.473 0.0% better (0.020 away)
+## Value 0.474 0.1% better (0.060 away)
+## Value 0.473 0.0% better (0.026 away)
+## Value 0.473 0.0% better (0.032 away)
+## Value 0.474 0.1% better (0.098 away) - NEW BASIS
+## Value 0.474 0.1% better (0.066 away) - NEW BASIS
+## Value 0.475 0.1% better (0.088 away)
+## Value 0.474 0.0% better (0.024 away)
+## Value 0.474 0.0% better (0.024 away)
+## Value 0.474 0.0% better (0.038 away)
+## Value 0.474 0.0% better (0.033 away)
+## Value 0.474 0.0% better (0.032 away)
+## Value 0.474 0.0% better (0.026 away)
+## Value 0.474 0.0% better (0.025 away)
+## Value 0.474 0.0% better (0.035 away)
+## Value 0.474 0.0% better (0.022 away)
+## Value 0.474 0.0% better (0.044 away)
+## Value 0.474 0.0% better (0.036 away)
+## Value 0.475 0.1% better (0.062 away)
+## Value 0.474 0.0% better (0.030 away)
+## Value 0.474 0.0% better (0.024 away)
+## Value 0.474 0.0% better (0.041 away)
+## Value 0.474 0.0% better (0.037 away)
+## Value 0.474 0.0% better (0.022 away)
+## Value 0.474 0.0% better (0.046 away)
+## Value 0.474 0.0% better (0.039 away)
+## Value 0.474 0.0% better (0.038 away)
+## Value 0.474 0.0% better (0.027 away)
+## Value 0.474 0.0% better (0.045 away)
+## Value 0.475 0.1% better (0.051 away)
+## No better bases found after 25 tries.  Giving up.
+## Final projection: 
+## 0.909  -0.056  
+## -0.089  0.473  
+## 0.044  0.372  
+## 0.055  0.321  
+## 0.285  0.161  
+## -0.054  0.537  
+## 0.268  0.253  
+## -0.067  0.392
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Only one `frame` variable is allowed
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/unnamed-chunk-3-1.pdf}
+\caption{\label{fig:unnamed-chunk-3}Holes tour, breast cancer data}
+\end{figure}
 
 TODO: Address figure output. PDF output is a static image w/ play
 slider.

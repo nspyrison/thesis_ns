@@ -42,10 +42,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4.2}Breast Cancer}{16}{subsection.3.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Display dimensionality}{17}{chapter.4}
+\contentsline {chapter}{\numberline {4}Display dimensionality}{21}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{19}{chapter.5}
+\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{23}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Additional stuff}{21}{appendix.A}
+\contentsline {chapter}{\numberline {A}Additional stuff}{25}{appendix.A}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{23}{appendix*.8}
+\contentsline {chapter}{Bibliography}{27}{appendix*.8}
