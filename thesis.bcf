@@ -2051,6 +2051,12 @@
     <bcf:citekey order="53">sammon_nonlinear_1969</bcf:citekey>
     <bcf:citekey order="54">asimov_grand_1985</bcf:citekey>
     <bcf:citekey order="55">buja_grand_1986</bcf:citekey>
+    <bcf:citekey order="56">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="57">cook_grand_2008</bcf:citekey>
+    <bcf:citekey order="58">hurley_analyzing_1990</bcf:citekey>
+    <bcf:citekey order="59">friedman_projection_1974</bcf:citekey>
+    <bcf:citekey order="60">wickham_tourr_2011</bcf:citekey>
+    <bcf:citekey order="61">leisch_mlbench:_2010</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

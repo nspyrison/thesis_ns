@@ -83,12 +83,7 @@ chapter: 1
 knit: "bookdown::render_book"
 ---
 
-```{r setup_01, include = FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, cache = TRUE)
-# Load any R packages you need here
-library(forecast)
-library(ggplot2)
-```
+
 
 # Introduction {#ch:intro}
 
@@ -238,19 +233,7 @@ chapter: 3
 knit: "bookdown::render_book"
 ---
 
-```{r setup_03, include=FALSE,}
-knitr::opts_chunk$set(
-  echo = TRUE, 
-  fig.width = 6, 
-  fig.asp = 1/1.61, 
-  fig.align = "center",
-  message = FALSE,
-  warning = FALSE,
-  collapse = TRUE,
-  comment = "",
-  cache = FALSE
-)
-```
+
 
 # *spinifex*: extending *tourr* with manual tours and graphic display {#ch:spinifex}
 
@@ -460,20 +443,28 @@ Given:
 
 Let's initialize a random orthonormal basis of dimensions [$p,~d$], which describes a random orientation projected from six down to two dimensions. Check how each of the dimensions is contributing the XY components with `view_basis()`
 
-```{r, fig.cap="Random basis, flea data"}
-library(spinifex)
+![(\#fig:unnamed-chunk-1)Random basis, flea data](thesis_files/figure-latex/unnamed-chunk-1-1.pdf) 
 
-flea_std <- rescale(flea[, 1:6])
-rb <- basis_random(ncol(flea_std), 2)
-view_basis(rb, colnames(flea_std)) 
+```
+##             X        Y norm_XY   theta
+## [1,]  0.08073  0.45268 0.45982  1.3943
+## [2,]  0.49166 -0.68137 0.84023 -0.9457
+## [3,]  0.35320 -0.24222 0.42828 -0.6011
+## [4,]  0.76457  0.51785 0.92344  0.5953
+## [5,]  0.20421 -0.05406 0.21125 -0.2588
+## [6,] -0.02704  0.03259 0.04235 -0.8783
 ```
 
-```{r, fig.cap="Random basis, flea data"}
-library(spinifex)
+![(\#fig:unnamed-chunk-2)Random basis, flea data](thesis_files/figure-latex/unnamed-chunk-2-1.pdf) 
 
-flea_std <- rescale(flea[, 1:6])
-rb <- basis_random(ncol(flea_std), 2)
-view_basis(rb, colnames(flea_std)) 
+```
+##             X        Y norm_XY   theta
+## [1,]  0.14689 -0.07195  0.1636 -0.4555
+## [2,] -0.32013  0.54295  0.6303 -1.0380
+## [3,]  0.49601  0.21246  0.5396  0.4047
+## [4,]  0.65298  0.30858  0.7222  0.4415
+## [5,] -0.44751  0.18089  0.4827 -0.3841
+## [6,]  0.05723 -0.72591  0.7282 -1.4921
 ```
 
 
@@ -481,18 +472,19 @@ view_basis(rb, colnames(flea_std))
 
 Let's apply a manual tour to the Wisconsin Breast Cancer Database, formated from the machine learning benchmarking data sets in the *R* package [@leisch_mlbench:_2010].
 
-```{r}
-library(spinifex)
-str(breastcancer)
 
-bc_std <- rescale(breastcancer[, 2:9])
-
-# tpath <- save_history(bc_std, guided_tour(tourr::pca) )
-# play_tour(tour = tpath, data = bc_std, render_type = render_plotly)
-
-#   # plotly obj gives a static image.
-# play_tour(tour = tpath, data = flea_std, render_type = render_gganimate)
-#   # gganimate throws:   Error: Unsupported device
+```
+## Classes 'tbl_df', 'tbl' and 'data.frame':	675 obs. of  10 variables:
+##  $ Id             : Factor w/ 630 levels "1000025","1002025",..: 1 4 5 6 8 9 10 11 15 15 ...
+##  $ Cl.thickness   : num  5 5 3 6 4 8 1 2 2 4 ...
+##  $ Cell.size      : num  1 4 1 8 1 10 1 1 1 2 ...
+##  $ Cell.shape     : num  1 4 1 8 1 10 1 2 1 1 ...
+##  $ Marg.adhesion  : num  1 5 1 1 3 8 1 1 1 1 ...
+##  $ Epith.c.size   : num  2 7 2 3 2 7 2 2 2 2 ...
+##  $ Bare.nuclei    : num  1 10 2 4 1 10 10 1 1 1 ...
+##  $ Bl.cromatin    : num  3 3 3 3 3 9 3 3 1 2 ...
+##  $ Normal.nucleoli: num  1 2 1 7 1 7 1 1 1 1 ...
+##  $ Class          : Factor w/ 2 levels "benign","malignant": 1 1 1 1 1 2 1 1 1 1 ...
 ```
 
 TODO: Address figure output. PDF output is a static image w/ play slider.

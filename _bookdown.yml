@@ -14,3 +14,4 @@ rmd_files: ["index.Rmd",
   "05-HCI_3d_tours.Rmd",
   "A-appA.Rmd"
   ]
+delete_merged_file: TRUE
