@@ -28,24 +28,40 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.2}Virtual reality}{8}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}\emph {spinifex}: extending \emph {tourr} with manual tours and graphic display}{9}{chapter.3}
+\contentsline {chapter}{\numberline {3}\emph {spinifex}: An R package that provides manual rotations in high-dimensions}{9}{chapter.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}Abstract}{9}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Introduction}{9}{section.3.2}
+\contentsline {section}{\numberline {3.2}Introduction}{10}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Manual tour}{11}{section.3.3}
+\contentsline {section}{\numberline {3.3}Manual tour algorithm}{11}{section.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Usage}{14}{section.3.4}
+\contentsline {subsection}{\numberline {3.3.1}Notation}{11}{subsection.3.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.1}Flea}{14}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.3.2}Step 1 Choose variable of interest}{12}{subsection.3.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.2}Breast Cancer}{16}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.3.3}Step 2 Create the manip space}{12}{subsection.3.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Display dimensionality}{21}{chapter.4}
+\contentsline {subsection}{\numberline {3.3.4}Step 3 Generate rotation}{13}{subsection.3.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{23}{chapter.5}
+\contentsline {section}{\numberline {3.4}Display projection sequence}{14}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Additional stuff}{25}{appendix.A}
+\contentsline {section}{\numberline {3.5}Usage}{15}{section.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{27}{appendix*.8}
+\contentsline {subsection}{\numberline {3.5.1}Installation}{15}{subsection.3.5.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.2}Flea}{15}{subsection.3.5.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.6}Application}{16}{section.3.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.7}Source}{16}{section.3.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.8}Discussion}{16}{section.3.8}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Display dimensionality}{19}{chapter.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{21}{chapter.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Additional stuff}{23}{appendix.A}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{25}{appendix*.7}
