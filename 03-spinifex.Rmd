@@ -246,9 +246,11 @@ To get back to data-space post multiply each projection basis by the data, for  
 Plot the first two variables from each projection in sequence for an XY scatterplot. The remaining variable is sometimes linked to a data point aesthetic to produce depth cues used in conjunction with the XY scatterplot.
 
 
-## Usage
+## Applcation
 
 ### Installation
+
+spinifex is open source, and 
 
 ### Flea
 
@@ -268,7 +270,7 @@ Given:
 Let's initialize a random orthonormal basis of dimensions [$p,~d$], which describes a random orientation projected from six down to two dimensions. Check how each of the dimensions is contributing the XY components with `view_basis()`
 
 TODO: reference fig 1, keep in mind that the figure floats more than the table.
-TODO: consider adding a `view_manip_sp` function with phi and theata, etc.
+TODO: consider adding a `view_manip_sp()` function with phi and theata, etc.
 
 ```{r, fig.cap = "Random basis, flea data"}
 library(spinifex)
@@ -291,17 +293,21 @@ render_plotly(mslides)
 
 ## Application
 
+apply manual tours to Ursula fig 1 here:
 NOTE: Examples from https://arxiv.org/abs/1806.09742
 
 ## Source
 
-Put web address of code
+The code used to generate this chapter can be found on [GitHub] (https://github.com/nspyrison/Confirmation/blob/master/03-spinifex.Rmd).
+
+
+
 
 ## Discussion
 
 Future work:
 
 - other rotation mechanisms like Givens and Householder
-- oblique, horizontal, vertical
+- oblique should be defined.
 - other display types, would work for 1D displays, but others would need redefinition difference dimensions
 - shiny app, for choosing manip variable, providing different starting projections
