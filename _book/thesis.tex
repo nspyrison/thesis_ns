@@ -35,14 +35,12 @@ projections and sectioning across 2D and 3D display devices},
 
 {\setstretch{1.2}\sf\tighttoc\doublespacing}
 
-\hypertarget{acknowledgements}{%
-\chapter*{Acknowledgements}\label{acknowledgements}}
+\chapter*{Acknowledgements}\label{acknowledgements}
 \addcontentsline{toc}{chapter}{Acknowledgements}
 
 I would like to thank \dots
 
-\hypertarget{declaration}{%
-\chapter*{Declaration}\label{declaration}}
+\chapter*{Declaration}\label{declaration}
 \addcontentsline{toc}{chapter}{Declaration}
 
 I hereby declare that this thesis contains no material which has been
@@ -54,8 +52,7 @@ thesis.
 
 \vspace*{2cm}\par\authorname
 
-\hypertarget{preface}{%
-\chapter*{Preface}\label{preface}}
+\chapter*{Preface}\label{preface}
 \addcontentsline{toc}{chapter}{Preface}
 
 The material in Chapter \ref{ch:intro} has been submitted to
@@ -65,16 +62,14 @@ The contribution in Chapter \ref{ch:spinifex} of this thesis was
 presented in the super awesome confrence held in Dublin, Ireland, in
 July 2015.
 
-\hypertarget{abstract}{%
-\chapter*{Abstract}\label{abstract}}
+\chapter*{Abstract}\label{abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
 This thesis is about \ldots{}
 
 \clearpage\pagenumbering{arabic}\setcounter{page}{0}
 
-\hypertarget{ch:intro}{%
-\chapter{Introduction}\label{ch:intro}}
+\chapter{Introduction}\label{ch:intro}
 
 This is where you introduce the main ideas of your thesis, and an
 overview of the context and background.
@@ -87,14 +82,11 @@ research, and so on. Appendixes can contain additional material that
 don't fit into any chapters, but that you want to put on record. For
 example, additional tables, output, etc.
 
-\hypertarget{ch:lit_review}{%
-\chapter{Literature review}\label{ch:lit_review}}
+\chapter{Literature review}\label{ch:lit_review}
 
-\hypertarget{sec:tour}{%
-\section{Touring}\label{sec:tour}}
+\section{Touring}\label{sec:tour}
 
-\hypertarget{overview}{%
-\subsection{Overview}\label{overview}}
+\subsection{Overview}\label{overview}
 
 In univariate data sets histograms, or smoothed density curves are
 employed to visualize data. In bivariate data scatterplots and contour
@@ -145,14 +137,12 @@ rotates then the shadow correspondingly changes. Observers watching only
 the shadow are functionally watching a 2-dimensional tour as the
 3-dimensional object is manipulated.
 
-\hypertarget{terminology}{%
-\subsubsection{Terminology}\label{terminology}}
+\subsubsection{Terminology}\label{terminology}
 
 n, p (sometimes called d by Wegman, or n ), d (sometimes called k by
 wegman, or d in tourr)
 
-\hypertarget{history}{%
-\subsection{History}\label{history}}
+\subsection{History}\label{history}
 
 Touring was first introduced by Asimov in 1985 with his purposed Grand
 Tour\autocite{asimov_grand_1985} at Stanford University. In which,
@@ -174,8 +164,7 @@ of dimensionality. In which the plethora of degrees of freedom either
 offer many (non-unique) solutions to a problem or something that becomes
 ever increasing unlikely,
 
-\hypertarget{tour-path}{%
-\subsection{Tour path}\label{tour-path}}
+\subsection{Tour path}\label{tour-path}
 
 A fundamental aspect of touring is the path of rotation. Of which there
 are four primary distinctions\autocite{buja_computational_2005}: random
@@ -256,9 +245,8 @@ choice, precomputed choice, data driven, and manual control.
   \end{itemize}
 \end{itemize}
 
-\hypertarget{geometrics-and-display-dimension}{%
 \subsection{Geometrics and display
-dimension}\label{geometrics-and-display-dimension}}
+dimension}\label{geometrics-and-display-dimension}
 
 Up to this point we have been talking about 2d scatterplots, which offer
 the first and a simple case for viewing lower-dimensional embeddings of
@@ -332,8 +320,7 @@ orthonormal projections as well.
   \end{itemize}
 \end{itemize}
 
-\hypertarget{aplication}{%
-\subsection{Aplication}\label{aplication}}
+\subsection{Aplication}\label{aplication}
 
 Below is a non-exhaustive list of software implementing touring in some
 degree, ordered by descending year:
@@ -374,16 +361,13 @@ approachable as a data exploration tool {[}\textcite{huh_davis:_2002};
 \textcite{swayne_ggobi:_2003}; \textcite{wegman_visual_2003};
 \textcite{wickham_tourr_2011}; huang\_tourrgui:\_2012{]}.
 
-\hypertarget{virtual-reality}{%
-\section{Virtual reality}\label{virtual-reality}}
+\section{Virtual reality}\label{virtual-reality}
 
-\hypertarget{ch:spinifex}{%
 \chapter{\texorpdfstring{\emph{spinifex}: An R package that provides
 manual rotations in
-high-dimensions}{spinifex: An R package that provides manual rotations in high-dimensions}}\label{ch:spinifex}}
+high-dimensions}{spinifex: An R package that provides manual rotations in high-dimensions}}\label{ch:spinifex}
 
-\hypertarget{abstract-1}{%
-\section{Abstract}\label{abstract-1}}
+\section{Abstract}\label{abstract-1}
 
 Touring techniques offer a great opportunity for data-space
 visualizations of (\(\textbf{X} \in \mathbb{R}^p,~p > 3\)) multivariate
@@ -398,8 +382,7 @@ Keywords: grand tour, projection pursuit, manual tour, tourr, touring,
 high dimensional visualization, high dim vis, dimensionality reduction,
 visualization, statistical graphics, data-space.
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
+\section{Introduction}\label{introduction}
 
 Both classical and contemporary visualizations of data are presented in
 (\(d=2\)) two dimensions, that of a computer monitor or in print. How is
@@ -465,8 +448,7 @@ projection, sharpening it by exploring the contributions of different
 variables, and simplifying by zeroing the coefficients of variables that
 don't contribute to the structure.
 
-\hypertarget{manual-tour-algorithm}{%
-\section{Manual tour algorithm}\label{manual-tour-algorithm}}
+\section{Manual tour algorithm}\label{manual-tour-algorithm}
 
 The algorithm contains several steps:
 
@@ -483,8 +465,7 @@ The algorithm contains several steps:
   it to 1
 \end{enumerate}
 
-\hypertarget{notation}{%
-\subsection{Notation}\label{notation}}
+\subsection{Notation}\label{notation}
 
 Given:
 
@@ -517,18 +498,16 @@ For ease of computation we will be working mostly with the basis and not
 the data, once basis manipulation is done post multiply the data by the
 basis to get back to data-space.
 
-\hypertarget{step-1-choose-variable-of-interest}{%
 \subsection{Step 1 Choose variable of
-interest}\label{step-1-choose-variable-of-interest}}
+interest}\label{step-1-choose-variable-of-interest}
 
 Select a manipulation variable, \(k\). Initialize a zero vector \(e\),
 and set the \(k\)-th element set to 1.
 
 NOTE: Explanation has math, diagram and code
 
-\hypertarget{step-2-create-the-manip-space}{%
 \subsection{Step 2 Create the manip
-space}\label{step-2-create-the-manip-space}}
+space}\label{step-2-create-the-manip-space}
 
 NOTE: Explanation has math, diagram and code
 
@@ -563,8 +542,7 @@ basis and \(e\) yielding the manipulation space.
 TODO: (below) clean up the language of phi, tie to manipulation var.
 Make sure to paint the picture for the Z-direction of manip\_sp.
 
-\hypertarget{step-3-generate-rotation}{%
-\subsection{Step 3 Generate rotation}\label{step-3-generate-rotation}}
+\subsection{Step 3 Generate rotation}\label{step-3-generate-rotation}
 
 NOTE: Explanation has math, diagram and code
 
@@ -634,23 +612,20 @@ data, for the data projection.
     \end{bmatrix}_{b[p,~d+1]}
 \end{align}
 
-\hypertarget{display-projection-sequence}{%
-\section{Display projection
-sequence}\label{display-projection-sequence}}
+\section{Display projection sequence}\label{display-projection-sequence}
 
 Plot the first two variables from each projection in sequence for an XY
 scatterplot. The remaining variable is sometimes linked to a data point
 aesthetic to produce depth cues used in conjunction with the XY
 scatterplot.
 
-\hypertarget{usage}{%
-\section{Usage}\label{usage}}
+\section{Applcation}\label{applcation}
 
-\hypertarget{installation}{%
-\subsection{Installation}\label{installation}}
+\subsection{Installation}\label{installation}
 
-\hypertarget{flea}{%
-\subsection{Flea}\label{flea}}
+spinifex is open source, and
+
+\subsection{Flea}\label{flea}
 
 Let's start off with the flea data set from the R package \emph{tourr}
 \autocite{wickham_tourr_2011}, which performs different tours on the
@@ -677,7 +652,7 @@ down to two dimensions. Check how each of the dimensions is contributing
 the XY components with \texttt{view\_basis()}
 
 TODO: reference fig 1, keep in mind that the figure floats more than the
-table. TODO: consider adding a \texttt{view\_manip\_sp} function with
+table. TODO: consider adding a \texttt{view\_manip\_sp()} function with
 phi and theata, etc.
 
 \begin{figure}
@@ -687,13 +662,13 @@ phi and theata, etc.
 \end{figure}
 
 \begin{verbatim}
-##                X           Y   norm_XY       theta
-## [1,]  0.23389447 -0.15541715 0.2808222 -0.58648410
-## [2,]  0.67153307  0.37226453 0.7678135  0.50617701
-## [3,] -0.22976931  0.82362282 0.8550722 -1.29873933
-## [4,] -0.08809985  0.39108244 0.4008828 -1.34922318
-## [5,] -0.55611101  0.02766327 0.5567986 -0.04970319
-## [6,] -0.35287637 -0.07210649 0.3601681  0.20156440
+##             X        Y norm_XY   theta
+## [1,]  0.08073  0.45268 0.45982  1.3943
+## [2,]  0.49166 -0.68137 0.84023 -0.9457
+## [3,]  0.35320 -0.24222 0.42828 -0.6011
+## [4,]  0.76457  0.51785 0.92344  0.5953
+## [5,]  0.20421 -0.05406 0.21125 -0.2588
+## [6,] -0.02704  0.03259 0.04235 -0.8783
 \end{verbatim}
 
 Perform a manual tour on the random basis with \texttt{manual\_tour()},
@@ -716,18 +691,17 @@ TODO: write follow up and segway into breast cancer; play\_tour (holes),
 explore local area. TODO: note that render\_plotly didn't add the figure
 caption.
 
-\hypertarget{application}{%
-\section{Application}\label{application}}
+\section{Application}\label{application}
 
-NOTE: Examples from \url{https://arxiv.org/abs/1806.09742}
+apply manual tours to Ursula fig 1 here: NOTE: Examples from
+\url{https://arxiv.org/abs/1806.09742}
 
-\hypertarget{source}{%
-\section{Source}\label{source}}
+\section{Source}\label{source}
 
-Put web address of code
+The code used to generate this chapter can be found on {[}GitHub{]}
+(\url{https://github.com/nspyrison/Confirmation/blob/master/03-spinifex.Rmd}).
 
-\hypertarget{discussion}{%
-\section{Discussion}\label{discussion}}
+\section{Discussion}\label{discussion}
 
 Future work:
 
@@ -745,8 +719,7 @@ Future work:
   projections
 \end{itemize}
 
-\hypertarget{ch:disp_dim}{%
-\chapter{Display dimensionality}\label{ch:disp_dim}}
+\chapter{Display dimensionality}\label{ch:disp_dim}
 
 \begin{itemize}
 \tightlist
@@ -754,9 +727,8 @@ Future work:
   XGobbi vs the C2
 \end{itemize}
 
-\hypertarget{ch:hci_3dproj}{%
 \chapter{Human-computer interaction of 3d
-projections}\label{ch:hci_3dproj}}
+projections}\label{ch:hci_3dproj}
 
 \begin{itemize}
 \tightlist
@@ -768,8 +740,7 @@ projections}\label{ch:hci_3dproj}}
 
 \appendix
 
-\hypertarget{additional-stuff}{%
-\chapter{Additional stuff}\label{additional-stuff}}
+\chapter{Additional stuff}\label{additional-stuff}
 
 You might put some computer output here, or maybe additional tables.
 
