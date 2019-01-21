@@ -120,7 +120,7 @@ step0 <- grid.arrange(step0_l, step0_r, ncol=2)
 ggsave("./output/step0_basis+proj.png", step0,
        height = 4, width = 4*1.61, units = "in")
 ```
-```{r step0, fig.cap = "basis and projection, holes guided tour of flea data"}
+```{r step0, fig.cap = "basis and projection, holes guided tour of flea data", fig.width=4, out.width='100%'}
 knitr::include_graphics("./output/step0_basis+proj.png")
 ```
 
@@ -220,8 +220,8 @@ step2 <- view_manip_sp(h_bas, 5)
 ggsave("./output/step2_manip_sp.png", step2,
        units = "in", width = 4, height = 4)
 ```
-```{r step2, fig.cap = "manipulation space, holes guided tour of flea data"}
-knitr::include_graphics("./output/step2_manip_sp.png")
+```{r step2, fig.cap = "manipulation space, holes guided tour of flea data", out.width='5%'}
+knitr::include_graphics("./output/step2_manip_sp.png", dpi=70)
 ```
 
 
