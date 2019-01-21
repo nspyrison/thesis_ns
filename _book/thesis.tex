@@ -322,9 +322,7 @@ We'll illustrate with the flea data set from the R package \emph{tourr} \autocit
 
 We'll perform a guided tour on the flea data optimizing for the index \texttt{holes} \autocite{cook_interactive_2007}. Where the basis is projected and the local area is explored for a projection that move the data further from the center. In figure \ref{fig:step0}, below, the left frame depicted the final basis of the \texttt{holes} tour; a unit circle with lines showing the x and y contributions of each variable in the projection space. The right frame projects the data through that basis and corlors the points according to the observed species.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{./output/step0_basis+proj} \caption{basis and projection, holes guided tour of flea data}\label{fig:step0}
-\end{figure}
+\includegraphics{thesis_files/figure-latex/unnamed-chunk-1-1.pdf}
 
 Call the \texttt{view\_basis()} function to produce the left frame. In touring typically we want dynamic display that looks through many such views, however, you can project a single basis at any time through the matrix multiplication \(\textbf{X}_{[n,~p]} ~*~ \textbf{B}_{[p,~d]} ~=~ \textbf{P}_{d[n,~d]}\) to reproduce the right frame.
 
@@ -420,87 +418,7 @@ Use the Gram-Schmidt process to orthonormalize the concatenation of the basis an
   \right)
 \end{align*}
 
-\begin{figure}
-\includegraphics[width=0.05\linewidth]{./output/step2_manip_sp} \caption{manipulation space, holes guided tour of flea data}\label{fig:step2}
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{view_manip_sp <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(basis,}
-\NormalTok{                         manip_var,}
-                         \DataTypeTok{manip_col =} \StringTok{"blue"}\NormalTok{,}
-                         \DataTypeTok{theta =}\NormalTok{ pi }\OperatorTok{*}\StringTok{ }\DecValTok{5}\OperatorTok{/}\DecValTok{12}\NormalTok{,}
-                         \DataTypeTok{z_col =} \StringTok{"red"}\NormalTok{,}
-                         \DataTypeTok{labels =} \KeywordTok{paste0}\NormalTok{(}\StringTok{"V"}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\KeywordTok{nrow}\NormalTok{(basis)) }
-\NormalTok{) \{}
-  \CommentTok{# Initialize}
-  \ControlFlowTok{if}\NormalTok{ (}\OperatorTok{!}\KeywordTok{is.null}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(basis))) labels <-}\StringTok{ }\KeywordTok{abbreviate}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(basis), }\DecValTok{3}\NormalTok{)}
-\NormalTok{  xyz <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(df) \{}\KeywordTok{colnames}\NormalTok{(df) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"z"}\NormalTok{); df\}}
-  \CommentTok{## manip space}
-\NormalTok{  m_sp <-}\StringTok{ }\KeywordTok{xyz}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{create_manip_space}\NormalTok{(basis, manip_var)))}
-\NormalTok{  p <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(m_sp)}
-  \CommentTok{## manip var asethetics}
-\NormalTok{  col_v            <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\StringTok{"grey80"}\NormalTok{, p)}
-\NormalTok{  col_v[manip_var] <-}\StringTok{ }\NormalTok{manip_col}
-\NormalTok{  siz_v            <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\FloatTok{0.3}\NormalTok{, p)}
-\NormalTok{  siz_v[manip_var] <-}\StringTok{ }\DecValTok{1}
-  \CommentTok{## circle}
-\NormalTok{  angle <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2} \OperatorTok{*}\StringTok{ }\NormalTok{pi, }\DataTypeTok{length =} \DecValTok{360}\NormalTok{)}
-\NormalTok{  circ  <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{cos}\NormalTok{(angle), }\DataTypeTok{y =} \KeywordTok{sin}\NormalTok{(angle), }\DataTypeTok{z =} \DecValTok{0}\NormalTok{)}
-  \CommentTok{## basis rotation}
-\NormalTok{  rot   <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{,}\KeywordTok{cos}\NormalTok{(theta),}\KeywordTok{sinpi}\NormalTok{(theta)), }\CommentTok{# ,0,0,sin(theta))}
-                  \DataTypeTok{ncol =} \DecValTok{3}\NormalTok{, }\DataTypeTok{byrow =}\NormalTok{ T)}
-  \CommentTok{## rotation spaces}
-\NormalTok{  circ_r <-}\StringTok{ }\KeywordTok{xyz}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{as.matrix}\NormalTok{(circ[, }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)]) }\OperatorTok{%*%}\StringTok{ }\NormalTok{rot))}
-\NormalTok{  m_sp_r <-}\StringTok{ }\KeywordTok{xyz}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{as.matrix}\NormalTok{(m_sp[, }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)]) }\OperatorTok{%*%}\StringTok{ }\NormalTok{rot))}
-\NormalTok{  circ_z <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ circ}\OperatorTok{$}\NormalTok{x, }\DataTypeTok{y =}\NormalTok{ circ}\OperatorTok{$}\NormalTok{y }\OperatorTok{*}\StringTok{ }\KeywordTok{sin}\NormalTok{(theta))}
-\NormalTok{  m_sp_z <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ m_sp[manip_var, }\StringTok{"x"}\NormalTok{],}
-                       \DataTypeTok{y =}\NormalTok{ m_sp[manip_var, }\StringTok{"z"}\NormalTok{] }\OperatorTok{*}\StringTok{ }\KeywordTok{sin}\NormalTok{(theta))}
-  
-  \CommentTok{# Graphics (reference frame)}
-  \CommentTok{## xy circle and options}
-\NormalTok{  gg1 <-}\StringTok{ }\NormalTok{ggplot2}\OperatorTok{::}\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }\NormalTok{ggplot2}\OperatorTok{::}\KeywordTok{geom_path}\NormalTok{(}
-    \DataTypeTok{data =}\NormalTok{ circ_r, }\DataTypeTok{color =}\NormalTok{ manip_col, }\DataTypeTok{size =} \FloatTok{.3}\NormalTok{, }\DataTypeTok{inherit.aes =}\NormalTok{ F,}
-    \DataTypeTok{mapping =}\NormalTok{ ggplot2}\OperatorTok{::}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ x, }\DataTypeTok{y =}\NormalTok{ y)}
-\NormalTok{  ) }\OperatorTok{+}
-\StringTok{    }\NormalTok{ggplot2}\OperatorTok{::}\KeywordTok{scale_color_brewer}\NormalTok{(}\DataTypeTok{palette =} \StringTok{"Dark2"}\NormalTok{) }\OperatorTok{+}
-\StringTok{    }\NormalTok{ggplot2}\OperatorTok{::}\KeywordTok{theme_void}\NormalTok{() }\OperatorTok{+}
-\StringTok{    }\NormalTok{ggplot2}\OperatorTok{::}\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{) }\OperatorTok{+}
-\StringTok{    }\NormalTok{ggplot2}\OperatorTok{::}\KeywordTok{coord_fixed}\NormalTok{() }\CommentTok{# Do not use with plotly!}
-  \CommentTok{## Axes line segments}
-\NormalTok{  gg2 <-}\StringTok{ }\NormalTok{gg1 }\OperatorTok{+}
-\StringTok{    }\NormalTok{ggplot2}\OperatorTok{::}\KeywordTok{geom_segment}\NormalTok{(}
-      \DataTypeTok{data =}\NormalTok{ m_sp_r, }\DataTypeTok{size =}\NormalTok{ siz_v, }\DataTypeTok{colour =}\NormalTok{ col_v,}
-      \DataTypeTok{mapping =}\NormalTok{ ggplot2}\OperatorTok{::}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ x, }\DataTypeTok{y =}\NormalTok{ y, }\DataTypeTok{xend =} \DecValTok{0}\NormalTok{, }\DataTypeTok{yend =} \DecValTok{0}\NormalTok{)}
-\NormalTok{    )}
-  \CommentTok{## Text labels}
-\NormalTok{  gg3 <-}\StringTok{ }\NormalTok{gg2 }\OperatorTok{+}\StringTok{ }\NormalTok{ggplot2}\OperatorTok{::}\KeywordTok{geom_text}\NormalTok{(}
-    \DataTypeTok{data =}\NormalTok{ m_sp_r, }\DataTypeTok{size =} \DecValTok{4}\NormalTok{, }\DataTypeTok{colour =}\NormalTok{ col_v,}
-    \DataTypeTok{vjust =} \StringTok{"outward"}\NormalTok{, }\DataTypeTok{hjust =} \StringTok{"outward"}\NormalTok{,}
-    \DataTypeTok{mapping =}\NormalTok{ ggplot2}\OperatorTok{::}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ x, }\DataTypeTok{y =}\NormalTok{ y, }\DataTypeTok{label =}\NormalTok{ labels)}
-\NormalTok{  )}
-  \CommentTok{## zx circle}
-\NormalTok{  gg4 <-}\StringTok{ }\NormalTok{gg3 }\OperatorTok{+}\StringTok{ }\NormalTok{ggplot2}\OperatorTok{::}\KeywordTok{geom_path}\NormalTok{(}
-    \DataTypeTok{data =}\NormalTok{ circ_z, }\DataTypeTok{color =}\NormalTok{ z_col, }\DataTypeTok{size =} \FloatTok{.3}\NormalTok{, }\DataTypeTok{inherit.aes =}\NormalTok{ F,}
-    \DataTypeTok{mapping =}\NormalTok{ ggplot2}\OperatorTok{::}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ x, }\DataTypeTok{y =}\NormalTok{ y)}
-\NormalTok{  )}
-  \CommentTok{## z manip sp segments, projection line, label}
-\NormalTok{  gg5 <-}\StringTok{ }\NormalTok{gg4 }\OperatorTok{+}\StringTok{ }\NormalTok{ggplot2}\OperatorTok{::}\KeywordTok{geom_segment}\NormalTok{(}
-    \DataTypeTok{data =}\NormalTok{ m_sp_z, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{colour =}\NormalTok{ z_col,}
-    \DataTypeTok{mapping =}\NormalTok{ ggplot2}\OperatorTok{::}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ x, }\DataTypeTok{y =}\NormalTok{ y, }\DataTypeTok{xend =} \DecValTok{0}\NormalTok{, }\DataTypeTok{yend =} \DecValTok{0}\NormalTok{)}
-\NormalTok{  ) }\OperatorTok{+}\StringTok{ }\NormalTok{ggplot2}\OperatorTok{::}\KeywordTok{geom_segment}\NormalTok{(}
-    \DataTypeTok{data =}\NormalTok{ m_sp_z, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"grey80"}\NormalTok{, }\DataTypeTok{linetype =} \DecValTok{2}\NormalTok{,}
-    \DataTypeTok{mapping =}\NormalTok{ ggplot2}\OperatorTok{::}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ x, }\DataTypeTok{y =}\NormalTok{ y, }\DataTypeTok{xend =}\NormalTok{ x, }\DataTypeTok{yend =}\NormalTok{ m_sp_r[manip_var, }\StringTok{"y"}\NormalTok{] )}
-\NormalTok{  ) }\OperatorTok{+}\StringTok{ }\NormalTok{ggplot2}\OperatorTok{::}\KeywordTok{geom_text}\NormalTok{(}
-    \DataTypeTok{data =}\NormalTok{ m_sp_z, }\DataTypeTok{size =} \DecValTok{4}\NormalTok{, }\DataTypeTok{colour =}\NormalTok{ z_col,}
-    \DataTypeTok{vjust =} \StringTok{"outward"}\NormalTok{, }\DataTypeTok{hjust =} \StringTok{"outward"}\NormalTok{,}
-    \DataTypeTok{mapping =}\NormalTok{ ggplot2}\OperatorTok{::}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ x, }\DataTypeTok{y =}\NormalTok{ y, }\DataTypeTok{label =}\NormalTok{ labels[manip_var])}
-\NormalTok{  )}
-  
-\NormalTok{  gg5}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+\begin{center}\includegraphics{thesis_files/figure-latex/unnamed-chunk-3-1} \end{center}
 
 \hypertarget{step-3-generate-rotation}{%
 \subsection{Step 3 Generate rotation}\label{step-3-generate-rotation}}
@@ -568,60 +486,18 @@ To get back to data-space post multiply each projection basis by the data, for t
     \end{bmatrix}_{b[p,~d+1]}
 \end{align}
 
-\begin{figure}
-\includegraphics[width=27.78in]{./output/step3_manual_tour} \caption{manual tour, holes guided tour of flea data}\label{fig:step3}
-\end{figure}
+\begin{verbatim}
+## Warning: Removed 1 rows containing missing values (geom_path).
+\end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{manual_tour <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(}\DataTypeTok{basis =} \OtherTok{NULL}\NormalTok{,}
-\NormalTok{                        manip_var,  }\CommentTok{# column number}
-                        \DataTypeTok{theta =} \OtherTok{NULL}\NormalTok{,      }\CommentTok{# (radians)}
-                        \DataTypeTok{phi_min =} \DecValTok{0}\NormalTok{,       }\CommentTok{# (radians)}
-                        \DataTypeTok{phi_max =} \FloatTok{.5} \OperatorTok{*}\StringTok{ }\NormalTok{pi, }\CommentTok{# (radians)}
-                        \DataTypeTok{n_slides =} \DecValTok{20}
-\NormalTok{) \{}
-  \CommentTok{# Initalize}
-  \ControlFlowTok{if}\NormalTok{ (}\OperatorTok{!}\KeywordTok{is.matrix}\NormalTok{(basis)) basis <-}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(basis)}
-  \ControlFlowTok{if}\NormalTok{ (}\KeywordTok{is.null}\NormalTok{(theta)) theta <-}\StringTok{ }\KeywordTok{atan}\NormalTok{(basis[manip_var, }\DecValTok{2}\NormalTok{] }\OperatorTok{/}\StringTok{ }\NormalTok{basis[manip_var, }\DecValTok{1}\NormalTok{])}
-\NormalTok{  manip_space    <-}\StringTok{ }\KeywordTok{create_manip_space}\NormalTok{(}\DataTypeTok{basis =}\NormalTok{ basis, }\DataTypeTok{manip_var =}\NormalTok{ manip_var)}
-\NormalTok{  p              <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(basis)}
-\NormalTok{  d              <-}\StringTok{ }\KeywordTok{ncol}\NormalTok{(basis)}
-\NormalTok{  phi_start      <-}\StringTok{ }\KeywordTok{acos}\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(basis[manip_var, }\DecValTok{1}\NormalTok{]}\OperatorTok{^}\DecValTok{2} \OperatorTok{+}\StringTok{ }\NormalTok{basis[manip_var, }\DecValTok{2}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\NormalTok{))}
-\NormalTok{  phi_start_sign <-}\StringTok{ }\NormalTok{phi_start }\OperatorTok{*}\StringTok{ }\KeywordTok{sign}\NormalTok{(manip_space[manip_var, }\DecValTok{1}\NormalTok{])}
-\NormalTok{  phi_inc        <-}\StringTok{ }\DecValTok{2} \OperatorTok{*}\StringTok{ }\KeywordTok{abs}\NormalTok{(phi_max }\OperatorTok{-}\StringTok{ }\NormalTok{phi_min) }\OperatorTok{/}\StringTok{ }\NormalTok{(n_slides }\OperatorTok{-}\StringTok{ }\DecValTok{3}\NormalTok{)}
-  \KeywordTok{stopifnot}\NormalTok{(phi_min }\OperatorTok{<=}\StringTok{ }\NormalTok{phi_start }\OperatorTok{&}\StringTok{ }\NormalTok{phi_max }\OperatorTok{>=}\StringTok{ }\NormalTok{phi_start)}
-  
-\NormalTok{  interpolate_walk <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(seq_start, seq_end)\{}
-    \CommentTok{# Initialize for interpolate_slides()}
-\NormalTok{    slide        <-}\StringTok{ }\DecValTok{0}
-\NormalTok{    new_slide    <-}\StringTok{ }\OtherTok{NULL}
-\NormalTok{    seq_start    <-}\StringTok{ }\NormalTok{seq_start }\OperatorTok{+}\StringTok{ }\NormalTok{phi_start_sign }\CommentTok{# Transform such that phi is relative to Z=0, rather than phi_start}
-\NormalTok{    seq_end      <-}\StringTok{ }\NormalTok{seq_end   }\OperatorTok{+}\StringTok{ }\NormalTok{phi_start_sign}
-\NormalTok{    phi_inc_sign <-}\StringTok{ }\NormalTok{phi_inc }\OperatorTok{*}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(seq_end }\OperatorTok{>}\StringTok{ }\NormalTok{seq_start, }\DecValTok{1}\NormalTok{, }\DecValTok{-1}\NormalTok{) }
-\NormalTok{    phi_len      <-}\StringTok{ }\KeywordTok{length}\NormalTok{(}\KeywordTok{seq}\NormalTok{(seq_start, seq_end, phi_inc_sign))}
-\NormalTok{    interp       <-}\StringTok{ }\KeywordTok{array}\NormalTok{(}\DataTypeTok{dim =} \KeywordTok{c}\NormalTok{(p, d, phi_len))}
-    
-    \CommentTok{# Create slide, store in interpolation}
-    \ControlFlowTok{for}\NormalTok{ (phi }\ControlFlowTok{in} \KeywordTok{seq}\NormalTok{(seq_start, seq_end, phi_inc_sign)) \{}
-\NormalTok{      slide <-}\StringTok{ }\NormalTok{slide }\OperatorTok{+}\StringTok{ }\DecValTok{1}
-\NormalTok{      interp[,, slide] <-}\StringTok{ }\KeywordTok{rotate_manip_space}\NormalTok{(manip_space, theta, phi)[, }\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{]}
-\NormalTok{    \}}
-    \KeywordTok{return}\NormalTok{(interp)}
-\NormalTok{  \}}
-  
-\NormalTok{  walk1 <-}\StringTok{ }\KeywordTok{interpolate_walk}\NormalTok{(phi_start, phi_min)}
-\NormalTok{  walk2 <-}\StringTok{ }\KeywordTok{interpolate_walk}\NormalTok{(phi_min, phi_max)}
-\NormalTok{  walk3 <-}\StringTok{ }\KeywordTok{interpolate_walk}\NormalTok{(phi_max, phi_start)}
-\NormalTok{  walk4 <-}\StringTok{ }\KeywordTok{interpolate_walk}\NormalTok{(phi_start, phi_start)}
-  
-\NormalTok{  m_tour <-}\StringTok{ }\KeywordTok{array}\NormalTok{(}\KeywordTok{c}\NormalTok{(walk1, walk2, walk3, walk4), }\DataTypeTok{dim =} \KeywordTok{c}\NormalTok{(p, d, n_slides))}
-  \KeywordTok{attr}\NormalTok{(m_tour, }\StringTok{"manip_var"}\NormalTok{) <-}\StringTok{ }\NormalTok{manip_var}
-  
-  \KeywordTok{return}\NormalTok{(m_tour)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+\begin{figure}
+
+{\centering \includegraphics{thesis_files/figure-latex/unnamed-chunk-5-1} 
+
+}
+
+\caption{manual tour, holes guided tour of flea data}\label{fig:unnamed-chunk-5}
+\end{figure}
 
 \hypertarget{display-projection-sequence}{%
 \section{Display projection sequence}\label{display-projection-sequence}}

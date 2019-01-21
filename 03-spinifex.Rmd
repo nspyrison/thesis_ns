@@ -11,6 +11,7 @@ knitr::opts_chunk$set(
   fig.align = "center",
   message = FALSE,
   warning = FALSE,
+  error = FALSE,
   collapse = TRUE,
   comment = "",
   cache = FALSE
@@ -88,7 +89,7 @@ We'll illustrate with the flea data set from the R package *tourr* [@wickham_tou
 
 We'll perform a guided tour on the flea data optimizing for the index `holes` [@cook_interactive_2007]. Where the basis is projected and the local area is explored for a projection that move the data further from the center. In figure \@ref(fig:step0), below, the left frame depicted the final basis of the `holes` tour; a unit circle with lines showing the x and y contributions of each variable in the projection space. The right frame projects the data through that basis and corlors the points according to the observed species. 
 
-```{r, eval = T, include = F}
+```{r results='hide'}
 library(spinifex)
 library(ggplot2)
 library(gridExtra)
@@ -116,12 +117,8 @@ step0_r <- ggplot() +
 
 
 #=== Step 0 out
-step0 <- grid.arrange(step0_l, step0_r, ncol=2)
-ggsave("./output/step0_basis+proj.png", step0,
-       height = 4, width = 4*1.61, units = "in")
-```
-```{r step0, fig.cap = "basis and projection, holes guided tour of flea data", fig.width=4, out.width='100%'}
-knitr::include_graphics("./output/step0_basis+proj.png")
+grid.arrange(step0_l, step0_r, ncol=2)
+
 ```
 
 Call the `view_basis()` function to produce the left frame. In touring typically we want dynamic display that looks through many such views, however, you can project a single basis at any time through the matrix multiplication $\textbf{X}_{[n,~p]} ~*~ \textbf{B}_{[p,~d]} ~=~ \textbf{P}_{d[n,~d]}$ to reproduce the right frame.
@@ -214,18 +211,13 @@ Use the Gram-Schmidt process to orthonormalize the concatenation of the basis an
   \right)
 \end{align*}
 
-```{r, eval = T, include = F}
+```{r results=FALSE, fig.align='center'}
 #=== Step 2 out
-step2 <- view_manip_sp(h_bas, 5)
-ggsave("./output/step2_manip_sp.png", step2,
-       units = "in", width = 4, height = 4)
-```
-```{r step2, fig.cap = "manipulation space, holes guided tour of flea data", out.width='5%'}
-knitr::include_graphics("./output/step2_manip_sp.png", dpi=70)
+view_manip_sp(h_bas, 5)
 ```
 
 
-```{r, eval = F, echo = T}
+```{r, eval = F, echo = F}
 view_manip_sp <- function(basis,
                          manip_var,
                          manip_col = "blue",
@@ -370,7 +362,7 @@ To get back to data-space post multiply each projection basis by the data, for  
 \end{align}
 
 
-```{r, eval = T, include = F}
+```{r results=FALSE, fig.align='center', fig.cap = "manual tour, holes guided tour of flea data"}
 mtour <- manual_tour(h_bas, manip_var = 5, n_slides = 15)
 bases <- create_slides(tour = mtour, data = flea_std)
 bases <- bases$basis_slides
@@ -407,15 +399,10 @@ circ_grid <- merge(x = circ, y = grid, by = NULL) # CROSS JOIN,
             color = "grey50") +
   geom_path(data = circ_grid, mapping = aes(x = x+c_x, y = y+c_y), color = "grey80") +
   theme_void())
-ggsave("./output/step3_manual_tour.png", step3, 
-       width = 4*(5/3), height = 4, units = "in")
-```
-```{r step3, fig.cap = "manual tour, holes guided tour of flea data"}
-knitr::include_graphics("./output/step3_manual_tour.png")
 ```
 
 
-```{r, eval = F, echo = T}
+```{r, eval = F, echo = F}
 manual_tour <- function(basis = NULL,
                         manip_var,  # column number
                         theta = NULL,      # (radians)

@@ -44,22 +44,22 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.4}Step 2 Create the manip space}{14}{subsection.3.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.5}Step 3 Generate rotation}{17}{subsection.3.3.5}
+\contentsline {subsection}{\numberline {3.3.5}Step 3 Generate rotation}{15}{subsection.3.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Display projection sequence}{21}{section.3.4}
+\contentsline {section}{\numberline {3.4}Display projection sequence}{17}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Installation}{21}{section.3.5}
+\contentsline {section}{\numberline {3.5}Installation}{17}{section.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}Application}{21}{section.3.6}
+\contentsline {section}{\numberline {3.6}Application}{17}{section.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.7}Source}{21}{section.3.7}
+\contentsline {section}{\numberline {3.7}Source}{18}{section.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.8}Discussion}{21}{section.3.8}
+\contentsline {section}{\numberline {3.8}Discussion}{18}{section.3.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Display dimensionality}{23}{chapter.4}
+\contentsline {chapter}{\numberline {4}Display dimensionality}{19}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{25}{chapter.5}
+\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{21}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Additional stuff}{27}{appendix.A}
+\contentsline {chapter}{\numberline {A}Additional stuff}{23}{appendix.A}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{29}{appendix*.9}
+\contentsline {chapter}{Bibliography}{25}{appendix*.7}
