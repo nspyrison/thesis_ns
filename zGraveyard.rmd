@@ -1,0 +1,101 @@
+---
+title: "Writing graveyard"
+author: "Nicholas Spyrison"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 2019_01_21 from 03-spinifex
+
+### rambling about tours in the introduction
+
+Both classical and contemporary visualizations of data are presented in $d=2$ dimensions, that of a computer monitor or in print. How is it that we come to view and share data that exists in $p > 3$ dimensions? In an appeal to brevity we shall ignore model and parameter summarization due to there shortcomings [@anscombe_graphs_1973; @matejka_same_2017]. Within the realm of data-space visualization we are left with projecting higher volumes and embedding them within lower dimensional spaces that we can visualize.
+
+This is not a new phenomena, such linear projections have been in use for quite some time. [@pearson_liii._1901; @fisher_use_1936] and the myriad of single value decomposition (SVD) techniques from numerous disciplines use such embeddings. Previous application look at data in one (or few) static orientations, after some objective optimization. For instance in PCA, we reorient $p$-dimensions such that we have a reference to the ordered components that describe a descending amount of variation held within the data. Yet we still have $p$ components remaining to visualize. Where does the dimension reduction come in? From plotting only the first two or three and potentially another dimension tied to data point aesthetic. This is maximizes the amount of variation that can be display in an embedding, but regularly discards a large proportion of the variation held within the data.
+
+More recently non-linear dimensionality techniques have become popular, such as t-distributed stochastic neighbor embedding (t-SNE) [@maaten_visualizing_2008], building off of Sammon mappings [@sammon_nonlinear_1969]. Such non-linear methods make for astounding distinction when in lower embeddings, but contain inherent shortcomings. Namely: that the non-linear transformations break inter-operability back to the original data-space, and that they can suffer from overfitting. If there is no inherent clustering with the data, it's possible that noise within the variables may become the prominent feature and be displayed erroneously as group clustering.
+
+TODO: Clean up touring, , below
+
+[@asimov_grand_1985; @buja_grand_1986] first suggested grand tours in which random walks in $p$-space can be interpolated and embedded in $d$ dimensions which are then viewed in sequence. Imagine. Consider, 
+
+
+The broader scope of touring has some beneficial features, namely: touring keeps the original dimensionality in tact unlike tradition static linear-projections, and maintains inter-operability back to the original dimensions, a primary drawback of non-linear dimensionality reduction.
+
+TODO: clean up above, talk about touring in general first
+
+### Terminology and demystifying projection:
+TODO: clean up the terminology section
+basis, data, n, p, d,
+
+Suppose that we have tri-variate data, $\textbf{X}_{[8,~3]}$, the corners points of a rectanguloid. We can describe the relative orientation by defining
+
+For every $p$-dimensional space can be described by the direction and magnitude of axes in a square matrix that we call a basis. Imgine 3 axes of an XYZ Caresian volume (*ie.* a basis $\in \mathbb{R}^p$). In matimatical form we would write this as a diagonal identity matrix of demension 3.
+
+```{r}
+# b <- diag(3)
+# xyz <- c("X", "Y", "Z")
+# rownames(b) <- xyz
+# colnames(b) <- xyz
+# b
+```
+
+This basis has some nice properties that are mathimatically nice to preserve, namely, that each axis as is at a right angle to the other (*orthagonal*), and are unit *normal* (length or norm equal to one). If matrix meets both of these criteria we call it *orthonormal*.
+
+```{r}
+# set.seed(15)
+# library(plotly)
+# library(processx)
+# X = 9*runif(100) # X = 9*c(0,1,1,0,0,1,1,0)
+# Y = 6*runif(100) # Y = 6*c(0,0,1,1,0,0,1,1)
+# Z = 2*runif(100) # Z = 2*c(0,0,0,0,1,1,1,1)
+#
+# p <- plot_ly(x=X, y=Y, z=Z, type="scatter3d", mode="markers")
+# ###STATIC OUTPUT REQURIES ORCA SETUP, NOT TRANsFERABLE...
+# # orca(p, "cube_demo.png") # but, needs orca setup,
+# # plotly_IMAGE(p, format = "png", out_file = "output.png")
+```
+
+### Illustrating flea and breast cancer
+
+Let:
+\begin{description}
+  \item[$d=2$] For illustration's sake, we'll embed into 2 dimensions.
+\end{description}
+
+Given:
+\begin{description}
+  \item[$\bf{X}_{[74,~6]}$] Flea data, 74 observations by 6 variables, $\bf{X} \in \mathbb{R}^6, ~p=6$.
+  \item[$p=6$]
+\end{description}
+
+Let's initialize a random orthonormal basis of dimensions [$p,~d$], which describes a random orientation projected from 6 down to 2 dimensions. Check how each of the dimensions is contributing the XY components with `view_basis()`
+
+TODO: reference fig 1, keep in mind that the figure floats more than the table.
+TODO: consider adding a `view_manip_sp()` function with phi and theata, etc.
+
+```{r, fig.cap = "Random basis, flea data"}
+library(spinifex)
+
+flea_std <- rescale(flea[, 1:6])
+rb <- basis_random(ncol(flea_std), 2)
+view_basis(basis = rb, labels = colnames(flea_std)) 
+```
+
+Perform a manual tour on the random basis with `manual_tour()`, We'll arbitratrily choose the 4th variable, aede1, and let the default selection of `phi` go from it's start, to 0 radians, to pi/2 radians, and back to the start position. In turn the norm of manipualtion variable goes to 1 and then 0, before returning to it's inital position. 
+
+```{r, fig.cap = "Manual tour, flea data", echo = TRUE, eval=FALSE}
+mtour <- manual_tour(basis = rb, manip_var = 4)
+mslides <- create_slides(tour = mtour, data = flea_std)
+
+render_plotly(mslides)
+```
+ TODO: write follow up and segway into breast cancer; play_tour (holes), explore local area. 
+ TODO: note that render_plotly didn't add the figure caption.
+
+
+## 2019_01_xx from xx
+

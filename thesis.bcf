@@ -2043,19 +2043,14 @@
     <bcf:citekey order="45">wegman_visual_2003</bcf:citekey>
     <bcf:citekey order="46">wickham_tourr_2011</bcf:citekey>
     <bcf:citekey order="47">wickham_tourr_2011</bcf:citekey>
-    <bcf:citekey order="48">anscombe_graphs_1973</bcf:citekey>
-    <bcf:citekey order="49">matejka_same_2017</bcf:citekey>
-    <bcf:citekey order="50">pearson_liii._1901</bcf:citekey>
-    <bcf:citekey order="51">fisher_use_1936</bcf:citekey>
-    <bcf:citekey order="52">maaten_visualizing_2008</bcf:citekey>
-    <bcf:citekey order="53">sammon_nonlinear_1969</bcf:citekey>
-    <bcf:citekey order="54">asimov_grand_1985</bcf:citekey>
-    <bcf:citekey order="55">buja_grand_1986</bcf:citekey>
-    <bcf:citekey order="56">cook_manual_1997</bcf:citekey>
-    <bcf:citekey order="57">cook_manual_1997</bcf:citekey>
-    <bcf:citekey order="58">hurley_analyzing_1990</bcf:citekey>
-    <bcf:citekey order="59">friedman_projection_1974</bcf:citekey>
-    <bcf:citekey order="60">wickham_tourr_2011</bcf:citekey>
+    <bcf:citekey order="48">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="49">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="50">hurley_analyzing_1990</bcf:citekey>
+    <bcf:citekey order="51">friedman_projection_1974</bcf:citekey>
+    <bcf:citekey order="52">wickham_tourr_2011</bcf:citekey>
+    <bcf:citekey order="53">lubischew_use_1962</bcf:citekey>
+    <bcf:citekey order="54">lubischew_use_1962</bcf:citekey>
+    <bcf:citekey order="55">cook_interactive_2007</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
