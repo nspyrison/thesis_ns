@@ -40,11 +40,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.2}Flea data set}{11}{subsection.3.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.3}Step 1 Choose variable of interest}{13}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.3}Step 1 Choose variable of interest}{12}{subsection.3.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.4}Step 2 Create the manip space}{14}{subsection.3.3.4}
+\contentsline {subsection}{\numberline {3.3.4}Step 2 Create the manip space}{13}{subsection.3.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.5}Step 3 Generate rotation}{15}{subsection.3.3.5}
+\contentsline {subsection}{\numberline {3.3.5}Step 3 Generate rotation}{14}{subsection.3.3.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.4}Display projection sequence}{17}{section.3.4}
 \defcounter {refsection}{0}\relax 
@@ -52,9 +52,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.6}Application}{17}{section.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.7}Source}{18}{section.3.7}
+\contentsline {section}{\numberline {3.7}Source}{17}{section.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.8}Discussion}{18}{section.3.8}
+\contentsline {section}{\numberline {3.8}Discussion}{17}{section.3.8}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Display dimensionality}{19}{chapter.4}
 \defcounter {refsection}{0}\relax 
@@ -62,4 +62,4 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {A}Additional stuff}{23}{appendix.A}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{25}{appendix*.7}
+\contentsline {chapter}{Bibliography}{25}{appendix*.9}

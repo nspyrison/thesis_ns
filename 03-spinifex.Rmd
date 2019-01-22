@@ -5,10 +5,10 @@ knit: "bookdown::render_book"
 
 ```{r setup_03, include=FALSE}
 knitr::opts_chunk$set(
-  echo = TRUE, 
   fig.width = 6, 
   fig.asp = 1/1.61, 
   fig.align = "center",
+  echo = TRUE, 
   message = FALSE,
   warning = FALSE,
   error = FALSE,
@@ -87,84 +87,48 @@ For ease of computation we will be working mostly with the basis and not the dat
 
 We'll illustrate with the flea data set from the R package *tourr* [@wickham_tourr_2011], which contains different tours on the same data. The data comes from @lubischew_use_1962. The flea data contains 74 observations across 6 variables, physical measurements of each flea beetle. Each individual belonged to one of three species being observed.
 
-We'll perform a guided tour on the flea data optimizing for the index `holes` [@cook_interactive_2007]. Where the basis is projected and the local area is explored for a projection that move the data further from the center. In figure \@ref(fig:step0), below, the left frame depicted the final basis of the `holes` tour; a unit circle with lines showing the x and y contributions of each variable in the projection space. The right frame projects the data through that basis and corlors the points according to the observed species. 
+We'll perform a guided tour on the flea data optimizing on the `holes` index [@cook_interactive_2007]. In a guided tour the data is projected rated against the the selected index, and looks around in the local area for a projection that outperforms the current best index. A basis that spreads the projected data furthest from the center is sought after in the case of the `holes` index. In figure \@ref(fig:step0), below, the left frame depicted the final basis of the `holes` tour.  a unit circle with lines showing the x and y contributions of each variable in the projection space. The right frame projects the data through that basis and colors the points according to the observed species. 
 
-```{r results='hide'}
+```{r step0, results='hide', fig.cap = "Basis reference frame (left) and projected data (right) of standardized flea data. Basis indentified by holes-index guided tour. The variables `aede2` and `tars1` cotribute mostly in the x direction, whereas the other variables contribute mostly in the y direction. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."}
+
 library(spinifex)
 library(ggplot2)
 library(gridExtra)
-set.seed(1) #don't think this matters, but can't hurt.
+library(grid)
+set.seed(1)
 
-## FLEA HOLES TOUR
-flea_std <- tourr::rescale(tourr::flea[,1:6])
-hpath    <- tourr::save_history(flea_std, tourr::guided_tour(tourr::holes))
-h_bas    <- matrix(hpath[,,max(dim(hpath)[3])], ncol=2)
-
-#0_left
-step0_l <- view_basis(h_bas) # Maybe manual tour on v1?
+## Flea holes tour
+flea_std <- rescale(flea[,1:6])
+hpath    <- save_history(flea_std, guided_tour(holes))
+h_bas    <- matrix(hpath[,, max(dim(hpath)[3])], ncol=2)
 
 h_m_sp <- create_manip_space(h_bas, manip_var = 1)
 h_dat  <- cbind(data.frame(flea_std %*% h_m_sp[, 1:2]), flea$species)
 colnames(h_dat) <- c("x", "y", "species")
 
-#0_right
+# step0, left frame
+step0_l <- view_basis(h_bas, labels = colnames(flea_std))
+
+# step0, right frame
 step0_r <- ggplot() +
-    geom_point(h_dat, mapping = aes(x=x, y=y, color=species)) +
-    scale_color_brewer(palette = "Dark2") +
-    theme_void() +
-    theme(legend.position=c(0.8, 0.8)) +
-    theme(legend.background = element_rect(colour = 'black', fill = 'grey90', linetype='solid'))
+  geom_point(h_dat, mapping = aes(x=x, y=y, color=species, pch=species)) +
+  scale_color_brewer(palette = "Dark2") +
+  theme_void() +
+  theme(legend.position=c(0.8, 0.8)) +
+  theme(legend.background = 
+          element_rect(colour = 'black', fill = 'grey90', linetype='solid'))
 
-
-#=== Step 0 out
+# step0, output
 grid.arrange(step0_l, step0_r, ncol=2)
-
+grid.rect()
 ```
 
-Call the `view_basis()` function to produce the left frame. In touring typically we want dynamic display that looks through many such views, however, you can project a single basis at any time through the matrix multiplication $\textbf{X}_{[n,~p]} ~*~ \textbf{B}_{[p,~d]} ~=~ \textbf{P}_{d[n,~d]}$ to reproduce the right frame.
+The left frame of \@ref(fig:step0) shows the reference frame for the basis. It describes the X and Y contributions of the basis as it projects from the 6 variable dimensions down to 2. Call `view_basis()` on a basis to produce a similar image as a `ggplot2` object. The right side shows how the data looks projected through this basis. You can project a single basis at any time through the matrix multiplication $\textbf{X}_{[n,~p]} ~*~ \textbf{B}_{[p,~d]} ~=~ \textbf{P}_{d[n,~d]}$ to such effect.
 
-``` {r eval = F, echo = T}
-view_basis <- function(basis,
-                      labels = paste0("V", 1:nrow(basis))
-) {
-  # Initialize
-  p <- nrow(basis)
-  if (!is.data.frame(basis)) basis <- as.data.frame(basis)
-  ## circle
-  angle <- seq(0, 2 * pi, length = 360)
-  circ  <- data.frame(x = cos(angle), y = sin(angle))
-  
-  # graphics (reference frame)
-  ## circle and set options
-  gg1 <- ggplot2::ggplot() + ggplot2::geom_path(
-    data = circ, color = "grey80", size = .3, inherit.aes = F,
-    mapping = ggplot2::aes(x = circ$x, y = circ$y)
-  ) +
-    ggplot2::scale_color_brewer(palette = "Dark2") +
-    ggplot2::theme_void() +
-    ggplot2::theme(legend.position = "none") +
-    ggplot2::coord_fixed() # Do not use with plotly!
-  ## Axes line segments
-  gg2 <- gg1 +
-    ggplot2::geom_segment(
-      data = basis, 
-      mapping = ggplot2::aes(x = basis[,1], y = basis[,2], xend = 0, yend = 0)
-    )
-  ## Text labels
-  gg3 <- gg2 + ggplot2::geom_text(
-    data = basis, size = 4, hjust = 0, vjust = 0, colour = "black",
-    mapping = ggplot2::aes(x = basis[, 1], y = basis[, 1], label = labels)
-  )
-  
-  gg3
-}
-```
 
 ### Step 1 Choose variable of interest
 
 Select a manipulation variable, $k$. Initialize a zero vector $e$, and set the $k$-th element set to 1.
-
-NOTE: Explanation has math, diagram and code
 
 \begin{align*}
 \textbf{e}_{k~[p,~1]} ~=~ 
@@ -178,11 +142,10 @@ NOTE: Explanation has math, diagram and code
   \end{bmatrix}_{[p,~1]}
 \end{align*}
 
-In figure \@ref(fig:step0), above, notice the the variables 1 and 5 are almost orthogonal to the other 4 variables and that V5 has a larger contribution than V1. As such, let's select the 5-th variable as our manipulation variable. 
+In figure \@ref(fig:step0), above, notice that the variables `tars1` and `aede2` are almost orthogonal to the other 4 variables and control almost all of the variation in the x axis of the projection. `Aede2` has a larger contribution in this basis, so we'll select it
+
 
 ### Step 2 Create the manip space
-
-NOTE: Explanation has math, diagram and code
 
 Use the Gram-Schmidt process to orthonormalize the concatenation of the basis and $e$ yielding the manipulation space.
 
@@ -211,98 +174,27 @@ Use the Gram-Schmidt process to orthonormalize the concatenation of the basis an
   \right)
 \end{align*}
 
-```{r results=FALSE, fig.align='center'}
+In R it looks like the below chunk. `tourr::orthonormalise()` uses the Gram Schimidt process (rather than Housholder reflection) to orthonormalise.
+```{r, eval=F}
+  e            <- rep(0, len = nrow(basis))
+  e[manip_var] <- 1
+  manip_space  <- tourr::orthonormalise(cbind(basis, e))
+```
+
+Adding an extra dimension to our basis plane allows for the manipulation of the specified variable while the others are kept fully within the basis plane. Orthonormalising rescales the matrix without bringing the other variables into this new axis. An illustration of such can been seen below in \@ref(fig:step2).
+
+```{r step2, fig.cap = "Manipulation space for controling the contribution of aede2 of standardized flea data. Basis was identified by holes-index guided tour. The out of plane axis, in red, shows how the manipulation variable can be rotated, while other dimensions stay embeded within the basis plane."}
 #=== Step 2 out
 view_manip_sp(h_bas, 5)
 ```
 
-
-```{r, eval = F, echo = F}
-view_manip_sp <- function(basis,
-                         manip_var,
-                         manip_col = "blue",
-                         theta = pi * 5/12,
-                         z_col = "red",
-                         labels = paste0("V", 1:nrow(basis)) 
-) {
-  # Initialize
-  if (!is.null(colnames(basis))) labels <- abbreviate(colnames(basis), 3)
-  xyz <- function(df) {colnames(df) <- c("x", "y", "z"); df}
-  ## manip space
-  m_sp <- xyz(data.frame(create_manip_space(basis, manip_var)))
-  p <- nrow(m_sp)
-  ## manip var asethetics
-  col_v            <- rep("grey80", p)
-  col_v[manip_var] <- manip_col
-  siz_v            <- rep(0.3, p)
-  siz_v[manip_var] <- 1
-  ## circle
-  angle <- seq(0, 2 * pi, length = 360)
-  circ  <- data.frame(x = cos(angle), y = sin(angle), z = 0)
-  ## basis rotation
-  rot   <- matrix(c(1,0,1, 0,cos(theta),sinpi(theta)), # ,0,0,sin(theta))
-                  ncol = 3, byrow = T)
-  ## rotation spaces
-  circ_r <- xyz(data.frame(as.matrix(circ[, c(1, 2)]) %*% rot))
-  m_sp_r <- xyz(data.frame(as.matrix(m_sp[, c(1, 2)]) %*% rot))
-  circ_z <- data.frame(x = circ$x, y = circ$y * sin(theta))
-  m_sp_z <- data.frame(x = m_sp[manip_var, "x"],
-                       y = m_sp[manip_var, "z"] * sin(theta))
-  
-  # Graphics (reference frame)
-  ## xy circle and options
-  gg1 <- ggplot2::ggplot() + ggplot2::geom_path(
-    data = circ_r, color = manip_col, size = .3, inherit.aes = F,
-    mapping = ggplot2::aes(x = x, y = y)
-  ) +
-    ggplot2::scale_color_brewer(palette = "Dark2") +
-    ggplot2::theme_void() +
-    ggplot2::theme(legend.position = "none") +
-    ggplot2::coord_fixed() # Do not use with plotly!
-  ## Axes line segments
-  gg2 <- gg1 +
-    ggplot2::geom_segment(
-      data = m_sp_r, size = siz_v, colour = col_v,
-      mapping = ggplot2::aes(x = x, y = y, xend = 0, yend = 0)
-    )
-  ## Text labels
-  gg3 <- gg2 + ggplot2::geom_text(
-    data = m_sp_r, size = 4, colour = col_v,
-    vjust = "outward", hjust = "outward",
-    mapping = ggplot2::aes(x = x, y = y, label = labels)
-  )
-  ## zx circle
-  gg4 <- gg3 + ggplot2::geom_path(
-    data = circ_z, color = z_col, size = .3, inherit.aes = F,
-    mapping = ggplot2::aes(x = x, y = y)
-  )
-  ## z manip sp segments, projection line, label
-  gg5 <- gg4 + ggplot2::geom_segment(
-    data = m_sp_z, size = 1, colour = z_col,
-    mapping = ggplot2::aes(x = x, y = y, xend = 0, yend = 0)
-  ) + ggplot2::geom_segment(
-    data = m_sp_z, size = 1, colour = "grey80", linetype = 2,
-    mapping = ggplot2::aes(x = x, y = y, xend = x, yend = m_sp_r[manip_var, "y"] )
-  ) + ggplot2::geom_text(
-    data = m_sp_z, size = 4, colour = z_col,
-    vjust = "outward", hjust = "outward",
-    mapping = ggplot2::aes(x = x, y = y, label = labels[manip_var])
-  )
-  
-  gg5
-}
-```
-
-
+Imagine being able to grab hold of the red axis and rotate it changing the projection onto the basis plane. This is what happens in a manual tour. By controling the angle between the axis and the basis plane we change the contribution of the manipulation variable on the projection.
 
 ### Step 3 Generate rotation
 
-NOTE: Explanation has math, diagram and code
-
-Select a vector $\phi_i$, the angle of out-of plane rotation, orthogonal to the projection plane (relative to $\phi_1$, the transformation $\phi_i$ - $\phi_1$ proved to be helpful to discuss $\phi$ relative to the Z axis). 
-
+Define a set of values for  $\phi_i$, the angle of out-of plane rotation, orthogonal to the projection plane. This corisponds to the angle between the red axis and the blue plane in \@ref(fig:step2). 
 **For ** $i$ **in 1 to n_slides:**
-<!-- Stop trying fix the above, it's not going to happen... -->
+<!-- Stop trying clean the above, it's not going to happen... -->
 
 For each $\phi_i$, post multiply the manipulation space by a rotation matrix,  producing as many basis-projections.
 
@@ -330,7 +222,6 @@ For each $\phi_i$, post multiply the manipulation space by a rotation matrix,  p
   \end{bmatrix}_{[3,~3]}
 \end{align*}
 
-
 Where:
 \begin{description}
   \item[$\theta$] is the angle that lies on the projection plane ($ie.$ on the XY plane)
@@ -341,39 +232,53 @@ Where:
   \item[$s_\phi$]   is the sine of   $\phi$
 \end{description}
 
-To get back to data-space post multiply each projection basis by the data, for  the data projection.
-
-\begin{align}
-  \textbf{P}_{d[n,~d+1]}
-    &= \textbf{X}_{[n,~p]} ~*~ \textbf{P}_{b[p,~d+1]} \\
-    &= \begin{bmatrix}
-      X_{1,~1} & \dots & X_{1,~p} \\
-      X_{2,~1} & \dots & X_{2,~p} \\
-      \vdots   & \vdots & \vdots  \\
-      X_{n,~1} & \dots & X_{n,~p}
-    \end{bmatrix}_{[n,~p]}
-      ~*~
-    \begin{bmatrix}
-      P_{b:1,~1} & P_{b:1,~2} & P_{b:1,~3} \\
-      P_{b:2,~1} & P_{b:2,~2} & P_{b:2,~3} \\
-      \vdots     & \vdots     & \vdots     \\
-      P_{b:p,~1} & P_{b:p,~2} & P_{b:p,~3}
-    \end{bmatrix}_{b[p,~d+1]}
-\end{align}
+In application: compile the sequence of $\phi_i$ and create an array (or long table) for each rotated manipulation space. $\phi$ is actually the angle relative to the $\phi_1$, we find the transformation $\phi_i$ - $\phi_1$ useful to discuss $\phi$ relative to the basis plane.
 
 
-```{r results=FALSE, fig.align='center', fig.cap = "manual tour, holes guided tour of flea data"}
+```{r, eval = F, echo = F}
+for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
+  slide <- slide + 1
+  tour[,, slide] <- rotate_manip_space(manip_space, theta, phi)[, 1:2]
+}
+```
+
+
+
+<!-- To get back to data-space post multiply each projection basis by the data, for  the data projection. -->
+
+<!-- \begin{align} -->
+<!--   \textbf{P}_{d[n,~d+1]} -->
+<!--     &= \textbf{X}_{[n,~p]} ~*~ \textbf{P}_{b[p,~d+1]} \\ -->
+<!--     &= \begin{bmatrix} -->
+<!--       X_{1,~1} & \dots & X_{1,~p} \\ -->
+<!--       X_{2,~1} & \dots & X_{2,~p} \\ -->
+<!--       \vdots   & \vdots & \vdots  \\ -->
+<!--       X_{n,~1} & \dots & X_{n,~p} -->
+<!--     \end{bmatrix}_{[n,~p]} -->
+<!--       ~*~ -->
+<!--     \begin{bmatrix} -->
+<!--       P_{b:1,~1} & P_{b:1,~2} & P_{b:1,~3} \\ -->
+<!--       P_{b:2,~1} & P_{b:2,~2} & P_{b:2,~3} \\ -->
+<!--       \vdots     & \vdots     & \vdots     \\ -->
+<!--       P_{b:p,~1} & P_{b:p,~2} & P_{b:p,~3} -->
+<!--     \end{bmatrix}_{b[p,~d+1]} -->
+<!-- \end{align} -->
+
+
+```{r step3, results = 'hide', fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from it's initial contribution to a full contribution to the projection before decreasing to zero, and then retruning to it's inital state."}
 mtour <- manual_tour(h_bas, manip_var = 5, n_slides = 15)
-bases <- create_slides(tour = mtour, data = flea_std)
-bases <- bases$basis_slides
+slides <- create_slides(tour = mtour, data = flea_std)
+basis_slides <- slides$basis_slides
+data_slides  <- slides$data_slides
 
-mag <- 2.2
-grid  <- data.frame(slide = 1:15, x = mag*rep(1:5, 3), y = mag*rep(3:1, each = 5))
+mag <- 2.4
+grid <- 
+  data.frame(slide = 1:15, x = mag*rep(1:5, 3), y = mag*rep(3:1, each = 5))
 
 # Initialize
 ## manip var asethetics
-n_slides         <- max(bases$slide)
-p                <- nrow(bases) / n_slides
+n_slides         <- max(basis_slides$slide)
+p                <- nrow(basis_slides) / n_slides
 manip_var        <- 5
 col_v            <- rep("grey80", p)
 col_v[manip_var] <- "blue"
@@ -385,71 +290,46 @@ siz_v            <- rep(siz_v, n_slides)
 angle <- seq(0, 2 * pi, length = 180)
 circ  <- data.frame(c_x = cos(angle), c_y = sin(angle))
 circ[nrow(circ)+1, ] <- NA
+## data asethetics
+data_slides <- data.frame(data_slides, species = rep(flea$species, n_slides))
 
-bases_grid <- merge(x = bases, y = grid, by = "slide", all = TRUE) # OUTER JOIN
-circ_grid <- merge(x = circ, y = grid, by = NULL) # CROSS JOIN,
+# OUTER JOIN
+basis_grid <- merge(x = basis_slides, y = grid, by = "slide", all = TRUE)
+# CROSS JOIN
+circ_grid <- merge(x = circ, y = grid, by = NULL)
+# OUTER JOIN
+data_grid <- merge(x = data_slides, y = grid, by = "slide", all = TRUE) 
 
-#=== Step 3 out
-(step3 <- ggplot(data = bases_grid) +
-  geom_segment(aes(x = V1+x, y = V2+y, xend = x, yend = y),
+#=== Step 3 top
+step3t <- ggplot(data = basis_grid) +
+  geom_segment(aes(x = V1 + x, y = V2 + y, xend = x, yend = y),
                color = col_v, size = siz_v) +
-  geom_text(aes(x = V1+x, y = V2+y, label = lab_abbr),
+  geom_text(aes(x = V1 + x, y = V2 + y, label = lab_abbr),
             color = col_v, vjust = "outward", hjust = "outward") +
-  geom_text(aes(x = x-.7, y = y+1.1, label = paste0("slide: ",slide)), 
+  geom_text(aes(x = x - .7, y = y + 1.1, label = paste0("frame: ",slide)), 
             color = "grey50") +
-  geom_path(data = circ_grid, mapping = aes(x = x+c_x, y = y+c_y), color = "grey80") +
-  theme_void())
+  geom_path(data = circ_grid, color = "grey80", 
+            mapping = aes(x = x+c_x, y = y+c_y)) +
+  theme_void()
+
+#=== Step 3 bottom
+step3b <- ggplot(data = data_grid) +
+  geom_point(aes(x = V1 + x, y = V2 + y, color = species, pch = species)) + 
+  geom_text(aes(x = x - .7, y = y + 1.1, label = paste0("frame: ",slide)), 
+            color = "grey50") +
+  scale_color_brewer(palette = "Dark2") +
+  theme_void() +
+  theme(legend.position=c(.90, .15)) +
+  theme(legend.background = 
+          element_rect(colour = 'black', fill = 'grey90', linetype='solid'))
+
+# step0, output
+grid.arrange(step3t, step3b, nrow = 2)
+grid::grid.rect()
 ```
 
 
-```{r, eval = F, echo = F}
-manual_tour <- function(basis = NULL,
-                        manip_var,  # column number
-                        theta = NULL,      # (radians)
-                        phi_min = 0,       # (radians)
-                        phi_max = .5 * pi, # (radians)
-                        n_slides = 20
-) {
-  # Initalize
-  if (!is.matrix(basis)) basis <- as.matrix(basis)
-  if (is.null(theta)) theta <- atan(basis[manip_var, 2] / basis[manip_var, 1])
-  manip_space    <- create_manip_space(basis = basis, manip_var = manip_var)
-  p              <- nrow(basis)
-  d              <- ncol(basis)
-  phi_start      <- acos(sqrt(basis[manip_var, 1]^2 + basis[manip_var, 2]^2))
-  phi_start_sign <- phi_start * sign(manip_space[manip_var, 1])
-  phi_inc        <- 2 * abs(phi_max - phi_min) / (n_slides - 3)
-  stopifnot(phi_min <= phi_start & phi_max >= phi_start)
-  
-  interpolate_walk <- function(seq_start, seq_end){
-    # Initialize for interpolate_slides()
-    slide        <- 0
-    new_slide    <- NULL
-    seq_start    <- seq_start + phi_start_sign # Transform such that phi is relative to Z=0, rather than phi_start
-    seq_end      <- seq_end   + phi_start_sign
-    phi_inc_sign <- phi_inc * ifelse(seq_end > seq_start, 1, -1) 
-    phi_len      <- length(seq(seq_start, seq_end, phi_inc_sign))
-    interp       <- array(dim = c(p, d, phi_len))
-    
-    # Create slide, store in interpolation
-    for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
-      slide <- slide + 1
-      interp[,, slide] <- rotate_manip_space(manip_space, theta, phi)[, 1:2]
-    }
-    return(interp)
-  }
-  
-  walk1 <- interpolate_walk(phi_start, phi_min)
-  walk2 <- interpolate_walk(phi_min, phi_max)
-  walk3 <- interpolate_walk(phi_max, phi_start)
-  walk4 <- interpolate_walk(phi_start, phi_start)
-  
-  m_tour <- array(c(walk1, walk2, walk3, walk4), dim = c(p, d, n_slides))
-  attr(m_tour, "manip_var") <- manip_var
-  
-  return(m_tour)
-}
-```
+
 
 ## Display projection sequence
 
@@ -465,24 +345,20 @@ Plot the first 2 variables from each projection in sequence for an XY scatterplo
 
 ## Installation
 
-spinifex is open source and hosted on [GitHub](https://github.com/nspyrison/spinifex). The development version is available for download by running `devtools::install_github("nspyrison/spinifex")`
-on your R console.
+The development version is available for installation via:
 
-
+```
+# install.packages("devtools")
+devtools::install_github("nspyrison/spinifex")
+```
 
 
 ## Application
 ```{r, eval=F,include=F}
-# for reproducing PDF Sense paper figure 8, open the follow in it's own project.
-if (F) file.edit('../PDFSense_tour/__fig8_repex.r')
-
 load("./data/grDIScenter.rda")
 load("./data/fGT_6d.rda")
 
-animate(select(grDIScenter,-type, -disID),
-        planned_tour(fGT_6d),
-        aps = 4,
-        display_groupxy(col = grDIScenter$disID, group_by=grDIScenter$disID, gp_legend = FALSE))
+
 
 ```
 
@@ -494,7 +370,7 @@ First stab at reproducing Fig8 from the PDFSense paper, is hosted here:
 
 ## Source
 
-The code used to generate this chapter can be found at this [GitHub page](https://github.com/nspyrison/Confirmation/blob/master/03-spinifex.Rmd).
+The code used to generate this work can be found at this [GitHub.com/nspyrison/Confirmation](https://github.com/nspyrison/Confirmation/).
 
 
 
