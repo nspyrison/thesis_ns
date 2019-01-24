@@ -2051,6 +2051,14 @@
     <bcf:citekey order="53">lubischew_use_1962</bcf:citekey>
     <bcf:citekey order="54">lubischew_use_1962</bcf:citekey>
     <bcf:citekey order="55">cook_interactive_2007</bcf:citekey>
+    <bcf:citekey order="56">sievert_plotly_2018</bcf:citekey>
+    <bcf:citekey order="57">sievert_plotly_2018</bcf:citekey>
+    <bcf:citekey order="58">pedersen_gganimate:_2019</bcf:citekey>
+    <bcf:citekey order="59">pedersen_gganimate:_2019</bcf:citekey>
+    <bcf:citekey order="60">xie_animation:_2018</bcf:citekey>
+    <bcf:citekey order="61">xie_animation:_2018</bcf:citekey>
+    <bcf:citekey order="62">cook_dynamical_2018</bcf:citekey>
+    <bcf:citekey order="63">cook_dynamical_2018</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
