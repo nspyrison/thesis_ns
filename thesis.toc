@@ -48,18 +48,20 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.4}Display projection sequence}{17}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Installation}{17}{section.3.5}
+\contentsline {section}{\numberline {3.5}Application}{18}{section.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}Application}{17}{section.3.6}
+\contentsline {subsection}{\numberline {3.5.1}Subset of figure 7}{18}{subsection.3.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.7}Source}{17}{section.3.7}
+\contentsline {subsection}{\numberline {3.5.2}Figure 8}{20}{subsection.3.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.8}Discussion}{17}{section.3.8}
+\contentsline {section}{\numberline {3.6}Source}{22}{section.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Display dimensionality}{19}{chapter.4}
+\contentsline {section}{\numberline {3.7}Discussion}{22}{section.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{21}{chapter.5}
+\contentsline {chapter}{\numberline {4}Display dimensionality}{25}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Additional stuff}{23}{appendix.A}
+\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{27}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{25}{appendix*.9}
+\contentsline {chapter}{\numberline {A}Additional stuff}{29}{appendix.A}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{31}{appendix*.9}

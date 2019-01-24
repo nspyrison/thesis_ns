@@ -185,7 +185,7 @@ Adding an extra dimension to our basis plane allows for the manipulation of the 
 
 ```{r step2, fig.cap = "Manipulation space for controling the contribution of aede2 of standardized flea data. Basis was identified by holes-index guided tour. The out of plane axis, in red, shows how the manipulation variable can be rotated, while other dimensions stay embeded within the basis plane."}
 #=== Step 2 out
-view_manip_sp(h_bas, 5)
+view_manip_sp(h_bas, 5, labels = colnames(flea_std))
 ```
 
 Imagine being able to grab hold of the red axis and rotate it changing the projection onto the basis plane. This is what happens in a manual tour. By controling the angle between the axis and the basis plane we change the contribution of the manipulation variable on the projection.
@@ -241,28 +241,6 @@ for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
   tour[,, slide] <- rotate_manip_space(manip_space, theta, phi)[, 1:2]
 }
 ```
-
-
-
-<!-- To get back to data-space post multiply each projection basis by the data, for  the data projection. -->
-
-<!-- \begin{align} -->
-<!--   \textbf{P}_{d[n,~d+1]} -->
-<!--     &= \textbf{X}_{[n,~p]} ~*~ \textbf{P}_{b[p,~d+1]} \\ -->
-<!--     &= \begin{bmatrix} -->
-<!--       X_{1,~1} & \dots & X_{1,~p} \\ -->
-<!--       X_{2,~1} & \dots & X_{2,~p} \\ -->
-<!--       \vdots   & \vdots & \vdots  \\ -->
-<!--       X_{n,~1} & \dots & X_{n,~p} -->
-<!--     \end{bmatrix}_{[n,~p]} -->
-<!--       ~*~ -->
-<!--     \begin{bmatrix} -->
-<!--       P_{b:1,~1} & P_{b:1,~2} & P_{b:1,~3} \\ -->
-<!--       P_{b:2,~1} & P_{b:2,~2} & P_{b:2,~3} \\ -->
-<!--       \vdots     & \vdots     & \vdots     \\ -->
-<!--       P_{b:p,~1} & P_{b:p,~2} & P_{b:p,~3} -->
-<!--     \end{bmatrix}_{b[p,~d+1]} -->
-<!-- \end{align} -->
 
 
 ```{r step3, results = 'hide', fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from it's initial contribution to a full contribution to the projection before decreasing to zero, and then retruning to it's inital state."}
@@ -333,46 +311,83 @@ grid::grid.rect()
 
 ## Display projection sequence
 
-<!--
-- Lack of full interaction in R
-- Animation packages
-- Saving a sequence of projections, tourr, save_history
-- Generating manual sequence off-line, replaying with animation package
--->
+To get back to data-space pre multiply each projection basis by the data for the projection in data-space. 
+
+\begin{align}
+  \textbf{P}_{d[n,~d+1]}
+    &= \textbf{X}_{[n,~p]} ~*~ \textbf{P}_{b[p,~d+1]} \\
+    &= \begin{bmatrix}
+      X_{1,~1} & \dots & X_{1,~p} \\
+      X_{2,~1} & \dots & X_{2,~p} \\
+      \vdots   & \vdots & \vdots  \\
+      X_{n,~1} & \dots & X_{n,~p}
+    \end{bmatrix}_{[n,~p]}
+      ~*~
+    \begin{bmatrix}
+      P_{b:1,~1} & P_{b:1,~2} & P_{b:1,~3} \\
+      P_{b:2,~1} & P_{b:2,~2} & P_{b:2,~3} \\
+      \vdots     & \vdots     & \vdots     \\
+      P_{b:p,~1} & P_{b:p,~2} & P_{b:p,~3}
+    \end{bmatrix}_{b[p,~d+1]}
+\end{align}
 
 Plot the first 2 variables from each projection in sequence for an XY scatterplot. The remaining variable is sometimes linked to a data point aesthetic to produce depth cues used in conjunction with the XY scatterplot.
 
+*tourr* utilizes R's base graphics for the display of tours. Use `render_plotly()` to display as an dynamic `plotly` @sievert_plotly_2018 object or `render_gganimate()` for a `gganimate` @pedersen_gganimate:_2019 graphic. A thrid noteable animation related package is `animation` @xie_animation:_2018. It's not yet implemented in `spinifex` as it uses base graphics, whereas the former two are compatiable with `ggplot2`. 
 
-## Installation
+Interaction with graphics in R is limited. Traditionally, all commands are passed to the R via calls to the console, conflicting with user engagement. Some recent packages have made advancment into this direction such as with the use of the R package `shinny`, which custom-made applications can be hosted either locally or remotely and interact with the R console, allowing for developers to code dynamic content interaction. To a lesser extent `plotly` offers static interactions with contained object, such as tooltips, brushing, and linking without communicating back to the R console.
 
-The development version is available for installation via:
+Storing the each data point and all of the overhead though goes into dynamic graphics if very inefficient. In the same way that we performed math the bases, that is the same approach storage and sharing tours. Consider the manual tour, we can store the salient features in 3 basis, where $\phi$ is at it's starting, minimum, and maximum values. The frames inbetween can be interpolated by suppling angular speed or number of desired frames. By using the `tourr::save_history()` we can do just that. Save such tour path history and a single set of the data offers a perfomant store and tranfer.
 
-```
-# install.packages("devtools")
-devtools::install_github("nspyrison/spinifex")
-```
-
+<!--
+Display, interaction, and exporting with tours 
+x - Lack of full interaction in R
+x - Animation packages
+x - Saving a sequence of projections, tourr, save_history
+?? - Generating manual sequence off-line, replaying with animation package
+-->
 
 ## Application
-```{r, eval=F,include=F}
-load("./data/grDIScenter.rda")
-load("./data/fGT_6d.rda")
-
-
-
+```{r, eval=F, include=F}
+### netlify .rmd file 
+file.edit("../nspyrison_netlify/content/else/PDFsense_ManualTour.rmd")
+### Dev ver locally
+file.edit("./zPDFSense_manualTour.R")
 ```
 
-apply manual tours to Ursula fig 1 here:
 NOTE: Examples from https://arxiv.org/abs/1806.09742
+@cook_dynamical_2018
 
-First stab at reproducing Fig8 from the PDFSense paper, is hosted here:
-[nspyrison.netlify.com](https://nspyrison.netlify.com/else/pdfsense_fig8repex/)
+### Subset of figure 7
+
+Manual tour of the first 4 principle components for experiments of ATLAS7old and ATLAS7new.
+
+Manual tour on the PC3:
+
+$\phi$ in the starting position
+![](./output/fig7_phi_start.png)
+$\phi$ zeroed, maximizing the contribution from the 3rd principle component
+![](./output/fig7_phi0.png)
+
+### Figure 8 
+
+'dimuonSIDIS' experiements (green points), ‘DIS HERA1+2’ experiments in black.
+
+Manual tour on PC6:
+
+$\phi$ in the starting position
+![](./output/fig8_phi_start.png)
+$\phi$ zeroed, maximizing the contribution from the 6th principle component
+![](./output/fig8_phi0.png)
+$\phi$ at 90 degrees, minimizing the contribution from the 6th principle component
+![](./output/fig8_phi90.png)
+
+Dynamic versions of the manual tour can be found at:
+[nspyrison.netlify.com](https://nspyrison.netlify.com/else/pdfsense_manualtours/)
 
 ## Source
 
-The code used to generate this work can be found at this [GitHub.com/nspyrison/Confirmation](https://github.com/nspyrison/Confirmation/).
-
-
+The code used to generate this writing can be found at this [GitHub.com/nspyrison/Confirmation](https://github.com/nspyrison/Confirmation/).
 
 
 ## Discussion
