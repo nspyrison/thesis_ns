@@ -22,9 +22,9 @@ knitr::opts_chunk$set(
 
 ## Abstract
 
-Touring techniques offer a great opportunity for data-space visualizations of ($\textbf{X} \in \mathbb{R}^p,~p > 3$) multivariate data sets. This paper discusses the *R* package *spinifex*, which adds support for the manual tour, which is particularly usefully for exploring the local structure after identifying a feature of interest, perhaps via guided tour. Additionally, *spinifex* extends graphic outputs to *plotly* and *gganimation*. This work extends the functionality of and is compatible with *tourr*.
+The tour algorithm, and its various versions provide a systematic approach to viewing low-dimensional projections of high-dimensional data. It is particularly useful for understanding multivariate data, and useful in association with techniques for dimension reduction, supervised and unsupervised classification. The *R* package *tourr* provides manhy methods for conducting tours on multivariate data. This paper discusses an extension package which adds support for the manual tour, called  *spinifex*. It is particularly usefully for exploring the sensitivity of structure discovered in a projection by a guided tour, to the contribution of a variable.*Spinifex* utlizes the animation packages *plotly* and *gganimation* to allow users to rotate a variable into and our of a chosen projection. 
 
-Keywords: grand tour, projection pursuit, manual tour, tourr, touring, high dimensional visualization, high dim vis, dimensionality reduction, visualization, statistical graphics, data-space.
+Keywords: grand tour, projection pursuit, manual tour, high dimensional data, multivariate data, data visualization, statistical graphics, data science, data mining.
 
 
 ## Introduction
