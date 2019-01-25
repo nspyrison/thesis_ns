@@ -258,17 +258,21 @@ Support and maintenance of such implementations give them a particularly short l
 \hypertarget{abstract-1}{%
 \section{Abstract}\label{abstract-1}}
 
-The tour algorithm, and its various versions provide a systematic approach to viewing low-dimensional projections of high-dimensional data. It is particularly useful for understanding multivariate data, and useful in association with techniques for dimension reduction, supervised and unsupervised classification. The \emph{R} package \emph{tourr} provides manhy methods for conducting tours on multivariate data. This paper discusses an extension package which adds support for the manual tour, called \emph{spinifex}. It is particularly usefully for exploring the sensitivity of structure discovered in a projection by a guided tour, to the contribution of a variable.\emph{Spinifex} utlizes the animation packages \emph{plotly} and \emph{gganimation} to allow users to rotate a variable into and our of a chosen projection.
+The tour algorithm, and its various versions provide a systematic approach to viewing low-dimensional projections of high-dimensional data. It is particularly useful for understanding multivariate data, and useful in association with techniques for dimension reduction, supervised and unsupervised classification. The \emph{R} package \emph{tourr} provides manhy methods for conducting tours on multivariate data. This paper discusses an extension package which adds support for the manual tour, called \emph{spinifex}. It is particularly usefully for exploring the sensitivity of structure discovered in a projection by a guided tour, to the contribution of a variable. \emph{Spinifex} utlizes the animation packages \emph{plotly} and \emph{gganimation} to allow users to rotate a variable into and our of a chosen projection.
 
 Keywords: grand tour, projection pursuit, manual tour, high dimensional data, multivariate data, data visualization, statistical graphics, data science, data mining.
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-The manual tour was described in \textcite{cook_manual_1997}, and allows a user to rotate a variable into and out of a 2D projection of high-dimensional space. The primary purpose is to determine the sensitivity of structure visible in a projection to a variable. Manual touring can also be useful for exploring the local structure once a feature of interest has been identified, for example, by a guided tour \autocite{hurley_analyzing_1990}. In guided tours an index of interest defined on the space of all projections, and the function is optimised. It derives from projection pursuit \autocite{friedman_projection_1974}, and the guided tour provides a visual interface to the optimisation. The manual tour can be used to help refine structure in the optimal projection, sharpening it by exploring the contributions of different variables, and simplifying by zeroing the coefficients of variables that don't contribute to the structure.
+The manual tour was described in \textcite{cook_manual_1997}, and allows a user to rotate a variable into and out of a 2D projection of high-dimensional space. The primary purpose is to determine the sensitivity of structure visible in a projection to the contributions of a variable. Manual touring can also be useful for exploring the local structure once a feature of interest has been identified, for example, by a guided tour \autocite{cook_grand_1995}. The algorithm for a manual tour allows rotations in horizontal, vertical, oblique, angular and radial directions. Rotation in a radial direction, would pull a variable into and out of the projection, which allows for examining the sensitivity of structure in the projection to the contribution of this variable. This type of manual rotation is the focus of this paper.
 
-\hypertarget{manual-tour-algorithm}{%
-\section{Manual tour algorithm}\label{manual-tour-algorithm}}
+A manual tour relies on user input, and thus has been difficult to program in R. Ideally, the mouse movements of the user are captured, and passed to the computations, driving the rotation interactively. However, this type of interactivity is not simple in R. This has been the reason that the algorithm was not incorporated into the \emph{tourr} package. Spinifex utilizes two new packages for conducting animations, \emph{plotly} \autocite{sievert_plotly_2018} and \emph{gganimate} \autocite{pedersen_gganimate:_2019}, to conduct a manual tour. From a given projection, the user can choose which variable to control, and the animation equence is generated to remove the variable from the projection, and then extend its contribution to be the sole variable in one direction. This allows the viewer to assess the change in structure induced in the projection by the variable contribution.
+
+The paper is organized as follows. Section \ref{sec:algorithm} explains the algorithm using a toy dataset. Section \ref{sec:application} illustrates how this can be used for sensitivity analysis. The last section summarizes the work and discusses future research.
+
+\hypertarget{sec:algorithm}{%
+\section{Manual tour algorithm}\label{sec:algorithm}}
 
 The algorithm contains several steps:
 
@@ -477,8 +481,8 @@ Interaction with graphics in R is limited. Traditionally, all commands are passe
 
 Storing the each data point and all of the overhead though goes into dynamic graphics if very inefficient. In the same way that we performed math the bases, that is the same approach storage and sharing tours. Consider the manual tour, we can store the salient features in 3 basis, where \(\phi\) is at it's starting, minimum, and maximum values. The frames inbetween can be interpolated by suppling angular speed or number of desired frames. By using the \texttt{tourr::save\_history()} we can do just that. Save such tour path history and a single set of the data offers a perfomant store and tranfer.
 
-\hypertarget{application}{%
-\section{Application}\label{application}}
+\hypertarget{sec:application}{%
+\section{Application}\label{sec:application}}
 
 NOTE: Examples from \url{https://arxiv.org/abs/1806.09742}
 \textcite{cook_dynamical_2018}
