@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 ## Abstract
 
-The tour algorithm, and its various versions provide a systematic approach to viewing low-dimensional projections of high-dimensional data. It is particularly useful for understanding multivariate data, and useful in association with techniques for dimension reduction, supervised and unsupervised classification. The *R* package *tourr* provides manhy methods for conducting tours on multivariate data. This paper discusses an extension package which adds support for the manual tour, called  *spinifex*. It is particularly usefully for exploring the sensitivity of structure discovered in a projection by a guided tour, to the contribution of a variable.*Spinifex* utlizes the animation packages *plotly* and *gganimation* to allow users to rotate a variable into and our of a chosen projection. 
+The tour algorithm, and its various versions provide a systematic approach to viewing low-dimensional projections of high-dimensional data. It is particularly useful for understanding multivariate data, and useful in association with techniques for dimension reduction, supervised and unsupervised classification. The *R* package *tourr* provides manhy methods for conducting tours on multivariate data. This paper discusses an extension package which adds support for the manual tour, called  *spinifex*. It is particularly usefully for exploring the sensitivity of structure discovered in a projection by a guided tour, to the contribution of a variable. *Spinifex* utlizes the animation packages *plotly* and *gganimation* to allow users to rotate a variable into and our of a chosen projection. 
 
 Keywords: grand tour, projection pursuit, manual tour, high dimensional data, multivariate data, data visualization, statistical graphics, data science, data mining.
 
@@ -42,10 +42,17 @@ What is a manual tour, and what is it useful for - DONE
 -->
 
 
-The manual tour was described in @cook_manual_1997, and allows a user to rotate a variable into and out of a 2D projection of high-dimensional space. The primary purpose is to determine the sensitivity of structure visible in a projection to a variable. Manual touring can also be useful for exploring the local structure once a feature of interest has been identified, for example, by a guided tour [@hurley_analyzing_1990]. In guided tours an index of interest defined on the space of all projections, and the function is optimised. It derives from projection pursuit [@friedman_projection_1974], and the guided tour provides a visual interface to the optimisation. The manual tour can be used to help refine structure in the optimal projection, sharpening it by exploring the contributions of different variables, and simplifying by zeroing the coefficients of variables that don't contribute to the structure. 
+The manual tour was described in @cook_manual_1997, and allows a user to rotate a variable into and out of a 2D projection of high-dimensional space. The primary purpose is to determine the sensitivity of structure visible in a projection to the contributions of a variable. Manual touring can also be useful for exploring the local structure once a feature of interest has been identified, for example, by a guided tour [@cook_grand_1995]. The algorithm for a manual tour allows rotations in horizontal, vertical, oblique, angular and radial directions. Rotation in a radial direction, would pull a variable into and out of the projection, which allows for examining the sensitivity of structure in the projection to the contribution of this variable. This type of manual rotation is the focus of this paper.
 
+A manual tour relies on user input, and thus has been difficult to program in R. Ideally, the mouse movements of the user are captured, and passed to the computations, driving the rotation interactively. However, this type of interactivity is not simple in R. This has been the reason that the algorithm was not incorporated into the *tourr* package. Spinifex utilizes two new packages for conducting animations, *plotly* [@sievert_plotly_2018] and *gganimate* [@pedersen_gganimate:_2019], to conduct a manual tour. From a given projection, the user can choose which variable to control, and the animation equence is generated to remove the variable from the projection, and then extend its contribution to be the sole variable in one direction. This allows the viewer to assess the change in structure induced in the projection by the variable contribution.
 
-## Manual tour algorithm
+The paper is organized as follows. Section \ref{sec:algorithm} explains the algorithm using a toy dataset. Section \ref{sec:application} illustrates how this can be used for sensitivity analysis. The last section summarizes the work and discusses future research.
+
+<!--
+In guided tours an index of interest defined on the space of all projections, and the function is optimised. It derives from projection pursuit [@friedman_projection_1974], and the guided tour provides a visual interface to the optimisation. The manual tour can be used to help refine structure in the optimal projection, sharpening it by exploring the contributions of different variables, and simplifying by zeroing the coefficients of variables that don't contribute to the structure. 
+-->
+
+## Manual tour algorithm {#sec:algorithm}
 
 The algorithm contains several steps:
 
@@ -347,7 +354,8 @@ x - Saving a sequence of projections, tourr, save_history
 ?? - Generating manual sequence off-line, replaying with animation package
 -->
 
-## Application
+## Application {#sec:application}
+
 ```{r, eval=F, include=F}
 ### netlify .rmd file 
 file.edit("../nspyrison_netlify/content/else/PDFsense_ManualTour.rmd")
