@@ -272,33 +272,30 @@ A manual tour relies on user input, and thus has been difficult to program in R.
 The paper is organized as follows. Section \ref{sec:algorithm} explains the algorithm using a toy dataset. Section \ref{sec:application} illustrates how this can be used for sensitivity analysis. The last section summarizes the work and discusses future research.
 
 \hypertarget{sec:algorithm}{%
-\section{Manual tour algorithm}\label{sec:algorithm}}
+\section{Algorithm}\label{sec:algorithm}}
 
-The algorithm contains several steps:
+Creating a manual tour animation requires these steps:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Choose a variable to explore, called the manip variable
+  Provided with a 2D projection, choose a variable to explore. This is called the ``manip'' variable.
 \item
-  Create a 3D manipulation space, where the variable to be explored has full contribution.
+  Create a 3D manipulation space, where the manip variable has full contribution.
 \item
-  Generate the rotation which zero's the coefficient and also increases it to 1
+  Generate a rotation sequence which zero's the norm of the coefficient and also increases it to 1.
 \end{enumerate}
+
+These steps are described in more detail below.
 
 \hypertarget{notation}{%
 \subsection{Notation}\label{notation}}
 
-Given:
-
-\begin{description}
-  \item[$\textbf{X}_{[n,~p]}$] A data set containing $n$ observations of $p$ numeric variables. 
-  \item[$\textbf{B}_{[p,~d]}$] An orthonormal \footnote{Where each variable is both: orthogonal, at right angles (dot product is 0) to the other variables, and unit vectors, a norm = 1} basis describing the current orientation projecting $p$ down to $d$ dimension.
-\end{description}
+This section describes the notation used in the algorithm description. The data to be displayed is an \(n \times p\) numeric matrix.
 
 \begin{align*}
-  \textbf{X}_{[n,~p]} ~=
+  \textbf{X}_{n \times p} ~=
   \begin{bmatrix}
     X_{1,~1} & \dots  & X_{1,~p} \\
     X_{2,~1} & \dots  & X_{2,~p} \\
@@ -306,6 +303,8 @@ Given:
     X_{n,~1} & \dots  & X_{n,~p}
   \end{bmatrix}
 \end{align*}
+
+and an orthonormal \(d\)-dimensional projection matrix is
 
 \begin{align*}
   \textbf{B}_{[p,~d]} ~=
@@ -317,14 +316,14 @@ Given:
   \end{bmatrix}
 \end{align*}
 
-For ease of computation we will be working mostly with the basis and not the data, once basis manipulation is done post multiply the data by the basis to get back to data-space.
+The algorithm is primarily operating on the projection basis and utilizes the data only when making a display.
 
-\hypertarget{flea-data-set}{%
-\subsection{Flea data set}\label{flea-data-set}}
+\hypertarget{toy-data-set}{%
+\subsection{Toy data set}\label{toy-data-set}}
 
-We'll illustrate with the flea data set from the R package \emph{tourr} \autocite{wickham_tourr_2011}, which contains different tours on the same data. The data comes from \textcite{lubischew_use_1962}. The flea data contains 74 observations across 6 variables, physical measurements of each flea beetle. Each individual belonged to one of three species being observed.
+The flea data from the R package \emph{tourr} \autocite{wickham_tourr_2011}, is used to illustrat the algorithm. The data, originally from \textcite{lubischew_use_1962},contains 74 observations across 6 variables, which physical measurements of the insects. Each individual belonged to one of three species.
 
-We'll perform a guided tour on the flea data optimizing on the \texttt{holes} index \autocite{cook_interactive_2007}. In a guided tour the data is projected rated against the the selected index, and looks around in the local area for a projection that outperforms the current best index. A basis that spreads the projected data furthest from the center is sought after in the case of the \texttt{holes} index. In figure \ref{fig:step0}, below, the left frame depicted the final basis of the \texttt{holes} tour. a unit circle with lines showing the x and y contributions of each variable in the projection space. The right frame projects the data through that basis and colors the points according to the observed species.
+A guided tour on the flea data is conducted by optimizing on the \texttt{holes} index \autocite{cook_interactive_2007}. In a guided tour the data the projection sequence is shown by optimizing an index of interest. The holes index is maximized by when the projected data has a lack of observations in the center. Figure \ref{fig:step0}, shows an optimal projection of this data. The left plot displays the projection basis adn the right plot shows the projected data. The display of the basis has a unit circle with lines showing the horizontal and vertical contributions of each variable in the projection. Here is is primarily tars1 and aede2 contrasting the other four variables. In the projected data it can be seen that there are three clusters, which have been coloured, although not used in the optimisation. The question that will be explored in the explanation of the algorithm is how important is aede2 to the separation of the clusters.
 
 \begin{figure}
 \centering
