@@ -115,8 +115,9 @@ set.seed(1)
 flea_std <- rescale(flea[,1:6])
 hpath    <- save_history(flea_std, guided_tour(holes))
 h_bas    <- matrix(hpath[,, max(dim(hpath)[3])], ncol=2)
+m_var    <-  5
 
-h_m_sp <- create_manip_space(h_bas, manip_var = 1)
+h_m_sp <- create_manip_space(basis = h_bas, manip_var = m_var)
 h_dat  <- cbind(data.frame(flea_std %*% h_m_sp[, 1:2]), flea$species)
 colnames(h_dat) <- c("x", "y", "species")
 
@@ -127,10 +128,12 @@ step0_l <- view_basis(h_bas, labels = colnames(flea_std))
 step0_r <- ggplot() +
   geom_point(h_dat, mapping = aes(x=x, y=y, color=species, pch=species)) +
   scale_color_brewer(palette = "Dark2") +
-  theme_void() +
-  theme(legend.position=c(0.8, 0.8)) +
-  theme(legend.background = 
-          element_rect(colour = 'black', fill = 'grey90', linetype='solid'))
+  theme_void() +   
+  theme(legend.position="none")
+### LEGEND COMMENTED:
+# theme(legend.position=c(0.8, 0.8)) +
+# theme(legend.background = 
+#         element_rect(colour = 'black', fill = 'grey90', linetype='solid'))
 
 # step0, output
 grid.arrange(step0_l, step0_r, ncol=2)
@@ -189,7 +192,7 @@ Use the Gram-Schmidt process to orthonormalize the concatenation of the basis an
 \end{align*}
 
 In R it looks like the below chunk. `tourr::orthonormalise()` uses the Gram Schimidt process (rather than Housholder reflection) to orthonormalise.
-```{r, eval=F}
+```{r STEP2CODE, eval=F}
   e            <- rep(0, len = nrow(basis))
   e[manip_var] <- 1
   manip_space  <- tourr::orthonormalise(cbind(basis, e))
@@ -199,7 +202,7 @@ Adding an extra dimension to our basis plane allows for the manipulation of the 
 
 ```{r step2, fig.cap = "Manipulation space for controling the contribution of aede2 of standardized flea data. Basis was identified by holes-index guided tour. The out of plane axis, in red, shows how the manipulation variable can be rotated, while other dimensions stay embeded within the basis plane."}
 #=== Step 2 out
-view_manip_sp(h_bas, 5, labels = colnames(flea_std))
+view_manip_space(basis = h_bas, manip_var = m_var, labels = colnames(flea_std))
 ```
 
 Imagine being able to grab hold of the red axis and rotate it changing the projection onto the basis plane. This is what happens in a manual tour. By controling the angle between the axis and the basis plane we change the contribution of the manipulation variable on the projection.
@@ -249,7 +252,7 @@ Where:
 In application: compile the sequence of $\phi_i$ and create an array (or long table) for each rotated manipulation space. $\phi$ is actually the angle relative to the $\phi_1$, we find the transformation $\phi_i$ - $\phi_1$ useful to discuss $\phi$ relative to the basis plane.
 
 
-```{r, eval = F, echo = F}
+```{r STEP3CODE, eval = F, echo = F}
 for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
   slide <- slide + 1
   tour[,, slide] <- rotate_manip_space(manip_space, theta, phi)[, 1:2]
@@ -257,8 +260,11 @@ for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
 ```
 
 
-```{r step3, results = 'hide', fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from it's initial contribution to a full contribution to the projection before decreasing to zero, and then retruning to it's inital state."}
-mtour <- manual_tour(h_bas, manip_var = 5, n_slides = 15)
+
+
+```{r step3, results = 'hide', fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "Rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from it's initial contribution to a full contribution to the projection before decreasing to zero, and then retruning to it's inital state."}
+n_sli <- 15
+mtour <- manual_tour(h_bas, manip_var = m_var, n_slides = n_sli)
 slides <- array2df(tour = mtour, data = flea_std)
 basis_slides <- slides$basis_slides
 data_slides  <- slides$data_slides
@@ -271,12 +277,11 @@ grid <-
 ## manip var asethetics
 n_slides         <- max(basis_slides$slide)
 p                <- nrow(basis_slides) / n_slides
-manip_var        <- 5
 col_v            <- rep("grey80", p)
-col_v[manip_var] <- "blue"
+col_v[m_var] <- "blue"
 col_v            <- rep(col_v, n_slides)
 siz_v            <- rep(0.3, p)
-siz_v[manip_var] <- 1
+siz_v[m_var] <- 1
 siz_v            <- rep(siz_v, n_slides)
 ## circle
 angle <- seq(0, 2 * pi, length = 180)
@@ -311,15 +316,49 @@ step3b <- ggplot(data = data_grid) +
             color = "grey50") +
   scale_color_brewer(palette = "Dark2") +
   theme_void() +
-  theme(legend.position=c(.90, .15)) +
-  theme(legend.background = 
-          element_rect(colour = 'black', fill = 'grey90', linetype='solid'))
+  theme(legend.position="none")
+
 
 # step0, output
 grid.arrange(step3t, step3b, nrow = 2)
 grid::grid.rect()
 ```
 
+
+```{r}
+#TODO: TORUBLESHOOT HERE
+b1 <- basis_slides[basis_slides$slide==1,1:2]
+m1 <- mtour[,,1] #m tour, from h_bas,
+
+view_basis(h_bas) #TARGET
+view_basis(b1) # WRONG, BACK UP
+view_basis(m1) # WRONG;
+print("wrong before b1 at m1; meaning issue in manual_tour, which seemed to work for example...")
+
+# REPRODUCE FROM EXAMPEL:
+DAT <- tourr::rescale(tourr::flea[,1:6])
+BAS <- tourr::basis_random(n = ncol(DAT))
+MT  <- manual_tour(basis = BAS, manip_var = 5) # HOMOMORPHISM...
+view_basis(BAS) #TARGET
+view_basis(MT[,,1]) #WRONG; WORK BACK FROM MANUAL_tour
+view_manip_space(BAS, 5) #GOOD
+M_SP    <- create_manip_space(basis = BAS, manip_var = 5)
+view_basis(M_SP[,1:2]) #GOOD
+theta <- atan(BAS[m_var, 2] / BAS[m_var, 1])
+P_ST      <- acos(sqrt(BAS[m_var, 1]^2 + BAS[m_var, 2]^2))
+R_SP <- rotate_manip_space(manip_space = M_SP, theta = theta, phi = P_ST)[, 1:2]
+view_basis(R_SP)
+#INIT
+
+phi_start_sign <- P_ST * sign(M_SP[m_var, 1]) 
+phi_inc        <- pi / (n_sli - 3)
+p              <- nrow(BAS)
+d              <- ncol(BAS)
+seq_start <- NULL; seq_end <- NULL
+W1 <- interpolate_walk(P_ST,P_ST)
+
+
+```
 
 
 
@@ -398,11 +437,11 @@ $\phi$ at 90 degrees, minimizing the contribution from the 6th principle compone
 ![](./output/fig8_phi90.png)
 
 Dynamic versions of the manual tour can be found at:
-[nspyrison.netlify.com](https://nspyrison.netlify.com/else/pdfsense_manualtours/)
+https://nspyrison.netlify.com/else/pdfsense_manualtours/
 
 ## Source
 
-The code used to generate this writing can be found at this [GitHub.com/nspyrison/Confirmation](https://github.com/nspyrison/Confirmation/).
+The code used to generate this writing can be found at this https://github.com/nspyrison/Confirmation/.
 
 
 ## Discussion
