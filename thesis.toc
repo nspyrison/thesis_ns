@@ -56,7 +56,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.6}Source}{23}{section.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.7}Discussion}{23}{section.3.7}
+\contentsline {section}{\numberline {3.7}Discussion}{24}{section.3.7}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Display dimensionality}{25}{chapter.4}
 \defcounter {refsection}{0}\relax 
