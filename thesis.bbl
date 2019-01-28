@@ -1,0 +1,1600 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.0 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{andrews_plots_1972}{article}{}
+      \name{author}{1}{}{%
+        {{hash=d48e480ce82e29c9b5285e4c1064cbcf}{%
+           family={Andrews},
+           familyi={A\bibinitperiod},
+           given={D.\bibnamedelimi F.},
+           giveni={D\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{d48e480ce82e29c9b5285e4c1064cbcf}
+      \strng{fullhash}{d48e480ce82e29c9b5285e4c1064cbcf}
+      \strng{bibnamehash}{d48e480ce82e29c9b5285e4c1064cbcf}
+      \strng{authorbibnamehash}{d48e480ce82e29c9b5285e4c1064cbcf}
+      \strng{authornamehash}{d48e480ce82e29c9b5285e4c1064cbcf}
+      \strng{authorfullhash}{d48e480ce82e29c9b5285e4c1064cbcf}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{[A method of plotting data of more than two dimensions is proposed. Each data point, \$x = (x\_1, {\textbackslash}cdots , x\_k\$), is mapped into a function of the form \$\$f\_x(t) = x\_1/{\textbackslash}sqrt\{2\} + x\_2 {\textbackslash}text\{sin\} t + x\_3 cos t + x\_4 {\textbackslash}text\{sin\} 2t + x\_5 {\textbackslash}text\{cos\} 2t + {\textbackslash}cdots,\$\$ and the function is plotted on the range -\${\textbackslash}pi\$ {<} t {<} \${\textbackslash}pi\$. Some statistical properties of the method are explored. The application of the method is illustrated with an example from anthropology.]}
+      \field{issn}{0006-341X}
+      \field{journaltitle}{Biometrics}
+      \field{number}{1}
+      \field{title}{Plots of {High}-{Dimensional} {Data}}
+      \field{urlday}{19}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{volume}{28}
+      \field{year}{1972}
+      \field{urldateera}{ce}
+      \field{pages}{125\bibrangedash 136}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.2307/2528964
+      \endverb
+      \verb{file}
+      \verb JSTOR Full Text PDF:C\:\\Users\\spyri\\Zotero\\storage\\L59ZBLFK\\Andrews - 1972 - Plots of High-Dimensional Data.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.jstor.org/stable/2528964
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/2528964
+      \endverb
+    \endentry
+    \entry{anscombe_graphs_1973}{article}{}
+      \name{author}{1}{}{%
+        {{hash=47dc6235377237803d2f6f9f48fcfef2}{%
+           family={Anscombe},
+           familyi={A\bibinitperiod},
+           given={F.\bibnamedelimi J.},
+           giveni={F\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{47dc6235377237803d2f6f9f48fcfef2}
+      \strng{fullhash}{47dc6235377237803d2f6f9f48fcfef2}
+      \strng{bibnamehash}{47dc6235377237803d2f6f9f48fcfef2}
+      \strng{authorbibnamehash}{47dc6235377237803d2f6f9f48fcfef2}
+      \strng{authornamehash}{47dc6235377237803d2f6f9f48fcfef2}
+      \strng{authorfullhash}{47dc6235377237803d2f6f9f48fcfef2}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0003-1305}
+      \field{journaltitle}{The American Statistician}
+      \field{number}{1}
+      \field{title}{Graphs in {Statistical} {Analysis}}
+      \field{urlday}{19}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{volume}{27}
+      \field{year}{1973}
+      \field{urldateera}{ce}
+      \field{pages}{17\bibrangedash 21}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.2307/2682899
+      \endverb
+      \verb{file}
+      \verb JSTOR Full Text PDF:C\:\\Users\\spyri\\Zotero\\storage\\XSMWISZX\\Anscombe - 1973 - Graphs in Statistical Analysis.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.jstor.org/stable/2682899
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/2682899
+      \endverb
+    \endentry
+    \entry{asimov_grand_1985}{article}{}
+      \name{author}{1}{}{%
+        {{hash=442d77c6433c32ec96d2040e519b4ae8}{%
+           family={Asimov},
+           familyi={A\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{442d77c6433c32ec96d2040e519b4ae8}
+      \strng{fullhash}{442d77c6433c32ec96d2040e519b4ae8}
+      \strng{bibnamehash}{442d77c6433c32ec96d2040e519b4ae8}
+      \strng{authorbibnamehash}{442d77c6433c32ec96d2040e519b4ae8}
+      \strng{authornamehash}{442d77c6433c32ec96d2040e519b4ae8}
+      \strng{authorfullhash}{442d77c6433c32ec96d2040e519b4ae8}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{journaltitle}{SIAM journal on scientific and statistical computing}
+      \field{number}{1}
+      \field{shorttitle}{The grand tour}
+      \field{title}{The grand tour: a tool for viewing multidimensional data}
+      \field{volume}{6}
+      \field{year}{1985}
+      \field{pages}{128\bibrangedash 143}
+      \range{pages}{16}
+      \verb{file}
+      \verb Fulltext:C\:\\Users\\spyri\\Zotero\\storage\\5S38649P\\Asimov - 1985 - The grand tour a tool for viewing multidimensiona.pdf:application/pdf;Snapshot:C\:\\Users\\spyri\\Zotero\\storage\\VVI653YZ\\0906011.html:text/html
+      \endverb
+    \endentry
+    \entry{becker_brushing_1987}{article}{}
+      \name{author}{2}{}{%
+        {{hash=8a8da879a5f4da4614e54229c36e9eab}{%
+           family={Becker},
+           familyi={B\bibinitperiod},
+           given={Richard\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=891ad1f1560d4ca4d59acb11065fd649}{%
+           family={Cleveland},
+           familyi={C\bibinitperiod},
+           given={William\bibnamedelima S.},
+           giveni={W\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{913feb992c639212a31a71d9b6935a3c}
+      \strng{fullhash}{913feb992c639212a31a71d9b6935a3c}
+      \strng{bibnamehash}{913feb992c639212a31a71d9b6935a3c}
+      \strng{authorbibnamehash}{913feb992c639212a31a71d9b6935a3c}
+      \strng{authornamehash}{913feb992c639212a31a71d9b6935a3c}
+      \strng{authorfullhash}{913feb992c639212a31a71d9b6935a3c}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A dynamic graphical method is one in which a data analyst interacts in real time with a data display on a computer graphics terminal. Using a screen input device such as a mouse, the analyst can specify, in a visual way, points or regions on the display and cause aspects of the display to change nearly instantaneously. Brushing is a collection of dynamic methods for viewing multidimensional data. It is very effective when used on a scatterplot matrix, a rectangular array of all pairwise scatterplots of the variables. Four brushing operations—highlight, shadow highlight, delete, and label—are carried out by moving a mouse-controlled rectangle, called the brush, over one of the scatterplots. The effect of an operation appears simultaneously on all scatterplots. Three paint modes—transient, lasting, and undo—and the ability to change the shape of the brush allow the analyst to specify collections of points on which the operations are carried out. Brushing can be used in various ways or on certain types of data; these usages are called brush techniques and include the following: single-point and cluster linking, conditioning on a single variable, conditioning on two variables, subsetting with categorical variables, and stationarity probing of a time series.}
+      \field{issn}{0040-1706}
+      \field{journaltitle}{Technometrics}
+      \field{month}{5}
+      \field{number}{2}
+      \field{title}{Brushing {Scatterplots}}
+      \field{urlday}{10}
+      \field{urlmonth}{1}
+      \field{urlyear}{2019}
+      \field{volume}{29}
+      \field{year}{1987}
+      \field{urldateera}{ce}
+      \field{pages}{127\bibrangedash 142}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1080/00401706.1987.10488204
+      \endverb
+      \verb{file}
+      \verb euclid.ss.1177013104.pdf:C\:\\Users\\spyri\\Zotero\\storage\\M34LDXJH\\euclid.ss.1177013104.pdf:application/pdf;Snapshot:C\:\\Users\\spyri\\Zotero\\storage\\TTGHHCWM\\00401706.1987.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.tandfonline.com/doi/abs/10.1080/00401706.1987.10488204
+      \endverb
+      \verb{url}
+      \verb https://www.tandfonline.com/doi/abs/10.1080/00401706.1987.10488204
+      \endverb
+      \keyw{Computer graphics,Dynamic graphical methods,Multidimensional data,Scatterplot matrix}
+    \endentry
+    \entry{buja_computational_2005}{incollection}{}
+      \name{author}{4}{}{%
+        {{hash=8f2cab157c7b78a6c10f7f85cb83676f}{%
+           family={Buja},
+           familyi={B\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=703a76ee965b0aabaf5b41a58ab3995c}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={Dianne},
+           giveni={D\bibinitperiod}}}%
+        {{hash=442d77c6433c32ec96d2040e519b4ae8}{%
+           family={Asimov},
+           familyi={A\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=525e84aa7b8df2ce995d36cf1263c2f8}{%
+           family={Hurley},
+           familyi={H\bibinitperiod},
+           given={Catherine},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{c964ae5a8dfbcbf29141776500596237}
+      \strng{fullhash}{82ff8b0678bc9c4bed3ca270d12e1fda}
+      \strng{bibnamehash}{82ff8b0678bc9c4bed3ca270d12e1fda}
+      \strng{authorbibnamehash}{82ff8b0678bc9c4bed3ca270d12e1fda}
+      \strng{authornamehash}{c964ae5a8dfbcbf29141776500596237}
+      \strng{authorfullhash}{82ff8b0678bc9c4bed3ca270d12e1fda}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Handbook of {Statistics}}
+      \field{isbn}{978-0-444-51141-6}
+      \field{title}{Computational {Methods} for {High}-{Dimensional} {Rotations} in {Data} {Visualization}}
+      \field{urlday}{15}
+      \field{urlmonth}{4}
+      \field{urlyear}{2018}
+      \field{volume}{24}
+      \field{year}{2005}
+      \field{urldateera}{ce}
+      \field{pages}{391\bibrangedash 413}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1016/S0169-7161(04)24014-7
+      \endverb
+      \verb{file}
+      \verb Buja et al. - 2005 - Computational Methods for High-Dimensional Rotatio.pdf:C\:\\Users\\spyri\\Zotero\\storage\\8T48SABY\\Buja et al. - 2005 - Computational Methods for High-Dimensional Rotatio.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://linkinghub.elsevier.com/retrieve/pii/S0169716104240147
+      \endverb
+      \verb{url}
+      \verb http://linkinghub.elsevier.com/retrieve/pii/S0169716104240147
+      \endverb
+    \endentry
+    \entry{buja_data_1987}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=8f2cab157c7b78a6c10f7f85cb83676f}{%
+           family={Buja},
+           familyi={B\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=525e84aa7b8df2ce995d36cf1263c2f8}{%
+           family={Hurley},
+           familyi={H\bibinitperiod},
+           given={Catherine},
+           giveni={C\bibinitperiod}}}%
+        {{hash=a1ea18d12c57f9717d4a0d0876382087}{%
+           family={McDonald},
+           familyi={M\bibinitperiod},
+           given={John\bibnamedelima Alan},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3517086932ad4522fdcb0e5d002cd123}
+      \strng{fullhash}{3517086932ad4522fdcb0e5d002cd123}
+      \strng{bibnamehash}{3517086932ad4522fdcb0e5d002cd123}
+      \strng{authorbibnamehash}{3517086932ad4522fdcb0e5d002cd123}
+      \strng{authornamehash}{3517086932ad4522fdcb0e5d002cd123}
+      \strng{authorfullhash}{3517086932ad4522fdcb0e5d002cd123}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{Buja A, Hurley C, McDonald JA (1986). {\textbackslash}A Data Viewer for Multivariate Data." In TJ Boardman,IM Stefanski (eds.), Proceedings of the 18th Symposium on the Interface betweenComput. Sci. and Statist., pp. 171\{\vphantom{\}}174. Elsevier, Fort Collins, CO.(from wickham\_tour\_2011)}
+      \field{booktitle}{Colorado {State} {Univ}, {Computer} {Science} and {Statistics}. {Proceedings} of the 18 th {Symposium} on the {Interface} p 171-174({SEE} {N} 89-13901 05-60)}
+      \field{title}{A data viewer for multivariate data}
+      \field{year}{1987}
+    \endentry
+    \entry{carr_explorn:_1996}{article}{}
+      \name{author}{3}{}{%
+        {{hash=8346a858131f64813986b8a5fbbb21c2}{%
+           family={Carr},
+           familyi={C\bibinitperiod},
+           given={DB},
+           giveni={D\bibinitperiod}}}%
+        {{hash=70190deb37b596bfa03e2790b83aa5b3}{%
+           family={Wegman},
+           familyi={W\bibinitperiod},
+           given={EJ},
+           giveni={E\bibinitperiod}}}%
+        {{hash=d577b6ff9b273ecaaf5ed51620a7a704}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Q},
+           giveni={Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{db2dca7250ae3d362e3f1e13959e7c4b}
+      \strng{fullhash}{db2dca7250ae3d362e3f1e13959e7c4b}
+      \strng{bibnamehash}{db2dca7250ae3d362e3f1e13959e7c4b}
+      \strng{authorbibnamehash}{db2dca7250ae3d362e3f1e13959e7c4b}
+      \strng{authornamehash}{db2dca7250ae3d362e3f1e13959e7c4b}
+      \strng{authorfullhash}{db2dca7250ae3d362e3f1e13959e7c4b}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{ExplorN}: {Design} considerations past and present}
+      \field{volume}{129}
+      \field{year}{1996}
+    \endentry
+    \entry{carreira-perpinan_review_1997}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f82809237e8653c9de584d95707dea37}{%
+           family={Carreira-Perpinán},
+           familyi={C\bibinithyphendelim P\bibinitperiod},
+           given={Miguel\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f82809237e8653c9de584d95707dea37}
+      \strng{fullhash}{f82809237e8653c9de584d95707dea37}
+      \strng{bibnamehash}{f82809237e8653c9de584d95707dea37}
+      \strng{authorbibnamehash}{f82809237e8653c9de584d95707dea37}
+      \strng{authornamehash}{f82809237e8653c9de584d95707dea37}
+      \strng{authorfullhash}{f82809237e8653c9de584d95707dea37}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Department of Computer Science. University of Sheffield. Tech. Rep. CS-96-09}
+      \field{title}{A review of dimension reduction techniques}
+      \field{volume}{9}
+      \field{year}{1997}
+      \field{pages}{1\bibrangedash 69}
+      \range{pages}{69}
+      \verb{file}
+      \verb Full Text:C\:\\Users\\spyri\\Zotero\\storage\\7XSDWGPP\\Carreira-Perpinán - 1997 - A review of dimension reduction techniques.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{chernoff_use_1973}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ea28e1acee6950b6abce113d1ba30b6e}{%
+           family={Chernoff},
+           familyi={C\bibinitperiod},
+           given={Herman},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{ea28e1acee6950b6abce113d1ba30b6e}
+      \strng{fullhash}{ea28e1acee6950b6abce113d1ba30b6e}
+      \strng{bibnamehash}{ea28e1acee6950b6abce113d1ba30b6e}
+      \strng{authorbibnamehash}{ea28e1acee6950b6abce113d1ba30b6e}
+      \strng{authornamehash}{ea28e1acee6950b6abce113d1ba30b6e}
+      \strng{authorfullhash}{ea28e1acee6950b6abce113d1ba30b6e}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{[A novel method of representing multivariate data is presented. Each point in k-dimensional space, k ≤ 18, is represented by a cartoon of a face whose features, such as length of nose and curvature of mouth, correspond to components of the point. Thus every multivariate observation is visualized as a computer-drawn face. This presentation makes it easy for the human mind to grasp many of the essential regularities and irregularities present in the data. Other graphical representations are described briefly.]}
+      \field{annotation}{chernoff faces}
+      \field{issn}{0162-1459}
+      \field{journaltitle}{Journal of the American Statistical Association}
+      \field{number}{342}
+      \field{title}{The {Use} of {Faces} to {Represent} {Points} in {K}-{Dimensional} {Space} {Graphically}}
+      \field{urlday}{5}
+      \field{urlmonth}{1}
+      \field{urlyear}{2019}
+      \field{volume}{68}
+      \field{year}{1973}
+      \field{urldateera}{ce}
+      \field{pages}{361\bibrangedash 368}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.2307/2284077
+      \endverb
+      \verb{file}
+      \verb chernoff.pdf:C\:\\Users\\spyri\\Zotero\\storage\\6TJICPEF\\chernoff.pdf:application/pdf;The Use of Faces to Represent Points in n-Dimensio.pdf:C\:\\Users\\spyri\\Zotero\\storage\\HQ27W8IE\\The Use of Faces to Represent Points in n-Dimensio.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.jstor.org/stable/2284077
+      \endverb
+      \verb{url}
+      \verb https://www.jstor.org/stable/2284077
+      \endverb
+    \endentry
+    \entry{cook_manual_1997}{article}{}
+      \name{author}{2}{}{%
+        {{hash=703a76ee965b0aabaf5b41a58ab3995c}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={Dianne},
+           giveni={D\bibinitperiod}}}%
+        {{hash=8f2cab157c7b78a6c10f7f85cb83676f}{%
+           family={Buja},
+           familyi={B\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{c5f72855aa335e25e139b2a56fc6dec6}
+      \strng{fullhash}{c5f72855aa335e25e139b2a56fc6dec6}
+      \strng{bibnamehash}{c5f72855aa335e25e139b2a56fc6dec6}
+      \strng{authorbibnamehash}{c5f72855aa335e25e139b2a56fc6dec6}
+      \strng{authornamehash}{c5f72855aa335e25e139b2a56fc6dec6}
+      \strng{authorfullhash}{c5f72855aa335e25e139b2a56fc6dec6}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Projections of high-dimensional data onto low-dimensional subspaces provide insightful views for understanding multivariate relationships. This article discusses how to manually control the variable contributions to the projection. The user has control of the way a particular variable contributes to the viewed projection and can interactively adjust the variable's contribution. These manual controls complement the automatic views provided by a grand tour, or a guided tour, and give greatly improved flexibility to data analysts.}
+      \field{issn}{1061-8600}
+      \field{journaltitle}{Journal of Computational and Graphical Statistics}
+      \field{number}{4}
+      \field{title}{Manual {Controls} for {High}-{Dimensional} {Data} {Projections}}
+      \field{urlday}{15}
+      \field{urlmonth}{4}
+      \field{urlyear}{2018}
+      \field{volume}{6}
+      \field{year}{1997}
+      \field{urldateera}{ce}
+      \field{pages}{464\bibrangedash 480}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.2307/1390747
+      \endverb
+      \verb{file}
+      \verb JSTOR Full Text PDF:C\:\\Users\\spyri\\Zotero\\storage\\9QIJC6VL\\Cook and Buja - 1997 - Manual Controls for High-Dimensional Data Projecti.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.jstor.org/stable/1390747
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/1390747
+      \endverb
+    \endentry
+    \entry{cook_projection_1993}{article}{}
+      \name{author}{3}{}{%
+        {{hash=703a76ee965b0aabaf5b41a58ab3995c}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={Dianne},
+           giveni={D\bibinitperiod}}}%
+        {{hash=8f2cab157c7b78a6c10f7f85cb83676f}{%
+           family={Buja},
+           familyi={B\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ace2af33cfe0af1736b7de5c973509e8}{%
+           family={Cabrera},
+           familyi={C\bibinitperiod},
+           given={Javier},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{0d894e00580e420931b7b0d3b2a8c025}
+      \strng{fullhash}{0d894e00580e420931b7b0d3b2a8c025}
+      \strng{bibnamehash}{0d894e00580e420931b7b0d3b2a8c025}
+      \strng{authorbibnamehash}{0d894e00580e420931b7b0d3b2a8c025}
+      \strng{authornamehash}{0d894e00580e420931b7b0d3b2a8c025}
+      \strng{authorfullhash}{0d894e00580e420931b7b0d3b2a8c025}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Projection pursuit describes a procedure for searching high-dimensional data for “interesting” low-dimensional projections via the optimization of a criterion function called the projection pursuit index. By empirically examining the optimization process for several projection pursuit indexes, we observed differences in the types of structure that maximized each index. We were especially curious about differences between two indexes based on expansions in terms of orthogonal polynomials, the Legendre index, and the Hermite index. Being fast to compute, these indexes are ideally suited for dynamic graphics implementations. Both Legendre and Hermite indexes are weighted L 2 distances between the density of the projected data and a standard normal density. A general form for this type of index is introduced that encompasses both indexes. The form clarifies the effects of the weight function on the index's sensitivity to differences from normality, highlighting some conceptual problems with the Legendre and Hermite indexes. A new index, called the Natural Hermite index, which alleviates some of these problems, is introduced. A polynomial expansion of the data density reduces the form of the index to a sum of squares of the coefficients used in the expansion. This drew our attention to examining these coefficients as indexes in their own right. We found that the first two coefficients, and the lowest-order indexes produced by them, are the most useful ones for practical data exploration because they respond to structure that can be analytically identified, and because they have “long-sighted” vision that enables them to “see” large structure from a distance. Complementing this low-order behavior, the higher-order indexes are “short-sighted.” They are able to see intricate structure, but only when they are close to it. We also show some practical use of projection pursuit using the polynomial indexes, including a discovery of previously unseen structure in a set of telephone usage data, and two cautionary examples which illustrate that structure found is not always meaningful.}
+      \field{issn}{1061-8600}
+      \field{journaltitle}{Journal of Computational and Graphical Statistics}
+      \field{month}{9}
+      \field{number}{3}
+      \field{title}{Projection {Pursuit} {Indexes} {Based} on {Orthonormal} {Function} {Expansions}}
+      \field{urlday}{7}
+      \field{urlmonth}{1}
+      \field{urlyear}{2019}
+      \field{volume}{2}
+      \field{year}{1993}
+      \field{urldateera}{ce}
+      \field{pages}{225\bibrangedash 250}
+      \range{pages}{26}
+      \verb{doi}
+      \verb 10.1080/10618600.1993.10474610
+      \endverb
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\spyri\\Zotero\\storage\\39KF4JIZ\\10618600.1993.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://amstat.tandfonline.com/doi/abs/10.1080/10618600.1993.10474610
+      \endverb
+      \verb{url}
+      \verb https://amstat.tandfonline.com/doi/abs/10.1080/10618600.1993.10474610
+      \endverb
+    \endentry
+    \entry{cook_grand_1995}{article}{}
+      \name{author}{4}{}{%
+        {{hash=703a76ee965b0aabaf5b41a58ab3995c}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={Dianne},
+           giveni={D\bibinitperiod}}}%
+        {{hash=8f2cab157c7b78a6c10f7f85cb83676f}{%
+           family={Buja},
+           familyi={B\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ace2af33cfe0af1736b7de5c973509e8}{%
+           family={Cabrera},
+           familyi={C\bibinitperiod},
+           given={Javier},
+           giveni={J\bibinitperiod}}}%
+        {{hash=525e84aa7b8df2ce995d36cf1263c2f8}{%
+           family={Hurley},
+           familyi={H\bibinitperiod},
+           given={Catherine},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{8c5c8dd3d2fdbd2ff6c89230a377566d}
+      \strng{fullhash}{a4461ab61db872dfc337a88109aa9f20}
+      \strng{bibnamehash}{a4461ab61db872dfc337a88109aa9f20}
+      \strng{authorbibnamehash}{a4461ab61db872dfc337a88109aa9f20}
+      \strng{authornamehash}{8c5c8dd3d2fdbd2ff6c89230a377566d}
+      \strng{authorfullhash}{a4461ab61db872dfc337a88109aa9f20}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{10618600}
+      \field{journaltitle}{Journal of Computational and Graphical Statistics}
+      \field{month}{9}
+      \field{number}{3}
+      \field{title}{Grand {Tour} and {Projection} {Pursuit}}
+      \field{urlday}{27}
+      \field{urlmonth}{5}
+      \field{urlyear}{2018}
+      \field{volume}{4}
+      \field{year}{1995}
+      \field{urldateera}{ce}
+      \field{pages}{155}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.2307/1390844
+      \endverb
+      \verb{file}
+      \verb Cook et al. - 1995 - Grand Tour and Projection Pursuit.pdf:C\:\\Users\\spyri\\Zotero\\storage\\KNF5NWUU\\Cook et al. - 1995 - Grand Tour and Projection Pursuit.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.jstor.org/stable/1390844?origin=crossref
+      \endverb
+      \verb{url}
+      \verb https://www.jstor.org/stable/1390844?origin=crossref
+      \endverb
+    \endentry
+    \entry{cook_dynamical_2018}{article}{}
+      \name{author}{3}{}{%
+        {{hash=703a76ee965b0aabaf5b41a58ab3995c}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={Dianne},
+           giveni={D\bibinitperiod}}}%
+        {{hash=95a989e894dacbd40ead9c11f565ad5c}{%
+           family={Laa},
+           familyi={L\bibinitperiod},
+           given={Ursula},
+           giveni={U\bibinitperiod}}}%
+        {{hash=ec4e6dda2eede7443f5faf583059a07a}{%
+           family={Valencia},
+           familyi={V\bibinitperiod},
+           given={German},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{42192a04f346349353f32e0cda6a65e9}
+      \strng{fullhash}{42192a04f346349353f32e0cda6a65e9}
+      \strng{bibnamehash}{42192a04f346349353f32e0cda6a65e9}
+      \strng{authorbibnamehash}{42192a04f346349353f32e0cda6a65e9}
+      \strng{authornamehash}{42192a04f346349353f32e0cda6a65e9}
+      \strng{authorfullhash}{42192a04f346349353f32e0cda6a65e9}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Eur. Phys. J. C}
+      \field{number}{9}
+      \field{title}{Dynamical projections for the visualization of {PDFSense} data}
+      \field{volume}{78}
+      \field{year}{2018}
+      \field{pages}{742}
+      \range{pages}{1}
+      \verb{file}
+      \verb Full Text:C\:\\Users\\spyri\\Zotero\\storage\\KKN5NB7T\\Cook et al. - 2018 - Dynamical projections for the visualization of PDF.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{cook_interactive_2007}{book}{}
+      \name{author}{3}{}{%
+        {{hash=703a76ee965b0aabaf5b41a58ab3995c}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={Dianne},
+           giveni={D\bibinitperiod}}}%
+        {{hash=c12decdaa080f1add45b54bf8749b857}{%
+           family={Swayne},
+           familyi={S\bibinitperiod},
+           given={Deborah\bibnamedelima F.},
+           giveni={D\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=8ba08e07192521fb311c151b039176a8}{%
+           family={Buja},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{38d8e1291f4e91d5edbe10c5502b8821}
+      \strng{fullhash}{38d8e1291f4e91d5edbe10c5502b8821}
+      \strng{bibnamehash}{38d8e1291f4e91d5edbe10c5502b8821}
+      \strng{authorbibnamehash}{38d8e1291f4e91d5edbe10c5502b8821}
+      \strng{authornamehash}{38d8e1291f4e91d5edbe10c5502b8821}
+      \strng{authorfullhash}{38d8e1291f4e91d5edbe10c5502b8821}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This book is about using interactive and dynamic plots on a computer screen as part of data exploration and modeling, both alone and as a partner with static graphics and non-graphical computational methods. The area of int- active and dynamic data visualization emerged within statistics as part of research on exploratory data analysis in the late 1960s, and it remains an active subject of research today, as its use in practice continues to grow. It now makes substantial contributions within computer science as well, as part of the growing ?elds of information visualization and data mining, especially visual data mining. The material in this book includes: • An introduction to data visualization, explaining how it di?ers from other types of visualization. • Adescriptionofourtoolboxofinteractiveanddynamicgraphicalmethods. • An approach for exploring missing values in data. • An explanation of the use of these tools in cluster analysis and supervised classi?cation. • An overview of additional material available on the web. • A description of the data used in the analyses and exercises. The book’s examples use the software R and GGobi. R (Ihaka \& Gent- man 1996, RDevelopment CoreTeam2006) isafreesoftware environment for statistical computing and graphics; it is most often used from the command line, provides a wide variety of statistical methods, and includes high–quality staticgraphics.RaroseintheStatisticsDepartmentoftheUniversityofAu- land and is now developed and maintained by a global collaborative e?ort.}
+      \field{isbn}{978-0-387-71761-6}
+      \field{month}{12}
+      \field{note}{Google-Books-ID: 34DL7lR\_4CoC}
+      \field{shorttitle}{Interactive and {Dynamic} {Graphics} for {Data} {Analysis}}
+      \field{title}{Interactive and {Dynamic} {Graphics} for {Data} {Analysis}: {With} {R} and {GGobi}}
+      \field{year}{2007}
+      \keyw{Mathematics / Probability \& Statistics / General,Computers / Mathematical \& Statistical Software,Mathematics / Probability \& Statistics / Stochastic Processes,Computers / Bioinformatics,Computers / Databases / Data Mining,Mathematics / Combinatorics,Mathematics / Graphic Methods,Science / Life Sciences / Anatomy \& Physiology,Science / Life Sciences / Molecular Biology}
+    \endentry
+    \entry{fisherkeller_prim-9:_1974}{article}{}
+      \name{author}{3}{}{%
+        {{hash=1d6ee8d463169ed3f5a930c80c431fc4}{%
+           family={Fisherkeller},
+           familyi={F\bibinitperiod},
+           given={Mary\bibnamedelima Anne},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=ce884cc144616c39e723a8fe2eb3c879}{%
+           family={Friedman},
+           familyi={F\bibinitperiod},
+           given={Jerome\bibnamedelima H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=9edab5dbc1987bcb98d6de058f00fc47}{%
+           family={Tukey},
+           familyi={T\bibinitperiod},
+           given={John\bibnamedelima W.},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{a84542a2ae253406ea76ce148fa0d80f}
+      \strng{fullhash}{a84542a2ae253406ea76ce148fa0d80f}
+      \strng{bibnamehash}{a84542a2ae253406ea76ce148fa0d80f}
+      \strng{authorbibnamehash}{a84542a2ae253406ea76ce148fa0d80f}
+      \strng{authornamehash}{a84542a2ae253406ea76ce148fa0d80f}
+      \strng{authorfullhash}{a84542a2ae253406ea76ce148fa0d80f}
+      \field{sortinit}{F}
+      \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{shorttitle}{{PRIM}-9}
+      \field{title}{{PRIM}-9: {An} {Interactive} {Multidimensional} {Data} {Display} and {Analysis} {System}}
+      \field{year}{1974}
+    \endentry
+    \entry{grinstein_high-dimensional_2002}{article}{}
+      \name{author}{3}{}{%
+        {{hash=a343b64252abcee551d74a0bd21bbe9e}{%
+           family={Grinstein},
+           familyi={G\bibinitperiod},
+           given={Georges},
+           giveni={G\bibinitperiod}}}%
+        {{hash=53c5283fbd66622d6b9cdfe1da7c920c}{%
+           family={Trutschl},
+           familyi={T\bibinitperiod},
+           given={Marjan},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0f6dfa8dd0c314156a1bca092fdecbf9}{%
+           family={Cvek},
+           familyi={C\bibinitperiod},
+           given={Urška},
+           giveni={U\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{5bd79ebdfb3442421809fb552fb4be03}
+      \strng{fullhash}{5bd79ebdfb3442421809fb552fb4be03}
+      \strng{bibnamehash}{5bd79ebdfb3442421809fb552fb4be03}
+      \strng{authorbibnamehash}{5bd79ebdfb3442421809fb552fb4be03}
+      \strng{authornamehash}{5bd79ebdfb3442421809fb552fb4be03}
+      \strng{authorfullhash}{5bd79ebdfb3442421809fb552fb4be03}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper we provide a brief background to data visualization and point to key references. We differentiate between highdimensional data visualization and high-dimensional data visualizations and review the various high-dimensional visualization techniques. Our goal is to define metrics that identify how visualizations deal with n dimensions when displayed on the screen. We define intrinsic dimensionality metrics that assess these techniques and closely analyze selected high-dimensional visualizations’ display of data.}
+      \field{title}{High-{Dimensional} {Visualizations}}
+      \field{year}{2002}
+      \field{pages}{14}
+      \range{pages}{1}
+      \verb{file}
+      \verb Grinstein et al. - High-Dimensional Visualizations.pdf:C\:\\Users\\spyri\\Zotero\\storage\\E2KBPBFT\\Grinstein et al. - High-Dimensional Visualizations.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{huh_davis:_2002}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4854cc8fcb28663a0d39539b2152634b}{%
+           family={Huh},
+           familyi={H\bibinitperiod},
+           given={Moon\bibnamedelima Yul},
+           giveni={M\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=57844f253ee3a8858f6d0a82a20d5c9b}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Kwangryeol},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{dccd12ab376e1fe259e9a730eee3dddf}
+      \strng{fullhash}{dccd12ab376e1fe259e9a730eee3dddf}
+      \strng{bibnamehash}{dccd12ab376e1fe259e9a730eee3dddf}
+      \strng{authorbibnamehash}{dccd12ab376e1fe259e9a730eee3dddf}
+      \strng{authornamehash}{dccd12ab376e1fe259e9a730eee3dddf}
+      \strng{authorfullhash}{dccd12ab376e1fe259e9a730eee3dddf}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{SummaryIn this work, we present a Java-based data visualization system DAVIS, which is a stand-alone application and is designed for easy operation by utilizing GUI. The system covers the following plots for visualization tools in addition to the classical histograms and boxplots: flipped empirical distribution function (Huh 1995), parallel coordinates, Dendrogram, scatterplot matrix, Grand Touring (Asimov 1985), and Tracking Grand Tour (TGT) (Huh \& Kim 2002). With DAVIS we can dynamically explore the structure of data by mouse brushing a portion of the data on any of the above mentioned visualization tools. We can focus, delete or identify the brushed data points, and dynamically link the result to the other visualization tools. DAVIS also enables us to visually investigate the result of mathematical clustering methods by propagating the result of classification to the visualization tools in real time.}
+      \field{issn}{0943-4062}
+      \field{journaltitle}{Computational Statistics}
+      \field{month}{8}
+      \field{number}{3}
+      \field{shorttitle}{{DAVIS}}
+      \field{title}{{DAVIS}: {A} {Java}-based {Data} {Visualization} {System}}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2019}
+      \field{volume}{17}
+      \field{year}{2002}
+      \field{urldateera}{ce}
+      \field{pages}{411\bibrangedash 423}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1007/s001800200116
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s001800200116
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s001800200116
+      \endverb
+      \keyw{Parallel coordinates,Dendrogram,Dynamic graphics,FEDF,Keywords: Data visualization,Tracking Grand Tour}
+    \endentry
+    \entry{hurley_analyzing_1990}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6b2997d8c3b8a8d705a31482c2b411b9}{%
+           family={Hurley},
+           familyi={H\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=8ba08e07192521fb311c151b039176a8}{%
+           family={Buja},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{cc78020217ab0e62d9c9f1e3e5bf5ef3}
+      \strng{fullhash}{cc78020217ab0e62d9c9f1e3e5bf5ef3}
+      \strng{bibnamehash}{cc78020217ab0e62d9c9f1e3e5bf5ef3}
+      \strng{authorbibnamehash}{cc78020217ab0e62d9c9f1e3e5bf5ef3}
+      \strng{authornamehash}{cc78020217ab0e62d9c9f1e3e5bf5ef3}
+      \strng{authorfullhash}{cc78020217ab0e62d9c9f1e3e5bf5ef3}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Some new methods for analyzing high-dimensional data, based on real-time graphics, are described. Three-dimensional point cloud rotations provide the canonical example of the applications of motion graphics to data analysis. Similarly, motion may be used to good effect to explore data of arbitrarily high dimension. This will be demonstrated by describing how a data analyst guides a projection plane as it moves through high-dimensional data space.}
+      \field{issn}{0196-5204}
+      \field{journaltitle}{SIAM Journal on Scientific and Statistical Computing}
+      \field{month}{11}
+      \field{number}{6}
+      \field{title}{Analyzing {High}-{Dimensional} {Data} with {Motion} {Graphics}}
+      \field{urlday}{27}
+      \field{urlmonth}{11}
+      \field{urlyear}{2018}
+      \field{volume}{11}
+      \field{year}{1990}
+      \field{urldateera}{ce}
+      \field{pages}{1193\bibrangedash 1211}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1137/0911068
+      \endverb
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\spyri\\Zotero\\storage\\XJXAVXT6\\0911068.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://epubs.siam.org/doi/10.1137/0911068
+      \endverb
+      \verb{url}
+      \verb https://epubs.siam.org/doi/10.1137/0911068
+      \endverb
+    \endentry
+    \entry{lee_projection_2005}{article}{}
+      \name{author}{4}{}{%
+        {{hash=bd65a3d920d0c6090fa2f1d6775bfe47}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Eun-Kyung},
+           giveni={E\bibinithyphendelim K\bibinitperiod}}}%
+        {{hash=703a76ee965b0aabaf5b41a58ab3995c}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={Dianne},
+           giveni={D\bibinitperiod}}}%
+        {{hash=438ce59844c32cf281c12103ce38f1fb}{%
+           family={Klinke},
+           familyi={K\bibinitperiod},
+           given={Sigbert},
+           giveni={S\bibinitperiod}}}%
+        {{hash=39da11a80e8c1b93bfa2c743dff2893e}{%
+           family={Lumley},
+           familyi={L\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{70df0b03d598f5ba789de8b065ae3d34}
+      \strng{fullhash}{5951deb2e032370da0b055cccf2ee5c9}
+      \strng{bibnamehash}{5951deb2e032370da0b055cccf2ee5c9}
+      \strng{authorbibnamehash}{5951deb2e032370da0b055cccf2ee5c9}
+      \strng{authornamehash}{70df0b03d598f5ba789de8b065ae3d34}
+      \strng{authorfullhash}{5951deb2e032370da0b055cccf2ee5c9}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In high-dimensional data, one often seeks a few interesting low-dimensional projections that reveal important features of the data. Projection pursuit is a procedure for searching high-dimensional data for interesting low-dimensional projections via the optimization of a criterion function called the projection pursuit index. Very few projection pursuit indices incorporate class or group information in the calculation. Hence, they cannot be adequately applied in supervised classification problems to provide low-dimensional projections revealing class differences in the data. This article introduces new indices derived from linear discriminant analysis that can be used for exploratory supervised classification.}
+      \field{issn}{1061-8600}
+      \field{journaltitle}{Journal of Computational and Graphical Statistics}
+      \field{month}{12}
+      \field{number}{4}
+      \field{title}{Projection {Pursuit} for {Exploratory} {Supervised} {Classification}}
+      \field{urlday}{7}
+      \field{urlmonth}{1}
+      \field{urlyear}{2019}
+      \field{volume}{14}
+      \field{year}{2005}
+      \field{urldateera}{ce}
+      \field{pages}{831\bibrangedash 846}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1198/106186005X77702
+      \endverb
+      \verb{file}
+      \verb Full Text:C\:\\Users\\spyri\\Zotero\\storage\\8A5C7PLF\\Lee et al. - Projection Pursuit for Exploratory Supervised Clas.pdf:application/pdf;Snapshot:C\:\\Users\\spyri\\Zotero\\storage\\ID8UG67H\\106186005X77702.html:text/html;Submitted Version:C\:\\Users\\spyri\\Zotero\\storage\\NEJ64EMM\\Lee et al. - 2005 - Projection Pursuit for Exploratory Supervised Clas.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1198/106186005X77702
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1198/106186005X77702
+      \endverb
+      \keyw{Data mining,Discriminant analysis,Exploratory multivariate data analysis,Gene expression data}
+    \endentry
+    \entry{lubischew_use_1962}{article}{}
+      \name{author}{1}{}{%
+        {{hash=913dce1b3ddddbf23a3889299936d47c}{%
+           family={Lubischew},
+           familyi={L\bibinitperiod},
+           given={Alexander\bibnamedelima A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{913dce1b3ddddbf23a3889299936d47c}
+      \strng{fullhash}{913dce1b3ddddbf23a3889299936d47c}
+      \strng{bibnamehash}{913dce1b3ddddbf23a3889299936d47c}
+      \strng{authorbibnamehash}{913dce1b3ddddbf23a3889299936d47c}
+      \strng{authornamehash}{913dce1b3ddddbf23a3889299936d47c}
+      \strng{authorfullhash}{913dce1b3ddddbf23a3889299936d47c}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{LDA on flea, flea data set}
+      \field{journaltitle}{Biometrics}
+      \field{title}{On the use of discriminant functions in taxonomy}
+      \field{year}{1962}
+      \field{pages}{455\bibrangedash 477}
+      \range{pages}{23}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\spyri\\Zotero\\storage\\CG9PT82B\\2527894.html:text/html
+      \endverb
+    \endentry
+    \entry{matejka_same_2017}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=2c628b3479cb5d98407f1dc2eb1a7cb3}{%
+           family={Matejka},
+           familyi={M\bibinitperiod},
+           given={Justin},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9041f8bd7fae18f7a07af70501e6bf14}{%
+           family={Fitzmaurice},
+           familyi={F\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Denver, Colorado, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{850ba95c5ae1497d52c802d62028dbf3}
+      \strng{fullhash}{850ba95c5ae1497d52c802d62028dbf3}
+      \strng{bibnamehash}{850ba95c5ae1497d52c802d62028dbf3}
+      \strng{authorbibnamehash}{850ba95c5ae1497d52c802d62028dbf3}
+      \strng{authornamehash}{850ba95c5ae1497d52c802d62028dbf3}
+      \strng{authorfullhash}{850ba95c5ae1497d52c802d62028dbf3}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Datasets which are identical over a number of statistical properties, yet produce dissimilar graphs, are frequently used to illustrate the importance of graphical representations when exploring data. This paper presents a novel method for generating such datasets, along with several examples. Our technique varies from previous approaches in that new datasets are iteratively generated from a seed dataset through random perturbations of individual data points, and can be directed towards a desired outcome through a simulated annealing optimization strategy. Our method has the beneﬁt of being agnostic to the particular statistical properties that are to remain constant between the datasets, and allows for control over the graphical appearance of resulting output.}
+      \field{booktitle}{Proceedings of the 2017 {CHI} {Conference} on {Human} {Factors} in {Computing} {Systems} - {CHI} '17}
+      \field{isbn}{978-1-4503-4655-9}
+      \field{shorttitle}{Same {Stats}, {Different} {Graphs}}
+      \field{title}{Same {Stats}, {Different} {Graphs}: {Generating} {Datasets} with {Varied} {Appearance} and {Identical} {Statistics} through {Simulated} {Annealing}}
+      \field{urlday}{19}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \field{pages}{1290\bibrangedash 1294}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1145/3025453.3025912
+      \endverb
+      \verb{file}
+      \verb Matejka and Fitzmaurice - 2017 - Same Stats, Different Graphs Generating Datasets .pdf:C\:\\Users\\spyri\\Zotero\\storage\\G4MMEECQ\\Matejka and Fitzmaurice - 2017 - Same Stats, Different Graphs Generating Datasets .pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://dl.acm.org/citation.cfm?doid=3025453.3025912
+      \endverb
+      \verb{url}
+      \verb http://dl.acm.org/citation.cfm?doid=3025453.3025912
+      \endverb
+    \endentry
+    \entry{mcdonald_interactive_1982}{article}{}
+      \name{author}{1}{}{%
+        {{hash=a1ea18d12c57f9717d4a0d0876382087}{%
+           family={McDonald},
+           familyi={M\bibinitperiod},
+           given={John\bibnamedelima Alan},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a1ea18d12c57f9717d4a0d0876382087}
+      \strng{fullhash}{a1ea18d12c57f9717d4a0d0876382087}
+      \strng{bibnamehash}{a1ea18d12c57f9717d4a0d0876382087}
+      \strng{authorbibnamehash}{a1ea18d12c57f9717d4a0d0876382087}
+      \strng{authornamehash}{a1ea18d12c57f9717d4a0d0876382087}
+      \strng{authorfullhash}{a1ea18d12c57f9717d4a0d0876382087}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{INTERACTIVE} {GRAPHICS} {FOR} {DATA} {ANALYSIS}}
+      \field{year}{1982}
+      \verb{file}
+      \verb Mcdonald - INTERACTIVE GRAPHICS FOR DATA ANALYSIS.pdf:C\:\\Users\\spyri\\Zotero\\storage\\AXYPUCP6\\Mcdonald - INTERACTIVE GRAPHICS FOR DATA ANALYSIS.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{nelson_xgobi_1998}{article}{}
+      \name{author}{3}{}{%
+        {{hash=ed779eb085377057e9fb2dbd046976d4}{%
+           family={Nelson},
+           familyi={N\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod}}}%
+        {{hash=703a76ee965b0aabaf5b41a58ab3995c}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={Dianne},
+           giveni={D\bibinitperiod}}}%
+        {{hash=f5619c1444551aebc78404683f62f2f7}{%
+           family={Cruz-Neira},
+           familyi={C\bibinithyphendelim N\bibinitperiod},
+           given={Carolina},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{c81ac6dfd46ffe1a5a0e56585ba62a0b}
+      \strng{fullhash}{c81ac6dfd46ffe1a5a0e56585ba62a0b}
+      \strng{bibnamehash}{c81ac6dfd46ffe1a5a0e56585ba62a0b}
+      \strng{authorbibnamehash}{c81ac6dfd46ffe1a5a0e56585ba62a0b}
+      \strng{authornamehash}{c81ac6dfd46ffe1a5a0e56585ba62a0b}
+      \strng{authorfullhash}{c81ac6dfd46ffe1a5a0e56585ba62a0b}
+      \field{sortinit}{N}
+      \field{sortinithash}{f7242c3ed3dc50029fca1be76c497c7c}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Virtual environments are an emerging technology, which make use of 3-D display devices. Currently very little research into using this new technology for statistical graphics has been done. In association with the Iowa Center for Emerging Manufacturing Technology we have been building a statistical graphics application in the highly immersive C2 environment,called VRGobi. This paper describes an experiment conducted to determine if the new technology provides an improved exploratory data analysis environment over traditional workstation graphics environments, such as XGobi. A good analogy comparing the di erence between the two environments is that one is like a desk and the other like a room. The visualization tasks we compare between the two environments are detecting clusters, dimensionality and radial sparseness in high-dimensional data, and we also compare the ease of interaction between the computer and human user in the two environments.}
+      \field{journaltitle}{Computational Statistics}
+      \field{number}{1}
+      \field{title}{{XGobi} vs the {C}2: {Results} of an {Experiment} {Comparing} {Data} {Visualization} in a 3-{D} {Immer}- sive {Virtual} {Reality} {Environment} with a 2-{D} {Workstation} {Display}}
+      \field{volume}{14}
+      \field{year}{1998}
+      \field{pages}{39\bibrangedash 52}
+      \range{pages}{14}
+      \verb{file}
+      \verb xgobi_vs_c2.pdf:C\:\\Users\\spyri\\Zotero\\storage\\Z7VT86NF\\xgobi_vs_c2.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{ocagne_coordonnees_1885}{book}{}
+      \name{author}{1}{}{%
+        {{hash=08dc7622919170da134b8ff434c4cc0a}{%
+           family={Ocagne},
+           familyi={O\bibinitperiod},
+           given={Maurice\bibnamedelima d'},
+           giveni={M\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {French}%
+      }
+      \list{location}{1}{%
+        {Paris}%
+      }
+      \list{publisher}{1}{%
+        {Gauthier-Villars}%
+      }
+      \strng{namehash}{08dc7622919170da134b8ff434c4cc0a}
+      \strng{fullhash}{08dc7622919170da134b8ff434c4cc0a}
+      \strng{bibnamehash}{08dc7622919170da134b8ff434c4cc0a}
+      \strng{authorbibnamehash}{08dc7622919170da134b8ff434c4cc0a}
+      \strng{authornamehash}{08dc7622919170da134b8ff434c4cc0a}
+      \strng{authorfullhash}{08dc7622919170da134b8ff434c4cc0a}
+      \field{sortinit}{O}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{Parallel coordinate plots (pcp)}
+      \field{note}{OCLC: 458953092}
+      \field{title}{Coordonnées parallèles et axiales. {Méthode} de transformation géométrique et procédé nouveau de calcul graphique déduits de la considération des coordonnées parallèles, par {Maurice} d'{Ocagne}, ...}
+      \field{year}{1885}
+    \endentry
+    \entry{pedersen_gganimate:_2019}{book}{}
+      \name{author}{2}{}{%
+        {{hash=baa847ed0a47fe330db451600329cf32}{%
+           family={Pedersen},
+           familyi={P\bibinitperiod},
+           given={Thomas\bibnamedelima Lin},
+           giveni={T\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=42a6c387e6c733bd0db8180d2bbacd30}{%
+           family={Robinson},
+           familyi={R\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6de184a80f5b74d9230aa6c8576f7e8}
+      \strng{fullhash}{b6de184a80f5b74d9230aa6c8576f7e8}
+      \strng{bibnamehash}{b6de184a80f5b74d9230aa6c8576f7e8}
+      \strng{authorbibnamehash}{b6de184a80f5b74d9230aa6c8576f7e8}
+      \strng{authornamehash}{b6de184a80f5b74d9230aa6c8576f7e8}
+      \strng{authorfullhash}{b6de184a80f5b74d9230aa6c8576f7e8}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{R package version 1.0.0.9000}
+      \field{title}{gganimate: {A} {Grammar} of {Animated} {Graphics}}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb http://github.com/thomasp85/gganimate
+      \endverb
+      \verb{url}
+      \verb http://github.com/thomasp85/gganimate
+      \endverb
+    \endentry
+    \entry{siegel_surgical_1972}{article}{}
+      \name{author}{4}{}{%
+        {{hash=695357d1b429b03ca487bbfe895e1e7f}{%
+           family={Siegel},
+           familyi={S\bibinitperiod},
+           given={John\bibnamedelima H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=f2328d72423e61c088a03f8974387054}{%
+           family={Farrell},
+           familyi={F\bibinitperiod},
+           given={Edward\bibnamedelima J.},
+           giveni={E\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=0fc7fe2d559a13b8d7ef569964054e1d}{%
+           family={Goldwyn},
+           familyi={G\bibinitperiod},
+           given={Roger\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=03c0a9017365411cb8d60229dc534ebd}{%
+           family={Friedman},
+           familyi={F\bibinitperiod},
+           given={Herman\bibnamedelima P.},
+           giveni={H\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \strng{namehash}{93d276097a50b49dbaba00a580e21807}
+      \strng{fullhash}{16f9784c8db1d61b879d6153c3d27922}
+      \strng{bibnamehash}{16f9784c8db1d61b879d6153c3d27922}
+      \strng{authorbibnamehash}{16f9784c8db1d61b879d6153c3d27922}
+      \strng{authornamehash}{93d276097a50b49dbaba00a580e21807}
+      \strng{authorfullhash}{16f9784c8db1d61b879d6153c3d27922}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{star glyphs}
+      \field{issn}{0039-6060, 1532-7361}
+      \field{journaltitle}{Surgery}
+      \field{month}{7}
+      \field{number}{1}
+      \field{title}{The surgical implications of physiologic patterns in myocardial infarction shock}
+      \field{urlday}{5}
+      \field{urlmonth}{1}
+      \field{urlyear}{2019}
+      \field{volume}{72}
+      \field{year}{1972}
+      \field{urldateera}{ce}
+      \field{pages}{126\bibrangedash 141}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.5555/uri:pii:003960607290325X
+      \endverb
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\spyri\\Zotero\\storage\\BGQFVGI3\\pdf.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.surgjournal.com/article/0039-6060(72)90325-X/abstract
+      \endverb
+      \verb{url}
+      \verb https://www.surgjournal.com/article/0039-6060(72)90325-X/abstract
+      \endverb
+    \endentry
+    \entry{sievert_plotly_2018}{book}{}
+      \name{author}{1}{}{%
+        {{hash=c63711bd8fa68302eb02c665cf15d9ef}{%
+           family={Sievert},
+           familyi={S\bibinitperiod},
+           given={Carson},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{c63711bd8fa68302eb02c665cf15d9ef}
+      \strng{fullhash}{c63711bd8fa68302eb02c665cf15d9ef}
+      \strng{bibnamehash}{c63711bd8fa68302eb02c665cf15d9ef}
+      \strng{authorbibnamehash}{c63711bd8fa68302eb02c665cf15d9ef}
+      \strng{authornamehash}{c63711bd8fa68302eb02c665cf15d9ef}
+      \strng{authorfullhash}{c63711bd8fa68302eb02c665cf15d9ef}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{plotly for {R}}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://plotly-book.cpsievert.me
+      \endverb
+      \verb{url}
+      \verb https://plotly-book.cpsievert.me
+      \endverb
+    \endentry
+    \entry{swayne_xgobi:_1991}{book}{}
+      \name{author}{3}{}{%
+        {{hash=c12decdaa080f1add45b54bf8749b857}{%
+           family={Swayne},
+           familyi={S\bibinitperiod},
+           given={Deborah\bibnamedelima F.},
+           giveni={D\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=703a76ee965b0aabaf5b41a58ab3995c}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={Dianne},
+           giveni={D\bibinitperiod}}}%
+        {{hash=8f2cab157c7b78a6c10f7f85cb83676f}{%
+           family={Buja},
+           familyi={B\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{62c0a4aff3f049400a12f01a56e3d541}
+      \strng{fullhash}{62c0a4aff3f049400a12f01a56e3d541}
+      \strng{bibnamehash}{62c0a4aff3f049400a12f01a56e3d541}
+      \strng{authorbibnamehash}{62c0a4aff3f049400a12f01a56e3d541}
+      \strng{authornamehash}{62c0a4aff3f049400a12f01a56e3d541}
+      \strng{authorfullhash}{62c0a4aff3f049400a12f01a56e3d541}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Data analysts perform a wide variety of computational tasks in the course of an analysis, and they should be able to do them all on the same platform. XGobi helps to make this possible by bringing state-of-the-art dynamic graphic methods for the display and manipulation of scatter plots to the UNIX R fl workstation, and by linking these methods to the S data analysis environment. XGobi is implemented in the X Window System TM , which offers portability across a wide variety of workstations, X terminals, and personal computers, as well as the ability to run smoothly across a network. A user can run XGobi and S simultaneously, making it possible to use each program's functions on the same data. Using a highly interactive direct-manipulation design, XGobi offers an array of familiar scatterplot tools. Users can view pairwise plots, three-dimensional rotations and grand tour sequences. Views of the data can be reshaped, and points can be identified or brushed. Projection coefficients a...}
+      \field{shorttitle}{Xgobi}
+      \field{title}{Xgobi: {Interactive} {Dynamic} {Graphics} {In} {The} {X} {Window} {System} {With} {A} {Link} {To} {S}}
+      \field{year}{1991}
+      \verb{file}
+      \verb Citeseer - Full Text PDF:C\:\\Users\\spyri\\Zotero\\storage\\BTWEUZDX\\Swayne et al. - 1991 - Xgobi Interactive Dynamic Graphics In The X Windo.pdf:application/pdf;Citeseer - Snapshot:C\:\\Users\\spyri\\Zotero\\storage\\BJEBDAXB\\summary.html:text/html
+      \endverb
+    \endentry
+    \entry{swayne_ggobi:_2003}{article}{}
+      \name{author}{4}{}{%
+        {{hash=c12decdaa080f1add45b54bf8749b857}{%
+           family={Swayne},
+           familyi={S\bibinitperiod},
+           given={Deborah\bibnamedelima F},
+           giveni={D\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=85b1ee0a84c1991be0a20b619383d897}{%
+           family={Lang},
+           familyi={L\bibinitperiod},
+           given={Duncan\bibnamedelima Temple},
+           giveni={D\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=8f2cab157c7b78a6c10f7f85cb83676f}{%
+           family={Buja},
+           familyi={B\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=703a76ee965b0aabaf5b41a58ab3995c}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={Dianne},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{c95df4955acbf947839455aecee73783}
+      \strng{fullhash}{a6968fa6f9830afe38b0b9205e3c5fc9}
+      \strng{bibnamehash}{a6968fa6f9830afe38b0b9205e3c5fc9}
+      \strng{authorbibnamehash}{a6968fa6f9830afe38b0b9205e3c5fc9}
+      \strng{authornamehash}{c95df4955acbf947839455aecee73783}
+      \strng{authorfullhash}{a6968fa6f9830afe38b0b9205e3c5fc9}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{GGobi is a direct descendent of a data visualization system called XGobi that has been around since the early 1990s. GGobi's new features include multiple plotting windows, a color lookup table manager, and an Extensible Markup Language file format for data. Perhaps the biggest advance is that GGobi can be easily extended, either by being embedded in other software or by the addition of plugins; either way, it can be controlled using an Application Programming Interface. An illustration of its extensibility is that it can be embedded in R. The result is a full marriage between GGobi's direct manipulation graphical environment and R's familiar extensible environment for statistical data analysis.}
+      \field{issn}{0167-9473}
+      \field{journaltitle}{Computational Statistics \& Data Analysis}
+      \field{month}{8}
+      \field{number}{4}
+      \field{series}{Data {Visualization}}
+      \field{shorttitle}{{GGobi}}
+      \field{title}{{GGobi}: evolving from {XGobi} into an extensible framework for interactive data visualization}
+      \field{urlday}{19}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{volume}{43}
+      \field{year}{2003}
+      \field{urldateera}{ce}
+      \field{pages}{423\bibrangedash 444}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1016/S0167-9473(02)00286-4
+      \endverb
+      \verb{file}
+      \verb ScienceDirect Snapshot:C\:\\Users\\spyri\\Zotero\\storage\\BUCHZ9JL\\S0167947302002864.html:text/html;Submitted Version:C\:\\Users\\spyri\\Zotero\\storage\\HG64JYDX\\Swayne et al. - 2003 - GGobi evolving from XGobi into an extensible fram.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/S0167947302002864
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S0167947302002864
+      \endverb
+      \keyw{API,Interoperability,Plugins,R,Statistical graphics,XML}
+    \endentry
+    \entry{tierney_lisp-stat:_1990}{book}{}
+      \name{author}{1}{}{%
+        {{hash=f801b3457bf8c7e89de7c7e7128b8774}{%
+           family={Tierney},
+           familyi={T\bibinitperiod},
+           given={Luke},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Wiley-Interscience}%
+      }
+      \strng{namehash}{f801b3457bf8c7e89de7c7e7128b8774}
+      \strng{fullhash}{f801b3457bf8c7e89de7c7e7128b8774}
+      \strng{bibnamehash}{f801b3457bf8c7e89de7c7e7128b8774}
+      \strng{authorbibnamehash}{f801b3457bf8c7e89de7c7e7128b8774}
+      \strng{authornamehash}{f801b3457bf8c7e89de7c7e7128b8774}
+      \strng{authorfullhash}{f801b3457bf8c7e89de7c7e7128b8774}
+      \field{sortinit}{T}
+      \field{sortinithash}{6f7aff9db9dcfeb7f95fd5bbd2f78df9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{isbn}{978-0-471-50916-5}
+      \field{series}{Wiley {Series} in {Probability} and {Statistics}}
+      \field{shorttitle}{{LISP}-{STAT}}
+      \field{title}{{LISP}-{STAT}: {An} {Object} {Oriented} {Environment} for {Statistical} {Computing} and {Dynamic} {Graphics}}
+      \field{year}{1990}
+    \endentry
+    \entry{wegman_visual_2003}{article}{}
+      \name{author}{1}{}{%
+        {{hash=edf54917ab344b98a79c3a979f7bf40c}{%
+           family={Wegman},
+           familyi={W\bibinitperiod},
+           given={Edward\bibnamedelima J.},
+           giveni={E\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{edf54917ab344b98a79c3a979f7bf40c}
+      \strng{fullhash}{edf54917ab344b98a79c3a979f7bf40c}
+      \strng{bibnamehash}{edf54917ab344b98a79c3a979f7bf40c}
+      \strng{authorbibnamehash}{edf54917ab344b98a79c3a979f7bf40c}
+      \strng{authornamehash}{edf54917ab344b98a79c3a979f7bf40c}
+      \strng{authorfullhash}{edf54917ab344b98a79c3a979f7bf40c}
+      \field{sortinit}{W}
+      \field{sortinithash}{ecb89ff85896a47dc313960773ac311d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Data mining strategies are usually applied to opportunistically collected data and frequently focus on the discovery of structure such as clusters, bumps, trends, periodicities, associations and correlations, quantization and granularity, and other structures for which a visual data analysis is very appropriate and quite likely to yield insight. However, data mining strategies are often applied to massive data sets where visualization may not be very successful because of the limits of both screen resolution, human visual system resolution as well as the limits of available computational resources. In this paper I suggest some strategies for overcoming such limitations and illustrate visual data mining with some examples of successful attacks on high-dimensional and large data sets. Copyright © 2003 John Wiley \& Sons, Ltd.}
+      \field{issn}{1097-0258}
+      \field{journaltitle}{Statistics in Medicine}
+      \field{number}{9}
+      \field{title}{Visual data mining}
+      \field{urlday}{19}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{volume}{22}
+      \field{year}{2003}
+      \field{urldateera}{ce}
+      \field{pages}{1383\bibrangedash 1397}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1002/sim.1502
+      \endverb
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\spyri\\Zotero\\storage\\VINQBJD7\\sim.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.1502
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.1502
+      \endverb
+      \keyw{grand tour,EDA,knowledge discovery,parallel co-ordinates,saturation brushing}
+    \endentry
+    \entry{wickham_visualizing_2015}{article}{}
+      \name{author}{3}{}{%
+        {{hash=1d0f6977ce2d043e298a59a1cd75b7ef}{%
+           family={Wickham},
+           familyi={W\bibinitperiod},
+           given={Hadley},
+           giveni={H\bibinitperiod}}}%
+        {{hash=703a76ee965b0aabaf5b41a58ab3995c}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={Dianne},
+           giveni={D\bibinitperiod}}}%
+        {{hash=aab385203b295bcea3e72bd9a22eebae}{%
+           family={Hofmann},
+           familyi={H\bibinitperiod},
+           given={Heike},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{3c0b78622bfddf6bdf2c0653441f0f40}
+      \strng{fullhash}{3c0b78622bfddf6bdf2c0653441f0f40}
+      \strng{bibnamehash}{3c0b78622bfddf6bdf2c0653441f0f40}
+      \strng{authorbibnamehash}{3c0b78622bfddf6bdf2c0653441f0f40}
+      \strng{authornamehash}{3c0b78622bfddf6bdf2c0653441f0f40}
+      \strng{authorfullhash}{3c0b78622bfddf6bdf2c0653441f0f40}
+      \field{sortinit}{W}
+      \field{sortinithash}{ecb89ff85896a47dc313960773ac311d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Visualization can help in model building, diagnosis, and in developing an understanding about how a model summarizes data. This paper proposes three strategies for visualizing statistical models: (1) display the model in the data space, (2) look at all members of a collection, and (3) explore the process of model ﬁtting, not just the end result. Each strategy is accompanied by examples, including manova, classiﬁcation algorithms, hierarchical clustering, ensembles of linear models, projection pursuit, self organizing maps and neural networks.}
+      \field{issn}{19321864}
+      \field{journaltitle}{Statistical Analysis and Data Mining: The ASA Data Science Journal}
+      \field{month}{8}
+      \field{number}{4}
+      \field{shorttitle}{Visualizing statistical models}
+      \field{title}{Visualizing statistical models: {Removing} the blindfold: {Visualizing} {Statistical} {Models}}
+      \field{urlday}{16}
+      \field{urlmonth}{3}
+      \field{urlyear}{2018}
+      \field{volume}{8}
+      \field{year}{2015}
+      \field{urldateera}{ce}
+      \field{pages}{203\bibrangedash 225}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1002/sam.11271
+      \endverb
+      \verb{file}
+      \verb Wickham et al. - 2015 - Visualizing statistical models Removing the blind.pdf:C\:\\Users\\spyri\\Zotero\\storage\\624UZGQU\\Wickham et al. - 2015 - Visualizing statistical models Removing the blind.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://doi.wiley.com/10.1002/sam.11271
+      \endverb
+      \verb{url}
+      \verb http://doi.wiley.com/10.1002/sam.11271
+      \endverb
+    \endentry
+    \entry{wickham_tourr_2011}{article}{}
+      \name{author}{4}{}{%
+        {{hash=1d0f6977ce2d043e298a59a1cd75b7ef}{%
+           family={Wickham},
+           familyi={W\bibinitperiod},
+           given={Hadley},
+           giveni={H\bibinitperiod}}}%
+        {{hash=703a76ee965b0aabaf5b41a58ab3995c}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={Dianne},
+           giveni={D\bibinitperiod}}}%
+        {{hash=aab385203b295bcea3e72bd9a22eebae}{%
+           family={Hofmann},
+           familyi={H\bibinitperiod},
+           given={Heike},
+           giveni={H\bibinitperiod}}}%
+        {{hash=8f2cab157c7b78a6c10f7f85cb83676f}{%
+           family={Buja},
+           familyi={B\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{e0731a35ef88164c57848ecb7ca5f8ca}
+      \strng{fullhash}{a9753cf92c19dfd2ffb952395819fbdc}
+      \strng{bibnamehash}{a9753cf92c19dfd2ffb952395819fbdc}
+      \strng{authorbibnamehash}{a9753cf92c19dfd2ffb952395819fbdc}
+      \strng{authornamehash}{e0731a35ef88164c57848ecb7ca5f8ca}
+      \strng{authorfullhash}{a9753cf92c19dfd2ffb952395819fbdc}
+      \field{sortinit}{W}
+      \field{sortinithash}{ecb89ff85896a47dc313960773ac311d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This paper describes an R package which produces tours of multivariate data. The package includes functions for creating diﬀerent types of tours, including grand, guided, and little tours, which project multivariate data (p-D) down to 1, 2, 3, or, more generally, d (≤ p) dimensions. The projected data can be rendered as densities or histograms, scatterplots, anaglyphs, glyphs, scatterplot matrices, parallel coordinate plots, time series or images, and viewed using an R graphics device, passed to GGobi, or saved to disk. A tour path can be stored for visualisation or replay. With this package it is possible to quickly experiment with diﬀerent, and new, approaches to tours of data. This paper contains animations that can be viewed using the Adobe Acrobat PDF viewer.}
+      \field{issn}{1548-7660}
+      \field{journaltitle}{Journal of Statistical Software}
+      \field{number}{2}
+      \field{shorttitle}{\textbf{tourr}}
+      \field{title}{\textbf{tourr} : {An} \textit{{R}} {Package} for {Exploring} {Multivariate} {Data} with {Projections}}
+      \field{urlday}{23}
+      \field{urlmonth}{11}
+      \field{urlyear}{2018}
+      \field{volume}{40}
+      \field{year}{2011}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.18637/jss.v040.i02
+      \endverb
+      \verb{file}
+      \verb Wickham et al. - 2011 - btourrb An iRi Package for Exploring M.pdf:C\:\\Users\\spyri\\Zotero\\storage\\VHL36AXP\\Wickham et al. - 2011 - btourrb An iRi Package for Exploring M.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.jstatsoft.org/v40/i02/
+      \endverb
+      \verb{url}
+      \verb http://www.jstatsoft.org/v40/i02/
+      \endverb
+    \endentry
+    \entry{xie_animation:_2018}{book}{}
+      \name{author}{4}{}{%
+        {{hash=25ce25b9d444076e0963bcf9fa3a6f92}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Yihui},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=21e5bec762b6cb7ca3961917ea836fc6}{%
+           family={Mueller},
+           familyi={M\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=098a2ffe9fa92626c81ce420d77a22ed}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Lijia},
+           giveni={L\bibinitperiod}}}%
+        {{hash=35c4f0b352cd544481046cedc846d6ca}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Weicheng},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{f34b9521ccc937ba15018b9726814078}
+      \strng{fullhash}{8fbb3f18b16cf1e80afcf78a777d1b79}
+      \strng{bibnamehash}{8fbb3f18b16cf1e80afcf78a777d1b79}
+      \strng{authorbibnamehash}{8fbb3f18b16cf1e80afcf78a777d1b79}
+      \strng{authornamehash}{f34b9521ccc937ba15018b9726814078}
+      \strng{authorfullhash}{8fbb3f18b16cf1e80afcf78a777d1b79}
+      \field{sortinit}{X}
+      \field{sortinithash}{b0b62a29ee4a21a0e618fed53a0313cc}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{annotation}{R package version 2.6}
+      \field{title}{animation: {A} {Gallery} of {Animations} in {Statistics} and {Utilities} to {Create} {Animations}}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://yihui.name/animation
+      \endverb
+      \verb{url}
+      \verb https://yihui.name/animation
+      \endverb
+    \endentry
+  \enddatalist
+  \missing{NS}
+  \missing{Wegman}
+  \missing{scott85}
+  \missing{scott95}
+  \missing{spinifex}
+\endrefsection
+\endinput
+
