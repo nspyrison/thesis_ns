@@ -22,25 +22,22 @@ library(ggplot2)
 set.seed(1)
 
 ## FUNCTION FOR STATIC OUTPPUT, for chap3 use to clean up code chunks.
-interpolate2static <- function(.m_tour, .data, .cat, .mag =2.4) {
-  slides <- interpolate2df(array = .m_tour, data = .data)
+interpolate2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.4, .angle)
+{
+  slides <- interpolate2df(array = .m_tour, data = .data, angle = .angle)
   basis_slides <- slides$basis_slides
   data_slides  <- slides$data_slides
   
-  grid_b <- grid_t <-
-    data.frame(slide = 1:15, x = .mag*rep(1:5, 3), y = .mag*rep(3:1, each = 5))
-  grid_t$y <- grid_t$y + max(grid_t$y) #+ .mag
-  
   # Initialize
   ## manip var asethetics
-  n_slides     <- max(basis_slides$slide)
-  p            <- nrow(basis_slides) / n_slides
-  col_v        <- rep("grey80", p)
-  col_v[m_var] <- "blue"
-  col_v        <- rep(col_v, n_slides)
-  siz_v        <- rep(0.3, p)
-  siz_v[m_var] <- 1
-  siz_v        <- rep(siz_v, n_slides)
+  n_slides      <- max(basis_slides$slide)
+  p             <- nrow(basis_slides) / n_slides
+  col_v         <- rep("grey80", p)
+  col_v[.m_var] <- "blue"
+  col_v         <- rep(col_v, n_slides)
+  siz_v         <- rep(0.3, p)
+  siz_v[.m_var] <- 1
+  siz_v         <- rep(siz_v, n_slides)
   ## circle
   angle <- seq(0, 2 * pi, length = 180)
   circ  <- data.frame(c_x = cos(angle), c_y = sin(angle))
@@ -48,6 +45,10 @@ interpolate2static <- function(.m_tour, .data, .cat, .mag =2.4) {
   ## data asethetics
   data_slides <- data.frame(data_slides, cat = rep(.cat, n_slides))
   
+  grid_b <- grid_t <-
+    data.frame(slide = 1:n_slides, 
+               x = .mag*rep(1:5, 3), y = .mag*rep(3:1, each = 5))
+  grid_t$y <- grid_t$y + max(grid_t$y)
   # OUTER JOIN
   basis_grid <- merge(x = basis_slides, y = grid_t, by = "slide", all = TRUE)
   # CROSS JOIN
@@ -69,24 +70,26 @@ interpolate2static <- function(.m_tour, .data, .cat, .mag =2.4) {
               color = "grey50") +
     # AXES CIRCLE PATH
     geom_path(data = circ_grid, color = "grey80",
-              mapping = aes(x = x+c_x, y = y+c_y)) +
-    theme_void()
+              mapping = aes(x = x+c_x, y = y+c_y))
   
   #===
   gg2 <- gg1 +
-    geom_point(data = data_grid,
+    # PROJ DATA POINTS
+    geom_point(data = data_grid, size = .2,
                mapping = aes(x = V1 + x, y = V2 + y, color = cat, pch = cat)) +
+    # PROJ DATA FRAME NUM
     geom_text(data = data_grid,    color = "grey50",
               mapping = aes(x = x - .7, y = y + 1.1, 
                             label = paste0("frame: ",slide))) +
+    theme_void() +
     scale_color_brewer(palette = "Dark2") +
+    # + coord_fixed()
     theme(legend.position="none",
-          panel.border = element_rect(colour = "black", fill = NA))
+          panel.border = element_rect(colour = "black", fill = NA)) 
   
   # output
   gg2
 }
-#grid::grid.rect()
 ```
 
 # *spinifex*: An R package that provides manual rotations in high-dimensions {#ch:spinifex}
@@ -174,7 +177,7 @@ The flea data from the R package *tourr* [@wickham_tourr_2011], is used to illus
 
 A guided tour on the flea data is conducted by optimizing on the `holes` index [@cook_interactive_2007]. In a guided tour the data the projection sequence is shown by optimizing an index of interest.  The holes index is maximized by when the projected data has a lack of observations in the center. Figure \@ref(fig:step0), shows an optimal projection of this data. The left plot displays the projection basis adn the right plot shows the projected data. The display of the basis has a unit circle with lines showing the horizontal and vertical contributions of each variable in the projection. Here is is primarily tars1 and aede2 contrasting the other four variables. In the projected data it can be seen that there are three clusters, which have been coloured, although not used in the optimisation. The question that will be explored in the explanation of the algorithm is how important is aede2 to the separation of the clusters.
 
-```{r step0, results='hide', fig.cap = "Basis reference frame (left) and projected data (right) of standardized flea data. Basis indentified by holes-index guided tour. The variables `aede2` and `tars1` cotribute mostly in the x direction, whereas the other variables contribute mostly in the y direction. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."}
+```{r step0, results = 'hide', fig.cap = "Basis reference frame (left) and projected data (right) of standardized flea data. Basis indentified by holes-index guided tour. The variables `aede2` and `tars1` cotribute mostly in the x direction, whereas the other variables contribute mostly in the y direction. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."}
 
 ## Flea holes tour
 flea_std <- rescale(flea[,1:6])
@@ -257,7 +260,8 @@ Adding an extra dimension to our basis plane allows for the manipulation of the 
 
 ```{r step2, fig.cap = "Manipulation space for controling the contribution of aede2 of standardized flea data. Basis was identified by holes-index guided tour. The out of plane axis, in red, shows how the manipulation variable can be rotated, while other dimensions stay embeded within the basis plane."}
 #=== Step 2 output
-view_manip_space(basis = h_bas, manip_var = m_var, labels = colnames(flea_std))
+view_manip_space(basis = h_bas, manip_var = m_var, labels = colnames(flea_std))+
+    theme(panel.border = element_rect(colour = "black", fill = NA))
 ```
 
 Imagine being able to grab hold of the red axis and rotate it changing the projection onto the basis plane. This is what happens in a manual tour. By controling the angle between the axis and the basis plane we change the contribution of the manipulation variable on the projection.
@@ -307,60 +311,21 @@ Where:
 In application: compile the sequence of $\phi_i$ and create an array (or long table) for each rotated manipulation space. $\phi$ is actually the angle relative to the $\phi_1$, we find the transformation $\phi_i$ - $\phi_1$ useful to discuss $\phi$ relative to the basis plane.
 
 
-```{r STEP3CODE, eval = F, echo = F}
+```{r STEP3CODE, eval = F}
 for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
   slide <- slide + 1
   tour[,, slide] <- rotate_manip_space(manip_space, theta, phi)[, 1:2]
 }
 ```
 
-
-
-
 ```{r step3, results = 'hide', fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "Rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from it's initial contribution to a full contribution to the projection before decreasing to zero, and then retruning to it's inital state."}
 mtour  <- manual_tour(h_bas, manip_var = m_var)
 # dim(tour) # [1]  6  2 15
 # play_manual_tour(flea_std, h_bas, 1, angle = .28)
 
-interpolate2static(.m_tour = mtour, .data = flea_std, .cat = flea$species, .mag = 2.4)
+interpolate2static(.m_tour = mtour, .data = flea_std, .m_var = m_var, 
+                   .angle = .26, .cat = flea$species, .mag = 2.4)
 ```
-
-
-```{r, eval=F,include=F}
-#TODO: TORUBLESHOOT HERE;; EVAL=F,INCLUDE=F
-b1 <- basis_slides[basis_slides$slide==1,1:2]
-m1 <- mtour[,,1] #m tour, from h_bas,
-
-view_basis(h_bas) #TARGET
-view_basis(b1) # WRONG, BACK UP
-view_basis(m1) # WRONG;
-print("wrong before b1 at m1; meaning issue in manual_tour, which seemed to work for example...")
-
-# REPRODUCE FROM EXAMPEL:
-DAT <- tourr::rescale(tourr::flea[,1:6])
-BAS <- tourr::basis_random(n = ncol(DAT))
-MT  <- manual_tour(basis = BAS, manip_var = 5) # HOMOMORPHISM...
-view_basis(BAS) #TARGET
-view_basis(MT[,,1]) #WRONG; WORK BACK FROM MANUAL_tour
-view_manip_space(BAS, 5) #GOOD
-M_SP    <- create_manip_space(basis = BAS, manip_var = 5)
-view_basis(M_SP[,1:2]) #GOOD
-theta <- atan(BAS[m_var, 2] / BAS[m_var, 1])
-P_ST      <- acos(sqrt(BAS[m_var, 1]^2 + BAS[m_var, 2]^2))
-R_SP <- rotate_manip_space(manip_space = M_SP, theta = theta, phi = P_ST)[, 1:2]
-view_basis(R_SP)
-#INIT
-
-phi_start_sign <- P_ST * sign(M_SP[m_var, 1]) 
-phi_inc        <- pi / (n_sli - 3)
-p              <- nrow(BAS)
-d              <- ncol(BAS)
-seq_start <- NULL; seq_end <- NULL
-W1 <- interpolate_walk(P_ST,P_ST)
-
-
-```
-
 
 
 ## Display projection sequence
@@ -404,10 +369,9 @@ x - Saving a sequence of projections, tourr, save_history
 ## Application {#sec:application}
 
 ```{r, eval=F, include=F}
-### netlify .rmd file 
-file.edit("../nspyrison_netlify/content/else/PDFsense_ManualTour.rmd")
-### Dev ver locally
-file.edit("./zPDFSense_manualTour.R")
+### netlify .rmd files 
+file.edit("../nspyrison_netlify/content/thesis/PDFsense_ManualTour_fig7.rmd")
+file.edit("../nspyrison_netlify/content/thesis/PDFsense_ManualTour_fig8.rmd")
 ```
 
 NOTE: Examples from https://arxiv.org/abs/1806.09742
@@ -418,21 +382,27 @@ NOTE: Examples from https://arxiv.org/abs/1806.09742
 Manual tour of the first 4 principle components for experiments of ATLAS7old and ATLAS7new.
 
 Manual tour on the PC3:
-```{r PDFSense_fig7, results = 'hide', fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "FILL CAPTION HERE"}
+```{r PDF7, results = 'hide', warning=F, fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "FILL CAPTION HERE"}
 
 # Fig 7, subset to ATLAS7old and ATLAS7new
 load("./data/jetsProj_sub.rda")
 load("./data/PDFSense_fig7_basis.rda")
 
+PDF7_bas <- fig7_basis
 PDF7_dat <- tourr::rescale(jetsProj_sub[, 1:4])
 PDF7_cat <- jetsProj_sub$exp
 PDF7_m_var <- 3
-PDF7_mtour <- manual_tour(basis = fig7_basis, manip_var = PDF7_m_var)
-# play_manual_tour(PDF7_dat, fig7_basis, 1, angle = .28, axes="bottomleft") 
-interpolate2static(.m_tour = PDF7_mtour, .data = PDF7_dat, 
-                   .cat = PDF7_cat, .mag = 2.4)
+PDF7_mtour <- manual_tour(basis = PDF7_bas, manip_var = PDF7_m_var)
+# play_manual_tour(PDF7_dat, PDF7_bas, 1, angle = .28, axes="bottomleft") 
 
+interpolate2static(.m_tour = PDF7_mtour, .data = PDF7_dat, .m_var = PDF7_m_var,
+                   .angle = .28, .cat = PDF7_cat, .mag = 2.4)
 ```
+
+TODO: UPDATE
+Dynamic version of this manual tour can be found at:
+https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig7/.
+The page take a bit to load as the .html object is large.
 
 
 ### Figure 8 
@@ -440,16 +410,28 @@ interpolate2static(.m_tour = PDF7_mtour, .data = PDF7_dat,
 'dimuonSIDIS' experiements (green points), ‘DIS HERA1+2’ experiments in black.
 
 Manual tour on PC6:
+```{r PDF8, results = 'hide', fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "FILL CAPTION HERE"}
 
-$\phi$ in the starting position
-![](./output/fig8_phi_start.png)
-$\phi$ zeroed, maximizing the contribution from the 6th principle component
-![](./output/fig8_phi0.png)
-$\phi$ at 90 degrees, minimizing the contribution from the 6th principle component
-![](./output/fig8_phi90.png)
+# Fig 8
+load("./data/grDIScenter.rda")
+load("./data/PDFSense_fig8l_basis.rda")
 
-Dynamic versions of the manual tour can be found at:
-https://nspyrison.netlify.com/else/pdfsense_manualtours/
+PDF8_bas <- fig8l_basis
+PDF8_dat <- tourr::rescale(grDIScenter[, 1:6])
+PDF8_cat <- factor(grDIScenter$disID)
+PDF8_m_var <- 6
+PDF8_mtour <- manual_tour(basis = PDF8_bas, manip_var = PDF8_m_var)
+# play_manual_tour(PDF8_dat, PDF8_bas, PDF8_m_var, angle = .28, axes="bottomleft") 
+
+interpolate2static(.m_tour = PDF8_mtour, .data = PDF8_dat, .m_var = PDF8_m_var,
+                   .angle = .28, .cat = PDF8_cat, .mag = 2.4)
+
+```
+
+TODO: UPDATE 
+Dynamic version of this manual tour can be found at:
+https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8/
+The page take a bit to load as the .html object is large.
 
 ## Source
 
