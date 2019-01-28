@@ -97,5 +97,99 @@ render_plotly(mslides)
  TODO: note that render_plotly didn't add the figure caption.
 
 
-## 2019_01_xx from xx
+## 2019_01_28 from chap3 spinifex atb at making function to clean code.
 
+THIS IS SLIGHTLY OUT DATED GOING TO WEBSITE TO PULL.
+```{r}
+library(spinifex)
+load("./data/jetsProj_sub.rda") # fig 7, subset of ATLAS7old and ATLAS7new
+load("./data/PDFSense_fig7_basis.rda") # fi 7
+load("./data/grDIScenter.rda") # fig 8, left
+load("./data/grDISsphere.rda") # fig 8, right
+load("./data/PDFSense_fig8l_basis.rda") # fig 8, left
+# load("./data/PDFSense_fig8r_basis.rda") # fig 8, right
+
+# Fig 7, subset of ATLAS7old and ATLAS7new
+view_basis(fig7_basis)
+play_manual_tour(data = jetsProj_sub[, 1:4], basis = fig7_basis, manip_var = 3,
+                 cat_var = jetsProj_sub$exp)
+play_manual_tour(data = jetsProj_sub[, 1:4], basis = fig7_basis, manip_var = 4,
+                 cat_var = jetsProj_sub$exp)
+
+# Fig 8,
+view_basis(fig8l_basis)
+play_manual_tour(data = grDIScenter[, 1:6], basis = fig8l_basis, manip_var = 6,
+                 cat_var = grDIScenter$disID)
+play_manual_tour(data = grDIScenter[, 1:6], basis = fig8l_basis, manip_var = 5,
+                 cat_var = grDIScenter$disID)
+```
+
+## 2019_01_28 from zPDFSense_manualTour.R
+
+```{r}
+## FUNCTION FOR STATIC OUTPPUT, for chap3 use to clean up code chunks.
+interpolate2static <- function(.m_tour, .data, .cat, .mag =2.4) {
+  slides <- interpolate2df(array = .m_tour, data = .data)
+  basis_slides <- slides$basis_slides
+  data_slides  <- slides$data_slides
+
+  grid_b <- grid_t <-
+    data.frame(slide = 1:15, x = .mag*rep(1:5, 3), y = .mag*rep(3:1, each = 5))
+  grid_t$y <- grid_t$y + max(grid_t$y) + .mag
+
+  # Initialize
+  ## manip var asethetics
+  n_slides     <- max(basis_slides$slide)
+  p            <- nrow(basis_slides) / n_slides
+  col_v        <- rep("grey80", p)
+  col_v[m_var] <- "blue"
+  col_v        <- rep(col_v, n_slides)
+  siz_v        <- rep(0.3, p)
+  siz_v[m_var] <- 1
+  siz_v        <- rep(siz_v, n_slides)
+  ## circle
+  angle <- seq(0, 2 * pi, length = 180)
+  circ  <- data.frame(c_x = cos(angle), c_y = sin(angle))
+  circ[nrow(circ)+1, ] <- NA
+  ## data asethetics
+  data_slides <- data.frame(data_slides, cat = rep(cat, n_slides))
+
+  # OUTER JOIN
+  basis_grid <- merge(x = basis_slides, y = grid_t, by = "slide", all = TRUE)
+  # CROSS JOIN
+  circ_grid  <- merge(x = circ, y = grid_t, by = NULL)
+  # OUTER JOIN
+  data_grid  <- merge(x = data_slides, y = grid_b, by = "slide", all = TRUE)
+
+  # Grpahics
+  gg1 <-
+    ggplot(data = basis_grid) +
+    # AXES LINE SEGMETNS
+    geom_segment(aes(x = V1 + x, y = V2 + y, xend = x, yend = y),
+                 color = col_v, size = siz_v) +
+    # AXES TEXT LABELS
+    geom_text(aes(x = V1 + x, y = V2 + y, label = lab_abbr),
+              color = col_v, vjust = "outward", hjust = "outward") +
+    # AXES FRAME NUM
+    geom_text(aes(x = x - .7, y = y + 1.1, label = paste0("frame: ",slide)),
+              color = "grey50") +
+    # AXES CIRCLE PATH
+    geom_path(data = circ_grid, color = "grey80",
+              mapping = aes(x = x+c_x, y = y+c_y)) +
+    theme_void()
+
+  #===
+  gg2 <- gg1 +
+    geom_point(data = data_grid,
+               mapping = aes(x = V1 + x, y = V2 + y, color = species, pch = species)) +
+    geom_text(data = data_grid,
+              mapping = aes(x = x - .7, y = y + 1.1, label = paste0("frame: ",slide)),
+              color = "grey50") +
+    scale_color_brewer(palette = "Dark2") +
+    theme(legend.position="none")
+
+  # output
+  gg2
+}
+#grid::grid.rect(
+```
