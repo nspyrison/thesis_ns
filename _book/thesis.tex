@@ -719,8 +719,64 @@ offers a perfomant store and tranfer.
 
 \section{Application}\label{sec:application}
 
-NOTE: Examples from \url{https://arxiv.org/abs/1806.09742}
-\textcite{cook_dynamical_2018}
+In a recent paper, \textcite{wang_visualizing_2018}, the authors
+aggregate and visualize the sensitivity of hadronic experiments. The
+authors introduce a new tool, PDFSense, to aid in the vizualization of
+parton distribution functions (PDF). The parameter-space of these
+experiments lies in 56 dimensions, \(\delta \in \mathbb{R}^{56}\), and
+are presented in this work in 3-d subspaces of the 10 first priciple
+components and non-linear embeddings.
+
+The work in \textcite{cook_dynamical_2018} applies touring for discern
+finer structure of this sensitivity. Table 1 of Cook et. al. summaries
+the key findings of PDFSense \& TFEP (tensorflow embedded projection)
+and those from touring. Below we identify the basis projection for
+figures 7 and 8 use manual tours to for finer exploration of the local
+sturcture.
+
+\subsection{Figure 8}\label{figure-8}
+
+In figure 8 of \textcite{cook_dynamical_2018}, the authors look at the 6
+first priciple compents, cotaining 48\% of the variation held within the
+data when dimensions at centered, but not sphered (6 components explains
+53\% of sphered data, sphered data not used below). Data are colored by
+experiement type with `dimuon SIDIS' in green , `DIS HERA1+2'
+experiments in black, and `charm SIDIS' in red.
+
+TODO: Match colors in between plotly and static. (both have Dark2
+applied at the ggplot level)
+
+\begin{verbatim}
+## Warning: Removed 1 rows containing missing values (geom_path).
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/PDF8good-1.pdf}
+\caption{\label{fig:PDF8good}Manual tour of the PC6. First 6 priciple
+compoents of select experiments with `dimuon SIDIS' in green , `DIS
+HERA1+2' experiments in black, and `charm SIDIS' in red. Note that
+intermetiate values of PC6 contain almost all of the information held
+within the green, dimuon SIDIS eperements}
+\end{figure}
+
+TODO: UPDATE Dynamic version of this manual tour can be found at:
+\url{https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8var6/}
+The page take a bit to load as the .html object is large.
+
+\begin{verbatim}
+## Warning: Removed 1 rows containing missing values (geom_path).
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/PDF8bad-1.pdf}
+\caption{\label{fig:PDF8bad}FILL CAPTION HERE}
+\end{figure}
+
+TODO: UPDATE Dynamic version of this manual tour can be found at:
+\url{https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8var2/}
+The page take a bit to load as the .html object is large.
 
 \subsection{Subset of figure 7}\label{subset-of-figure-7}
 
@@ -740,41 +796,6 @@ The page take a bit to load as the .html object is large.
 
 TODO: UPDATE Dynamic version of this manual tour can be found at:
 \url{https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig7var4/}
-The page take a bit to load as the .html object is large.
-
-\subsection{Figure 8}\label{figure-8}
-
-`dimuonSIDIS' experiements (green points), `DIS HERA1+2' experiments in
-black.
-
-Manual tour on PC6:
-
-\begin{verbatim}
-## Warning: Removed 1 rows containing missing values (geom_path).
-\end{verbatim}
-
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/PDF8good-1.pdf}
-\caption{\label{fig:PDF8good}FILL CAPTION HERE}
-\end{figure}
-
-TODO: UPDATE Dynamic version of this manual tour can be found at:
-\url{https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8var6/}
-The page take a bit to load as the .html object is large.
-
-\begin{verbatim}
-## Warning: Removed 1 rows containing missing values (geom_path).
-\end{verbatim}
-
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/PDF8bad-1.pdf}
-\caption{\label{fig:PDF8bad}FILL CAPTION HERE}
-\end{figure}
-
-TODO: UPDATE Dynamic version of this manual tour can be found at:
-\url{https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8var2/}
 The page take a bit to load as the .html object is large.
 
 \section{Source}\label{source}

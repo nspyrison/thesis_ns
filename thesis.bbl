@@ -1370,6 +1370,63 @@
       \field{title}{{LISP}-{STAT}: {An} {Object} {Oriented} {Environment} for {Statistical} {Computing} and {Dynamic} {Graphics}}
       \field{year}{1990}
     \endentry
+    \entry{wang_visualizing_2018}{article}{}
+      \name{author}{7}{}{%
+        {{hash=79136f0401447279caf53d2abcf4d34c}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Bo-Ting},
+           giveni={B\bibinithyphendelim T\bibinitperiod}}}%
+        {{hash=662175ed9b76a0ba018420597ac1ca02}{%
+           family={Hobbs},
+           familyi={H\bibinitperiod},
+           given={T.\bibnamedelimi J.},
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=b0bedf38b295df4f39a65f9bf428aeda}{%
+           family={Doyle},
+           familyi={D\bibinitperiod},
+           given={Sean},
+           giveni={S\bibinitperiod}}}%
+        {{hash=9a3433149c20baec10f299b1558363b5}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=35e966c7a38b8dc5ed46f801e382cae2}{%
+           family={Hou},
+           familyi={H\bibinitperiod},
+           given={Tie-Jiun},
+           giveni={T\bibinithyphendelim J\bibinitperiod}}}%
+        {{hash=37d8501395f8e61b37b98b1b3222e742}{%
+           family={Nadolsky},
+           familyi={N\bibinitperiod},
+           given={Pavel\bibnamedelima M.},
+           giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=eef44044c42d9abac7a96970d0d5edbc}{%
+           family={Olness},
+           familyi={O\bibinitperiod},
+           given={Fredrick\bibnamedelima I.},
+           giveni={F\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{c172a91a91e700bba5f070bfd72add32}
+      \strng{fullhash}{12785f5cc2fb05e05574e0d5a9c97c71}
+      \strng{bibnamehash}{12785f5cc2fb05e05574e0d5a9c97c71}
+      \strng{authorbibnamehash}{12785f5cc2fb05e05574e0d5a9c97c71}
+      \strng{authornamehash}{c172a91a91e700bba5f070bfd72add32}
+      \strng{authorfullhash}{12785f5cc2fb05e05574e0d5a9c97c71}
+      \field{sortinit}{W}
+      \field{sortinithash}{ecb89ff85896a47dc313960773ac311d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1803.02777}
+      \field{title}{Visualizing the sensitivity of hadronic experiments to nucleon structure}
+      \field{year}{2018}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\spyri\\Zotero\\storage\\T7K3PB25\\1803.html:text/html
+      \endverb
+    \endentry
     \entry{wegman_visual_2003}{article}{}
       \name{author}{1}{}{%
         {{hash=edf54917ab344b98a79c3a979f7bf40c}{%

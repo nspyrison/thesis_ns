@@ -376,8 +376,58 @@ file.edit("../nspyrison_netlify/content/thesis/PDFsense_ManualTour_fig7.rmd")
 file.edit("../nspyrison_netlify/content/thesis/PDFsense_ManualTour_fig8.rmd")
 ```
 
-NOTE: Examples from https://arxiv.org/abs/1806.09742
-@cook_dynamical_2018
+In a recent paper, @wang_visualizing_2018, the authors aggregate and visualize the sensitivity of hadronic experiments. The authors introduce a new tool, PDFSense, to aid in the vizualization of parton distribution functions (PDF). The parameter-space of these experiments lies in 56 dimensions, $\delta \in \mathbb{R}^{56}$, and are presented in this work in 3-d subspaces of the 10 first priciple components and non-linear embeddings.
+
+The work in @cook_dynamical_2018 applies touring for discern finer structure of this sensitivity. Table 1 of Cook et. al. summaries the key findings of PDFSense & TFEP (tensorflow embedded projection) and those from touring. Below we identify the basis projection for figures 7 and 8 use manual tours to for finer exploration of the local sturcture.
+
+### Figure 8 
+
+In figure 8 of @cook_dynamical_2018, the authors look at the 6 first priciple compents, cotaining 48% of the variation held within the data when dimensions at centered, but not sphered (6 components explains 53% of sphered data, sphered data not used below). Data are colored by experiement type with 'dimuon SIDIS' in green , ‘DIS HERA1+2’ experiments in black, and 'charm SIDIS' in red.
+
+TODO: Match colors in between plotly and static. (both have Dark2 applied at the ggplot level)
+
+```{r PDF8good, echo=F, fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "Manual tour of the PC6. First 6 priciple compoents of select experiments with 'dimuon SIDIS' in green , ‘DIS HERA1+2’ experiments in black, and 'charm SIDIS' in red. Note that intermetiate values of PC6 contain almost all of the information held within the green, dimuon SIDIS eperements"}
+
+# Fig 8
+load("./data/grDIScenter.rda")
+load("./data/PDFSense_fig8l_basis.rda")
+
+PDF8_bas <- fig8l_basis
+PDF8_dat <- tourr::rescale(grDIScenter[, 1:6])
+PDF8_cat <- factor(grDIScenter$disID)
+PDF8_m_var <- 6
+PDF8_mtour <- manual_tour(basis = PDF8_bas, manip_var = PDF8_m_var)
+# play_manual_tour(PDF8_dat, PDF8_bas, PDF8_mtour, angle = .28, axes="bottomleft", cat_var = PDF8_cat)
+
+interpolate2static(.m_tour = PDF8_mtour, .data = PDF8_dat, .m_var = PDF8_m_var,
+                   .angle = .28, .cat = PDF8_cat, .mag = 2.4)
+##M_VAR, RESULT
+# 1, green jet.
+# 2, poor
+# 3, black
+# 4, plane
+# 5, black and plane
+# 6, green and plane
+```
+
+TODO: UPDATE 
+Dynamic version of this manual tour can be found at:
+https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8var6/
+The page take a bit to load as the .html object is large.
+
+```{r PDF8bad, echo=F, fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "FILL CAPTION HERE"}
+# Fig 8, bad
+PDF8_m_var <- 2
+PDF8_mtour <- manual_tour(basis = PDF8_bas, manip_var = PDF8_m_var)
+
+interpolate2static(.m_tour = PDF8_mtour, .data = PDF8_dat, .m_var = PDF8_m_var,
+                   .angle = .28, .cat = PDF8_cat, .mag = 2.4)
+```
+
+TODO: UPDATE 
+Dynamic version of this manual tour can be found at:
+https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8var2/
+The page take a bit to load as the .html object is large.
 
 ### Subset of figure 7
 
@@ -426,53 +476,7 @@ Dynamic version of this manual tour can be found at:
 https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig7var4/
 The page take a bit to load as the .html object is large.
 
-### Figure 8 
 
-'dimuonSIDIS' experiements (green points), ‘DIS HERA1+2’ experiments in black.
-
-Manual tour on PC6:
-```{r PDF8good, echo=F, fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "FILL CAPTION HERE"}
-
-# Fig 8
-load("./data/grDIScenter.rda")
-load("./data/PDFSense_fig8l_basis.rda")
-
-PDF8_bas <- fig8l_basis
-PDF8_dat <- tourr::rescale(grDIScenter[, 1:6])
-PDF8_cat <- factor(grDIScenter$disID)
-PDF8_m_var <- 6
-PDF8_mtour <- manual_tour(basis = PDF8_bas, manip_var = PDF8_m_var)
-# play_manual_tour(PDF8_dat, PDF8_bas, PDF8_mtour, angle = .28, axes="bottomleft", cat_var = PDF8_cat)
-
-interpolate2static(.m_tour = PDF8_mtour, .data = PDF8_dat, .m_var = PDF8_m_var,
-                   .angle = .28, .cat = PDF8_cat, .mag = 2.4)
-##M_VAR, RESULT
-# 1, green jet.
-# 2, poor
-# 3, black
-# 4, plane
-# 5, black and plane
-# 6, green and plane
-```
-
-TODO: UPDATE 
-Dynamic version of this manual tour can be found at:
-https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8var6/
-The page take a bit to load as the .html object is large.
-
-```{r PDF8bad, echo=F, fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "FILL CAPTION HERE"}
-# Fig 8, bad
-PDF8_m_var <- 2
-PDF8_mtour <- manual_tour(basis = PDF8_bas, manip_var = PDF8_m_var)
-
-interpolate2static(.m_tour = PDF8_mtour, .data = PDF8_dat, .m_var = PDF8_m_var,
-                   .angle = .28, .cat = PDF8_cat, .mag = 2.4)
-```
-
-TODO: UPDATE 
-Dynamic version of this manual tour can be found at:
-https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8var2/
-The page take a bit to load as the .html object is large.
 
 ## Source
 
