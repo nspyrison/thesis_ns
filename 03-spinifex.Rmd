@@ -478,12 +478,17 @@ The page take a bit to load as the .html object is large.
 
 
 
-## Source
+## Source code and usage
 
-The code used to generate this writing can be found at this https://github.com/nspyrison/Confirmation/.
+This article was created using Rmarkdown (REF), with code to generate the examples inline, and the rouce files can be found at this https://github.com/nspyrison/Confirmation/. 
+
+The source code for the spinifex package can be found at XXX. To use the package:
+
+XXX
 
 
 ## Discussion
+
 
 Future work:
 
