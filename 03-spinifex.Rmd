@@ -27,10 +27,12 @@ interpolate2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.4, .angle)
   slides <- interpolate2df(array = .m_tour, data = .data, angle = .angle)
   basis_slides <- slides$basis_slides
   data_slides  <- slides$data_slides
+  n_slides     <- max(basis_slides$slide)
+  if (n_slides > 15) return("n_slides > 15 increase angle.")
+  if (n_slides < 15) return("n_slides < 15 decrease angle.")
   
   # Initialize
   ## manip var asethetics
-  n_slides      <- max(basis_slides$slide)
   p             <- nrow(basis_slides) / n_slides
   col_v         <- rep("grey80", p)
   col_v[.m_var] <- "blue"
@@ -177,7 +179,7 @@ The flea data from the R package *tourr* [@wickham_tourr_2011], is used to illus
 
 A guided tour on the flea data is conducted by optimizing on the `holes` index [@cook_interactive_2007]. In a guided tour the data the projection sequence is shown by optimizing an index of interest.  The holes index is maximized by when the projected data has a lack of observations in the center. Figure \@ref(fig:step0), shows an optimal projection of this data. The left plot displays the projection basis adn the right plot shows the projected data. The display of the basis has a unit circle with lines showing the horizontal and vertical contributions of each variable in the projection. Here is is primarily tars1 and aede2 contrasting the other four variables. In the projected data it can be seen that there are three clusters, which have been coloured, although not used in the optimisation. The question that will be explored in the explanation of the algorithm is how important is aede2 to the separation of the clusters.
 
-```{r step0, results = 'hide', fig.cap = "Basis reference frame (left) and projected data (right) of standardized flea data. Basis indentified by holes-index guided tour. The variables `aede2` and `tars1` cotribute mostly in the x direction, whereas the other variables contribute mostly in the y direction. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."}
+```{r step0, echo=F, results='hide', fig.cap = "Basis reference frame (left) and projected data (right) of standardized flea data. Basis indentified by holes-index guided tour. The variables `aede2` and `tars1` cotribute mostly in the x direction, whereas the other variables contribute mostly in the y direction. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."}
 
 ## Flea holes tour
 flea_std <- rescale(flea[,1:6])
@@ -318,7 +320,7 @@ for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
 }
 ```
 
-```{r step3, results = 'hide', fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "Rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from it's initial contribution to a full contribution to the projection before decreasing to zero, and then retruning to it's inital state."}
+```{r step3, echo=F, fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "Rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from it's initial contribution to a full contribution to the projection before decreasing to zero, and then retruning to it's inital state."}
 mtour  <- manual_tour(h_bas, manip_var = m_var)
 # dim(tour) # [1]  6  2 15
 # play_manual_tour(flea_std, h_bas, 1, angle = .28)
@@ -382,7 +384,7 @@ NOTE: Examples from https://arxiv.org/abs/1806.09742
 Manual tour of the first 4 principle components for experiments of ATLAS7old and ATLAS7new.
 
 Manual tour on the PC3:
-```{r PDF7, results = 'hide', warning=F, fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "FILL CAPTION HERE"}
+```{r PDF7good, echo=F, warning=F, fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "FILL CAPTION HERE"}
 
 # Fig 7, subset to ATLAS7old and ATLAS7new
 load("./data/jetsProj_sub.rda")
@@ -393,24 +395,43 @@ PDF7_dat <- tourr::rescale(jetsProj_sub[, 1:4])
 PDF7_cat <- jetsProj_sub$exp
 PDF7_m_var <- 3
 PDF7_mtour <- manual_tour(basis = PDF7_bas, manip_var = PDF7_m_var)
-# play_manual_tour(PDF7_dat, PDF7_bas, 1, angle = .28, axes="bottomleft") 
+# play_manual_tour(PDF7_dat, PDF7_bas, 1, angle = .28, axes="bottomleft", cat_var = PDF7_cat) 
+
+interpolate2static(.m_tour = PDF7_mtour, .data = PDF7_dat, .m_var = PDF7_m_var,
+                   .angle = .28, .cat = PDF7_cat, .mag = 2.4)
+##M_VAR, RESULT
+# 1, good
+# 2, poor
+# 3, *best
+# 4, *worst
+```
+
+TODO: UPDATE
+Dynamic version of this manual tour can be found at:
+https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig7var3/.
+The page take a bit to load as the .html object is large.
+
+```{r PDF7bad, echo=F, warning=F, fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "FILL CAPTION HERE"}
+# Fig 7, subset to ATLAS7old and ATLAS7new
+
+PDF7_m_var <- 4
+PDF7_mtour <- manual_tour(basis = PDF7_bas, manip_var = PDF7_m_var)
 
 interpolate2static(.m_tour = PDF7_mtour, .data = PDF7_dat, .m_var = PDF7_m_var,
                    .angle = .28, .cat = PDF7_cat, .mag = 2.4)
 ```
 
-TODO: UPDATE
+TODO: UPDATE 
 Dynamic version of this manual tour can be found at:
-https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig7/.
+https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig7var4/
 The page take a bit to load as the .html object is large.
-
 
 ### Figure 8 
 
 'dimuonSIDIS' experiements (green points), ‘DIS HERA1+2’ experiments in black.
 
 Manual tour on PC6:
-```{r PDF8, results = 'hide', fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "FILL CAPTION HERE"}
+```{r PDF8good, echo=F, fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "FILL CAPTION HERE"}
 
 # Fig 8
 load("./data/grDIScenter.rda")
@@ -421,16 +442,36 @@ PDF8_dat <- tourr::rescale(grDIScenter[, 1:6])
 PDF8_cat <- factor(grDIScenter$disID)
 PDF8_m_var <- 6
 PDF8_mtour <- manual_tour(basis = PDF8_bas, manip_var = PDF8_m_var)
-# play_manual_tour(PDF8_dat, PDF8_bas, PDF8_m_var, angle = .28, axes="bottomleft") 
+# play_manual_tour(PDF8_dat, PDF8_bas, PDF8_mtour, angle = .28, axes="bottomleft", cat_var = PDF8_cat)
 
 interpolate2static(.m_tour = PDF8_mtour, .data = PDF8_dat, .m_var = PDF8_m_var,
                    .angle = .28, .cat = PDF8_cat, .mag = 2.4)
-
+##M_VAR, RESULT
+# 1, green jet.
+# 2, poor
+# 3, black
+# 4, plane
+# 5, black and plane
+# 6, green and plane
 ```
 
 TODO: UPDATE 
 Dynamic version of this manual tour can be found at:
-https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8/
+https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8var6/
+The page take a bit to load as the .html object is large.
+
+```{r PDF8bad, echo=F, fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "FILL CAPTION HERE"}
+# Fig 8, bad
+PDF8_m_var <- 2
+PDF8_mtour <- manual_tour(basis = PDF8_bas, manip_var = PDF8_m_var)
+
+interpolate2static(.m_tour = PDF8_mtour, .data = PDF8_dat, .m_var = PDF8_m_var,
+                   .angle = .28, .cat = PDF8_cat, .mag = 2.4)
+```
+
+TODO: UPDATE 
+Dynamic version of this manual tour can be found at:
+https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8var2/
 The page take a bit to load as the .html object is large.
 
 ## Source
