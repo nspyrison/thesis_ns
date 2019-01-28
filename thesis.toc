@@ -50,9 +50,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.5}Application}{19}{section.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.1}Subset of figure 7}{19}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.1}Figure 8}{19}{subsection.3.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.2}Figure 8}{21}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.2}Subset of figure 7}{21}{subsection.3.5.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.6}Source}{24}{section.3.6}
 \defcounter {refsection}{0}\relax 
