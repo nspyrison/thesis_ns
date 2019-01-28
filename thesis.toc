@@ -52,7 +52,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.5.1}Subset of figure 7}{19}{subsection.3.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.2}Figure 8}{21}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.2}Figure 8}{19}{subsection.3.5.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.6}Source}{23}{section.3.6}
 \defcounter {refsection}{0}\relax 
@@ -64,4 +64,4 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {A}Additional stuff}{29}{appendix.A}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{31}{appendix*.9}
+\contentsline {chapter}{Bibliography}{31}{appendix*.10}

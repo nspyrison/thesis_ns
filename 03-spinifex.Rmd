@@ -16,6 +16,77 @@ knitr::opts_chunk$set(
   comment = "",
   cache = FALSE
 )
+
+library(spinifex)
+library(ggplot2)
+set.seed(1)
+
+## FUNCTION FOR STATIC OUTPPUT, for chap3 use to clean up code chunks.
+interpolate2static <- function(.m_tour, .data, .cat, .mag =2.4) {
+  slides <- interpolate2df(array = .m_tour, data = .data)
+  basis_slides <- slides$basis_slides
+  data_slides  <- slides$data_slides
+  
+  grid_b <- grid_t <-
+    data.frame(slide = 1:15, x = .mag*rep(1:5, 3), y = .mag*rep(3:1, each = 5))
+  grid_t$y <- grid_t$y + max(grid_t$y) #+ .mag
+  
+  # Initialize
+  ## manip var asethetics
+  n_slides     <- max(basis_slides$slide)
+  p            <- nrow(basis_slides) / n_slides
+  col_v        <- rep("grey80", p)
+  col_v[m_var] <- "blue"
+  col_v        <- rep(col_v, n_slides)
+  siz_v        <- rep(0.3, p)
+  siz_v[m_var] <- 1
+  siz_v        <- rep(siz_v, n_slides)
+  ## circle
+  angle <- seq(0, 2 * pi, length = 180)
+  circ  <- data.frame(c_x = cos(angle), c_y = sin(angle))
+  circ[nrow(circ)+1, ] <- NA
+  ## data asethetics
+  data_slides <- data.frame(data_slides, cat = rep(.cat, n_slides))
+  
+  # OUTER JOIN
+  basis_grid <- merge(x = basis_slides, y = grid_t, by = "slide", all = TRUE)
+  # CROSS JOIN
+  circ_grid  <- merge(x = circ, y = grid_t, by = NULL)
+  # OUTER JOIN
+  data_grid  <- merge(x = data_slides, y = grid_b, by = "slide", all = TRUE)
+  
+  # Grpahics
+  gg1 <-
+    ggplot(data = basis_grid) +
+    # AXES LINE SEGMETNS
+    geom_segment(aes(x = V1 + x, y = V2 + y, xend = x, yend = y),
+                 color = col_v, size = siz_v) +
+    # AXES TEXT LABELS
+    geom_text(aes(x = V1 + x, y = V2 + y, label = lab_abbr),
+              color = col_v, vjust = "outward", hjust = "outward") +
+    # AXES FRAME NUM
+    geom_text(aes(x = x - .7, y = y + 1.1, label = paste0("frame: ",slide)),
+              color = "grey50") +
+    # AXES CIRCLE PATH
+    geom_path(data = circ_grid, color = "grey80",
+              mapping = aes(x = x+c_x, y = y+c_y)) +
+    theme_void()
+  
+  #===
+  gg2 <- gg1 +
+    geom_point(data = data_grid,
+               mapping = aes(x = V1 + x, y = V2 + y, color = cat, pch = cat)) +
+    geom_text(data = data_grid,    color = "grey50",
+              mapping = aes(x = x - .7, y = y + 1.1, 
+                            label = paste0("frame: ",slide))) +
+    scale_color_brewer(palette = "Dark2") +
+    theme(legend.position="none",
+          panel.border = element_rect(colour = "black", fill = NA))
+  
+  # output
+  gg2
+}
+#grid::grid.rect()
 ```
 
 # *spinifex*: An R package that provides manual rotations in high-dimensions {#ch:spinifex}
@@ -105,39 +176,23 @@ A guided tour on the flea data is conducted by optimizing on the `holes` index [
 
 ```{r step0, results='hide', fig.cap = "Basis reference frame (left) and projected data (right) of standardized flea data. Basis indentified by holes-index guided tour. The variables `aede2` and `tars1` cotribute mostly in the x direction, whereas the other variables contribute mostly in the y direction. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."}
 
-library(spinifex)
-library(ggplot2)
-library(gridExtra)
-library(grid)
-set.seed(1)
-
 ## Flea holes tour
 flea_std <- rescale(flea[,1:6])
+cat      <- factor(flea$species)
 hpath    <- save_history(flea_std, guided_tour(holes))
 h_bas    <- matrix(hpath[,, max(dim(hpath)[3])], ncol=2)
-m_var    <-  5
+h_bas    <- tourr::rescale(h_bas)
+m_var    <- 4
 
-h_m_sp <- create_manip_space(basis = h_bas, manip_var = m_var)
-h_dat  <- cbind(data.frame(flea_std %*% h_m_sp[, 1:2]), flea$species)
-colnames(h_dat) <- c("x", "y", "species")
-
-# step0, left frame
-step0_l <- view_basis(h_bas, labels = colnames(flea_std))
-
-# step0, right frame
-step0_r <- ggplot() +
-  geom_point(h_dat, mapping = aes(x=x, y=y, color=species, pch=species)) +
-  scale_color_brewer(palette = "Dark2") +
-  theme_void() +   
-  theme(legend.position="none")
-### LEGEND COMMENTED:
-# theme(legend.position=c(0.8, 0.8)) +
-# theme(legend.background = 
-#         element_rect(colour = 'black', fill = 'grey90', linetype='solid'))
+##init for data proj
+h_m_sp   <- create_manip_space(basis = h_bas, manip_var = m_var)
+h_proj   <- data.frame(flea_std %*% h_m_sp[, 1:2])
 
 # step0, output
-grid.arrange(step0_l, step0_r, ncol=2)
-grid.rect()
+view_basis(h_bas, labels = colnames(flea_std)) +
+  geom_point(data = h_proj, 
+             mapping = aes(x=X1+1, y=X2-.75, color=cat, pch=cat)) +
+  theme(panel.border = element_rect(colour = "black", fill = NA))
 ```
 
 The left frame of \@ref(fig:step0) shows the reference frame for the basis. It describes the X and Y contributions of the basis as it projects from the 6 variable dimensions down to 2. Call `view_basis()` on a basis to produce a similar image as a `ggplot2` object. The right side shows how the data looks projected through this basis. You can project a single basis at any time through the matrix multiplication $\textbf{X}_{[n,~p]} ~*~ \textbf{B}_{[p,~d]} ~=~ \textbf{P}_{d[n,~d]}$ to such effect.
@@ -201,7 +256,7 @@ In R it looks like the below chunk. `tourr::orthonormalise()` uses the Gram Schi
 Adding an extra dimension to our basis plane allows for the manipulation of the specified variable while the others are kept fully within the basis plane. Orthonormalising rescales the matrix without bringing the other variables into this new axis. An illustration of such can been seen below in \@ref(fig:step2).
 
 ```{r step2, fig.cap = "Manipulation space for controling the contribution of aede2 of standardized flea data. Basis was identified by holes-index guided tour. The out of plane axis, in red, shows how the manipulation variable can be rotated, while other dimensions stay embeded within the basis plane."}
-#=== Step 2 out
+#=== Step 2 output
 view_manip_space(basis = h_bas, manip_var = m_var, labels = colnames(flea_std))
 ```
 
@@ -263,70 +318,16 @@ for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
 
 
 ```{r step3, results = 'hide', fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "Rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from it's initial contribution to a full contribution to the projection before decreasing to zero, and then retruning to it's inital state."}
-n_sli <- 15
-mtour <- manual_tour(h_bas, manip_var = m_var, n_slides = n_sli)
-slides <- array2df(tour = mtour, data = flea_std)
-basis_slides <- slides$basis_slides
-data_slides  <- slides$data_slides
+mtour  <- manual_tour(h_bas, manip_var = m_var)
+# dim(tour) # [1]  6  2 15
+# play_manual_tour(flea_std, h_bas, 1, angle = .28)
 
-mag <- 2.4
-grid <- 
-  data.frame(slide = 1:15, x = mag*rep(1:5, 3), y = mag*rep(3:1, each = 5))
-
-# Initialize
-## manip var asethetics
-n_slides         <- max(basis_slides$slide)
-p                <- nrow(basis_slides) / n_slides
-col_v            <- rep("grey80", p)
-col_v[m_var] <- "blue"
-col_v            <- rep(col_v, n_slides)
-siz_v            <- rep(0.3, p)
-siz_v[m_var] <- 1
-siz_v            <- rep(siz_v, n_slides)
-## circle
-angle <- seq(0, 2 * pi, length = 180)
-circ  <- data.frame(c_x = cos(angle), c_y = sin(angle))
-circ[nrow(circ)+1, ] <- NA
-## data asethetics
-data_slides <- data.frame(data_slides, species = rep(flea$species, n_slides))
-
-# OUTER JOIN
-basis_grid <- merge(x = basis_slides, y = grid, by = "slide", all = TRUE)
-# CROSS JOIN
-circ_grid <- merge(x = circ, y = grid, by = NULL)
-# OUTER JOIN
-data_grid <- merge(x = data_slides, y = grid, by = "slide", all = TRUE) 
-
-#=== Step 3 top
-step3t <- ggplot(data = basis_grid) +
-  geom_segment(aes(x = V1 + x, y = V2 + y, xend = x, yend = y),
-               color = col_v, size = siz_v) +
-  geom_text(aes(x = V1 + x, y = V2 + y, label = lab_abbr),
-            color = col_v, vjust = "outward", hjust = "outward") +
-  geom_text(aes(x = x - .7, y = y + 1.1, label = paste0("frame: ",slide)), 
-            color = "grey50") +
-  geom_path(data = circ_grid, color = "grey80", 
-            mapping = aes(x = x+c_x, y = y+c_y)) +
-  theme_void()
-
-#=== Step 3 bottom
-step3b <- ggplot(data = data_grid) +
-  geom_point(aes(x = V1 + x, y = V2 + y, color = species, pch = species)) + 
-  geom_text(aes(x = x - .7, y = y + 1.1, label = paste0("frame: ",slide)), 
-            color = "grey50") +
-  scale_color_brewer(palette = "Dark2") +
-  theme_void() +
-  theme(legend.position="none")
-
-
-# step0, output
-grid.arrange(step3t, step3b, nrow = 2)
-grid::grid.rect()
+interpolate2static(.m_tour = mtour, .data = flea_std, .cat = flea$species, .mag = 2.4)
 ```
 
 
-```{r}
-#TODO: TORUBLESHOOT HERE
+```{r, eval=F,include=F}
+#TODO: TORUBLESHOOT HERE;; EVAL=F,INCLUDE=F
 b1 <- basis_slides[basis_slides$slide==1,1:2]
 m1 <- mtour[,,1] #m tour, from h_bas,
 
@@ -417,11 +418,22 @@ NOTE: Examples from https://arxiv.org/abs/1806.09742
 Manual tour of the first 4 principle components for experiments of ATLAS7old and ATLAS7new.
 
 Manual tour on the PC3:
+```{r PDFSense_fig7, results = 'hide', fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "FILL CAPTION HERE"}
 
-$\phi$ in the starting position
-![](./output/fig7_phi_start.png)
-$\phi$ zeroed, maximizing the contribution from the 3rd principle component
-![](./output/fig7_phi0.png)
+# Fig 7, subset to ATLAS7old and ATLAS7new
+load("./data/jetsProj_sub.rda")
+load("./data/PDFSense_fig7_basis.rda")
+
+PDF7_dat <- tourr::rescale(jetsProj_sub[, 1:4])
+PDF7_cat <- jetsProj_sub$exp
+PDF7_m_var <- 3
+PDF7_mtour <- manual_tour(basis = fig7_basis, manip_var = PDF7_m_var)
+# play_manual_tour(PDF7_dat, fig7_basis, 1, angle = .28, axes="bottomleft") 
+interpolate2static(.m_tour = PDF7_mtour, .data = PDF7_dat, 
+                   .cat = PDF7_cat, .mag = 2.4)
+
+```
+
 
 ### Figure 8 
 
