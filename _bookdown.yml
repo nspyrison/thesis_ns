@@ -11,7 +11,6 @@ rmd_files: ["index.Rmd",
   "02-Lit_review.Rmd",
   "03-spinifex.Rmd",
   "04-Display_dimensionality.Rmd",
-  "05-HCI_3d_tours.Rmd",
-  "A-appA.Rmd"
+  "05-HCI_3d_tours.Rmd"# ,"99-A-appA.Rmd"
   ]
 delete_merged_file: TRUE
