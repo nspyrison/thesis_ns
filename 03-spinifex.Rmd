@@ -315,7 +315,7 @@ Where:
 In application: compile the sequence of $\phi_i$ and create an array (or long table) for each rotated manipulation space. $\phi$ is actually the angle relative to the $\phi_1$, we find the transformation $\phi_i$ - $\phi_1$ useful to discuss $\phi$ relative to the basis plane.
 
 
-```{r STEP3CODE, eval = F}
+```{r STEP3CODE, eval=F, echo=T}
 for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
   slide <- slide + 1
   tour[,, slide] <- rotate_manip_space(manip_space, theta, phi)[, 1:2]
@@ -475,11 +475,13 @@ The page take a bit to load as the .html object is large.
 
 ## Source code and usage
 
-This article was created using Rmarkdown (@xie_r_2018), with code to generate the examples inline, and the source files can be found at https://github.com/nspyrison/Confirmation/. 
+This article was created using Rmarkdown (@xie_r_2018), with code to generate the examples inline, and the source files can be found at [github.com/nspyrison/confirmation/](https://github.com/nspyrison/confirmation/).
 
-The source code for the `spinifex` package can be found at XXX. To install the package in R :
+The source code for the `spinifex` package can be found at [github.com/nspyrison/spinifex/](https://github.com/nspyrison/spinifex/). To install the package in R :
 
-```{r, }
+```{r INSTALLCODE, eval=F, echo=T}
+devtools::install_git("nspyrison/spinifex")
+```
 
 
 ## Discussion
