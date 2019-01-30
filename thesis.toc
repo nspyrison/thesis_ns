@@ -54,12 +54,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.5.2}Jet cluster}{22}{subsection.3.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}Source code and usage}{24}{section.3.6}
+\contentsline {section}{\numberline {3.6}Source code and usage}{25}{section.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.7}Discussion}{24}{section.3.7}
+\contentsline {section}{\numberline {3.7}Discussion}{25}{section.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Display dimensionality}{25}{chapter.4}
+\contentsline {chapter}{\numberline {4}Display dimensionality}{27}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{27}{chapter.5}
+\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{29}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{29}{chapter*.12}
+\contentsline {chapter}{Bibliography}{31}{chapter*.12}

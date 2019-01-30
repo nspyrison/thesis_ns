@@ -655,9 +655,16 @@ actually the angle relative to the \(\phi_1\), we find the
 transformation \(\phi_i\) - \(\phi_1\) useful to discuss \(\phi\)
 relative to the basis plane.
 
-\begin{verbatim}
-## Warning: Removed 1 rows containing missing values (geom_path).
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ (phi }\ControlFlowTok{in} \KeywordTok{seq}\NormalTok{(seq_start, seq_end, phi_inc_sign)) \{}
+\NormalTok{  slide <-}\StringTok{ }\NormalTok{slide }\OperatorTok{+}\StringTok{ }\DecValTok{1}
+\NormalTok{  tour[,, slide] <-}\StringTok{ }\KeywordTok{rotate_manip_space}\NormalTok{(manip_space, theta, phi)[, }\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{]}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\ref{fig:step3}
 
 \begin{figure}
 \centering
@@ -758,16 +765,16 @@ experiments in black, and `charm SIDIS' in red.
 
 \begin{figure}
 \centering
-\includegraphics{thesis_files/figure-latex/PDF8good-1.pdf}
-\caption{\label{fig:PDF8good}Manual tour of the PC6. First 6 priciple
+\includegraphics{thesis_files/figure-latex/DISclusterGood-1.pdf}
+\caption{\label{fig:DISclusterGood}Manual tour of the PC6. First 6 priciple
 compoents of select experiments with `dimuon SIDIS' in green , `DIS
 HERA1+2' experiments in black, and `charm SIDIS' in red. Note that
 intermetiate values of PC6 contain almost all of the information held
 within the green, dimuon SIDIS eperements}
 \end{figure}
 
-TODO: UPDATE Dynamic version of this manual tour can be found at:
-\url{https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8var6/}
+Dynamic version of this manual tour can be found at:
+\url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/}
 The page take a bit to load as the .html object is large.
 
 \begin{verbatim}
@@ -776,13 +783,33 @@ The page take a bit to load as the .html object is large.
 
 \begin{figure}
 \centering
-\includegraphics{thesis_files/figure-latex/PDF8bad-1.pdf}
-\caption{\label{fig:PDF8bad}FILL CAPTION HERE}
+\includegraphics{thesis_files/figure-latex/DISclusterBad-1.pdf}
+\caption{\label{fig:DISclusterBad}FILL CAPTION HERE}
 \end{figure}
 
-TODO: UPDATE Dynamic version of this manual tour can be found at:
-\url{https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig8var2/}
+Dynamic version of this manual tour can be found at:
+\url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc2/}
 The page take a bit to load as the .html object is large.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+manip var (and link) & observation\tabularnewline
+\midrule
+\endhead
+\href{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc1/}{PC1}
+& obs\tabularnewline
+\href{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc2/}{PC2}
+& obs\tabularnewline
+\href{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc3/}{PC3}
+& obs\tabularnewline
+\href{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc4/}{PC4}
+& obs\tabularnewline
+\href{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc5/}{PC5}
+& obs\tabularnewline
+\href{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/}{PC6}
+& obs\tabularnewline
+\bottomrule
+\end{longtable}
 
 \subsection{Jet cluster}\label{jet-cluster}
 
@@ -793,55 +820,58 @@ Manual tour on the PC3:
 
 \begin{figure}
 \centering
-\includegraphics{thesis_files/figure-latex/PDF7good-1.pdf}
-\caption{\label{fig:PDF7good}FILL CAPTION HERE}
+\includegraphics{thesis_files/figure-latex/JetClusterGood-1.pdf}
+\caption{\label{fig:JetClusterGood}FILL CAPTION HERE}
 \end{figure}
 
-TODO: UPDATE Dynamic version of this manual tour can be found at:
-\url{https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig7var3/}.
+Dynamic version of this manual tour can be found at:
+\url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/}.
 The page take a bit to load as the .html object is large.
+
+Manual tour on the PC4:
 
 \begin{verbatim}
 ## [1] "n_slides < 15 decrease angle."
 \end{verbatim}
 
-TODO: UPDATE Dynamic version of this manual tour can be found at:
-\url{https://nspyrison.netlify.com/thesis/pdfsense_manualtour_fig7var4/}
+Dynamic version of this manual tour can be found at:
+\url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc4/}
 The page take a bit to load as the .html object is large.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+manip var (and link) & observation\tabularnewline
+\midrule
+\endhead
+\href{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc1/}{PC1}
+& obs\tabularnewline
+\href{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc2/}{PC2}
+& obs\tabularnewline
+\href{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/}{PC3}
+& obs\tabularnewline
+\href{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc4/}{PC4}
+& obs\tabularnewline
+\bottomrule
+\end{longtable}
 
 \section{Source code and usage}\label{source-code-and-usage}
 
-This article was created using Rmarkdown (\textcite{xie_r_2018}), with
-code to generate the examples inline, and the source files can be found
-at
+This article was created \texttt{bookdown}
+(\textcite{xie_bookdown:_2016}) using \texttt{rmarkdown}
+(\textcite{xie_r_2018}), with code generating the examples inline, and
+the source files can be found at
 \href{https://github.com/nspyrison/confirmation/}{github.com/nspyrison/confirmation/}.
 
 The source code for the \texttt{spinifex} package can be found at
 \href{https://github.com/nspyrison/spinifex/}{github.com/nspyrison/spinifex/}.
-To install the package in R :
-
-\begin{verbatim}
-## [1] "opts: default"
-\end{verbatim}
-
-\begin{verbatim}
-## [1] 2
-\end{verbatim}
+To install the package in R, run:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{print}\NormalTok{(}\StringTok{"opts: eval=F, echo=T"}\NormalTok{)}
-\DecValTok{1}\OperatorTok{+}\DecValTok{1}
+\CommentTok{# install.package("devtools")}
+\NormalTok{devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"nspyrison/spinifex"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] "opts: results='hold'"
-## [1] 2
-\end{verbatim}
-
-{[}1{]} ``opts: results=`asis'\,'' {[}1{]} 2 {[}1{]} ``opts:
-results=`asis'\,'' {[}1{]} 2
 
 \section{Discussion}\label{discussion}
 
