@@ -2064,8 +2064,10 @@
     <bcf:citekey order="66">cook_dynamical_2018</bcf:citekey>
     <bcf:citekey order="67">cook_dynamical_2018</bcf:citekey>
     <bcf:citekey order="68">cook_dynamical_2018</bcf:citekey>
-    <bcf:citekey order="69">xie_r_2018</bcf:citekey>
-    <bcf:citekey order="70">xie_r_2018</bcf:citekey>
+    <bcf:citekey order="69">xie_bookdown:_2016</bcf:citekey>
+    <bcf:citekey order="70">xie_bookdown:_2016</bcf:citekey>
+    <bcf:citekey order="71">xie_r_2018</bcf:citekey>
+    <bcf:citekey order="72">xie_r_2018</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
