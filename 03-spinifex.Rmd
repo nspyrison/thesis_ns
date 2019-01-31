@@ -179,16 +179,17 @@ A guided tour on the flea data is conducted by optimizing on the `holes` index [
 ## Flea holes tour
 f_dat  <- rescale(flea[,1:6])
 f_cat  <- factor(flea$species)
-f_path <- save_history(f_dat, guided_tour(holes))
+f_path <- save_history(f_dat, guided_tour(holes()))
 f_bas  <- matrix(f_path[,, max(dim(f_path)[3])], ncol=2)
 f_mvar <- 4
 f_msp  <- create_manip_space(basis = f_bas, manip_var = f_mvar)
 f_proj <- data.frame(f_dat %*% f_msp[, 1:2])
 
 # step0, output
+# Adjust centering to make axes and data side by side
 view_basis(f_bas, labels = colnames(f_dat)) +
   geom_point(data = f_proj, 
-             mapping = aes(x = V1+1, y = V2-1, color = f_cat, pch = f_cat)) +
+             mapping = aes(x = X1+1, y = X2-1, color = f_cat, pch = f_cat)) +
   theme(panel.border = element_rect(colour = "black", fill = NA))
 ```
 

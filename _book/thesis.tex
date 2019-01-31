@@ -10,8 +10,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \author{Nicholas S Spyrison}
-\title{Dynamic visualization of high-dimensional data via low-dimension
-projections and sectioning across 2D and 3D display devices}
+\title{Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices}
 \degrees{B.Sc. Statistics, Iowa State University}
 \def\degreetitle{Doctor of Philosophy}
 % Add subject and keywords below
@@ -19,8 +18,7 @@ projections and sectioning across 2D and 3D display devices}
      %pdfsubject={The Subject},
      %pdfkeywords={Some Keywords},
      pdfauthor={Nicholas S Spyrison},
-     pdftitle={Dynamic visualization of high-dimensional data via low-dimension
-projections and sectioning across 2D and 3D display devices},
+     pdftitle={Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices},
      pdfproducer={Bookdown with LaTeX}
 }
 
@@ -35,146 +33,82 @@ projections and sectioning across 2D and 3D display devices},
 
 {\setstretch{1.2}\sf\tighttoc\doublespacing}
 
-\chapter*{Acknowledgements}\label{acknowledgements}
+\hypertarget{acknowledgements}{%
+\chapter*{Acknowledgements}\label{acknowledgements}}
 \addcontentsline{toc}{chapter}{Acknowledgements}
 
 I would like to thank \dots
 
-\chapter*{Declaration}\label{declaration}
+\hypertarget{declaration}{%
+\chapter*{Declaration}\label{declaration}}
 \addcontentsline{toc}{chapter}{Declaration}
 
-I hereby declare that this thesis contains no material which has been
-accepted for the award of any other degree or diploma in any university
-or equivalent institution, and that, to the best of my knowledge and
-belief, this thesis contains no material previously published or written
-by another person, except where due reference is made in the text of the
-thesis.
+I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma in any university or equivalent institution, and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
 
 \vspace*{2cm}\par\authorname
 
-\chapter*{Preface}\label{preface}
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
 \addcontentsline{toc}{chapter}{Preface}
 
-The material in Chapter \ref{ch:intro} has been submitted to
-\emph{Something interesting jornal} for possible publication.
+The material in Chapter \ref{ch:intro} has been submitted to \emph{Something interesting jornal} for possible publication.
 
-The contribution in Chapter \ref{ch:spinifex} of this thesis was
-presented in the super awesome confrence held in Dublin, Ireland, in
-July 2015.
+The contribution in Chapter \ref{ch:spinifex} of this thesis was presented in the super awesome confrence held in Dublin, Ireland, in July 2015.
 
-\chapter*{Abstract}\label{abstract}
+\hypertarget{abstract}{%
+\chapter*{Abstract}\label{abstract}}
 \addcontentsline{toc}{chapter}{Abstract}
 
 This thesis is about \ldots{}
 
 \clearpage\pagenumbering{arabic}\setcounter{page}{0}
 
-\chapter{Introduction}\label{ch:intro}
+\hypertarget{ch:intro}{%
+\chapter{Introduction}\label{ch:intro}}
 
-This is where you introduce the main ideas of your thesis, and an
-overview of the context and background.
+This is where you introduce the main ideas of your thesis, and an overview of the context and background.
 
-In a PhD, Chapter 2 would normally contain a literature review.
-Typically, Chapters 3--5 would contain your own contributions. Think of
-each of these as potential papers to be submitted to journals. Finally,
-Chapter 6 provides some concluding remarks, discussion, ideas for future
-research, and so on. Appendixes can contain additional material that
-don't fit into any chapters, but that you want to put on record. For
-example, additional tables, output, etc.
+In a PhD, Chapter 2 would normally contain a literature review. Typically, Chapters 3--5 would contain your own contributions. Think of each of these as potential papers to be submitted to journals. Finally, Chapter 6 provides some concluding remarks, discussion, ideas for future research, and so on. Appendixes can contain additional material that don't fit into any chapters, but that you want to put on record. For example, additional tables, output, etc.
 
-\chapter{Literature review}\label{ch:lit_review}
+\hypertarget{ch:lit_review}{%
+\chapter{Literature review}\label{ch:lit_review}}
 
-\section{Touring}\label{sec:tour}
+\hypertarget{sec:tour}{%
+\section{Touring}\label{sec:tour}}
 
-\subsection{Overview}\label{overview}
+\hypertarget{overview}{%
+\subsection{Overview}\label{overview}}
 
-In univariate data sets histograms, or smoothed density curves are
-employed to visualize data. In bivariate data scatterplots and contour
-plots (2-d density) can be employed. In three dimensions the two most
-common techniques are: 2-d scatter plot with the 3rd variable as an
-aesthetic (such as, color, size, height, \(etc.\)) or rendering the data
-in a 3-d volume using some perceptive cues giving information describing
-the seeming depth of the image
-\footnote{Graphs of data depicting 3 dimension are typically printed on paper, or rendered on a 2-d monitor, they are intrinsically 2-d images. They are sometimes referred to as 2.5-d, or more frequently erroneously referred to as 3-d, more on this later.}.
-When there are 4 variables: 3 variables as spatial-dimensions and a 4th
-as aesthetic, or a scatterplot matrix consisting of 4 histograms, and 6
-unique combinations of bivariate scatterplots.
+In univariate data sets histograms, or smoothed density curves are employed to visualize data. In bivariate data scatterplots and contour plots (2-d density) can be employed. In three dimensions the two most common techniques are: 2-d scatter plot with the 3rd variable as an aesthetic (such as, color, size, height, \(etc.\)) or rendering the data in a 3-d volume using some perceptive cues giving information describing the seeming depth of the image \footnote{Graphs of data depicting 3 dimension are typically printed on paper, or rendered on a 2-d monitor, they are intrinsically 2-d images. They are sometimes referred to as 2.5-d, or more frequently erroneously referred to as 3-d, more on this later.}. When there are 4 variables: 3 variables as spatial-dimensions and a 4th as aesthetic, or a scatterplot matrix consisting of 4 histograms, and 6 unique combinations of bivariate scatterplots.
 
-Let \(p\) be the number of numeric variables; how do we visualize data
-for even modest values of \(p\) (say 6 or 12)? It's far too common that
-visualizing in data-space is dropped altogether in favor of modeling
-parameter-space, model-space, or worse: long tables of statistics
-without visuals \autocite{wickham_visualizing_2015}. Yet, we all know of
-the risks inherent in relying too heavily on parameters alone
-\autocites{anscombe_graphs_1973}{matejka_same_2017}. So why do we move
-away from visualizing in data-space? Scalability, in a word, we are not
-familiar with methods that allow us to concisely depict and digest
-\(p \geq 5\) or so dimensions. This is where dimensionality reduction
-comes in. Specifically, we will be focusing on a specific group called
-touring. In the interest of time I will not belabor the diversity of
-dimensionality reduction, (see
-{[}\textcite{grinstein_high-dimensional_2002};
-\textcite{carreira-perpinan_review_1997}; heer\_tour\_2010{]} for a
-quick summary). Suffice it to say that touring has a couple of salient
-features: linear transformations such that we can interpolate back to
-the original variable space and does not discard dimensions, something
-that is common to other linear techniques. By employing the breadth of
-tours we are able to preserve the visualization of data-space, and with
-it, the intrinsic understanding of structure and distribution of data
-that is more succinct or beyond the reach of statistic values alone.
+Let \(p\) be the number of numeric variables; how do we visualize data for even modest values of \(p\) (say 6 or 12)? It's far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse: long tables of statistics without visuals \autocite{wickham_visualizing_2015}. Yet, we all know of the risks inherent in relying too heavily on parameters alone \autocites{anscombe_graphs_1973}{matejka_same_2017}. So why do we move away from visualizing in data-space? Scalability, in a word, we are not familiar with methods that allow us to concisely depict and digest \(p \geq 5\) or so dimensions. This is where dimensionality reduction comes in. Specifically, we will be focusing on a specific group called touring. In the interest of time I will not belabor the diversity of dimensionality reduction, (see {[}\textcite{grinstein_high-dimensional_2002}; \textcite{carreira-perpinan_review_1997}; heer\_tour\_2010{]} for a quick summary). Suffice it to say that touring has a couple of salient features: linear transformations such that we can interpolate back to the original variable space and does not discard dimensions, something that is common to other linear techniques. By employing the breadth of tours we are able to preserve the visualization of data-space, and with it, the intrinsic understanding of structure and distribution of data that is more succinct or beyond the reach of statistic values alone.
 
-Touring is a linear dimensionality reduction technique that orthogonally
-projects \(p\)-space down to \(d(\leq p)\) dimensions. Many such
-projections are interpolated, each making local rotations in
-\(p\)-space. These frames are then viewed in order to the effect of
-watching an animation of the lower dimensional embedding changing as
-\(p\)-space is manipulated. Shadow puppets offer a useful analogy to aid
-in conceptualizing touring. Imagine a fixed light source facing a wall.
-When a hand or puppet is introduced the 3-dimensional object projects a
-2-dimensional shadow onto the wall. This is a physical representation of
-a simple projection, that from \(p=3\) down to \(d=2\). If the object
-rotates then the shadow correspondingly changes. Observers watching only
-the shadow are functionally watching a 2-dimensional tour as the
-3-dimensional object is manipulated.
+Touring is a linear dimensionality reduction technique that orthogonally projects \(p\)-space down to \(d(\leq p)\) dimensions. Many such projections are interpolated, each making local rotations in \(p\)-space. These frames are then viewed in order to the effect of watching an animation of the lower dimensional embedding changing as \(p\)-space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2-dimensional shadow onto the wall. This is a physical representation of a simple projection, that from \(p=3\) down to \(d=2\). If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a 2-dimensional tour as the 3-dimensional object is manipulated.
 
-\subsubsection{Terminology}\label{terminology}
+\hypertarget{terminology}{%
+\subsubsection{Terminology}\label{terminology}}
 
-n, p (sometimes called d by Wegman, or n ), d (sometimes called k by
-wegman, or d in tourr)
+n, p (sometimes called d by Wegman, or n ), d (sometimes called k by wegman, or d in tourr)
 
-\subsection{History}\label{history}
+\hypertarget{history}{%
+\subsection{History}\label{history}}
 
-Touring was first introduced by Asimov in 1985 with his purposed Grand
-Tour\autocite{asimov_grand_1985} at Stanford University. In which,
-Asimov suggested three types of Grand Tours: torus, at-random, and
-random-walk. The specifics of which will be discussed below in the
-Typology section.
+Touring was first introduced by Asimov in 1985 with his purposed Grand Tour\autocite{asimov_grand_1985} at Stanford University. In which, Asimov suggested three types of Grand Tours: torus, at-random, and random-walk. The specifics of which will be discussed below in the Typology section.
 
 TALK ABOUT maths Here::
 
-Note that the the above methods have no input from the user aside from
-the starting basis. The bulk of touring development since has largely
-been around dynamic display, user interaction, geometric representation,
-and application.
+Note that the the above methods have no input from the user aside from the starting basis. The bulk of touring development since has largely been around dynamic display, user interaction, geometric representation, and application.
 
-This works well when the number of dimensions being toured is small (in
-the neighborhood of 5-10), yet the number of view, or 2-frames and we
-can produce from \(p\)-space suffers from the so called blessing/curse
-of dimensionality. In which the plethora of degrees of freedom either
-offer many (non-unique) solutions to a problem or something that becomes
-ever increasing unlikely,
+This works well when the number of dimensions being toured is small (in the neighborhood of 5-10), yet the number of view, or 2-frames and we can produce from \(p\)-space suffers from the so called blessing/curse of dimensionality. In which the plethora of degrees of freedom either offer many (non-unique) solutions to a problem or something that becomes ever increasing unlikely,
 
-\subsection{Tour path}\label{tour-path}
+\hypertarget{tour-path}{%
+\subsection{Tour path}\label{tour-path}}
 
-A fundamental aspect of touring is the path of rotation. Of which there
-are four primary distinctions\autocite{buja_computational_2005}: random
-choice, precomputed choice, data driven, and manual control.
+A fundamental aspect of touring is the path of rotation. Of which there are four primary distinctions\autocite{buja_computational_2005}: random choice, precomputed choice, data driven, and manual control.
 
 \begin{itemize}
 \item
-  \emph{grand tour}, a constrained random choice \(p\)-space. Paths are
-  constrained for changes in direction small enough to maintain
-  continuity and aid in user comprehension
+  \emph{grand tour}, a constrained random choice \(p\)-space. Paths are constrained for changes in direction small enough to maintain continuity and aid in user comprehension
 
   \begin{itemize}
   \tightlist
@@ -187,71 +121,50 @@ choice, precomputed choice, data driven, and manual control.
   \item
     random-walk
   \item
-    \emph{local tour}, a sort of grand tour on leash, such that it goes
-    to a nearby random projection before returning to the original
-    position and iterating
+    \emph{local tour}, a sort of grand tour on leash, such that it goes to a nearby random projection before returning to the original position and iterating
   \end{itemize}
 \item
-  \emph{guided tour}, data driven tour optimizing some objective
-  function via (stochastic) gradient descent
-  \autocite{hurley_analyzing_1990}.
+  \emph{guided tour}, data driven tour optimizing some objective function via (stochastic) gradient descent \autocite{hurley_analyzing_1990}.
 
   \begin{itemize}
   \tightlist
   \item
-    holes \autocite{cook_projection_1993} - iterates projections that
-    add more white space to the center of the projection.
+    holes \autocite{cook_projection_1993} - iterates projections that add more white space to the center of the projection.
   \item
-    cmass \autocite{cook_projection_1993} - find the projection with the
-    most density or mass in the center.
+    cmass \autocite{cook_projection_1993} - find the projection with the most density or mass in the center.
   \item
-    lda \autocite{lee_projection_2005} - linear discriminant analysis,
-    seeks a projection where 2 or more classes are most separated.
+    lda \autocite{lee_projection_2005} - linear discriminant analysis, seeks a projection where 2 or more classes are most separated.
   \item
-    pda - principal component analysis finding where the data is most
-    spread (1d only).
+    pda - principal component analysis finding where the data is most spread (1d only).
   \item
     other user-defined objective function \autocite{wickham_tourr_2011}.
   \end{itemize}
 \item
-  \emph{planned tour}, Precomputed choice, In which the path has already
-  been generated or defined.
+  \emph{planned tour}, Precomputed choice, In which the path has already been generated or defined.
 
   \begin{itemize}
   \tightlist
   \item
-    \emph{little tour} \autocite{mcdonald_interactive_1982}, where every
-    permutation of variables is stepped through in order, analogous to a
-    brute-force or exhaustive search.
+    \emph{little tour} \autocite{mcdonald_interactive_1982}, where every permutation of variables is stepped through in order, analogous to a brute-force or exhaustive search.
   \item
     a saved path of any other tour
   \end{itemize}
 \item
-  \emph{manual tour} - Manual control, a constrained rotation on
-  selected manipulation variable and
-  magnitude\autocite{cook_manual_1997}. Typically used to explore the
-  local area after identifying an interesting feature from another tour.
+  \emph{manual tour} - Manual control, a constrained rotation on selected manipulation variable and magnitude\autocite{cook_manual_1997}. Typically used to explore the local area after identifying an interesting feature from another tour.
 \item
-  \emph{dependance tour}, combination of \(n\) independent 1d tours. A
-  vector describes the axis each variable will be displayed on.
-  \textbf{ie} \(c(1, 1, 2, 2)\) is a 4 to 2d tour with the first 2
-  variables on on the first axis, and the remaining on the second.
+  \emph{dependance tour}, combination of \(n\) independent 1d tours. A vector describes the axis each variable will be displayed on. \textbf{ie} \(c(1, 1, 2, 2)\) is a 4 to 2d tour with the first 2 variables on on the first axis, and the remaining on the second.
 
   \begin{itemize}
   \tightlist
   \item
-    \emph{correlation tour} \autocite{buja_data_1987}, a special case of
-    the dependence tour, analogous to canonical correlation analysis
+    \emph{correlation tour} \autocite{buja_data_1987}, a special case of the dependence tour, analogous to canonical correlation analysis
   \end{itemize}
 \end{itemize}
 
-\subsection{Geometrics and display
-dimension}\label{geometrics-and-display-dimension}
+\hypertarget{geometrics-and-display-dimension}{%
+\subsection{Geometrics and display dimension}\label{geometrics-and-display-dimension}}
 
-Up to this point we have been talking about 2d scatterplots, which offer
-the first and a simple case for viewing lower-dimensional embeddings of
-\(p\)-space. However, other geometrics (or geoms) offer perfectly valid
-orthonormal projections as well.
+Up to this point we have been talking about 2d scatterplots, which offer the first and a simple case for viewing lower-dimensional embeddings of \(p\)-space. However, other geometrics (or geoms) offer perfectly valid orthonormal projections as well.
 
 \begin{itemize}
 \tightlist
@@ -261,14 +174,11 @@ orthonormal projections as well.
   \begin{itemize}
   \tightlist
   \item
-    1-d densities: such as histogram, average shifted
-    histograms\autocite{scott85}, and kernel density\autocite{scott95}.
+    1-d densities: such as histogram, average shifted histograms\autocite{scott85}, and kernel density\autocite{scott95}.
   \item
     image: \autocite[ 2001]{Wegman}
   \item
-    time series: where multivariate values are independently lagged to
-    view peak and trough alignment. Currently no package implementation,
-    but use case is discussed in \autocite{cook_manual_1997}.
+    time series: where multivariate values are independently lagged to view peak and trough alignment. Currently no package implementation, but use case is discussed in \autocite{cook_manual_1997}.
   \end{itemize}
 \item
   2d geoms
@@ -286,13 +196,9 @@ orthonormal projections as well.
   \begin{itemize}
   \tightlist
   \item
-    Anaglyphs, sometimes called stereo, where (typically) red images are
-    positioned for the left channel and cyan for the right, when viewed
-    with corresponding filter glasses give the depth perception of the
-    image.
+    Anaglyphs, sometimes called stereo, where (typically) red images are positioned for the left channel and cyan for the right, when viewed with corresponding filter glasses give the depth perception of the image.
   \item
-    Depth, which use some subset of depth cues, most commonly size
-    and/or color of data points.
+    Depth, which use some subset of depth cues, most commonly size and/or color of data points.
   \end{itemize}
 \item
   \(d\)-dim geoms
@@ -300,38 +206,29 @@ orthonormal projections as well.
   \begin{itemize}
   \tightlist
   \item
-    Andrews curves \autocite{andrews_plots_1972}, smoothed variant of
-    parallel coordinate plots, discussed below.
+    Andrews curves \autocite{andrews_plots_1972}, smoothed variant of parallel coordinate plots, discussed below.
   \item
-    Chernoff faces \autocite{chernoff_use_1973}, variables linked to
-    size of facial features for rapid cursory like-ness comparison of
-    observations.
+    Chernoff faces \autocite{chernoff_use_1973}, variables linked to size of facial features for rapid cursory like-ness comparison of observations.
   \item
-    Parallel coordinate plots \autocite{ocagne_coordonnees_1885}, where
-    any number of variables are plotted in parallel with observations
-    linked to their corresponding variable value by polylines.
+    Parallel coordinate plots \autocite{ocagne_coordonnees_1885}, where any number of variables are plotted in parallel with observations linked to their corresponding variable value by polylines.
   \item
-    Scatterplot matrix \autocite{becker_brushing_1987}, showing a
-    triangle matrix of bivariate scatterplots with 1-d density on the
-    diagonal.
+    Scatterplot matrix \autocite{becker_brushing_1987}, showing a triangle matrix of bivariate scatterplots with 1-d density on the diagonal.
   \item
-    Radial glyphs, radial variants of parallel coordinates including
-    radar, spider, and star glyphs \autocite{siegel_surgical_1972}.
+    Radial glyphs, radial variants of parallel coordinates including radar, spider, and star glyphs \autocite{siegel_surgical_1972}.
   \end{itemize}
 \end{itemize}
 
-\subsection{Aplication}\label{aplication}
+\hypertarget{aplication}{%
+\subsection{Aplication}\label{aplication}}
 
-Below is a non-exhaustive list of software implementing touring in some
-degree, ordered by descending year:
+Below is a non-exhaustive list of software implementing touring in some degree, ordered by descending year:
 
 \begin{itemize}
 \tightlist
 \item
   Spinifex \autocite{spinifex} -- for Linux, Unix, and Windows.
 \item
-  Tourr \autocite{wickham_tourr_2011} -- for Linux, Unix, and Windows. R
-  package.
+  Tourr \autocite{wickham_tourr_2011} -- for Linux, Unix, and Windows. R package.
 \item
   CyrstalVision \autocite{wegman_visual_2003} -- for Windows.
 \item
@@ -339,103 +236,47 @@ degree, ordered by descending year:
 \item
   DAVIS \autocite{huh_davis:_2002} -- Java based, with GUI.
 \item
-  VRGobi \autocite{nelson_xgobi_1998} -- for use with the C2 in
-  stereoscopic 3d displays.
+  VRGobi \autocite{nelson_xgobi_1998} -- for use with the C2 in stereoscopic 3d displays.
 \item
   ExplorN \autocite{carr_explorn:_1996} -- for SGI Unix.
 \item
-  XGobi \autocite{swayne_xgobi:_1991} -- for Linux, Unix, and Windows
-  (via emulation).
+  XGobi \autocite{swayne_xgobi:_1991} -- for Linux, Unix, and Windows (via emulation).
 \item
   XLispStat \autocite{tierney_lisp-stat:_1990} -- for Unix, and Windows.
 \item
-  Prim-9 \autocites{asimov_grand_1985}{fisherkeller_prim-9:_1974} -- on
-  an internal operating system.
+  Prim-9 \autocites{asimov_grand_1985}{fisherkeller_prim-9:_1974} -- on an internal operating system.
 \end{itemize}
 
-Support and maintenance of such implementations give them a particularly
-short life span, while conceptual abstraction and technically heavier
-implementations have hampered user growth. There have been notable
-efforts to diminish the barriers to entry and make touring more
-approachable as a data exploration tool {[}\textcite{huh_davis:_2002};
-\textcite{swayne_ggobi:_2003}; \textcite{wegman_visual_2003};
-\textcite{wickham_tourr_2011}; huang\_tourrgui:\_2012{]}.
+Support and maintenance of such implementations give them a particularly short life span, while conceptual abstraction and technically heavier implementations have hampered user growth. There have been notable efforts to diminish the barriers to entry and make touring more approachable as a data exploration tool {[}\textcite{huh_davis:_2002}; \textcite{swayne_ggobi:_2003}; \textcite{wegman_visual_2003}; \textcite{wickham_tourr_2011}; huang\_tourrgui:\_2012{]}.
 
-\section{Virtual reality}\label{virtual-reality}
+\hypertarget{virtual-reality}{%
+\section{Virtual reality}\label{virtual-reality}}
 
-\chapter{\texorpdfstring{\emph{spinifex}: An R package that provides
-manual rotations in
-high-dimensions}{spinifex: An R package that provides manual rotations in high-dimensions}}\label{ch:spinifex}
+\hypertarget{ch:spinifex}{%
+\chapter{\texorpdfstring{\emph{spinifex}: An R package that provides manual rotations in high-dimensions}{spinifex: An R package that provides manual rotations in high-dimensions}}\label{ch:spinifex}}
 
-\section{Abstract}\label{abstract-1}
+\hypertarget{abstract-1}{%
+\section{Abstract}\label{abstract-1}}
 
-The tour algorithm, and its various versions provide a systematic
-approach to viewing low-dimensional projections of high-dimensional
-data. It is particularly useful for understanding multivariate data, and
-useful in association with techniques for dimension reduction,
-supervised and unsupervised classification. The \emph{R} package
-\emph{tourr} provides many methods for conducting tours on multivariate
-data. This paper discusses an extension package which adds support for
-the manual tour, called \emph{spinifex}. It is particularly usefully for
-exploring the sensitivity of structure discovered in a projection by a
-guided tour, to the contribution of a variable. \emph{Spinifex} utilizes
-the animation packages \emph{plotly} and \emph{gganimation} to allow
-users to rotate a variable into and our of a chosen projection.
+The tour algorithm, and its various versions provide a systematic approach to viewing low-dimensional projections of high-dimensional data. It is particularly useful for understanding multivariate data, and useful in association with techniques for dimension reduction, supervised and unsupervised classification. The \emph{R} package \emph{tourr} provides many methods for conducting tours on multivariate data. This paper discusses an extension package which adds support for the manual tour, called \emph{spinifex}. It is particularly usefully for exploring the sensitivity of structure discovered in a projection by a guided tour, to the contribution of a variable. \emph{Spinifex} utilizes the animation packages \emph{plotly} and \emph{gganimation} to allow users to rotate a variable into and our of a chosen projection.
 
-Keywords: grand tour, projection pursuit, manual tour, high dimensional
-data, multivariate data, data visualization, statistical graphics, data
-science, data mining.
+Keywords: grand tour, projection pursuit, manual tour, high dimensional data, multivariate data, data visualization, statistical graphics, data science, data mining.
 
-\section{Introduction}\label{introduction}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
 
-A tour is a multivariate data analysis technique in which is a sequence
-of orthogonal projection into a lower subspace are viewed in order. each
-frame of the sequence corresponds to a small change in the projection
-for a smooth transition.
+A tour is a multivariate data analysis technique in which is a sequence of orthogonal projection into a lower subspace are viewed in order. each frame of the sequence corresponds to a small change in the projection for a smooth transition.
 
-Multivariate data analysis can be broken into 2 groups: linear and
-non-linear transformations. Similar to PCA and LDA, touring uses linear
-dimension reduction with inter-operability back to the original
-parameter-space. They differ from non-linear transformations such as
-t-SNE (t-distributed stochastic nearest neighbor embeddings), MDS
-(multi-dimension scaling), and LLE (local linear embedding), which
-distort parameter-space for more opaque interpretations
+Multivariate data analysis can be broken into 2 groups: linear and non-linear transformations. Similar to PCA and LDA, touring uses linear dimension reduction with inter-operability back to the original parameter-space. They differ from non-linear transformations such as t-SNE (t-distributed stochastic nearest neighbor embeddings), MDS (multi-dimension scaling), and LLE (local linear embedding), which distort parameter-space for more opaque interpretations
 
-There are many ways that a tour path can be generated, we will focus on
-one in particular, the manual tour. The manual tour was described in
-\textcite{cook_manual_1997}, and allows a user to rotate a variable into
-and out of a 2D projection of high-dimensional space. The primary
-purpose is to determine the sensitivity of structure visible in a
-projection to the contributions of a variable. Manual touring can also
-be useful for exploring the local structure once a feature of interest
-has been identified, for example, by a guided tour
-\autocite{cook_grand_1995}. The algorithm for a manual tour allows
-rotations in horizontal, vertical, oblique, angular and radial
-directions. Rotation in a radial direction, would pull a variable into
-and out of the projection, which allows for examining the sensitivity of
-structure in the projection to the contribution of this variable. This
-type of manual rotation is the focus of this paper.
+There are many ways that a tour path can be generated, we will focus on one in particular, the manual tour. The manual tour was described in \textcite{cook_manual_1997}, and allows a user to rotate a variable into and out of a 2D projection of high-dimensional space. The primary purpose is to determine the sensitivity of structure visible in a projection to the contributions of a variable. Manual touring can also be useful for exploring the local structure once a feature of interest has been identified, for example, by a guided tour \autocite{cook_grand_1995}. The algorithm for a manual tour allows rotations in horizontal, vertical, oblique, angular and radial directions. Rotation in a radial direction, would pull a variable into and out of the projection, which allows for examining the sensitivity of structure in the projection to the contribution of this variable. This type of manual rotation is the focus of this paper.
 
-A manual tour relies on user input, and thus has been difficult to
-program in R. Ideally, the mouse movements of the user are captured, and
-passed to the computations, driving the rotation interactively. However,
-this type of interactivity is not simple in R. This has been the reason
-that the algorithm was not incorporated into the \emph{tourr} package.
-Spinifex utilizes two new packages for conducting animations,
-\emph{plotly} \autocite{sievert_plotly_2018} and \emph{gganimate}
-\autocite{pedersen_gganimate:_2019}, to conduct a manual tour. From a
-given projection, the user can choose which variable to control, and the
-animation sequence is generated to remove the variable from the
-projection, and then extend its contribution to be the sole variable in
-one direction. This allows the viewer to assess the change in structure
-induced in the projection by the variable contribution.
+A manual tour relies on user input, and thus has been difficult to program in R. Ideally, the mouse movements of the user are captured, and passed to the computations, driving the rotation interactively. However, this type of interactivity is not simple in R. This has been the reason that the algorithm was not incorporated into the \emph{tourr} package. Spinifex utilizes two new packages for conducting animations, \emph{plotly} \autocite{sievert_plotly_2018} and \emph{gganimate} \autocite{pedersen_gganimate:_2019}, to conduct a manual tour. From a given projection, the user can choose which variable to control, and the animation sequence is generated to remove the variable from the projection, and then extend its contribution to be the sole variable in one direction. This allows the viewer to assess the change in structure induced in the projection by the variable contribution.
 
-The paper is organized as follows. Section \ref{sec:algorithm} explains
-the algorithm using a toy dataset. Section \ref{sec:application}
-illustrates how this can be used for sensitivity analysis. The last
-section summarizes the work and discusses future research.
+The paper is organized as follows. Section \ref{sec:algorithm} explains the algorithm using a toy dataset. Section \ref{sec:application} illustrates how this can be used for sensitivity analysis. The last section summarizes the work and discusses future research.
 
-\section{Algorithm}\label{sec:algorithm}
+\hypertarget{sec:algorithm}{%
+\section{Algorithm}\label{sec:algorithm}}
 
 Creating a manual tour animation requires these steps:
 
@@ -443,22 +284,19 @@ Creating a manual tour animation requires these steps:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Provided with a 2D projection, choose a variable to explore. This is
-  called the ``manip'' variable.
+  Provided with a 2D projection, choose a variable to explore. This is called the ``manip'' variable.
 \item
-  Create a 3D manipulation space, where the manip variable has full
-  contribution.
+  Create a 3D manipulation space, where the manip variable has full contribution.
 \item
-  Generate a rotation sequence which zero's the norm of the coefficient
-  and also increases it to 1.
+  Generate a rotation sequence which zero's the norm of the coefficient and also increases it to 1.
 \end{enumerate}
 
 These steps are described in more detail below.
 
-\subsection{Notation}\label{notation}
+\hypertarget{notation}{%
+\subsection{Notation}\label{notation}}
 
-This section describes the notation used in the algorithm description.
-The data to be displayed is an \(n \times p\) numeric matrix.
+This section describes the notation used in the algorithm description. The data to be displayed is an \(n \times p\) numeric matrix.
 
 \begin{align*}
   \textbf{X}_{n \times p} ~=
@@ -482,59 +320,27 @@ and an orthonormal \(d\)-dimensional projection matrix is
   \end{bmatrix}
 \end{align*}
 
-The algorithm is primarily operating on the projection basis and
-utilizes the data only when making a display.
+The algorithm is primarily operating on the projection basis and utilizes the data only when making a display.
 
-\subsection{Toy data set}\label{toy-data-set}
+\hypertarget{toy-data-set}{%
+\subsection{Toy data set}\label{toy-data-set}}
 
-The flea data from the R package \emph{tourr}
-\autocite{wickham_tourr_2011}, is used to illustrat the algorithm. The
-data, originally from \textcite{lubischew_use_1962},contains 74
-observations across 6 variables, which physical measurements of the
-insects. Each individual belonged to one of three species.
+The flea data from the R package \emph{tourr} \autocite{wickham_tourr_2011}, is used to illustrat the algorithm. The data, originally from \textcite{lubischew_use_1962},contains 74 observations across 6 variables, which physical measurements of the insects. Each individual belonged to one of three species.
 
-A guided tour on the flea data is conducted by optimizing on the
-\texttt{holes} index \autocite{cook_interactive_2007}. In a guided tour
-the data the projection sequence is shown by optimizing an index of
-interest. The holes index is maximized by when the projected data has a
-lack of observations in the center. Figure \ref{fig:step0}, shows an
-optimal projection of this data. The left plot displays the projection
-basis, while the right plot shows the projected data. The display of the
-basis has a unit circle with lines showing the horizontal and vertical
-contributions of each variable in the projection. Here is is primarily
-tars1 and aede2 contrasting the other four variables. In the projected
-data it can be seen that there are three clusters, which have been
-colored, although not used in the optimization. The question that will
-be explored in the explanation of the algorithm is how important is
-aede2 to the separation of the clusters.
+A guided tour on the flea data is conducted by optimizing on the \texttt{holes} index \autocite{cook_interactive_2007}. In a guided tour the data the projection sequence is shown by optimizing an index of interest. The holes index is maximized by when the projected data has a lack of observations in the center. Figure \ref{fig:step0}, shows an optimal projection of this data. The left plot displays the projection basis, while the right plot shows the projected data. The display of the basis has a unit circle with lines showing the horizontal and vertical contributions of each variable in the projection. Here is is primarily tars1 and aede2 contrasting the other four variables. In the projected data it can be seen that there are three clusters, which have been colored, although not used in the optimization. The question that will be explored in the explanation of the algorithm is how important is aede2 to the separation of the clusters.
 
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/step0-1.pdf}
-\caption{\label{fig:step0}Basis reference frame (left) and projected data
-(right) of standardized flea data. Basis identified by holes-index
-guided tour. The variables \texttt{aede2} and \texttt{tars1} contribute
-mostly in the x direction, whereas the other variables contribute mostly
-in the y direction. We'll select \texttt{aede2} as our manipulation
-variable to see how the structure of the projection changes as we rotate
-\texttt{aede2} into and out of the projection.}
+\caption{\label{fig:step0}Basis reference frame (left) and projected data (right) of standardized flea data. Basis identified by holes-index guided tour. The variables \texttt{aede2} and \texttt{tars1} contribute mostly in the x direction, whereas the other variables contribute mostly in the y direction. We'll select \texttt{aede2} as our manipulation variable to see how the structure of the projection changes as we rotate \texttt{aede2} into and out of the projection.}
 \end{figure}
 
-The left frame of \ref{fig:step0} shows the reference frame for the
-basis. It describes the X and Y contributions of the basis as it
-projects from the 6 variable dimensions down to 2. Call
-\texttt{view\_basis()} on a basis to produce a similar image as a
-\texttt{ggplot2} object. The right side shows how the data looks
-projected through this basis. You can project a single basis at any time
-through the matrix multiplication
-\(\textbf{X}_{[n,~p]} ~*~ \textbf{B}_{[p,~d]} ~=~ \textbf{P}_{d[n,~d]}\)
-to such effect.
+The left frame of \ref{fig:step0} shows the reference frame for the basis. It describes the X and Y contributions of the basis as it projects from the 6 variable dimensions down to 2. Call \texttt{view\_basis()} on a basis to produce a similar image as a \texttt{ggplot2} object. The right side shows how the data looks projected through this basis. You can project a single basis at any time through the matrix multiplication \(\textbf{X}_{[n,~p]} ~*~ \textbf{B}_{[p,~d]} ~=~ \textbf{P}_{d[n,~d]}\) to such effect.
 
-\subsection{Step 1 Choose variable of
-interest}\label{step-1-choose-variable-of-interest}
+\hypertarget{step-1-choose-variable-of-interest}{%
+\subsection{Step 1 Choose variable of interest}\label{step-1-choose-variable-of-interest}}
 
-Select a manipulation variable, \(k\). Initialize a zero vector \(e\),
-and set the \(k\)-th element set to 1.
+Select a manipulation variable, \(k\). Initialize a zero vector \(e\), and set the \(k\)-th element set to 1.
 
 \begin{align*}
 \textbf{e}_{k~[p,~1]} ~=~ 
@@ -548,17 +354,12 @@ and set the \(k\)-th element set to 1.
   \end{bmatrix}_{[p,~1]}
 \end{align*}
 
-In figure \ref{fig:step0}, above, notice that the variables
-\texttt{tars1} and \texttt{aede2} are almost orthogonal to the other 4
-variables and control almost all of the variation in the x axis of the
-projection. \texttt{Aede2} has a larger contribution in this basis, so
-we'll select it
+In figure \ref{fig:step0}, above, notice that the variables \texttt{tars1} and \texttt{aede2} are almost orthogonal to the other 4 variables and control almost all of the variation in the x axis of the projection. \texttt{Aede2} has a larger contribution in this basis, so we'll select it
 
-\subsection{Step 2 Create the manip
-space}\label{step-2-create-the-manip-space}
+\hypertarget{step-2-create-the-manip-space}{%
+\subsection{Step 2 Create the manip space}\label{step-2-create-the-manip-space}}
 
-Use the Gram-Schmidt process to orthonormalize the concatenation of the
-basis and \(e\) yielding the manipulation space.
+Use the Gram-Schmidt process to orthonormalize the concatenation of the basis and \(e\) yielding the manipulation space.
 
 \begin{align*}
   \textbf{M}_{[p,~d+1]}
@@ -585,9 +386,7 @@ basis and \(e\) yielding the manipulation space.
   \right)
 \end{align*}
 
-In R it looks like the below chunk. \texttt{tourr::orthonormalise()}
-uses the Gram Schimidt process (rather than Householder reflection) to
-orthonormalize.
+In R it looks like the below chunk. \texttt{tourr::orthonormalise()} uses the Gram Schimidt process (rather than Householder reflection) to orthonormalize.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -597,38 +396,24 @@ orthonormalize.
 \end{Highlighting}
 \end{Shaded}
 
-Adding an extra dimension to our basis plane allows for the manipulation
-of the specified variable while the others are kept fully within the
-basis plane. orthonormalizing rescales the matrix without bringing the
-other variables into this new axis. An illustration of such can been
-seen below in \ref{fig:step2}.
+Adding an extra dimension to our basis plane allows for the manipulation of the specified variable while the others are kept fully within the basis plane. orthonormalizing rescales the matrix without bringing the other variables into this new axis. An illustration of such can been seen below in \ref{fig:step2}.
 
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/step2-1.pdf}
-\caption{\label{fig:step2}Manipulation space for controlling the
-contribution of aede2 of standardized flea data. Basis was identified by
-holes-index guided tour. The out of plane axis, in red, shows how the
-manipulation variable can be rotated, while other dimensions stay
-embedded within the basis plane.}
+\caption{\label{fig:step2}Manipulation space for controlling the contribution of aede2 of standardized flea data. Basis was identified by holes-index guided tour. The out of plane axis, in red, shows how the manipulation variable can be rotated, while other dimensions stay embedded within the basis plane.}
 \end{figure}
 
-Imagine being able to grab hold of the red axis and rotate it changing
-the projection onto the basis plane. This is what happens in a manual
-tour. By controlling the angle between the axis and the basis plane we
-change the contribution of the manipulation variable on the projection.
+Imagine being able to grab hold of the red axis and rotate it changing the projection onto the basis plane. This is what happens in a manual tour. By controlling the angle between the axis and the basis plane we change the contribution of the manipulation variable on the projection.
 
-\subsection{Step 3 Generate rotation}\label{step-3-generate-rotation}
+\hypertarget{step-3-generate-rotation}{%
+\subsection{Step 3 Generate rotation}\label{step-3-generate-rotation}}
 
-Define a set of values for \(\phi_i\), the angle of out-of plane
-rotation, orthogonal to the projection plane. This corresponds to the
-angle between the red manipulation axis and the blue plane in
-\ref{fig:step2}.
+Define a set of values for \(\phi_i\), the angle of out-of plane rotation, orthogonal to the projection plane. This corresponds to the angle between the red manipulation axis and the blue plane in \ref{fig:step2}.
 
 \textbf{For } \(i\) \textbf{in 1 to n\_slides:}
 
-For each \(\phi_i\), post multiply the manipulation space by a rotation
-matrix, producing as many basis-projections.
+For each \(\phi_i\), post multiply the manipulation space by a rotation matrix, producing as many basis-projections.
 
 \begin{align*}
   \textbf{P}_{b[p,~d+1,~i]}
@@ -665,11 +450,7 @@ Where:
   \item[$s_\phi$]   is the sine of   $\phi$
 \end{description}
 
-In application: compile the sequence of \(\phi_i\) and create an array
-(or long table) for each rotated manipulation space. \(\phi\) is
-actually the angle relative to the \(\phi_1\), we find the
-transformation \(\phi_i\) - \(\phi_1\) useful to discuss \(\phi\)
-relative to the basis plane.
+In application: compile the sequence of \(\phi_i\) and create an array (or long table) for each rotated manipulation space. \(\phi\) is actually the angle relative to the \(\phi_1\), we find the transformation \(\phi_i\) - \(\phi_1\) useful to discuss \(\phi\) relative to the basis plane.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -680,29 +461,18 @@ relative to the basis plane.
 \end{Highlighting}
 \end{Shaded}
 
-In \ref{fig:step3} we illustrate the sequence with 15 projected bases
-and highlight the manip variable on top, while showing the corresponding
-projected data points on the bottom. A dynamic version of this tour can
-be viewed online at
-\url{https://nspyrison.netlify.com/thesis/flea_manualtour_mvar4/}, will
-take a moment to load. This format of this figure and linking to dynamic
-version will be used again the \ref{sec:application} section.
+In \ref{fig:step3} we illustrate the sequence with 15 projected bases and highlight the manip variable on top, while showing the corresponding projected data points on the bottom. A dynamic version of this tour can be viewed online at \url{https://nspyrison.netlify.com/thesis/flea_manualtour_mvar4/}, will take a moment to load. This format of this figure and linking to dynamic version will be used again the \ref{sec:application} section.
 
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/step3-1.pdf}
-\caption{\label{fig:step3}Rotated manipulation spaces, a radial manual tour
-manipulating aded2 of standardized flea data. The manipulation variable,
-aede2, extends from it's initial contribution to a full contribution to
-the projection before decreasing to zero, and then returning to it's
-initial state. A dynamic version can be viewed at
-\url{https://nspyrison.netlify.com/thesis/flea_manualtour_mvar4/}.}
+\caption{\label{fig:step3}Rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from it's initial contribution to a full contribution to the projection before decreasing to zero, and then returning to it's initial state. A dynamic version can be viewed at \url{https://nspyrison.netlify.com/thesis/flea_manualtour_mvar4/}.}
 \end{figure}
 
-\section{Display projection sequence}\label{display-projection-sequence}
+\hypertarget{display-projection-sequence}{%
+\section{Display projection sequence}\label{display-projection-sequence}}
 
-To get back to data-space pre-multiply each projection basis by the data
-for the projection in data-space.
+To get back to data-space pre-multiply each projection basis by the data for the projection in data-space.
 
 \begin{align}
   \textbf{P}_{d[n,~d+1]}
@@ -723,199 +493,97 @@ for the projection in data-space.
       \end{bmatrix}_{b[p,~d+1]}
 \end{align}
 
-Plot the first 2 variables from each projection in sequence for an XY
-scatterplot. The remaining variable is sometimes linked to a data point
-aesthetic to produce depth cues used in conjunction with the XY
-scatterplot.
+Plot the first 2 variables from each projection in sequence for an XY scatterplot. The remaining variable is sometimes linked to a data point aesthetic to produce depth cues used in conjunction with the XY scatterplot.
 
-\emph{tourr} utilizes R's base graphics for the display of tours. Use
-\texttt{render\_plotly()} to display as an dynamic \texttt{plotly}
-\textcite{sievert_plotly_2018} object or \texttt{render\_gganimate()}
-for a \texttt{gganimate} \textcite{pedersen_gganimate:_2019} graphic. A
-third notable animation related package is \texttt{animation}
-\textcite{xie_animation:_2018}. It's not yet implemented in
-\texttt{spinifex} as it uses base graphics, whereas the former two are
-compatible with \texttt{ggplot2}.
+\emph{tourr} utilizes R's base graphics for the display of tours. Use \texttt{render\_plotly()} to display as an dynamic \texttt{plotly} \textcite{sievert_plotly_2018} object or \texttt{render\_gganimate()} for a \texttt{gganimate} \textcite{pedersen_gganimate:_2019} graphic. A third notable animation related package is \texttt{animation} \textcite{xie_animation:_2018}. It's not yet implemented in \texttt{spinifex} as it uses base graphics, whereas the former two are compatible with \texttt{ggplot2}.
 
-Interaction with graphics in R is limited. Traditionally, all commands
-are passed to the R via calls to the console, conflicting with user
-engagement. Some recent packages have made advancement into this
-direction such as with the use of the R package \texttt{shinny}, which
-custom-made applications can be hosted either locally or remotely and
-interact with the R console, allowing for developers to code dynamic
-content interaction. To a lesser extent \texttt{plotly} offers static
-interactions with contained object, such as tool tips, brushing, and
-linking without communicating back to the R console.
+Interaction with graphics in R is limited. Traditionally, all commands are passed to the R via calls to the console, conflicting with user engagement. Some recent packages have made advancement into this direction such as with the use of the R package \texttt{shinny}, which custom-made applications can be hosted either locally or remotely and interact with the R console, allowing for developers to code dynamic content interaction. To a lesser extent \texttt{plotly} offers static interactions with contained object, such as tool tips, brushing, and linking without communicating back to the R console.
 
-Storing the each data point and all of the overhead though goes into
-dynamic graphics if very inefficient. In the same way that we performed
-math the bases, that is the same approach storage and sharing tours.
-Consider the manual tour, we can store the salient features in 3 basis,
-where \(\phi\) is at it's starting, minimum, and maximum values. The
-frames in between can be interpolated by supplying angular speed or
-number of desired frames. By using the \texttt{tourr::save\_history()}
-we can do just that. Save such tour path history and a single set of the
-data offers a performant storage and transferring.
+Storing the each data point and all of the overhead though goes into dynamic graphics if very inefficient. In the same way that we performed math the bases, that is the same approach storage and sharing tours. Consider the manual tour, we can store the salient features in 3 basis, where \(\phi\) is at it's starting, minimum, and maximum values. The frames in between can be interpolated by supplying angular speed or number of desired frames. By using the \texttt{tourr::save\_history()} we can do just that. Save such tour path history and a single set of the data offers a performant storage and transferring.
 
-\section{Application}\label{sec:application}
+\hypertarget{sec:application}{%
+\section{Application}\label{sec:application}}
 
-In a recent paper, \textcite{wang_visualizing_2018}, the authors
-aggregate and visualize the sensitivity of hadronic experiments. The
-authors introduce a new tool, PDFSense, to aid in the visualization of
-parton distribution functions (PDF). The parameter-space of these
-experiments lies in 56 dimensions, \(\delta \in \mathbb{R}^{56}\), and
-are presented in this work in 3-d subspaces of the 10 first principal
-components and non-linear embeddings.
+In a recent paper, \textcite{wang_visualizing_2018}, the authors aggregate and visualize the sensitivity of hadronic experiments. The authors introduce a new tool, PDFSense, to aid in the visualization of parton distribution functions (PDF). The parameter-space of these experiments lies in 56 dimensions, \(\delta \in \mathbb{R}^{56}\), and are presented in this work in 3-d subspaces of the 10 first principal components and non-linear embeddings.
 
-The work in \textcite{cook_dynamical_2018} applies touring for discern
-finer structure of this sensitivity. Table 1 of Cook et. al. summaries
-the key findings of PDFSense \& TFEP (tensorflow embedded projection)
-and those from touring. The authors selected the 6 first principal
-components, containing 48\% of the variation held within the full data
-when centered, but not sphered. This data contained 3 clusters: jet,
-DIS, and VBP. Below pick up from the projections used in their figures 7
-and 8 (jet and DIS clusters respectively) and apply manual tours to
-explore the local structure with finer precision.
+The work in \textcite{cook_dynamical_2018} applies touring for discern finer structure of this sensitivity. Table 1 of Cook et. al.~summaries the key findings of PDFSense \& TFEP (tensorflow embedded projection) and those from touring. The authors selected the 6 first principal components, containing 48\% of the variation held within the full data when centered, but not sphered. This data contained 3 clusters: jet, DIS, and VBP. Below pick up from the projections used in their figures 7 and 8 (jet and DIS clusters respectively) and apply manual tours to explore the local structure with finer precision.
 
-\subsection{Jet cluster}\label{jet-cluster}
+\hypertarget{jet-cluster}{%
+\subsection{Jet cluster}\label{jet-cluster}}
 
-The jet cluster is of particular interest as it contains the largest
-data sets and is found to be important in
-\textcite{wang_visualizing_2018}. The jet cluster resides in a smaller
-dimensionality than the full set of experiments with 4 principal
-components explaining 95\% of it's variation
-(\textcite{cook_dynamical_2018}). We subset the data down to ATLAS7old
-and ATLAS7new to narrow in on 2 groups with a reasonable number of
-observations and occupy different parts of the subspace. Below, we
-perform radial manual tours on various principal components within the
-this scope. In PC3 and PC4 are manipulated in \ref{fig:JetClusterGood}
-and \ref{fig:JetClusterBad} respectively. Manipulating PC3, where
-varying the angle of rotation brings interesting features in-to and
-out-of the center mass of the data, is interesting than the manipulation
-of PC4, where features are mostly independent of the manip var.
+The jet cluster is of particular interest as it contains the largest data sets and is found to be important in \textcite{wang_visualizing_2018}. The jet cluster resides in a smaller dimensionality than the full set of experiments with 4 principal components explaining 95\% of it's variation (\textcite{cook_dynamical_2018}). We subset the data down to ATLAS7old and ATLAS7new to narrow in on 2 groups with a reasonable number of observations and occupy different parts of the subspace. Below, we perform radial manual tours on various principal components within the this scope. In PC3 and PC4 are manipulated in \ref{fig:JetClusterGood} and \ref{fig:JetClusterBad} respectively. Manipulating PC3, where varying the angle of rotation brings interesting features in-to and out-of the center mass of the data, is interesting than the manipulation of PC4, where features are mostly independent of the manip var.
 
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/JetClusterGood-1.pdf}
-\caption{\label{fig:JetClusterGood}Jet cluster, radial manual tour of PC3.
-Colored by experiment type: `ATLAS7new' in black and `ATLAS7old' in red.
-When PC3 fully contributes to the projection ATLAS7new (black) occupies
-unique space and several outliers are identifiable. Zeroing the
-contribution from PC3 to the projection hides the outliers and indeed
-all observations with ATLAS7new are contained within ATLAS7old (red). A
-dynamic version can be viewed at
-\url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/}.}
+\caption{\label{fig:JetClusterGood}Jet cluster, radial manual tour of PC3. Colored by experiment type: `ATLAS7new' in black and `ATLAS7old' in red. When PC3 fully contributes to the projection ATLAS7new (black) occupies unique space and several outliers are identifiable. Zeroing the contribution from PC3 to the projection hides the outliers and indeed all observations with ATLAS7new are contained within ATLAS7old (red). A dynamic version can be viewed at \url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/}.}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/JetClusterBad-1.pdf}
-\caption{\label{fig:JetClusterBad}Jet cluster, radial manual tour of PC4.
-Colored by experiment type: `ATLAS7new' in black and `ATLAS7old' in red.
-This tour contain less interesting information ATLAS7new (black) has
-points that are right and left of ATLAS7old, while most points occupy
-the same projection space, regardless of the contribution of PC4. A
-dynamic version can be viewed at
-\url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/}.}
+\caption{\label{fig:JetClusterBad}Jet cluster, radial manual tour of PC4. Colored by experiment type: `ATLAS7new' in black and `ATLAS7old' in red. This tour contain less interesting information ATLAS7new (black) has points that are right and left of ATLAS7old, while most points occupy the same projection space, regardless of the contribution of PC4. A dynamic version can be viewed at \url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/}.}
 \end{figure}
 
-Jet cluster manual tours manipulating each of the principal components
-can be viewed from the links below:
+Jet cluster manual tours manipulating each of the principal components can be viewed from the links below:
 
 \begin{itemize}
 \tightlist
 \item
-  PC1 -
-  \url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc1/}
+  PC1 - \url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc1/}
 \item
-  PC2 -
-  \url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc2/}
+  PC2 - \url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc2/}
 \item
-  PC3 -
-  \url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/}
+  PC3 - \url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/}
 \item
-  PC4 -
-  \url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc4/}
+  PC4 - \url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc4/}
 \end{itemize}
 
-\subsection{DIS cluster}\label{dis-cluster}
+\hypertarget{dis-cluster}{%
+\subsection{DIS cluster}\label{dis-cluster}}
 
-We perform a manual tour on this data, manipulating PC6 as depicted in
-\ref{fig:DISclusterGood}. Looking at several frames we see that DIS HERA
-lie mostly on a plane. When PC6 has full contributions we see the dimuon
-SIDIS in green is almost orthogonal to the DIS HERA (black). Yet the
-contribution of PC6 is zeroed the dimuon SIDIS data occupy the same
-space as the DIS HERA data. A dynamic version of this manual tour can be
-found at:
+We perform a manual tour on this data, manipulating PC6 as depicted in \ref{fig:DISclusterGood}. Looking at several frames we see that DIS HERA lie mostly on a plane. When PC6 has full contributions we see the dimuon SIDIS in green is almost orthogonal to the DIS HERA (black). Yet the contribution of PC6 is zeroed the dimuon SIDIS data occupy the same space as the DIS HERA data. A dynamic version of this manual tour can be found at:
 \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/}.
 The page take a bit to load, as the animation is several megabytes.
 
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/DISclusterGood-1.pdf}
-\caption{\label{fig:DISclusterGood}DIS cluster, radial manual tour of PC6.
-colored by experiment type: `DIS HERA1+2' in black, `dimuon SIDIS' in
-green, and `charm SIDIS' in red. When the contribution PC 6 is large we
-see that dimuon SIDIS (green) data are nearly orthogonal to DIS HERA
-(black) data. As the data is rotated, we can also see that DIS HERA
-(black) practically lie on a plane in this 6-d subspace. When the
-contribution of PC6 is near zero, dimonSIDIS (green) occupies the same
-space as the DIS HERA data. A dynamic version can be viewed at
-\url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/}.}
+\caption{\label{fig:DISclusterGood}DIS cluster, radial manual tour of PC6. colored by experiment type: `DIS HERA1+2' in black, `dimuon SIDIS' in green, and `charm SIDIS' in red. When the contribution PC 6 is large we see that dimuon SIDIS (green) data are nearly orthogonal to DIS HERA (black) data. As the data is rotated, we can also see that DIS HERA (black) practically lie on a plane in this 6-d subspace. When the contribution of PC6 is near zero, dimonSIDIS (green) occupies the same space as the DIS HERA data. A dynamic version can be viewed at \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/}.}
 \end{figure}
 
-This is different story than if we had selected a different variable to
-manipulate. In \ref{fig:DISclusterBad} we manipulate PC2.
+This is different story than if we had selected a different variable to manipulate. In \ref{fig:DISclusterBad} we manipulate PC2.
 
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/DISclusterBad-1.pdf}
-\caption{\label{fig:DISclusterBad}DIS cluster, radial manual tour of PC2.
-Colored by experiment type: `DIS HERA1+2' in black, `dimuon SIDIS' in
-green, and `charm SIDIS' in red. The structure of previously described
-plane of DIS HERA (black) and nearly orthogonal dimuon SIDIS (green) is
-present, however the manipulating PC2 does not give a head-on view of
-either, a less useful manual tour than that of PC6. A dynamic version
-can be viewed at
-\url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc2/}.}
+\caption{\label{fig:DISclusterBad}DIS cluster, radial manual tour of PC2. Colored by experiment type: `DIS HERA1+2' in black, `dimuon SIDIS' in green, and `charm SIDIS' in red. The structure of previously described plane of DIS HERA (black) and nearly orthogonal dimuon SIDIS (green) is present, however the manipulating PC2 does not give a head-on view of either, a less useful manual tour than that of PC6. A dynamic version can be viewed at \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc2/}.}
 \end{figure}
 
-DIS cluster manual tours manipulating each of the principal components
-can be viewed from the links below:
+DIS cluster manual tours manipulating each of the principal components can be viewed from the links below:
 
 \begin{itemize}
 \tightlist
 \item
-  PC1 -
-  \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc1/}
+  PC1 - \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc1/}
 \item
-  PC2 -
-  \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc2/}
+  PC2 - \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc2/}
 \item
-  PC3 -
-  \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc3/}
+  PC3 - \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc3/}
 \item
-  PC4 -
-  \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc4/}
+  PC4 - \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc4/}
 \item
-  PC5 -
-  \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc5/}
+  PC5 - \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc5/}
 \item
-  PC6 -
-  \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/}
+  PC6 - \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/}
 \end{itemize}
 
-\section{Source code and usage}\label{source-code-and-usage}
+\hypertarget{source-code-and-usage}{%
+\section{Source code and usage}\label{source-code-and-usage}}
 
-This article was created \texttt{bookdown}
-(\textcite{xie_bookdown:_2016}) using \texttt{rmarkdown}
-(\textcite{xie_r_2018}), with code generating the examples inline, and
-the source files can be found at
-\href{https://github.com/nspyrison/confirmation/}{github.com/nspyrison/confirmation/}.
+This article was created \texttt{bookdown} (\textcite{xie_bookdown:_2016}) using \texttt{rmarkdown} (\textcite{xie_r_2018}), with code generating the examples inline, and the source files can be found at \href{https://github.com/nspyrison/confirmation/}{github.com/nspyrison/confirmation/}.
 
-The source code for the \texttt{spinifex} package can be found at
-\href{https://github.com/nspyrison/spinifex/}{github.com/nspyrison/spinifex/}.
-To install the package in R, run:
+The source code for the \texttt{spinifex} package can be found at \href{https://github.com/nspyrison/spinifex/}{github.com/nspyrison/spinifex/}. To install the package in R, run:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -924,32 +592,19 @@ To install the package in R, run:
 \end{Highlighting}
 \end{Shaded}
 
-\section{Discussion}\label{discussion}
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
 
-The work in the package can be extended in a number of ways: new
-rotation mechanisms, generalize manual touring to other geoms with
-scalable dimension, dynamic capture and control of the manipulation axis
-for oblique manual tours.
+The work in the package can be extended in a number of ways: new rotation mechanisms, generalize manual touring to other geoms with scalable dimension, dynamic capture and control of the manipulation axis for oblique manual tours.
 
-The Givens rotations and Householder reflections as outlined in
-\textcite{buja_computational_2005} could be implemented. in Givens
-rotations, the x and y components (\(ie. \theta~= 0,pi/2\)) of the
-in-plane rotation are calculated separately and applied sequentially
-rather than radially. Householder reflections define reflection axes to
-project project points on to the axes.
+The Givens rotations and Householder reflections as outlined in \textcite{buja_computational_2005} could be implemented. in Givens rotations, the x and y components (\(ie. \theta~= 0,pi/2\)) of the in-plane rotation are calculated separately and applied sequentially rather than radially. Householder reflections define reflection axes to project project points on to the axes.
 
-\emph{tourr} offers a number of \(d\)-dimensional graphic displays
-including andrews curves, chernoff faces, parallel coordinate plots,
-scatterplot matrix, and radial glyphs. Care should be take to extend
-graphics such that they are agnostic to rotation type and tour path.
+\emph{tourr} offers a number of \(d\)-dimensional graphic displays including andrews curves, chernoff faces, parallel coordinate plots, scatterplot matrix, and radial glyphs. Care should be take to extend graphics such that they are agnostic to rotation type and tour path.
 
-a \emph{shiny} app or other such front-end could aid in the user
-interaction, offering initialization to starting projections by use of
-guided tours, as we did in \ref{fig:step0} and manip variable selection.
-A method to transfer from current basis to the manipulation space of the
-new manip var would be a nice addition.
+a \emph{shiny} app or other such front-end could aid in the user interaction, offering initialization to starting projections by use of guided tours, as we did in \ref{fig:step0} and manip variable selection. A method to transfer from current basis to the manipulation space of the new manip var would be a nice addition.
 
-\chapter{Display dimensionality}\label{ch:disp_dim}
+\hypertarget{ch:disp_dim}{%
+\chapter{Display dimensionality}\label{ch:disp_dim}}
 
 \begin{itemize}
 \tightlist
@@ -957,8 +612,8 @@ new manip var would be a nice addition.
   XGobbi vs the C2
 \end{itemize}
 
-\chapter{Human-computer interaction of 3d
-projections}\label{ch:hci_3dproj}
+\hypertarget{ch:hci_3dproj}{%
+\chapter{Human-computer interaction of 3d projections}\label{ch:hci_3dproj}}
 
 \begin{itemize}
 \tightlist
