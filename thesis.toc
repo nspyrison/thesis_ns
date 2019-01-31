@@ -50,16 +50,16 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.5}Application}{19}{section.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.1}DIS cluster}{19}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.1}Jet cluster}{19}{subsection.3.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.2}Jet cluster}{20}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.2}DIS cluster}{22}{subsection.3.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}Source code and usage}{23}{section.3.6}
+\contentsline {section}{\numberline {3.6}Source code and usage}{25}{section.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.7}Discussion}{23}{section.3.7}
+\contentsline {section}{\numberline {3.7}Discussion}{25}{section.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Display dimensionality}{25}{chapter.4}
+\contentsline {chapter}{\numberline {4}Display dimensionality}{27}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{27}{chapter.5}
+\contentsline {chapter}{\numberline {5}Human-computer interaction of 3d projections}{29}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{29}{chapter*.13}
+\contentsline {chapter}{Bibliography}{31}{chapter*.13}
