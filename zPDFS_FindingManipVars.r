@@ -5,7 +5,7 @@ set.seed(1)
 ## FUNCTION FOR STATIC OUTPPUT, for chap3 use to clean up code chunks.
 interpolate2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.4, .angle)
 {
-  slides <- interpolate2df(array = .m_tour, data = .data, angle = .angle)
+  slides <- array2df(array = .m_tour, data = .data, angle = .angle)
   basis_slides <- slides$basis_slides
   data_slides  <- slides$data_slides
 
