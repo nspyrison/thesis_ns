@@ -21,6 +21,8 @@ library(spinifex)
 library(ggplot2)
 set.seed(1)
 
+pal <- c("black", "red", "green")
+
 ## FUNCTION FOR STATIC OUTPPUT, for chap3 use to clean up code chunks.
 array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 {
@@ -28,7 +30,8 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
   basis_slides <- slides$basis_slides
   data_slides  <- slides$data_slides
   n_slides     <- max(basis_slides$slide)
-  if (n_slides != 15) stop("stop: n_slides !=15 !!!!!")
+  if (n_slides != 15) 
+    stop(paste0("stop: n_slides !=15 !!!!! n_slides = ", n_slides))
   
   # Initialize
   ## manip var asethetics
@@ -39,8 +42,8 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
   siz_v         <- rep(0.3, p)
   siz_v[.m_var] <- 1
   siz_v         <- rep(siz_v, n_slides)
-  cat           <- rep(.cat, n_slides)
-  pal           <- c("black", "red", "green")
+  cat           <- rep(as.integer(factor(.cat)), n_slides)
+
   ## circle
   angle <- seq(0, 2 * pi, length = 180)
   circ  <- data.frame(c_x = cos(angle), c_y = sin(angle))
@@ -90,7 +93,7 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
     ## use black green red for now to match plotly.
     # + coord_fixed()
     theme(legend.position="none",
-          panel.border = element_rect(colour = "black", fill = NA)) 
+          panel.border = element_rect(colour = "black", fill = NA))
   
   # output
   gg2
@@ -178,18 +181,19 @@ A guided tour on the flea data is conducted by optimizing on the `holes` index [
 ```{r step0, echo=F, results='hide', fig.cap = "Basis reference frame (left) and projected data (right) of standardized flea data. Basis identified by holes-index guided tour. The variables `aede2` and `tars1` contribute mostly in the x direction, whereas the other variables contribute mostly in the y direction. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."}
 ## Flea holes tour
 f_dat  <- rescale(flea[,1:6])
-f_cat  <- factor(flea$species)
+f_cat  <- as.integer(factor(flea$species))
 f_path <- save_history(f_dat, guided_tour(holes()))
 f_bas  <- matrix(f_path[,, max(dim(f_path)[3])], ncol=2)
 f_mvar <- 4
 f_msp  <- create_manip_space(basis = f_bas, manip_var = f_mvar)
-f_proj <- data.frame(f_dat %*% f_msp[, 1:2])
+f_proj <- data.frame(tourr::rescale(f_dat %*% f_msp[, 1:2]))
 
 # step0, output
 # Adjust centering to make axes and data side by side
 view_basis(f_bas, labels = colnames(f_dat)) +
   geom_point(data = f_proj, 
-             mapping = aes(x = X1+1, y = X2-1, color = f_cat, pch = f_cat)) +
+             mapping = aes(x = X1 + .75, y = X2 - .5), 
+             color = pal[f_cat], pch = f_cat + 15) +
   theme(panel.border = element_rect(colour = "black", fill = NA))
 ```
 
@@ -317,10 +321,12 @@ for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
 In \@ref(fig:step3) we illustrate the sequence with 15 projected bases and highlight the manip variable on top, while showing the corresponding projected data points on the bottom. A dynamic version of this tour can be viewed online at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar4/, will take a moment to load. This format of this figure and linking to dynamic version will be used again the \ref{sec:application} section.
 
 ```{r step3, echo=F, warning=F, fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "Rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from it's initial contribution to a full contribution to the projection before decreasing to zero, and then returning to it's initial state. A dynamic version can be viewed at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar4/."}
-f_mtour  <- manual_tour(f_bas, manip_var = f_mvar, angle = .26)
-if(dim(f_mtour)[3] != 15) print("step3 n_slides != 15.")
+f_angle <- .26
+f_mtour <- manual_tour(f_bas, manip_var = f_mvar, angle = f_angle)
+if(dim(f_mtour)[3] != 15) message(
+  paste0("!!!!! step3 n_slides != 15 !!!!! n_slides = ", dim(f_mtour)[3]))
 
-# play_manual_tour(f_dat, f_bas, 1, angle = .26)
+#play_manual_tour(f_dat, f_bas, f_mvar, cat_var = f_cat, angle = f_angle)
 array2static(.m_tour = f_mtour, .data = f_dat, .m_var = f_mvar, .cat = f_cat)
 ```
 
@@ -379,6 +385,7 @@ jet_cat   <- JetCluster_sub$exp
 jet_mvar  <- 3
 jet_ang   <- .26
 jet_mtour <- manual_tour(basis = jet_bas, manip_var = jet_mvar, angle = jet_ang)
+#dim(jet_mtour)
 
 array2static(.m_tour = jet_mtour, .data = jet_dat, 
              .m_var = jet_mvar, .cat = jet_cat)
@@ -425,9 +432,8 @@ DIS_bas   <- DIScluster_centered_basis
 DIS_dat   <- tourr::rescale(grDIScenter[, 1:6])
 DIS_cat   <- factor(grDIScenter$disID)
 DIS_mvar  <- 3
-DIS_ang   <- .26
+DIS_ang   <- .27
 DIS_mtour <- manual_tour(basis = DIS_bas, manip_var = DIS_mvar, angle = DIS_ang)
-if (dim(DIS_mtour)[3] != 15) print("DISclusterGood n_slides != 15.")
 
 array2static(.m_tour = DIS_mtour, .data = DIS_dat, 
              .m_var = DIS_mvar, .cat = DIS_cat)
@@ -448,6 +454,7 @@ This is different story than if we had selected a different variable to manipula
 ```{r DISclusterBad, echo=F, warning=F, fig.width = 6, fig.height = 2*(6/1.61), fig.cap = "DIS cluster, radial manual tour of PC2. Colored by experiment type: ‘DIS HERA1+2’ in black, 'dimuon SIDIS' in green, and 'charm SIDIS' in red. The structure of previously described plane of DIS HERA (black) and nearly orthogonal dimuon SIDIS (green) is present, however the manipulating PC2 does not give a head-on view of either, a less useful manual tour than that of PC6. A dynamic version can be viewed at https://nspyrison.netlify.com/thesis/discluster_manualtour_pc2/."}
 ##DIS cluster, fig 8 of cook_dynamical_2018
 DIS_mvar  <- 2
+#DIS_ang   <- .26
 DIS_mtour <- manual_tour(basis = DIS_bas, manip_var = DIS_mvar, angle = DIS_ang)
 
 array2static(.m_tour = DIS_mtour, .data = DIS_dat, 
