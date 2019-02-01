@@ -1,21 +1,21 @@
 [0] Config.pm:302> INFO - This is Biber 2.11
 [0] Config.pm:305> INFO - Logfile is 'thesis.blg'
-[40] biber-darwin:313> INFO - === Fri Feb  1, 2019, 09:32:43
-[65] Biber.pm:371> INFO - Reading 'thesis.bcf'
-[139] Biber.pm:857> INFO - Found 42 citekeys in bib section 0
-[155] Biber.pm:3976> INFO - Processing section 0
-[166] Biber.pm:4136> INFO - Looking for bibtex format file 'thesisrefs.bib' for section 0
-[173] bibtex.pm:1500> INFO - LaTeX decoding ...
-[305] bibtex.pm:1316> INFO - Found BibTeX data source 'thesisrefs.bib'
-[489] Utils.pm:193> WARN - I didn't find a database entry for 'scott85' (section 0)
-[489] Utils.pm:193> WARN - I didn't find a database entry for 'scott95' (section 0)
-[489] Utils.pm:193> WARN - I didn't find a database entry for 'Wegman' (section 0)
-[489] Utils.pm:193> WARN - I didn't find a database entry for 'NS' (section 0)
-[489] Utils.pm:193> WARN - I didn't find a database entry for 'spinifex' (section 0)
-[531] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[532] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[532] Biber.pm:3804> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[532] Biber.pm:3810> INFO - No sort tailoring available for locale 'en-US'
-[575] bbl.pm:617> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[588] bbl.pm:720> INFO - Output to thesis.bbl
-[588] Biber.pm:110> INFO - WARNINGS: 5
+[30] biber-darwin:313> INFO - === Fri Feb  1, 2019, 11:02:40
+[50] Biber.pm:371> INFO - Reading 'thesis.bcf'
+[123] Biber.pm:857> INFO - Found 42 citekeys in bib section 0
+[134] Biber.pm:3976> INFO - Processing section 0
+[144] Biber.pm:4136> INFO - Looking for bibtex format file 'thesisrefs.bib' for section 0
+[152] bibtex.pm:1500> INFO - LaTeX decoding ...
+[279] bibtex.pm:1316> INFO - Found BibTeX data source 'thesisrefs.bib'
+[453] Utils.pm:193> WARN - I didn't find a database entry for 'scott85' (section 0)
+[453] Utils.pm:193> WARN - I didn't find a database entry for 'scott95' (section 0)
+[453] Utils.pm:193> WARN - I didn't find a database entry for 'Wegman' (section 0)
+[453] Utils.pm:193> WARN - I didn't find a database entry for 'NS' (section 0)
+[453] Utils.pm:193> WARN - I didn't find a database entry for 'spinifex' (section 0)
+[495] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[495] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[495] Biber.pm:3804> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[495] Biber.pm:3810> INFO - No sort tailoring available for locale 'en-US'
+[534] bbl.pm:617> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[547] bbl.pm:720> INFO - Output to thesis.bbl
+[547] Biber.pm:110> INFO - WARNINGS: 5
