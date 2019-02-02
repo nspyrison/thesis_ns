@@ -21,8 +21,6 @@ library(spinifex)
 library(ggplot2)
 set.seed(1)
 
-pal <- c("black", "red", "green")
-
 ## FUNCTION FOR STATIC OUTPPUT, for chap3 use to clean up code chunks.
 array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 {
@@ -42,7 +40,7 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
   siz_v         <- rep(0.3, p)
   siz_v[.m_var] <- 1
   siz_v         <- rep(siz_v, n_slides)
-  cat           <- rep(as.integer(factor(.cat)), n_slides)
+  cat           <- rep(as.factor(.cat), n_slides)
 
   ## circle
   angle <- seq(0, 2 * pi, length = 180)
@@ -62,7 +60,7 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
   # OUTER JOIN
   data_grid  <- merge(x = data_slides, y = grid_b, by = "slide", all = TRUE)
   
-  # Grpahics
+  # BASIS
   gg1 <-
     ggplot(data = basis_grid) +
     # AXES LINE SEGMETNS
@@ -72,30 +70,28 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
     geom_text(aes(x = V1 + x, y = V2 + y, label = lab_abbr),
               color = col_v, vjust = "outward", hjust = "outward") +
     # AXES FRAME NUM
-    geom_text(aes(x = x - .7, y = y + 1.1, label = paste0("frame: ",slide)),
-              color = "grey50") +
+    geom_text(aes(x = x - .7, y = y + 1.1, 
+                  label = paste0("frame: ",slide)), color = "grey50") +
     # AXES CIRCLE PATH
     geom_path(data = circ_grid, color = "grey80",
               mapping = aes(x = x+c_x, y = y+c_y))
   
-  #===
+  # PROJECTION
   gg2 <- gg1 +
     # PROJ DATA POINTS
     geom_point(data = data_grid, size = .2,
-               mapping = aes(x = V1 + x, y = V2 + y),
-               color = pal[cat], pch = cat) +
+               mapping = aes(x = V1 + x, y = V2 + y, color = cat),
+               shape = as.integer(cat) + 15) +
     # PROJ DATA FRAME NUM
     geom_text(data = data_grid, color = "grey50",
               mapping = aes(x = x - .7, y = y + 1.1, 
                             label = paste0("frame: ",slide))) +
     theme_void() +
-    # scale_color_brewer(palette = "Dark2") + 
-    ## use black green red for now to match plotly.
+    scale_color_brewer(palette = "Dark2") + 
     # + coord_fixed()
     theme(legend.position="none",
           panel.border = element_rect(colour = "black", fill = NA))
   
-  # output
   gg2
 }
 ```
@@ -181,7 +177,7 @@ A guided tour on the flea data is conducted by optimizing on the `holes` index [
 ```{r step0, echo=F, results='hide', fig.cap = "Basis reference frame (left) and projected data (right) of standardized flea data. Basis identified by holes-index guided tour. The variables `aede2` and `tars1` contribute mostly in the x direction, whereas the other variables contribute mostly in the y direction. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."}
 ## Flea holes tour
 f_dat  <- rescale(flea[,1:6])
-f_cat  <- as.integer(factor(flea$species))
+f_cat  <- factor(flea$species)
 f_path <- save_history(f_dat, guided_tour(holes()))
 f_bas  <- matrix(f_path[,, max(dim(f_path)[3])], ncol=2)
 f_mvar <- 4
@@ -192,8 +188,9 @@ f_proj <- data.frame(tourr::rescale(f_dat %*% f_msp[, 1:2]))
 # Adjust centering to make axes and data side by side
 view_basis(f_bas, labels = colnames(f_dat)) +
   geom_point(data = f_proj, 
-             mapping = aes(x = X1 + .75, y = X2 - .5), 
-             color = pal[f_cat], pch = f_cat + 15) +
+             mapping = aes(x = X1 + .75, y = X2 - .5, color = f_cat), 
+             , pch = as.integer(f_cat) + 15) +
+  scale_color_brewer(palette = "Dark2") + 
   theme(panel.border = element_rect(colour = "black", fill = NA))
 ```
 
