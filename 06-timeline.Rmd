@@ -1,0 +1,87 @@
+---
+chapter: 5
+knit: "bookdown::render_book"
+# header-includes:
+# - \usepackage{pdflscape}
+# - \newcommand{\blandscape}{\begin{landscape}}
+# - \newcommand{\elandscape}{\end{landscape}}
+---
+
+# PhD timeline {#ch:timeline}
+
+
+<!-- \blandscape -->
+```{r timeline, echo=F}
+## working from: https://stats.andrewheiss.com/misc/gantt.html
+library(tidyverse)
+library(lubridate)
+library(scales)
+library(Cairo)
+
+tasks <- tribble(
+  ~Start,       ~End,         ~Project,          ~Task,
+  "2018-04-01", "2019-06-01", "Manual tours", "1_Manual tours",
+  "2018-04-01", "2019-06-01", "Manual tours", "1_R code",
+  "2018-12-01", "2019-03-01", "Manual tours", "1_writing",
+  "2019-03-01", "2019-06-01", "Manual tours", "1_submission and follow-up",
+  "2019-01-01", "2019-03-01", "Milestones",   "Canidature confirmation",
+  "2018-11-01", "2020-01-01", "Display Dim",  "2_Tour display dimensionality",
+  "2018-11-01", "2018-12-01", "Display Dim",  "2_zSpace setup",
+  "2019-03-01", "2019-06-01", "Display Dim",  "2_dim c# code",
+  "2019-06-01", "2019-08-01", "Display Dim",  "2_Experimental survey",
+  "2019-07-01", "2019-10-01", "Display Dim",  "2_writing",
+  "2019-10-01", "2020-01-01", "Display Dim",  "2_Submission and follow-up",
+  "2020-01-01", "2020-03-01", "Milestones",   "Mid canidature review",
+  "2019-11-01", "2020-10-01", "HCI tours",    "3_HCI tours",
+  "2019-11-01", "2020-06-01", "HCI tours",    "3_C# code",
+  "2020-05-01", "2020-08-01", "HCI tours",    "3_writing",
+  "2020-07-01", "2020-10-01", "HCI tours",    "3_submission and follow-up",
+  "2020-10-01", "2021-03-01", "Milestones",   "pre-submission",
+  "2021-01-01", "2021-04-01", "Milestones",   "thesis writing and submission"
+)
+
+# Convert data to long for ggplot
+tasks.long <- tasks %>%
+  mutate(Start = ymd(Start),
+         End = ymd(End)) %>%
+  gather(date.type, task.date, -c(Project, Task)) %>%
+  #arrange(date.type, task.date) %>%
+  mutate(Task = factor(Task, levels=rev(unique(Task)), ordered=T))
+# Custom theme for making a clean Gantt chart
+theme_gantt <- function(base_size=11) {
+  ret <- theme_bw(base_size) %+replace%
+    theme(panel.background = element_rect(fill="#ffffff", colour=NA),
+          axis.title.x=element_text(vjust=-0.2), axis.title.y=element_text(vjust=1.5),
+          title=element_text(vjust=1.2),
+          panel.border = element_blank(), axis.line=element_blank(),
+          panel.grid.minor=element_blank(),
+          panel.grid.major.y = element_blank(),
+          panel.grid.major.x = element_line(size=0.5, colour="grey80"),
+          axis.ticks=element_blank(),
+          legend.position="bottom", 
+          axis.title=element_text(size=rel(0.8)),
+          strip.text=element_text(size=rel(1)),
+          strip.background=element_rect(fill="#ffffff", colour=NA),
+          panel.spacing.y=unit(1.5, "lines"),
+          legend.key = element_blank())
+  
+  ret
+}
+
+# Calculate where to put the dotted lines that show up every three entries
+x.breaks <- seq(length(tasks$Task) + 0.5 - 3, 0, by=-3)
+
+# Build plot
+timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) + 
+  geom_line(size=6) + 
+  geom_vline(xintercept=x.breaks, colour="grey80", linetype="dotted") + 
+  guides(colour=guide_legend(title=NULL)) +
+  labs(x=NULL, y=NULL) + coord_flip() +
+  scale_y_date(date_breaks="2 months", labels=date_format("%b ‘%y")) +
+  theme_gantt() + theme(axis.text.x=element_text(angle=45, hjust=1)) +
+  scale_color_brewer(palette = "Dark2")
+
+timeline
+```
+<!-- \elandscape -->
+

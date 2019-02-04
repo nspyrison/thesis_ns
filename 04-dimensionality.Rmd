@@ -5,5 +5,6 @@ knit: "bookdown::render_book"
 
 # Touring across display dimensionality {#ch:dimensionality}
 
-* XGobbi vs the C2
+The bulk of previous work embeds in 2-space, for display on traditional monitors. @nelson_xgobi_1998 performed a small ($n=15$) experimental study comparing tasks performed across 2d and 3d touring displays. The XGobi interface was used on a standard 2d monitor while VR-Gobi (on the C2 setup) was used VR display without head tracking. The accuracy 3 tasks: clustering, intrinsic data dimensionality and radial sparseness was recorded along with the speed of a data brushing task. Accuracy was the same for the dimensionality task, while the the d3 display out performed 2d on clustering, and even more so on the radial sparsity. However, time taken to brush a cluster was less than half the time in 2d display as compared with 3d. 
 
+The hardware changes in the past 20 years are significant. I purpose another experimental study comparing touring across display dimension in 3 instances: standard 2d moniter, stereoscopic 3d moniter (on a zSpace 200), and head-mounted VR gogle (HTC Vive). Implementation in the game engine Unitiy will allow for a more standardized and extensible interface. 

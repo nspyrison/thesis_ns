@@ -3,16 +3,14 @@ chapter: 1
 knit: "bookdown::render_book"
 ---
 
-```{r setup_01, include = FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, cache = TRUE)
-# Load any R packages you need here
-library(forecast)
-library(ggplot2)
-```
 
 # Introduction {#ch:intro}
 
-This is where you introduce the main ideas of your thesis, and an overview of the context and background.
+In the chapters below we will be discussing touring, a sequence of orthogonal linear projections viewed in order. This linear dimensionality reduction is an insightful part of exploratory data analysis for numeric multivariate data spaces.
 
-The chapter \ref{ch:lit_review} covers a literature review, currently in particular covering tour methodology, while work remains to be done for stereo scopically true 3d space. \ref{ch:spinifex} encompasses implementing manual tours in R. Think of each of these as potential papers to be submitted to journals.  \ref{ch:spinifex}
-Finally, Chapter 6 provides some concluding remarks, discussion, ideas for future research, and so on. Appendixes can contain additional material that don't fit into any chapters, but that you want to put on record. For example, additional tables, output, etc.
+The chapter \ref{ch:lit_review} covers a literature review, currently, in particular covering tour methodology, while the review for stereoscopically true 3d space is still in progress. \ref{ch:spinifex} encompasses implementing manual tours in R and the associated R package *spinifex*. Chapter 4, \ref{ch:dimensionality}, lays out the groundwork for comparing tours across display devices: standard 2d monitors, head-tracked 3d displayed on a zSpace, and head-mounted virtual reality goggles.
+
+Finally, \ref{ch:timeline} lays out the prospective timeline for the next 2 years of PhD research.
+
+
+<!-- Finally, Chapter 6 provides some concluding remarks, discussion, ideas for future research, and so on. Appendixes can contain additional material that don't fit into any chapters, but that you want to put on record. For example, additional tables, output, etc. -->

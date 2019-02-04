@@ -11,6 +11,7 @@ rmd_files: ["index.Rmd",
   "02-lit_review.Rmd",
   "03-spinifex.Rmd",
   "04-dimensionality.Rmd",
-  "05-hci.Rmd"# ,"99-appA.Rmd"
+  "05-hci.Rmd",
+  "06-timeline.Rmd"# ,"99-appA.Rmd"
   ]
 delete_merged_file: TRUE
