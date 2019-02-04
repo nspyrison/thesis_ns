@@ -1,0 +1,18 @@
+---
+chapter: 1
+knit: "bookdown::render_book"
+---
+
+```{r setup_01, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, cache = TRUE)
+# Load any R packages you need here
+library(forecast)
+library(ggplot2)
+```
+
+# Introduction {#ch:intro}
+
+This is where you introduce the main ideas of your thesis, and an overview of the context and background.
+
+The chapter \ref{ch:lit_review} covers a literature review, currently in particular covering tour methodology, while work remains to be done for stereo scopically true 3d space. \ref{ch:spinifex} encompasses implementing manual tours in R. Think of each of these as potential papers to be submitted to journals.  \ref{ch:spinifex}
+Finally, Chapter 6 provides some concluding remarks, discussion, ideas for future research, and so on. Appendixes can contain additional material that don't fit into any chapters, but that you want to put on record. For example, additional tables, output, etc.

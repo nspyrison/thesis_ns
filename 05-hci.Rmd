@@ -3,7 +3,7 @@ chapter: 5
 knit: "bookdown::render_book"
 ---
 
-# Human-computer interaction of 3d projections {#ch:hci_3dproj}
+# Human-computer interaction with 3d projections {#ch:hci}
 
 * Tour in 3D
 * ImAxes / IATK

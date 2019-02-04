@@ -3,7 +3,7 @@ chapter: 4
 knit: "bookdown::render_book"
 ---
 
-# Display dimensionality {#ch:disp_dim}
+# Touring across display dimensionality {#ch:dimensionality}
 
 * XGobbi vs the C2
 
