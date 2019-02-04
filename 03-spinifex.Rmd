@@ -483,10 +483,12 @@ devtools::install_github("nspyrison/spinifex")
 
 ## Discussion
 
-The work in the package can be extended in a number of ways: new rotation mechanisms, generalize manual touring to other geoms with scalable dimension, dynamic capture and control of the manipulation axis for oblique manual tours.
+This chapter has described an algorithm and package for exploring conducting a manual tour, from a 2D projection, to explore the sensitivity of structure to the contributions of a variable. 
 
-The Givens rotations and Householder reflections as outlined in @buja_computational_2005 could be implemented. in Givens rotations, the x and y components ($ie. \theta~= 0,pi/2$) of the in-plane rotation are calculated separately and applied sequentially rather than radially. Householder reflections define reflection axes to project project points on to the axes.
+Future work on the algorithm and package would include developing it to work with arbitrary projection dimension, enabling the method to operate on other displays like parallel coordinates, and implementing the unconstrained manual control, called oblique in @cook_manual_1997. 
 
-*tourr* offers a number of $d$-dimensional graphic displays including andrews curves, chernoff faces, parallel coordinate plots, scatterplot matrix, and radial glyphs. Care should be take to extend graphics such that they are agnostic to rotation type and tour path.
+The Givens rotations and Householder reflections as outlined in @buja_computational_2005 may provide a way to conduct higher dimensional manual control. In a Givens rotations, the $x$ and $y$ components ($ie. \theta~= 0,pi/2$) of the in-plane rotation are calculated separately and would be applied sequentially to produce the radial rotation. Householder reflections define reflection axes to project project points on to the axes and generate rotations.
 
-a *shiny* app or other such front-end could aid in the user interaction, offering initialization to starting projections by use of guided tours, as we did in \@ref(fig:step0) and manip variable selection. A method to transfer from current basis to the manipulation space of the new manip var would be a nice addition.
+The *tourr* package provides a number of $d$-dimensional graphic displays including andrews curves, chernoff faces, parallel coordinate plots, scatterplot matrix, and radial glyphs. Having manual controls available for these types of displays requires a general algorithm. 
+
+Development of a graphical user interface, e.g. *shiny* app, would make the *spinifex* package more flexible. The user could easily switch between variables to control, adjust the step size to make smoother rotation sequences, or save any state to continue to continue to explore the contributions of other variables. 

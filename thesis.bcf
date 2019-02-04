@@ -2070,8 +2070,10 @@
     <bcf:citekey order="72">xie_bookdown:_2016</bcf:citekey>
     <bcf:citekey order="73">xie_r_2018</bcf:citekey>
     <bcf:citekey order="74">xie_r_2018</bcf:citekey>
-    <bcf:citekey order="75">buja_computational_2005</bcf:citekey>
-    <bcf:citekey order="76">buja_computational_2005</bcf:citekey>
+    <bcf:citekey order="75">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="76">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="77">buja_computational_2005</bcf:citekey>
+    <bcf:citekey order="78">buja_computational_2005</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
