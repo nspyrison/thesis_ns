@@ -4,4 +4,8 @@ knit: "bookdown::render_book"
 
 # Acknowledgements {-}
 
-I would like to thank \dots
+Firtsly, I would like to express my sincere gratitude to my advisors professor Dianne Cook and professor Kimbal Marriott for their support of my Ph.D studies and research, for their patience, motivation, and immense knowledge. Their guidance was an indispensible help through my research and writing.
+
+I thank my fellow Ph.D students in for the stimulating discussions, the countless hours we spent working all hours of the week, and their unwaivering support. I could not have asked for better company.
+
+Last but not the least, I would like to thank my family: my parents and to my brother and sister for supporting me in this thesis and in my life in general.

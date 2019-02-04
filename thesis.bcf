@@ -2000,7 +2000,9 @@
     <bcf:citekey order="2">anscombe_graphs_1973</bcf:citekey>
     <bcf:citekey order="3">matejka_same_2017</bcf:citekey>
     <bcf:citekey order="4">grinstein_high-dimensional_2002</bcf:citekey>
+    <bcf:citekey order="5">grinstein_high-dimensional_2002</bcf:citekey>
     <bcf:citekey order="6">carreira-perpinan_review_1997</bcf:citekey>
+    <bcf:citekey order="7">carreira-perpinan_review_1997</bcf:citekey>
     <bcf:citekey order="8">asimov_grand_1985</bcf:citekey>
     <bcf:citekey order="9">buja_computational_2005</bcf:citekey>
     <bcf:citekey order="10">asimov_grand_1985</bcf:citekey>
@@ -2034,13 +2036,80 @@
     <bcf:citekey order="38">asimov_grand_1985</bcf:citekey>
     <bcf:citekey order="39">fisherkeller_prim-9:_1974</bcf:citekey>
     <bcf:citekey order="40">huh_davis:_2002</bcf:citekey>
+    <bcf:citekey order="41">huh_davis:_2002</bcf:citekey>
     <bcf:citekey order="42">swayne_ggobi:_2003</bcf:citekey>
+    <bcf:citekey order="43">swayne_ggobi:_2003</bcf:citekey>
     <bcf:citekey order="44">wegman_visual_2003</bcf:citekey>
+    <bcf:citekey order="45">wegman_visual_2003</bcf:citekey>
     <bcf:citekey order="46">wickham_tourr_2011</bcf:citekey>
+    <bcf:citekey order="47">wickham_tourr_2011</bcf:citekey>
     <bcf:citekey order="48">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="49">cook_manual_1997</bcf:citekey>
     <bcf:citekey order="50">cook_grand_1995</bcf:citekey>
     <bcf:citekey order="51">sievert_plotly_2018</bcf:citekey>
     <bcf:citekey order="52">pedersen_gganimate:_2019</bcf:citekey>
     <bcf:citekey order="53">wickham_tourr_2011</bcf:citekey>
     <bcf:citekey order="54">lubischew_use_1962</bcf:citekey>
+    <bcf:citekey order="55">lubischew_use_1962</bcf:citekey>
     <bcf:citekey order="56">cook_interactive_2007</bcf:citekey>
+    <bcf:citekey order="57">sievert_plotly_2018</bcf:citekey>
+    <bcf:citekey order="58">sievert_plotly_2018</bcf:citekey>
+    <bcf:citekey order="59">pedersen_gganimate:_2019</bcf:citekey>
+    <bcf:citekey order="60">pedersen_gganimate:_2019</bcf:citekey>
+    <bcf:citekey order="61">xie_animation:_2018</bcf:citekey>
+    <bcf:citekey order="62">xie_animation:_2018</bcf:citekey>
+    <bcf:citekey order="63">wang_visualizing_2018</bcf:citekey>
+    <bcf:citekey order="64">wang_visualizing_2018</bcf:citekey>
+    <bcf:citekey order="65">cook_dynamical_2018</bcf:citekey>
+    <bcf:citekey order="66">cook_dynamical_2018</bcf:citekey>
+    <bcf:citekey order="67">wang_visualizing_2018</bcf:citekey>
+    <bcf:citekey order="68">wang_visualizing_2018</bcf:citekey>
+    <bcf:citekey order="69">cook_dynamical_2018</bcf:citekey>
+    <bcf:citekey order="70">cook_dynamical_2018</bcf:citekey>
+    <bcf:citekey order="71">xie_bookdown:_2016</bcf:citekey>
+    <bcf:citekey order="72">xie_bookdown:_2016</bcf:citekey>
+    <bcf:citekey order="73">xie_r_2018</bcf:citekey>
+    <bcf:citekey order="74">xie_r_2018</bcf:citekey>
+    <bcf:citekey order="75">buja_computational_2005</bcf:citekey>
+    <bcf:citekey order="76">buja_computational_2005</bcf:citekey>
+  </bcf:section>
+  <!-- SORTING TEMPLATES -->
+  <bcf:sortingtemplate name="nyt">
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">presort</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="2" final="1">
+      <bcf:sortitem order="1">sortkey</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="3">
+      <bcf:sortitem order="1">sortname</bcf:sortitem>
+      <bcf:sortitem order="2">author</bcf:sortitem>
+      <bcf:sortitem order="3">editor</bcf:sortitem>
+      <bcf:sortitem order="4">translator</bcf:sortitem>
+      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="6">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="4">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">year</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="6">
+      <bcf:sortitem order="1">volume</bcf:sortitem>
+      <bcf:sortitem order="2">0</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sortingtemplate>
+  <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="nyt/global//global/global"
+                type="entry"
+                sortingtemplatename="nyt"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global">
+  </bcf:datalist>
+</bcf:controlfile>

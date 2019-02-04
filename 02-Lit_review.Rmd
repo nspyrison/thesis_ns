@@ -33,7 +33,16 @@ Touring is a linear dimensionality reduction technique that orthogonally project
 
 #### Terminology
 
-n, p (sometimes called d by Wegman, or n ), d (sometimes called k by wegman, or d in tourr)
+Terminology varies accross author and implementation. In my work, I use the following
+
+* $\textbf{X}_{[n,~p]}$, a data set 
+    + $n$, numerber of observations
+    + $p$, number of numeric variables, the dimensionality of data space, $\textbf{X} \in \mathbb{R}^{p}$
+* $B_{[p,~d]}$, orthonormal basis vector, defines in the orientation of projection 
+    + $p$, dimensionality of data space
+    + $d$, dimensionality of projection space
+* Geometric objects are refered to in generalized dimensions. Planes are actually hyperplanes in projection space.
+    
 
 ### History
 
@@ -41,11 +50,8 @@ n, p (sometimes called d by Wegman, or n ), d (sometimes called k by wegman, or 
 
 Touring was first introduced by Asimov in 1985 with his purposed Grand Tour[@asimov_grand_1985] at Stanford University. In which, Asimov suggested three types of Grand Tours: torus, at-random, and random-walk. The specifics of which will be discussed below in the Typology section.
 
-TALK ABOUT maths Here::
 
-
-
-Note that the the above methods have no input from the user aside from the starting basis. The bulk of touring development since has largely been around dynamic display, user interaction, geometric representation, and application. 
+The grand tours methods have no input from the user aside from the starting basis. The bulk of touring development since has largely been around dynamic display, user interaction, geometric representation, and application.
 <!--above claim from c2 paper: buja & asimov 1986, Hurley & Buja 1990, Wegman 1991, cook, buja, cabrera, & hurley 1995, buja, cook asimov & hurley 1997,cook & buja 1997. -->
 
 
@@ -82,6 +88,9 @@ A fundamental aspect of touring is the path of rotation. Of which there are four
 <!-- * at-random: where each 2-frame is chosen at random without replacement. This affords an assured uniform distribution of subspaces, but is far to discontinuous for observation. It also leaves no parameters to control. -->
 <!-- * random-walk: combines the continuity of the torus method and the uniformity of the at-random method while leaving room for a control parameter.  -->
 
+Evaluating 
+
+TODO:: add density and rapidity as a new section?
 
 ### Geometrics and display dimension
 
@@ -106,7 +115,7 @@ Up to this point we have been talking about 2d scatterplots, which offer the fir
     + Radial glyphs, radial variants of parallel coordinates including radar, spider, and star glyphs [@siegel_surgical_1972]. 
 
 
-### Aplication
+### Implementations
 
 Below is a non-exhaustive list of software implementing touring in some degree, ordered by descending year:
 <!-- See hadley's thesis and, C2 paper for lists. -->

@@ -190,7 +190,7 @@
     \end{center}
     \vfill
     \begin{center}\Large
-        {A thesis submitted
+        {Canidature confirmation document
         for the degree of\\[0.3cm] \degreetitle}
     \end{center}
     \vfill
@@ -203,7 +203,7 @@
 
         \includegraphics[width=3cm]{figures/crest}
 
-        Department of Econometrics and Business Statistics\\
+        Department of Information Technology\\
         Monash University\\Australia
     \end{center}
         \begin{center}\large
