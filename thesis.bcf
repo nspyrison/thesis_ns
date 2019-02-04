@@ -2074,6 +2074,14 @@
     <bcf:citekey order="76">cook_manual_1997</bcf:citekey>
     <bcf:citekey order="77">buja_computational_2005</bcf:citekey>
     <bcf:citekey order="78">buja_computational_2005</bcf:citekey>
+    <bcf:citekey order="79">nelson_xgobi_1998</bcf:citekey>
+    <bcf:citekey order="80">nelson_xgobi_1998</bcf:citekey>
+    <bcf:citekey order="81">marriott_immersive_2018</bcf:citekey>
+    <bcf:citekey order="82">marriott_immersive_2018</bcf:citekey>
+    <bcf:citekey order="83">cordeil_imaxes:_2017</bcf:citekey>
+    <bcf:citekey order="84">cordeil_imaxes:_2017</bcf:citekey>
+    <bcf:citekey order="85">cordeil_immersive_2019</bcf:citekey>
+    <bcf:citekey order="86">cordeil_immersive_2019</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
