@@ -46,21 +46,21 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.5}Step 3 Generate rotation}{17}{subsection.3.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Display projection sequence}{19}{section.3.4}
+\contentsline {section}{\numberline {3.4}Display projection sequence}{20}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Application}{20}{section.3.5}
+\contentsline {section}{\numberline {3.5}Application}{21}{section.3.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.5.1}Jet cluster}{21}{subsection.3.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.2}DIS cluster}{21}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.2}DIS cluster}{24}{subsection.3.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}Source code and usage}{26}{section.3.6}
+\contentsline {section}{\numberline {3.6}Source code and usage}{27}{section.3.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.7}Discussion}{26}{section.3.7}
+\contentsline {section}{\numberline {3.7}Discussion}{27}{section.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Touring across display dimensionality}{29}{chapter.4}
+\contentsline {chapter}{\numberline {4}The effect of display type in perception of structure in high dimensional data}{29}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Human-computer interaction with 3d projections}{31}{chapter.5}
+\contentsline {chapter}{\numberline {5}Human-computer interaction with displays of high dimensional data}{31}{chapter.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {6}PhD timeline}{33}{chapter.6}
 \defcounter {refsection}{0}\relax 

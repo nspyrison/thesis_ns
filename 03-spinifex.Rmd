@@ -5,8 +5,6 @@ knit: "bookdown::render_book"
 
 ```{r setup_03, include=FALSE}
 knitr::opts_chunk$set(
-  fig.width = 6, 
-  fig.asp = 1/1.61, 
   fig.align = "center",
   echo = TRUE, 
   message = FALSE,
@@ -176,7 +174,7 @@ A guided tour on the flea data is conducted by optimizing on the `holes` index [
 
 ```{r step0, echo=F, results='hide', fig.cap = "Basis reference frame (left) and projected data (right) of standardized flea data. Basis identified by holes-index guided tour. The variables `aede2` and `tars1` contribute mostly in the x direction, whereas the other variables contribute mostly in the y direction. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."}
 ## Flea holes tour
-f_dat  <- rescale(flea[,1:6])
+f_dat  <- tourr::rescale(flea[,1:6])
 f_cat  <- factor(flea$species)
 f_path <- save_history(f_dat, guided_tour(holes()))
 f_bas  <- matrix(f_path[,, max(dim(f_path)[3])], ncol=2)
@@ -189,8 +187,7 @@ f_proj <- data.frame(tourr::rescale(f_dat %*% f_msp[, 1:2]))
 view_basis(f_bas, labels = colnames(f_dat)) +
   geom_point(data = f_proj, 
              mapping = aes(x = X1 + .75, y = X2 - .5, color = f_cat), 
-             , pch = as.integer(f_cat) + 15) +
-  scale_color_brewer(palette = "Dark2") + 
+             pch = as.integer(f_cat) + 15) +
   theme(panel.border = element_rect(colour = "black", fill = NA))
 ```
 
@@ -317,7 +314,10 @@ for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
 
 In \@ref(fig:step3) we illustrate the sequence with 15 projected bases and highlight the manip variable on top, while showing the corresponding projected data points on the bottom. A dynamic version of this tour can be viewed online at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar4/, will take a moment to load. This format of this figure and linking to dynamic version will be used again the \ref{sec:application} section.
 
-```{r step3, echo=F, warning=F, fig.width = 6, fig.height = 7.2, fig.cap = "Rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from it's initial contribution to a full contribution to the projection before decreasing to zero, and then returning to it's initial state. A dynamic version can be viewed at $https://nspyrison.netlify.com/thesis/flea_manualtour_mvar4/$."}
+
+(ref:step3-cap) Rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from it's initial contribution to a full contribution to the projection before decreasing to zero, and then returning to it's initial state. A dynamic version can be viewed at  https://nspyrison.netlify.com/thesis/flea_manualtour_mvar4/ .
+
+```{r step3, echo=F, warning=F, fig.height=7.2, fig.width=6, out.height='7.2in', out.width='6in', fig.cap = "(ref:step3-cap)"}
 f_angle <- .26
 f_mtour <- manual_tour(f_bas, manip_var = f_mvar, angle = f_angle)
 if(dim(f_mtour)[3] != 15) message(
@@ -371,7 +371,9 @@ The work in @cook_dynamical_2018 applies touring for discern finer structure of 
 
 The jet cluster is of particular interest as it contains the largest data sets and is found to be important in @wang_visualizing_2018. The jet cluster resides in a smaller dimensionality than the full set of experiments with 4 principal components explaining 95% of it's variation (@cook_dynamical_2018). We subset the data down to ATLAS7old and ATLAS7new to narrow in on 2 groups with a reasonable number of observations and occupy different parts of the subspace. Below, we perform radial manual tours on various principal components within the this scope. In PC3 and PC4 are manipulated in \@ref(fig:JetClusterGood) and \@ref(fig:JetClusterBad) respectively. Manipulating PC3, where varying the angle of rotation brings interesting features in-to and out-of the center mass of the data, is interesting than the manipulation of PC4, where features are mostly independent of the manip var.
 
-```{r JetClusterGood, echo=F, warning=F, fig.width = 6, fig.height = 7.2, fig.cap = "Jet cluster, radial manual tour of PC3. Colored by experiment type: 'ATLAS7new' in green and 'ATLAS7old' in orange. When PC3 fully contributes to the projection ATLAS7new (green) occupies unique space and several outliers are identifiable. Zeroing the contribution from PC3 to the projection hides the outliers and indeed all observations with ATLAS7new are contained within ATLAS7old (orange). A dynamic version can be viewed at $https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/$."}
+(ref:JetClusterGood-cap) Jet cluster, radial manual tour of PC3. Colored by experiment type: 'ATLAS7new' in green and 'ATLAS7old' in orange. When PC3 fully contributes to the projection ATLAS7new (green) occupies unique space and several outliers are identifiable. Zeroing the contribution from PC3 to the projection hides the outliers and indeed all observations with ATLAS7new are contained within ATLAS7old (orange). A dynamic version can be viewed at https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/ .
+
+```{r JetClusterGood, echo=F, warning=F, fig.height=7.2, fig.width=6, out.height='7.2in', out.width='6in', fig.cap="(ref:JetClusterGood-cap)"}
 # Jet cluster, Fig 7 of cook_dynamical_2018, subset to ATLAS7old and ATLAS7new
 load("./data/JetCluster_sub.rda")
 load("./data/JetCluster_basis.rda")
@@ -396,9 +398,9 @@ array2static(.m_tour = jet_mtour, .data = jet_dat,
 # 4, *worst
 ```
 
+(ref:JetClusterBad-cap) Jet cluster, radial manual tour of PC4. Colored by experiment type: 'ATLAS7new' in green and 'ATLAS7old' in orange. This tour contain less interesting information ATLAS7new (green) has points that are right and left of ATLAS7old, while most points occupy the same projection space, regardless of the contribution of PC4. A dynamic version can be viewed at  https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/ .
 
-
-```{r JetClusterBad, echo=F, warning=F, fig.width = 6, fig.height = 7.2, fig.cap = "Jet cluster, radial manual tour of PC4. Colored by experiment type: 'ATLAS7new' in green and 'ATLAS7old' in orange. This tour contain less interesting information ATLAS7new (green) has points that are right and left of ATLAS7old, while most points occupy the same projection space, regardless of the contribution of PC4. A dynamic version can be viewed at $https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/$."}
+```{r JetClusterBad, echo=F, warning=F, fig.height=7.2, fig.width=6, out.height='7.2in', out.width='6in', fig.cap = "(ref:JetClusterBad-cap)"}
 # Jet cluster, Fig 7 of cook_dynalical_2018, subset to ATLAS7old and ATLAS7new
 jet_mvar  <- 4
 jet_mtour <- manual_tour(basis = jet_bas, manip_var = jet_mvar, angle = jet_ang)
@@ -409,10 +411,10 @@ array2static(.m_tour = jet_mtour, .data = jet_dat,
 
 Jet cluster manual tours manipulating each of the principal components can be viewed from the links below:
 
-- PC1 - https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc1/
-- PC2 - https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc2/
-- PC3 - https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/
-- PC4 - https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc4/
+- [PC1](https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc1/)
+- [PC2](https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc2/)
+- [PC3](https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/)
+- [PC4](https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc4/)
 
 
 ### DIS cluster
@@ -421,7 +423,10 @@ We perform a manual tour on this data, manipulating PC6 as depicted in \@ref(fig
 https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/.
 The page take a bit to load, as the animation is several megabytes.
 
-```{r DISclusterGood, echo=F, warning=F, fig.width = 6, fig.height = 7.2, fig.cap = "DIS cluster, radial manual tour of PC6. colored by experiment type: ‘DIS HERA1+2’ in green, 'dimuon SIDIS' in purple, and 'charm SIDIS' in orange. When the contribution PC 6 is large we see that dimuon SIDIS (purple) data are nearly orthogonal to DIS HERA (green) data. As the data is rotated, we can also see that DIS HERA (green) practically lie on a plane in this 6-d subspace. When the contribution of PC6 is near zero, dimonSIDIS (purple) occupies the same space as the DIS HERA data. A dynamic version can be viewed at $https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/$."}
+
+(ref:DISclusterGood-cap) DIS cluster, radial manual tour of PC6. colored by experiment type: ‘DIS HERA1+2’ in green, 'dimuon SIDIS' in purple, and 'charm SIDIS' in orange. When the contribution PC 6 is large we see that dimuon SIDIS (purple) data are nearly orthogonal to DIS HERA (green) data. As the data is rotated, we can also see that DIS HERA (green) practically lie on a plane in this 6-d subspace. When the contribution of PC6 is near zero, dimonSIDIS (purple) occupies the same space as the DIS HERA data. A dynamic version can be viewed at https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/ .
+
+```{r DISclusterGood, echo=F, warning=F, fig.height=7.2, fig.width=6, out.height='7.2in', out.width='6in', fig.cap = "(ref:DISclusterGood-cap)"}
 ##DIS cluster, fig 8 of cook_dynamical_2018
 load("./data/grDIScenter.rda")
 load("./data/DIScluster_centered_basis.rda")
@@ -448,10 +453,11 @@ array2static(.m_tour = DIS_mtour, .data = DIS_dat,
 
 This is different story than if we had selected a different variable to manipulate. In \@ref(fig:DISclusterBad) we manipulate PC2. 
 
-```{r DISclusterBad, echo=F, warning=F, fig.width = 6, fig.height = 7.2, fig.cap = "DIS cluster, radial manual tour of PC2. Colored by experiment type: ‘DIS HERA1+2’ in green, 'dimuon SIDIS' in purple, and 'charm SIDIS' in orange. The structure of previously described plane of DIS HERA (green) and nearly orthogonal dimuon SIDIS (purple) is present, however the manipulating PC2 does not give a head-on view of either, a less useful manual tour than that of PC6. A dynamic version can be viewed at $https://nspyrison.netlify.com/thesis/discluster_manualtour_pc2/$."}
+(ref:DISclusterBad-cap) DIS cluster, radial manual tour of PC2. Colored by experiment type: ‘DIS HERA1+2’ in green, 'dimuon SIDIS' in purple, and 'charm SIDIS' in orange. The structure of previously described plane of DIS HERA (green) and nearly orthogonal dimuon SIDIS (purple) is present, however the manipulating PC2 does not give a head-on view of either, a less useful manual tour than that of PC6. A dynamic version can be viewed at https://nspyrison.netlify.com/thesis/discluster_manualtour_pc2/ .
+
+```{r DISclusterBad, echo=F, warning=F, fig.height=7.2, fig.width=6, out.height='7.2in', out.width='6in', fig.cap = "(ref:DISclusterBad-cap)"}
 ##DIS cluster, fig 8 of cook_dynamical_2018
 DIS_mvar  <- 2
-#DIS_ang   <- .26
 DIS_mtour <- manual_tour(basis = DIS_bas, manip_var = DIS_mvar, angle = DIS_ang)
 
 array2static(.m_tour = DIS_mtour, .data = DIS_dat, 
@@ -460,12 +466,12 @@ array2static(.m_tour = DIS_mtour, .data = DIS_dat,
 
 DIS cluster manual tours manipulating each of the principal components can be viewed from the links below:
 
-- PC1 - https://nspyrison.netlify.com/thesis/discluster_manualtour_pc1/
-- PC2 - https://nspyrison.netlify.com/thesis/discluster_manualtour_pc2/
-- PC3 - https://nspyrison.netlify.com/thesis/discluster_manualtour_pc3/
-- PC4 - https://nspyrison.netlify.com/thesis/discluster_manualtour_pc4/
-- PC5 - https://nspyrison.netlify.com/thesis/discluster_manualtour_pc5/
-- PC6 - https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/
+- [PC1](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc1/)
+- [PC2](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc2/)
+- [PC3](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc3/)
+- [PC4](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc4/)
+- [PC5](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc5/)
+- [PC6](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/)
 
 
 
