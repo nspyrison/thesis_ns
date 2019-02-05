@@ -3,6 +3,10 @@ chapter: 5
 knit: "bookdown::render_book"
 ---
 
-# Human-computer interaction with 3d projections {#ch:hci}
+# Human-computer interaction with displays of high dimensional data {#ch:hci}
+
+tie to manual tours, and 2d tours, and bring into 3d.
+
+applied to physics data.
 
 Data analysis in VR spaces, so called immerse analytics, is becoming more and more popular, yet with mixed and varied results (@marriott_immersive_2018). The Immerse Analytics group at Monash University have been programming packages in C#, for use with the Unity game engine for such uses (@cordeil_imaxes:_2017, @cordeil_immersive_2019). I will build upon this framework and implement dynamic communication with R scripts to apply touring and other dimensionality reduction methods in Unity.
