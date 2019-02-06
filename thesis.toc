@@ -60,7 +60,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}The effect of display type in perception of structure in high dimensional data}{29}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Human-computer interaction with displays of high dimensional data}{31}{chapter.5}
+\contentsline {chapter}{\numberline {5}Human-computer interaction with displays of high dimensional data and functions}{31}{chapter.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {6}PhD timeline}{33}{chapter.6}
 \defcounter {refsection}{0}\relax 
