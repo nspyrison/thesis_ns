@@ -4,7 +4,16 @@ knit: "bookdown::render_book"
 
 # Abstract {-}
 
-This thesis is about ...
+Visualizing data space is crucial to exploratory data analysis yet doing so quickly becomes difficult as the dimensionality of the data increases. Traditionally, static low dimensional embeddings are used, as in PCA and LDA. Observing one such embedding often misses a significant amount of variation, and hence, information held within the data. Touring is a method that animates many projections as the orientation in data space is varied. This maintains inter-operability the original variables, while preserving observable information.
+
+I have implemented manual tours in the programming language R with compatibility to the other touring package while extending to new graphics paradigms to display tours. The application of manual tours to experimental high energy physics data that exists in 56-dimensional space is also presented extenting previous touring on the same data.
+
+Next, I will conduct an experimental survey comparing manual tour perception across 4 display types: 2d desktop, 3d desktop, head-mount virtual reality, and in-person immersion in a virtual display. From the same interface using the game engine Unity.
+
+Lastly, I'll combine existing packages in R and Unity to explore the human-computer interaction with projections and functions of high dimensional spaces.
+
+
+
 
 
 

@@ -3,10 +3,11 @@ chapter: 4
 knit: "bookdown::render_book"
 ---
 
-# The effect of display type in perception of structure in high dimensional data {#ch:dimensionality}
+# The effect of display type in perception of structure in high dimensional data {#ch:display_type}
 
 TODO: overview of display type, current state of art
 
+Display types come in a plethora of sizes and techonologies each is unique, and optimized for specific uses and viewing conditions. 
 
 The bulk of previous work embeds in 2-space, for display on traditional monitors. @nelson_xgobi_1998 performed a small ($n=15$) experimental study comparing tasks performed across 2d and 3d touring displays. The XGobi interface was used on a standard 2d monitor while VR-Gobi (on the C2 setup) was used VR display without head tracking. The accuracy 3 tasks: clustering, intrinsic data dimensionality and radial sparseness was recorded along with the speed of a data brushing task. Accuracy was the same for the dimensionality task, while the the d3 display out performed 2d on clustering, and even more so on the radial sparsity. However, time taken to brush a cluster was less than half the time in 2d display as compared with 3d. 
 
