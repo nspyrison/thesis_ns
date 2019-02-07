@@ -20,13 +20,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.2}History}{5}{subsection.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.3}Tour path}{5}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.3}Path genration}{6}{subsection.2.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.4}Geometrics and display dimension}{7}{subsection.2.1.4}
+\contentsline {subsubsection}{Tour path evaluation}{7}{subsubsection*.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.5}Implementations}{8}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.4}Geom display dimensionality}{8}{subsection.2.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Virtual reality}{9}{section.2.2}
+\contentsline {subsection}{\numberline {2.1.5}Past implementations}{9}{subsection.2.1.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Virtual reality}{10}{section.2.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}\emph {spinifex}: An R package that provides manual rotations in high-dimensions}{11}{chapter.3}
 \defcounter {refsection}{0}\relax 
@@ -64,4 +66,4 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {6}PhD timeline}{33}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{35}{chapter*.13}
+\contentsline {chapter}{Bibliography}{35}{chapter*.14}
