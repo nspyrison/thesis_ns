@@ -6,33 +6,33 @@ knit: "bookdown::render_book"
 # PhD timeline {#ch:timeline}
 
 
-```{r timeline, echo=F, fig.height=7.2, fig.width=7, out.height='7.2in', out.width='6in'}
-#out.extra='angle=90'
+```{r timeline, echo=F, }
+#out.extra='angle=90
 ## working from: https://stats.andrewheiss.com/misc/gantt.html
 library(tidyverse)
 library(lubridate)
 library(scales)
 
 tasks <- tribble(
-  ~Start,       ~End,         ~Project,                   ~Task,
-  "2018-04-01", "2019-06-01", "Manual tours",             "Aim1 spinifex package",
-  "2018-04-01", "2019-06-01", "Manual tours",             "spinifex code",
-  "2018-12-01", "2019-03-01", "Manual tours",             "spinifex paper",
-  "2019-03-01", "2019-06-01", "Manual tours",             "spinifex Submission and follow-up",
-  "2019-01-01", "2019-03-01", "Milestones",               "Canidature confirmation",
-  "2018-11-01", "2020-01-01", "Display type survey",      "Aim2: display type exp survey",
-  "2018-11-01", "2018-12-01", "Display type survey",      "desktop 3d setup",
-  "2019-03-01", "2019-06-01", "Display type survey",      "Display type c# code",
-  "2019-06-01", "2019-08-01", "Display type survey",      "Display type Experimental survey",
-  "2019-07-01", "2019-10-01", "Display type survey",      "display type paper",
-  "2019-10-01", "2020-01-01", "Display type survey",      "Display type Submission and follow-up",
-  "2020-01-01", "2020-03-01", "Milestones",               "Mid canidature review",
-  "2019-11-01", "2020-10-01", "HCI high dim projections", "Aim3: HCI of high dim projections",
-  "2019-11-01", "2020-06-01", "HCI high dim projections", "Projections in IATK, C# code",
-  "2020-05-01", "2020-08-01", "HCI high dim projections", "HCI projections paper",
-  "2020-07-01", "2020-10-01", "HCI high dim projections", "HCI projections Submission and follow-up",
-  "2020-10-01", "2021-03-01", "Milestones",               "pre-submission presentation",
-  "2021-01-01", "2021-04-01", "Milestones",               "thesis completion and submission"
+  ~Start,       ~End,         ~Project,              ~Task,
+  "2018-04-01", "2019-06-01", "spinfex",             "Aim1 spinifex package",
+  "2018-04-01", "2019-06-01", "spinfex",             "spinifex code",
+  "2018-12-01", "2019-03-01", "spinfex",             "spinifex paper",
+  "2019-03-01", "2019-06-01", "spinfex",             "spinifex Submission and follow-up",
+  "2019-01-01", "2019-03-01", "Milestones",          "Canidature confirmation",
+  "2018-11-01", "2020-01-01", "Display type survey", "Aim2: display type exp survey",
+  "2018-11-01", "2018-12-01", "Display type survey", "desktop 3d setup",
+  "2019-03-01", "2019-06-01", "Display type survey", "Display type c# code",
+  "2019-06-01", "2019-08-01", "Display type survey", "Display type Experimental survey",
+  "2019-07-01", "2019-10-01", "Display type survey", "display type paper",
+  "2019-10-01", "2020-01-01", "Display type survey", "Display type Submission and follow-up",
+  "2020-01-01", "2020-03-01", "Milestones",          "Mid canidature review",
+  "2019-11-01", "2020-10-01", "HCI projections",     "Aim3: HCI of high dim projections",
+  "2019-11-01", "2020-06-01", "HCI projections",     "Projections in IATK, C# code",
+  "2020-05-01", "2020-08-01", "HCI projections",     "HCI projections paper",
+  "2020-07-01", "2020-10-01", "HCI projections",     "HCI projections Submission and follow-up",
+  "2020-10-01", "2021-03-01", "Milestones",          "pre-submission presentation",
+  "2021-01-01", "2021-04-01", "Milestones",          "thesis completion and submission"
 )
 
 # Convert data to long for ggplot
