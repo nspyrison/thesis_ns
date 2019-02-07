@@ -18,12 +18,29 @@ Guided vs guided + manual, PCA/MDS vs manual, random projections vs manual.
 --for lit follow kim's chapter's refs
 -->
 
-# Introduction {#ch:intro}
+# Research problem {#ch:intro}
 
-In the chapters below we will be discussing touring, a sequence of orthogonal linear projections viewed as an animation while the basis varies, changing the orientation and hence the projection. Traditionally techniques such as principal component analysis and linear discriminant analysis (PCA and LDA respectively) use the same orthogonal projection, but only for a single frame and variation out side of 2 or 3 linear components because a casually. More recently non-linear techniques such as multi-dimensional scaling (MDS), and t-distributed stochastic nearest neighbor embedding (t-SNE) are astounding for classification but lose inter-operability back to the original variables and can suffer from overfitting. Touring offers inter-operability, and preserved information held with the projections by viewing many orientations over time, making touring a front-running technique for the exploratory data analysis of numeric multivariate data spaces.
+Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualise high dimensions have been a pursuit of statisticians, computer scientists and visualisation researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavour.  
+
+This thesis focuses on tour methods for visualising high-dimensional data. Tours are a famiily of algorithms for generating paths on the space of low dimensional ($d=1, 2, 3, ..., p$) projections  or high-dimensional ($p$) space. The resulting projection of the data (or model) is displayed using low-dimensional techniques such as histograms, dotplots, scatterplots, or parallel coordinate plots, and the path generates a movie or animation to shows many low-dimensional projections. The method can be applied with other techniques such as machine learning techniques like discriminant analysis, neural networks, support vector machines, to open the black box, and complements dimension reduction techniques like principal component analysis (PCA), multidimensional scaling (MDS) on nonlinear embeddings (e.g. tSNE). 
+
+<!--In the chapters below we will be discussing touring, a sequence of orthogonal linear projections viewed as an animation while the basis varies, changing the orientation and hence the projection. Traditionally techniques such as principal component analysis and linear discriminant analysis (PCA and LDA respectively) use the same orthogonal projection, but only for a single frame and variation out side of 2 or 3 linear components because a casually. More recently non-linear techniques such as multi-dimensional scaling (MDS), and t-distributed stochastic nearest neighbor embedding (t-SNE) are astounding for classification but lose inter-operability back to the original variables and can suffer from overfitting. Touring offers inter-operability, and preserved information held with the projections by viewing many orientations over time, making touring a front-running technique for the exploratory data analysis of numeric multivariate data spaces.
 
 The chapter \ref{ch:lit_review}, is a literature review focusing on the tour methodology and taxonomy before breaking into sections focusing each reasearch quiestion respenctively. For the touring section I expound upon touring and discuss the history, before discussing tour path generation, and display geometrics that are intrinsically linked to the dimension of the embedding. A list of past touring software implementations is also listed.
+-->
 
+The primary research question is:
+
+**Does allowing the user to steer the tour, facilitate the exploration and understanding of the sensitivity of structure to the original variables or parameters?** This question is reduced to four research objectives:
+
+\begin{itemize}
+\item[A] **Can user controlled steering (UCS) be utlized in an environment providing only animation?**
+\item[B] **How do we etend UCS to 3D?**
+\item[C] **What benefits does UCS provide over current common practice, such as PCA, MDS, tSNE? **
+\item[D] **Does UCS with 3D displays provide perception benefits over 2D displays?**
+\end{itemize}
+
+<!--
 The primary question I am expoloring is:
 TODO:
 
@@ -36,6 +53,6 @@ Chapter \ref{ch:hci}, human-computer interaction of high dimension data and func
 
 Finally, chapter \ref{ch:timeline} lays out the prospective timeline for the remainder of my PhD research.
 
-
+-->
 
 <!-- Finally, Chapter 6 provides some concluding remarks, discussion, ideas for future research, and so on. Appendixes can contain additional material that don't fit into any chapters, but that you want to put on record. For example, additional tables, output, etc. -->
