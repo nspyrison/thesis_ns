@@ -2093,12 +2093,22 @@
     <bcf:citekey order="95">buja_computational_2005</bcf:citekey>
     <bcf:citekey order="96">nelson_xgobi_1998</bcf:citekey>
     <bcf:citekey order="97">nelson_xgobi_1998</bcf:citekey>
-    <bcf:citekey order="98">marriott_immersive_2018</bcf:citekey>
-    <bcf:citekey order="99">marriott_immersive_2018</bcf:citekey>
-    <bcf:citekey order="100">cordeil_imaxes:_2017</bcf:citekey>
-    <bcf:citekey order="101">cordeil_imaxes:_2017</bcf:citekey>
-    <bcf:citekey order="102">cordeil_immersive_2019</bcf:citekey>
-    <bcf:citekey order="103">cordeil_immersive_2019</bcf:citekey>
+    <bcf:citekey order="98">wang_visualizing_2018</bcf:citekey>
+    <bcf:citekey order="99">cook_dynamical_2018</bcf:citekey>
+    <bcf:citekey order="100">wagner_filho_immersive_2018</bcf:citekey>
+    <bcf:citekey order="101">wagner_filho_immersive_2018</bcf:citekey>
+    <bcf:citekey order="102">marriott_immersive_2018</bcf:citekey>
+    <bcf:citekey order="103">marriott_immersive_2018</bcf:citekey>
+    <bcf:citekey order="104">wagner_filho_immersive_2018</bcf:citekey>
+    <bcf:citekey order="105">wagner_filho_immersive_2018</bcf:citekey>
+    <bcf:citekey order="106">nelson_xgobi_1998</bcf:citekey>
+    <bcf:citekey order="107">nelson_xgobi_1998</bcf:citekey>
+    <bcf:citekey order="108">arms_benefits_1999</bcf:citekey>
+    <bcf:citekey order="109">arms_benefits_1999</bcf:citekey>
+    <bcf:citekey order="110">cordeil_imaxes:_2017</bcf:citekey>
+    <bcf:citekey order="111">cordeil_imaxes:_2017</bcf:citekey>
+    <bcf:citekey order="112">cordeil_immersive_2019</bcf:citekey>
+    <bcf:citekey order="113">cordeil_immersive_2019</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
