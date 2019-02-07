@@ -97,69 +97,8 @@ Consider $d=2$, then each projection is called a 2-frame (each spanning a 2-plan
 
 The little tour introduced in @mcdonald_interactive_1982, on the the other hand is necessarily both dense and rapid, performing essentially an exhaustive search on the Grassmannian. However the path choosen is uninteresting, the pre-defined sequence rarely results in insightful observations.
 
-I order to increase the speed of finding insteresting projections @hurley_analyzing_1990 implemented guided tours. The optimization of the ojective function means path of projection pursuit will be relatively small, density and rapidity become poor measures, but interesting projections are quickly identified. Recently, @laa_using_2019, compares projection pursuit indices with the metrics: smoothness, squintability, flexibility, rotation invariance and speed. 
+I order to increase the speed of finding insteresting projections @hurley_analyzing_1990 implemented guided tours. The optimization of the ojective function means path of projection pursuit will be relatively small, density and rapidity become poor measures, but interesting projections are quickly identified. Recently, @laa_using_2019, compares projection pursuit indices with the metrics: smoothness, squintability, flexibility, rotation invariance and speed. See the original work to see how the indices perform 
 
-
-
-
-
-
-<!-- smoothness, squintability, flexibility, rotation invariance, speed -->
-<!-- @laa_using_2019 -->
-
-<!-- The index values for most PPIs increases -->
-<!-- substantially nearing the structured projection, indicating that they \see" -->
-<!-- the structure. Some indexes see all three structures: scagnostics, MIC and -->
-<!-- TIC, which means that they are  -->
-<!-- exible indexes capable of detecting a range -->
-<!-- of structure. (Grimm 2016)'s indexes, dcor2d and splines2d, are -->
-
-=====
-<!-- smoothness: This is the consistency property mentioned above. The -->
-<!-- index function values are examined over interpolated tour paths, that -->
-<!-- is, the value is plotted against time, where time indexes the sequence of -->
-<!-- projections produced by the tour path. The signature of a good PPI is -->
-<!-- that the plotted function is relatively smooth. The interpolation path -->
-<!-- corresponds to small angle changes between projections, so the value -->
-<!-- should be very similar. -->
-<!--  squintability: Tukey and Tukey (1981) introduced the idea of squint -->
-<!-- angle to indicate resolution of structure in the data. Fine structure like -->
-<!-- the parallel planes in the infamous RANDU data (Marsaglia 1968) has -->
-<!-- a small squint angle because you have to be very close to the optimal -->
-<!-- projection plane to be able to see the structure. Structures with small -->
-<!-- squint angle are dicult to nd, because the optimization algorithm -->
-<!-- needs to get very close to begin hill-climbing to the optimum. The -->
-<!-- analyst doesn't have control over the data structure, but does have -->
-<!-- control over the PPI. Squintability is about the shape of the PPI over -->
-<!-- all projections. It should have smooth low values for noise projections -->
-<!-- and a clearly larger value, ideally with a big squint angle, for structured -->
-<!-- projections. The optimizer should be able to clearly see the optimal -->
-<!-- projections as dierent from noise. To examine squintability, the PPI -->
-<!-- values are examined on interpolated tour paths between a noise projection -->
-<!-- and a distant structured projection. -->
-
-<!-- exibility: An analyst can have a toolbox of indices that may cover the -->
-<!-- range of ne and broad structure, which underlies the scagnostics suite. -->
-<!-- Early indexes, based on density estimation could be programmed to detect ne or large structure by varying the binwidth. This is examined -->
-<!-- by using a range of structure in the simulated data examples. -->
-<!--  rotation invariance: The orientation of structure within a projection -->
-<!-- plane should not change the index value. This is especially important -->
-<!-- when using the projection pursuit guided tour, because the tour path is -->
-<!-- dened between planes, along a geodesic path, not bases within planes. -->
-<!-- If a particular orientation is more optimal, this will get lost as the -->
-<!-- projection shown pays no attention to orientation. Buja et al. (2005) -->
-<!-- describes alternative interpolation paths based on Givens and Householder -->
-<!-- rotations which progress from basis to basis. It may be possible -->
-<!-- to ignore rotation invariance with these interpolations but there isn't a -->
-<!-- current implementation, primarily because the within-plane spin that -->
-<!-- is generated is distracting from a visualization perspective. Rotation -->
-<!-- invariance is checked for the proposed PPIs by rotating the structured -->
-<!-- projection, within the plane. -->
-<!--  speed: Being fast to compute allows the index to be used in realtime -->
-<!-- in a guided tour, where the optimization can be watched. When -->
-<!-- the computations are shifted o-line, to watch in replay, computation -->
-<!-- times matter less. This is checked by comparing times for benchmark -->
-<!-- scenarios with varying sample size. -->
 
 
 ### Geom display dimensionality
@@ -172,9 +111,9 @@ Up to this point we have been talking about 2d scatterplots, which offer the fir
     + time series: where multivariate values are independently lagged to view peak and trough alignment. Currently no package implementation, but use case is discussed in [@cook_manual_1997]. 
 * 2d geoms
     + 2-d density [@NS GITHUB]
-    + scatterplot
+    + $x-y$ scatterplot
     +
-* 2.5d, 3d geoms {ADD FOOTNOTE ABOUT 2.5d vs 3d}
+* 3d geoms
     + Anaglyphs, sometimes called stereo, where (typically) red images are positioned for the left channel and cyan for the right, when viewed with corresponding filter glasses give the depth perception of the image.
     + Depth, which use some subset of depth cues, most commonly size and/or color of data points.
 * $d$-dim geoms
