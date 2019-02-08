@@ -1,10 +1,9 @@
 ---
-chapter: 6
+chapter: 5
 knit: "bookdown::render_book"
 ---
 
-# Does user controlled steering with 3D displays provide perception benefits over 2D displays?
- {#ch:hci}
+# That benefits does UCS provide over current common practice {#ch:benefits}
 
 @wagner_filho_immersive_2018 performed an $n=30$ empirical study of PCA embedded projections, and perception error across 4 tasks and 3 display types: 2d, 3d, and immersive. Overall task error was less in 3d and immersive relative to 2d. According to user Likert-scale 2d is slightly easier to navigate and slightly more comfortable. On the flip-side 3d and immersive are slightly easier to interact and moderately easier to find information. 
 

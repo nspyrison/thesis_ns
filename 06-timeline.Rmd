@@ -3,7 +3,7 @@ chapter: 6
 knit: "bookdown::render_book"
 ---
 
-# PhD timeline {#ch:timeline}
+# PhD timeline {-} 
 
 
 ```{r timeline, echo=F, }
@@ -79,4 +79,6 @@ timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) +
 timeline
 ```
 
+# Acknowledgements {-} 
 
+This thesis report is generated using R[XXXREF] and Rmarkdown[REFXXX], where code and explanation are kept together, following reproducible research practice. 
