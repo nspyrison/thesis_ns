@@ -18,7 +18,7 @@ Guided vs guided + manual, PCA/MDS vs manual, random projections vs manual.
 --for lit follow kim's chapter's refs
 -->
 
-# Research problem {#ch:intro}
+# Research problem {-}
 
 Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualise high dimensions have been a pursuit of statisticians, computer scientists and visualisation researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavour.  
 
@@ -31,13 +31,15 @@ The chapter \ref{ch:lit_review}, is a literature review focusing on the tour met
 
 The primary research question is:
 
-**Does allowing the user to steer the tour, facilitate the exploration and understanding of the sensitivity of structure to the original variables or parameters?** This question is reduced to four research objectives:
+**Does allowing the user to steer the tour, facilitate the exploration and understanding of the sensitivity of structure to the original variables or parameters?** 
+
+This question is reduced to four research objectives:
 
 \begin{itemize}
-\item[A] **Can user controlled steering (UCS) be utlized in an environment providing only animation?**
-\item[B] **How do we etend UCS to 3D?**
-\item[C] **What benefits does UCS provide over current common practice, such as PCA, MDS, tSNE? **
-\item[D] **Does UCS with 3D displays provide perception benefits over 2D displays?**
+\item[RO \#A] Can user controlled steering (UCS) be utilized in an environment providing only animation?
+\item[RO \#B] How do we etend UCS to 3D?
+\item[RO \#C] That benefits does UCS provide over current common practice, such as PCA, MDS, tSNE?
+\item[RO \#D] Does UCS with 3D displays provide perception benefits over 2D displays?
 \end{itemize}
 
 <!--
