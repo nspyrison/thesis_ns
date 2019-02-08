@@ -36,10 +36,10 @@ The primary research question is:
 This question is reduced to four research objectives:
 
 \begin{itemize}
-\item[RO \#A] Can user controlled steering (UCS) be utilized in an environment providing only animation?
-\item[RO \#B] How do we etend UCS to 3D?
-\item[RO \#C] That benefits does UCS provide over current common practice, such as PCA, MDS, tSNE?
-\item[RO \#D] Does UCS with 3D displays provide perception benefits over 2D displays?
+\item[RO \#A] Can user controlled steering (UCS) be utilized in an environment providing only animation? (Chapter \ref{ch:spinifex})
+\item[RO \#B] How do we etend UCS to 3D? (Chapter \ref{#ch:display_type})
+\item[RO \#C] That benefits does UCS provide over current common practice, such as PCA, MDS, tSNE? (Chapter \ref{#ch:benefits})
+\item[RO \#D] Does UCS with 3D displays provide perception benefits over 2D displays? (Chapter \ref{#ch:hci})
 \end{itemize}
 
 <!--
