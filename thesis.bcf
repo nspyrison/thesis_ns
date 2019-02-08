@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bcf:controlfile version="3.4" bltxversion="3.11" xmlns:bcf="https://sourceforge.net/projects/biblatex">
+<bcf:controlfile version="3.5" bltxversion="3.12" xmlns:bcf="https://sourceforge.net/projects/biblatex">
   <!-- BIBER OPTIONS -->
   <bcf:options component="biber" type="global">
     <bcf:option type="singlevalued">
@@ -98,6 +98,10 @@
       <bcf:value>3</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
+      <bcf:key>maxsortnames</bcf:key>
+      <bcf:value>99</bcf:value>
+    </bcf:option>
+    <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
       <bcf:value>3</bcf:value>
     </bcf:option>
@@ -111,6 +115,10 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
+      <bcf:value>1</bcf:value>
+    </bcf:option>
+    <bcf:option type="singlevalued">
+      <bcf:key>minsortnames</bcf:key>
       <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
@@ -354,6 +362,7 @@
     <bcf:option datatype="boolean">labeldateparts</bcf:option>
     <bcf:option datatype="boolean">uniquelist</bcf:option>
     <bcf:option datatype="boolean">uniquename</bcf:option>
+    <bcf:option datatype="boolean">noroman</bcf:option>
     <bcf:option datatype="boolean">singletitle</bcf:option>
     <bcf:option datatype="boolean">uniquetitle</bcf:option>
     <bcf:option datatype="boolean">uniquebaretitle</bcf:option>
@@ -383,6 +392,8 @@
     <bcf:option datatype="integer">minbibnames</bcf:option>
     <bcf:option datatype="integer">maxcitenames</bcf:option>
     <bcf:option datatype="integer">mincitenames</bcf:option>
+    <bcf:option datatype="integer">maxsortnames</bcf:option>
+    <bcf:option datatype="integer">minsortnames</bcf:option>
     <bcf:option datatype="integer">maxitems</bcf:option>
     <bcf:option datatype="integer">minitems</bcf:option>
     <bcf:option datatype="integer">maxalphanames</bcf:option>
@@ -420,6 +431,7 @@
     <bcf:option datatype="boolean">labeldateparts</bcf:option>
     <bcf:option datatype="boolean">uniquelist</bcf:option>
     <bcf:option datatype="boolean">uniquename</bcf:option>
+    <bcf:option datatype="boolean">noroman</bcf:option>
     <bcf:option datatype="boolean">singletitle</bcf:option>
     <bcf:option datatype="boolean">uniquetitle</bcf:option>
     <bcf:option datatype="boolean">uniquebaretitle</bcf:option>
@@ -444,6 +456,8 @@
     <bcf:option datatype="integer">minbibnames</bcf:option>
     <bcf:option datatype="integer">maxcitenames</bcf:option>
     <bcf:option datatype="integer">mincitenames</bcf:option>
+    <bcf:option datatype="integer">maxsortnames</bcf:option>
+    <bcf:option datatype="integer">minsortnames</bcf:option>
     <bcf:option datatype="integer">maxitems</bcf:option>
     <bcf:option datatype="integer">minitems</bcf:option>
     <bcf:option datatype="integer">maxalphanames</bcf:option>
@@ -477,6 +491,7 @@
     <bcf:option datatype="boolean">indexing</bcf:option>
     <bcf:option datatype="boolean">uniquelist</bcf:option>
     <bcf:option datatype="boolean">uniquename</bcf:option>
+    <bcf:option datatype="boolean">noroman</bcf:option>
     <bcf:option datatype="boolean">useprefix</bcf:option>
     <bcf:option datatype="boolean">skipbib</bcf:option>
     <bcf:option datatype="boolean">skipbiblist</bcf:option>
@@ -489,6 +504,8 @@
     <bcf:option datatype="integer">minbibnames</bcf:option>
     <bcf:option datatype="integer">maxcitenames</bcf:option>
     <bcf:option datatype="integer">mincitenames</bcf:option>
+    <bcf:option datatype="integer">maxsortnames</bcf:option>
+    <bcf:option datatype="integer">minsortnames</bcf:option>
     <bcf:option datatype="integer">maxitems</bcf:option>
     <bcf:option datatype="integer">minitems</bcf:option>
     <bcf:option datatype="integer">maxalphanames</bcf:option>
@@ -790,7 +807,7 @@
       <bcf:entrytype skip_output="true">xdata</bcf:entrytype>
     </bcf:entrytypes>
     <bcf:fields>
-      <bcf:field fieldtype="field" datatype="integer">number</bcf:field>
+      <bcf:field fieldtype="field" datatype="integer">sortyear</bcf:field>
       <bcf:field fieldtype="field" datatype="integer">volume</bcf:field>
       <bcf:field fieldtype="field" datatype="integer">volumes</bcf:field>
       <bcf:field fieldtype="field" datatype="literal">abstract</bcf:field>
@@ -831,6 +848,7 @@
       <bcf:field fieldtype="field" datatype="literal">maintitleaddon</bcf:field>
       <bcf:field fieldtype="field" datatype="literal">nameaddon</bcf:field>
       <bcf:field fieldtype="field" datatype="literal">note</bcf:field>
+      <bcf:field fieldtype="field" datatype="literal">number</bcf:field>
       <bcf:field fieldtype="field" datatype="literal">origtitle</bcf:field>
       <bcf:field fieldtype="field" datatype="literal">pagetotal</bcf:field>
       <bcf:field fieldtype="field" datatype="literal">part</bcf:field>
@@ -854,7 +872,6 @@
       <bcf:field fieldtype="field" datatype="literal" label="true">shortjournal</bcf:field>
       <bcf:field fieldtype="field" datatype="literal" label="true">shortseries</bcf:field>
       <bcf:field fieldtype="field" datatype="literal" label="true">shorttitle</bcf:field>
-      <bcf:field fieldtype="field" datatype="literal" skip_output="true">sortyear</bcf:field>
       <bcf:field fieldtype="field" datatype="literal" skip_output="true">sorttitle</bcf:field>
       <bcf:field fieldtype="field" datatype="literal" skip_output="true">sortshorthand</bcf:field>
       <bcf:field fieldtype="field" datatype="literal" skip_output="true">sortkey</bcf:field>
@@ -1493,8 +1510,12 @@
       <bcf:entrytype>online</bcf:entrytype>
       <bcf:field>addendum</bcf:field>
       <bcf:field>author</bcf:field>
+      <bcf:field>doi</bcf:field>
       <bcf:field>editor</bcf:field>
       <bcf:field>editortype</bcf:field>
+      <bcf:field>eprint</bcf:field>
+      <bcf:field>eprintclass</bcf:field>
+      <bcf:field>eprinttype</bcf:field>
       <bcf:field>language</bcf:field>
       <bcf:field>note</bcf:field>
       <bcf:field>organization</bcf:field>
@@ -1983,97 +2004,97 @@
     <bcf:citekey order="6">carreira-perpinan_review_1997</bcf:citekey>
     <bcf:citekey order="7">carreira-perpinan_review_1997</bcf:citekey>
     <bcf:citekey order="8">asimov_grand_1985</bcf:citekey>
-    <bcf:citekey order="9">buja_computational_2005</bcf:citekey>
-    <bcf:citekey order="10">asimov_grand_1985</bcf:citekey>
-    <bcf:citekey order="11">hurley_analyzing_1990</bcf:citekey>
-    <bcf:citekey order="12">cook_projection_1993</bcf:citekey>
-    <bcf:citekey order="13">cook_projection_1993</bcf:citekey>
-    <bcf:citekey order="14">lee_projection_2005</bcf:citekey>
-    <bcf:citekey order="15">laa_using_2019</bcf:citekey>
-    <bcf:citekey order="16">laa_using_2019</bcf:citekey>
-    <bcf:citekey order="17">laa_using_2019</bcf:citekey>
-    <bcf:citekey order="18">grimm_mbgraphic:_2017</bcf:citekey>
-    <bcf:citekey order="19">laa_using_2019</bcf:citekey>
-    <bcf:citekey order="20">grimm_mbgraphic:_2017</bcf:citekey>
+    <bcf:citekey order="9">mcdonald_interactive_1982</bcf:citekey>
+    <bcf:citekey order="10">mcdonald_interactive_1982</bcf:citekey>
+    <bcf:citekey order="11">friedman_projection_1974</bcf:citekey>
+    <bcf:citekey order="12">hurley_analyzing_1990</bcf:citekey>
+    <bcf:citekey order="13">hurley_analyzing_1990</bcf:citekey>
+    <bcf:citekey order="14">buja_computational_2005</bcf:citekey>
+    <bcf:citekey order="15">asimov_grand_1985</bcf:citekey>
+    <bcf:citekey order="16">hurley_analyzing_1990</bcf:citekey>
+    <bcf:citekey order="17">cook_projection_1993</bcf:citekey>
+    <bcf:citekey order="18">cook_projection_1993</bcf:citekey>
+    <bcf:citekey order="19">lee_projection_2005</bcf:citekey>
+    <bcf:citekey order="20">laa_using_2019</bcf:citekey>
     <bcf:citekey order="21">laa_using_2019</bcf:citekey>
-    <bcf:citekey order="22">wickham_tourr_2011</bcf:citekey>
-    <bcf:citekey order="23">wickham_tourr_2011</bcf:citekey>
-    <bcf:citekey order="24">mcdonald_interactive_1982</bcf:citekey>
-    <bcf:citekey order="25">cook_manual_1997</bcf:citekey>
-    <bcf:citekey order="26">buja_data_1987</bcf:citekey>
-    <bcf:citekey order="27">asimov_grand_1985</bcf:citekey>
-    <bcf:citekey order="28">asimov_grand_1985</bcf:citekey>
+    <bcf:citekey order="22">laa_using_2019</bcf:citekey>
+    <bcf:citekey order="23">grimm_mbgraphic:_2017</bcf:citekey>
+    <bcf:citekey order="24">laa_using_2019</bcf:citekey>
+    <bcf:citekey order="25">grimm_mbgraphic:_2017</bcf:citekey>
+    <bcf:citekey order="26">laa_using_2019</bcf:citekey>
+    <bcf:citekey order="27">wickham_tourr_2011</bcf:citekey>
+    <bcf:citekey order="28">wickham_tourr_2011</bcf:citekey>
     <bcf:citekey order="29">mcdonald_interactive_1982</bcf:citekey>
-    <bcf:citekey order="30">mcdonald_interactive_1982</bcf:citekey>
-    <bcf:citekey order="31">hurley_analyzing_1990</bcf:citekey>
-    <bcf:citekey order="32">hurley_analyzing_1990</bcf:citekey>
-    <bcf:citekey order="33">laa_using_2019</bcf:citekey>
-    <bcf:citekey order="34">laa_using_2019</bcf:citekey>
-    <bcf:citekey order="35">scott85</bcf:citekey>
-    <bcf:citekey order="36">scott95</bcf:citekey>
-    <bcf:citekey order="37">Wegman</bcf:citekey>
-    <bcf:citekey order="38">cook_manual_1997</bcf:citekey>
-    <bcf:citekey order="39">NS</bcf:citekey>
-    <bcf:citekey order="40">andrews_plots_1972</bcf:citekey>
-    <bcf:citekey order="41">chernoff_use_1973</bcf:citekey>
-    <bcf:citekey order="42">ocagne_coordonnees_1885</bcf:citekey>
-    <bcf:citekey order="43">becker_brushing_1987</bcf:citekey>
-    <bcf:citekey order="44">siegel_surgical_1972</bcf:citekey>
-    <bcf:citekey order="45">spinifex</bcf:citekey>
-    <bcf:citekey order="46">wickham_tourr_2011</bcf:citekey>
-    <bcf:citekey order="47">wegman_visual_2003</bcf:citekey>
-    <bcf:citekey order="48">swayne_ggobi:_2003</bcf:citekey>
-    <bcf:citekey order="49">huh_davis:_2002</bcf:citekey>
-    <bcf:citekey order="50">nelson_xgobi_1998</bcf:citekey>
-    <bcf:citekey order="51">carr_explorn:_1996</bcf:citekey>
-    <bcf:citekey order="52">swayne_xgobi:_1991</bcf:citekey>
-    <bcf:citekey order="53">tierney_lisp-stat:_1990</bcf:citekey>
-    <bcf:citekey order="54">carr_explor4:_1988</bcf:citekey>
-    <bcf:citekey order="55">asimov_grand_1985</bcf:citekey>
-    <bcf:citekey order="56">fisherkeller_prim-9:_1974</bcf:citekey>
-    <bcf:citekey order="57">huh_davis:_2002</bcf:citekey>
-    <bcf:citekey order="58">huh_davis:_2002</bcf:citekey>
-    <bcf:citekey order="59">swayne_ggobi:_2003</bcf:citekey>
-    <bcf:citekey order="60">swayne_ggobi:_2003</bcf:citekey>
-    <bcf:citekey order="61">wegman_visual_2003</bcf:citekey>
-    <bcf:citekey order="62">wegman_visual_2003</bcf:citekey>
-    <bcf:citekey order="63">wickham_tourr_2011</bcf:citekey>
-    <bcf:citekey order="64">wickham_tourr_2011</bcf:citekey>
-    <bcf:citekey order="65">cook_manual_1997</bcf:citekey>
-    <bcf:citekey order="66">cook_manual_1997</bcf:citekey>
-    <bcf:citekey order="67">cook_grand_1995</bcf:citekey>
-    <bcf:citekey order="68">sievert_plotly_2018</bcf:citekey>
-    <bcf:citekey order="69">pedersen_gganimate:_2019</bcf:citekey>
-    <bcf:citekey order="70">wickham_tourr_2011</bcf:citekey>
-    <bcf:citekey order="71">lubischew_use_1962</bcf:citekey>
-    <bcf:citekey order="72">lubischew_use_1962</bcf:citekey>
-    <bcf:citekey order="73">cook_interactive_2007</bcf:citekey>
-    <bcf:citekey order="74">sievert_plotly_2018</bcf:citekey>
-    <bcf:citekey order="75">sievert_plotly_2018</bcf:citekey>
-    <bcf:citekey order="76">pedersen_gganimate:_2019</bcf:citekey>
-    <bcf:citekey order="77">pedersen_gganimate:_2019</bcf:citekey>
-    <bcf:citekey order="78">xie_animation:_2018</bcf:citekey>
-    <bcf:citekey order="79">xie_animation:_2018</bcf:citekey>
-    <bcf:citekey order="80">wang_visualizing_2018</bcf:citekey>
-    <bcf:citekey order="81">wang_visualizing_2018</bcf:citekey>
-    <bcf:citekey order="82">cook_dynamical_2018</bcf:citekey>
-    <bcf:citekey order="83">cook_dynamical_2018</bcf:citekey>
+    <bcf:citekey order="30">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="31">buja_data_1987</bcf:citekey>
+    <bcf:citekey order="32">asimov_grand_1985</bcf:citekey>
+    <bcf:citekey order="33">asimov_grand_1985</bcf:citekey>
+    <bcf:citekey order="34">mcdonald_interactive_1982</bcf:citekey>
+    <bcf:citekey order="35">mcdonald_interactive_1982</bcf:citekey>
+    <bcf:citekey order="36">hurley_analyzing_1990</bcf:citekey>
+    <bcf:citekey order="37">hurley_analyzing_1990</bcf:citekey>
+    <bcf:citekey order="38">laa_using_2019</bcf:citekey>
+    <bcf:citekey order="39">laa_using_2019</bcf:citekey>
+    <bcf:citekey order="40">scott85</bcf:citekey>
+    <bcf:citekey order="41">scott95</bcf:citekey>
+    <bcf:citekey order="42">Wegman</bcf:citekey>
+    <bcf:citekey order="43">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="44">andrews_plots_1972</bcf:citekey>
+    <bcf:citekey order="45">chernoff_use_1973</bcf:citekey>
+    <bcf:citekey order="46">ocagne_coordonnees_1885</bcf:citekey>
+    <bcf:citekey order="47">becker_brushing_1987</bcf:citekey>
+    <bcf:citekey order="48">siegel_surgical_1972</bcf:citekey>
+    <bcf:citekey order="49">spinifex</bcf:citekey>
+    <bcf:citekey order="50">wickham_tourr_2011</bcf:citekey>
+    <bcf:citekey order="51">wegman_visual_2003</bcf:citekey>
+    <bcf:citekey order="52">swayne_ggobi:_2003</bcf:citekey>
+    <bcf:citekey order="53">huh_davis:_2002</bcf:citekey>
+    <bcf:citekey order="54">nelson_xgobi_1998</bcf:citekey>
+    <bcf:citekey order="55">carr_explorn:_1996</bcf:citekey>
+    <bcf:citekey order="56">swayne_xgobi:_1991</bcf:citekey>
+    <bcf:citekey order="57">tierney_lisp-stat:_1990</bcf:citekey>
+    <bcf:citekey order="58">carr_explor4:_1988</bcf:citekey>
+    <bcf:citekey order="59">asimov_grand_1985</bcf:citekey>
+    <bcf:citekey order="60">fisherkeller_prim-9:_1974</bcf:citekey>
+    <bcf:citekey order="61">huh_davis:_2002</bcf:citekey>
+    <bcf:citekey order="62">huh_davis:_2002</bcf:citekey>
+    <bcf:citekey order="63">swayne_ggobi:_2003</bcf:citekey>
+    <bcf:citekey order="64">swayne_ggobi:_2003</bcf:citekey>
+    <bcf:citekey order="65">wegman_visual_2003</bcf:citekey>
+    <bcf:citekey order="66">wegman_visual_2003</bcf:citekey>
+    <bcf:citekey order="67">wickham_tourr_2011</bcf:citekey>
+    <bcf:citekey order="68">wickham_tourr_2011</bcf:citekey>
+    <bcf:citekey order="69">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="70">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="71">cook_grand_1995</bcf:citekey>
+    <bcf:citekey order="72">sievert_plotly_2018</bcf:citekey>
+    <bcf:citekey order="73">pedersen_gganimate:_2019</bcf:citekey>
+    <bcf:citekey order="74">wickham_tourr_2011</bcf:citekey>
+    <bcf:citekey order="75">lubischew_use_1962</bcf:citekey>
+    <bcf:citekey order="76">lubischew_use_1962</bcf:citekey>
+    <bcf:citekey order="77">cook_interactive_2007</bcf:citekey>
+    <bcf:citekey order="78">sievert_plotly_2018</bcf:citekey>
+    <bcf:citekey order="79">sievert_plotly_2018</bcf:citekey>
+    <bcf:citekey order="80">pedersen_gganimate:_2019</bcf:citekey>
+    <bcf:citekey order="81">pedersen_gganimate:_2019</bcf:citekey>
+    <bcf:citekey order="82">xie_animation:_2018</bcf:citekey>
+    <bcf:citekey order="83">xie_animation:_2018</bcf:citekey>
     <bcf:citekey order="84">wang_visualizing_2018</bcf:citekey>
     <bcf:citekey order="85">wang_visualizing_2018</bcf:citekey>
     <bcf:citekey order="86">cook_dynamical_2018</bcf:citekey>
     <bcf:citekey order="87">cook_dynamical_2018</bcf:citekey>
-    <bcf:citekey order="88">xie_bookdown:_2016</bcf:citekey>
-    <bcf:citekey order="89">xie_bookdown:_2016</bcf:citekey>
-    <bcf:citekey order="90">xie_r_2018</bcf:citekey>
-    <bcf:citekey order="91">xie_r_2018</bcf:citekey>
-    <bcf:citekey order="92">cook_manual_1997</bcf:citekey>
-    <bcf:citekey order="93">cook_manual_1997</bcf:citekey>
-    <bcf:citekey order="94">buja_computational_2005</bcf:citekey>
-    <bcf:citekey order="95">buja_computational_2005</bcf:citekey>
-    <bcf:citekey order="96">nelson_xgobi_1998</bcf:citekey>
-    <bcf:citekey order="97">nelson_xgobi_1998</bcf:citekey>
-    <bcf:citekey order="98">wang_visualizing_2018</bcf:citekey>
-    <bcf:citekey order="99">cook_dynamical_2018</bcf:citekey>
+    <bcf:citekey order="88">wang_visualizing_2018</bcf:citekey>
+    <bcf:citekey order="89">wang_visualizing_2018</bcf:citekey>
+    <bcf:citekey order="90">cook_dynamical_2018</bcf:citekey>
+    <bcf:citekey order="91">cook_dynamical_2018</bcf:citekey>
+    <bcf:citekey order="92">xie_bookdown:_2016</bcf:citekey>
+    <bcf:citekey order="93">xie_bookdown:_2016</bcf:citekey>
+    <bcf:citekey order="94">xie_r_2018</bcf:citekey>
+    <bcf:citekey order="95">xie_r_2018</bcf:citekey>
+    <bcf:citekey order="96">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="97">cook_manual_1997</bcf:citekey>
+    <bcf:citekey order="98">buja_computational_2005</bcf:citekey>
+    <bcf:citekey order="99">buja_computational_2005</bcf:citekey>
     <bcf:citekey order="100">wagner_filho_immersive_2018</bcf:citekey>
     <bcf:citekey order="101">wagner_filho_immersive_2018</bcf:citekey>
     <bcf:citekey order="102">marriott_immersive_2018</bcf:citekey>
@@ -2088,6 +2109,10 @@
     <bcf:citekey order="111">cordeil_imaxes:_2017</bcf:citekey>
     <bcf:citekey order="112">cordeil_immersive_2019</bcf:citekey>
     <bcf:citekey order="113">cordeil_immersive_2019</bcf:citekey>
+    <bcf:citekey order="114">nelson_xgobi_1998</bcf:citekey>
+    <bcf:citekey order="115">nelson_xgobi_1998</bcf:citekey>
+    <bcf:citekey order="116">wang_visualizing_2018</bcf:citekey>
+    <bcf:citekey order="117">cook_dynamical_2018</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

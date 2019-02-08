@@ -243,4 +243,27 @@ ggsave("./output/step3_manual_tour.png", step3, width = 4*(5/3), height = 4)
 
 ```
 
-## 2019_01_xx from xx
+## 2019_02_08 from intro
+
+
+<!--In the chapters below we will be discussing touring, a sequence of orthogonal linear projections viewed as an animation while the basis varies, changing the orientation and hence the projection. Traditionally techniques such as principal component analysis and linear discriminant analysis (PCA and LDA respectively) use the same orthogonal projection, but only for a single frame and variation out side of 2 or 3 linear components because a casually. More recently non-linear techniques such as multi-dimensional scaling (MDS), and t-distributed stochastic nearest neighbor embedding (t-SNE) are astounding for classification but lose inter-operability back to the original variables and can suffer from overfitting. Touring offers inter-operability, and preserved information held with the projections by viewing many orientations over time, making touring a front-running technique for the exploratory data analysis of numeric multivariate data spaces.
+
+The chapter \ref{ch:lit_review}, is a literature review focusing on the tour methodology and taxonomy before breaking into sections focusing each reasearch quiestion respenctively. For the touring section I expound upon touring and discuss the history, before discussing tour path generation, and display geometrics that are intrinsically linked to the dimension of the embedding. A list of past touring software implementations is also listed.
+-->
+
+<!--
+The primary question I am expoloring is:
+TODO:
+
+Aim 1 of my thesis is to extend upon the R touring package, *tourr*, by adding manual tours, extending to recent graphic and animation packages, implement to look at function sections. Chapter \ref{ch:spinifex}, *spinifex*, discusses the implementing manual tours in R and the associated R package, *spinifex*, and also extends display the packages *plotly* and *gganimate*. We are in the process of editing the associated paper which will be submitted to the R Journal for publication shortly. Function sectioning will come later in conjunction with the work in chapter \ref{ch:hci}. 
+
+Aim 2 is to measure the perception of high dimension data embeddings across display type. 
+Chapter \ref{ch:dimensionality}, experimental study of tours across display type, divulges on the experimental design that studies across the display devices: standard 2d monitors, head-tracked 3d displayed on a zSpace, and head-mounted virtual reality goggles. The *spinifex* package will be called from Unity (via C#), which will then render the data projections from the same interface across display types.
+
+Chapter \ref{ch:hci}, human-computer interaction of high dimension data and functions, extends the previous work, creating an immersive virtual space for exploratory data analysis of projections of high dimensional data and function spaces.
+
+Finally, chapter \ref{ch:timeline} lays out the prospective timeline for the remainder of my PhD research.
+
+-->
+
+<!-- Finally, Chapter 6 provides some concluding remarks, discussion, ideas for future research, and so on. Appendixes can contain additional material that don't fit into any chapters, but that you want to put on record. For example, additional tables, output, etc. -->
