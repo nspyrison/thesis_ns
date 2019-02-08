@@ -26,7 +26,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.4}Geom display dimensionality}{8}{subsection.2.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.5}Past implementations}{9}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.5}Tour software implementations}{9}{subsection.2.1.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.2}Virtual reality}{10}{section.2.2}
 \defcounter {refsection}{0}\relax 
@@ -60,10 +60,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.7}Discussion}{27}{section.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}The effect of display type in perception of structure in high dimensional data}{29}{chapter.4}
+\contentsline {chapter}{\numberline {4}UCS\_benefits}{29}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Human-computer interaction with displays of high dimensional data and functions}{31}{chapter.5}
+\contentsline {chapter}{\numberline {5}How can we extend the manual tour to 3d?}{31}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}PhD timeline}{33}{chapter.6}
+\contentsline {chapter}{\numberline {6}Does 3d UCS provide benefits over UCS in 2d?}{33}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{35}{chapter*.14}
+\contentsline {chapter}{\numberline {7}PhD timeline}{35}{chapter.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{37}{chapter*.14}

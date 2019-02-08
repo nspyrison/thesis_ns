@@ -1,0 +1,11 @@
+---
+chapter: 4
+knit: "bookdown::render_book"
+---
+
+# What benefit does UCS have over alternatives? {#ch:UCS_benefits}
+
+High dimensional data and models are ubiquitous, but viewing them in data space is not trivial. Currently it is common practice to use Principal Component Analysis (PCA), Multi-Dimensional Scaling (MDS), or a non-linear embedding like tSNE. Unfortunately, static projections necessarily cut variation in the components not shown, while non-linear techniques lose inter-operability, back to the original data-space. Touring preserves variable inter-operability and keeps variation in tack. By providing user controlled steering of tour we should be able to provide finer structural exploration than the alternatives/
+
+This work will be a comparison study between UCS and 3 or 4 of the leading alternatives.
+

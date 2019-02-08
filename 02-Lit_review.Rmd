@@ -47,18 +47,19 @@ Terminology varies accross author and implementation. In my work, I use the foll
 
 ### History
 
-<!-- In 1974 Friedman and Tukey purposed Projection Pursuit[@friedman_projection_1974] (sometimes referred to as PP) while working at Bell Labs. Projection Pursuit involves identifying "interesting" projection, remove a single component of the data, and then iterate in this newly embedded subspace. Within each subspace the projection seeks for a local extrema via gradient descent (historically referred to as hill climbing algorithms), hence the nomenclature pursuit. -->
+Touring was first introduced by Asimov in 1985 with his purposed Grand Tour[@asimov_grand_1985] at the Stanford Linear Accelerator, Stanford University. In which, Asimov suggested three types of grand tours: torus, at-random, and random-walk. The specifics of which will be discussed below in the Typology section. The original application of touring was on high energy physics on the PRIM-9 system.
 
-Touring was first introduced by Asimov in 1985 with his purposed Grand Tour[@asimov_grand_1985] at Stanford University. In which, Asimov suggested three types of Grand Tours: torus, at-random, and random-walk. The specifics of which will be discussed below in the Typology section.
+Before choosing projection paths randomly, an exhaustive search of was suggested by @mcdonald_interactive_1982, also at the Stanford Linear Accelerator, and acknowledges Asimov and Buja.
+
+In 1974 Friedman and Tukey purposed Projection Pursuit[@friedman_projection_1974] (sometimes referred to as PP) while working at Bell Labs. Projection Pursuit involves identifying "interesting" projection, remove a single component of the data, and then iterate in this newly embedded subspace. Within each subspace the projection seeks for a local extrema via hill climbing algorithms. This formed the basis for guided tours @hurley_analyzing_1990, 
 
 <!-- * torus: where a $p$-dimensional torus, $T^p$ is created from a Cartesian product of $p$ unit circles with $T^p \in \mathbb{R}^p$. Unfortunately, uniformity of the parameters does not correlate to uniform points on the surface of the torus. If step distance between frames is fixed, disproportionate time is spent between subspaces. If step distance is change to account for uniform points on the torus then the continuity of the tour is lost.   -->
 <!-- * at-random: where each 2-frame is chosen at random without replacement. This affords an assured uniform distribution of subspaces but is far too discontinuous for observation. It also leaves no parameters to control. -->
 <!-- * random-walk: combines the continuity of the torus method and the uniformity of the at-random method while leaving room for a control parameter.  -->
 
-The grand tours methods have no input from the user aside from the starting basis. The bulk of touring development since has largely been around dynamic display, user interaction, geometric representation, and application. The extent to which will be expounded on in the following sections.
-<!--above claim from c2 paper: buja & asimov 1986, Hurley & Buja 1990, Wegman 1991, cook, buja, cabrera, & hurley 1995, buja, cook asimov & hurley 1997,cook & buja 1997. -->
+The grand and little tour have no input from the user aside from the starting basis. Purjection Pusuit allows for an index to be selected, but the bulk of touring development since has largely been around dynamic display, user interaction, geometric representation, and application. The extent to which will be expounded on in the following sections.
 
-This works well when the number of dimensions being toured is small (in the neighborhood of 5-10), yet the number of possible views, or 2-frames, we can produce from $p$-space suffers from the so-called blessing/curse of dimensionality. In which the plethora of degrees of freedom either offer many (non-unique) solutions to a problem or something that becomes ever increasing unlikely.
+<!--above claim from c2 paper: buja & asimov 1986, Hurley & Buja 1990, Wegman 1991, cook, buja, cabrera, & hurley 1995, buja, cook asimov & hurley 1997,cook & buja 1997. -->
 
 
 ### Path genration
@@ -67,10 +68,9 @@ A fundamental aspect of touring is the path of rotation. Of which there are four
 
 * *grand tour*, a constrained random choice $p$-space. Paths are constrained for changes in direction small enough to maintain continuity and aid in user comprehension
     + torus-surface [@asimov_grand_1985]
-    + Geodesic 
     + at-random
     + random-walk
-    + *local tour*, a sort of grand tour on leash, such that it goes to a nearby random projection before returning to the original position and iterating
+    + *local tour*, a sort of grand tour on a leash, such that it goes to a nearby random projection before returning to the original position and iterating
 * *guided tour*, data driven tour that optimizing some objective function via projection pursuit[@hurley_analyzing_1990], analogous to gradient descent.
     + holes [@cook_projection_1993] - iterates projections that add more white space to the center of the projection.
     + cmass [@cook_projection_1993] - find the projection with the most density or mass in the center.
@@ -84,12 +84,18 @@ A fundamental aspect of touring is the path of rotation. Of which there are four
     + other user-defined objective function can be implemented with the *tourr* package @wickham_tourr_2011.
 * *planned tour*, Precomputed choice, in which the path has already been generated or defined.
     + *little tour* [@mcdonald_interactive_1982], where every permutation of variables is stepped through in order, analogous to a brute-force or exhaustive search.
-    + a saved path of any other tour
+    + a saved path of any other tour, typically an array of basis targets to interpolate between as produced by the R function `tourr::save_history()`.
 * *manual tour* - Manual control, a constrained rotation on selected manipulation variable and magnitude[@cook_manual_1997]. Typically used to explore the local area after identifying an interesting feature from another tour.
 * *dependence tour*, combination of $n$ independent 1d tours. A vector describes the axis each variable will be displayed on. **ie** $c(1, 1, 2, 2)$ is a 4 to 2d tour with the first 2 variables on the first axis, and the remaining on the second.
     + *correlation tour* [@buja_data_1987], a special case of the dependence tour, analogous to canonical correlation analysis
 
+<!-- #### Interpolation -->
 
+<!-- After target bases are identified, the frames inbetween need to be filled in. There are several methods to do so: -->
+<!-- * Geodesic -->
+<!-- * Gram-Schimdt process -->
+<!-- * Givens rotations -->
+<!-- * Householder reflections -->
 
 #### Tour path evaluation 
 
@@ -97,8 +103,7 @@ Consider $d=2$, then each projection is called a 2-frame (each spanning a 2-plan
 
 The little tour introduced in @mcdonald_interactive_1982, on the the other hand is necessarily both dense and rapid, performing essentially an exhaustive search on the Grassmannian. However the path choosen is uninteresting, the pre-defined sequence rarely results in insightful observations.
 
-I order to increase the speed of finding insteresting projections @hurley_analyzing_1990 implemented guided tours. The optimization of the ojective function means path of projection pursuit will be relatively small, density and rapidity become poor measures, but interesting projections are quickly identified. Recently, @laa_using_2019, compares projection pursuit indices with the metrics: smoothness, squintability, flexibility, rotation invariance and speed. See the original work to see how the indices perform 
-
+Guided tours (@hurley_analyzing_1990) optimize an ojective functionm generating path will be relatively small subset of the Grassmanian, density and rapidity become poor measures, while interesting projections are quickly identified. Recently, @laa_using_2019, compares projection pursuit indices with the metrics: smoothness, squintability, flexibility, rotation invariance and speed. See the original work to see how the indices perform.
 
 
 ### Geom display dimensionality
@@ -110,10 +115,9 @@ Up to this point we have been talking about 2d scatterplots, which offer the fir
     + image: [@Wegman 2001]
     + time series: where multivariate values are independently lagged to view peak and trough alignment. Currently no package implementation, but use case is discussed in [@cook_manual_1997]. 
 * 2d geoms
-    + 2-d density [@NS GITHUB]
+    + 2-d density (available on Github at https://github.com/nspyrison/tourr)
     + $x-y$ scatterplot
-    +
-* 3d geoms
+* 2.5d geoms - these geoms do not perform project to 3 dimensions, but rather give persception cues into the add dimension of the manipulation space of 2d projection.
     + Anaglyphs, sometimes called stereo, where (typically) red images are positioned for the left channel and cyan for the right, when viewed with corresponding filter glasses give the depth perception of the image.
     + Depth, which use some subset of depth cues, most commonly size and/or color of data points.
 * $d$-dim geoms
@@ -124,7 +128,7 @@ Up to this point we have been talking about 2d scatterplots, which offer the fir
     + Radial glyphs, radial variants of parallel coordinates including radar, spider, and star glyphs [@siegel_surgical_1972]. 
 
 
-### Past implementations
+### Tour software implementations
 
 Below is a non-exhaustive list of software implementing touring in some degree, ordered by descending year:
 <!-- See hadley's thesis and, C2 paper for lists. -->
