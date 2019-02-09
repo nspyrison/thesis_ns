@@ -28,7 +28,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.1.5}Tour software implementations}{9}{subsection.1.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Virtual reality}{10}{section.1.2}
+\contentsline {section}{\numberline {1.2}Data vizualization in 3D}{10}{section.1.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.1}A rocky start}{10}{subsection.1.2.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Using animation to explore sensitivity of structure in a low-dimensional projection of high-dimensional data with user controlled steering}{11}{chapter.2}
 \defcounter {refsection}{0}\relax 
