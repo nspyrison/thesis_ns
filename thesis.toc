@@ -62,11 +62,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}What benefit does UCS have over alternatives?}{29}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}How can we extend the manual tour to 3d?}{31}{chapter.4}
+\contentsline {chapter}{\numberline {4}How can we extend UCS to 3d?}{31}{chapter.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Does 3d UCS provide benefits over UCS in 2d?}{33}{chapter.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{PhD timeline}{35}{chapter*.15}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}FIT 5144 hours}{35}{section.5.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Acknowledgements}{37}{chapter*.16}
 \defcounter {refsection}{0}\relax 
