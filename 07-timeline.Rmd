@@ -5,22 +5,10 @@ knit: "bookdown::render_book"
 
 # PhD timeline {-} 
 
-Also submited via online milestone form:
-
-- FIT 5144 hours
-    -
-- WES Acedemic record
-    - FIT6021: 2018 S2, **Passed** with Distinction
-    - FIT5144: 2019 S1+2, **Upcoming**
-    - FIT5113: 2018 S2, **Exemption submitted**
-- myDEVELOPMENT - IT: Monash Doctoral Program - Compulsory Module
-    - Monash Graduate Research Student Induction: **Completed** 
-    - Research Integrity - Choose the Option most relevant: **Completed** (2 reqiured of 4)
-    - Faculty Induction: **Content unavilable** (currently being updated and will be visible in this section soon". Induction To be completed within 6 months of commencement)
-    
 
 
-```{r timeline, echo=F, }
+
+```{r timeline, echo=F,}
 #out.extra='angle=90
 ## working from: https://stats.andrewheiss.com/misc/gantt.html
 library(tidyverse)
@@ -28,25 +16,32 @@ library(lubridate)
 library(scales)
 
 tasks <- tribble(
-  ~Start,       ~End,         ~Project,              ~Task,
-  "2018-04-01", "2019-06-01", "spinfex",             "Aim1 spinifex package",
-  "2018-04-01", "2019-06-01", "spinfex",             "spinifex code",
-  "2018-12-01", "2019-03-01", "spinfex",             "spinifex paper",
-  "2019-03-01", "2019-06-01", "spinfex",             "spinifex Submission and follow-up",
-  "2019-01-01", "2019-03-01", "Milestones",          "Canidature confirmation",
-  "2018-11-01", "2020-01-01", "Display type survey", "Aim2: display type exp survey",
-  "2018-11-01", "2018-12-01", "Display type survey", "desktop 3d setup",
-  "2019-03-01", "2019-06-01", "Display type survey", "Display type c# code",
-  "2019-06-01", "2019-08-01", "Display type survey", "Display type Experimental survey",
-  "2019-07-01", "2019-10-01", "Display type survey", "display type paper",
-  "2019-10-01", "2020-01-01", "Display type survey", "Display type Submission and follow-up",
-  "2020-01-01", "2020-03-01", "Milestones",          "Mid canidature review",
-  "2019-11-01", "2020-10-01", "HCI projections",     "Aim3: HCI of high dim projections",
-  "2019-11-01", "2020-06-01", "HCI projections",     "Projections in IATK, C# code",
-  "2020-05-01", "2020-08-01", "HCI projections",     "HCI projections paper",
-  "2020-07-01", "2020-10-01", "HCI projections",     "HCI projections Submission and follow-up",
-  "2020-10-01", "2021-03-01", "Milestones",          "pre-submission presentation",
-  "2021-01-01", "2021-04-01", "Milestones",          "thesis completion and submission"
+  ~Start,       ~End,         ~Project,     ~Task,
+  "2018-04-01", "2019-06-01", "UCS in 2D",  "RO: A) spinifex package, 2D UCS",
+  "2018-04-01", "2019-06-01", "UCS in 2D",  "spinifex code",
+  "2018-12-01", "2019-03-01", "UCS in 2D",  "spinifex paper",
+  "2019-03-01", "2019-06-01", "UCS in 2D",  "spinifex Submission and follow-up",
+  "2019-01-01", "2019-03-01", "Milestones", "Canidature confirmation",
+  
+  "2019-03-01", "2019-12-01", "UCS in 3D",  "RO: C) Tours, UCS in 3D",
+  "2019-03-01", "2019-08-01", "UCS in 3D",  "UCS to IATK, C# code",
+  "2019-06-01", "2019-09-01", "UCS in 3D",  "UCS in 3D paper",
+  "2019-09-01", "2019-12-01", "UCS in 3D",  "UCS in 3D Submission and follow-up",
+  "2020-01-01", "2020-03-01", "Milestones", "Mid canidature review",
+  
+  "2019-10-01", "2020-09-01", "UCS, 2D vs 3D", "RO: D) UCS across disp type, 2D vs 3D",
+  "2019-10-01", "2020-02-01", "UCS, 2D vs 3D", "2D vs 3D C# code",
+  "2020-01-01", "2020-04-01", "UCS, 2D vs 3D", "2D vs 3D Experimental survey",
+  "2020-03-01", "2020-06-01", "UCS, 2D vs 3D", "2D vs 3D paper",
+  "2020-06-01", "2020-09-01", "UCS, 2D vs 3D", "2D vs 3D Submission and follow-up",
+  
+  "2020-04-01", "2020-12-01", "UCS Benefits", "RO: B) UCS Benefits over alternatives",
+  "2020-04-01", "2020-08-01", "UCS Benefits", "UCS Benefits C# code and comparison",
+  "2020-06-01", "2020-09-01", "UCS Benefits", "UCS Benefits paper",
+  "2020-09-01", "2020-12-01", "UCS Benefits", "UCS Benefits Submission and follow-up",
+  
+  "2020-11-01", "2021-03-01", "Milestones", "pre-submission presentation",
+  "2021-01-01", "2021-04-01", "Milestones", "thesis completion and submission"
 )
 
 # Convert data to long for ggplot
@@ -93,6 +88,19 @@ timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) +
 timeline
 ```
 
+Also submitted via online milestone form:
+
+- FIT 5144 hours
+    - >120 hours **Completed**
+- WES Academic record
+    - FIT6021: 2018 S2, **Completed** with Distinction
+    - FIT5144: 2019 S1+2, **Upcoming**
+    - FIT5113: 2018 S2, **Exemption submitted**
+- myDevelopment - IT: Monash Doctoral Program - Compulsory Module
+    - Monash Graduate Research Student Induction: **Completed** 
+    - Research Integrity - Choose the Option most relevant: **Completed** (2 reqiured of 4)
+    - Faculty Induction: **Content unavilable** ("currently being updated and will be visible in this section soon". Induction To be completed within 6 months of commencement)
+
 # Acknowledgements {-} 
 
-This thesis report is generated using R[XXXREF] and Rmarkdown[REFXXX], where code and explanation are kept together, following reproducible research practice. 
+This thesis report is generated using R[@r_core_team_r:_2018], and Rmarkdown[@xie_r_2018], where code and explanation are kept together, following reproducible research practice. The code can be found at: https://github.com/nspyrison/Confirmation

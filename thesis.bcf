@@ -2117,6 +2117,8 @@
     <bcf:citekey order="119">arms_benefits_1999</bcf:citekey>
     <bcf:citekey order="120">wang_visualizing_2018</bcf:citekey>
     <bcf:citekey order="121">cook_dynamical_2018</bcf:citekey>
+    <bcf:citekey order="122">r_core_team_r:_2018</bcf:citekey>
+    <bcf:citekey order="123">xie_r_2018</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
