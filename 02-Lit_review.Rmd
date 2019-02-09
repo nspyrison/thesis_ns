@@ -2,13 +2,8 @@
 chapter: 2
 knit: "bookdown::render_book"
 ---
-<!-- #REFERENCE EXAMPLES: -->
-<!-- [@Brown59;@Brown63;@Holt57;@Winters60]. Because of their computational simplicity and interpretability, they became widely used in practice. -->
-<!-- Empirical studies by @MH79 and @Metal82 found little difference... proposition [see @CKOS01]. -->
 
 # Literature review {#ch:lit_review}
-
-<!-- This chapter contains a summary of the context in which your research is set.  -->
 
 <!-- Imagine you are writing for your fellow PhD students. Topics that are well-known to them do not have to be included here. But things that they may not know about should be included. -->
 
@@ -16,7 +11,6 @@ knit: "bookdown::render_book"
 
 <!-- You will need to organize the literature review around themes, and within each theme provide a story explaining the development of ideas to date. In each theme, you should get to the point where your ideas will fit in. But leave your ideas to later chapters. This way it is clear what has been done beforehand, and what new contributions you are making to the research field. -->
 
-<!-- All citations should be done using markdown notation as shown below. This way, your bibliography will be compiled automatically and correctly. -->
 
 
 ## Touring {#sec:tour}
@@ -27,22 +21,22 @@ In univariate data sets histograms, or smoothed density curves are employed to v
 
 Let $p$ be the number of numeric variables; how do we visualize data for even modest values of $p$ (say 6 or 12)? It's far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse: long tables of statistics without visuals [@wickham_visualizing_2015]. Yet, we all know of the risks inherent in relying too heavily on parameters alone [@anscombe_graphs_1973; @matejka_same_2017]. So why do we move away from visualizing in data-space? Scalability, in a word, we are not familiar with methods that allow us to concisely depict and digest $p \geq 5$ or so dimensions. This is where dimensionality reduction comes in. Specifically, we will be focusing on a specific group called touring. In the interest of time I will not belabor the diversity of dimensionality reduction, (see [@grinstein_high-dimensional_2002; @carreira-perpinan_review_1997; heer_tour_2010] for a quick summary). Suffice it to say that touring has a couple of salient features: linear transformations such that we can interpolate back to the original variable space and does not discard dimensions, something that is common to other linear techniques. By employing the breadth of tours we are able to preserve the visualization of data-space, and with it, the intrinsic understanding of structure and distribution of data that is more succinct or beyond the reach of statistic values alone.
 
-Touring is a linear dimensionality reduction technique that orthogonally projects $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the orginial variable space manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2-dimensional shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a 2-dimensional tour as the 3-dimensional object is manipulated. In some views more information is hidden than in others, and complex strutures generally require more time to comphrehend the nature of the geometry.
+Touring is a linear dimensionality reduction technique that orthogonally projects $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2-dimensional shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a 2-dimensional tour as the 3-dimensional object is manipulated. In some views more information is hidden than in others, and complex structures generally require more time to comprehend the nature of the geometry.
 
 
 #### Terminology
 
-Terminology varies accross author and implementation. In my work, I use the following
+Terminology varies across author and implementation. In my work, I use the following
 
-* $n$, numerber of observations
+* $n$, number of observations
 * $p$, number of numeric variables, the dimensionality of data space,
 * $d$, dimensionality of projection space
 * $\textbf{X}_{[n,~p]}$, a data matrix in variable-space, $\textbf{X} \in \mathbb{R}^{p}$. Typically centered, scaled, and optionally sphered.
 * $B_{[p,~d]}$, orthonormal basis vector, defining the orientation of projection from $p-$ to $d-$space
 * $\textbf{Y}_{[n,~d]}$, projected data matrix in projection-space, $\textbf{Y} \in \mathbb{R}^{d}$
 
-* For projections down to 1- and 2-d, It's common to display the contribution and direction on it's own axis (1d) or relative to a unit circle (2d), this is sometime refered to as basis axes or a reference frame.
-* Geometric objects are referred to in generalized dimensions; the use of plane isn't necessarily a 2d surface, but a hyperplane in the arbitary dimensions of the projection space.
+* For projections down to 1- and 2-d, It's common to display the contribution and direction on it's own axis (1d) or relative to a unit circle (2d), this is sometime refereed to as basis axes or a reference frame.
+* Geometric objects are referred to in generalized dimensions; the use of plane isn't necessarily a 2d surface, but a hyper-plane in the arbitrary dimensions of the projection space.
     
 
 ### History
@@ -57,7 +51,7 @@ In 1974 Friedman and Tukey purposed Projection Pursuit[@friedman_projection_1974
 <!-- * at-random: where each 2-frame is chosen at random without replacement. This affords an assured uniform distribution of subspaces but is far too discontinuous for observation. It also leaves no parameters to control. -->
 <!-- * random-walk: combines the continuity of the torus method and the uniformity of the at-random method while leaving room for a control parameter.  -->
 
-The grand and little tour have no input from the user aside from the starting basis. Purjection Pusuit allows for an index to be selected, but the bulk of touring development since has largely been around dynamic display, user interaction, geometric representation, and application. The extent to which will be expounded on in the following sections.
+The grand and little tour have no input from the user aside from the starting basis. Projection Pursuit allows for an index to be selected, but the bulk of touring development since has largely been around dynamic display, user interaction, geometric representation, and application. The extent to which will be expounded on in the following sections.
 
 <!--above claim from c2 paper: buja & asimov 1986, Hurley & Buja 1990, Wegman 1991, cook, buja, cabrera, & hurley 1995, buja, cook asimov & hurley 1997,cook & buja 1997. -->
 
@@ -79,7 +73,7 @@ A fundamental aspect of touring is the path of rotation. Of which there are four
     + convex [@laa_using_2019] - the ratio of area of convex and alpha hulls.
     + skinny [@laa_using_2019] - the ratio of of the perimeter distance to the area of the alpha hull.
     + stringy [@laa_using_2019] - based on the minimum spanning tree (MST), the diameter of the MST over the length of the (MST).
-    + dcor2D [@grimm_mbgraphic:_2017; @laa_using_2019] - distance correlation that finds linear and non-linear dependancyes between variables.
+    + dcor2D [@grimm_mbgraphic:_2017; @laa_using_2019] - distance correlation that finds linear and non-linear dependencies between variables.
     + splines2D [@grimm_mbgraphic:_2017; @laa_using_2019] - measure of non-linear dependence by fitting spline models.
     + other user-defined objective function can be implemented with the *tourr* package @wickham_tourr_2011.
 * *planned tour*, Precomputed choice, in which the path has already been generated or defined.
@@ -101,7 +95,7 @@ A fundamental aspect of touring is the path of rotation. Of which there are four
 
 Consider $d=2$, then each projection is called a 2-frame (each spanning a 2-plane). Mathematically we call the set of all possible unoriented 2-frames in $p$-space a Grassmannian, $\textbf{Gr}(2,~p)$. @asimov_grand_1985 pointed out that the unique 2-frames of the grand tour approaches $\textbf{Gr}(2,~p)$ as time goes to infinity. We could then define the *density* of a tour as the fraction of the Grassmannian explored. Ideally a grand tour will be dense, but the time taken to become dense vastly increases as variable space increase dimensionality. We could then also talk about the *rapidity* of a tour as how quickly a tour encompasses the Grassmannian. Due to the random selection of a grand tour it will end up visiting homomorphisms of previous 2-frames, sub-optimal rapidity. 
 
-The little tour introduced in @mcdonald_interactive_1982, on the the other hand is necessarily both dense and rapid, performing essentially an exhaustive search on the Grassmannian. However the path choosen is uninteresting, the pre-defined sequence rarely results in insightful observations.
+The little tour introduced in @mcdonald_interactive_1982, on the the other hand is necessarily both dense and rapid, performing essentially an exhaustive search on the Grassmannian. However this path uninteresting and with long periods of similiar projections strung together. There was a need to find interesting projections quicker.
 
 Guided tours (@hurley_analyzing_1990) optimize an ojective functionm generating path will be relatively small subset of the Grassmanian, density and rapidity become poor measures, while interesting projections are quickly identified. Recently, @laa_using_2019, compares projection pursuit indices with the metrics: smoothness, squintability, flexibility, rotation invariance and speed. See the original work to see how the indices perform.
 
@@ -138,6 +132,7 @@ Below is a non-exhaustive list of software implementing touring in some degree, 
 * CyrstalVision [@wegman_visual_2003] -- for Windows.
 * GGobi [@swayne_ggobi:_2003] -- for Linux and Windows.
 * DAVIS [@huh_davis:_2002] -- Java based, with GUI.
+* ORCA [@sutherland_orca_2000] -- Extensible toolkit build off of object oriented Java.
 * VRGobi [@nelson_xgobi_1998] -- for use with the C2, tours in stereoscopic 3d displays.
 * ExplorN [@carr_explorn:_1996] -- for SGI Unix.
 * XGobi [@swayne_xgobi:_1991] -- for Linux, Unix, and Windows (via emulation).
@@ -147,6 +142,13 @@ Below is a non-exhaustive list of software implementing touring in some degree, 
 
 Support and maintenance of such implementations give them a particularly short life span, while conceptual abstraction and technically heavier implementations have hampered user growth. There have been notable efforts to diminish the barriers to entry and make touring more approachable as a data exploration tool [@huh_davis:_2002; @swayne_ggobi:_2003; @wegman_visual_2003; @wickham_tourr_2011; huang_tourrgui:_2012].
 
-## Virtual reality
+## Data vizualization in 3D
+
+For the sake of brievity and relavence we stick to discussion of multivariate data vizualization in 3D, for wider scope see Chapter 2 of @marriott_immersive_2018.
+
+### A rocky start
+
+Scientific visualization have readily adopted mixed realities as a large amount of the science exist in 3 spatial dimensions, lending itself well to virtual immersion. Data vizualisation, on the other hand, has been been slow to utilize graphics above 2.5D, (and haptic interaction) primarily due to the hype of 3D visuals from the 1980's and 90's [@munzner_visualization_2014]. 
+
 
 
