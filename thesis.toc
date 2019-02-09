@@ -68,8 +68,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{PhD timeline}{35}{chapter*.15}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}FIT 5144 hours}{35}{section.5.1}
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Acknowledgements}{37}{chapter*.16}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Bibliography}{39}{chapter*.17}

@@ -3,7 +3,8 @@ chapter: 1
 knit: "bookdown::render_book"
 ---
 
-# Research problem {-}
+# Research problem {-} 
+<!-- {#ch:objectives} -->
 
 Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualise high dimensions have been a pursuit of statisticians, computer scientists and visualisation researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavour.  
 
@@ -17,10 +18,10 @@ The primary research question is:
 This question is reduced to four research objectives:
 
 \begin{itemize}
-  \item[RO \#A] Can user controlled steering (UCS) be utilized in an environment providing only animation? (Chapter \ref{#ch:USC-benefits})
-  \item[RO \#B] What benefits does UCS provide over current common practice, such as PCA, MDS, tSNE? (Chapter \ref{#ch:USC-benefits})
-  \item[RO \#C] How do we extend UCS to 3D? (Chapter \ref{#ch:UCS_in3d})
-  \item[RO \#D] Does UCS with 3D displays provide perception benefits over 2D displays? (Chapter \ref{#ch:UCS_3dvs2d})
+  \item[RO \#A] Can user controlled steering (UCS) be utilized in an environment providing only animation? (Chapter \ref{ch:spinifex})
+  \item[RO \#B] What benefits does UCS provide over current common practice, such as PCA, MDS, tSNE? (Chapter \ref{ch:UCS_benefits})
+  \item[RO \#C] How do we extend UCS to 3D? (Chapter \ref{ch:UCS_in3d})
+  \item[RO \#D] Does UCS with 3D displays provide perception benefits over 2D displays? (Chapter \ref{ch:UCS_3dvs2d})
 \end{itemize}
 
 
