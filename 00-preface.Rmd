@@ -4,7 +4,7 @@ knit: "bookdown::render_book"
 
 # Preface {-}
 
-<!-- The material in Chapter \ref{ch:intro} has been submitted to *Something interesting jornal* for possible publication. -->
+<!-- The material in Chapter \ref{ch:intro} has been submitted to *Something interesting journal* for possible publication. -->
 
-The contribution in Chapter \ref{ch:spinifex} will soon be submitted to the R journal and the accomanying R package *spinifex* will be submitted to CRAN.
+The contribution in Chapter \ref{ch:spinifex} will soon be submitted to the R journal and the accompanying R package *spinifex* will be submitted to CRAN.
 

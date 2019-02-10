@@ -6,9 +6,9 @@ knit: "bookdown::render_book"
 # Research problem {-} 
 <!-- {#ch:objectives} -->
 
-Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualise high dimensions have been a pursuit of statisticians, computer scientists and visualisation researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavour.  
+Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualize high dimensions have been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor.  
 
-This thesis focuses on tour methods for visualising high-dimensional data. Tours are a famiily of algorithms for generating paths on the space of low dimensional ($d=1, 2, 3, ..., p$) projections of high-dimensional ($p$) space. The resulting projection of the data (or model) is displayed using low-dimensional techniques such as histograms, dotplots, scatterplots, or parallel coordinate plots, and the path generates a movie or animation to shows many low-dimensional projections. The method can be applied with other techniques such as machine learning techniques like discriminant analysis, neural networks, support vector machines, to open the black box, and complements dimension reduction techniques like principal component analysis (PCA), multidimensional scaling (MDS) on nonlinear embeddings (e.g. tSNE). 
+This thesis focuses on tour methods for visualizing high-dimensional data. Tours are a family of algorithms for generating paths on the space of low dimensional ($d=1, 2, 3, ..., p$) projections of high-dimensional ($p$) space. The resulting projection of the data (or model) is displayed using low-dimensional techniques such as histograms, dot plots, scatterplots, or parallel coordinate plots, and the path generates a movie or animation to shows many low-dimensional projections. The method can be applied with other techniques such as machine learning techniques like discriminant analysis, neural networks, support vector machines, to open the black box, and complements dimension reduction techniques like principal component analysis (PCA), multidimensional scaling (MDS) on nonlinear embeddings (e.g. tSNE). 
 
 
 The primary research question is:
@@ -30,12 +30,12 @@ The big question:
 1.) Does allowing the user to steer the tour facilitate exploration of the sensitivity of structure?
 ____
 1a) Can the manual tour algorithm be implemented in an environment provided only animation technology?
--- for panel defense: why R; data science; people currently only looking at pca and mds, R and Python is the right place for it.
-1b) what benefits to user controlled steering (UCS) Provide over current practice? (comparative study)
+-- for panel defense: why R; data science; people currently only looking at PCA and MDS, R and Python is the right place for it.
+1b) what benefits to user-controlled steering (UCS) Provide over current practice? (comparative study)
 Guided vs guided + manual, PCA/MDS vs manual, random projections vs manual. 
 -- lit: current multivariate literature. examples of stopping at PCA, MDS, t-SNE?
-1c) How can we extend the manual tour to 3d? (chap 5 HCI) (exploratory design)
---c2 was the manip space of 2d, not true $d=3$.
-1d) does 3d ucs provide benefits over ucs in 2d. (chap 4 Display Type -> chap6) (comparative study)
+1c) How can we extend the manual tour to 3D? (chap 5 HCI) (exploratory design)
+--c2 was the manipulation space of 2D, not true $d=3$.
+1d) Does 3D UCS provide benefits over UCS in 2D. (chap 4 Display Type -> chap6) (comparative study)
 --for lit follow kim's chapter's refs
 -->
