@@ -190,7 +190,7 @@
     \end{center}
     \vfill
     \begin{center}\Large
-        {Canidature confirmation document
+        {Candidature  confirmation document
         for the degree of\\[0.3cm] \degreetitle}
     \end{center}
     \vfill

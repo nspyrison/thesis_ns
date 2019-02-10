@@ -97,7 +97,7 @@ Also submitted via online milestone form:
 - myDevelopment - IT: Monash Doctoral Program - Compulsory Module
     - Monash Graduate Research Student Induction: **Completed** 
     - Research Integrity - Choose the Option most relevant: **Completed** (2 reqiured of 4)
-    - Faculty Induction: **Content unavilable** ("currently being updated and will be visible in this section soon". Induction To be completed within 6 months of commencement)
+    - Faculty Induction: **Content unavailable** ("currently being updated and will be visible in this section soon". Induction To be completed within 6 months of commencement)
 
 # Acknowledgements {-} 
 

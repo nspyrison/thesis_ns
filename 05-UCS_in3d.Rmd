@@ -5,6 +5,6 @@ knit: "bookdown::render_book"
 
 # How can we extend UCS to 3d? {#ch:UCS_in3d}
 
-Touring involves linear embeddings in typically $d=2$ dimensions. While @nelson_xgobi_1998 and @arms_benefits_1999 have explored the efficacy of 2D vs 3D display, they have done so on 2D embeddings, I will generalize the rotation to scalable demensions in R, built upon the existing packages *tourr* and *spinifex*. This will allow for the backend work of 3D rotations.
+Touring involves linear embeddings in typically $d=2$ dimensions. While @nelson_xgobi_1998 and @arms_benefits_1999 have explored the efficacy of 2D vs 3D display, they have done so on 2D embeddings, I will generalize the rotation to scalable dimensions in R, built upon the existing packages *tourr* and *spinifex*. This will allow for the backend work of 3D rotations.
 
-Recently @cordeil_imaxes:_2017 shared immersive data anylsis written in C# to be used in cojunction with the 3D complatiable game engine Unity. The outcome of this work was refined and gerernalized in the mmersive Analytics Toolkit (IATK), @cordeil_immersive_2019. As an exploratory desgin I will extend upon this toolkit and call R srcipts for a compatible front end to be used across display device.
+Recently @cordeil_imaxes:_2017 shared immersive data analysis written in C# to be used in conjunction with the 3D compatible game engine Unity. The outcome of this work was refined and generalized in the Immersive Analytics Toolkit (IATK), @cordeil_immersive_2019. As an exploratory design I will extend upon this toolkit and call R scripts for a compatible front end to be used across display device.

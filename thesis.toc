@@ -1,14 +1,10 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Acknowledgements}{v}{chapter*.1}
+\contentsline {chapter}{Declaration}{v}{chapter*.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Declaration}{vii}{chapter*.2}
+\contentsline {chapter}{Abstract}{vii}{chapter*.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Preface}{ix}{chapter*.3}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abstract}{xi}{chapter*.4}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Research problem}{1}{chapter*.5}
+\contentsline {chapter}{Research problem}{1}{chapter*.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Literature review}{3}{chapter.1}
 \defcounter {refsection}{0}\relax 
@@ -16,19 +12,19 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.1.1}Overview}{3}{subsection.1.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Terminology}{4}{subsubsection*.6}
+\contentsline {subsubsection}{Terminology}{4}{subsubsection*.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.1.2}History}{5}{subsection.1.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.3}Path genration}{6}{subsection.1.1.3}
+\contentsline {subsection}{\numberline {1.1.3}Path generation}{6}{subsection.1.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Tour path evaluation}{7}{subsubsection*.7}
+\contentsline {subsubsection}{Tour path evaluation}{7}{subsubsection*.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.4}Geom display dimensionality}{8}{subsection.1.1.4}
+\contentsline {subsection}{\numberline {1.1.4}Geometric display dimensionality}{8}{subsection.1.1.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.1.5}Tour software implementations}{9}{subsection.1.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Data vizualization in 3D}{10}{section.1.2}
+\contentsline {section}{\numberline {1.2}Data visualization in 3D}{10}{section.1.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.1}Terminology}{10}{subsection.1.2.1}
 \defcounter {refsection}{0}\relax 
@@ -36,7 +32,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.3}3D rotated projections vs 3 2D orthogonal projections}{11}{subsection.1.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.4}3D and 2D projections of multivariate data}{11}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.4}3D and 2D projections of multivariate data}{12}{subsection.1.2.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Using animation to explore sensitivity of structure in a low-dimensional projection of high-dimensional data with user controlled steering}{13}{chapter.2}
 \defcounter {refsection}{0}\relax 
@@ -72,10 +68,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}How can we extend UCS to 3d?}{33}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Does 3d UCS provide benefits over UCS in 2d?}{35}{chapter.5}
+\contentsline {chapter}{\numberline {5}Does 3D UCS provide benefits over UCS in 2D?}{35}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{PhD timeline}{37}{chapter*.15}
+\contentsline {chapter}{PhD timeline}{37}{chapter*.13}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Acknowledgements}{39}{chapter*.16}
+\contentsline {chapter}{Acknowledgements}{39}{chapter*.14}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{41}{chapter*.17}
+\contentsline {chapter}{Bibliography}{41}{chapter*.15}
