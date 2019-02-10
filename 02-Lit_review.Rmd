@@ -15,6 +15,7 @@ knit: "bookdown::render_book"
 
 ## Touring {#sec:tour}
 
+
 ### Overview
 
 In univariate data sets histograms, or smoothed density curves are employed to visualize data. In bivariate data scatterplots and contour plots (2-d density) can be employed. In three dimensions the two most common techniques are: 2-d scatter plot with the 3rd variable as an aesthetic (such as, color, size, height, $etc.$) or rendering the data in a 3-d volume using some perceptive cues giving information describing the seeming depth of the image \footnote{Graphs of data depicting 3 dimension are typically printed on paper, or rendered on a 2-d monitor, they are intrinsically 2-d images. They are sometimes referred to as 2.5-d, or more frequently erroneously referred to as 3-d, more on this later.}. When there are 4 variables: 3 variables as spatial-dimensions and a 4th as aesthetic, or a scatterplot matrix consisting of 4 histograms, and 6 unique combinations of bivariate scatterplots. 
@@ -24,9 +25,10 @@ Let $p$ be the number of numeric variables; how do we visualize data for even mo
 Touring is a linear dimensionality reduction technique that orthogonally projects $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2-dimensional shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a 2-dimensional tour as the 3-dimensional object is manipulated. In some views more information is hidden than in others, and complex structures generally require more time to comprehend the nature of the geometry.
 
 
+
 #### Terminology
 
-Terminology varies across author and implementation. In my work, I use the following
+Terminology varies across articles. In my work, I use the following:
 
 * $n$, number of observations
 * $p$, number of numeric variables, the dimensionality of data space,
@@ -37,7 +39,7 @@ Terminology varies across author and implementation. In my work, I use the follo
 
 * For projections down to 1- and 2-d, It's common to display the contribution and direction on it's own axis (1d) or relative to a unit circle (2d), this is sometime refereed to as basis axes or a reference frame.
 * Geometric objects are referred to in generalized dimensions; the use of plane isn't necessarily a 2d surface, but a hyper-plane in the arbitrary dimensions of the projection space.
-    
+
 
 ### History
 
@@ -144,11 +146,37 @@ Support and maintenance of such implementations give them a particularly short l
 
 ## Data vizualization in 3D
 
-For the sake of brievity and relavence we stick to discussion of multivariate data vizualization in 3D, for wider scope see Chapter 2 of @marriott_immersive_2018.
+For the sake of brievity we'll stick to discussion of multivariate data vizualization in 3D, for wider scope see chapter 2 of @marriott_immersive_2018.
+
+### Terminology
+
+* 2D - representation of data in strictly 2 dimensions, without any indiction to other information.
+* 2.5D - any of the many degrees between 2- and 3D. Including asthetic mapping (colors/size) to data points and use of some incomplete combination of depth cues. 
+* 3D - stereoscopically true display of information with all depth cues in tack.
+* Depth cues - an indication that tips off depth to an observer, including: linear perspective, aerial perspective, occulation, motion perspectice, accommodation, convergance, binocular disparity, and binocular stereopsis
+* Virtual reality (VR) - computer generated display of virtual spaces in place of physical vision
+* Augmented reality (AR) - computer generated display of information over laid on a physical space
+* Mixed reality (MR) - any degree of virtual or augmented reality
+* Scatterplot matrices (SPLOM) - matrix display of pair-wise 2D scatterplots
+
 
 ### A rocky start
 
-Scientific visualization have readily adopted mixed realities as a large amount of the science exist in 3 spatial dimensions, lending itself well to virtual immersion. Data vizualisation, on the other hand, has been been slow to utilize graphics above 2.5D, (and haptic interaction) primarily due to the hype of 3D visuals from the 1980's and 90's [@munzner_visualization_2014]. 
+Scientific visualization have readily adopted mixed realities as a large amount of the science exist in 3 spatial dimensions, lending itself well to virtual immersion. Data vizualisation, on the other hand, has been been slow to utilize graphics above 2.5D, (and haptic interaction) primarily due to the mixed results of over-hypde of 3D visuals from the 1980's and 90's [@munzner_visualization_2014]. However, since then there have been a number of promising studies suggesting that it's time for data vizualiazation to revisit and adopt 3D visuals for specific combinations of visuals and depth cues.
+
+### 3D rotated projections vs 3 2D orthogonal projections 
+
+3D shapes can be represented by 3 orthogonal 2D views, or rather 3 pairwise projections. When 3D representations are used with binocular cues they are found to have more accurate perception than 2D counterparts [@lee_effects_1986]. Using 3D rotated projection gives accurate preception of a ball relative to complex box shapes, while combinations of 2D and 3D give the most precice orientation and positioning information [@tory_visualization_2006]. Between 3D and split view 2D of 3-dimensional economics data @wickens_implications_1994 asked participants integrative questions, fiding that participants were faster to answer when questions involves three dimension, while performance was similar when questions involved fewer dimensions. 
+
+### 3D and 2D projections of multivariate data
+<!-- @wegman_immersive_2002 : "visual data mining"-->
+
+@nelson_xgobi_1998 had participants perform burshing and touring tasks (indentification of clusters, structure, and data dimensionality) in 3D with head-tracked binocular VR. 3D proved to have substaintial advantage for cluster identification and some advantage in in identifying shape. Brushing did take longer in VR, perhaps due to the lower familiarity of manipulating 3D spaces. Another study, @gracia_new_2016, performed dimensionality reduction down to 2- and 3-D scatterplots, both displayed in monocular 3D on a standard moniter. Users were found to more accurately compare distances between points and identify outliers on 3D scatterplots. Howeveer, both tasks were performed slower wiht use of the 3D scatterplots and statitically significance was not reported.
+
+@sedlmair_empirical_2013: SCATTERPLOT MATRIX (SPLOMS)
+
+
+
 
 
 
