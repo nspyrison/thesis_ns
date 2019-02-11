@@ -105,8 +105,8 @@ Guided tours (@hurley_analyzing_1990) optimize an objective function generating 
 Up to this point we have been talking about 2D scatterplots, which offer the first and a simple case for viewing lower-dimensional embeddings of $p$-space. However, other geometrics (or geoms) offer perfectly valid orthonormal projections as well.
 
 * 1D geoms
-    + 1D densities: such as histogram, average shifted histograms[@scott85], and kernel density[@scott95].
-    + image: [@Wegman 2001]
+    + 1D densities: such as histogram, average shifted histograms[@scott_averaged_1985], and kernel density[@scott_incorporating_1995].
+    + image: [@wegman_pixel_2001]
     + time series: where multivariate values are independently lagged to view peak and trough alignment. Currently no package implementation, but use case is discussed in [@cook_manual_1997]. 
 * 2D geoms
     + 2D density (available on Github at https://github.com/nspyrison/tourr)
@@ -127,12 +127,12 @@ Up to this point we have been talking about 2D scatterplots, which offer the fir
 Below is a non-exhaustive list of software implementing touring in some degree, ordered by descending year:
 <!-- See hadley's thesis and, C2 paper for lists. -->
 
-* spinifex [@spinifex] -- for Linux, Unix, and Windows.
+* spinifex [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex) -- for Linux, Unix, and Windows.
 * tourr [@wickham_tourr_2011] -- for Linux, Unix, and Windows. R package.
 * CyrstalVision [@wegman_visual_2003] -- for Windows.
 * GGobi [@swayne_ggobi:_2003] -- for Linux and Windows.
 * DAVIS [@huh_davis:_2002] -- Java based, with GUI.
-* ORCA [@sutherland_orca_2000] -- Extensible toolkit build off the object-oriented Java.
+* ORCA [@sutherland_orca:_2000] -- Extensible toolkit build off the object-oriented Java.
 * VRGobi [@nelson_xgobi_1998] -- for use with the C2, tours in stereoscopic 3d displays.
 * ExplorN [@carr_explorn:_1996] -- for SGI Unix.
 * XGobi [@swayne_xgobi:_1991] -- for Linux, Unix, and Windows (via emulation).
