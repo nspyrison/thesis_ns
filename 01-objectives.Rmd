@@ -18,11 +18,21 @@ The primary research question is:
 This question is reduced to four research objectives:
 
 \begin{itemize}
-  \item[RO \#A] Can user controlled steering (UCS) be utilized in an environment providing only animation? (Chapter \ref{ch:spinifex})
-  \item[RO \#B] What benefits does UCS provide over current common practice, such as PCA, MDS, tSNE? (Chapter \ref{ch:UCS_benefits})
-  \item[RO \#C] How do we extend UCS to 3D? (Chapter \ref{ch:UCS_in3d})
-  \item[RO \#D] Does UCS with 3D displays provide perception benefits over 2D displays? (Chapter \ref{ch:UCS_3dvs2d})
+  \item[RO \#A] \textbf{Can user controlled steering (UCS) be utilized in an environment providing non-dynamic animation?} (Chapter \ref{ch:spinifex}) This is previous experimental design that extend dynamic projection functionality currently available in the programming language R. It implements UCS steering and extends the animation paradigms that can be used for touring. These paradigms fall short of dynamic user interaction.
+  \item[RO \#B] \textbf{What benefits does UCS provide over popular alternatives?} (Chapter \ref{ch:UCS_benefits}) Tentative planned future work of a case study comparing USC with commonly used static alternatives, such as principal component analysis (PCA), linear discriminant analysis (LDA), multi-dimensional scaling (MDS), and t-distributed nearest neighbor embeddings (tSNE).
+  \item[RO \#C] \textbf{How do we extend UCS to 3D?} (Chapter \ref{ch:UCS_in3d}) This future experimental design will scaling UCS to 3 dimensions (novel contribution) and extend upon available functionally in the game engine Unity for compatible front ends across display devices. 
+  \item[RO \#D] \textbf{Does UCS with 3D displays provide perception benefits over 2D displays?} (Chapter \ref{ch:UCS_3dvs2d}) This future empirical study explores the efficacy of bringing USC into 3D as compared across various display devices. 
 \end{itemize}
+
+
+**Methodology**
+
+As outlined above, the research objectives (RO) #A and #C uses *experimental design* in R and R & C# Unity respectively. RO #B is *case study* comparison between UCS and alternatives. An *empirical research* explores the efficacy of UCS across display type in RO #D.
+
+
+
+
+
 
 
 <!-- 

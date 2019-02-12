@@ -18,25 +18,25 @@ tasks <- tribble(
   "2018-04-01", "2019-06-01", "UCS in 2D",  "RO: A) spinifex package, 2D UCS",
   "2018-04-01", "2019-06-01", "UCS in 2D",  "spinifex code",
   "2018-12-01", "2019-03-01", "UCS in 2D",  "spinifex paper",
-  "2019-03-01", "2019-06-01", "UCS in 2D",  "spinifex Submission and follow-up",
+  "2019-03-01", "2019-06-01", "UCS in 2D",  "spinifex Submission (R Journal)",
   "2019-01-01", "2019-03-01", "Milestones", "Canidature confirmation",
   
   "2019-03-01", "2019-12-01", "UCS in 3D",  "RO: C) Tours, UCS in 3D",
   "2019-03-01", "2019-08-01", "UCS in 3D",  "UCS to IATK, C# code",
   "2019-06-01", "2019-09-01", "UCS in 3D",  "UCS in 3D paper",
-  "2019-09-01", "2019-12-01", "UCS in 3D",  "UCS in 3D Submission and follow-up",
+  "2019-09-01", "2019-12-01", "UCS in 3D",  "UCS in 3D Submission (VAST)",
   "2020-01-01", "2020-03-01", "Milestones", "Mid canidature review",
   
   "2019-10-01", "2020-09-01", "UCS, 2D vs 3D", "RO: D) UCS across disp type, 2D vs 3D",
   "2019-10-01", "2020-02-01", "UCS, 2D vs 3D", "2D vs 3D C# code",
   "2020-01-01", "2020-04-01", "UCS, 2D vs 3D", "2D vs 3D Experimental survey",
   "2020-03-01", "2020-06-01", "UCS, 2D vs 3D", "2D vs 3D paper",
-  "2020-06-01", "2020-09-01", "UCS, 2D vs 3D", "2D vs 3D Submission and follow-up",
+  "2020-06-01", "2020-09-01", "UCS, 2D vs 3D", "2D vs 3D Submission (CHI)",
   
   "2020-04-01", "2020-12-01", "UCS Benefits", "RO: B) UCS Benefits over alternatives",
   "2020-04-01", "2020-08-01", "UCS Benefits", "UCS Benefits C# code and comparison",
   "2020-06-01", "2020-09-01", "UCS Benefits", "UCS Benefits paper",
-  "2020-09-01", "2020-12-01", "UCS Benefits", "UCS Benefits Submission and follow-up",
+  "2020-09-01", "2020-12-01", "UCS Benefits", "UCS Benefits Submission (VAST)",
   
   "2020-11-01", "2021-03-01", "Milestones", "pre-submission presentation",
   "2021-01-01", "2021-04-01", "Milestones", "thesis completion and submission"
