@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   error = FALSE,
   collapse = TRUE,
   comment = "",
-  cache = FALSE
+  cache = FALSE, cache.lazy = F
 )
 
 library(spinifex)
@@ -254,7 +254,7 @@ In R it looks like the below chunk. `tourr::orthonormalise()` uses the Gram Schi
 
 Adding an extra dimension to our basis plane allows for the manipulation of the specified variable while the others are kept fully within the basis plane. orthonormalizing rescales the matrix without bringing the other variables into this new axis. An illustration of such can been seen below in \@ref(fig:step2).
 
-```{r step2, echo=F, fig.cap = "Manipulation space for controlling the contribution of aede2 of standardized flea data. Basis was identified by holes-index guided tour. The out of plane axis, in red, shows how the manipulation variable can be rotated, while other dimensions stay embedded within the basis plane."}
+```{r step2, echo=F, out.width='100%', fig.cap = "Manipulation space for controlling the contribution of aede2 of standardized flea data. Basis was identified by holes-index guided tour. The out of plane axis, in red, shows how the manipulation variable can be rotated, while other dimensions stay embedded within the basis plane."}
 #=== Step 2 output
 view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat)) +
     theme(panel.border = element_rect(colour = "black", fill = NA))
@@ -491,7 +491,7 @@ devtools::install_github("nspyrison/spinifex")
 
 ## Discussion
 
-This chapter has described an algorithm and package for exploring conducting a manual tour, from a 2D projection, to explore the sensitivity of structure to the contributions of a variable. 
+This work has described an algorithm and package for exploring conducting a manual tour, from a 2D projection, to explore the sensitivity of structure to the contributions of a variable. 
 
 Future work on the algorithm and package would include developing it to work with arbitrary projection dimension, enabling the method to operate on other displays like parallel coordinates, and implementing the unconstrained manual control, called oblique in @cook_manual_1997. 
 

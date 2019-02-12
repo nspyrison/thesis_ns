@@ -30,46 +30,46 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.3}3D rotated projections vs 3 2D orthogonal projections}{xviii}{subsection.1.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.4}3D and 2D projections of multivariate data}{xviii}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.4}Comparing 3D and 2D embeddings of multivariate data}{xx}{subsection.1.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Using animation to explore sensitivity of structure in a low-dimensional projection of high-dimensional data with user controlled steering}{xix}{chapter.2}
+\contentsline {chapter}{\numberline {2}Using animation to explore sensitivity of structure in a low-dimensional projection of high-dimensional data with user controlled steering}{xxiii}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Abstract}{xix}{section.2.1}
+\contentsline {section}{\numberline {2.1}Abstract}{xxiii}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Introduction}{xx}{section.2.2}
+\contentsline {section}{\numberline {2.2}Introduction}{xxiv}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Algorithm}{xxi}{section.2.3}
+\contentsline {section}{\numberline {2.3}Algorithm}{xxv}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.1}Notation}{xxii}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.1}Notation}{xxvi}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.2}Toy data set}{xxii}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.2}Toy data set}{xxvi}{subsection.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.3}Step 1 Choose variable of interest}{xxiv}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.3}Step 1 Choose variable of interest}{xxviii}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.4}Step 2 Create the manip space}{xxiv}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.4}Step 2 Create the manip space}{xxviii}{subsection.2.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.5}Step 3 Generate rotation}{xxvi}{subsection.2.3.5}
+\contentsline {subsection}{\numberline {2.3.5}Step 3 Generate rotation}{xxx}{subsection.2.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Display projection sequence}{xxix}{section.2.4}
+\contentsline {section}{\numberline {2.4}Display projection sequence}{xxxiii}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Application}{xxx}{section.2.5}
+\contentsline {section}{\numberline {2.5}Application}{xxxiv}{section.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.1}Jet cluster}{xxx}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.1}Jet cluster}{xxxiv}{subsection.2.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.2}DIS cluster}{xxxiii}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.2}DIS cluster}{xxxvii}{subsection.2.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.6}Source code and usage}{xxxvi}{section.2.6}
+\contentsline {section}{\numberline {2.6}Source code and usage}{xl}{section.2.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.7}Discussion}{xxxvi}{section.2.7}
+\contentsline {section}{\numberline {2.7}Discussion}{xl}{section.2.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}What benefit does UCS have over popular alternatives?}{xxxix}{chapter.3}
+\contentsline {chapter}{\numberline {3}What benefit does UCS have over popular alternatives?}{xliii}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}How can we extend UCS to 3D?}{xli}{chapter.4}
+\contentsline {chapter}{\numberline {4}How can we extend UCS to 3D?}{xlv}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Does 3D UCS provide benefits over UCS in 2D?}{xliii}{chapter.5}
+\contentsline {chapter}{\numberline {5}Does 3D UCS provide benefits over UCS in 2D?}{xlvii}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{PhD timeline}{xlv}{chapter*.12}
+\contentsline {chapter}{PhD timeline}{xlix}{chapter*.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Acknowledgements}{xlvii}{chapter*.13}
+\contentsline {chapter}{Acknowledgements}{li}{chapter*.20}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{xlix}{chapter*.14}
+\contentsline {chapter}{Bibliography}{liii}{chapter*.21}
