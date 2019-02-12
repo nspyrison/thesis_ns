@@ -6,7 +6,7 @@ rmd_files: ["index.Rmd",
   #"00-acknowledge.Rmd",
   "00-declaration.Rmd",
   #"00-preface.Rmd",
-  "00-abstract.Rmd",
+  #"00-abstract.Rmd",
   "01-objectives.Rmd",
   "02-lit_review.Rmd",
   "03-spinifex.Rmd",     # A) Can we apply UCS to animation?

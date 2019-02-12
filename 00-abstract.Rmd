@@ -4,13 +4,19 @@ knit: "bookdown::render_book"
 
 # Abstract {-}
 
-Visualizing data space is crucial to exploratory data analysis yet doing so quickly becomes difficult as the dimensionality of the data increases. Traditionally, static low dimensional embeddings are used, as in PCA and LDA. Observing one such embedding often misses a significant amount of variation, and hence, information held within the data. Touring is a method that animates many projections as the orientation in data space is varied. This maintains inter-operability the original variables, while preserving observable information.
+TODO: removed for can con as mostly redundant, restructure according to ROs later.
+
+Visualizing data space is crucial to exploratory data analysis yet doing so quickly becomes difficult as the dimensionality of the data increases. Traditionally, static, low-dimensional linear embeddings are used, such as in PCA and LDA. Observing one such embedding often misses a significant amount of variation, and hence, information held within the data. Touring is a method that animates many projections as the orientation in data space is varied. This maintains transparency to the original variables, while preserving observable information.
+
+There are various ways to generate tour paths and many geometrics to view each path. Once an interesting feature has been identified there is need for finer control to explore the local sturture, in particular through User Controled Steering (UCS, also known as manual tour)
 
 I have implemented manual tours in the programming language R with compatibility to the other touring package while extending to new graphics paradigms to display tours. The application of manual tours to experimental high energy physics data that exists in 56-dimensional space is also presented extending previous touring on the same data.
 
-Next, I will conduct an experimental survey comparing manual tour perception across 4 display types: 2d desktop, 3d desktop, head-mount virtual reality, and in-person immersion in a virtual display. From the same interface using the game engine Unity.
+<!-- I will bring USC into the  -->
 
-Lastly, I'll combine existing packages in R and Unity to explore the human-computer interaction with projections and functions of high dimensional spaces.
+<!-- Next, I will conduct an experimental survey comparing manual tour perception across 4 display types: 2D desktop, 3D desktop, head-mount virtual reality, and physical immersion in a virtual display. From the same interface using the game engine Unity. -->
+
+<!-- Lastly, I'll combine existing packages in R and Unity to explore the human-computer interaction with projections and functions of high dimensional spaces. -->
 
 
 

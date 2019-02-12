@@ -12,7 +12,7 @@ knit: "bookdown::render_book"
 <!-- You will need to organize the literature review around themes, and within each theme provide a story explaining the development of ideas to date. In each theme, you should get to the point where your ideas will fit in. But leave your ideas to later chapters. This way it is clear what has been done beforehand, and what new contributions you are making to the research field. -->
 
 
-## Touring {#sec:tour}
+## Dynamic projections of multivariate data (Touring) {#sec:tour}
 
 
 ### Overview
@@ -133,7 +133,7 @@ Below is a non-exhaustive list of software implementing touring in some degree, 
 * GGobi [@swayne_ggobi:_2003] -- for Linux and Windows.
 * DAVIS [@huh_davis:_2002] -- Java based, with GUI.
 * ORCA [@sutherland_orca:_2000] -- Extensible toolkit build off the object-oriented Java.
-* VRGobi [@nelson_xgobi_1998] -- for use with the C2, tours in stereoscopic 3d displays.
+* VRGobi [@nelson_xgobi_1998] -- for use with the C2, tours in stereoscopic 3D displays.
 * ExplorN [@carr_explorn:_1996] -- for SGI Unix.
 * XGobi [@swayne_xgobi:_1991] -- for Linux, Unix, and Windows (via emulation).
 * XLispStat [@tierney_lisp-stat:_1990] -- for Unix, and Windows.
@@ -142,16 +142,25 @@ Below is a non-exhaustive list of software implementing touring in some degree, 
 
 Support and maintenance of such implementations give them a particularly short life span, while conceptual abstraction and technically heavier implementations have hampered user growth. There have been notable efforts to diminish the barriers to entry and make touring more approachable as a data exploration tool [@huh_davis:_2002; @swayne_ggobi:_2003; @wegman_visual_2003; @wickham_tourr_2011; huang_tourrgui:_2012].
 
-## Data visualization in 3D
+## Multivariate data visualization in 3D {#sec:3d}
 
-For the sake of brevity, we'll stick to discussion of multivariate data visualization in 3D, for wider scope see chapter 2 of @marriott_immersive_2018.
+As this research pertains to numeric multivariate data, we'll stick to this scope in the liturature review. For wider overview of 3d data vis see chapter 2 of @marriott_immersive_2018.
 
 ### Terminology
 
 * 2D - representation of data in strictly 2 dimensions, without any indication to other information.
 * 2.5D - any of the many degrees between 2- and 3D. Including aesthetic mapping (colors/size) to data points and use of some incomplete combination of depth cues. *Due to the ambiguity and breadth of use of 2.5D, we err on the side of 3D instead*, while any 2.5D graphics and inherently not 3D when viewed on standard monocular 2D monitors or print.
 * 3D - stereoscopically true display of information with all depth cues in tack.
-* Depth cues - an indication that tips off depth to an observer, including linear perspective, aerial perspective, occulation, motion perspective, accommodation, convergence, binocular disparity, and binocular stereopsis
+* Depth persception cues - an indication that tips off depth to an observer, including:
+    * linear perspective - the property of parallel lines converging on a vanishing point.
+    * aerial perspective - objects that are far away have lower contrast and color color saturation due to light scattering in the atmosphere.
+    * occulation (or interposition) - where closer objects partially block the view of further objects.
+    * motion perspective/parallax - closer objects, move accross the field of view faster than further objects
+    * accommodation - the change of focal length due to change in the shape of the eye. Effective for distances of less than 2 meters.
+    * binocular stereopsis/disparity - the use of 2 images of slightly varied angles from the horizontal distance of the eyes. The disparity for distant objects is small, but it significant for nearby objects.
+    * binocular convergence - The occular-motor cue due to stereopsis focusing on the same objects. Convergence is effective for distances up to 10 meters.
+
+
 * Virtual reality (VR) - computer generated display of virtual spaces in place of physical vision
 * Augmented reality (AR) - computer generated display of information over laid on a physical space
 * Mixed reality (MR) - any degree of virtual or augmented reality
