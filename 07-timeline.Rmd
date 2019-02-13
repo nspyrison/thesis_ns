@@ -16,16 +16,16 @@ library(scales)
 tasks <- tribble(
   ~Start,       ~End,         ~Project,     ~Task,
   "2018-04-01", "2019-06-01", "UCS in 2D",  "RO: A) spinifex package, 2D UCS",
-  "2018-04-01", "2019-06-01", "UCS in 2D",  "spinifex code",
+  "2018-04-01", "2019-02-01", "UCS in 2D",  "spinifex code",
   "2018-12-01", "2019-03-01", "UCS in 2D",  "spinifex paper",
   "2019-03-01", "2019-06-01", "UCS in 2D",  "spinifex Submission (R Journal)",
-  "2019-01-01", "2019-03-01", "Milestones", "Canidature confirmation",
+  "2019-01-01", "2019-03-01", "Milestones", "Candidature confirmation",
   
   "2019-03-01", "2019-12-01", "UCS in 3D",  "RO: C) Tours, UCS in 3D",
   "2019-03-01", "2019-08-01", "UCS in 3D",  "UCS to IATK, C# code",
   "2019-06-01", "2019-09-01", "UCS in 3D",  "UCS in 3D paper",
   "2019-09-01", "2019-12-01", "UCS in 3D",  "UCS in 3D Submission (VAST)",
-  "2020-01-01", "2020-03-01", "Milestones", "Mid canidature review",
+  "2020-01-01", "2020-03-01", "Milestones", "Mid candidature review",
   
   "2019-10-01", "2020-09-01", "UCS, 2D vs 3D", "RO: D) UCS across disp type, 2D vs 3D",
   "2019-10-01", "2020-02-01", "UCS, 2D vs 3D", "2D vs 3D C# code",
@@ -86,18 +86,22 @@ timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) +
 timeline
 ```
 
+*Note RO #B logically would fit before RO #C & D, but is almost a foregone conclusion based on the methodology's contained variation and transparency to original variable-space. I move this research to the end, such that this study would be tight on time if such a case arises.*
+
+
 Also submitted via online milestone form:
 
 - FIT 5144 hours
-    - >120 hours **Completed**
+    - \>120 hours **Tracked, submitted to Abdullah Alghamdi**, due at mid-candidature review
 - WES Academic record
     - FIT6021: 2018 S2, **Completed** with Distinction
-    - FIT5144: 2019 S1+2, **Upcoming**
+    - FIT5144: 2019 S1+2, **Upcoming**, due at mid-candidature review
     - FIT5113: 2018 S2, **Exemption submitted**
 - myDevelopment - IT: Monash Doctoral Program - Compulsory Module
     - Monash Graduate Research Student Induction: **Completed** 
     - Research Integrity - Choose the Option most relevant: **Completed** (2 reqiured of 4)
-    - Faculty Induction: **Content unavailable** ("currently being updated and will be visible in this section soon". Induction To be completed within 6 months of commencement)
+    - Faculty Induction: **Content unavailable** (9/02/2019: "Currently being updated and will be visible in this section soon".)
+<!-- Induction To be completed within 6 months of commencement -->
 
 # Acknowledgements {-} 
 

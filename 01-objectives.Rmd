@@ -8,7 +8,7 @@ knit: "bookdown::render_book"
 
 Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualize high dimensions have been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor.  
 
-This thesis focuses on tour methods for visualizing high-dimensional data. Tours are a family of algorithms for generating paths on the space of low dimensional ($d=1, 2, 3, ..., p$) projections of high-dimensional ($p$) space. The resulting projection of the data (or model) is displayed using low-dimensional techniques such as histograms, dot plots, scatterplots, or parallel coordinate plots, and the path generates a movie or animation to shows many low-dimensional projections. The method can be applied with other techniques such as machine learning techniques like discriminant analysis, neural networks, support vector machines, to open the black box, and complements dimension reduction techniques like principal component analysis (PCA), multidimensional scaling (MDS) on nonlinear embeddings (e.g. tSNE). 
+This thesis focuses on tour methods for visualizing high-dimensional data. Tours are a family of algorithms for generating paths on the space of low-dimensional ($d=1, 2, 3, ..., p$) projections of high-dimensional ($p$) space. The resulting projection of the data (or model) is displayed using low-dimensional techniques such as histograms, dot plots, scatterplots, or parallel coordinate plots, and the path generates a movie or animation to shows many low-dimensional projections. The method can be applied with other techniques such as machine learning techniques like discriminant analysis, neural networks, support vector machines, to open the black box, and complements dimension reduction techniques like principal component analysis (PCA), multidimensional scaling (MDS) on nonlinear embeddings (e.g. tSNE). 
 
 
 The primary research question is:
@@ -25,9 +25,9 @@ This question is reduced to four research objectives:
 \end{itemize}
 
 
-**Methodology**
+## Methodology
 
-As outlined above, the research objectives (RO) #A and #C uses *experimental design* in R and R & C# Unity respectively. RO #B is *case study* comparison between UCS and alternatives. An *empirical research* explores the efficacy of UCS across display type in RO #D.
+As outlined above, RO #A & C uses *experimental design* in R and R & C# Unity respectively. RO #B is a *case study* comparison between UCS and alternatives. An *empirical research* explores the efficacy of UCS across display type in RO #D.
 
 
 
