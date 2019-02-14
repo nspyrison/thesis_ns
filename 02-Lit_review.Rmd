@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 # Literature review {#ch:lit_review}
 
-## Dynamic projections of multivariate data (Touring) {#sec:tour}
+## Dynamic projections of multivariate data (tours) {#sec:tour}
 
 
 ### Overview
