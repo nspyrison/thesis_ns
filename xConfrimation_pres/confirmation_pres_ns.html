@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices</title>
+    <meta charset="utf-8">
+    <meta name="author" content="  Nicholas Spyrison (id:29365759)    Monash University, Faculty of Information Technology" />
+    <link href="confirmation_pres_ns_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="data_viz_theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices
+### <br> Nicholas Spyrison (id:29365759) <br><br> Monash University, Faculty of Information Technology <br><br>
+### Candidature Confirmation <br> 21 February 2019 <br> <em>Document and slides – <a href="https://github.com/nspyrison/Confirmation">github.com/nspyrison/Confirmation</a></em>
+
+---
+
+
+
+
+# Contents
+
+- Research question
+- Dynamic low-dimensional embeddings
+- 2D vs 3D low-dimensional embeddings
+- Research objective A
+- Research objective B
+- Research objective C
+- Research objective D
+- Research Timeline
+
+
+---
+
+# Research question
+
+- **Does allowing the user to steer the tour, facilitate the exploration and understanding
+of the sensitivity of structure to the original variables or parameters?**
+    - A) Can user controlled steering (UCS) be utilized in an environment providing non-dynamic animation?
+    - B) What benefits does UCS provide over popular alternatives?
+    - C) How do we extend UCS to 3D?
+    - D) Does UCS with 3D displays provide perception benefits over 2D displays?
+
+&lt;br&gt;&lt;br&gt;
+- Consider `\(d = 2\)`, projecting down to 2D scatterplot.
+
+---
+
+# Analogy - shadow puppets
+
+- Imaging a bar stool in front of a light source
+- Rotation reveals the 3D shape
+
+![Shadow puppet analogy](./xConfirmation_pres/images/shadow_puppet.png)
+
+- Same visual interpretation that we want to preserve in visualizing in multivariate data sets *(Wickham et al. 2015)*
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Touring typology --&gt;
+
+&lt;!-- - Manual choice - **"manual tour"** selecting a variable and manipulation *(Cook &amp; Buja 1997)* --&gt;
+&lt;!--     - R implementation via the package `spinifex`, available on [github](https://github.com/nspyrison/spinifex) --&gt;
+&lt;!--     `devtools::install_github("nspyrison/spinifex")` --&gt;
+
+&lt;!-- &lt;br&gt; --&gt;
+&lt;!-- Already implemented in R package `tourr`*(Wickham et al. 2011)*, available on CRAN:  --&gt;
+
+&lt;!-- - Random choice - "grand tour" random forest walk in `\(p\)`-space *(Asimov 1985)* --&gt;
+&lt;!-- - Precomputed choice - *eg.* "little tour" step through increments of all variables in order *(McDonald 1982)* --&gt;
+&lt;!-- - Data driven - "guided tour" stochastic gradient descent on objective function *(Hurley &amp; Buja 1990)* --&gt;
+
+&lt;!-- &lt;br&gt; --&gt;
+&lt;!-- For more detail see *Buja et al. 2005* --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Manual tours (1/3) --&gt;
+
+&lt;!-- As described in *Cook &amp; Buja 1997*: --&gt;
+
+&lt;!-- - Data, `\(x_{[n,~p]}\)` --&gt;
+&lt;!--     - `\(n\)` is observations --&gt;
+&lt;!--     - `\(p\)` is numeric variables (dimensions) --&gt;
+&lt;!--     - For ease of computation, we'll set this aside --&gt;
+&lt;!-- - Basis, `\(b_{[p,~d]}\)`, an orthonormal matrix, the linear combinations of `\(p\)` dimensions down to `\(d\)`-dimensional space. Essentially the orientation of the data and how it maps to `\(d\)` dimensions --&gt;
+&lt;!-- - We need to add a dimension in order to rotate the basis outside of the `\(d\)`-plane --&gt;
+&lt;!--     - Choose a manipulation variable, `\(k\)` --&gt;
+&lt;!--     - `\(e_{[p,~1]}\)`, be a zero column vector with the `\(k\)`-th element set to 1 --&gt;
+&lt;!--     - manipulation space, `\(m_{[p,~d+1]} = orthonormalize(b||e)\)` --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Manual tours (2/3) --&gt;
+
+&lt;!-- - Let rotation matrix, `\(r_{[d+1,~d+1]}(\theta,~\phi)\)`, where --&gt;
+&lt;!--     - `\(\theta\)` is the angle(s) of rotation within the basis plane --&gt;
+&lt;!--     - `\(\phi\)` is the angle of rotation out of the basis plane --&gt;
+&lt;!-- - Rotate manipulation space `\(rm_{[p,~d+1]} = m_{[p,~d+1]} * r_{[d+1,~d+1]}\)` be a rotated manipulation space --&gt;
+&lt;!--     - The first `\(d\)` dimensions of `\(rm\)` is the map to our lower dimensional embedding (shadow) --&gt;
+&lt;!-- - Project our data `\(p_{[n,~d+1]} = x_{[n,~p]} * rm_{[p,~d+1]}\)` --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Manual tours (3/3) --&gt;
+
+&lt;!-- - One frame, projecting `\(p\)`-dim data into `\(d\)`-space --&gt;
+&lt;!-- - Rinse and repeat making small changes to `\(\phi\)`, we create an animation as we control the contribution of selected variable --&gt;
+
+&lt;!-- ### Example -- Wine data --&gt;
+
+&lt;!-- 178 observations of 13 numeric variables, and type of grape (3 levels) --&gt;
+
+&lt;!-- ```{r echo=TRUE} --&gt;
+&lt;!-- library(spinifex) --&gt;
+&lt;!-- data(wine) --&gt;
+&lt;!-- wine_std &lt;- tourr::rescale(wine[, -1]) # without type of grape --&gt;
+&lt;!-- rb &lt;- basis_random(n = ncol(wine_std)) --&gt;
+
+&lt;!-- mySlideshow &lt;- play_manual_tour(data = wine_std, basis = rb, manip_var = 1,  --&gt;
+&lt;!--                                 cat_var = wine$Type, axes = "bottomleft") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Manual tour example --&gt;
+
+&lt;!-- ```{r, fig.hight = 5, fig.width = 8, fig.align='center'} --&gt;
+&lt;!-- #out.width = "80%", --&gt;
+&lt;!-- play_manual_tour(data = wine_std, basis = rb, manip_var = 1,  --&gt;
+&lt;!--                                 cat_var = wine$Type, axes = "bottomleft") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Going further --&gt;
+
+&lt;!-- - Bring touring to VR --&gt;
+&lt;!-- - Experimental study between 2D and 3D displays --&gt;
+
+&lt;!-- ```{r, results="hold", out.width = "80%"} --&gt;
+&lt;!-- knitr::include_graphics("./images/tourr2vr.PNG") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # References (1/2) --&gt;
+
+&lt;!-- In order of appearance: --&gt;
+
+&lt;!-- - Wickham, H., Cook, D., &amp; Hofmann, H. (2015). Visualizing statistical models: Removing the blindfold: Visualizing Statistical Models. Statistical Analysis and Data Mining: The ASA Data Science Journal, 8(4), 203-225. https://doi.org/10.1002/sam.11271 --&gt;
+&lt;!-- - Buja, A., Cook, D., Asimov, D., &amp; Hurley, C. (2005). Computational Methods for High-Dimensional Rotations in Data Visualization. In Handbook of Statistics (Vol. 24, pp. 391-413). Elsevier. https://doi.org/10.1016/S0169-7161(04)24014-7 --&gt;
+&lt;!-- - Asimov, D. (1985). The grand tour: a tool for viewing multidimensional data. SIAM Journal on Scientific and Statistical Computing, 6(1), 128-143. --&gt;
+&lt;!-- - McDonald, J. A. (1982). INTERACTIVE GRAPHICS FOR DATA ANALYSIS. --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # References (2/2) --&gt;
+
+&lt;!-- - Hurley, C., &amp; Buja, A. (1990). Analyzing High-Dimensional Data with Motion Graphics. SIAM Journal on Scientific and Statistical Computing, 11(6), 1193-1211. https://doi.org/10.1137/0911068 --&gt;
+&lt;!-- - Cook, D., &amp; Buja, A. (1997). Manual Controls for High-Dimensional Data Projections. Journal of Computational and Graphical Statistics, 6(4), 464-480. https://doi.org/10.2307/1390747 --&gt;
+&lt;!-- - Wickham, H., Cook, D., Hofmann, H., &amp; Buja, A. (2011). tourr???: An R Package for Exploring Multivariate Data with Projections. Journal of Statistical Software, 40(2). https://doi.org/10.18637/jss.v040.i02 --&gt;
+&lt;!-- - R Core Team (2018). R: A language and environment for statistical --&gt;
+&lt;!--   computing. R Foundation for Statistical Computing, Vienna, Austria. URL --&gt;
+&lt;!--   https://www.R-project.org/. --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Appendix (1/2) --&gt;
+
+&lt;!-- `tourr::animate_groupxy()` --&gt;
+
+&lt;!-- ```{r, results="hold", out.width = "50%"} --&gt;
+&lt;!-- knitr::include_graphics("./images/FleaHolesTour_groupxy.gif") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- available on github: `devtools::install_github("nspyrion/tourr")` --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Appendix (2/2) --&gt;
+
+&lt;!-- `tourr::animate_density2d()` --&gt;
+
+&lt;!-- ```{r, results="hold", out.width = "50%"} --&gt;
+&lt;!-- knitr::include_graphics("./images/FleaHolesTour_density2d.gif") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- available on github: `devtools::install_github("nspyrion/tourr")` --&gt;
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
