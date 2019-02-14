@@ -86,23 +86,23 @@ timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) +
 timeline
 ```
 
-*Note RO #B logically would fit before RO #C & D, but is almost a foregone conclusion based on the methodology's contained variation and transparency to original variable-space. I move this research to the end, such that this study would be tight on time if such a case arises.*
+*Note RO #B logically would fit before RO #C & D but is almost a foregone conclusion based on the methodology's contained variation and transparency to original variable-space. I move this research to the end, such that this study would be tight on time if such a case arises.*
 
 
 Also submitted via online milestone form:
 
 - FIT 5144 hours
-    - \>120 hours **Tracked, submitted to Abdullah Alghamdi**, due at mid-candidature review
+    - \>120 hours **Tracked, documentation needs cleanup**, due at mid-candidature review
 - WES Academic record
     - FIT6021: 2018 S2, **Completed** with Distinction
     - FIT5144: 2019 S1+2, **Upcoming**, due at mid-candidature review
     - FIT5113: 2018 S2, **Exemption submitted**
 - myDevelopment - IT: Monash Doctoral Program - Compulsory Module
     - Monash Graduate Research Student Induction: **Completed** 
-    - Research Integrity - Choose the Option most relevant: **Completed** (2 reqiured of 4)
+    - Research Integrity - Choose the Option most relevant: **Completed** (2 required of 4)
     - Faculty Induction: **Content unavailable** (9/02/2019: "Currently being updated and will be visible in this section soon".)
 <!-- Induction To be completed within 6 months of commencement -->
 
 # Acknowledgements {-} 
 
-This thesis report is generated using R[@r_core_team_r:_2018], and Rmarkdown[@xie_r_2018], where code and explanation are kept together, following reproducible research practice. The code can be found at: https://github.com/nspyrison/Confirmation
+This thesis report is generated using R[@r_core_team_r:_2018], bookdown [xie_bookdown:_2016] and rmarkdown [@xie_r_2018], where code and explanation are kept together, following reproducible research practice. The code producing this document can be found at: https://github.com/nspyrison/Confirmation.

@@ -23,11 +23,11 @@ knitr::opts_chunk$set(
 
 ### Overview
 
-In univariate data sets histograms, or smoothed density curves are employed to visualize data. In bivariate data $x-y$ scatterplots and contour plots (2D density) can be employed. In three dimensions the two most common techniques are 3D scatterplot\footnote{Graphs depicting 3 dimensions are typically printed on paper, or rendered on a 2D monitor, they are intrinsically 2D images of monocular 3D spaces, sometimes referred to as 2.5D, but more frequently referred to as 3D, more on this in section \ref{sec:3d-terminology}.} or 2D scatterplot with the 3rd variable as an aesthetic (such as, color, size, height, $etc.$). Mapping varibles to data point aesthetics can afford another dimension or 2, but this is not a sustainable solution.
+In univariate data sets histograms, or smoothed density curves are employed to visualize data. In bivariate data $x-y$ scatterplots and contour plots (2D density) can be employed. In three dimensions the two most common techniques are 3D scatterplot\footnote{Graphs depicting 3 dimensions are typically printed on paper, or rendered on a 2D monitor, they are intrinsically 2D images of monocular 3D spaces, sometimes referred to as 2.5D, but more frequently referred to as 3D, more on this in section \ref{sec:3d-terminology}.} or 2D scatterplot with the 3rd variable as an aesthetic (such as, color, size, height, $etc.$). Mapping variables to data point aesthetics can afford another dimension or 2, but this is not a sustainable solution.
 
-How do we visualize data for even modest values of $p$ numeric dimension (say 6 or 12)? It's far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse: long tables of statistics without visuals [@wickham_visualizing_2015]. Yet, there are inherant risks inherent in relying too heavily on summary statistics alone [@anscombe_graphs_1973; @matejka_same_2017]. So why do we move away from visualizing in data-space? Scalability, in a word. Humans are not equiped to visualize above 3 spatial dimensions. This is where dimensionality reduction comes in. We will focus on a group of linear othogonal projection techniques know as touring. For a broader view of dimensionality reduction techniques, see @grinstein_high-dimensional_2002, @carreira-perpinan_review_1997, or @heer_tour_2010. We choose touring, for a couple of salient features: it use linear projections maintaining transparency back to the original variable space (which non-linear projections lose) and does not discard components and their contained information (which static linear projections lose). By employing the breadth of tours, we can preserve the visualization of data-space, and with it, the intrinsic understanding of structure and distribution of data that is more succinct or beyond the reach of statistic values alone.
+How do we visualize data for even modest values of $p$ numeric dimension (say 6 or 12)? It's far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse: long tables of statistics without visuals [@wickham_visualizing_2015]. Yet, there are inherent risks inherent in relying too heavily on summary statistics alone [@anscombe_graphs_1973; @matejka_same_2017]. So why do we move away from visualizing in data-space? Scalability, in a word. Humans are not equipped to visualize above 3 spatial dimensions. This is where dimensionality reduction comes in. We will focus on a group of linear orthogonal projection techniques know as touring. For a broader view of dimensionality reduction techniques, see @grinstein_high-dimensional_2002, @carreira-perpinan_review_1997, or @heer_tour_2010. We choose touring, for a couple of salient features: use of linear projections maintaining transparency back to the original variable space (which non-linear projections lose) and keeps all components and their information in tack (which static linear projections lose). By employing the breadth of tours, we can preserve the visualization of data-space, and with it, the intrinsic understanding of structure and distribution of data that is more succinct or beyond the reach of statistic values alone.
 
-Touring is a linear dimensionality reduction technique that orthogonally projects $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making small rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2D shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a $d=2$ tour as the $p=3$ object is manipulated. In some views more information is hidden than in others, but watching an animation of the shadow changing gives a more robust understanding than looking at any one still frame. More complex structures generally require more time to comprehend the nature of the geometry. These features hold true in touring as well.
+Touring is a linear dimensionality reduction technique that orthogonally projects $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making small rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2D shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a $d=2$ tour as the $p=3$ object is manipulated. In some views more information is hidden than in others but watching an animation of the shadow changing gives a more robust understanding than looking at any one still frame. More complex structures generally require more time to comprehend the nature of the geometry. These features hold true in touring as well.
 
 
 ### Terminology
@@ -57,7 +57,7 @@ Before choosing projection paths randomly, an exhaustive search of $p-$space of 
 <!-- * at-random: where each 2-frame is chosen at random without replacement. This affords an assured uniform distribution of subspaces but is far too discontinuous for observation. It also leaves no parameters to control. -->
 <!-- * random-walk: combines the continuity of the torus method and the uniformity of the at-random method while leaving room for a control parameter.  -->
 
-The grand and little tour have no input from the user aside from the starting basis. Guided tours allows for an index to be selected, but the bulk of touring development since has largely been around dynamic display, user interaction, geometric representation, and application. The extent to which will be expounded on in the following sections.
+The grand and little tour have no input from the user aside from the starting basis. Guided tours allow for an index to be selected, but the bulk of touring development since has largely been around dynamic display, user interaction, geometric representation, and application. The extent to which will be expounded on in the following sections.
 <!--see c2 paper, quoting: buja & asimov 1986, Hurley & Buja 1990, Wegman 1991, cook, buja, cabrera, & hurley 1995, buja, cook asimov & hurley 1997,cook & buja 1997. -->
 
 
@@ -90,10 +90,10 @@ A fundamental aspect of touring is the path of rotation. Of which there are four
 
 <!-- ### Interpolation -->
 
-<!-- NOTE: Search 'Interpolator' in wickham's tourr --> 
+<!-- NOTE: Search 'Interpolator' in Wickham’s tourr paper--> 
 <!-- After target bases are identified, the frames in-between need to be filled in. There are several methods to do so: -->
 
-<!-- * Geodesic - via Gram-Schimdt process -->
+<!-- * Geodesic - via Gram-Schmidt process -->
 <!-- * Givens rotations -->
 <!-- * Householder reflections -->
 
@@ -103,7 +103,7 @@ Consider $d=2$, then each projection is called a 2-frame (each spanning a 2-plan
 
 The little tour introduced in @mcdonald_interactive_1982, on the other hand is necessarily both dense and rapid, performing essentially an exhaustive search on the Grassmannian. However, this path uninteresting and with long periods of similar projections strung together. There was a need to find interesting projections quicker.
 
-Guided tours (@hurley_analyzing_1990) optimize an objective function generating path will be relatively small subset of the Grassmanian, density and rapidity become poor measures, while interesting projections are quickly identified. Recently, @laa_using_2019, compares projection pursuit indices with the metrics: smoothness, squintability, flexibility, rotation invariance and speed. See the original work to see how the indices perform.
+Guided tours (@hurley_analyzing_1990) optimize an objective function generating path will be relatively small subset of the Grassmannian, density and rapidity become poor measures, while interesting projections are quickly identified. Recently, @laa_using_2019, compares projection pursuit indices with the metrics: smoothness, squintability, flexibility, rotation invariance and speed. See the original work to see how the indices perform.
 
 
 ### Geometric display by dimensionality
@@ -115,9 +115,9 @@ Up to this point we have been talking about 2D scatterplots, which offer the fir
     + image (pixel): [@wegman_pixel_2001]
     + time series: where multivariate values are independently lagged to view peak and trough alignment. Currently no package implementation, but use case is discussed in [@cook_manual_1997]. 
 * 2D geoms
-    + 2D density (available on Github at https://github.com/nspyrison/tourr)
+    + 2D density (available on GitHub at https://github.com/nspyrison/tourr)
     + $x-y$ scatterplot
-* 3D geoms - these geoms do not perform projections in 3 dimensions, but rather are $d=2$ projections that utilize the the manipulation dimension to give depth perception cues.
+* 3D geoms - these geoms do not perform projections in 3 dimensions, but rather are $d=2$ projections that utilize the manipulation dimension to give depth perception cues.
     + Anaglyphs, sometimes called stereo, where (typically) red images are positioned for the left channel and cyan for the right, when viewed with corresponding filter glasses give the depth perception of the image.
     + Depth, which gives depth cues in aesthetic mappings, most commonly size and/or color of data points.
 * $d$-dimensional geoms
@@ -131,7 +131,7 @@ Up to this point we have been talking about 2D scatterplots, which offer the fir
 ### Tour software implementations
 
 Below is a non-exhaustive list of software implementing touring in some degree, ordered by descending year:
-<!-- See hadley's thesis and, C2 paper for lists. -->
+<!-- See Wickham’s thesis and C2 paper for lists. -->
 
 * spinifex [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex) -- R package, all platforms.
 * tourr [@wickham_tourr_2011] -- R package, all platforms.
@@ -156,13 +156,13 @@ Most previous implementation of dynamic projections are failing to compile. I ha
 
 ## Multivariate data visualization in 3D {#sec:3d}
 
-As this research pertains to numeric multivariate data, we'll stick to this scope in the liturature review. For wider overview of 3D data visualization see chapter 2 of @marriott_immersive_2018.
+As this research pertains to numeric multivariate data, we'll stick to this scope in the literature review. For wider overview of 3D data visualization see chapter 2 of @marriott_immersive_2018.
 
 
 ### Terminology {#sec:3d-terminology}
 
 * 2D - representation of data in 2 dimensions, without use of depth perception cues and minimal aesthetic mapping (color, size, height, *etc*) to data points.
-* 2.5D - Following the definition given in @ware_designing_2000 : visualisations that are essentially 2D, but select depth cues are used to provide some suggestion of 3D. However, the term 2.5D is commonly used for several meanings *due to the ambiguity use of 2.5D, we err on the side stating 3D with descriptions of depth cues used*.
+* 2.5D - Following the definition given in @ware_designing_2000 : visualizations that are essentially 2D, but select depth cues are used to provide some suggestion of 3D. However, the term 2.5D is commonly used for several meanings *due to the ambiguity use of 2.5D, we err on the side stating 3D with descriptions of depth cues used*.
 * 3D - visualizations of 3 dimensions with a liberal use of depth cues unless otherwise qualified.
 * Depth perception cues - an indication that tips off depth to an observer, including:
     * linear perspective - the property of parallel lines converging on a vanishing point.
@@ -185,7 +185,7 @@ Scientific visualization has readily adopted mixed realities as a large amount o
 
 ### 3D rotated projections vs 3 2D orthogonal projections 
 
-3D shapes can be represented by 3 orthogonal 2D views, or rather 3 pairwise projections. When 3D representations are used with binocular cues, they are found to have more accurate perception than 2D counterparts [@lee_effects_1986, depicted in fig \@ref(fig:lee86fig)].
+3D shapes can be represented by 3 orthogonal 2D views, or rather 3 pairwise projections. When 3D representations are used with binocular cues, they are found to have more accurate perception than 2D counterparts [@lee_effects_1986, depicted in figure \@ref(fig:lee86fig)].
 
 (ref:lee86fig-cap) Screen capture of "Figure 7. 3-D Block Model" from @lee_effects_1986. 
 
@@ -194,7 +194,7 @@ knitr::include_graphics("./figures/lee86fig.PNG")
 ```
 
 
-Between 3D and split view 2D of 3-dimensional economics data @wickens_implications_1994, depicted in fig \@ref(fig:wickens94fig), asked participants integrative questions, finding that participants were faster to answer when questions involved three dimensions, while performance was similar when questions involved fewer dimensions.
+Between 3D and split view 2D of 3-dimensional economics data @wickens_implications_1994, depicted in figure \@ref(fig:wickens94fig), asked participants integrative questions, finding that participants were faster to answer when questions involved three dimensions, while performance was similar when questions involved fewer dimensions.
 
 (ref:wickens94fig-cap) Screen capture of "Figure 5. Example of a mesh display" from @wickens_implications_1994.
 
@@ -203,7 +203,7 @@ knitr::include_graphics("./figures/wickens94fig.PNG")
 ```
 
 
-Using 3D rotated projection gives accurate perception of a ball relative to complex box shapes, while combinations of 2D and 3D give the most precise orientation and positioning information [@tory_visualization_2006, depicted in fig \@ref(fig:tory06fig)].
+Using 3D rotated projection gives accurate perception of a ball relative to complex box shapes, while combinations of 2D and 3D give the most precise orientation and positioning information [@tory_visualization_2006, depicted in figure \@ref(fig:tory06fig)].
 
 (ref:tory06fig-cap) Screen capture from @tory_visualization_2006: "Fig. 1 (a) 2D, (b) 3D Rotated, (c) 3D Shadow, (d) Orientation Icon, and
 (e) ExoVis displays used in Experiment 1 (position estimation). Participants
@@ -215,7 +215,7 @@ knitr::include_graphics("./figures/tory06fig.PNG")
 ```
 
 
-@sedlmair_empirical_2013, depicted in fig \@ref(fig:sedlmair13fig), tasked users with cluster separation across 2D scatterplot, 2D scatterplot matrices (SPLOMs) and interactive 3D scatterplots as viewed in monocular 3D from a standard monitor. They conclude that interactive 3D scatterplots perform worse for class separation. This result is surprisingly as the extra dimension theoretically allows for clustering structure to be seen and explored more clearly.
+@sedlmair_empirical_2013, depicted in figure \@ref(fig:sedlmair13fig), tasked users with cluster separation across 2D scatterplot, 2D scatterplot matrices (SPLOMs) and interactive 3D scatterplots as viewed in monocular 3D from a standard monitor. They conclude that interactive 3D scatterplots perform worse for class separation. This result is surprisingly as the extra dimension theoretically allows for clustering structure to be seen and explored more clearly.
 
 (ref:sedlmair13fig-cap) Screen capture of "Figure 5. Example of a mesh display" from @sedlmair_empirical_2013: "Fig. 5. (a)-(d): Screenshots of the entangled dataset `entangled1-3d-3cl-separate` designed to show the most possible benefits for i3D. (a),(b) two viewpoints of the same i3D PCA scatterplot. An accompanying video shows the full 3D rotation. (c) 2D PCA projection. (d) t-SNE untangles this class structure in 2D. (e)-(f): 2D scatterplots of the reduced `entangled2-15d-adjacent` dataset which we designed to have a ground truth entangled class structure in 15D. (e) Glimmer MDS cannot untangle the classes, neither can PCA and robPCA (see supplemental material). (f) t-SNE nicely untangles and separates the ground truth classes in 2D."
 
@@ -226,7 +226,7 @@ knitr::include_graphics("./figures/sedlmair13fig.PNG")
 
 ### Comparing 3D and 2D embeddings of multivariate data
 
-@nelson_xgobi_1998, depicted in fig \@ref(fig:nelson98fig), had $n=15$ participants perform brushing and touring tasks (identification of clusters, structure, and data dimensionality) in 3D with head-tracked binocular VR. 3D proved to have substantial advantage for cluster identification and some advantage in in identifying shape. Brushing did take longer in VR, perhaps due to the lower familiarity of manipulating 3D spaces. 
+@nelson_xgobi_1998, depicted in figure \@ref(fig:nelson98fig), had $n=15$ participants perform brushing and touring tasks (identification of clusters, structure, and data dimensionality) in 3D with head-tracked binocular VR. 3D proved to have substantial advantage for cluster identification and some advantage in in identifying shape. Brushing did take longer in VR, perhaps due to the lower familiarity of manipulating 3D spaces. 
 
 (ref:nelson98fig-cap) Screen capture from @nelson_xgobi_1998: "Figure 4: This is a picture of a 3-D room, running VRGobi. Data is plotted in the center, with painting tools to the right and variable spheres to the left. In the viewing box the data can be seen to contain three clusters, and one is being brushed."
 
@@ -235,7 +235,7 @@ knitr::include_graphics("./figures/nelson98fig.PNG")
 ```
 
 
-Another study, @gracia_new_2016, depicted in fig \@ref(fig:gracia16fig), performed dimensionality reduction down to 2- and 3D scatterplots, both displayed in monocular 3D on a standard monitor. Users were found to more accurately compare distances between points and identify outliers on 3D scatterplots. However, both tasks were performed slower with use of the 3D scatterplots and statistical significance was not reported.
+Another study, @gracia_new_2016, depicted in figure \@ref(fig:gracia16fig), performed dimensionality reduction down to 2- and 3D scatterplots, both displayed in monocular 3D on a standard monitor. Users were found to more accurately compare distances between points and identify outliers on 3D scatterplots. However, both tasks were performed slower with use of the 3D scatterplots and statistical significance was not reported.
 
 (ref:gracia16fig-cap) Screen capture from @gracia_new_2016: "Figure 5. Distance perception test. Left-hand image: 2D version. Here, the yellow line could be perceived as roughly twice the length of the magenta line, thus the value to be introduced should be approximately 2.0. Right-hand image: 3D version. Here, the inclusion of an extra dimension could provide new information about the relation, in terms of distances, between both lines."
 
@@ -244,7 +244,7 @@ knitr::include_graphics("./figures/gracia16fig")
 ```
 
 
-@wagner_filho_immersive_2018, depicted in fig \@ref(fig:wagner18fig), performed an $n=30$ empirical study of PCA embedded projections, and perception error across 4 tasks and 3 display types: 2D, 3D, and immersive. Overall task error was less in 3D and immersive relative to 2D. According to user Likert-scale 2D is slightly easier to navigate and slightly more comfortable. Conversely, 3D and immersive are slightly easier to interact and moderately easier to find information.
+@wagner_filho_immersive_2018, depicted in figure \@ref(fig:wagner18fig), performed an $n=30$ empirical study of PCA embedded projections, and perception error across 4 tasks and 3 display types: 2D, 3D, and immersive. Overall task error was less in 3D and immersive relative to 2D. According to user Likert-scale 2D is slightly easier to navigate and slightly more comfortable. Conversely, 3D and immersive are slightly easier to interact and moderately easier to find information.
 
 (ref:wagner18fig-cap) Screen capture from @wagner_filho_immersive_2018, original captions contained in capture.
 

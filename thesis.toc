@@ -2,7 +2,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Declaration}{v}{chapter*.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Research problem}{1}{chapter*.2}
+\contentsline {chapter}{Abstract}{vii}{chapter*.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Research problem}{1}{chapter*.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {0.1}Methodology}{2}{section.0.1}
 \defcounter {refsection}{0}\relax 
@@ -74,8 +76,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Does 3D UCS provide benefits over UCS in 2D?}{41}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{PhD timeline}{43}{chapter*.17}
+\contentsline {chapter}{PhD timeline}{43}{chapter*.18}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Acknowledgements}{45}{chapter*.18}
+\contentsline {chapter}{Acknowledgements}{45}{chapter*.19}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{47}{chapter*.19}
+\contentsline {chapter}{Bibliography}{47}{chapter*.20}
