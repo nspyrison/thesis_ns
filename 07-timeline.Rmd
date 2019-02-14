@@ -92,7 +92,7 @@ timeline
 Also submitted via online milestone form:
 
 - FIT 5144 hours
-    - \>120 hours **Tracked, documentation needs cleanup**, due at mid-candidature review
+    - \>120 hours **Tracked, evidence needs cleanup**, due at mid-candidature review
 - WES Academic record
     - FIT6021: 2018 S2, **Completed** with Distinction
     - FIT5144: 2019 S1+2, **Upcoming**, due at mid-candidature review
@@ -101,6 +101,7 @@ Also submitted via online milestone form:
     - Monash Graduate Research Student Induction: **Completed** 
     - Research Integrity - Choose the Option most relevant: **Completed** (2 required of 4)
     - Faculty Induction: **Content unavailable** (9/02/2019: "Currently being updated and will be visible in this section soon".)
+    
 <!-- Induction To be completed within 6 months of commencement -->
 
 # Acknowledgements {-} 
