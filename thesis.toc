@@ -8,7 +8,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Literature review}{3}{chapter.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.1}Dynamic projections of multivariate data (Touring)}{3}{section.1.1}
+\contentsline {section}{\numberline {1.1}Dynamic projections of multivariate data (tours)}{3}{section.1.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.1.1}Overview}{3}{subsection.1.1.1}
 \defcounter {refsection}{0}\relax 
