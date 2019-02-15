@@ -1,7 +1,7 @@
 ---
 title: "Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices"
-author: "<br> Nicholas Spyrison (id:29365759) <br><br> Monash University, Faculty of Information Technology <br><br> "
-date: "Candidature Confirmation <br> 21 February 2019 <br> *Document and slides -- [github.com/nspyrison/Confirmation](https://github.com/nspyrison/Confirmation)*"
+author: "<br> Nicholas Spyrison (id:29365759) <br> Monash University, Faculty of Information Technology <br><br>"
+date: "Candidature Confirmation <br> 21 February 2019 <br><br> *Document and slides -- [github.com/nspyrison/confirmation](https://github.com/nspyrison/confirmation)*"
 output:
   xaringan::moon_reader:
     css: ["default","data_viz_theme.css"]
@@ -14,10 +14,10 @@ output:
 
 ```{r setup, include=FALSE,}
 knitr::opts_chunk$set(
-  eval      = TRUE,   # R code 
-  echo      = FALSE,  # code
-  include   = TRUE,   # plots
-  #results   = "asis", # text 'markup' 'asis' 'hold' 'hide'
+  eval      = TRUE,  # R code 
+  echo      = FALSE, # code
+  include   = TRUE,  # plots
+  results   = 'markup', # text 'markup' 'asis' 'hold' 'hide'
   message   = F, warning = F, error = F, cache = F, cache.lazy = F,
   collapse  = TRUE,
   comment   = "",
@@ -31,10 +31,10 @@ htmlwidgets::sizingPolicy(padding = 0, browser.fill = TRUE)
 # Contents
 
 - Research question
-- Dynamic low-dimensional embeddings
-- 2D vs 3D low-dimensional embeddings
+- 2D Dynamic low-dimensional embeddings
 - RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-dynamic animation?
 - RO #B) What benefits does UCS provide over popular alternatives?
+- 2D vs 3D low-dimensional embeddings
 - RO #C) How do we extend UCS to 3D?
 - RO #D) Does UCS with 3D displays provide perception benefits over 2D displays?
 - Research timeline
@@ -43,42 +43,131 @@ htmlwidgets::sizingPolicy(padding = 0, browser.fill = TRUE)
 
 # Research question
 
-- **Does allowing the user to steer the tour, facilitate the exploration and understanding
-of the sensitivity of structure to the original variables or parameters?**
-    - A) Can user controlled steering (UCS) be utilized in an environment providing non-dynamic animation?
-    - B) What benefits does UCS provide over popular alternatives?
-    - C) How do we extend UCS to 3D?
-    - D) Does UCS with 3D displays provide perception benefits over 2D displays?
+** Does allowing the user to steer the tour, facilitate the exploration and understanding
+of the sensitivity of structure to the original variables or parameters? **
 
-<br><br>
-- Consider $d = 2$, projecting down to 2D scatterplot.
+- A) Can user controlled steering (UCS) be utilized in an environment providing non-dynamic animation?
+- B) What benefits does UCS provide over popular alternatives?
+- C) How do we extend UCS to 3D?
+- D) Does UCS with 3D displays provide perception benefits over 2D displays?
 
 ---
 
 # Dynamic low-dimensional embeddings
 
+Linear projection of multivariate numeric data from $p$ to $d$ dimension as $p-$space is rotated. Collectively known at **tours**.
+
+Useful for indentifying clusters, outliers, and structure
+
+Shadow puppet analogy:
+
+![Shadow puppet analogy](./images/shadow_puppet.png)
+
 ---
-# Analogy - shadow puppets
 
-- Imaging a bar stool in front of a light source
-- Rotation reveals the 3D shape
+# guided tour, flea example
 
-![Shadow puppet analogy](./xConfirmation_pres/images/shadow_puppet.png)
+.pull-left[
+<br>
+- Linear combination of the variables displayed on a unit circle, a *reference frame*. <br><br>
+- This is a *guided tour*, uses projection pursuit to optimising more white space in the middle of a projection
+]
 
-- Same visual interpretation that we want to preserve in visualizing in multivariate data sets 
-<!-- *(Wickham et al. 2015)* -->
+.pull-right[
+```{r, echo=F, out.width='90%'}
+knitr::include_graphics("./images/FleaHolesTour.gif")
+```
+]
+
+<br>
+
+created with R package `tourr` *(Wickham et al. 2011)*
+
+---
+
+# RO #A) 2D user controlled steering (UCS)
+
+Yes: *manual tour* applying *Cook & Buja 1997*. `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex). 
+
+Continueing from the last projection of our guided tour:
+
+.pull-left[
+```{r, results='hide', out.height='80%', out.width='80%'}
+library(spinifex)
+f_dat  <- tourr::rescale(flea[,1:6])
+f_cat  <- factor(flea$species)
+f_path <- save_history(f_dat, guided_tour(holes()))
+f_bas  <- matrix(f_path[,, max(dim(f_path)[3])], ncol=2)
+f_mvar <- 5
+# f_msp  <- create_manip_space(basis = f_bas, manip_var = f_mvar)
+# f_proj <- data.frame(tourr::rescale(f_dat %*% f_msp[, 1:2]))
+
+view_basis(f_bas, labels = colnames(f_dat))
+```
+]
+
+.pull-right[
+```{r, out.height='80%', out.width='80%'}
+view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat))
+```
+]
+
+---
+
+# 2D UCS -- Application  
+
+
+Particle physics data, $\textbf{X} \in \mathbb{R}^{56}$, *Wang, et. al. 2018*
+
+
+
+.pull-left[
+```{r, results='hide', fig.height=2, fig.width=2}
+##DIS cluster, fig 8 of cook_dynamical_2018
+load("../data/grDIScenter.rda")
+load("../data/DIScluster_centered_basis.rda")
+DIS_bas   <- DIScluster_centered_basis
+DIS_dat   <- tourr::rescale(grDIScenter[, 1:6])
+DIS_cat   <- factor(grDIScenter$disID)
+DIS_mvar  <- 6
+DIS_ang   <- .15
+DIS_mtour <- manual_tour(basis = DIS_bas, manip_var = DIS_mvar, angle = DIS_ang)
+
+### GGANIMATE
+DIS_mt <- play_manual_tour(data = DIS_dat, basis = DIS_bas, manip_var = DIS_mvar,
+                           angle = DIS_ang, axes="bottomleft", cat_var = DIS_cat, 
+                           render_type = render_gganimate)
+
+gganimate::anim_save(filename = "./images/DIS_mt.gif", animation = DIS_mt, end_pause= 5)
+```
+```{r, out.width='100%', out.height='100%'}
+knitr::include_graphics("./images/DIS_mt.gif")
+```
+]
+.pull-right[
+<br>
+- Summarize the $p=56$ in 6 principal components, ~48% of the variation in the data.
+- Find the starting basis, previously publshed figures. 
+]
+
+As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/)
+
+
+---
+
+# RO #B) UCS provide over alternatives?
+
+**Future case study**
+
+.pull-right[]
+
+
 
 ---
 
 # 2D vs 3D low-dimensional embeddings
 
----
-
-# Can user controlled steering (UCS) be utilized in an environment providing non-dynamic animation? (RO #A)
-
----
-
-# What benefits does UCS provide over popular alternatives? (RO #B)
+- 
 
 ---
 
@@ -174,10 +263,10 @@ timeline
 
 ---
 
-Also submitted via online milestone form:
+# Milestone documents
 
 - FIT 5144 hours
-    - \>120 hours **Tracked, evidence needs cleanup**, due at mid-candidature review
+    - \>120 hours **Tracked, evidence needs cleanup**, due at mid-candidature review.
 - WES Academic record
     - FIT6021: 2018 S2, **Completed** with Distinction
     - FIT5144: 2019 S1+2, **Upcoming**, due at mid-candidature review
