@@ -3,7 +3,7 @@
   <head>
     <title>Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices</title>
     <meta charset="utf-8">
-    <meta name="author" content="  Nicholas Spyrison (id:29365759)    Monash University, Faculty of Information Technology" />
+    <meta name="author" content="  Nicholas Spyrison (id:29365759)   Monash University, Faculty of Information Technology" />
     <link href="confirmation_pres_ns_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="data_viz_theme.css" type="text/css" />
   </head>
@@ -12,8 +12,8 @@
 class: center, middle, inverse, title-slide
 
 # Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices
-### <br> Nicholas Spyrison (id:29365759) <br><br> Monash University, Faculty of Information Technology <br><br>
-### Candidature Confirmation <br> 21 February 2019 <br> <em>Document and slides – <a href="https://github.com/nspyrison/Confirmation">github.com/nspyrison/Confirmation</a></em>
+### <br> Nicholas Spyrison (id:29365759) <br> Monash University, Faculty of Information Technology <br><br>
+### Candidature Confirmation <br> 21 February 2019 <br><br> <em>Document and slides – <a href="https://github.com/nspyrison/confirmation">github.com/nspyrison/confirmation</a></em>
 
 ---
 
@@ -23,54 +23,103 @@ class: center, middle, inverse, title-slide
 # Contents
 
 - Research question
-- Dynamic low-dimensional embeddings
-- 2D vs 3D low-dimensional embeddings
+- 2D Dynamic low-dimensional embeddings
 - RO #A) Can user controlled steering (UCS) be utilized in an environment providing non-dynamic animation?
 - RO #B) What benefits does UCS provide over popular alternatives?
+- 2D vs 3D low-dimensional embeddings
 - RO #C) How do we extend UCS to 3D?
 - RO #D) Does UCS with 3D displays provide perception benefits over 2D displays?
-- Research Timeline
+- Research timeline
 
 ---
 
 # Research question
 
-- **Does allowing the user to steer the tour, facilitate the exploration and understanding
-of the sensitivity of structure to the original variables or parameters?**
-    - A) Can user controlled steering (UCS) be utilized in an environment providing non-dynamic animation?
-    - B) What benefits does UCS provide over popular alternatives?
-    - C) How do we extend UCS to 3D?
-    - D) Does UCS with 3D displays provide perception benefits over 2D displays?
+** Does allowing the user to steer the tour, facilitate the exploration and understanding
+of the sensitivity of structure to the original variables or parameters? **
 
-&lt;br&gt;&lt;br&gt;
-- Consider `\(d = 2\)`, projecting down to 2D scatterplot.
+- A) Can user controlled steering (UCS) be utilized in an environment providing non-dynamic animation?
+- B) What benefits does UCS provide over popular alternatives?
+- C) How do we extend UCS to 3D?
+- D) Does UCS with 3D displays provide perception benefits over 2D displays?
 
 ---
 
 # Dynamic low-dimensional embeddings
 
+Linear projection of multivariate numeric data from `\(p\)` to `\(d\)` dimension as `\(p-\)`space is rotated. Collectively known at **tours**.
+
+Useful for indentifying clusters, outliers, and structure
+
+Shadow puppet analogy:
+
+![Shadow puppet analogy](./images/shadow_puppet.png)
+
 ---
-# Analogy - shadow puppets
 
-- Imaging a bar stool in front of a light source
-- Rotation reveals the 3D shape
+# guided tour, flea example
 
-![Shadow puppet analogy](./xConfirmation_pres/images/shadow_puppet.png)
+.pull-left[
+&lt;br&gt;
+- Linear combination of the variables displayed on a unit circle, a *reference frame*. &lt;br&gt;&lt;br&gt;
+- This is a *guided tour*, uses projection pursuit to optimising more white space in the middle of a projection
+]
 
-- Same visual interpretation that we want to preserve in visualizing in multivariate data sets 
-&lt;!-- *(Wickham et al. 2015)* --&gt;
+.pull-right[
+&lt;img src="./images/FleaHolesTour.gif" width="90%" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;br&gt;
+
+created with R package `tourr` *(Wickham et al. 2011)*
+
+---
+
+# RO #A) 2D user controlled steering (UCS)
+
+Yes: *manual tour* applying *Cook &amp; Buja 1997*. `spinifex` R package, [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex). 
+
+Continueing from the last projection of our guided tour:
+
+.pull-left[
+&lt;img src="confirmation_pres_ns_files/figure-html/unnamed-chunk-2-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;img src="confirmation_pres_ns_files/figure-html/unnamed-chunk-3-1.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# 2D UCS -- Application  
+
+
+Particle physics data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et. al. 2018*
+
+
+
+.pull-left[
+
+&lt;img src="./images/DIS_mt.gif" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+- Summarize the `\(p=56\)` in 6 principal components, ~48% of the variation in the data.
+- Find the starting basis, previously publshed figures. 
+]
+
+
+
+---
+
+# RO #B) UCS provide over popular alternatives? (
+
+
 
 ---
 
 # 2D vs 3D low-dimensional embeddings
 
----
-
-# Can user controlled steering (UCS) be utilized in an environment providing non-dynamic animation? (RO #A)
-
----
-
-# What benefits does UCS provide over popular alternatives? (RO #B)
+- 
 
 ---
 
@@ -82,16 +131,16 @@ of the sensitivity of structure to the original variables or parameters?**
 
 ---
 
-# Research Timeline
+# Research timeline
 
 &lt;img src="confirmation_pres_ns_files/figure-html/timeline-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
-Also submitted via online milestone form:
+# Milestone documents
 
 - FIT 5144 hours
-    - \&gt;120 hours **Tracked, evidence needs cleanup**, due at mid-candidature review
+    - \&gt;120 hours **Tracked, evidence needs cleanup**, due at mid-candidature review.
 - WES Academic record
     - FIT6021: 2018 S2, **Completed** with Distinction
     - FIT5144: 2019 S1+2, **Upcoming**, due at mid-candidature review

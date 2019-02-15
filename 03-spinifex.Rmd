@@ -174,7 +174,7 @@ f_dat  <- tourr::rescale(flea[,1:6])
 f_cat  <- factor(flea$species)
 f_path <- save_history(f_dat, guided_tour(holes()))
 f_bas  <- matrix(f_path[,, max(dim(f_path)[3])], ncol=2)
-f_mvar <- 4
+f_mvar <- 5
 f_msp  <- create_manip_space(basis = f_bas, manip_var = f_mvar)
 f_proj <- data.frame(tourr::rescale(f_dat %*% f_msp[, 1:2]))
 
@@ -424,7 +424,7 @@ load("./data/DIScluster_centered_basis.rda")
 DIS_bas   <- DIScluster_centered_basis
 DIS_dat   <- tourr::rescale(grDIScenter[, 1:6])
 DIS_cat   <- factor(grDIScenter$disID)
-DIS_mvar  <- 3
+DIS_mvar  <- 6
 DIS_ang   <- .27
 DIS_mtour <- manual_tour(basis = DIS_bas, manip_var = DIS_mvar, angle = DIS_ang)
 
