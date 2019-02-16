@@ -4,18 +4,11 @@
     <title>Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices</title>
     <meta charset="utf-8">
     <meta name="author" content="  Nicholas Spyrison (id:29365759)   Monash University, Faculty of Information Technology" />
-    <link href="confirmation_pres_ns_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="confirmation_pres_ns_files/remark-css/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="data_viz_theme.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
-
-# Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices
-### <br> Nicholas Spyrison (id:29365759) <br> Monash University, Faculty of Information Technology <br><br>
-### Candidature Confirmation <br> 21 February 2019 <br><br> <em>Document and slides – <a href="https://github.com/nspyrison/confirmation">github.com/nspyrison/confirmation</a></em>
-
----
 
 
 
@@ -69,8 +62,6 @@ Shadow puppet analogy:
 &lt;img src="./images/FleaHolesTour.gif" width="90%" style="display: block; margin: auto;" /&gt;
 ]
 
-&lt;br&gt;
-
 created with R package `tourr` *(Wickham et al. 2011)*
 
 ---
@@ -91,29 +82,47 @@ Continueing from the last projection of our guided tour:
 
 ---
 
-# 2D UCS -- Application  
-
+# RO #A) 2D UCS -- Application  
 
 Particle physics data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et. al. 2018*
 
-
-
 .pull-left[
 
-&lt;img src="./images/DIS_mt.gif" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="./images/DIS_mt.gif" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
 ]
 .pull-right[
-- Summarize the `\(p=56\)` in 6 principal components, ~48% of the variation in the data.
-- Find the starting basis, previously publshed figures. 
+&lt;br&gt;
+- Summarize with 6 principal components, ~48% of the variation in the data.
+- Find the starting basis from previously publshed figures. 
 ]
 
+As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/)
 
 
 ---
 
-# RO #B) UCS provide over popular alternatives? (
+# RO #B) UCS vs alternatives -- PCA
+
+*Future case study*
+
+&lt;img src="confirmation_pres_ns_files/figure-html/unnamed-chunk-6-1.png" width="90%" height="60%" style="display: block; margin: auto;" /&gt;
+
+- Best we can do in `\(d\)`-dim static projection
+- Have transparency to variables
+- How much variation is lost?
+
+---
+
+# RO #B) UCS vs alternatives -- tSNE
+
+*Future case study*
 
 
+&lt;img src="confirmation_pres_ns_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
+
+- Variables opacity; how different? in which direction? What's the relationship?
+- can suffer from overfit
+- Binary indicator of clustering/outliers
 
 ---
 
@@ -286,6 +295,7 @@ Particle physics data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et. al. 2018
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
+"ratio": "16:9",
 "highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false

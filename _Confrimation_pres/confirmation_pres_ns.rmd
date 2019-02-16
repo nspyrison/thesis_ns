@@ -7,17 +7,19 @@ output:
     css: ["default","data_viz_theme.css"]
     self_contained: false
     nature:
+      ratio: '16:9'
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+    seal: FALSE
 ---
 
-```{r setup, include=FALSE,}
+```{r setup_pres, include=FALSE,}
 knitr::opts_chunk$set(
   eval      = TRUE,  # R code 
   echo      = FALSE, # code
   include   = TRUE,  # plots
-  results   = 'markup', # text 'markup' 'asis' 'hold' 'hide'
+  results   = 'asis', # text 'markup' 'asis' 'hold' 'hide'
   message   = F, warning = F, error = F, cache = F, cache.lazy = F,
   collapse  = TRUE,
   comment   = "",
@@ -25,7 +27,13 @@ knitr::opts_chunk$set(
   #fig.show = "hold",
   #strip.white = TRUE,
 )
+options(htmltools.dir.version = FALSE)
 htmlwidgets::sizingPolicy(padding = 0, browser.fill = TRUE)
+library(spinifex)
+library(ggplot2)
+library(magrittr)
+library(Rtsne)
+library(cowplot)
 ```
 
 # Contents
@@ -79,8 +87,6 @@ knitr::include_graphics("./images/FleaHolesTour.gif")
 ```
 ]
 
-<br>
-
 created with R package `tourr` *(Wickham et al. 2011)*
 
 ---
@@ -93,7 +99,7 @@ Continueing from the last projection of our guided tour:
 
 .pull-left[
 ```{r, results='hide', out.height='80%', out.width='80%'}
-library(spinifex)
+#library(spinifex)
 f_dat  <- tourr::rescale(flea[,1:6])
 f_cat  <- factor(flea$species)
 f_path <- save_history(f_dat, guided_tour(holes()))
@@ -114,12 +120,9 @@ view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat))
 
 ---
 
-# 2D UCS -- Application  
-
+# RO #A) 2D UCS -- Application  
 
 Particle physics data, $\textbf{X} \in \mathbb{R}^{56}$, *Wang, et. al. 2018*
-
-
 
 .pull-left[
 ```{r, results='hide', fig.height=2, fig.width=2}
@@ -140,14 +143,14 @@ DIS_mt <- play_manual_tour(data = DIS_dat, basis = DIS_bas, manip_var = DIS_mvar
 
 gganimate::anim_save(filename = "./images/DIS_mt.gif", animation = DIS_mt, end_pause= 5)
 ```
-```{r, out.width='100%', out.height='100%'}
+```{r, out.width='80%', out.height='80%'}
 knitr::include_graphics("./images/DIS_mt.gif")
 ```
 ]
 .pull-right[
 <br>
-- Summarize the $p=56$ in 6 principal components, ~48% of the variation in the data.
-- Find the starting basis, previously publshed figures. 
+- Summarize with 6 principal components, ~48% of the variation in the data.
+- Find the starting basis from previously publshed figures. 
 ]
 
 As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/)
@@ -155,13 +158,80 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 
 ---
 
-# RO #B) UCS provide over alternatives?
+# RO #B) UCS vs alternatives -- PCA
 
-**Future case study**
+*Future case study*
 
-.pull-right[]
+```{r, out.width='90%', out.height='60%'}
+f_pca <- stats::prcomp(f_dat, center = TRUE, scale. = TRUE)
+f_pca_bas <- as.matrix(f_pca$rotation[, 1:2])
+colnames(f_pca_bas) <- c("V1", "V2")
+f_pca_proj <- tourr::rescale(f_pca$x) %>% as.data.frame()
+
+### Basis and proj
+gg_f_pca_proj <- 
+  view_basis(f_pca_bas, labels = colnames(f_dat)) +
+  geom_point(data = f_pca_proj, 
+             mapping = aes(x = PC1 +.75, y = PC2 -.5, color = f_cat), 
+             pch = as.integer(f_cat) + 15) +
+  ggtitle("flea - PC1:2") + xlab("PC1") + ylab("PC2")
+
+### Cumsum variation
+f_pca_var <- as.data.frame(
+  rbind(c(0,0,0,0), 
+    cbind("PC" = 1:6,
+      "Var" = f_pca$sdev, 
+      "Prop_Var" = f_pca$sdev/sum(f_pca$sdev),
+      "cumsum_Prop_Var" = cumsum(f_pca$sdev)/sum(f_pca$sdev),
+      "var_not_explained" = 1 -  cumsum(f_pca$sdev)/sum(f_pca$sdev)
+    )
+  )
+)
+
+  ribbon <- f_pca_var[-1:-2, c(1,4)] 
+  ribbon <- ribbon[rep(row.names(ribbon), 2), ]
+  ribbon[6:10, 1] <- ribbon[6:10, 1]+.999
+
+gg_f_pca_var <- 
+  ggplot(f_pca_var, aes(x=PC,y=cumsum_Prop_Var,label=round(cumsum_Prop_Var, 2))) +
+  geom_point(size=1) + geom_step() + 
+  ggtitle("Cumulative variance by PC") + 
+  geom_text(nudge_x=0, nudge_y=.05) + 
+  labs(x="Principal component", y="Cumulative variance") +
+  theme_bw() +
+  geom_ribbon(data=ribbon, aes(x=PC, ymin=cumsum_Prop_Var, ymax=1), 
+              fill="red", alpha=.2) + theme(legend.position = 'none')
+
+plot_grid(gg_f_pca_proj, gg_f_pca_var, align = "h", rel_widths = c(2, 1.6))
+```
+
+- Best we can do in $d$-dim static projection
+- Have transparency to variables
+- How much variation is lost?
+
+---
+
+# RO #B) UCS vs alternatives -- tSNE
+
+*Future case study*
 
 
+```{r, results='hide', fig.width=5, fig.height=3}
+f_tsne <- Rtsne(f_dat, dims = 2, perplexity=15, verbose=TRUE, max_iter = 500) 
+colnames(f_tsne$Y) <- paste0("tS",1:2)
+f_tsne_proj <- tourr::rescale(f_tsne$Y) %>% as.data.frame()
+
+ggplot() +
+  geom_point(data = f_tsne_proj, 
+             mapping = aes(x = tS1, y = tS2, color = f_cat), 
+             pch = as.integer(f_cat) + 15) + 
+  theme_void()+ theme(legend.position = 'none')
+  ggtitle("flea - tSNE1:2")
+```
+
+- Variables opacity; how different? in which direction? What's the relationship?
+- can suffer from overfit
+- Binary indicator of clustering/outliers
 
 ---
 
