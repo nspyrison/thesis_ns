@@ -88,7 +88,7 @@ Particle physics data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et. al. 2018
 
 .pull-left[
 
-&lt;img src="./images/DIS_mt.gif" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="./images/DIS_mt.gif" width="85%" height="70%" style="display: block; margin: auto;" /&gt;
 ]
 .pull-right[
 &lt;br&gt;
@@ -101,7 +101,7 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 
 ---
 
-# RO #B) UCS vs alternatives -- PCA
+# RO #B) 2D UCS vs alternatives -- PCA &amp; static linear transformations
 
 *Future case study*
 
@@ -113,10 +113,9 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 
 ---
 
-# RO #B) UCS vs alternatives -- tSNE
+# RO #B) 2D UCS vs alternatives -- tSNE &amp; Non-linear transformations
 
 *Future case study*
-
 
 &lt;img src="confirmation_pres_ns_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
 
@@ -126,9 +125,15 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 
 ---
 
+# RO #B) 2D UCS vs alternatives -- tSNE &amp; Non-linear transformations
+
+*Future case study*
+
+---
+
 # 2D vs 3D low-dimensional embeddings
 
-&lt;img src="./images/nelson98fig.PNG" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="./images/nelson98fig.PNG" width="50%" height="50%" style="display: block; margin: auto;" /&gt;
 
 - 2D tours in head tracked VR, vs 2D tours on 2D monitor
 
@@ -138,7 +143,7 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 
 # 2D vs 3D low-dimensional embeddings
 
-&lt;img src="./images/gracia16fig.PNG" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="./images/gracia16fig.PNG" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
 
 - 2D and 3D scatterplots of PCA on standard monitor
 
@@ -148,7 +153,7 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 
 # 2D vs 3D low-dimensional embeddings
 
-&lt;img src="./images/wagner18fig.PNG" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="./images/wagner18fig.PNG" width="30%" height="30%" style="display: block; margin: auto;" /&gt;
 
 - 2D and 3D scatterplot of PCA on standard monitor and head mounted VR
 
@@ -162,7 +167,13 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 
 `spinifex` and Immersive Analytics Tool Kit, `IATK`, *cordeil 2019*
 
-&lt;img src="./images/IATK.png" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+.pull-left[
+&lt;img src="./images/DIS_mt.gif" width="85%" height="70%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;img src="./images/IATK.png" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 
@@ -173,8 +184,23 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 **Design space:**
 - Display type: 2D monitor, 3D mointor, head-mount, physical immersion
 - Task type: structure, UCS, clustering, dimensionality, outliers
-- Measures: accuracy, speed, subjective meaures (Likert scale), demographic information, cross-departmental comparison?
-- 
+- Measures: accuracy, speed, subjective meaures (Likert scale), demographic information, cross-departmental comparison(?)
+
+---
+
+# Research question - Recap
+
+** Does allowing the user to steer the tour, facilitate the exploration and understanding
+of the sensitivity of structure to the original variables or parameters? **
+
+- A) Can user controlled steering (UCS) be utilized in an environment providing non-dynamic animation?
+    - `spinifex` in R
+- B) What benefits does UCS provide over popular alternatives?
+    - case study: static linear vs non-linear vs dynamic linear 
+- C) How do we extend UCS to 3D?
+    - experimental design: `spinifex` and `IATK`
+- D) Does UCS with 3D displays provide perception benefits over 2D displays?
+    - emiprical study: dynamic linear embedding across display type
 
 ---
 
@@ -187,103 +213,16 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 # Milestone documents
 
 - FIT 5144 hours
-    - \&gt;120 hours **Tracked, evidence needs cleanup**, due at mid-candidature review.
+    - \&gt;120 hours **Tracked, awaiting mantaory events**, due at mid-candidature review.
 - WES Academic record
     - FIT6021: 2018 S2, **Completed** with Distinction
     - FIT5144: 2019 S1+2, **Upcoming**, due at mid-candidature review
-    - FIT5113: 2018 S2, **Exemption submitted**
+    - FIT5113: 2018 S2, **Exemption submitted**, reforwarded 14/02/2019.
 - myDevelopment - IT: Monash Doctoral Program - Compulsory Module
     - Monash Graduate Research Student Induction: **Completed** 
     - Research Integrity - Choose the Option most relevant: **Completed** (2 required of 4)
     - Faculty Induction: **Content unavailable** (9/02/2019: "Currently being updated and will be visible in this section soon".)
 
-
-&lt;!-- --- --&gt;
-
-&lt;!-- # Touring typology --&gt;
-
-&lt;!-- - Manual choice - **"manual tour"** selecting a variable and manipulation *(Cook &amp; Buja 1997)* --&gt;
-&lt;!--     - R implementation via the package `spinifex`, available on [github](https://github.com/nspyrison/spinifex) --&gt;
-&lt;!--     `devtools::install_github("nspyrison/spinifex")` --&gt;
-
-&lt;!-- &lt;br&gt; --&gt;
-&lt;!-- Already implemented in R package `tourr`*(Wickham et al. 2011)*, available on CRAN:  --&gt;
-
-&lt;!-- - Random choice - "grand tour" random forest walk in `\(p\)`-space *(Asimov 1985)* --&gt;
-&lt;!-- - Precomputed choice - *eg.* "little tour" step through increments of all variables in order *(McDonald 1982)* --&gt;
-&lt;!-- - Data driven - "guided tour" stochastic gradient descent on objective function *(Hurley &amp; Buja 1990)* --&gt;
-
-&lt;!-- &lt;br&gt; --&gt;
-&lt;!-- For more detail see *Buja et al. 2005* --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- # Manual tours (1/3) --&gt;
-
-&lt;!-- As described in *Cook &amp; Buja 1997*: --&gt;
-
-&lt;!-- - Data, `\(x_{[n,~p]}\)` --&gt;
-&lt;!--     - `\(n\)` is observations --&gt;
-&lt;!--     - `\(p\)` is numeric variables (dimensions) --&gt;
-&lt;!--     - For ease of computation, we'll set this aside --&gt;
-&lt;!-- - Basis, `\(b_{[p,~d]}\)`, an orthonormal matrix, the linear combinations of `\(p\)` dimensions down to `\(d\)`-dimensional space. Essentially the orientation of the data and how it maps to `\(d\)` dimensions --&gt;
-&lt;!-- - We need to add a dimension in order to rotate the basis outside of the `\(d\)`-plane --&gt;
-&lt;!--     - Choose a manipulation variable, `\(k\)` --&gt;
-&lt;!--     - `\(e_{[p,~1]}\)`, be a zero column vector with the `\(k\)`-th element set to 1 --&gt;
-&lt;!--     - manipulation space, `\(m_{[p,~d+1]} = orthonormalize(b||e)\)` --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- # Manual tours (2/3) --&gt;
-
-&lt;!-- - Let rotation matrix, `\(r_{[d+1,~d+1]}(\theta,~\phi)\)`, where --&gt;
-&lt;!--     - `\(\theta\)` is the angle(s) of rotation within the basis plane --&gt;
-&lt;!--     - `\(\phi\)` is the angle of rotation out of the basis plane --&gt;
-&lt;!-- - Rotate manipulation space `\(rm_{[p,~d+1]} = m_{[p,~d+1]} * r_{[d+1,~d+1]}\)` be a rotated manipulation space --&gt;
-&lt;!--     - The first `\(d\)` dimensions of `\(rm\)` is the map to our lower dimensional embedding (shadow) --&gt;
-&lt;!-- - Project our data `\(p_{[n,~d+1]} = x_{[n,~p]} * rm_{[p,~d+1]}\)` --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- # Manual tours (3/3) --&gt;
-
-&lt;!-- - One frame, projecting `\(p\)`-dim data into `\(d\)`-space --&gt;
-&lt;!-- - Rinse and repeat making small changes to `\(\phi\)`, we create an animation as we control the contribution of selected variable --&gt;
-
-&lt;!-- ### Example -- Wine data --&gt;
-
-&lt;!-- 178 observations of 13 numeric variables, and type of grape (3 levels) --&gt;
-
-&lt;!-- ```{r echo=TRUE} --&gt;
-&lt;!-- library(spinifex) --&gt;
-&lt;!-- data(wine) --&gt;
-&lt;!-- wine_std &lt;- tourr::rescale(wine[, -1]) # without type of grape --&gt;
-&lt;!-- rb &lt;- basis_random(n = ncol(wine_std)) --&gt;
-
-&lt;!-- mySlideshow &lt;- play_manual_tour(data = wine_std, basis = rb, manip_var = 1,  --&gt;
-&lt;!--                                 cat_var = wine$Type, axes = "bottomleft") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- # Manual tour example --&gt;
-
-&lt;!-- ```{r, fig.hight = 5, fig.width = 8, fig.align='center'} --&gt;
-&lt;!-- #out.width = "80%", --&gt;
-&lt;!-- play_manual_tour(data = wine_std, basis = rb, manip_var = 1,  --&gt;
-&lt;!--                                 cat_var = wine$Type, axes = "bottomleft") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- # Going further --&gt;
-
-&lt;!-- - Bring touring to VR --&gt;
-&lt;!-- - Experimental study between 2D and 3D displays --&gt;
-
-&lt;!-- ```{r, results="hold", out.width = "80%"} --&gt;
-&lt;!-- knitr::include_graphics("./images/tourr2vr.PNG") --&gt;
-&lt;!-- ``` --&gt;
 
 &lt;!-- --- --&gt;
 
