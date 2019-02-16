@@ -125,7 +125,7 @@ view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat))
 Particle physics data, $\textbf{X} \in \mathbb{R}^{56}$, *Wang, et. al. 2018*
 
 .pull-left[
-```{r, results='hide', fig.height=2, fig.width=2}
+```{r, results='hide'}
 ##DIS cluster, fig 8 of cook_dynamical_2018
 load("../data/grDIScenter.rda")
 load("../data/DIScluster_centered_basis.rda")
@@ -137,19 +137,21 @@ DIS_ang   <- .15
 DIS_mtour <- manual_tour(basis = DIS_bas, manip_var = DIS_mvar, angle = DIS_ang)
 
 ### GGANIMATE
+#animation::ani.options(ani.width= 200, ani.height=200, ani.res=200)
 DIS_mt <- play_manual_tour(data = DIS_dat, basis = DIS_bas, manip_var = DIS_mvar,
                            angle = DIS_ang, axes="bottomleft", cat_var = DIS_cat, 
                            render_type = render_gganimate)
 
-gganimate::anim_save(filename = "./images/DIS_mt.gif", animation = DIS_mt, end_pause= 5)
+gganimate::anim_save(filename = "./images/DIS_mt.gif", animation = DIS_mt,
+                     start_pause = 10)
 ```
-```{r, out.width='80%', out.height='80%'}
+```{r, out.width='70%', out.height='70%'}
 knitr::include_graphics("./images/DIS_mt.gif")
 ```
 ]
 .pull-right[
 <br>
-- Summarize with 6 principal components, ~48% of the variation in the data.
+- Summarize with 6 principal components, ~48% of the variation in the data. <br><br>
 - Find the starting basis from previously publshed figures. 
 ]
 
@@ -162,7 +164,7 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 
 *Future case study*
 
-```{r, out.width='90%', out.height='60%'}
+```{r, fig.width=10.4, fig.height=4}
 f_pca <- stats::prcomp(f_dat, center = TRUE, scale. = TRUE)
 f_pca_bas <- as.matrix(f_pca$rotation[, 1:2])
 colnames(f_pca_bas) <- c("V1", "V2")
@@ -199,6 +201,7 @@ gg_f_pca_var <-
   geom_text(nudge_x=0, nudge_y=.05) + 
   labs(x="Principal component", y="Cumulative variance") +
   theme_bw() +
+  coord_fixed(ratio = .5) +
   geom_ribbon(data=ribbon, aes(x=PC, ymin=cumsum_Prop_Var, ymax=1), 
               fill="red", alpha=.2) + theme(legend.position = 'none')
 
@@ -237,15 +240,62 @@ ggplot() +
 
 # 2D vs 3D low-dimensional embeddings
 
+```{r, echo=F, out.width='70%', out.height='70%'}
+knitr::include_graphics("./images/nelson98fig.PNG")
+
+```
+
+- 2D tours in head tracked VR, vs 2D tours on 2D monitor
+
+*Nelson et. al. 1998*
+
+---
+
+# 2D vs 3D low-dimensional embeddings
+
+```{r, out.width='70%', out.height='70%'}
+knitr::include_graphics("./images/gracia16fig.PNG")
+```
+
+- 2D and 3D scatterplots of PCA on standard monitor
+
+*Gracia et. al. 2016*
+
+---
+
+# 2D vs 3D low-dimensional embeddings
+
+```{r, out.width='70%', out.height='70%'}
+knitr::include_graphics("./images/wagner18fig.PNG")
+```
+
+- 2D and 3D scatterplot of PCA on standard monitor and head mounted VR
+
+*Wagner et. al. 2018*
+
+---
+
+# RO #C) Extending UCS to 3D?
+
+*future exploratory design*
+
+`spinifex` and Immersive Analytics Tool Kit, `IATK`, *cordeil 2019*
+
+```{r, out.width='70%', out.height='70%'}
+knitr::include_graphics("./images/IATK.png")
+```
+
+---
+
+# RO #D) low-dim embeddings across display type
+
+*future empirical study*
+
+**Design space:**
+- Display type: 2D monitor, 3D mointor, head-mount, physical immersion
+- Task type: structure, UCS, clustering, dimensionality, outliers
+- Measures: accuracy, speed, subjective meaures (Likert scale), demographic information, cross-departmental comparison?
 - 
-
----
-
-# How do we extend UCS to 3D? (RO #C)
-
----
-
-# Does UCS with 3D displays provide perception benefits over 2D displays? (RO #D)
 
 ---
 
