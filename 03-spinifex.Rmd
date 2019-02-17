@@ -308,10 +308,10 @@ for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
 }
 ```
 
-In figure \@ref(fig:step3) we illustrate the sequence with 15 projected bases and highlight the manip variable on top, while showing the corresponding projected data points on the bottom. A dynamic version of this tour can be viewed online at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar4/, will take a moment to load. This format of this figure and linking to dynamic version will be used again in section \ref{sec:application}.
+In figure \@ref(fig:step3) we illustrate the sequence with 15 projected bases and highlight the manip variable on top, while showing the corresponding projected data points on the bottom. A dynamic version of this tour can be viewed online at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/, will take a moment to load. This format of this figure and linking to dynamic version will be used again in section \ref{sec:application}.
 
 
-(ref:step3-cap) Rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from its initial contribution to a full contribution to the projection before decreasing to zero, and then returning to its initial state. A dynamic version can be viewed at  https://nspyrison.netlify.com/thesis/flea_manualtour_mvar4/.
+(ref:step3-cap) Rotated manipulation spaces, a radial manual tour manipulating aded2 of standardized flea data. The manipulation variable, aede2, extends from its initial contribution to a full contribution to the projection before decreasing to zero, and then returning to its initial state. A dynamic version can be viewed at  https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/.
 
 ```{r step3, echo=F, warning=F, fig.height=7.2, fig.width=6, out.height='7.2in', out.width='6in', fig.cap = "(ref:step3-cap)"}
 f_angle <- .26

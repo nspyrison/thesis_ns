@@ -9,7 +9,13 @@
   </head>
   <body>
     <textarea id="source">
+class: center, middle, inverse, title-slide
 
+# Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices
+### <br> Nicholas Spyrison (id:29365759) <br> Monash University, Faculty of Information Technology <br><br>
+### Candidature Confirmation <br> 21 February 2019 <br><br> <em>Document and slides – <a href="https://github.com/nspyrison/confirmation">github.com/nspyrison/confirmation</a></em>
+
+---
 
 
 
@@ -22,6 +28,7 @@
 - 2D vs 3D low-dimensional embeddings
 - RO #C) How do we extend UCS to 3D?
 - RO #D) Does UCS with 3D displays provide perception benefits over 2D displays?
+- Recap research question
 - Research timeline
 
 ---
@@ -62,7 +69,7 @@ Shadow puppet analogy:
 &lt;img src="./images/FleaHolesTour.gif" width="90%" style="display: block; margin: auto;" /&gt;
 ]
 
-created with R package `tourr` *(Wickham et al. 2011)*
+created with R package `tourr` *Wickham et al. 2011*
 
 ---
 
@@ -96,7 +103,7 @@ Particle physics data, `\(\textbf{X} \in \mathbb{R}^{56}\)`, *Wang, et. al. 2018
 - Find the starting basis from previously publshed figures. 
 ]
 
-As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/)
+As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/).
 
 
 ---
@@ -125,9 +132,14 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 
 ---
 
-# RO #B) 2D UCS vs alternatives -- tSNE &amp; Non-linear transformations
+# RO #B) 2D UCS vs alternatives -- dynamic low dimensional ebbedings
 
 *Future case study*
+
+
+&lt;img src="./images/f_mt.gif" width="30%" height="35%" style="display: block; margin: auto;" /&gt;
+
+As an [html widget](https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/).
 
 ---
 
@@ -165,14 +177,14 @@ As an [html widget](https://nspyrison.netlify.com/thesis/discluster_manualtour_p
 
 *future exploratory design*
 
-`spinifex` and Immersive Analytics Tool Kit, `IATK`, *cordeil 2019*
+`spinifex` and Immersive Analytics Tool Kit, `IATK`, *Cordeil 2019*
 
 .pull-left[
-&lt;img src="./images/DIS_mt.gif" width="85%" height="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="./images/DIS_mt.gif" width="75%" height="60%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
-&lt;img src="./images/IATK.png" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
+&lt;img src="./images/IATK.png" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -223,28 +235,57 @@ of the sensitivity of structure to the original variables or parameters? **
     - Research Integrity - Choose the Option most relevant: **Completed** (2 required of 4)
     - Faculty Induction: **Content unavailable** (9/02/2019: "Currently being updated and will be visible in this section soon".)
 
+---
+class: center, middle
 
-&lt;!-- --- --&gt;
+# Thanks!
 
-&lt;!-- # References (1/2) --&gt;
+Slides created in R, using rmarkdown an xaringan
 
-&lt;!-- In order of appearance: --&gt;
+Document and slides -- [github.com/nspyrison/confirmation](https://github.com/nspyrison/confirmation)
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
-&lt;!-- - Wickham, H., Cook, D., &amp; Hofmann, H. (2015). Visualizing statistical models: Removing the blindfold: Visualizing Statistical Models. Statistical Analysis and Data Mining: The ASA Data Science Journal, 8(4), 203-225. https://doi.org/10.1002/sam.11271 --&gt;
-&lt;!-- - Buja, A., Cook, D., Asimov, D., &amp; Hurley, C. (2005). Computational Methods for High-Dimensional Rotations in Data Visualization. In Handbook of Statistics (Vol. 24, pp. 391-413). Elsevier. https://doi.org/10.1016/S0169-7161(04)24014-7 --&gt;
-&lt;!-- - Asimov, D. (1985). The grand tour: a tool for viewing multidimensional data. SIAM Journal on Scientific and Statistical Computing, 6(1), 128-143. --&gt;
-&lt;!-- - McDonald, J. A. (1982). INTERACTIVE GRAPHICS FOR DATA ANALYSIS. --&gt;
+.left[
+*R Core Team, 2018*
 
-&lt;!-- --- --&gt;
+*Xie et. al. 2018*
 
-&lt;!-- # References (2/2) --&gt;
+*Xie, 2018*
+]
 
-&lt;!-- - Hurley, C., &amp; Buja, A. (1990). Analyzing High-Dimensional Data with Motion Graphics. SIAM Journal on Scientific and Statistical Computing, 11(6), 1193-1211. https://doi.org/10.1137/0911068 --&gt;
-&lt;!-- - Cook, D., &amp; Buja, A. (1997). Manual Controls for High-Dimensional Data Projections. Journal of Computational and Graphical Statistics, 6(4), 464-480. https://doi.org/10.2307/1390747 --&gt;
-&lt;!-- - Wickham, H., Cook, D., Hofmann, H., &amp; Buja, A. (2011). tourr???: An R Package for Exploring Multivariate Data with Projections. Journal of Statistical Software, 40(2). https://doi.org/10.18637/jss.v040.i02 --&gt;
-&lt;!-- - R Core Team (2018). R: A language and environment for statistical --&gt;
-&lt;!--   computing. R Foundation for Statistical Computing, Vienna, Austria. URL --&gt;
-&lt;!--   https://www.R-project.org/. --&gt;
+
+
+---
+
+# References (1/2)
+
+In order of appearance:
+
+Wickham, H., Cook, D., Hofmann, H., &amp; Buja, A. (2011). tourr : An R Package for Exploring Multivariate Data with Projections. Journal of Statistical Software, 40(2). https://doi.org/10.18637/jss.v040.i02
+
+Cook, D., &amp; Buja, A. (1997). Manual Controls for High-Dimensional Data Projections. Journal of Computational and Graphical Statistics, 6(4), 464–480. https://doi.org/10.2307/1390747
+
+Wang, B.-T., Hobbs, T. J., Doyle, S., Gao, J., Hou, T.-J., Nadolsky, P. M., &amp; Olness, F. I. (2018). Visualizing the sensitivity of hadronic experiments to nucleon structure. ArXiv Preprint ArXiv:1803.02777.
+
+Nelson, L., Cook, D., &amp; Cruz-Neira, C. (1998). XGobi vs the C2: Results of an Experiment Comparing Data Visualization in a 3-D Immer- sive Virtual Reality Environment with a 2-D Workstation Display. Computational Statistics, 14(1), 39–52.
+
+Gracia, A., González, S., Robles, V., Menasalvas, E., &amp; von Landesberger, T. (2016). New insights into the suitability of the third dimension for visualizing multivariate/multidimensional data: A study based on loss of quality quantification. Information Visualization, 15(1), 3–30. https://doi.org/10.1177/1473871614556393
+
+
+---
+
+# References (2/2)
+
+Wagner Filho, J., Rey, M., Freitas, C., &amp; Nedel, L. (2018). Immersive Visualization of Abstract Information: An Evaluation on Dimensionally-Reduced Data Scatterplots.
+
+Cordeil, M. (2019). Immersive Analytics Toolkit (Version IATK 1.0 (Mala) Unity 2017). Retrieved from https://github.com/MaximeCordeil/IATK (Original work published 2017)
+
+R Core Team. (2018). R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from https://www.R-project.org/
+
+Xie, Y., Allaire, J. J., &amp; Grolemund, G. (2018). R Markdown: The Definitive Guide. Boca Raton, Florida: Chapman and Hall/CRC. Retrieved from https://bookdown.org/yihui/rmarkdown
+
+Xie, Y. (2018). xaringan: Presentation Ninja. Retrieved from https://CRAN.R-project.org/package=xaringan
+
 
 &lt;!-- --- --&gt;
 
