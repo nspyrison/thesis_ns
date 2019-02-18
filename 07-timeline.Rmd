@@ -6,7 +6,7 @@ knit: "bookdown::render_book"
 # PhD timeline {-} 
 
 
-```{r timeline, echo=F,}
+```{r timeline, echo=F}
 #out.extra='angle=90
 ## working from: https://stats.andrewheiss.com/misc/gantt.html
 library(tidyverse)
@@ -20,24 +20,24 @@ tasks <- tribble(
   "2018-12-01", "2019-03-01", "UCS in 2D",  "spinifex paper",
   "2019-03-01", "2019-06-01", "UCS in 2D",  "spinifex Submission (R Journal)",
   "2019-01-01", "2019-03-01", "Milestones", "Candidature confirmation",
-  
+
   "2019-03-01", "2019-12-01", "UCS in 3D",  "RO: C) Tours, UCS in 3D",
   "2019-03-01", "2019-08-01", "UCS in 3D",  "UCS to IATK, C# code",
   "2019-06-01", "2019-09-01", "UCS in 3D",  "UCS in 3D paper",
   "2019-09-01", "2019-12-01", "UCS in 3D",  "UCS in 3D Submission (VAST)",
   "2020-01-01", "2020-03-01", "Milestones", "Mid candidature review",
-  
-  "2019-10-01", "2020-09-01", "UCS, 2D vs 3D", "RO: D) UCS across disp type, 2D vs 3D",
-  "2019-10-01", "2020-02-01", "UCS, 2D vs 3D", "2D vs 3D C# code",
-  "2020-01-01", "2020-04-01", "UCS, 2D vs 3D", "2D vs 3D Experimental survey",
-  "2020-03-01", "2020-06-01", "UCS, 2D vs 3D", "2D vs 3D paper",
-  "2020-06-01", "2020-09-01", "UCS, 2D vs 3D", "2D vs 3D Submission (CHI)",
-  
+
+  "2019-10-01", "2020-09-01", "UCS 2D vs 3D", "RO: D) UCS across disp type, 2D vs 3D",
+  "2019-10-01", "2020-02-01", "UCS 2D vs 3D", "2D vs 3D C# code",
+  "2020-01-01", "2020-04-01", "UCS 2D vs 3D", "2D vs 3D Experimental survey",
+  "2020-03-01", "2020-06-01", "UCS 2D vs 3D", "2D vs 3D paper",
+  "2020-06-01", "2020-09-01", "UCS 2D vs 3D", "2D vs 3D Submission (CHI)",
+
   "2020-04-01", "2020-12-01", "UCS Benefits", "RO: B) UCS Benefits over alternatives",
   "2020-04-01", "2020-08-01", "UCS Benefits", "UCS Benefits C# code and comparison",
   "2020-06-01", "2020-09-01", "UCS Benefits", "UCS Benefits paper",
   "2020-09-01", "2020-12-01", "UCS Benefits", "UCS Benefits Submission (VAST)",
-  
+
   "2020-11-01", "2021-03-01", "Milestones", "pre-submission presentation",
   "2021-01-01", "2021-04-01", "Milestones", "thesis completion and submission"
 )
@@ -60,13 +60,13 @@ theme_gantt <- function(base_size=11) {
           panel.grid.major.y = element_blank(),
           panel.grid.major.x = element_line(size=0.5, colour="grey80"),
           axis.ticks=element_blank(),
-          legend.position="bottom", 
+          legend.position="bottom",
           axis.title=element_text(size=rel(0.8)),
           strip.text=element_text(size=rel(1)),
           strip.background=element_rect(fill="#ffffff", colour=NA),
           panel.spacing.y=unit(1.5, "lines"),
           legend.key = element_blank())
-  
+
   ret
 }
 
@@ -74,14 +74,16 @@ theme_gantt <- function(base_size=11) {
 x.breaks <- seq(length(tasks$Task) + 0.5 - 3, 0, by=-3)
 
 # Build plot
-timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) + 
-  geom_line(size=6) + 
-  geom_vline(xintercept=x.breaks, colour="grey80", linetype="dotted") + 
+timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) +
+  geom_line(size=6) +
+  geom_vline(xintercept=x.breaks, colour="grey80", linetype="dotted") +
   guides(colour=guide_legend(title=NULL)) +
   labs(x=NULL, y=NULL) + coord_flip() +
   scale_y_date(date_breaks="2 months", labels=date_format("%b ‘%y")) +
   theme_gantt() + theme(axis.text.x=element_text(angle=45, hjust=1)) +
-  scale_color_brewer(palette = "Dark2")
+  scale_color_brewer(palette = "Dark2") +
+  theme(axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 14))
 
 timeline
 ```
@@ -92,15 +94,15 @@ timeline
 Also submitted via online milestone form:
 
 - FIT 5144 hours
-    - \>120 hours **Tracked, evidence needs cleanup**, due at mid-candidature review
+    - \>120 hours **Tracked, awaiting mandatory events**, due at mid-candidature review
 - WES Academic record
     - FIT6021: 2018 S2, **Completed** with Distinction
     - FIT5144: 2019 S1+2, **Upcoming**, due at mid-candidature review
-    - FIT5113: 2018 S2, **Exemption submitted**
+    - FIT5113: 2018 S2, **Exemption submitted**, forwarded 14/02/2019
 - myDevelopment - IT: Monash Doctoral Program - Compulsory Module
-    - Monash Graduate Research Student Induction: **Completed** 
+    - Monash Graduate Research Student Induction: **Completed**
     - Research Integrity - Choose the Option most relevant: **Completed** (2 required of 4)
-    - Faculty Induction: **Content unavailable** (9/02/2019: "Currently being updated and will be visible in this section soon".)
+    - Faculty Induction: **Content unavailable** (9/02/2019: "Currently being updated and will be visible in this section soon")
     
 <!-- Induction To be completed within 6 months of commencement -->
 
