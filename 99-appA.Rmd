@@ -95,7 +95,7 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
                             label = paste0("frame: ",slide))) +
     theme_void() +
     scale_color_brewer(palette = "Dark2") + 
-    # + coord_fixed()
+    # coord_fixed() +
     theme(legend.position="none",
           panel.border = element_rect(colour = "black", fill = NA))
   
