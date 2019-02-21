@@ -97,9 +97,11 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 }
 ```
 
-# Using animation to explore sensitivity of structure in a low-dimensional projection of high-dimensional data with user controlled steering {#ch:spinifex}
+# Completed work
 
-*The content contained in this chapter is work done in the last year of my research and currently formatted as a paper to be submitted to the R Journal.*
+# Application of UCS in 2D {#ch:spinifex}
+
+
 
 <!-- ## Abstract -->
 

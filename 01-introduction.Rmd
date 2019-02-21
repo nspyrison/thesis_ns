@@ -3,7 +3,15 @@ chapter: 1
 knit: "bookdown::render_book"
 ---
 
-# Research problem {-} 
+# Introduction
+
+EDA...
+
+## Motivation
+
+Human-in-the-loop vis.
+
+## Research problem
 <!-- {#ch:objectives} -->
 
 Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualize high dimensions have been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor.  
