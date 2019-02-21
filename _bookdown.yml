@@ -9,11 +9,16 @@ rmd_files: ["index.Rmd",
   "00-abstract.Rmd",
   "01-objectives.Rmd",
   "02-lit_review.Rmd",
-  "03-spinifex.Rmd",     # A) Can we apply UCS to animation?
-  "04-ucs_benefits.Rmd", # B) What benefit does UCS have over alternatives?
-  "05-ucs_in3d.Rmd",     # C) How do we extend UCS to 3d?
-  "06-ucs_3dvs2d.Rmd",   # D) Does 3d provide benefit over 2d?
-  "07-timeline.Rmd"#,
-  #"99-appA.Rmd"
+  "03-spinifex.Rmd",
+  "04-ucs_benefits.Rmd",
+  "05-ucs_in3d.Rmd",
+  "06-ucs_3dvs2d.Rmd",
+  "07-timeline.Rmd",
+  "99-appA.Rmd"
   ]
 delete_merged_file: TRUE
+
+# A) Can we apply UCS to animation?
+# B) What benefit does UCS have over alternatives?
+# C) How do we extend UCS to 3d?
+# D) Does 3d provide benefit over 2d?

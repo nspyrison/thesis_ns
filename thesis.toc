@@ -40,42 +40,44 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Using animation to explore sensitivity of structure in a low-dimensional projection of high-dimensional data with user controlled steering}{17}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Abstract}{17}{section.2.1}
+\contentsline {chapter}{\numberline {3}What benefit does UCS have over popular alternatives?}{19}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Introduction}{18}{section.2.2}
+\contentsline {chapter}{\numberline {4}How can we extend UCS to 3D?}{21}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Algorithm}{19}{section.2.3}
+\contentsline {chapter}{\numberline {5}Does 3D UCS provide benefits over UCS in 2D?}{23}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.1}Notation}{20}{subsection.2.3.1}
+\contentsline {chapter}{PhD timeline}{25}{chapter*.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.2}Toy data set}{20}{subsection.2.3.2}
+\contentsline {chapter}{Acknowledgements}{27}{chapter*.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.3}Step 1 Choose variable of interest}{22}{subsection.2.3.3}
+\contentsline {chapter}{\numberline {A}Appendix - Using animation to explore sensitivity of structure in a low-dimensional projection of high-dimensional data with user controlled steering}{29}{appendix.A}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.4}Step 2 Create the manip space}{22}{subsection.2.3.4}
+\contentsline {section}{\numberline {A.1}Abstract}{29}{section.A.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.5}Step 3 Generate rotation}{24}{subsection.2.3.5}
+\contentsline {section}{\numberline {A.2}Introduction}{30}{section.A.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Display projection sequence}{27}{section.2.4}
+\contentsline {section}{\numberline {A.3}Algorithm}{31}{section.A.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Application}{28}{section.2.5}
+\contentsline {subsection}{\numberline {A.3.1}Notation}{31}{subsection.A.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.1}Jet cluster}{28}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {A.3.2}Toy data set}{32}{subsection.A.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.2}DIS cluster}{31}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {A.3.3}Step 1 Choose variable of interest}{33}{subsection.A.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.6}Source code and usage}{34}{section.2.6}
+\contentsline {subsection}{\numberline {A.3.4}Step 2 Create the manip space}{34}{subsection.A.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.7}Discussion}{34}{section.2.7}
+\contentsline {subsection}{\numberline {A.3.5}Step 3 Generate rotation}{36}{subsection.A.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}What benefit does UCS have over popular alternatives?}{37}{chapter.3}
+\contentsline {section}{\numberline {A.4}Display projection sequence}{39}{section.A.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}How can we extend UCS to 3D?}{39}{chapter.4}
+\contentsline {section}{\numberline {A.5}Application}{40}{section.A.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Does 3D UCS provide benefits over UCS in 2D?}{41}{chapter.5}
+\contentsline {subsection}{\numberline {A.5.1}Jet cluster}{40}{subsection.A.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{PhD timeline}{43}{chapter*.18}
+\contentsline {subsection}{\numberline {A.5.2}DIS cluster}{43}{subsection.A.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Acknowledgements}{45}{chapter*.19}
+\contentsline {section}{\numberline {A.6}Source code and usage}{46}{section.A.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{47}{chapter*.20}
+\contentsline {section}{\numberline {A.7}Discussion}{46}{section.A.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{49}{appendix*.20}
