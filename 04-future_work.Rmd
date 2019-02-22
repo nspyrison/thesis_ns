@@ -3,9 +3,9 @@ chapter: 4
 knit: "bookdown::render_book"
 ---
 
-# Future work
+# Future work {#ch:future_work}
 
-## What benefit does UCS have over popular alternatives? {#UCS_benefits}
+## What benefit does UCS have over popular alternatives?
 
 High dimensional data and models are ubiquitous but viewing them in data space is not trivial. Currently it is common practice to use Principal Component Analysis (PCA), Multi-Dimensional Scaling (MDS), or a non-linear embedding like t-distributed neighbor embeddings (tSNE). These methods are all unsupervised projections of multivariate spaces to a single, static lower embedding. PCA is a linear transformation that orients linear combinations of the variables into basis components and orders them according to amount of variation shown. MDS has linear and non-linear versions that compare the distances between pairwise variables. tSNE is a nonlinear technique that iterates epochs of: 1) constructing a probability distributions for selecting neighboring data and 2) minimizing Kullback-Leibler divergence (a measure of relative entropy).
 
@@ -13,7 +13,7 @@ Unfortunately, static linear projections necessarily cut variation in the compon
 
 In this future work I plan to perform a case study between UCS leading alternatives. Design space includes data sets, techniques, and measures of comparison.
 
-## How can we extend UCS to 3D? {#UCS_3d}
+## How can we extend UCS to 3D?
 
 Touring involves linear embeddings in typically $d=2$ dimensions. While @nelson_xgobi_1998 and @arms_benefits_1999 have explored the efficacy of 2D vs 3D display, they have done so on 2D embeddings, I will generalize the UCS to scalable dimensions in R, built upon the existing packages *tourr* and *spinifex*. This will allow for the backend work of 3D rotations.
 

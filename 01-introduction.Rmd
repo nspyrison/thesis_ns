@@ -3,33 +3,39 @@ chapter: 1
 knit: "bookdown::render_book"
 ---
 
-# Introduction
+```{r setup_01, include=FALSE}
+knitr::opts_chunk$set(
+  fig.align = "center", cache = F, cache.lazy = F)
+```
 
-EDA...
+# Introduction {#ch:introduction}
 
-## Motivation
+The term exploratory data analysis was coin by @tukey_exploratory_1977. Data is everywehre and understanding the shape and distribution of the data is an early and fundamental task. Visualization is crutial to a clear understanding of the data. Things can go awry when we summarize plots with numeric statitics (@anscombe_graphs_1973, @matejka_same_2017). In these studies bivariate data have the same summary statistics, while showing obvious red flags that could go completely unheaded if priliminary graphing is foregone. This requirment for visuals also necessitate *human-in-the-loop* analysis.
 
-Human-in-the-loop vis.
+
+(ref:matejka17fig-cap) 12 data sets created from the datasaurus, each with the same summary statistics, yet visual peculiarity.
+
+```{r matejka17fig, echo=F, out.width='70%', fig.cap = "(ref:matejka17fig-cap)"}
+knitr::include_graphics("./figures/matejka17fig.png")
+```
+
+It's clear that data-space need to be visualized, but this becomes complex as data dimensionality increases. Embedding (or projecting) $p-$dimensional data on to a lower, $d$-dimensional subspace is a common Dimension Reduction (DR) approach to visualize multivariate data spaces. Traditionally single static projection is used to summarize a space, which nescicarily shows a subset of the variation of the data. @asimov_grand_1985 suggested the use of viewing projections dynamically across a changing projection basis allows for more variation to be contained and viewed temporally. This dynamic view of many changing projections is known as *tours*. While, there are different methods of generating tour paths, human-in-the-loop user-controlled steering offers the finest control for navigating local structure and is particualarly useful in exploration after an interesting feature has been indentified.
+
+With the exception of @nelson_xgobi_1998, tours have been exclusively been viewed in $d={1, 2, p}$, while use visualization studies Virtual Reality(VR) have shown more accurate and better perception in immersive envirnments. The addition of a 3rd dimension would suggest for better perception of $d=2$ embeddings and allow for novel dynamic projections in a 3D space as well. 
 
 ## Research problem
-<!-- {#ch:objectives} -->
 
-Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualize high dimensions have been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor.  
-
-This thesis focuses on tour methods for visualizing high-dimensional data. Tours are a family of algorithms for generating paths on the space of low-dimensional ($d=1, 2, 3, ..., p$) projections of high-dimensional ($p$) space. The resulting projection of the data (or model) is displayed using low-dimensional techniques such as histograms, dot plots, scatterplots, or parallel coordinate plots, and the path generates a movie or animation to shows many low-dimensional projections. The method can be applied with other techniques such as machine learning techniques like discriminant analysis, neural networks, support vector machines, to open the black box, and complements dimension reduction techniques like principal component analysis (PCA), multidimensional scaling (MDS) on nonlinear embeddings (e.g. tSNE). 
-
-
-The primary research question is:
+The primary goal of this PhD research can then be summarized as:
 
 **Does allowing the user to steer the tour, facilitate the exploration and understanding of the sensitivity of structure to the original variables or parameters?** 
 
-This question is reduced to four research objectives:
+This question is further broken out into four research objectives:
 
 \begin{itemize}
-  \item[RO \#A] \textbf{Can user controlled steering (UCS) be utilized in an environment providing non-dynamic animation?} (Chapter \ref{ch:spinifex}) This is previous experimental design that extend dynamic projection functionality currently available in the programming language R. It implements UCS steering and extends the animation paradigms that can be used for touring. These paradigms fall short of dynamic user interaction.
-  \item[RO \#B] \textbf{What benefits does UCS provide over popular alternatives?} (Chapter \ref{ch:UCS_benefits}) Tentative planned future work of a case study comparing USC with commonly used static alternatives, such as principal component analysis (PCA), linear discriminant analysis (LDA), multi-dimensional scaling (MDS), and t-distributed nearest neighbor embeddings (tSNE).
+  \item[RO \#A] \textbf{How do we implement UCS in 1- and 2D projections?} (Chapter \ref{ch:spinifex}) This is previous experimental design that extend dynamic projection functionality currently available in the programming language R. It implements UCS steering and extends the animation paradigms that can be used for touring. These paradigms fall short of dynamic user interaction.
+  \item[RO \#B] \textbf{Does UCS provide benefits over alternatives?} (Chapter \ref{ch:UCS_benefits}) Tentative planned future work of a case study comparing USC with commonly used static alternatives, such as principal component analysis (PCA), linear discriminant analysis (LDA), multi-dimensional scaling (MDS), and t-distributed nearest neighbor embeddings (tSNE).
   \item[RO \#C] \textbf{How do we extend UCS to 3D?} (Chapter \ref{ch:UCS_in3d}) This future experimental design will scaling UCS to 3 dimensions (novel contribution) and extend upon available functionally in the game engine Unity for compatible front ends across display devices. 
-  \item[RO \#D] \textbf{Does UCS with 3D displays provide perception benefits over 2D displays?} (Chapter \ref{ch:UCS_3dvs2d}) This future empirical study explores the efficacy of bringing USC into 3D as compared across various display devices. 
+  \item[RO \#D] \textbf{Does UCS in 3D displays provide perception benefits over 2D displays?} (Chapter \ref{ch:UCS_3dvs2d}) This future empirical study explores the efficacy of bringing USC into 3D as compared across various display devices. 
 \end{itemize}
 
 
@@ -37,6 +43,12 @@ This question is reduced to four research objectives:
 
 As outlined above, RO #A & C uses *experimental design* in R and R & C# Unity respectively. RO #B is a *case study* comparison between UCS and alternatives. An *empirical research* explores the efficacy of UCS across display type in RO #D.
 
+
+
+<!-- TODO: move this to tours lit rev. -->
+<!-- Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualize high dimensions have been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor.   -->
+
+<!-- This thesis focuses on tour methods for visualizing high-dimensional data. Tours are a family of algorithms for generating paths on the space of low-dimensional ($d=1, 2, 3, ..., p$) projections of high-dimensional ($p$) space. The resulting projection of the data (or model) is displayed using low-dimensional techniques such as histograms, dot plots, scatterplots, or parallel coordinate plots, and the path generates a movie or animation to shows many low-dimensional projections. The method can be applied with other techniques such as machine learning techniques like discriminant analysis, neural networks, support vector machines, to open the black box, and complements dimension reduction techniques like principal component analysis (PCA), multidimensional scaling (MDS) on nonlinear embeddings (e.g. tSNE).  -->
 
 
 

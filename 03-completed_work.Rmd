@@ -102,7 +102,6 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 # Application of UCS in 2D {#ch:spinifex}
 
 
-
 <!-- ## Abstract -->
 
 <!-- The tour algorithm, and its various versions provide a systematic approach to viewing low-dimensional projections of high-dimensional data. It is particularly useful for understanding multivariate data, and useful in association with techniques for dimension reduction, supervised and unsupervised classification. The *R* package *tourr* provides many methods for conducting tours on multivariate data. This paper discusses an extension package which adds support for the manual tour, called *spinifex*. It is particularly usefully for exploring the sensitivity of structure discovered in a projection by a guided tour, to the contribution of a variable. *Spinifex* utilizes the animation packages *plotly* and *gganimation* to allow users to rotate the selected variable into and out of a chosen projection.  -->
