@@ -190,18 +190,22 @@
     \end{center}
     \vfill
     \begin{center}\Large
-        {Candidature  confirmation document
+        {Candidature confirmation document
         for the degree of\\[0.3cm] \degreetitle}
     \end{center}
     \vfill
     \begin{center}
         by\\[0.6cm]
         {\LARGE\@author}\\[0.2cm]
-                {\@degrees}
+                % {\@degrees}
 
         \vfill\vfill
 
         \includegraphics[width=3cm]{figures/crest}
+        % Supervisors:\\
+        % Kimbal Marriott,\\
+        % Dianne Cook,\\
+        % German Valencia
 
         Department of Information Technology\\
         Monash University\\Australia
