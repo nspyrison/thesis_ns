@@ -16,6 +16,12 @@ knitr::opts_chunk$set(
 
 <!-- You will need to organize the literature review around themes, and within each theme provide a story explaining the development of ideas to date. In each theme, you should get to the point where your ideas will fit in. But leave your ideas to later chapters. This way it is clear what has been done beforehand, and what new contributions you are making to the research field. -->
 
+
+<!-- TODO: move this to tours lit rev. -->
+<!-- Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualize high dimensions have been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor.   -->
+
+<!-- This thesis focuses on tour methods for visualizing high-dimensional data. Tours are a family of algorithms for generating paths on the space of low-dimensional ($d=1, 2, 3, ..., p$) projections of high-dimensional ($p$) space. The resulting projection of the data (or model) is displayed using low-dimensional techniques such as histograms, dot plots, scatterplots, or parallel coordinate plots, and the path generates a movie or animation to shows many low-dimensional projections. The method can be applied with other techniques such as machine learning techniques like discriminant analysis, neural networks, support vector machines, to open the black box, and complements dimension reduction techniques like principal component analysis (PCA), multidimensional scaling (MDS) on nonlinear embeddings (e.g. tSNE).  -->
+
 # Literature review {#ch:lit_review}
 
 ## Dynamic projections of multivariate data (tours) {#sec:tour}
