@@ -25,7 +25,7 @@ With the exception of @nelson_xgobi_1998, tours have been exclusively been viewe
 
 ## Research objectives
 
-The primary goal of this PhD research can then be summarized as:
+Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualize high dimensions have been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor. The primary goal of this PhD research can then be summarized as:
 
 \begin{itemize}
   \item[RO \#A] \textbf{How do we implement UCS in 1- and 2D projections?} (Completed work, chapter \ref{ch:spinifex}) User-controlled steering of dynamic projections allows for the user to select which and how a specific variable should be rotated. This is completed work following the research of @cook_manual_1997. I have implemented UCS in 1- and 2D and built an extensible platform for projection into $d>2$ spaces.
