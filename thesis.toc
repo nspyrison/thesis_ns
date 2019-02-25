@@ -64,11 +64,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {A.3}Algorithm}{35}{section.A.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.3.1}Notation}{35}{subsection.A.3.1}
+\contentsline {subsection}{\numberline {A.3.1}Notation}{36}{subsection.A.3.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {A.3.2}Toy data set}{36}{subsection.A.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.3.3}Step 1 Choose variable of interest}{37}{subsection.A.3.3}
+\contentsline {subsection}{\numberline {A.3.3}Step 1 Choose variable of interest}{38}{subsection.A.3.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {A.3.4}Step 2 Create the manip space}{38}{subsection.A.3.4}
 \defcounter {refsection}{0}\relax 

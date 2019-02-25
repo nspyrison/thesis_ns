@@ -105,9 +105,9 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 
 
 
-*The content contained in this document is work done in the last year of my research and currently formatted as a paper to be submitted to the R Journal.*
-
 # Using animation to explore sensitivity of structure in a low-dimensional projection of high-dimensional data with user controlled steering {#ch:spinifex_paper}
+
+*The content contained in this appendix document is work done in the last year of my research and currently formatted as a paper to be submitted to the R Journal.*
 
 ## Abstract
 
