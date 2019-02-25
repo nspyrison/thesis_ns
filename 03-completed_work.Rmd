@@ -471,7 +471,7 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 <!-- ``` -->
 
 
-<!-- ## Discussion -->
+<!-- ## Discussion {#sec:discussion}-->
 
 <!-- This work has described an algorithm and package for exploring conducting a manual tour, from a 2D projection, to explore the sensitivity of structure to the contributions of a variable.  -->
 

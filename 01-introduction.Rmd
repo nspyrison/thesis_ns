@@ -27,11 +27,10 @@ With the exception of @nelson_xgobi_1998, tours have been exclusively been viewe
 
 Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualize high dimensions have been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor. The primary goal of this PhD research can then be summarized as:
 
-\begin{itemize}
-  \item[RO \#A] \textbf{How do we implement UCS in 1- and 2D projections?} (Completed work, chapter \ref{ch:spinifex}) User-controlled steering of dynamic projections allows for the user to select which and how a specific variable should be rotated. This is completed work following the research of @cook_manual_1997. I have implemented UCS in 1- and 2D and built an extensible platform for projection into $d>2$ spaces.
-  \item[RO \#B] \textbf{Does 2D UCS provide benefits over alternatives?} (Future work, chapter \ref{ch:future_work}) *Case study* comparing dynamic, UCS projections with commonly used static alternatives.
-  \item[RO \#C] \textbf{How do we extend UCS to 3D?} (Future work, chapter \ref{ch:future_work}) This future *experimental design* will be novel work in extending dynamic projections, including UCS, to 3D. The work done in RO #A will be used in conjunction with @cordeil_immersive_2019 to form an UI compatible across display devices. 
-  \item[RO \#D] \textbf{Does UCS in 3D displays provide perception benefits over 2D displays?} (Future work, chapter \ref{ch:future_work}) This future *empirical study* explores the efficacy of bringing UCS into 3D as compared across various display devices. 
+1. **How do we implement UCS in 1- and 2D projections?** (Completed work, chapter \ref{ch:spinifex}) User-controlled steering of dynamic projections allows for the user to select which and how a specific variable should be rotated. This is completed work following the research of @cook_manual_1997. I have implemented UCS in 1- and 2D and built an extensible platform for projection into $d>2$ spaces.
+2. **Does 2D UCS provide benefits over alternatives?** (Future work, chapter \ref{ch:future_work}) *Case study* comparing dynamic, UCS projections with commonly used static alternatives.
+3. **How do we extend UCS to 3D?** (Future work, chapter \ref{ch:future_work}) This future *experimental design* will be novel work in extending dynamic projections, including UCS, to 3D. The work done in RO 1 will be used in conjunction with @cordeil_immersive_2019 to form an UI compatible across display devices.
+4. **Does UCS in 3D displays provide perception benefits over 2D displays?** (Future work, chapter \ref{ch:future_work}) This future *empirical study* explores the efficacy of bringing UCS into 3D as compared across various display devices.
 \end{itemize}
 
 
