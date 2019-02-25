@@ -1,15 +1,15 @@
 [0] Config.pm:304> INFO - This is Biber 2.12
 [0] Config.pm:307> INFO - Logfile is 'thesis.blg'
-[34] biber-MSWIN32:315> INFO - === 
-[62] Biber.pm:371> INFO - Reading 'thesis.bcf'
-[210] Biber.pm:889> INFO - Found 63 citekeys in bib section 0
-[232] Biber.pm:4093> INFO - Processing section 0
-[249] Biber.pm:4254> INFO - Looking for bibtex format file 'thesisrefs.bib' for section 0
-[261] bibtex.pm:1523> INFO - LaTeX decoding ...
-[580] bibtex.pm:1340> INFO - Found BibTeX data source 'thesisrefs.bib'
-[1194] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1194] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1194] Biber.pm:3921> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[1194] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
-[1284] bbl.pm:636> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[1321] bbl.pm:739> INFO - Output to thesis.bbl
+[72] biber-MSWIN32:315> INFO - === 
+[115] Biber.pm:371> INFO - Reading 'thesis.bcf'
+[387] Biber.pm:889> INFO - Found 63 citekeys in bib section 0
+[431] Biber.pm:4093> INFO - Processing section 0
+[468] Biber.pm:4254> INFO - Looking for bibtex format file 'thesisrefs.bib' for section 0
+[498] bibtex.pm:1523> INFO - LaTeX decoding ...
+[947] bibtex.pm:1340> INFO - Found BibTeX data source 'thesisrefs.bib'
+[1665] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1665] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1665] Biber.pm:3921> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[1665] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
+[1784] bbl.pm:636> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[1825] bbl.pm:739> INFO - Output to thesis.bbl

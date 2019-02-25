@@ -84,10 +84,10 @@ timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) +
 timeline
 ```
 
-*Note RO #2 logically would fit before RO #3 & 4 but is almost a foregone conclusion based on the methodology's contained variation and transparency to original variable-space. I move this research to the end, such that this study would be tight on time if such a case arises.*
+*Note RO #2 logically would fit before RO #3 & 4, but is of lowwer impact and retrospective case study. I move this research to the end to give the other research objectives the priority.*
 
 
-Also submitted via online milestone form:
+## Accompanying documents
 
 - FIT 5144 hours
     - \>120 hours **Tracked, awaiting mandatory events**, due at mid-candidature review
@@ -98,9 +98,10 @@ Also submitted via online milestone form:
 - myDevelopment - IT: Monash Doctoral Program - Compulsory Module
     - Monash Graduate Research Student Induction: **Completed**
     - Research Integrity - Choose the Option most relevant: **Completed** (2 required of 4)
-    - Faculty Induction: **Content unavailable** (9/02/2019: "Currently being updated and will be visible in this section soon")
+    - Faculty Induction: **Content unavailable** (25/02/2019: "Currently being updated and will be visible in this section soon")
     
 <!-- Induction To be completed within 6 months of commencement -->
+
 
 # Acknowledgements {-} 
 

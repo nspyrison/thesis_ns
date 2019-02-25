@@ -4,11 +4,4 @@
 .Ruserdata
 _bookdown_files/*
 thesis.*
-~thesis.aux
-/thesis.aux
-.thesis.aux
-thesis.aux
-thesis.bcf
-thesis.blg
-thesis.out
-thesis.toc
+
