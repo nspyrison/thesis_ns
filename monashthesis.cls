@@ -197,9 +197,9 @@
         %by\\[0.6cm]
         {\LARGE\@author}\\[0.2cm]
          Supervisors:\\
-         Kimbal Marriott,\\
-         Dianne Cook,\\
-         German Valencia\\[0.2cm]
+         Prof. Kimbal Marriott,\\
+         Prof. Dianne Cook,\\
+         Prof. German Valencia\\[0.2cm]
 
         \vfill\vfill
 

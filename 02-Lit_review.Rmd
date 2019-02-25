@@ -8,6 +8,88 @@ knitr::opts_chunk$set(
   fig.align = "center",
   echo = F, message = F, warning = F, error = F, cache = F, cache.lazy = F
 )
+library(spinifex)
+library(gganimate) 
+library(ggplot2)
+library(magrittr)
+library(knitr)
+library(kableExtra)
+
+## FUNCTION FOR STATIC OUTPPUT, for chap3 use to clean up code chunks.
+array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
+{
+  slides       <- array2df(array = .m_tour, data = .data)
+  basis_slides <- slides$basis_slides
+  data_slides  <- slides$data_slides
+  n_slides     <- max(basis_slides$slide)
+  if (n_slides != 15) 
+    stop(paste0("stop: n_slides !=15 !!!!! n_slides = ", n_slides))
+  
+  # Initialize
+  ## manip var asethetics
+  p             <- nrow(basis_slides) / n_slides
+  col_v         <- rep("grey80", p)
+  col_v[.m_var] <- "blue"
+  col_v         <- rep(col_v, n_slides)
+  siz_v         <- rep(0.3, p)
+  siz_v[.m_var] <- 1
+  siz_v         <- rep(siz_v, n_slides)
+  cat           <- rep(as.factor(.cat), n_slides)
+
+  ## circle
+  angle <- seq(0, 2 * pi, length = 180)
+  circ  <- data.frame(c_x = cos(angle), c_y = sin(angle))
+  circ[nrow(circ)+1, ] <- NA
+  ## data asethetics
+  data_slides <- data.frame(data_slides, cat = rep(.cat, n_slides))
+  
+  grid_b <- grid_t <-
+    data.frame(slide = 1:n_slides, 
+               x = .mag*rep(1:5, 3), y = .mag*rep(3:1, each = 5))
+  grid_t$y <- grid_t$y + max(grid_t$y)
+  # OUTER JOIN
+  basis_grid <- merge(x = basis_slides, y = grid_t, by = "slide", all = TRUE)
+  # CROSS JOIN
+  circ_grid  <- merge(x = circ, y = grid_t, by = NULL)
+  # OUTER JOIN
+  data_grid  <- merge(x = data_slides, y = grid_b, by = "slide", all = TRUE)
+  
+  # BASIS
+  gg1 <-
+    ggplot(data = basis_grid) +
+    # AXES LINE SEGMETNS
+    geom_segment(aes(x = V1 + x, y = V2 + y, xend = x, yend = y),
+                 color = col_v, size = siz_v) +
+    # AXES TEXT LABELS
+    geom_text(aes(x = V1 + x, y = V2 + y, label = lab_abbr),
+              color = col_v, vjust = "outward", hjust = "outward") +
+    # AXES FRAME NUM
+    geom_text(aes(x = x - .7, y = y + 1.1, 
+                  label = paste0("frame: ",slide)), color = "grey50") +
+    # AXES CIRCLE PATH
+    suppressWarnings( # Suppress for "Removed 1 rows containing missing values."
+      geom_path(data = circ_grid, color = "grey80",
+                mapping = aes(x = x+c_x, y = y+c_y))
+    )
+  
+  # PROJECTION
+  gg2 <- gg1 +
+    # PROJ DATA POINTS
+    geom_point(data = data_grid, size = .7,
+               mapping = aes(x = V1 + x, y = V2 + y, color = cat),
+               shape = as.integer(cat) + 15) +
+    # PROJ DATA FRAME NUM
+    geom_text(data = data_grid, color = "grey50",
+              mapping = aes(x = x - .7, y = y + 1.1, 
+                            label = paste0("frame: ",slide))) +
+    theme_void() +
+    scale_color_brewer(palette = "Dark2") + 
+    # coord_fixed() +
+    theme(legend.position="none",
+          panel.border = element_rect(colour = "black", fill = NA))
+  
+  gg2
+}
 ```
 
 <!-- Imagine you are writing for your fellow PhD students. Topics that are well-known to them do not have to be included here. But things that they may not know about should be included. -->
@@ -27,7 +109,7 @@ knitr::opts_chunk$set(
 
 ### Overview
 
-Exploratory data analysis (EDA) is an critical, preliminary task at the root of any analysis. Understanding the distribution and summaries are at the heart of choosing and validating the assumptions of any methodology. However, there are risks associated with only looking at summary statistics alone. @anscombe_graphs_1973 and @matejka_same_2017 both point out the dangers of doing so, namely missing glaring patterns and peculiarity that can be held within data even when summary statistics are the same. It's clear that visual intuition, and consequently human-in-the-loop analysis, is still is an pivotal aspect of EDA.
+Exploratory data analysis (EDA) is a critical preliminary task at the root of any analysis. Understanding the distribution and summaries are at the heart of choosing and validating the assumptions of any methodology. However, there are risks associated with only looking at summary statistics alone. @anscombe_graphs_1973 and @matejka_same_2017 both point out the dangers of doing so, namely missing glaring patterns and peculiarity that can be held within data even when summary statistics are the same. It's clear that visual intuition, and consequently human-in-the-loop analysis, is still is an pivotal aspect of EDA.
 
 How do we visualize data as its dimensionality increases? In univariate data sets histograms, or smoothed density curves are employed to visualize data. In bivariate data $x-y$ scatterplots and contour plots (2D density) can be employed. In three dimensions the two most common techniques are 3D scatterplot\footnote{Graphs depicting 3 dimensions are typically printed on paper, or rendered on a 2D monitor, they are intrinsically 2D images of monocular 3D spaces, sometimes referred to as 2.5D data visualization, more on this in section \ref{sec:3d-terminology}.} or 2D scatterplot with the 3rd variable as an aesthetic (such as, color, size, height, $etc.$). Such variable mappings can afford another dimension or 2, but this is not a sustainable solution.
 
@@ -49,13 +131,63 @@ Terminology varies across articles. In my work, I use the following:
 * For projections down to 1- and 2D, it’s common to display each variables contribution and direction on its own axis (1D) or relative to a unit circle (2D), this is referred to as basis axes or sometimes the reference frame.
 * Geometric objects are referred to in generalized dimensions; the use of plane isn't necessarily a 2D surface, but a hyper-plane in the arbitrary dimensions of the projection space.
 
+### Example illustrations
+
+We use a toy data set of 74 observations of flea beetles across 6 numeric variables corresponding to physical measurements, $\textbf{X}_{[74,~6]} \in \mathbb{R}^{6}$. Each observation belongs to one of 3 spieces as shown in the color and shape of the data points. Figure \@ref(fig:flea-refframe) shows one frame of a tour (left) and the corresponding reference frame (right) showing the linear combination of the variables onto the projection-space, a visual representation of the basis.
+
+```{r flea-refframe, results='hide', fig.cap = "(left) one frame of a x-y scatterplot projection, the results of holes tour with a corrisponding refference frame indicating the direction and magnitude the variables contribute to the 2D projection."}
+f_dat  <- tourr::rescale(flea[,1:6])
+f_cat  <- factor(flea$species)
+f_path <- save_history(f_dat, guided_tour(holes()))
+f_bas  <- matrix(f_path[,, max(dim(f_path)[3])], ncol=2)
+f_mvar <- 5
+f_proj <- data.frame(tourr::rescale(f_dat %*% f_bas))
+
+view_basis(f_bas, labels = colnames(f_dat)) +
+  geom_point(data = f_proj, 
+             mapping = aes(x = X1 - 2, y = X2 - .5, color = f_cat), 
+             pch = as.integer(f_cat) + 15)
+```
+
+```{r flea-basis}
+rownames(f_bas) <- colnames(f_dat)
+colnames(f_bas) <- c("x", "y")
+
+#kable(f_bas) #%>% kable_styling(latex_options = "striped")
+```
+
+<!-- Removed cause analysis -->
+<!-- In this projection you can see that the variables `aede1` and `tars2` are on the direction that is mostly orthagonal to the other variables, but explain in the clustering offset of the purple points, whereas the other variables explain the distinction bewteen the green and orange groups.  -->
+
+Tours view many such frames in sequence, by identifying some target frames and then interpolating between them as shown schematically in figure \@ref(fig:buja05fig), captured from figure 1 of @buja_computational_2005. For illustration figure \@ref(fig:flea-static) lays out frames of a tour,
+A html version of a user-controlled steering can be found at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/.
+The sections below will outline path generation and enumerate display geoms.
+
+(ref:buja05fig-cap) Screen capture of figure 1 from @buja_computational_2005. A schematic representation of randomly generated planes (from a grand tour) and intermediate interpolation planes. 
+
+```{r buja05fig, echo=F, out.width='70%', fig.cap = "(ref:buja05fig-cap)"}
+knitr::include_graphics("./figures/buja05fig.PNG")
+```
+
+(ref:flea-static-cap) Illustration of a radial manual tour (RO #1), a dynamic version can be viewed at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/.
+
+```{r flea-static, echo=F, warning=F, fig.height=7.2, fig.width=6, out.height='7.2in', out.width='6in', fig.cap = "(ref:flea-static-cap)"}
+f_angle <- .27
+f_mtour <- manual_tour(f_bas, manip_var = f_mvar, angle = f_angle)
+if(dim(f_mtour)[3] != 15) message(
+  paste0("!!!!! step3 n_slides != 15 !!!!! n_slides = ", dim(f_mtour)[3]))
+
+#play_manual_tour(f_dat, f_bas, f_mvar, cat_var = f_cat, angle = f_angle)
+array2static(.m_tour = f_mtour, .data = f_dat, .m_var = f_mvar, .cat = f_cat)
+```
+
 
 ### History
 
 Touring was first introduced by @asimov_grand_1985 with his purposed *grand tour* at the Stanford Linear Accelerator, Stanford University. In which, Asimov suggested three types of grand tours: torus, at-random, and random-walk. The original application of touring was on high energy physics on the PRIM-9 system.
 
 Before choosing projection paths randomly, an exhaustive search of $p-$space of was suggested by @mcdonald_interactive_1982, also at the Stanford Linear Accelerator. This was later coined as *little tour*.
-<!-- Buja and Asimov were in the acknowledgements -->
+<!-- Buja and Asimov were in the acknowledgements. -->
 
 @friedman_projection_1974 and later @huber_projection_1985 purposed projection pursuit (also referred to as PP). Projection pursuit involves identifying "interesting" projection, remove a single component of the data, and then iterates in this newly embedded subspace. Within each subspace the projection seeks for a local extremum via hill climbing algorithm on an objective function. This formed the basis for *guided tours* suggested by @hurley_analyzing_1990.
 
@@ -157,7 +289,7 @@ Support and maintenance of such implementations give them a particularly short l
 
 ### Going further
 
-Most previous implementation of dynamic projections are failing to compile. I have extended the graphic options for touring dynamic projections and reimplemented UCS on a compatible platform for more sustainable support (RO #1). A comparative study outlining the benefits of UCS vs alternatives is also absent from the literature (RO #2).
+Most previous implementation of dynamic projections are failing to compile. I have extended the graphic options for touring dynamic projections and reimplemented UCS on a compatible platform for more sustainable support (RO #1). A comparative study outlining the benefits of UCS vs alternatives is also absent from the literature (RO #2). @nelson_xgobi_1998 views $d=2$ projections in head tracked 3D comparing them to 2D counterparts, but didn't implement $d=3$ dynamic projections, facet of RO #3 & 4.
 
 
 ## Multivariate data visualization in 3D {#sec:3d}
@@ -258,4 +390,4 @@ knitr::include_graphics("./figures/wagner18fig")
 
 ### Going further
 
-When comparing between 3D and 2D orthogonal views studies in general show that perception accuracy is better in 3D, though manipulation speed is generally slower, confounded by users being less familiar with manipulating 3D space [@lee_effects_1986; @wickens_implications_1994; @tory_visualization_2006; counter example @sedlmair_empirical_2013]. Similar results have been shown in static, 3D embedded spaces [@gracia_new_2016; @wagner_filho_immersive_2018] and in dynamic 2D embedded spaces depicted in immersive 3D [@nelson_xgobi_1998]. After more than 2 decades of hardware advancement, the quality, support, and prevalence of VR technology is better and more pervasive than ever. It's time to view dynamic 3D projections in immersive spaces and quantify the benefits (RO #2 & 3).
+When comparing between 3D and 2D orthogonal views studies in general show that perception accuracy is better in 3D, though manipulation speed is generally slower, confounded by users being less familiar with manipulating 3D space [@lee_effects_1986; @wickens_implications_1994; @tory_visualization_2006; counter example @sedlmair_empirical_2013]. Similar results have been shown in static, 3D embedded spaces [@gracia_new_2016; @wagner_filho_immersive_2018] and in dynamic 2D embedded spaces depicted in immersive 3D [@nelson_xgobi_1998]. After more than 2 decades of hardware advancement, the quality, support, and prevalence of VR technology is better and more pervasive than ever. It's time to view dynamic 3D projections in immersive spaces and quantify the benefits (RO #3 & 4).
