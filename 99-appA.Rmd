@@ -107,7 +107,7 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 
 *The content contained in this document is work done in the last year of my research and currently formatted as a paper to be submitted to the R Journal.*
 
-# Using animation to explore sensitivity of structure in a low-dimensional projection of high-dimensional data with user controlled steering {#ch:spinifex}
+# Using animation to explore sensitivity of structure in a low-dimensional projection of high-dimensional data with user controlled steering {#ch:spinifex_paper}
 
 ## Abstract
 
@@ -126,7 +126,7 @@ There are many ways that a tour path can be generated, we will focus on one, the
 
 A manual tour relies on user input, and thus has been difficult to program in R. Ideally, the mouse movements of the user are captured, and passed to the computations, driving the rotation interactively. However, this type of interactivity is not simple in R. This has been the reason that the algorithm was not incorporated into the *tourr* package. Spinifex utilizes two new animation packages, *plotly* [@sievert_plotly_2018] and *gganimate* [@pedersen_gganimate:_2019], to display manual tours or other saved tours. From a given projection, the user can choose which variable to control, and the animation sequence is generated to remove the variable from the projection, and then extend its contribution to be the sole variable in one direction. This allows the viewer to assess the change in structure induced in the projection by the variable's contribution.
 
-The paper is organized as follows. Section \ref{sec:algorithm} explains the algorithm using a toy dataset. Section \ref{sec:application} illustrates how this can be used for sensitivity analysis. The last section, \ref{sec:discussion} summarizes the work and discusses future research.
+The paper is organized as follows. Section \ref{sec:algorithm} explains the algorithm using a toy dataset. Section \ref{sec:application} illustrates how this can be used for sensitivity analysis. The last section, \ref{sec:discussion_paper} summarizes the work and discusses future research.
 
 <!--
 In guided tours an index of interest defined on the space of all projections, and the function is optimized. It derives from projection pursuit [@friedman_projection_1974], and the guided tour provides a visual interface to the optimization. The manual tour can be used to help refine structure in the optimal projection, sharpening it by exploring the contributions of different variables, and simplifying by zeroing the coefficients of variables that don't contribute to the structure.
@@ -478,7 +478,7 @@ devtools::install_github("nspyrison/spinifex")
 ```
 
 
-## Discussion
+## Discussion {#sec:discussion_paper}
 
 This work has described an algorithm and package for exploring conducting a manual tour, from a 2D projection, to explore the sensitivity of structure to the contributions of a variable.
 

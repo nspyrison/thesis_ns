@@ -6,7 +6,6 @@ knit: "bookdown::render_book"
 
 
 ```{r timeline, echo=F}
-#out.extra='angle=90
 ## working from: https://stats.andrewheiss.com/misc/gantt.html
 library(tidyverse)
 library(lubridate)
@@ -14,31 +13,28 @@ library(scales)
 
 tasks <- tribble(
   ~Start,       ~End,         ~Project,     ~Task,
-  "2018-04-01", "2019-06-01", "UCS in 2D",  "RO: A) spinifex package, 2D UCS",
-  "2018-04-01", "2019-02-01", "UCS in 2D",  "spinifex code",
-  "2018-12-01", "2019-03-01", "UCS in 2D",  "spinifex paper",
-  "2019-03-01", "2019-06-01", "UCS in 2D",  "spinifex Submission (R Journal)",
+  "2018-04-01", "2019-06-01", "1) 2D UCS",  "1) 2D UCS",
+  "2018-04-01", "2019-02-01", "1) 2D UCS",  "1) code",
+  "2018-12-01", "2019-06-01", "1) 2D UCS",  "1) paper (The R journal)",
   "2019-01-01", "2019-03-01", "Milestones", "Candidature confirmation",
 
-  "2019-03-01", "2019-12-01", "UCS in 3D",  "RO: C) Tours, UCS in 3D",
-  "2019-03-01", "2019-08-01", "UCS in 3D",  "UCS to IATK, C# code",
-  "2019-06-01", "2019-09-01", "UCS in 3D",  "UCS in 3D paper",
-  "2019-09-01", "2019-12-01", "UCS in 3D",  "UCS in 3D Submission (VAST)",
+  "2019-03-01", "2019-12-01", "3) 3D UCS",  "3) 3D UCS",
+  "2019-03-01", "2019-08-01", "3) 3D UCS",  "3) code",
+  "2019-06-01", "2019-12-01", "3) 3D UCS",  "3) paper (VAST)",
   "2020-01-01", "2020-03-01", "Milestones", "Mid candidature review",
 
-  "2019-10-01", "2020-09-01", "UCS 2D vs 3D", "RO: D) UCS across disp type, 2D vs 3D",
-  "2019-10-01", "2020-02-01", "UCS 2D vs 3D", "2D vs 3D C# code",
-  "2020-01-01", "2020-04-01", "UCS 2D vs 3D", "2D vs 3D Experimental survey",
-  "2020-03-01", "2020-06-01", "UCS 2D vs 3D", "2D vs 3D paper",
-  "2020-06-01", "2020-09-01", "UCS 2D vs 3D", "2D vs 3D Submission (CHI)",
+  "2019-10-01", "2020-09-01", "4) UCS 2D vs 3D", "4) UCS across display type",
+  "2019-10-01", "2020-02-01", "4) UCS 2D vs 3D", "4) code",
+  "2020-01-01", "2020-04-01", "4) UCS 2D vs 3D", "4) experimental survey",
+  "2020-03-01", "2020-09-01", "4) UCS 2D vs 3D", "4) paper (CHI)",
 
-  "2020-04-01", "2020-12-01", "UCS Benefits", "RO: B) UCS Benefits over alternatives",
-  "2020-04-01", "2020-08-01", "UCS Benefits", "UCS Benefits C# code and comparison",
-  "2020-06-01", "2020-09-01", "UCS Benefits", "UCS Benefits paper",
-  "2020-09-01", "2020-12-01", "UCS Benefits", "UCS Benefits Submission (VAST)",
+  "2020-04-01", "2020-12-01", "2) UCS vs alts", "2) UCS vs alternatives",
+  "2020-04-01", "2020-08-01", "2) UCS vs alts", "2) code",
+  "2020-06-01", "2020-12-01", "2) UCS vs alts", "2) paper (VAST)",
 
+  
   "2020-11-01", "2021-03-01", "Milestones", "pre-submission presentation",
-  "2021-01-01", "2021-04-01", "Milestones", "thesis completion and submission"
+  "2020-09-01", "2021-04-01", "Milestones", "thesis composition"
 )
 
 # Convert data to long for ggplot
@@ -82,12 +78,13 @@ timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) +
   theme_gantt() + theme(axis.text.x=element_text(angle=45, hjust=1)) +
   scale_color_brewer(palette = "Dark2") +
   theme(axis.text.x = element_text(size = 12),
-        axis.text.y = element_text(size = 14))
+        axis.text.y = element_text(size = 12),
+        legend.text = element_text(size = 12))
 
 timeline
 ```
 
-*Note RO #B logically would fit before RO #C & D but is almost a foregone conclusion based on the methodology's contained variation and transparency to original variable-space. I move this research to the end, such that this study would be tight on time if such a case arises.*
+*Note RO #2 logically would fit before RO #3 & 4 but is almost a foregone conclusion based on the methodology's contained variation and transparency to original variable-space. I move this research to the end, such that this study would be tight on time if such a case arises.*
 
 
 Also submitted via online milestone form:
