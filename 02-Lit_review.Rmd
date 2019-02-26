@@ -109,16 +109,16 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 
 ### Overview
 
-Exploratory data analysis (EDA) is a critical preliminary task at the root of any analysis. Understanding the distribution and summaries are at the heart of choosing and validating the assumptions of any methodology. However, there are risks associated with only looking at summary statistics alone. @anscombe_graphs_1973 and @matejka_same_2017 both point out the dangers of doing so, namely missing glaring patterns and peculiarity that can be held within data even when summary statistics are the same. It's clear that visual intuition, and consequently human-in-the-loop analysis, is still is an pivotal aspect of EDA.
+Exploratory data analysis (EDA) is a critical preliminary task at the root of any analysis. Understanding the distribution and summaries are at the heart of choosing and validating the assumptions of any methodology. However, there are risks associated with only looking at summary statistics alone. @anscombe_graphs_1973 and @matejka_same_2017 both point out the dangers of doing so, namely missing glaring patterns and peculiarity that can be held within data even when summary statistics are the same. It's clear that visual intuition, and consequently human-in-the-loop analysis, is still is a pivotal aspect of EDA.
 
 How do we visualize data as its dimensionality increases? In univariate data sets histograms, or smoothed density curves are employed to visualize data. In bivariate data $x-y$ scatterplots and contour plots (2D density) can be employed. In three dimensions the two most common techniques are 3D scatterplot\footnote{Graphs depicting 3 dimensions are typically printed on paper, or rendered on a 2D monitor, they are intrinsically 2D images of monocular 3D spaces, sometimes referred to as 2.5D data visualization, more on this in section \ref{sec:3d-terminology}.} or 2D scatterplot with the 3rd variable as an aesthetic (such as, color, size, height, $etc.$). Such variable mappings can afford another dimension or 2, but this is not a sustainable solution.
 
 How do we visualize data for even modest-sized multivariate data, $p$ numeric dimension (say 6 or 8)? It's far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse: long tables of statistics without visuals [@wickham_visualizing_2015]. So why do we move away from visualizing in data-space? Scalability, in a word. Humans are not equipped to visualize above 3 spatial dimensions. This is where dimensionality reduction comes in. We will focus on a group of linear orthogonal projection techniques know as touring. For a broader view of dimensionality reduction techniques, see @grinstein_high-dimensional_2002, @carreira-perpinan_review_1997, or @heer_tour_2010. We choose touring, for a couple of salient features: use of linear projections maintaining transparency back to the original variable space (which non-linear projections lose) and keeps all components and their information in tack (which static linear projections lose). By employing the breadth of tours, we can preserve the visualization of data-space, and with it, the intrinsic understanding of structure and distribution of data that is more succinct or beyond the reach of statistic values alone.
 
-Touring is a linear dimensionality reduction technique that orthogonally projects $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making small rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When a hand or puppet is introduced the 3-dimensional object projects a 2D shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a $d=2$ tour as the $p=3$ object is manipulated. In some views more information is hidden than in others but watching an animation of the shadow changing gives a more robust understanding than looking at any one still frame. More complex structures generally require more time to comprehend the nature of the geometry. These features hold true in touring as well.
+Touring is a linear dimensionality reduction technique that orthogonally projects $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making small rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When an object is introduced it projects a 2D shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a $d=2$ tour as the 3D object is manipulated. Some orientations explain more information about the shape of the object than others but watching an animation of the shadow changing gives a more robust understanding than looking at any one still frame. More complex structures generally require more time to comprehend the nature of the geometry. These features hold true in touring as well.
 
 
-### Terminology
+### Terminology and notation {#sec:terminology_tours}
 
 Terminology varies across articles. In my work, I use the following:
 
@@ -126,16 +126,16 @@ Terminology varies across articles. In my work, I use the following:
 * $p$, number of numeric variables, the dimensionality of data space.
 * $d$, dimensionality of projection space.
 * $\textbf{X}_{[n,~p]}$, a data matrix in variable-space, $\textbf{X} \in \mathbb{R}^{p}$. Typically centered, scaled, and optionally sphered.
-* $B_{[p,~d]}$, orthonormal basis set ($d$ linear combinations of $p$ variables, each at a right angle, to the others, with a norm of 1), defining the axes directions for the projection from $p-$ to $d-$space.
+* $\textbf{B}_{[p,~d]}$, orthonormal basis set ($d$ linear combinations of $p$ variables, each at a right angle, to the others, with a norm of 1), defining the axes directions for the projection from $p-$ to $d-$space.
 * $\textbf{Y}_{[n,~d]}$, projected data matrix in projection-space, $\textbf{Y} \in \mathbb{R}^{d}$.
 * For projections down to 1- and 2D, it’s common to display each variables contribution and direction on its own axis (1D) or relative to a unit circle (2D), this is referred to as basis axes or sometimes the reference frame.
 * Geometric objects are referred to in generalized dimensions; the use of plane isn't necessarily a 2D surface, but a hyper-plane in the arbitrary dimensions of the projection space.
 
 ### Example illustrations
 
-We use a toy data set of 74 observations of flea beetles across 6 numeric variables corresponding to physical measurements, $\textbf{X}_{[74,~6]} \in \mathbb{R}^{6}$. Each observation belongs to one of 3 spieces as shown in the color and shape of the data points. Figure \@ref(fig:flea-refframe) shows one frame of a tour (left) and the corresponding reference frame (right) showing the linear combination of the variables onto the projection-space, a visual representation of the basis.
+We use a toy data set of 74 observations of flea beetles across 6 numeric variables corresponding to physical measurements, $\textbf{X}_{[74,~6]} \in \mathbb{R}^{6}$. Each observation belongs to one of 3 species as shown in the color and shape of the data points. Figure \@ref(fig:flea-refframe) shows one frame of a tour (left) and the corresponding reference frame (right) showing the linear combination of the variables onto the projection-space, a visual representation of the basis.
 
-```{r flea-refframe, results='hide', fig.cap = "(left) one frame of a x-y scatterplot projection, the results of holes tour with a corrisponding refference frame indicating the direction and magnitude the variables contribute to the 2D projection."}
+```{r flea-refframe, results='hide', fig.cap = "(left) one frame of a x-y scatterplot projection, the results of holes tour with a corresponding reference frame indicating the direction and magnitude the variables contribute to the 2D projection."}
 f_dat  <- tourr::rescale(flea[,1:6])
 f_cat  <- factor(flea$species)
 f_path <- save_history(f_dat, guided_tour(holes()))
@@ -157,7 +157,7 @@ colnames(f_bas) <- c("x", "y")
 ```
 
 <!-- Removed cause analysis -->
-<!-- In this projection you can see that the variables `aede1` and `tars2` are on the direction that is mostly orthagonal to the other variables, but explain in the clustering offset of the purple points, whereas the other variables explain the distinction bewteen the green and orange groups.  -->
+<!-- In this projection you can see that the variables `aede1` and `tars2` are on the direction that is mostly orthogonal to the other variables, but explain in the clustering offset of the purple points, whereas the other variables explain the distinction between the green and orange groups.  -->
 
 Tours view many such frames in sequence, by identifying some target frames and then interpolating between them as shown schematically in figure \@ref(fig:buja05fig), captured from figure 1 of @buja_computational_2005. For illustration figure \@ref(fig:flea-static) lays out frames of a tour,
 A html version of a user-controlled steering can be found at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/.
@@ -208,9 +208,9 @@ A fundamental aspect of touring is the path of rotation. Of which there are four
     + at-random [@asimov_grand_1985]
     + random-walk [@asimov_grand_1985]
     + *local tour* [@wickham_tourr_2011], a sort of grand tour on a leash, such that it goes to a nearby random projection before returning to the original position and iterating to a new nearby projection.
-* data driven, *guided tour*, optimizing some objective function/index via projection pursuit [@hurley_analyzing_1990], analogous to gradient descent. including the following indexes:
-    + holes [@cook_projection_1993] - iterates projections that add more white space to the center of the projection.
-    + cmass [@cook_projection_1993] - find the projection with the most density or mass in the center.
+* data driven, *guided tour*, optimizing some objective function/index within the projection-space, called projection pursuit (PP) [@hurley_analyzing_1990], including the following indexes:
+    + holes [@cook_projection_1993] - moves points away from the center.
+    + cmass [@cook_projection_1993] - moves points toward the center. 
     + lda [@lee_projection_2005] - linear discriminant analysis, seeks a projection where 2 or more classes are most separated.
     + pda [@lee_projection_2010] - penalized discriminant analysis for use in highly correlated variables when classification is needed.
     + convex [@laa_using_2019] - the ratio of area of convex and alpha hulls.
@@ -221,8 +221,8 @@ A fundamental aspect of touring is the path of rotation. Of which there are four
     + other user-defined objective function can be implemented with the *tourr* package @wickham_tourr_2011.
 * Precomputed choice, *planned tour*, in which the path has already been generated or defined.
     + *little tour* [@mcdonald_interactive_1982], where every permutation of variables is stepped through in order, analogous to a brute-force or exhaustive search.
-    + a saved path of any other tour, typically an array of basis targets to interpolate between as produced by the R function `tourr::save_history()`.
-* Manual control, *manual tour*, a constrained rotation on selected manipulation variable and magnitude [@cook_manual_1997]. Typically used to explore the local area after identifying an interesting feature from another tour.
+    + a saved path of any other tour, typically an array of basis targets to interpolate between.
+* Manual control, *manual tour*, a constrained rotation on selected manipulation variable and magnitude [@cook_manual_1997]. Typically used to explore the local area after identifying an interesting feature, perhaps via guided tour.
 * *dependence tour*, combination of $n$ independent 1D tours. A vector describes the axis each variable will be displayed on. *ie* $c(1, 1, 2, 2)$ is a 4- to 2D tour with the first 2 variables on the first axis, and the remaining on the second.
     + *correlation tour* [@buja_data_1987], a special case of the dependence tour, analogous to canonical correlation analysis.
 
@@ -241,7 +241,7 @@ Consider $d=2$, then each projection is called a 2-frame (each spanning a 2-plan
 
 The little tour introduced in @mcdonald_interactive_1982, on the other hand is necessarily both dense and rapid, performing essentially an exhaustive search on the Grassmannian. However, this path uninteresting and with long periods of similar projections strung together. There was a need to find interesting projections quicker.
 
-Guided tours (@hurley_analyzing_1990) optimize an objective function generating path will be relatively small subset of the Grassmannian, density and rapidity become poor measures, while interesting projections are quickly identified. Recently, @laa_using_2019, compares projection pursuit indices with the metrics: smoothness, squintability, flexibility, rotation invariance and speed. See the original work to see how the indices perform.
+Guided tours [@hurley_analyzing_1990] optimize an objective function generating path will be relatively small subset of the Grassmannian, density and rapidity become poor measures, while interesting projections are quickly identified. Recently, @laa_using_2019, compares projection pursuit indices with the metrics: *smoothness, squintability, flexibility, rotation invariance* and *speed*. See the original work to see how the indices perform.
 
 
 ### Geometric display by dimensionality
@@ -289,7 +289,7 @@ Support and maintenance of such implementations give them a particularly short l
 
 ### Going further
 
-Most previous implementation of dynamic projections are failing to compile. I have extended the graphic options for touring dynamic projections and reimplemented UCS on a compatible platform for more sustainable support (RO #1). A comparative study outlining the benefits of UCS vs alternatives is also absent from the literature (RO #2). @nelson_xgobi_1998 views $d=2$ projections in head tracked 3D comparing them to 2D counterparts, but didn't implement $d=3$ dynamic projections, facet of RO #3 & 4.
+Most previous implementation of dynamic projections are failing to compile. I have extended the graphic options for touring dynamic projections and reimplemented UCS on a compatible platform for more sustainable support (RO #1). A comparative study outlining the benefits of UCS vs alternatives is also absent from the literature (RO #2). @nelson_xgobi_1998 views $d=2$ projections in head tracked 3D comparing them to 2D counterparts but didn't implement $d=3$ dynamic projections, facet of RO #3 & 4.
 
 
 ## Multivariate data visualization in 3D {#sec:3d}
@@ -300,7 +300,7 @@ As this research pertains to numeric multivariate data, we'll stick to this scop
 ### Terminology {#sec:3d-terminology}
 
 * 2D - representation of data in 2 dimensions, without use of depth perception cues and minimal aesthetic mapping (color, size, height, *etc*) to data points.
-* 2.5D - Following the definition given in @ware_designing_2000 : visualizations that are essentially 2D, but select depth cues are used to provide some suggestion of 3D. However, the term 2.5D is commonly used for several meanings *due to the ambiguity use of 2.5D, we err on the side stating 3D with descriptions of depth cues used*.
+* 2.5D - Following the definition given in @ware_designing_2000: visualizations that are essentially 2D but select depth cues are used to provide some suggestion of 3D. However, the term 2.5D is commonly used for several meanings *due to the ambiguity use of 2.5D, we err on the side stating 3D with descriptions of depth cues used*.
 * 3D - visualizations of 3 dimensions with a liberal use of depth cues unless otherwise qualified.
 * Depth perception cues - an indication that tips off depth to an observer, including:
     * linear perspective - the property of parallel lines converging on a vanishing point.
@@ -313,12 +313,12 @@ As this research pertains to numeric multivariate data, we'll stick to this scop
 * Virtual reality (VR) - computer generated display of virtual spaces in place of physical vision.
 * Augmented reality (AR) - computer generated display of information over laid on a physical space.
 * Mixed reality (MR) - any degree of virtual or augmented reality.
-* Scatterplot matrices (SPLOM) - matrix display of pair-wise 2D scatterplots.
+* Scatterplot matrices (SPLOM) - matrix display of pair-wise 2D scatterplots with 1D density on the diagonal.
 
 
 ### A rocky start
 
-Scientific visualization has readily adopted mixed realities as a large amount of the science exist in 3 spatial dimensions, lending itself well to virtual immersion. Data visualization, on the other hand, has been slow to utilize graphics above 2.5D, (and haptic interaction) primarily due to the mixed results of over-hyped of 3D visuals from the 1980's and 90's [@munzner_visualization_2014]. However, since then there have been several promising studies suggesting that it's time for data visualization to revisit and adopt 3D visuals for specific combinations of visuals and depth cues.
+Scientific visualization has readily adopted mixed realities as a large amount of the science exist in 3 spatial dimensions, lending itself well to virtual immersion [@marriott_immersive_2018]. Data visualization, on the other hand, has been slow to utilize graphics above 2.5D, (and haptic interaction) primarily due to the mixed results of over-hyped of 3D visuals from the 1980's and 90's [@munzner_visualization_2014]. However, since then there have been several promising studies suggesting that it's time for data visualization to revisit and adopt 3D visuals for specific combinations of visuals and depth cues.
 
 
 ### 3D rotated projections vs 3 2D orthogonal projections 
@@ -341,7 +341,7 @@ knitr::include_graphics("./figures/wickens94fig.PNG")
 ```
 
 
-Using 3D rotated projection gives accurate perception of a ball relative to complex box shapes, while combinations of 2D and 3D give the most precise orientation and positioning information [@tory_visualization_2006, depicted in figure \@ref(fig:tory06fig)].
+Using 3D rotated projection gives more accurate perception (relative to 2D) of a ball suspended above complex box shapes, while combinations of 2D and 3D give the most precise orientation and positioning information [@tory_visualization_2006, depicted in figure \@ref(fig:tory06fig)].
 
 (ref:tory06fig-cap) Screen capture from @tory_visualization_2006: "Fig. 1 (a) 2D, (b) 3D Rotated, (c) 3D Shadow, (d) Orientation Icon, and (e) ExoVis displays used in Experiment 1 (position estimation). Participants estimated the height of the ball relative to the block shape. In this example, the ball is at height 1.5 diameters above the block shape."
 
@@ -379,7 +379,7 @@ knitr::include_graphics("./figures/gracia16fig")
 ```
 
 
-@wagner_filho_immersive_2018, depicted in figure \@ref(fig:wagner18fig), performed an $n=30$ empirical study of PCA embedded projections, and perception error across 4 tasks and 3 display types: 2D, 3D, and immersive. Overall task error was less in 3D and immersive relative to 2D. According to user Likert-scale 2D is slightly easier to navigate and slightly more comfortable. Conversely, 3D and immersive are slightly easier to interact and moderately easier to find information.
+@wagner_filho_immersive_2018, depicted in figure \@ref(fig:wagner18fig), performed an $n=30$ empirical study of PCA embedded projections, and perception error across 4 tasks and 3 display types: 2D, 3D, and immersive. Overall task error was less in 3D and immersive relative to 2D. According to the user Likert-scale survey 2D is slightly easier to navigate and slightly more comfortable, while, 3D and immersive display are slightly easier to interact and moderately easier to find information.
 
 (ref:wagner18fig-cap) Screen capture from @wagner_filho_immersive_2018, original captions contained in capture.
 
@@ -390,4 +390,4 @@ knitr::include_graphics("./figures/wagner18fig")
 
 ### Going further
 
-When comparing between 3D and 2D orthogonal views studies in general show that perception accuracy is better in 3D, though manipulation speed is generally slower, confounded by users being less familiar with manipulating 3D space [@lee_effects_1986; @wickens_implications_1994; @tory_visualization_2006; counter example @sedlmair_empirical_2013]. Similar results have been shown in static, 3D embedded spaces [@gracia_new_2016; @wagner_filho_immersive_2018] and in dynamic 2D embedded spaces depicted in immersive 3D [@nelson_xgobi_1998]. After more than 2 decades of hardware advancement, the quality, support, and prevalence of VR technology is better and more pervasive than ever. It's time to view dynamic 3D projections in immersive spaces and quantify the benefits (RO #3 & 4).
+When comparing between 3D and 2D orthogonal views studies in general show that perception accuracy is better in 3D, though manipulation speed is generally slower. The speed discrepancy is confounded by the difference in users familiar with manipulating 2D vs 3D spaces [@lee_effects_1986; @wickens_implications_1994; @tory_visualization_2006; counter example @sedlmair_empirical_2013]. Similar results have been shown in static, 3D embedded spaces [@gracia_new_2016; @wagner_filho_immersive_2018] and in dynamic 2D embedded spaces depicted in immersive 3D [@nelson_xgobi_1998]. After more than 2 decades of hardware advancement, the quality, support, and prevalence of VR technology is better and more easily accessible than ever. It's time to view dynamic 3D projections with immersive spaces and quantify the benefits (RO #3 & 4).

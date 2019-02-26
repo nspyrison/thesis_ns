@@ -103,6 +103,6 @@ timeline
 <!-- Induction To be completed within 6 months of commencement -->
 
 
-# Acknowledgements {-} 
+# Source code {-} 
 
-This thesis report is generated using R[@r_core_team_r:_2018], bookdown [xie_bookdown:_2016] and rmarkdown [@xie_r_2018], where code and explanation are kept together, following reproducible research practice. The code producing this document can be found at: https://github.com/nspyrison/Confirmation.
+This article was created in `R` [@r_core_team_r:_2018], using `bookdown` [@xie_bookdown:_2016] and `rmarkdown` [@xie_r_2018], with code generating the examples inline. The source files can be found at: [github.com/nspyrison/confirmation/](https://github.com/nspyrison/Confirmation).

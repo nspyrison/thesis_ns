@@ -10,7 +10,9 @@ knitr::opts_chunk$set(
 
 # Introduction {#ch:introduction}
 
-The term exploratory data analysis was coin by @tukey_exploratory_1977. Data is everywhere and understanding the shape and distribution of the data is an early and fundamental task. Visualization is crucial to a clear understanding of the data. Things can go awry when we summarize plots with numeric statistics (@anscombe_graphs_1973, @matejka_same_2017). In these studies, bivariate data have the same summary statistics, while showing obvious red flags that could go completely unheeded if preliminary graphing is foregone. This requirement for visuals also necessitates *human-in-the-loop* analysis.
+## Exploratory data analysis and visual intuition
+
+The term exploratory data analysis (EDA) was coined in @tukey_exploratory_1977. Data is everywhere and understanding the shape and distribution of the data is an early and fundamental task. Visualization is crucial to a clear understanding of the data. Things can go awry when we summarize plots with numeric statistics [@anscombe_graphs_1973; @matejka_same_2017]. In these studies, bivariate data have the same summary statistics, while showing obvious red flags that could go completely unheeded if preliminary graphing is foregone. This requirement for visuals also necessitates *human-in-the-loop* analysis.
 
 
 (ref:matejka17fig-cap) 12 data sets created from the datasaurus, each with the same summary statistics, yet visual peculiarity.
@@ -19,18 +21,17 @@ The term exploratory data analysis was coin by @tukey_exploratory_1977. Data is 
 knitr::include_graphics("./figures/matejka17fig.png")
 ```
 
-It's clear that data-space need to be visualized, but this becomes complex as data dimensionality increases. Embedding (or projecting) $p-$dimensional data on to a lower, $d$-dimensional subspace is a common Dimension Reduction (DR) approach to visualize multivariate data spaces. Traditionally single static projection is used to summarize a space, which necessarily shows a subset of the variation of the data. @asimov_grand_1985 suggested the use of viewing projections dynamically across a changing projection basis allows for more variation to be contained and viewed temporally. This dynamic view of many changing projections is known as *tours*. While, there are different methods of generating tour paths, human-in-the-loop user-controlled steering (UCS) offers the finest control for navigating local structure and is particularly useful in exploration after an interesting feature has been identified.
+It's clear that data-space need to be visualized, but this becomes complex as data dimensionality increases. Embedding (or projecting) $p-$dimensional data on to a lower, $d$-dimensional subspace is a common dimension reduction (DR) approach to visualize multivariate data spaces. Traditionally single static projection is used to summarize a space, which necessarily shows a subset of the variation of the data. @asimov_grand_1985 suggested the use of viewing projections dynamically across a changing projection basis allows for more variation to be contained and viewed temporally. This dynamic view of many changing projections is known as *tours*. While, there are different methods of generating tour paths, human-in-the-loop user-controlled steering (UCS) offers the finest control for navigating local structure and is particularly useful in exploration after an interesting feature has been identified.
 
-With the exception of @nelson_xgobi_1998, tours have been exclusively been viewed in $d={1, 2, p}$, while use visualization studies Virtual Reality(VR) have shown more accurate and better perception in immersive environments. The addition of a 3rd dimension would suggest for better perception of $d=2$ embeddings and allow for novel dynamic projections in a 3D space as well. 
+With the exception of @nelson_xgobi_1998, tours have been exclusively been viewed in $d={1, 2, p}$, while use visualization studies virtual reality (VR) have shown more accurate and better perception in immersive environments. The addition of a 3rd dimension would suggest for better perception of $d=2$ embeddings and allow for novel dynamic projections in a 3D space as well. 
 
 ## Research objectives
 
 Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualize high dimensions have been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor. The primary goal of this PhD research can then be summarized as:
 
-1. **How do we implement UCS in 1- and 2D projections?** (Completed work, chapter \ref{ch:spinifex}) User-controlled steering of dynamic projections allows for the user to select which and how a specific variable should be rotated. This is completed work following the research of @cook_manual_1997. I have implemented UCS in 1- and 2D and built an extensible platform for projection into $d>2$ spaces.
+1. **How do we implement UCS in 1- and 2D projections?** (Completed work, chapter \ref{ch:completed_work}) User-controlled steering of dynamic projections allows for the user to select which and how a specific variable should be rotated. This is completed work following the research of @cook_manual_1997. I have implemented UCS in 1- and 2D and built an extensible platform for projection into $d>2$ spaces.
 2. **Does 2D UCS provide benefits over alternatives?** (Future work, chapter \ref{ch:future_work}) *Case study* comparing dynamic, UCS projections with commonly used static alternatives.
-3. **How do we extend UCS to 3D?** (Future work, chapter \ref{ch:future_work}) This future *experimental design* will be novel work in extending dynamic projections, including UCS, to 3D. The work done in RO 1 will be used in conjunction with @cordeil_immersive_2019 to form an UI compatible across display devices.
-4. **Does UCS in 3D displays provide perception benefits over 2D displays?** (Future work, chapter \ref{ch:future_work}) This future *empirical study* explores the efficacy of bringing UCS into 3D as compared across various display devices.
-\end{itemize}
+3. **How do we extend UCS to 3D?** (Future work, chapter \ref{ch:future_work}) This *experimental design* will be novel work in extending dynamic projections, including UCS, to 3D. The work done in RO 1 will be used in conjunction with @cordeil_immersive_2019 to form an UI compatible across display devices.
+4. **Does UCS in 3D displays provide perception benefits over 2D displays?** (Future work, chapter \ref{ch:future_work}) *Empirical study* exploring the efficacy of bringing UCS into 3D as compared across various display devices.
 
 

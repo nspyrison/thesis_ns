@@ -4,8 +4,9 @@ knit: "bookdown::render_book"
 
 # Acknowledgements {-}
 
-Firstly, I would like to express my sincere gratitude to my advisors professor Dianne Cook and professor Kimbal Marriott for their support of my Ph.D studies and research, for their patience, motivation, and immense knowledge. Their guidance was an indispensable help through my research and writing.
+<!-- Firstly,  -->
+I would like to express my sincere gratitude to my advisors professor Kimbal Marriott, professor Dianne Cook, and professor German Valencia for their support of my Ph.D studies and research, for their patience, motivation, and immense knowledge. Their guidance was and continues to be an indispensable help through my research and writing.
 
-I thank my fellow Ph.D students in for the stimulating discussions, the countless hours we spent working all hours of the week, and their unwavering support. I could not have asked for better company.
+<!-- I thank my fellow Ph.D students in for the stimulating discussions, the countless hours we spent working all hours of the week, and their unwavering support. I could not have asked for better company. -->
 
-Last but not the least, I would like to thank my family: my parents, brother and sister for supporting me in this thesis and the thick and thins of life.
+<!-- Last but not the least, I would like to thank my family: my parents, brother and sister for supporting me in this thesis and the thick and thins of life. -->
