@@ -27,7 +27,7 @@ With the exception of @nelson_xgobi_1998, tours have been exclusively been viewe
 
 ## Problem statements
 
-Human-in-the-loop data visualization is key to to successful EDA. This work identifies several challenges presented given the current liturature:
+Human-in-the-loop data visualization is key to to successful EDA. This work identifies several challenges presented given the current literature:
 
 P 1. Static linear projections contain only a subset of the variation held within the data
 P 2. Static non-linear projections 
@@ -38,10 +38,10 @@ P 4. Data visualization has been slow to adopt VR and use of immersive spaces
 
 Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualize high dimensions have been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor. The primary goal of this PhD research can then be summarized as:
 
-RO 1. **How can UCS be implemented in 1- and 2D projections?** (Completed work, chapter \ref{ch:completed_work}) User-controlled steering of dynamic projections allows for the user to select which and how a specific variable should be rotated. This is completed work following the research of @cook_manual_1997. I have implemented UCS in 1- and 2D and built an extensible platform for projection into $d>2$ spaces.
-RO 2. **Does 2D UCS provide benefits over alternatives?** (Future work, chapter \ref{ch:future_work}) *Case study* comparing dynamic, UCS projections with commonly used static alternatives.
-RO 3. **How can UCS be extended to 3D?** (Future work, chapter \ref{ch:future_work}) This *experimental design* will be novel work in extending dynamic projections, including UCS, to 3D. The work done in RO 1 will be used in conjunction with @cordeil_immersive_2019 to form an UI compatible across display devices.
-RO 4. **Does UCS in 3D displays provide perception benefits over 2D displays?** (Future work, chapter \ref{ch:future_work}) *Empirical study* exploring the efficacy of bringing UCS into 3D as compared across various display devices.
+RO 1. ** How can UCS be implemented in 1- and 2D projections? ** (Completed work, chapter \ref{ch:completed_work}) User-controlled steering of dynamic projections allows for the user to select which and how a specific variable should be rotated. This is completed work following the research of @cook_manual_1997. I have implemented UCS in 1- and 2D and built an extensible platform for projection into $d>2$ spaces.
+RO 2. ** Does 2D UCS provide benefits over alternatives? ** (Future work, chapter \ref{ch:future_work}) *Case study* comparing dynamic, UCS projections with commonly used static alternatives.
+RO 3. ** How can UCS be extended to 3D? ** (Future work, chapter \ref{ch:future_work}) This *experimental design* will be novel work in extending dynamic projections, including UCS, to 3D. The work done in RO 1 will be used in conjunction with @cordeil_immersive_2019 to form an UI compatible across display devices.
+RO 4. ** Does UCS in 3D displays provide perception benefits over 2D displays? ** (Future work, chapter \ref{ch:future_work}) *Empirical study* exploring the efficacy of bringing UCS into 3D as compared across various display devices.
 
 ## Contributions to knowledge
 

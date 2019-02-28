@@ -140,7 +140,7 @@ Following the terms and notations already discussed in section \ref{sec:terminol
   \end{bmatrix}
 \end{align*}
 
-The algorithm is primarily operating on the projection basis and utilizes the data only when making a display for computational efficency.
+The algorithm is primarily operating on the projection basis and utilizes the data only when making a display for computational efficiency.
 
 ### Toy data set
 
@@ -186,7 +186,7 @@ Select a manipulation variable, $k$. Initialize a zero vector $e$ and set the $k
   \end{bmatrix}
 \end{align*}
 
-In figure \@ref(fig:step0), above, notice that the variables `tars1` and `aede2` are almost orthogonal to the other 4 variables and control almost all of the variation in the x axis of the projection. `Aede2` has a larger contribution, and is select it as the manip variable.
+In figure \@ref(fig:step0), above, notice that the variables `tars1` and `aede2` are almost orthogonal to the other 4 variables and control almost all of the variation in the x axis of the projection. `Aede2` has a larger contribution and is select it as the manip variable.
 
 
 ### Step 2 Create the manip space

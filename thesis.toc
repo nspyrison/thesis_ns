@@ -1,16 +1,16 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Acknowledgements}{v}{chapter*.1}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Declaration}{vii}{chapter*.2}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abstract}{ix}{chapter*.3}
+\contentsline {chapter}{Abstract}{v}{chapter*.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.1}Exploratory data analysis and visual intuition}{1}{section.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Research objectives}{2}{section.1.2}
+\contentsline {section}{\numberline {1.2}Problem statements}{2}{section.1.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.3}Research objectives}{3}{section.1.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.4}Contributions to knowledge}{3}{section.1.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Literature review}{5}{chapter.2}
 \defcounter {refsection}{0}\relax 
@@ -18,13 +18,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.1}Overview}{5}{subsection.2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.2}Terminology and notation}{7}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.2}Terminology and notation}{6}{subsection.2.1.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.3}Example illustrations}{7}{subsection.2.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.4}History}{8}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.4}History}{10}{subsection.2.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.5}Path generation}{9}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.5}Path generation}{10}{subsection.2.1.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.6}Path evaluation}{12}{subsection.2.1.6}
 \defcounter {refsection}{0}\relax 
@@ -40,15 +40,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.2}A rocky start}{16}{subsection.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.3}3D rotated projections vs 3 2D orthogonal projections}{17}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.3}3D rotated projections vs 3 2D orthogonal projections}{16}{subsection.2.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.4}Comparing 3D and 2D embeddings of multivariate data}{19}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.4}Comparing 3D and 2D embeddings of multivariate data}{18}{subsection.2.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.5}Going further}{20}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.5}Going further}{21}{subsection.2.2.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Completed work}{23}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Application of UCS in 2D}{23}{section.3.1}
+\contentsline {section}{\numberline {3.1}RO \#1) How can UCS be implemented in 1- and 2D projections?}{23}{section.3.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.2}Algorithm}{23}{section.3.2}
 \defcounter {refsection}{0}\relax 
@@ -68,17 +68,19 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Future work}{33}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}RO \#2) What benefit does UCS have over popular alternatives?}{33}{section.4.1}
+\contentsline {section}{\numberline {4.1}RO \#2) Does 2D UCS provide benefits over alternatives?}{33}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}RO \#3) How can we extend UCS to 3D?}{34}{section.4.2}
+\contentsline {section}{\numberline {4.2}RO \#3) How can UCS be extended to 3D?}{34}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}RO \#4) Does 3D UCS provide benefits over UCS in 2D?}{34}{section.4.3}
+\contentsline {section}{\numberline {4.3}RO \#4) Does UCS in 3D displays provide perception benefits over 2D displays?}{34}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{PhD timeline}{37}{chapter*.18}
+\contentsline {chapter}{PhD schedule}{37}{chapter*.16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Accompanying documents}{37}{section.4.4}
+\contentsline {section}{\numberline {4.4}Timeline}{37}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Source code}{39}{chapter*.19}
+\contentsline {section}{\numberline {4.5}Accompanying documents}{37}{section.4.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Source code}{39}{chapter*.17}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {A}Using animation to explore sensitivity of structure in a low-dimensional projection of high-dimensional data with user controlled steering}{41}{appendix.A}
 \defcounter {refsection}{0}\relax 
@@ -112,4 +114,4 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {A.7}Discussion}{58}{section.A.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{61}{appendix*.27}
+\contentsline {chapter}{Bibliography}{61}{appendix*.25}

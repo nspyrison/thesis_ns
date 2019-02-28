@@ -3,5 +3,9 @@
 .RData
 .Ruserdata
 _bookdown_files/*
-thesis.*
-
+thesis.aux
+thesis.bfc
+thesis.blg
+thesis.out
+thesis.toc
+thesis.xdv
