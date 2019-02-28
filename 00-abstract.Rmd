@@ -4,7 +4,7 @@ knit: "bookdown::render_book"
 
 # Abstract {-}
 
-Visualizing data space is crucial to exploratory data analysis yet doing so quickly becomes difficult as the dimensionality of the data increases. Traditionally, static, low-dimensional linear embeddings are used. Observing one such embedding often misses a significant amount of variation, and hence, information held within the data. Touring is a method that animates many projections as the orientation in data space is varied. This maintains transparency to the original variables, while preserving information in the data.
+Visualizing data space is crucial to exploratory data analysis yet doing so quickly becomes difficult as the dimensionality of the data increases. Traditionally, static, low-dimensional linear embeddings are used to identify clustering, outliers, and structure. Observing one such embedding often misses a significant amount of variation, and hence, information held within the data. Touring is a method that animates many linear projections as the orientation in data space is varied. This maintains transparency to the original variables, while preserving information in the data.
 
 There are various ways to generate tour paths and many geometrics to view each path. Once an interesting feature has been identified more information can be gleaned with finer control to explore the local structure, in particular through user-controlled steering (UCS).
 

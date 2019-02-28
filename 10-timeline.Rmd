@@ -2,8 +2,9 @@
 knit: "bookdown::render_book"
 ---
 
-# PhD timeline {-} 
+# PhD schedule {-} 
 
+## Timeline
 
 ```{r timeline, echo=F}
 ## working from: https://stats.andrewheiss.com/misc/gantt.html

@@ -190,7 +190,7 @@
     \end{center}
     \vfill
     \begin{center}\Large
-        {Candidature confirmation}
+        {Candidature confirmation report}
     \end{center}
     \vfill
     \begin{center}
