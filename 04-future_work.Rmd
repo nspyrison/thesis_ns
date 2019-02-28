@@ -5,17 +5,18 @@ knit: "bookdown::render_book"
 
 # Future work {#ch:future_work}
 
-## RO #2) What benefit does UCS have over popular alternatives?
+## RO #2) Does 2D UCS provide benefits over alternatives?
 
 High dimensional data and models are ubiquitous but viewing them in data space is not trivial. Currently it is common practice to use Principal Component Analysis (PCA), Multi-Dimensional Scaling (MDS), or a non-linear embedding like t-distributed neighbor embeddings (tSNE). These methods are all unsupervised projections of multivariate spaces to a single, static lower embedding. PCA is a linear transformation that orients linear combinations of the variables into basis components and orders them according to amount of variation shown. MDS has linear and non-linear versions that compare the distances between pairwise variables. tSNE is a nonlinear technique that iterates epochs of: 
 
-1. constructing a probability distributions for selecting neighboring data and 2. minimizing Kullback-Leibler divergence (a measure of relative entropy).
+1. constructing a probability distributions for selecting neighboring data and 
+2. minimizing Kullback-Leibler divergence (a measure of relative entropy).
 
-Unfortunately, static linear projections necessarily cut variation in the components not shown, while non-linear techniques lose transparency back to the original variable-space. Touring preserves transparency to variable-space and keeps variation in tack. By providing user-controlled steering of tour we should be able to provide finer structural exploration than the alternatives.
+Unfortunately, static linear projections necessarily cut variation in the components not shown, while non-linear techniques lose transparency back to the original variable-space. Touring preserves transparency to variable-space and keeps variation in tack. Providing user-controlled steering of tour should allow for finer structural exploration than the alternatives.
 
 In this future work I plan to perform a case study between UCS leading alternatives. Design space includes data sets, techniques, and measures of comparison.
 
-## RO #3) How can we extend UCS to 3D?
+## RO #3) How can UCS be extended to 3D?
 
 Touring involves linear embeddings in typically $d=2$ dimensions. While @nelson_xgobi_1998 and @arms_benefits_1999 have explored the efficacy of 2D vs 3D display, they have done so on 2D embeddings, I will generalize the UCS to scalable dimensions in R, built upon the existing packages *tourr* and *spinifex*. This will allow for the backend work of 3D rotations.
 
@@ -23,7 +24,7 @@ Recently @cordeil_imaxes:_2017 shared immersive data analysis written in C# to b
 
 This future work in an exploratory design extending UCS to 3D projections and integrating the calling R scripts with the existing IATK for a compatible front end to be used across display devices.
 
-## RO #4) Does 3D UCS provide benefits over UCS in 2D? {#UCS_3dvs2d}
+## RO #4) Does UCS in 3D displays provide perception benefits over 2D displays? {#UCS_3dvs2d}
 
 
 The bulk of past touring endeavors have existed whole in 2D, with the exceptions of @nelson_xgobi_1998 and @arms_benefits_1999 whom performed a small ($n=15$) experimental study comparing tasks performed across 2D and 3D touring displays. The XGobi interface was used on a standard 2D monitor while VRGobi (on the C2 setup) was used with head-tracked binocular VR. The 3 accuracy tasks: clustering, intrinsic data dimensionality, and radial sparseness were recorded along with the speed of a brushing data. Accuracy was the same for the dimensionality task, while 3D display outperformed 2D on clustering, and even more so on the radial sparsity. However, time taken to brush a cluster was less than half the time in 2D display as compared with 3D. 
