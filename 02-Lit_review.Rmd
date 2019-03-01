@@ -109,7 +109,7 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 
 ### Overview
 
-Exploratory data analysis (EDA) is a critical preliminary task at the root of any analysis. Understanding the distribution and summaries are at the heart of choosing and validating the assumptions of any methodology. However, there are risks associated with only looking at summary statistics alone. @anscombe_graphs_1973 and @matejka_same_2017 both point out the dangers of doing so, namely missing glaring patterns and peculiarity that can be held within data even when summary statistics are the same. It's clear that visual intuition, and consequently human-in-the-loop analysis, is still is a pivotal aspect of EDA.
+Exploratory data analysis is a critical preliminary task at the root of any analysis. Understanding the distribution and summaries are at the heart of choosing and validating the assumptions of any methodology. However, there are risks associated with only looking at summary statistics alone. @anscombe_graphs_1973 and @matejka_same_2017 both point out the dangers of doing so, namely missing glaring patterns and peculiarity that can be held within data even when summary statistics are the same. It's clear that visual intuition, and consequently human-in-the-loop analysis, is still is a pivotal aspect of EDA.
 
 There is an issue with visualizing data as it is dimensionality increases. In univariate data sets histograms, or smoothed density curves are employed to visualize data. In bivariate data $x-y$ scatterplots and contour plots (2D density) can be employed. In three dimensions the two most common techniques are 3D scatterplot\footnote{Graphs depicting 3 dimensions are typically printed on paper, or rendered on a 2D monitor, they are intrinsically 2D images of monocular 3D spaces, sometimes referred to as 2.5D data visualization, more on this in section \ref{sec:3d-terminology}.} or 2D scatterplot with the 3rd variable as an aesthetic (such as color, size, or height). Such variable mappings can afford another dimension or 2, but this is not a sustainable solution.
 
@@ -118,20 +118,23 @@ Visualization of multivariate data for modest $p$ numeric dimension, even 6 or 8
 Tours perform linear dimensionality reduction, orthogonally projecting $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making small rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When an object is introduced it projects a 2D shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a $d=2$ tour as the 3D object is manipulated. Some orientations explain more information about the shape of the object than others but watching an animation of the shadow changing gives a more robust understanding than looking at any one still frame. More complex structures generally require more time to comprehend the nature of the geometry. These features hold true in touring as well.
 
 
-### Terminology and notation {#sec:terminology_tours}
 
-Terminology varies across articles. In my work, I use the following:
+<!-- ### Notation {#sec:terminology_tours} -->
 
-* $n$, number of observations in the data.
-* $p$, number of numeric variables, the dimensionality of data space.
-* $d$, dimensionality of projection space.
-* $\textbf{X}_{[n,~p]}$, a data matrix in variable-space, $\textbf{X} \in \mathbb{R}^{p}$. Typically centered, scaled, and optionally sphered.
-* $\textbf{B}_{[p,~d]}$, orthonormal basis set ($d$ linear combinations of $p$ variables, each at a right angle, to the others, with a norm of 1), defining the axes directions for the projection from $p-$ to $d-$space.
-* $\textbf{Y}_{[n,~d]}$, projected data matrix in projection-space, $\textbf{Y} \in \mathbb{R}^{d}$.
-* For projections down to 1- and 2D, it is common to display each variables contribution and direction on its own axis (1D) or relative to a unit circle (2D), this is referred to as basis axes or sometimes the reference frame.
-* Geometric objects are referred to in generalized dimensions; the use of plane is not necessarily a 2D surface, but a hyper-plane in the arbitrary dimensions of the projection space.
+<!-- Terminology varies across articles. In my work, I use the following: -->
+
+<!-- * $n$, number of observations in the data. -->
+<!-- * $p$, number of numeric variables, the dimensionality of data space. -->
+<!-- * $d$, dimensionality of projection space. -->
+<!-- * $\textbf{X}_{[n,~p]}$, a data matrix in variable-space, $\textbf{X} \in \mathbb{R}^{p}$. Typically centered, scaled, and optionally sphered. -->
+<!-- * $\textbf{B}_{[p,~d]}$, orthonormal basis set ($d$ linear combinations of $p$ variables, each at a right angle, to the others, with a norm of 1), defining the axes directions for the projection from $p-$ to $d-$space. -->
+<!-- * $\textbf{Y}_{[n,~d]}$, projected data matrix in projection-space, $\textbf{Y} \in \mathbb{R}^{d}$. -->
+<!-- * For projections down to 1- and 2D, it is common to display each variables contribution and direction on its own axis (1D) or relative to a unit circle (2D), this is referred to as basis axes or sometimes the reference frame. -->
+<!-- * Geometric objects are referred to in generalized dimensions; the use of plane is not necessarily a 2D surface, but a hyper-plane in the arbitrary dimensions of the projection space. -->
 
 ### Example illustrations
+
+A list of touring notation is given in the glossary section \ref{sec:tour_notation}
 
 This sections a toy data set of 74 observations of flea beetles across 6 numeric variables corresponding to physical measurements, $\textbf{X}_{[74,~6]} \in \mathbb{R}^{6}$. Each observation belongs to one of 3 species as shown in the color and shape of the data points. Figure \@ref(fig:flea-refframe) shows one frame of a tour (left) and the corresponding reference frame (right) showing the linear combination of the variables onto the projection-space, a visual representation of the basis.
 
@@ -293,26 +296,26 @@ Most previous implementation of dynamic projections are failing to compile. I ha
 
 ## Multivariate data visualization in 3D {#sec:3d}
 
-As this research pertains to numeric multivariate data, a wider overview of 3D data visualization is discussed in chapter 2 of @marriott_immersive_2018.
+As this research pertains to numeric multivariate data, a wider overview of 3D data visualization is discussed in chapter 2 of @marriott_immersive_2018. Terminology for 3D visuals is in the glossary section \ref{sec:3d-terminology).
 
 
-### Terminology {#sec:3d-terminology}
+<!-- ### Terminology {#sec:3d-terminology} -->
 
-* 2D - representation of data in 2 dimensions, without use of depth perception cues and minimal aesthetic mapping (such as color, size, and height) to data points.
-* 2.5D - Following the definition given in @ware_designing_2000: visualizations that are essentially 2D but select depth cues are used to provide some suggestion of 3D. However, the term 2.5D is commonly used for several meanings *due to the ambiguous use of 2.5D, this document errs on the side stating 3D with descriptions of depth cues used*.
-* 3D - visualizations of 3 dimensions with a liberal use of depth cues unless otherwise qualified.
-* Depth perception cues - an indication that indicates depth to an observer, including:
-    * linear perspective - the property of parallel lines converging on a vanishing point.
-    * aerial perspective - objects that are far away have lower contrast and color saturation due to light scattering in the atmosphere.
-    * occulation (or interposition) - where closer objects partially block the view of further objects.
-    * motion perspective/parallax - closer objects, move across the field of view faster than further objects.
-    * accommodation - the change of focal length due to change in the shape of the eye. Effective for distances of less than 2 meters.
-    * binocular stereopsis/disparity - the use of 2 images of slightly varied angles from the horizontal distance of the eyes. The disparity for distant objects is small, but it is significant for nearby objects.
-    * binocular convergence - The ocular-motor cue due to stereopsis focusing on the same objects. Convergence is effective for distances up to 10 meters.
-* Virtual reality (VR) - computer generated display of virtual spaces in place of physical vision.
-* Augmented reality (AR) - computer generated display of information overlaid on a physical space.
-* Mixed reality (MR) - any degree of virtual or augmented reality.
-* Scatterplot matrices (SPLOM) - matrix display of pair-wise 2D scatterplots with 1D density on the diagonal.
+<!-- * 2D - representation of data in 2 dimensions, without use of depth perception cues and minimal aesthetic mapping (such as color, size, and height) to data points. -->
+<!-- * 2.5D - Following the definition given in @ware_designing_2000: visualizations that are essentially 2D but select depth cues are used to provide some suggestion of 3D. However, the term 2.5D is commonly used for several meanings *due to the ambiguous use of 2.5D, this document errs on the side stating 3D with descriptions of depth cues used*. -->
+<!-- * 3D - visualizations of 3 dimensions with a liberal use of depth cues unless otherwise qualified. -->
+<!-- * Depth perception cues - an indication that indicates depth to an observer, including: -->
+<!--     * linear perspective - the property of parallel lines converging on a vanishing point. -->
+<!--     * aerial perspective - objects that are far away have lower contrast and color saturation due to light scattering in the atmosphere. -->
+<!--     * occulation (or interposition) - where closer objects partially block the view of further objects. -->
+<!--     * motion perspective/parallax - closer objects, move across the field of view faster than further objects. -->
+<!--     * accommodation - the change of focal length due to change in the shape of the eye. Effective for distances of less than 2 meters. -->
+<!--     * binocular stereopsis/disparity - the use of 2 images of slightly varied angles from the horizontal distance of the eyes. The disparity for distant objects is small, but it is significant for nearby objects. -->
+<!--     * binocular convergence - The ocular-motor cue due to stereopsis focusing on the same objects. Convergence is effective for distances up to 10 meters. -->
+<!-- * Virtual reality (VR) - computer generated display of virtual spaces in place of physical vision. -->
+<!-- * Augmented reality (AR) - computer generated display of information overlaid on a physical space. -->
+<!-- * Mixed reality (MR) - any degree of virtual or augmented reality. -->
+<!-- * Scatterplot matrices (SPLOM) - matrix display of pair-wise 2D scatterplots with 1D density on the diagonal. -->
 
 
 ### A rocky start

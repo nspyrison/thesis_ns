@@ -20,7 +20,7 @@ library(spinifex)
 library(ggplot2)
 set.seed(1)
 
-## FUNCTION FOR STATIC OUTPPUT, for chap3 use to clean up code chunks.
+## FUNCTION FOR STATIC OUTPPUT
 array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 {
   slides       <- array2df(array = .m_tour, data = .data)
@@ -120,7 +120,7 @@ These steps are described in more detail below.
 
 ### Notation
 
-Following the terms and notations already discussed in section \ref{sec:terminology_tours}. Start with multivariate data in an $n \times p$ numeric matrix, and an orthonormal $d$-dimensional basis set is describing the projection from $p-$ to $d-$space.
+Start with multivariate data in an $n \times p$ numeric matrix, and an orthonormal $d$-dimensional basis set is describing the projection from $p-$ to $d-$space.
 
 \begin{align*}
   \textbf{X}_{[n,~p]} ~=
@@ -142,7 +142,7 @@ Following the terms and notations already discussed in section \ref{sec:terminol
   \end{bmatrix}
 \end{align*}
 
-The algorithm is primarily operating on the projection basis and utilizes the data only when making a display for computational efficiency.
+The algorithm is primarily operating on the projection basis and utilizes the data only when making a display for computational efficiency. A broader list of touring notation is given in \ref{sec:tour_notation}.
 
 ### Toy data set
 

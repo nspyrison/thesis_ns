@@ -12,7 +12,8 @@ rmd_files: ["index.Rmd",
   "03-completed_work.Rmd",
   "04-future_work.Rmd",
   "10-timeline.Rmd",
-  "99-appA.Rmd"
+  "90-appA.Rmd",
+  "91-appB.Rmd"
   ]
 delete_merged_file: TRUE
 
