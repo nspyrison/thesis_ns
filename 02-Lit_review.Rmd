@@ -201,7 +201,7 @@ The grand and little tour have no input from the user aside from the starting ba
 
 ### Path generation
 
-A fundamental aspect of touring is the path of rotation. Of which there are four primary distinctions [@buja_computational_2005]: random choice, data driven, precomputed choice, data driven, and manual control.
+A fundamental aspect of touring is the path of rotation. Of which there are four primary distinctions [@buja_computational_2005]: random choice, data driven, precomputed choice,  and manual control.
 
 * Random choice, *grand tour*, constrained random walks $p$-space. Paths are constrained for changes in direction small enough to maintain continuity and aid in user comprehension
     + torus-surface [@asimov_grand_1985]
@@ -246,9 +246,9 @@ Guided tours [@hurley_analyzing_1990] optimize an objective function generating 
 
 ### Geometric display by dimensionality
 
-Up to this point this document has discussed 2D scatterplots, which offer the first and a simple case for viewing lower-dimensional embeddings of $p$-space. However, other geometrics (or geoms) offer perfectly valid projections as well.
+Up to this point this document has discussed 2D scatterplots, which offer a logical display for viewing embeddings of high-dimensional point clouds. However, other geometrics offer perfectly valid projections as well.
 
-* 1D geoms
+* 1D geometrics (geoms)
     + 1D densities: such as histogram, average shifted histograms [@scott_averaged_1985], and kernel density [@scott_incorporating_1995].
     + image (pixel): [@wegman_pixel_2001]
     + time series: where multivariate values are independently lagged to view peak and trough alignment. Currently no package implementation, but use case is discussed in [@cook_manual_1997]. 
@@ -286,9 +286,9 @@ Tours have not yet been widely adopted, this is likely due in part, to the fact 
 
 
 
-### Going further
+### Research gaps
 
-Most previous implementation of dynamic projections are failing to compile. I have extended the graphic options for touring dynamic projections and reimplemented UCS on a compatible platform for more sustainable support (RO #1). A comparative study outlining the benefits of UCS vs alternatives is also absent from the literature (RO #2). @nelson_xgobi_1998 views $d=2$ projections in head tracked 3D comparing them to 2D counterparts but didn't implement $d=3$ dynamic projections, facet of RO #3 & 4.
+Most previous implementation of dynamic projections are failing to compile. I have extended the graphic options for touring dynamic projections and reimplemented UCS on a compatible platform for more sustainable support (RO #1). A comparative study outlining the benefits of UCS vs alternatives is also absent from the literature (RO #2). 
 
 
 ## Multivariate data visualization in 3D {#sec:3d}
@@ -387,6 +387,9 @@ knitr::include_graphics("./figures/wagner18fig")
 ```
 
 
-### Going further
+### Research gaps
 
 When comparing between 3D and 2D orthogonal views studies in general show that perception accuracy is better in 3D, though manipulation speed is generally slower. The speed discrepancy is confounded by the difference in users familiar with manipulating 2D vs 3D spaces [@lee_effects_1986; @wickens_implications_1994; @tory_visualization_2006; counter example @sedlmair_empirical_2013]. Similar results have been shown in static, 3D embedded spaces [@gracia_new_2016; @wagner_filho_immersive_2018] and in dynamic 2D embedded spaces depicted in immersive 3D [@nelson_xgobi_1998]. After more than two decades of hardware advancement, the quality, support, and prevalence of VR technology is better and more easily accessible than ever. It's time to view dynamic 3D projections with immersive spaces and quantify the benefits (RO #3 & 4).
+
+
+@nelson_xgobi_1998 views $d=2$ projections in head tracked 3D comparing them to 2D counterparts but didn't implement $d=3$ dynamic projections, facet of RO #3 & 4.
