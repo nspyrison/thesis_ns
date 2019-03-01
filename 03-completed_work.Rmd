@@ -99,6 +99,8 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 
 # Completed work {#ch:completed_work}
 
+Implementing UCS in low dimensions is preliminary to the extention of the UCS into 3D space. This contribution (C #1) forms the foundation for the future work of RO #3 & 4. 
+
 ## RO #1) How can UCS be implemented in 1- and 2D projections?
 
 This section covers work done in the last year implementing USC via *manual tours*. The manual tour was described in @cook_manual_1997 and allows a user to rotate a selected variable into and out of a 2D projection of high-dimensional space, offering user-controlled steering (UCS). The primary use is to determine the sensitivity of structure visible in a projection to the contributions of a variable. This is particularly powerful for exploring the local structure once a feature of interest has been identified by a guided tour [@cook_grand_1995] for example. The algorithm for a manual tour allows rotations in horizontal, vertical, oblique, angular and radial directions. In the algorithm below focuses on radial rotation.
