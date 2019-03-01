@@ -64,16 +64,18 @@ reality, and explore the efficacy of doing so.
 \section{Exploratory data analysis and visual
 intuition}\label{exploratory-data-analysis-and-visual-intuition}
 
-The term exploratory data analysis (EDA) was coined in
-\textcite{tukey_exploratory_1977}. Data is everywhere and understanding
-the shape and distribution of the data is an early and fundamental task.
-Visualization is crucial to a clear understanding of the data. Things
-can go awry when data is summarized via numeric statistics alone
-\autocites{anscombe_graphs_1973}{matejka_same_2017}. In these studies,
-bivariate data have the same summary statistics, while showing obvious
-red flags that could go completely unheeded if preliminary graphing is
-foregone. This requirement for visuals also necessitates
-\emph{human-in-the-loop} analysis.
+The term exploratory data analysis was coined in
+\textcite{tukey_exploratory_1977}. It's a broad term used for the phase
+of exploring, understanding the structure of the data and validating
+assumptions made by prospective methodology. Data is everywhere and
+understanding the shape and distribution of the data is an early and
+fundamental task. Visualization is crucial to a clear understanding of
+the data. Things can go awry when data is summarized via numeric
+statistics alone \autocites{anscombe_graphs_1973}{matejka_same_2017}. In
+these studies, bivariate data have the same summary statistics, while
+showing obvious red flags that could go completely unheeded if
+preliminary graphing is foregone. This requirement for visuals also
+necessitates \emph{human-in-the-loop} analysis.
 
 
 
@@ -88,10 +90,10 @@ foregone. This requirement for visuals also necessitates
 with the same summary statistics, yet visual peculiarity.}\label{fig:matejka17fig}
 \end{figure}
 
-It's clear that data-space need to be visualized, but this becomes
+It's clear that data-space needs to be visualized, but this becomes
 complex as data dimensionality increases. Embedding (or projecting)
 \(p-\)dimensional data on to a lower, \(d\)-dimensional subspace is a
-common dimension reduction (DR) approach to visualize multivariate data
+common dimension reduction approach to visualize multivariate data
 spaces. Traditionally single static projection is used to summarize a
 space, which necessarily shows a subset of the variation of the data.
 \textcite{asimov_grand_1985} suggested the use of viewing projections
@@ -103,23 +105,39 @@ user-controlled steering (UCS) offers the finest control for navigating
 local structure and is particularly useful in exploration after an
 interesting feature has been identified.
 
-With the exception of \textcite{nelson_xgobi_1998}, tours have been
-exclusively been viewed in \(d={1, 2, p}\), while use visualization
-studies virtual reality (VR) have shown more accurate and better
-perception in immersive environments. The addition of a 3rd dimension
-would suggest for better perception of \(d=2\) embeddings and allow for
-novel dynamic projections in a 3D space as well.
+Tours are often viewed on traditional 2D monitors while the geom select
+dictates the dimensionality of graphic, \(d=\{1, 2, p\}\). The exception
+of \textcite{nelson_xgobi_1998}, where tours were viewed in 3D
+headtracked VR, of \(d=2\) projects. Recent headset hardware has made VR
+affordable to a wide audience at ever increasing resolutions. The
+literature points to improved perception in 3D VR as compared with
+traditional 2D monitors. Bringing dynamic projections and UCS into VR
+should improve perception of \(d=2\) embeddings, allow for more
+accuracte, intuitive, perception of 3D surfaces, and enable dynamic
+projections \(d=3\) spaces.
 
 \section{Problem statements}\label{problem-statements}
 
-Human-in-the-loop data visualization is key to to successful EDA. This
-work identifies several challenges presented given the current
-literature:
+Human-in-the-loop data visualization is key to to successful exploratory
+data analysis. This work identifies several challenges presented given
+the current literature:
 
-P 1. Static linear projections contain only a subset of the variation
-held within the data P 2. Static non-linear projections P 3. Dynamic
-linear projections have been viewed on 2D display devices P 4. Data
-visualization has been slow to adopt VR and use of immersive spaces
+\textbf{Problem statements:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Static linear projections contain only a subset of the variation held
+  within the data
+\item
+  Static non-linear projections
+\item
+  Dynamic linear projections have been viewed on 2D display devices
+\item
+  Data visualization has been slow to adopt VR and use of immersive
+  spaces
+\end{enumerate}
 
 \section{Research objectives}\label{research-objectives}
 
@@ -131,31 +149,57 @@ assessing current techniques, in new environments, for new data
 challenges, is an important endeavor. The primary goal of this PhD
 research can then be summarized as:
 
-RO 1. ** How can UCS be implemented in 1- and 2D projections? **
-(Completed work, chapter \ref{ch:completed_work}) User-controlled
-steering of dynamic projections allows for the user to select which and
-how a specific variable should be rotated. This is completed work
-following the research of \textcite{cook_manual_1997}. I have
-implemented UCS in 1- and 2D and built an extensible platform for
-projection into \(d>2\) spaces. RO 2. ** Does 2D UCS provide benefits
-over alternatives? ** (Future work, chapter \ref{ch:future_work})
-\emph{Case study} comparing dynamic, UCS projections with commonly used
-static alternatives. RO 3. ** How can UCS be extended to 3D? ** (Future
-work, chapter \ref{ch:future_work}) This \emph{experimental design} will
-be novel work in extending dynamic projections, including UCS, to 3D.
-The work done in RO 1 will be used in conjunction with
-\textcite{cordeil_immersive_2019} to form an UI compatible across
-display devices. RO 4. ** Does UCS in 3D displays provide perception
-benefits over 2D displays? ** (Future work, chapter
-\ref{ch:future_work}) \emph{Empirical study} exploring the efficacy of
-bringing UCS into 3D as compared across various display devices.
+\textbf{Research objectives (RO):}
 
-\section{Contributions to knowledge}\label{contributions-to-knowledge}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{How can UCS be implemented in 1- and 2D projections?}
+  (Completed work, chapter \ref{ch:completed_work}) User-controlled
+  steering of dynamic projections allows for the user to select which
+  and how a specific variable should be rotated. This is completed work
+  following the research of \textcite{cook_manual_1997}. I have
+  implemented UCS in 1- and 2D and built an extensible platform for
+  projection into \(d>2\) spaces.
+\item
+  \textbf{Does 2D UCS provide benefits over alternatives?} (Future work,
+  chapter \ref{ch:future_work}) \emph{Case study} comparing dynamic, UCS
+  projections with commonly used static alternatives.
+\item
+  \textbf{How can UCS be extended to 3D?} (Future work, chapter
+  \ref{ch:future_work}) This \emph{experimental design} will be novel
+  work in extending dynamic projections, including UCS, to 3D. The work
+  done in RO 1 will be used in conjunction with
+  \textcite{cordeil_immersive_2019} to form an UI compatible across
+  display devices.
+\item
+  \textbf{Does UCS in 3D displays provide perception benefits over 2D
+  displays?} (Future work, chapter \ref{ch:future_work}) \emph{Empirical
+  study} exploring the efficacy of bringing UCS into 3D as compared
+  across various display devices.
+\end{enumerate}
 
-C 1. Application of UCS in 2D C 2. Quantify the benefits of dynamic
-linear projections over alternatives C 3. Bring UCS into 3D immersive
-display C 4. Quantify the benefits of UCS across display devices and
-dimensionality
+\section{Methodology}\label{methodology}
+
+mixed design empirical study, empirical,
+
+\section{Contributions}\label{contributions}
+
+\textbf{Contribution:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Application of UCS in 2D
+\item
+  Quantify the benefits of dynamic linear projections over alternatives
+\item
+  Bring UCS into 3D immersive display
+\item
+  Quantify the benefits of UCS across display devices and dimensionality
+\end{enumerate}
 
 \chapter{Literature review}\label{ch:lit_review}
 
@@ -164,11 +208,11 @@ dimensionality
 
 \subsection{Overview}\label{overview}
 
-Exploratory data analysis (EDA) is a critical preliminary task at the
-root of any analysis. Understanding the distribution and summaries are
-at the heart of choosing and validating the assumptions of any
-methodology. However, there are risks associated with only looking at
-summary statistics alone. \textcite{anscombe_graphs_1973} and
+Exploratory data analysis is a critical preliminary task at the root of
+any analysis. Understanding the distribution and summaries are at the
+heart of choosing and validating the assumptions of any methodology.
+However, there are risks associated with only looking at summary
+statistics alone. \textcite{anscombe_graphs_1973} and
 \textcite{matejka_same_2017} both point out the dangers of doing so,
 namely missing glaring patterns and peculiarity that can be held within
 data even when summary statistics are the same. It's clear that visual
@@ -221,42 +265,10 @@ changing gives a more robust understanding than looking at any one still
 frame. More complex structures generally require more time to comprehend
 the nature of the geometry. These features hold true in touring as well.
 
-\subsection{Terminology and notation}\label{sec:terminology_tours}
-
-Terminology varies across articles. In my work, I use the following:
-
-\begin{itemize}
-\tightlist
-\item
-  \(n\), number of observations in the data.
-\item
-  \(p\), number of numeric variables, the dimensionality of data space.
-\item
-  \(d\), dimensionality of projection space.
-\item
-  \(\textbf{X}_{[n,~p]}\), a data matrix in variable-space,
-  \(\textbf{X} \in \mathbb{R}^{p}\). Typically centered, scaled, and
-  optionally sphered.
-\item
-  \(\textbf{B}_{[p,~d]}\), orthonormal basis set (\(d\) linear
-  combinations of \(p\) variables, each at a right angle, to the others,
-  with a norm of 1), defining the axes directions for the projection
-  from \(p-\) to \(d-\)space.
-\item
-  \(\textbf{Y}_{[n,~d]}\), projected data matrix in projection-space,
-  \(\textbf{Y} \in \mathbb{R}^{d}\).
-\item
-  For projections down to 1- and 2D, it is common to display each
-  variables contribution and direction on its own axis (1D) or relative
-  to a unit circle (2D), this is referred to as basis axes or sometimes
-  the reference frame.
-\item
-  Geometric objects are referred to in generalized dimensions; the use
-  of plane is not necessarily a 2D surface, but a hyper-plane in the
-  arbitrary dimensions of the projection space.
-\end{itemize}
-
 \subsection{Example illustrations}\label{example-illustrations}
+
+A list of touring notation is given in the glossary section
+\ref{sec:tour_notation}
 
 This sections a toy data set of 74 observations of flea beetles across 6
 numeric variables corresponding to physical measurements,
@@ -349,8 +361,7 @@ The extent to which will be expounded on in the following sections.
 
 A fundamental aspect of touring is the path of rotation. Of which there
 are four primary distinctions \autocite{buja_computational_2005}: random
-choice, data driven, precomputed choice, data driven, and manual
-control.
+choice, data driven, precomputed choice, and manual control.
 
 \begin{itemize}
 \tightlist
@@ -483,14 +494,14 @@ invariance} and \emph{speed}.
 dimensionality}\label{geometric-display-by-dimensionality}
 
 Up to this point this document has discussed 2D scatterplots, which
-offer the first and a simple case for viewing lower-dimensional
-embeddings of \(p\)-space. However, other geometrics (or geoms) offer
-perfectly valid projections as well.
+offer a logical display for viewing embeddings of high-dimensional point
+clouds. However, other geometrics offer perfectly valid projections as
+well.
 
 \begin{itemize}
 \tightlist
 \item
-  1D geoms
+  1D geometrics (geoms)
 
   \begin{itemize}
   \tightlist
@@ -605,84 +616,20 @@ including:
   an internal operating system.
 \end{itemize}
 
-\subsection{Going further}\label{going-further}
+\subsection{Research gaps}\label{research-gaps}
 
 Most previous implementation of dynamic projections are failing to
 compile. I have extended the graphic options for touring dynamic
 projections and reimplemented UCS on a compatible platform for more
 sustainable support (RO \#1). A comparative study outlining the benefits
 of UCS vs alternatives is also absent from the literature (RO \#2).
-\textcite{nelson_xgobi_1998} views \(d=2\) projections in head tracked
-3D comparing them to 2D counterparts but didn't implement \(d=3\)
-dynamic projections, facet of RO \#3 \& 4.
 
 \section{Multivariate data visualization in 3D}\label{sec:3d}
 
 As this research pertains to numeric multivariate data, a wider overview
 of 3D data visualization is discussed in chapter 2 of
-\textcite{marriott_immersive_2018}.
-
-\subsection{Terminology}\label{sec:3d-terminology}
-
-\begin{itemize}
-\tightlist
-\item
-  2D - representation of data in 2 dimensions, without use of depth
-  perception cues and minimal aesthetic mapping (such as color, size,
-  and height) to data points.
-\item
-  2.5D - Following the definition given in
-  \textcite{ware_designing_2000}: visualizations that are essentially 2D
-  but select depth cues are used to provide some suggestion of 3D.
-  However, the term 2.5D is commonly used for several meanings \emph{due
-  to the ambiguous use of 2.5D, this document errs on the side stating
-  3D with descriptions of depth cues used}.
-\item
-  3D - visualizations of 3 dimensions with a liberal use of depth cues
-  unless otherwise qualified.
-\item
-  Depth perception cues - an indication that indicates depth to an
-  observer, including:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    linear perspective - the property of parallel lines converging on a
-    vanishing point.
-  \item
-    aerial perspective - objects that are far away have lower contrast
-    and color saturation due to light scattering in the atmosphere.
-  \item
-    occulation (or interposition) - where closer objects partially block
-    the view of further objects.
-  \item
-    motion perspective/parallax - closer objects, move across the field
-    of view faster than further objects.
-  \item
-    accommodation - the change of focal length due to change in the
-    shape of the eye. Effective for distances of less than 2 meters.
-  \item
-    binocular stereopsis/disparity - the use of 2 images of slightly
-    varied angles from the horizontal distance of the eyes. The
-    disparity for distant objects is small, but it is significant for
-    nearby objects.
-  \item
-    binocular convergence - The ocular-motor cue due to stereopsis
-    focusing on the same objects. Convergence is effective for distances
-    up to 10 meters.
-  \end{itemize}
-\item
-  Virtual reality (VR) - computer generated display of virtual spaces in
-  place of physical vision.
-\item
-  Augmented reality (AR) - computer generated display of information
-  overlaid on a physical space.
-\item
-  Mixed reality (MR) - any degree of virtual or augmented reality.
-\item
-  Scatterplot matrices (SPLOM) - matrix display of pair-wise 2D
-  scatterplots with 1D density on the diagonal.
-\end{itemize}
+\textcite{marriott_immersive_2018}. Terminology for 3D visuals is in the
+glossary section \textbackslash{}ref\{sec:3d-terminology).
 
 \subsection{A rocky start}\label{a-rocky-start}
 
@@ -893,7 +840,7 @@ easier to find information.
 capture.}\label{fig:wagner18fig}
 \end{figure}
 
-\subsection{Going further}\label{going-further-1}
+\subsection{Research gaps}\label{research-gaps-1}
 
 When comparing between 3D and 2D orthogonal views studies in general
 show that perception accuracy is better in 3D, though manipulation speed
@@ -910,7 +857,15 @@ better and more easily accessible than ever. It's time to view dynamic
 3D projections with immersive spaces and quantify the benefits (RO \#3
 \& 4).
 
+\textcite{nelson_xgobi_1998} views \(d=2\) projections in head tracked
+3D comparing them to 2D counterparts but didn't implement \(d=3\)
+dynamic projections, facet of RO \#3 \& 4.
+
 \chapter{Completed work}\label{ch:completed_work}
+
+Implementing UCS in low dimensions is preliminary to the extention of
+the UCS into 3D space. This contribution (C \#1) forms the foundation
+for the future work of RO \#3 \& 4.
 
 \section{RO \#1) How can UCS be implemented in 1- and 2D
 projections?}\label{ro-1-how-can-ucs-be-implemented-in-1--and-2d-projections}
@@ -956,10 +911,9 @@ These steps are described in more detail below.
 
 \subsection{Notation}\label{notation}
 
-Following the terms and notations already discussed in section
-\ref{sec:terminology_tours}. Start with multivariate data in an
-\(n \times p\) numeric matrix, and an orthonormal \(d\)-dimensional
-basis set is describing the projection from \(p-\) to \(d-\)space.
+Start with multivariate data in an \(n \times p\) numeric matrix, and an
+orthonormal \(d\)-dimensional basis set is describing the projection
+from \(p-\) to \(d-\)space.
 
 \begin{align*}
   \textbf{X}_{[n,~p]} ~=
@@ -983,7 +937,8 @@ basis set is describing the projection from \(p-\) to \(d-\)space.
 
 The algorithm is primarily operating on the projection basis and
 utilizes the data only when making a display for computational
-efficiency.
+efficiency. A broader list of touring notation is given in
+\ref{sec:tour_notation}.
 
 \subsection{Toy data set}\label{toy-data-set}
 
@@ -1298,23 +1253,24 @@ display as compared with 3D.
 
 The results of \textcite{wagner_filho_immersive_2018},
 \textcite{nelson_xgobi_1998} and, \textcite{arms_benefits_1999} cast
-positive light on 3D and immerse spaces improving perception of project
-high dim data. After implementing touring and UCS in 3D spaces (RO \#3),
-I plan to explore the efficacy of doing so with the following empirical
-study: comparison of 3D touring across display dimension in 4 instances:
-standard 2D monitor, stereoscopic 3D monitor (on a zSpace 200), and
-head-mounted VR goggle (HTC VIVE), and immersion in a CAVE environment.
-Implementation in the game engine Unity will allow for a standardized
-user interface. Tasks of structure perception will be conducted across 2
-data sets of high energy physics data already in publication
-\autocites{wang_visualizing_2018}{cook_dynamical_2018} and discussed in
-appendix \ref{ch:spinifex_paper}. Task order will be randomly assigned
-to minimize learning bias. Participants will perform all tasks on each
-display devices, for each of the data sets. Time, and accuracy will be
-tracked, and participants will be asked to fill out a small survey with
-demographic data and subjective experience on a 5-point Likert scale.
-The design space of this study includes display type, task type, survey
-questions, familiarity with 3D, familiarity with linear projections.
+positive light on 3D spaces improving the perception of embeddings of
+high-dimensional data. After implementing touring and UCS in 3D spaces
+(RO \#3), I plan to explore the efficacy of doing so with the following
+empirical study: comparison of 3D touring across display dimension in 4
+instances: standard 2D monitor, stereoscopic 3D monitor (on a zSpace
+200), and head-mounted VR goggle (HTC VIVE), and immersion in a CAVE
+environment. Implementation in the game engine Unity will allow for a
+standardized user interface. Tasks of structure perception will be
+conducted across 2 data sets of high energy physics data already in
+publication \autocites{wang_visualizing_2018}{cook_dynamical_2018} and
+discussed in appendix \ref{ch:spinifex_paper}. Task order will be
+randomly assigned to minimize learning bias. Participants will perform
+all tasks on each display devices, for each of the data sets. Time, and
+accuracy will be tracked, and participants will be asked to fill out a
+small survey with demographic data and subjective experience on a
+5-point Likert scale. The design space of this study includes display
+type, task type, survey questions, familiarity with 3D, familiarity with
+linear projections.
 
 \chapter*{PhD schedule}\label{phd-schedule}
 \addcontentsline{toc}{chapter}{PhD schedule}
@@ -1379,6 +1335,105 @@ examples inline. The source files can be found at:
 \href{https://github.com/nspyrison/Confirmation}{github.com/nspyrison/confirmation/}.
 
 \appendix
+
+\chapter{Glossary}\label{ch:glossary}
+
+\section{Tour notation}\label{sec:tour_notation}
+
+Terminology varies across articles. In my work, I use the following:
+
+\begin{itemize}
+\tightlist
+\item
+  \(n\), number of observations in the data.
+\item
+  \(p\), number of numeric variables, the dimensionality of data space.
+\item
+  \(d\), dimensionality of projection space.
+\item
+  \(\textbf{X}_{[n,~p]}\), a data matrix in variable-space,
+  \(\textbf{X} \in \mathbb{R}^{p}\). Typically centered, scaled, and
+  optionally sphered.
+\item
+  \(\textbf{B}_{[p,~d]}\), orthonormal basis set (\(d\) linear
+  combinations of \(p\) variables, each at a right angle, to the others,
+  with a norm of 1), defining the axes directions for the projection
+  from \(p-\) to \(d-\)space.
+\item
+  \(\textbf{Y}_{[n,~d]}\), projected data matrix in projection-space,
+  \(\textbf{Y} \in \mathbb{R}^{d}\).
+\item
+  For projections down to 1- and 2D, it is common to display each
+  variables contribution and direction on its own axis (1D) or relative
+  to a unit circle (2D), this is referred to as basis axes or sometimes
+  the reference frame.
+\item
+  Geometric objects are referred to in generalized dimensions; the use
+  of plane is not necessarily a 2D surface, but a hyper-plane in the
+  arbitrary dimensions of the projection space.
+\end{itemize}
+
+\section{Data visualization terminology}\label{sec:3d-terminology}
+
+\begin{itemize}
+\tightlist
+\item
+  2D - representation of data in 2 dimensions, without use of depth
+  perception cues and minimal aesthetic mapping (such as color, size,
+  and height) to data points.
+\item
+  2.5D - Following the definition given in
+  \textcite{ware_designing_2000}: visualizations that are essentially 2D
+  but select depth cues are used to provide some suggestion of 3D.
+  However, the term 2.5D is commonly used for several meanings \emph{due
+  to the ambiguous use of 2.5D, this document errs on the side stating
+  3D with descriptions of depth cues used}.
+\item
+  3D - visualizations of 3 dimensions with a liberal use of depth cues
+  unless otherwise qualified.
+\item
+  Depth perception cues - an indication that indicates depth to an
+  observer, including:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    linear perspective - the property of parallel lines converging on a
+    vanishing point.
+  \item
+    aerial perspective - objects that are far away have lower contrast
+    and color saturation due to light scattering in the atmosphere.
+  \item
+    occulation (or interposition) - where closer objects partially block
+    the view of further objects.
+  \item
+    motion perspective/parallax - closer objects, move across the field
+    of view faster than further objects.
+  \item
+    accommodation - the change of focal length due to change in the
+    shape of the eye. Effective for distances of less than 2 meters.
+  \item
+    binocular stereopsis/disparity - the use of 2 images of slightly
+    varied angles from the horizontal distance of the eyes. The
+    disparity for distant objects is small, but it is significant for
+    nearby objects.
+  \item
+    binocular convergence - The ocular-motor cue due to stereopsis
+    focusing on the same objects. Convergence is effective for distances
+    up to 10 meters.
+  \end{itemize}
+\item
+  Virtual reality (VR) - computer generated display of virtual spaces in
+  place of physical vision.
+\item
+  Augmented reality (AR) - computer generated display of information
+  overlaid on a physical space.
+\item
+  Mixed reality (MR) - any degree of virtual or augmented reality.
+\item
+  Scatterplot matrices (SPLOM) - matrix display of pair-wise 2D
+  scatterplots with 1D density on the diagonal.
+\end{itemize}
 
 \chapter{Using animation to explore sensitivity of structure in a
 low-dimensional projection of high-dimensional data with user controlled

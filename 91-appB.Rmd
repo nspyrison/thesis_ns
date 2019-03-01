@@ -2,14 +2,8 @@
 knit: "bookdown::render_book"
 ---
 
-\appendix
 
-<!-- --- -->
-<!-- chapter: 3 -->
-<!-- knit: "bookdown::render_book" -->
-<!-- --- -->
-
-```{r setup_03, include=FALSE}
+```{r setup_03_paper, include=FALSE}
 knitr::opts_chunk$set(
   fig.align = "center",
   echo = TRUE, 
