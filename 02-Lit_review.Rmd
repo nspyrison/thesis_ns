@@ -92,19 +92,15 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 }
 ```
 
-<!-- Imagine you are writing for your fellow PhD students. Topics that are well-known to them do not have to be included here. But things that they may not know about should be included. -->
-
-<!-- Resist the temptation to discuss everything you've read in the last few years. And you are not writing a textbook either. This chapter is meant to provide the background necessary to understand the material in subsequent chapters. Stick to that. -->
-
-<!-- You will need to organize the literature review around themes, and within each theme provide a story explaining the development of ideas to date. In each theme, you should get to the point where your ideas will fit in. But leave your ideas to later chapters. This way it is clear what has been done beforehand, and what new contributions you are making to the research field. -->
 
 
-<!-- TODO: move this to tours lit rev. -->
-<!-- This thesis focuses on tour methods for visualizing high-dimensional data. Tours are a family of algorithms for generating paths on the space of low-dimensional ($d=1, 2, 3, ..., p$) projections of high-dimensional ($p$) space. The resulting projection of the data (or model) is displayed using low-dimensional techniques such as histograms, dot plots, scatterplots, or parallel coordinate plots, and the path generates a movie or animation to shows many low-dimensional projections. The method can be applied with other techniques such as machine learning techniques like discriminant analysis, neural networks, support vector machines, to open the black box, and complements dimension reduction techniques like principal component analysis (PCA), multidimensional scaling (MDS) on nonlinear embeddings (e.g. tSNE).  -->
 
 # Literature review {#ch:lit_review}
 
-## Dynamic projections of multivariate data (tours) {#sec:tour}
+In the section below we discuss the acedemic research in two primary areas: that of dynamic linear projection (collectively known as tours) followed by multivariate data visualisation in stereoscopic 3D.
+
+
+## Dynamic linear projections of multivariate data (tours) {#sec:tour}
 
 
 ### Overview
@@ -155,12 +151,7 @@ view_basis(f_bas, labels = colnames(f_dat)) +
 ```{r flea-basis}
 rownames(f_bas) <- colnames(f_dat)
 colnames(f_bas) <- c("x", "y")
-
-#kable(f_bas) #%>% kable_styling(latex_options = "striped")
 ```
-
-<!-- Removed cause analysis -->
-<!-- In this projection you can see that the variables `aede1` and `tars2` are on the direction that is mostly orthogonal to the other variables, but explain in the clustering offset of the purple points, whereas the other variables explain the distinction between the green and orange groups.  -->
 
 Tours view many such frames in sequence, by identifying some target frames and then interpolating between them as shown schematically in figure \@ref(fig:buja05fig), captured from figure 1 of @buja_computational_2005. For illustration figure \@ref(fig:flea-static) lays out frames of a tour,
 A html version of a user-controlled steering can be found at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/.
@@ -291,7 +282,7 @@ Tours have not yet been widely adopted, this is likely due in part, to the fact 
 
 ### Research gaps
 
-Most previous implementation of dynamic projections are failing to compile. I have extended the graphic options for touring dynamic projections and reimplemented UCS on a compatible platform for more sustainable support (RO #1). A comparative study outlining the benefits of UCS vs alternatives is also absent from the literature (RO #2). 
+Currently there is no compiling software that offers UCS (RO #1) I have extended the graphic options for touring dynamic projections and reimplemented UCS on a compatible platform for more sustainable support (RO #1). A comparative study outlining the benefits of UCS vs alternatives is also absent from the literature (RO #2). 
 
 
 ## Multivariate data visualization in 3D {#sec:3d}
@@ -320,7 +311,7 @@ As this research pertains to numeric multivariate data, a wider overview of 3D d
 
 ### A rocky start
 
-Scientific visualization has readily adopted mixed realities as a large amount of the science exist in 3 spatial dimensions, lending itself well to virtual immersion [@marriott_immersive_2018]. Data visualization, on the other hand, has been slow to utilize graphics above 2.5D, (and haptic interaction) primarily due to the mixed results of over-hyped of 3D visuals from the 1980's and 90's [@munzner_visualization_2014]. However, since then there have been several promising studies suggesting that it's time for data visualization to revisit and adopt 3D visuals for specific combinations of visuals and depth cues.
+Scientific visualization has readily adopted mixed realities as a large amount of the science exist in 3 spatial dimensions, lending itself well to virtual immersion [@marriott_immersive_2018]. Data visualization, on the other hand, has been slow to utilize graphics above 2.5D, (and haptic interaction) primarily due to the mixed results of over-hyped of 3D visuals from the 1980's and 90's [@munzner_visualization_2014]. However, since then there have been several promising studies suggesting that it is time for data visualization to revisit and adopt 3D visuals for specific combinations of visuals and depth cues.
 
 
 ### 3D rotated projections vs 3 2D orthogonal projections 

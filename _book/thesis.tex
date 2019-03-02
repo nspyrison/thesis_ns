@@ -65,17 +65,18 @@ reality, and explore the efficacy of doing so.
 intuition}\label{exploratory-data-analysis-and-visual-intuition}
 
 The term exploratory data analysis was coined in
-\textcite{tukey_exploratory_1977}. It's a broad term used for the phase
-of exploring, understanding the structure of the data and validating
-assumptions made by prospective methodology. Data is everywhere and
-understanding the shape and distribution of the data is an early and
-fundamental task. Visualization is crucial to a clear understanding of
-the data. Things can go awry when data is summarized via numeric
-statistics alone \autocites{anscombe_graphs_1973}{matejka_same_2017}. In
-these studies, bivariate data have the same summary statistics, while
-showing obvious red flags that could go completely unheeded if
-preliminary graphing is foregone. This requirement for visuals also
-necessitates \emph{human-in-the-loop} analysis.
+\textcite{tukey_exploratory_1977}. Tukey purposfully leaves the term to
+broadly encompass the phase of exploring, understanding the structure of
+the data and validating assumptions made by prospective methodology.
+Data is everywhere and understanding the shape and distribution of the
+data is an early and fundamental task. Visualization is crucial to a
+clear understanding of the data. Things can go awry when data is
+summarized via numeric statistics alone
+\autocites{anscombe_graphs_1973}{matejka_same_2017}. In these studies,
+bivariate data have the same summary statistics, while showing obvious
+red flags that could go completely unheeded if preliminary graphing is
+foregone. This requirement for visuals also necessitates
+\emph{human-in-the-loop} analysis.
 
 
 
@@ -90,8 +91,8 @@ necessitates \emph{human-in-the-loop} analysis.
 with the same summary statistics, yet visual peculiarity.}\label{fig:matejka17fig}
 \end{figure}
 
-It's clear that data-space needs to be visualized, but this becomes
-complex as data dimensionality increases. Embedding (or projecting)
+It is clear that data-space visualization is needed, but becomes complex
+as data dimensionality increases. Embedding (or projecting)
 \(p-\)dimensional data on to a lower, \(d\)-dimensional subspace is a
 common dimension reduction approach to visualize multivariate data
 spaces. Traditionally single static projection is used to summarize a
@@ -105,39 +106,17 @@ user-controlled steering (UCS) offers the finest control for navigating
 local structure and is particularly useful in exploration after an
 interesting feature has been identified.
 
-Tours are often viewed on traditional 2D monitors while the geom select
-dictates the dimensionality of graphic, \(d=\{1, 2, p\}\). The exception
-of \textcite{nelson_xgobi_1998}, where tours were viewed in 3D
-headtracked VR, of \(d=2\) projects. Recent headset hardware has made VR
-affordable to a wide audience at ever increasing resolutions. The
-literature points to improved perception in 3D VR as compared with
-traditional 2D monitors. Bringing dynamic projections and UCS into VR
-should improve perception of \(d=2\) embeddings, allow for more
-accuracte, intuitive, perception of 3D surfaces, and enable dynamic
-projections \(d=3\) spaces.
-
-\section{Problem statements}\label{problem-statements}
-
-Human-in-the-loop data visualization is key to to successful exploratory
-data analysis. This work identifies several challenges presented given
-the current literature:
-
-\textbf{Problem statements:}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Static linear projections contain only a subset of the variation held
-  within the data
-\item
-  Static non-linear projections
-\item
-  Dynamic linear projections have been viewed on 2D display devices
-\item
-  Data visualization has been slow to adopt VR and use of immersive
-  spaces
-\end{enumerate}
+Recent headset hardware has made VR more affordable, available to a wide
+audience, at ever increasing resolutions of display. The literature
+points to improved perception when viewing multivariate data in 3D VR as
+compared with traditional 2D monitors. Yet tours are often viewed on
+traditional 2D monitors while the selected geometric display dictates
+the dimensionality of graphic, \(d=\{1, 2, p\}\). With the exception
+\textcite{nelson_xgobi_1998}, where \(d=2\) tours were viewed in 3D
+headtracked VR. Bringing dynamic projections and UCS into VR should
+improve perception of \(d=2\) embeddings, allow for more accuracte and
+intuitive perception of 3D surfaces, and enable dynamic projections
+\(d=3\) spaces.
 
 \section{Research objectives}\label{research-objectives}
 
@@ -156,54 +135,73 @@ research can then be summarized as:
 \tightlist
 \item
   \textbf{How can UCS be implemented in 1- and 2D projections?}
-  (Completed work, chapter \ref{ch:completed_work}) User-controlled
-  steering of dynamic projections allows for the user to select which
-  and how a specific variable should be rotated. This is completed work
-  following the research of \textcite{cook_manual_1997}. I have
-  implemented UCS in 1- and 2D and built an extensible platform for
-  projection into \(d>2\) spaces.
+  (Completed work, chapter \ref{ch:completed_work}.) Following the
+  theory laid out in \textcite{cook_manual_1997} this work enables
+  manual tours for fine control in exploring the local area of
+  interesting features. Previous implementations are no longer
+  compiling. 
 \item
   \textbf{Does 2D UCS provide benefits over alternatives?} (Future work,
-  chapter \ref{ch:future_work}) \emph{Case study} comparing dynamic, UCS
-  projections with commonly used static alternatives.
+  chapter \ref{ch:future_work}.) This objective compares the
+  effectiveness of dynamic linear projection and UCS against commonly
+  used alternatives of static linear and static non-linear projections. 
 \item
   \textbf{How can UCS be extended to 3D?} (Future work, chapter
-  \ref{ch:future_work}) This \emph{experimental design} will be novel
-  work in extending dynamic projections, including UCS, to 3D. The work
-  done in RO 1 will be used in conjunction with
-  \textcite{cordeil_immersive_2019} to form an UI compatible across
-  display devices.
+  \ref{ch:future_work}.) Bringing dynamic projections into 3D not only
+  allows for more accurate and precise interpretation of \(d=2\)
+  projections, but also for the projection of \(d=3\) scatterplots and
+  surfaces. 
 \item
   \textbf{Does UCS in 3D displays provide perception benefits over 2D
-  displays?} (Future work, chapter \ref{ch:future_work}) \emph{Empirical
-  study} exploring the efficacy of bringing UCS into 3D as compared
-  across various display devices.
+  displays?} (Future work, chapter \ref{ch:future_work}.) This objective
+  tests the efficacy of dynamic projections as compared across various
+  display devices. 
 \end{enumerate}
 
 \section{Methodology}\label{methodology}
 
-mixed design empirical study, empirical,
+This current and future work is done with reproduction priciples in
+mind, where data, analysis, and code is stored in the same directory in
+order to make the work as transparent and reproducible as possible.
+Directories are hosted publically on GitHub. Reproduction of this report
+is discussed in section \ref{sec:source}.
 
-\section{Contributions}\label{contributions}
 
-\textbf{Contribution:}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Application of UCS in 2D
-\item
-  Quantify the benefits of dynamic linear projections over alternatives
-\item
-  Bring UCS into 3D immersive display
-\item
-  Quantify the benefits of UCS across display devices and dimensionality
-\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.99in]{./figures/data_analysis_workflow} 
+
+}
+
+\caption{Data analysis workflow. This research
+aids visualisation in exploratory data analysis and in the workflow.}\label{fig:dataanalysisworkflow}
+\end{figure}
+
+RO \#1 is completed \textbf{applied research} following work lied
+\autocite{cook_manual_1997} to allow for UCS. This forms the foundation
+for future work in the remaining objectives. The second objective is a
+\textbf{case study} comparison between dynamic linear projections and
+alternatives (static linear and static non-linear projections) will be
+applied to answer RO \#2. RO \#3 involves \textbf{experimental design}
+applying contribution from RO \#1 with the work done in
+\textcite{cordeil_immersive_2019}, an extensible toolkit for visualizing
+data in VR. An \textbf{empirical study} is used to explore the efficacy
+of bringing UCS into 3D as compared across various display devices in RO
+\#4. This will be done by measuring participant speed and accuracy of
+tasks wihtin the different modalities, comparing biometric readings, and
+subjective likert survey of paricipents. A lineup-type model as outlined
+in \textcite{hofmann_graphical_2012} may also be employed for assessing
+quality of display types.
 
 \chapter{Literature review}\label{ch:lit_review}
 
-\section{Dynamic projections of multivariate data
+In the section below we discuss the acedemic research in two primary
+areas: that of dynamic linear projection (collectively known as tours)
+followed by multivariate data visualisation in stereoscopic 3D.
+
+\section{Dynamic linear projections of multivariate data
 (tours)}\label{sec:tour}
 
 \subsection{Overview}\label{overview}
@@ -618,11 +616,11 @@ including:
 
 \subsection{Research gaps}\label{research-gaps}
 
-Most previous implementation of dynamic projections are failing to
-compile. I have extended the graphic options for touring dynamic
-projections and reimplemented UCS on a compatible platform for more
-sustainable support (RO \#1). A comparative study outlining the benefits
-of UCS vs alternatives is also absent from the literature (RO \#2).
+Currently there is no compiling software that offers UCS (RO \#1) I have
+extended the graphic options for touring dynamic projections and
+reimplemented UCS on a compatible platform for more sustainable support
+(RO \#1). A comparative study outlining the benefits of UCS vs
+alternatives is also absent from the literature (RO \#2).
 
 \section{Multivariate data visualization in 3D}\label{sec:3d}
 
@@ -640,7 +638,7 @@ visualization, on the other hand, has been slow to utilize graphics
 above 2.5D, (and haptic interaction) primarily due to the mixed results
 of over-hyped of 3D visuals from the 1980's and 90's
 \autocite{munzner_visualization_2014}. However, since then there have
-been several promising studies suggesting that it's time for data
+been several promising studies suggesting that it is time for data
 visualization to revisit and adopt 3D visuals for specific combinations
 of visuals and depth cues.
 
@@ -864,30 +862,31 @@ dynamic projections, facet of RO \#3 \& 4.
 \chapter{Completed work}\label{ch:completed_work}
 
 Implementing UCS in low dimensions is preliminary to the extention of
-the UCS into 3D space. This contribution (C \#1) forms the foundation
-for the future work of RO \#3 \& 4.
+the UCS into 3D space. This contribution (C \#1) answers the RO, and
+forms the foundation for future work adressed by RO \#3 \& 4.
 
 \section{RO \#1) How can UCS be implemented in 1- and 2D
 projections?}\label{ro-1-how-can-ucs-be-implemented-in-1--and-2d-projections}
 
-This section covers work done in the last year implementing USC via
-\emph{manual tours}. The manual tour was described in
-\textcite{cook_manual_1997} and allows a user to rotate a selected
-variable into and out of a 2D projection of high-dimensional space,
-offering user-controlled steering (UCS). The primary use is to determine
-the sensitivity of structure visible in a projection to the
-contributions of a variable. This is particularly powerful for exploring
-the local structure once a feature of interest has been identified by a
-guided tour \autocite{cook_grand_1995} for example. The algorithm for a
-manual tour allows rotations in horizontal, vertical, oblique, angular
-and radial directions. In the algorithm below focuses on radial
-rotation.
+This section covers the work done in the last year implementing USC via
+\emph{manual tours}. Following experimental design methodology this work
+implements the manual tour as described in \textcite{cook_manual_1997}
+and allows users to rotate a selected variable into and out of a 2D
+projection of high-dimensional space for user-controlled steering (UCS).
+The primary use is to determine the sensitivity of structure visible in
+a projection to the contributions of a variable. This is particularly
+powerful for exploring the local structure once a feature of interest
+has been identified by a guided tour \autocite{cook_grand_1995} for
+example. The algorithm for a manual tour allows rotations in horizontal,
+vertical, oblique, angular and radial directions. In the algorithm below
+focuses on radial rotation.
 
 Section \ref{sec:algorithm} explains the algorithm using a toy dataset.
 A wider discussion of implementation as an \emph{R} package and
-application to high energy physics data is attached in appendix
-\ref{ch:spinifex_paper} formatted as a paper that will be submitted to
-The R Journal.
+application to high energy physics data
+\autocites{wang_visualizing_2018}{cook_dynamical_2018} is attached in
+appendix \ref{ch:spinifex_paper} formatted as a paper that will be
+submitted to The R Journal.
 
 \section{Algorithm}\label{sec:algorithm}
 
@@ -903,8 +902,8 @@ Creating a manual tour animation requires these steps:
   Create a 3D manipulation space, where the manip variable has full
   contribution.
 \item
-  Generate a rotation sequence which zero's the norm of the coefficient
-  and increases it to 1.
+  Generate a rotation sequence which zeros coefficient and increases it
+  to 1 before returning to the inital position.
 \end{enumerate}
 
 These steps are described in more detail below.
@@ -1325,8 +1324,7 @@ end to give the other research objectives the priority.}
   \end{itemize}
 \end{itemize}
 
-\chapter*{Source code}\label{source-code}
-\addcontentsline{toc}{chapter}{Source code}
+\chapter{Source code}\label{sec:source}
 
 This article was created in \texttt{R} \autocite{r_core_team_r:_2018},
 using \texttt{bookdown} \autocite{xie_bookdown:_2016} and

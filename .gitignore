@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+zYalong_confirmation.pdf
 _bookdown_files/*
 thesis.aux
 thesis.bfc
@@ -9,3 +10,4 @@ thesis.blg
 thesis.out
 thesis.toc
 thesis.xdv
+
