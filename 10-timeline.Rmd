@@ -104,6 +104,6 @@ timeline
 <!-- Induction To be completed within 6 months of commencement -->
 
 
-# Source code {-} 
+# Source code {#sec:source} 
 
 This article was created in `R` [@r_core_team_r:_2018], using `bookdown` [@xie_bookdown:_2016] and `rmarkdown` [@xie_r_2018], with code generating the examples inline. The source files can be found at: [github.com/nspyrison/confirmation/](https://github.com/nspyrison/Confirmation).

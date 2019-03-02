@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 
 ## Exploratory data analysis and visual intuition
 
-The term exploratory data analysis was coined in @tukey_exploratory_1977. It's a broad term used for the phase of exploring, understanding the structure of the data and validating assumptions made by prospective methodology. Data is everywhere and understanding the shape and distribution of the data is an early and fundamental task. Visualization is crucial to a clear understanding of the data. Things can go awry when data is summarized via numeric statistics alone [@anscombe_graphs_1973; @matejka_same_2017]. In these studies, bivariate data have the same summary statistics, while showing obvious red flags that could go completely unheeded if preliminary graphing is foregone. This requirement for visuals also necessitates *human-in-the-loop* analysis.
+The term exploratory data analysis was coined in @tukey_exploratory_1977. Tukey purposfully leaves the term to broadly encompass the phase of exploring, understanding the structure of the data and validating assumptions made by prospective methodology. Data is everywhere and understanding the shape and distribution of the data is an early and fundamental task. Visualization is crucial to a clear understanding of the data. Things can go awry when data is summarized via numeric statistics alone [@anscombe_graphs_1973; @matejka_same_2017]. In these studies, bivariate data have the same summary statistics, while showing obvious red flags that could go completely unheeded if preliminary graphing is foregone. This requirement for visuals also necessitates *human-in-the-loop* analysis.
 
 
 (ref:matejka17fig-cap) 12 data sets created from the datasaurus, each with the same summary statistics, yet visual peculiarity.
@@ -21,20 +21,10 @@ The term exploratory data analysis was coined in @tukey_exploratory_1977. It's a
 knitr::include_graphics("./figures/matejka17fig.png")
 ```
 
-It's clear that data-space needs to be visualized, but this becomes complex as data dimensionality increases. Embedding (or projecting) $p-$dimensional data on to a lower, $d$-dimensional subspace is a common dimension reduction approach to visualize multivariate data spaces. Traditionally single static projection is used to summarize a space, which necessarily shows a subset of the variation of the data. @asimov_grand_1985 suggested the use of viewing projections dynamically across a changing projection basis allows for more variation to be contained and viewed temporally. This dynamic view of many changing projections is known as *tours*. While, there are different methods of generating tour paths, human-in-the-loop user-controlled steering (UCS) offers the finest control for navigating local structure and is particularly useful in exploration after an interesting feature has been identified.
+It is clear that data-space visualization is needed, but becomes complex as data dimensionality increases. Embedding (or projecting) $p-$dimensional data on to a lower, $d$-dimensional subspace is a common dimension reduction approach to visualize multivariate data spaces. Traditionally single static projection is used to summarize a space, which necessarily shows a subset of the variation of the data. @asimov_grand_1985 suggested the use of viewing projections dynamically across a changing projection basis allows for more variation to be contained and viewed temporally. This dynamic view of many changing projections is known as *tours*. While, there are different methods of generating tour paths, human-in-the-loop user-controlled steering (UCS) offers the finest control for navigating local structure and is particularly useful in exploration after an interesting feature has been identified.
 
-Tours are often viewed on traditional 2D monitors while the geom select dictates the dimensionality of graphic, $d=\{1, 2, p\}$. The exception of @nelson_xgobi_1998, where tours were viewed in 3D headtracked VR, of $d=2$ projects. Recent headset hardware has made VR affordable to a wide audience at ever increasing resolutions. The literature points to improved perception in 3D VR as compared with traditional 2D monitors. Bringing dynamic projections and UCS into VR should improve perception of $d=2$ embeddings, allow for more accuracte, intuitive, perception of 3D surfaces, and enable dynamic projections $d=3$ spaces.
+Recent headset hardware has made VR more affordable, available to a wide audience, at ever increasing resolutions of display. The literature points to improved perception  when viewing multivariate data in 3D VR as compared with traditional 2D monitors. Yet tours are often viewed on traditional 2D monitors while the selected geometric display dictates the dimensionality of graphic, $d=\{1, 2, p\}$. With the exception @nelson_xgobi_1998, where $d=2$ tours were viewed in 3D headtracked VR. Bringing dynamic projections and UCS into VR should improve perception of $d=2$ embeddings, allow for more accuracte and intuitive perception of 3D surfaces, and enable dynamic projections $d=3$ spaces.
 
-## Problem statements
-
-Human-in-the-loop data visualization is key to to successful exploratory data analysis. This work identifies several challenges presented given the current literature:
-
-**Problem statements:**
-
-1. Static linear projections contain only a subset of the variation held within the data
-2. Static non-linear projections 
-3. Dynamic linear projections have been viewed on 2D display devices
-4. Data visualization has been slow to adopt VR and use of immersive spaces
  
 ## Research objectives
 
@@ -42,21 +32,43 @@ Data and models are typically high-dimensional, with many variables or parameter
 
 **Research objectives (RO):**
 
-1. **How can UCS be implemented in 1- and 2D projections?** (Completed work, chapter \ref{ch:completed_work}) User-controlled steering of dynamic projections allows for the user to select which and how a specific variable should be rotated. This is completed work following the research of @cook_manual_1997. I have implemented UCS in 1- and 2D and built an extensible platform for projection into $d>2$ spaces.
-2. **Does 2D UCS provide benefits over alternatives?** (Future work, chapter \ref{ch:future_work}) *Case study* comparing dynamic, UCS projections with commonly used static alternatives.
-3. **How can UCS be extended to 3D?** (Future work, chapter \ref{ch:future_work}) This *experimental design* will be novel work in extending dynamic projections, including UCS, to 3D. The work done in RO 1 will be used in conjunction with @cordeil_immersive_2019 to form an UI compatible across display devices.
-4. **Does UCS in 3D displays provide perception benefits over 2D displays?** (Future work, chapter \ref{ch:future_work}) *Empirical study* exploring the efficacy of bringing UCS into 3D as compared across various display devices.
+1. **How can UCS be implemented in 1- and 2D projections?** (Completed work, chapter \ref{ch:completed_work}.) Following the theory laid out in @cook_manual_1997 this work enables manual tours for fine control in exploring the local area of interesting features. Previous implementations are no longer compiling.
+<!-- User-controlled steering of dynamic projections allows for the user to select which and how a specific variable should be rotated. This is completed work following the research of @cook_manual_1997. I have implemented UCS in 1- and 2D and built an extensible platform for projection into $d>2$ spaces. -->
+2. **Does 2D UCS provide benefits over alternatives?** (Future work, chapter \ref{ch:future_work}.) This objective compares the effectiveness of dynamic linear projection and UCS against commonly used alternatives of static linear and static non-linear projections.
+<!-- *Case study* comparing dynamic, UCS projections with commonly used static alternatives. -->
+3. **How can UCS be extended to 3D?** (Future work, chapter \ref{ch:future_work}.) 
+ Bringing dynamic projections into 3D not only allows for more accurate and precise interpretation of $d=2$ projections, but also for the projection of $d=3$ scatterplots and surfaces.
+<!-- This *experimental design* will be novel work in extending dynamic projections, including UCS, to 3D. The work done in RO 1 will be used in conjunction with @cordeil_immersive_2019 to form an UI compatible across display devices. -->
+4. **Does UCS in 3D displays provide perception benefits over 2D displays?** (Future work, chapter \ref{ch:future_work}.) This objective tests the efficacy of dynamic projections as compared across various display devices.
+<!-- *Empirical study* exploring the efficacy of bringing UCS into 3D as compared across various display devices. -->
 
 ## Methodology
 
-mixed design empirical study, empirical, 
+This current and future work is done with reproduction priciples in mind, where data, analysis, and code is stored in the same directory in order to make the work as transparent and reproducible as possible. Directories are hosted publically on GitHub. Reproduction of this report is discussed in section \ref{sec:source}.
 
-## Contributions
+(ref:dataanalysisworkflow-cap) Data analysis workflow. This research aids visualisation in exploratory data analysis and in the workflow.
 
-**Contribution:**
+```{r dataanalysisworkflow, echo=F, fig.cap = "(ref:dataanalysisworkflow-cap)"}
+knitr::include_graphics("./figures/data_analysis_workflow.png")
+```
 
-1. Application of UCS in 2D
-2. Quantify the benefits of dynamic linear projections over alternatives
-3. Bring UCS into 3D immersive display
-4. Quantify the benefits of UCS across display devices and dimensionality
+RO #1 is completed **applied research** following work lied [@cook_manual_1997] to allow for UCS. This forms the foundation for future work in the remaining objectives. The second objective is a **case study** comparison between dynamic linear projections and alternatives (static linear and static non-linear projections) will be applied to answer RO #2. RO #3 involves **experimental design** applying contribution from RO #1 with the work done in @cordeil_immersive_2019, an extensible toolkit for visualizing data in VR. An **empirical study** is used to explore the efficacy of bringing UCS into 3D as compared across various display devices in RO #4. This will be done by measuring participant speed and accuracy of tasks wihtin the different modalities, comparing biometric readings, and subjective likert survey of paricipents. A lineup-type model as outlined in @hofmann_graphical_2012 may also be employed for assessing quality of display types.
 
+
+
+
+<!-- ## Contributions -->
+
+<!-- Each of the previous RO line up with their corresponding contribution as outlined below -->
+
+<!-- **Contribution:** -->
+
+<!-- 1. Application of UCS in 2D -->
+<!-- 2. Quantify the benefits of dynamic linear projections over alternatives -->
+<!-- 3. Bring UCS into 3D immersive display -->
+<!-- 4. Quantify the benefits of UCS across display devices and dimensionality -->
+
+
+
+<!-- TODO: move this to tours lit rev. -->
+<!-- This thesis focuses on tour methods for visualizing high-dimensional data. Tours are a family of algorithms for generating paths on the space of low-dimensional ($d=1, 2, 3, ..., p$) projections of high-dimensional ($p$) space. The resulting projection of the data (or model) is displayed using low-dimensional techniques such as histograms, dot plots, scatterplots, or parallel coordinate plots, and the path generates a movie or animation to shows many low-dimensional projections. The method can be applied with other techniques such as machine learning techniques like discriminant analysis, neural networks, support vector machines, to open the black box, and complements dimension reduction techniques like principal component analysis (PCA), multidimensional scaling (MDS) on nonlinear embeddings (e.g. tSNE).  -->

@@ -99,13 +99,13 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 
 # Completed work {#ch:completed_work}
 
-Implementing UCS in low dimensions is preliminary to the extention of the UCS into 3D space. This contribution (C #1) forms the foundation for the future work of RO #3 & 4. 
+Implementing UCS in low dimensions is preliminary to the extention of the UCS into 3D space. This contribution (C #1) answers the RO, and forms the foundation for future work adressed by RO #3 & 4. 
 
 ## RO #1) How can UCS be implemented in 1- and 2D projections?
 
-This section covers work done in the last year implementing USC via *manual tours*. The manual tour was described in @cook_manual_1997 and allows a user to rotate a selected variable into and out of a 2D projection of high-dimensional space, offering user-controlled steering (UCS). The primary use is to determine the sensitivity of structure visible in a projection to the contributions of a variable. This is particularly powerful for exploring the local structure once a feature of interest has been identified by a guided tour [@cook_grand_1995] for example. The algorithm for a manual tour allows rotations in horizontal, vertical, oblique, angular and radial directions. In the algorithm below focuses on radial rotation.
+This section covers the work done in the last year implementing USC via *manual tours*. Following experimental design methodology this work implements the manual tour as described in @cook_manual_1997 and allows users to rotate a selected variable into and out of a 2D projection of high-dimensional space for user-controlled steering (UCS). The primary use is to determine the sensitivity of structure visible in a projection to the contributions of a variable. This is particularly powerful for exploring the local structure once a feature of interest has been identified by a guided tour [@cook_grand_1995] for example. The algorithm for a manual tour allows rotations in horizontal, vertical, oblique, angular and radial directions. In the algorithm below focuses on radial rotation.
 
-Section \ref{sec:algorithm} explains the algorithm using a toy dataset. A wider discussion of implementation as an *R* package and application to high energy physics data is attached in appendix \ref{ch:spinifex_paper} formatted as a paper that will be submitted to The R Journal.
+Section \ref{sec:algorithm} explains the algorithm using a toy dataset. A wider discussion of implementation as an *R* package and application to high energy physics data [@wang_visualizing_2018; @cook_dynamical_2018] is attached in appendix \ref{ch:spinifex_paper} formatted as a paper that will be submitted to The R Journal.
 
 
 ## Algorithm {#sec:algorithm}
@@ -114,7 +114,7 @@ Creating a manual tour animation requires these steps:
 
 1. Provided with a 2D projection, choose a variable to explore. This is called the "manip" variable.
 2. Create a 3D manipulation space, where the manip variable has full contribution.
-3. Generate a rotation sequence which zero's the norm of the coefficient and increases it to 1.
+3. Generate a rotation sequence which zeros coefficient and increases it to 1 before returning to the inital position.
 
 These steps are described in more detail below.
 
@@ -237,7 +237,6 @@ Imagine being able to grab hold of the red axis and rotate it changing the proje
 Define a set of values for $\phi_i$, the angle of out of plane rotation, orthogonal to the projection plane. This corresponds to the angle between the red manipulation axis and the blue plane in figure \@ref(fig:step2).
 
 **For ** $i$ **in 1 to n_slides:**
-<!-- Stop trying clean the above, it's not going to happen... -->
 
 For each $\phi_i$, post multiply the manipulation space by a rotation matrix, producing, **RM**, the rotated manip space.
 
