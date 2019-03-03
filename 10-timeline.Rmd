@@ -2,7 +2,7 @@
 knit: "bookdown::render_book"
 ---
 
-# PhD schedule {-} 
+# PhD schedule {#ch:timeline} 
 
 ## Timeline
 

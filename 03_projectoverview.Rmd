@@ -5,3 +5,11 @@ knit: "bookdown::render_book"
 
 # Project overview {#ch:projectoverview}
 
+
+Figure \@ref(fig:ProjectOverview) depicts a schematic flow chart that the research objectives will be executed in. RO #1, application of 2D user-controlled steering (UCS), sets the foundation for which the other objectives can be researched. RO #3, the application of 3D UCS, must precede RO #4, exploring the eficacy of 3D UCS accross display devices. RO #2, the comparison of 2D UCS vs alternatives, must come after RO #1, but is of lower priority to RO #3 & 4, and so will be conducted last, in the event of a time crunch.
+
+(ref:ProjectOverview-cap) Flow chart of research objective (RO) dependancies, work order, and methodology.
+
+```{r ProjectOverview, echo=F, out.width='70%', fig.cap = "(ref:ProjectOverview-cap)"}
+knitr::include_graphics("./figures/ProjectOverview.PNG")
+```
