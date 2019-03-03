@@ -9,8 +9,9 @@ rmd_files: ["index.Rmd",
   "00-abstract.Rmd",
   "01-introduction.Rmd",
   "02-lit_review.Rmd",
-  "03-completed_work.Rmd",
-  "04-future_work.Rmd",
+  "03_projectoverview.Rmd"
+  "04-completed_work.Rmd",
+  "05-future_work.Rmd",
   "10-timeline.Rmd",
   "90-appA.Rmd",
   "91-appB.Rmd"

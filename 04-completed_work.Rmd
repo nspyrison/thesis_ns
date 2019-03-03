@@ -1,9 +1,9 @@
 ---
-chapter: 3
+chapter: 4
 knit: "bookdown::render_book"
 ---
 
-```{r setup_03_chap, include=FALSE}
+```{r setup_04_chap, include=FALSE}
 knitr::opts_chunk$set(
   fig.align = "center",
   echo = TRUE, 
