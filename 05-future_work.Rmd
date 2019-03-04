@@ -7,22 +7,23 @@ knit: "bookdown::render_book"
 
 ## RO #2) Does 2D UCS provide benefits over alternatives?
 
-High dimensional data and models are ubiquitous but viewing them in data space is not trivial. Currently it is common practice to use Principal Component Analysis (PCA), Multi-Dimensional Scaling (MDS), or a non-linear embedding like t-distributed neighbor embeddings (tSNE). These methods are all unsupervised projections of multivariate spaces to a single, static lower embedding. PCA is a linear transformation that orients linear combinations of the variables into basis components and orders them according to amount of variation shown. MDS has linear and non-linear versions that compare the distances between pairwise variables. tSNE is a nonlinear technique that iterates epochs of: 
+High dimensional data and models are ubiquitous but viewing them in data space is not trivial. This work quanifies various measurements of 2D UCS implemented in RO #1, and commonly used alternatives. All comparison groups are unsupervised (agnostic of clustering) static, single embeddings in lower dimension of the data, and would include:
 
-1. constructing a probability distributions for selecting neighboring data and 
-2. minimizing Kullback-Leibler divergence (a measure of relative entropy).
+- **Principal Component Analysis (PCA)**, is a linear transformation that orients linear combinations of the variables into basis components and orders them according to amount of variation. The first principal component is the linear combination that explains the most variation with the second explaining the most of the remaining variation and is orthogonal to the all previous components, and so on. 
+- **Multi-Dimensional Scaling (MDS)**, non-linear dimension reduction that compares pairwise distances between observations.
+- **t-distributed neighbor embeddings (tSNE)**, a nonlinear technique that iterates epochs of: 1) constructing a probability distributions for selecting neighboring data and 2), minimizing Kullback-Leibler divergence (a measure of relative entropy).
 
-Unfortunately, static linear projections necessarily cut variation in the components not shown, while non-linear techniques lose transparency back to the original variable-space. Touring preserves transparency to variable-space and keeps variation in tack. Providing user-controlled steering of tour should allow for finer structural exploration than the alternatives.
+Unfortunately, static linear projections necessarily cut variation in the components not shown, while non-linear techniques lose transparency back to the original variable-space. Tours preserve this transparency to variable-space and keeps variation in tack. Providing user-controlled steering of tour should allow for finer structural exploration than the alternatives.
 
-In this future work I plan to perform a case study between UCS leading alternatives. Design space includes data sets, techniques, and measures of comparison.
+The tentative methodology for this future work is a **case study** between UCS and leading alternatives. This will be a sufficient comparison if there are enough quantifiable measurements across the different techniques. However, if enough measurements are not comparable across technique an empirical study analogous to the study suggested in RO # 4 will be considered. Design space includes data sets, techniques, and measures of comparison.
 
 ## RO #3) How can UCS be extended to 3D?
 
-Touring involves linear embeddings in typically $d=2$ dimensions. While @nelson_xgobi_1998 and @arms_benefits_1999 have explored the efficacy of 2D vs 3D display, they have done so on 2D embeddings, I will generalize the UCS to scalable dimensions in R, built upon the existing packages *tourr* and *spinifex*. This will allow for the backend work of 3D rotations.
+The literature has shown positive results for improved accuracy and precision for 3D displays. Dynamic linear projections should have similar gains in $d=2$ projections, and the additional dimension should allow for improved perception of 3D surfaces and dynamic viewing of $d=3$ projections.
 
-Recently @cordeil_imaxes:_2017 shared immersive data analysis written in C# to be used in conjunction with the 3D compatible game engine Unity. The outcome of this work was refined and generalized in the Immersive Analytics Toolkit (IATK), @cordeil_immersive_2019. 
+This work starts with on the work applied in RO #1, and incorporates the recent work of @cordeil_immersive_2019, immersive analytics toolkit (IATK). This integration of technologies will result in a consolidated user interface that can be used across various display device for RO #4.
 
-This future work in an exploratory design extending UCS to 3D projections and integrating the calling R scripts with the existing IATK for a compatible front end to be used across display devices.
+This **exploratory design** extending UCS to $d=3$ projections is a novel contribution tying together open source work across computer languages and offers a compatible front end to be used across display devices.
 
 ## RO #4) Does UCS in 3D displays provide perception benefits over 2D displays? {#UCS_3dvs2d}
 
