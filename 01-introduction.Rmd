@@ -44,17 +44,17 @@ Data and models are typically high-dimensional, with many variables or parameter
 
 ## Methodology
 
-This current and future work is done with reproduction priciples in mind, where data, analysis, and code is stored in the same directory in order to make the work as transparent and reproducible as possible. Directories are hosted publically on GitHub. Reproduction of this report is discussed in section \ref{sec:source}.
+This current and future work is done with reproduction principles in mind, where data, analysis, and code is stored in the same directory in order to make the work as transparent and reproducible as possible. Directories are hosted publicly on GitHub. Reproduction of this report is discussed in section \ref{sec:source}.
 
-(ref:dataanalysisworkflow-cap) Data analysis workflow. This research aids visualisation in exploratory data analysis and in the workflow.
+(ref:dataanalysisworkflow-cap) Data analysis workflow. This research aids visualization in exploratory data analysis and in the workflow.
 
 ```{r dataanalysisworkflow, echo=F, fig.cap = "(ref:dataanalysisworkflow-cap)"}
 knitr::include_graphics("./figures/data_analysis_workflow.png")
 ```
 
-RO #1 is completed **applied research** following work lied [@cook_manual_1997] to allow for UCS. This forms the foundation for future work in the remaining objectives. The second objective is a **case study** comparison between dynamic linear projections and alternatives (static linear and static non-linear projections) will be applied to answer RO #2. RO #3 involves **experimental design** applying contribution from RO #1 with the work done in @cordeil_immersive_2019, an extensible toolkit for visualizing data in VR. An **empirical study** is used to explore the efficacy of bringing UCS into 3D as compared across various display devices in RO #4. This will be done by measuring participant speed and accuracy of tasks wihtin the different modalities, comparing biometric readings, and subjective likert survey of paricipents. A lineup-type model as outlined in @hofmann_graphical_2012 may also be employed for assessing quality of display types.
+RO #1 is completed **applied research** following work lied [@cook_manual_1997] to allow for UCS. This forms the foundation for future work in the remaining objectives. The second objective is a **case study** comparison between dynamic linear projections and alternatives (static linear and static non-linear projections) will be applied to answer RO #2. RO #3 involves **experimental design** applying contribution from RO #1 with the work done in @cordeil_immersive_2019, an extensible toolkit for visualizing data in VR. An **empirical study** is used to explore the efficacy of bringing UCS into 3D as compared across various display devices in RO #4. This will be done by measuring participant speed and accuracy of tasks within the different modalities, comparing biometric readings, and subjective likert survey of participants. A lineup-type model as outlined in @hofmann_graphical_2012 may also be employed for assessing quality of display types.
 
-In this report, the related liturature is discussed in chapter \ref{ch:lit_review}. a brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by the completed work and future work in chapters \ref{ch:completed_work} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic touring and VR data vizualization can be found in appendix \ref{sec:tour_notation}, and except of a paper draft to be subbmitted to the R Journal can be found in \ref{ch:spinifex_paper}.
+In this report, the related literature is discussed in chapter \ref{ch:lit_review}. a brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by the completed work and future work in chapters \ref{ch:completed_work} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic touring and VR data visualization can be found in appendix \ref{sec:tour_notation}, and except of a paper draft to be submitted to the R Journal can be found in \ref{ch:spinifex_paper}.
 
 
 <!-- ## Contributions -->

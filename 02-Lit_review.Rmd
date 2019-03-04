@@ -97,7 +97,7 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 
 # Literature review {#ch:lit_review}
 
-In the section below we discuss the acedemic research in two primary areas: that of dynamic linear projection (collectively known as tours) followed by multivariate data visualisation in stereoscopic 3D.
+In the section below we discuss the academic research in two primary areas: that of dynamic linear projection (collectively known as tours) followed by multivariate data visualization in stereoscopic 3D.
 
 
 ## Dynamic linear projections of multivariate data (tours) {#sec:tour}
@@ -105,13 +105,11 @@ In the section below we discuss the acedemic research in two primary areas: that
 
 ### Overview
 
-Exploratory data analysis is a critical preliminary task at the root of any analysis. Understanding the distribution and summaries are at the heart of choosing and validating the assumptions of any methodology. However, there are risks associated with only looking at summary statistics alone. @anscombe_graphs_1973 and @matejka_same_2017 both point out the dangers of doing so, namely missing glaring patterns and peculiarity that can be held within data even when summary statistics are the same. It's clear that visual intuition, and consequently human-in-the-loop analysis, is still is a pivotal aspect of EDA.
-
-There is an issue with visualizing data as it is dimensionality increases. In univariate data sets histograms, or smoothed density curves are employed to visualize data. In bivariate data $x-y$ scatterplots and contour plots (2D density) can be employed. In three dimensions the two most common techniques are 3D scatterplot\footnote{Graphs depicting 3 dimensions are typically printed on paper, or rendered on a 2D monitor, they are intrinsically 2D images of monocular 3D spaces, sometimes referred to as 2.5D data visualization, more on this in section \ref{sec:3d-terminology}.} or 2D scatterplot with the 3rd variable as an aesthetic (such as color, size, or height). Such variable mappings can afford another dimension or 2, but this is not a sustainable solution.
+In the introduction we have established that visualizing data-space is an important aspect of exploratory data analysis and data analysis in general. Yet, there is an inherent difficulty as the dimensionality of data increases. In univariate data sets histograms, or smoothed density curves are employed to visualize data. In bivariate data $x-y$ scatterplots and contour plots (2D density) can be employed. In three dimensions the two most common techniques are 3D scatterplot\footnote{Graphs depicting 3 dimensions are typically printed on paper, or rendered on a 2D monitor, they are intrinsically 2D images of monocular 3D spaces, sometimes referred to as 2.5D data visualization, more on this in section \ref{sec:3d-terminology}.} or 2D scatterplot with the 3rd variable as an aesthetic (such as color, size, or height). Such variable mappings can afford another dimension or 2, but this is not a sustainable solution.
 
 Visualization of multivariate data for modest $p$ numeric dimension, even 6 or 8, quickly becomes complex in. It's far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse: long tables of statistics without visuals [@wickham_visualizing_2015]. A solution that better scales with the dimensionality of data is needed; this is where dimensionality reduction comes in. This work will focus on a group of dynamic linear projection techniques know as *touring*. Broader review of dimensionality reduction techniques is discussed in @grinstein_high-dimensional_2002, and @heer_tour_2010. Tours are used for a couple of salient features: use of linear projections maintaining transparency back to the original variable space (which non-linear projections lose) and keeps all components and their information in tack (which static linear projections lose). Employing the breadth of tours extends the dimensionality visualization, and with it, the intrinsic understanding of structure and distribution of data that is more succinct or beyond the reach of summary statistics alone.
 
-Tours perform linear dimensionality reduction, orthogonally projecting $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making small rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When an object is introduced it projects a 2D shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a $d=2$ tour as the 3D object is manipulated. Some orientations explain more information about the shape of the object than others but watching an animation of the shadow changing gives a more robust understanding than looking at any one still frame. More complex structures generally require more time to comprehend the nature of the geometry. These features hold true in touring as well.
+Tours perform linear dimensionality reduction, orthogonally projecting $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making small rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When an object is introduced it projects a 2D shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a $d=2$ tour as the 3D object is manipulated. Some orientations explain more information about the shape of the object than others but watching an animation of the shadow changing gives a more robust understanding than looking at any one frame. More complex structures generally require more time to comprehend the nature of the geometry. These features hold true in touring as well.
 
 
 
@@ -130,7 +128,7 @@ Tours perform linear dimensionality reduction, orthogonally projecting $p$-space
 
 ### Example illustrations
 
-A list of touring notation is given in the glossary section \ref{sec:tour_notation}
+A list of touring notation is given in the glossary section \ref{sec:tour_notation}.
 
 This sections a toy data set of 74 observations of flea beetles across 6 numeric variables corresponding to physical measurements, $\textbf{X}_{[74,~6]} \in \mathbb{R}^{6}$. Each observation belongs to one of 3 species as shown in the color and shape of the data points. Figure \@ref(fig:flea-refframe) shows one frame of a tour (left) and the corresponding reference frame (right) showing the linear combination of the variables onto the projection-space, a visual representation of the basis.
 
@@ -195,7 +193,7 @@ The grand and little tour have no input from the user aside from the starting ba
 
 ### Path generation
 
-A fundamental aspect of touring is the path of rotation. Of which there are four primary distinctions [@buja_computational_2005]: random choice, data driven, precomputed choice,  and manual control.
+A fundamental aspect of touring is the path of rotation. Of which there are four primary distinctions [@buja_computational_2005]: random choice, data driven, precomputed choice, and manual control.
 
 * Random choice, *grand tour*, constrained random walks $p$-space. Paths are constrained for changes in direction small enough to maintain continuity and aid in user comprehension
     + torus-surface [@asimov_grand_1985]
@@ -233,7 +231,7 @@ A fundamental aspect of touring is the path of rotation. Of which there are four
 
 Consider $d=2$, then each projection is called a 2-frame (each spanning a 2-plane). Mathematically, a Grassmannian is the set of all possible unoriented 2-frames in $p$-space a , $\textbf{Gr}(2,~p)$. @asimov_grand_1985 pointed out that the unique 2-frames of the grand tour approaches $\textbf{Gr}(2,~p)$ as time goes to infinity. The *density* of a tour is defined as the fraction of the Grassmannian explored. Ideally an exploring tour will be dense, but the time taken to become dense vastly increases as variable space increase dimensionality. *Rapidity* is then defined as how quickly a tour encompasses the Grassmannian. Due to the random selection of a grand tour it will end up visiting homomorphisms of previous 2-frames, leading sub-optimal rapidity. 
 
-The little tour introduced in @mcdonald_interactive_1982, on the other hand is necessarily both dense and rapid, performing essentially an exhaustive search on the Grassmannian. However, this path uninteresting and with long periods of similar projections strung together. The Grassmanian is necessarily large and increases with the square of $p$. Viewing of the whole Grassmanian is time consuming, and interesting projections are sparse, there was a clear space for computers to narrow the search space.
+The little tour introduced in @mcdonald_interactive_1982, on the other hand is necessarily both dense and rapid, performing essentially an exhaustive search on the Grassmannian. However, this path uninteresting and with long periods of similar projections strung together. The Grassmannian is necessarily large and increases with the square of $p$. Viewing of the whole Grassmannian is time consuming, and interesting projections are sparse, there was a clear space for computers to narrow the search space.
 
 Guided tours [@hurley_analyzing_1990] optimize an objective function generating path will be relatively small subset of the Grassmannian. As such, density and rapidity are poor measures, however interesting projections are quickly identified. Recently, @laa_using_2019, compared projection pursuit indices with the metrics: *smoothness, squintability, flexibility, rotation invariance* and *speed*. 
 
@@ -282,9 +280,9 @@ Tours have not yet been widely adopted, this is likely due in part, to the fact 
 
 ### Research gaps
 
-Currently there is no compiling software that offers UCS (**RO #1**). This leaves the class of dynamic linear projections without the most precise, fine scale control of rotating $p$-space. This should be reimplemented with an eye on extensiblity and maintanability,
+Currently there is no compiling software that offers UCS (**RO #1**). This leaves the class of dynamic linear projections without the most precise, fine scale control of rotating $p$-space. This should be reimplemented with an eye on extensibility and maintainability,
 
-A comparative study outlining the benefits of UCS vs alternatives is also absent from the literature (**RO #2**). The benefits of dynamic linear projections stands in theory, but a direct comparison with popular alternatives should be made. Barriers to addoption should also be addressed such as: dynamic display is not easy on print and in .pdf documents.
+A comparative study outlining the benefits of UCS vs alternatives is also absent from the literature (**RO #2**). The benefits of dynamic linear projections withhold in theory, but a direct comparison with popular alternatives should be made. Barriers to adoption should also be addressed such as: dynamic display is not easy on print and in .pdf documents.
 
 
 ## Multivariate data visualization in 3D {#sec:3d}
@@ -382,9 +380,12 @@ knitr::include_graphics("./figures/gracia16fig")
 knitr::include_graphics("./figures/wagner18fig")
 ```
 
+### Immersive analytics in VR
+
+ImAxes, ITAK.
 
 ### Research gaps
 
 When comparing between 3D and 2D orthogonal views studies in general show that perception accuracy is better in 3D, though manipulation speed is generally slower. The speed discrepancy is confounded by the difference in users familiar with manipulating 2D vs 3D spaces [@lee_effects_1986; @wickens_implications_1994; @tory_visualization_2006; counter example @sedlmair_empirical_2013]. Similar results have been shown in static, 3D embedded spaces [@gracia_new_2016; @wagner_filho_immersive_2018] and in dynamic 2D embedded spaces depicted in immersive 3D [@nelson_xgobi_1998]. After more than two decades of hardware advancement, the quality, support, and prevalence of VR technology is better and more easily accessible than ever. It's time to view dynamic 3D projections with immersive spaces and quantify the benefits (RO #3 & 4).
 
-@nelson_xgobi_1998 views $d=2$ projections in head tracked 3D comparing them to 2D counterparts but didn't implement $d=3$ dynamic projections (**RO #3**). After the implementation The eficacy of $d=3$ tours should be compared across display device 
+@nelson_xgobi_1998 views $d=2$ projections in head tracked 3D comparing them to 2D counterparts but didn't implement $d=3$ dynamic projections (**RO #3**). After these implementations the efficacy of $d=3$ tours should be compared across display device (**RO #4**).
