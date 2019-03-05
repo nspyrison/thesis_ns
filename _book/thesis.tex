@@ -50,16 +50,18 @@ transparency to the original variables, while preserving information in
 the data. User-controlled steering (UCS) of the original dimensionality
 offers fine control of the local structure of projections.
 
-Studies in 3D visualization generally show increased accuracy and
-perception of visuals in 3D over 2D. Dynamic linear 2D projections have
-been viewing briefly in head-tracked VR, but never with true 3D
-projections. The Immersive Analytics Toolkit offers a frame works
-available for implementing data visualization in VR.
+Excitement and hype about virtual reality preceded hardware's progress
+in the 1980's and 90's for a false start with data visualization.
+Despite this and more recently, studies have regularly shown increased
+accuracy of perception of visuals displayed in 3D over 2D, including in
+projected subspaces.
 
-This research involves extending data visualization as data
-dimensionality increases, improving the perception of dynamic linear
-projections via application in VR, and novel dynamic projections in 3D
-space, and explores the potential gains from doing so.
+Multivariate data is ubiquitous and viewing it in data-space is a
+crucial aspect of data analysis and consumption. This research involves
+scaling data visualization as data dimensionality increases, improving
+the perception of dynamic linear projections via application in VR, and
+implements novel dynamic projections in 3D space, and explores the
+benefits of doing so.
 
 \clearpage\pagenumbering{arabic}\setcounter{page}{0}
 
@@ -175,7 +177,7 @@ is discussed in section \ref{sec:source}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=4.99in]{./figures/data_analysis_workflow} 
+{\centering \includegraphics[width=1\linewidth]{./figures/data_analysis_workflow} 
 
 }
 
@@ -200,33 +202,35 @@ outlined in \textcite{hofmann_graphical_2012} may also be employed for
 assessing quality of display types.
 
 In this report, the related literature is discussed in chapter
-\ref{ch:lit_review}. a brief overview of the research is given in
+\ref{ch:lit_review}. A brief overview of the research is given in
 chapter \ref{ch:projectoverview}, followed by the completed work and
 future work in chapters \ref{ch:completed_work} and \ref{ch:future_work}
 respectively. A prospective timeline is listed in chapter
 \ref{ch:timeline}. Notation for dynamic touring and VR data
-visualization can be found in appendix \ref{sec:tour_notation}, and
-except of a paper draft to be submitted to the R Journal can be found in
+visualization can be found in appendix \ref{ch:glossary}, and an excerpt
+of a paper to be submitted to the R Journal can be found in appendix
 \ref{ch:spinifex_paper}.
 
 \chapter{Literature review}\label{ch:lit_review}
 
-In the section below we discuss the academic research in two primary
+In the following chapter we discuss the academic research in two primary
 areas: that of dynamic linear projection (collectively known as tours)
-followed by multivariate data visualization in stereoscopic 3D.
+followed by multivariate data visualization in stereoscopic 3D. After
+each section we highlight the research gaps and show how they relate to
+the research objectives.
 
 \section{Dynamic linear projections of multivariate data
 (tours)}\label{sec:tour}
 
 \subsection{Overview}\label{overview}
 
-In the introduction we have established that visualizing data-space is
-an important aspect of exploratory data analysis and data analysis in
-general. Yet, there is an inherent difficulty as the dimensionality of
-data increases. In univariate data sets histograms, or smoothed density
-curves are employed to visualize data. In bivariate data \(x-y\)
-scatterplots and contour plots (2D density) can be employed. In three
-dimensions the two most common techniques are 3D
+The introduction established that visualizing data-space is an important
+aspect of exploratory data analysis and data analysis in general. Yet,
+there is an inherent difficulty as the dimensionality of data increases.
+In univariate data sets histograms, or smoothed density curves are
+employed to visualize data. In bivariate data \(x-y\) scatterplots and
+contour plots (2D density) can be employed. In three dimensions the two
+most common techniques are 3D
 scatterplot\footnote{Graphs depicting 3 dimensions are typically printed on paper, or rendered on a 2D monitor, they are intrinsically 2D images of monocular 3D spaces, sometimes referred to as 2.5D data visualization, more on this in section \ref{sec:3d-terminology}.}
 or 2D scatterplot with the 3rd variable as an aesthetic (such as color,
 size, or height). Such variable mappings can afford another dimension or
@@ -239,8 +243,8 @@ parameter-space, model-space, or worse: long tables of statistics
 without visuals \autocite{wickham_visualizing_2015}. A solution that
 better scales with the dimensionality of data is needed; this is where
 dimensionality reduction comes in. This work will focus on a group of
-dynamic linear projection techniques know as \emph{touring}. Broader
-review of dimensionality reduction techniques is discussed in
+dynamic linear projection techniques collectively known as \emph{tours}.
+Broader review of dimensionality reduction techniques is discussed in
 \textcite{grinstein_high-dimensional_2002}, and
 \textcite{heer_tour_2010}. Tours are used for a couple of salient
 features: use of linear projections maintaining transparency back to the
@@ -270,7 +274,7 @@ the nature of the geometry. These features hold true in touring as well.
 
 \subsection{Example illustrations}\label{example-illustrations}
 
-A list of touring notation is given in the glossary section
+A list of tour notation is given in the appendix section
 \ref{sec:tour_notation}.
 
 This sections a toy data set of 74 observations of flea beetles across 6
@@ -465,7 +469,7 @@ choice, data driven, precomputed choice, and manual control.
 
 Consider \(d=2\), then each projection is called a 2-frame (each
 spanning a 2-plane). Mathematically, a Grassmannian is the set of all
-possible unoriented 2-frames in \(p\)-space a , \(\textbf{Gr}(2,~p)\).
+possible unoriented 2-frames in \(p\)-space, \(\textbf{Gr}(2,~p)\).
 \textcite{asimov_grand_1985} pointed out that the unique 2-frames of the
 grand tour approaches \(\textbf{Gr}(2,~p)\) as time goes to infinity.
 The \emph{density} of a tour is defined as the fraction of the
@@ -513,7 +517,7 @@ well.
     \autocite{scott_averaged_1985}, and kernel density
     \autocite{scott_incorporating_1995}.
   \item
-    image (pixel): \autocite{wegman_pixel_2001}
+    image (pixel): \autocite{wegman_pixel_2001}.
   \item
     time series: where multivariate values are independently lagged to
     view peak and trough alignment. Currently no package implementation,
@@ -638,7 +642,7 @@ also be addressed such as: dynamic display is not easy on print and in
 As this research pertains to numeric multivariate data, a wider overview
 of 3D data visualization is discussed in chapter 2 of
 \textcite{marriott_immersive_2018}. Terminology for 3D visuals is in the
-glossary section \textbackslash{}ref\{sec:3d-terminology).
+glossary section \ref{sec:3d-terminology}.
 
 \subsection{A rocky start}\label{a-rocky-start}
 
@@ -771,7 +775,7 @@ data}\label{comparing-3d-and-2d-embeddings-of-multivariate-data}
 had \(n=15\) participants perform brushing and touring tasks
 (identification of clusters, structure, and data dimensionality) in 3D
 with head-tracked binocular VR. 3D proved to have substantial advantage
-for cluster identification and some advantage in in identifying shape.
+for cluster identification and some advantage in identifying shape.
 Brushing did take longer in VR, perhaps due to the lower familiarity of
 manipulating 3D spaces.
 
@@ -926,9 +930,9 @@ dependencies, work order, and methodology.}\label{fig:ProjectOverview}
 
 \chapter{Completed work}\label{ch:completed_work}
 
-Implementing UCS in low dimensions is preliminary to the extension of
-the UCS into 3D space. This contribution (C \#1) answers the RO, and
-forms the foundation for future work addressed by RO \#3 \& 4.
+Implementing UCS in low dimensions is fundamental to the extension of
+the UCS into 3D space. The implementation of such, forms the foundation
+for future work addressed in the remaining research objectives.
 
 \section{RO \#1) How can UCS be implemented in 1- and 2D
 projections?}\label{ro-1-how-can-ucs-be-implemented-in-1--and-2d-projections}
@@ -1001,7 +1005,7 @@ from \(p-\) to \(d-\)space.
 
 The algorithm is primarily operating on the projection basis and
 utilizes the data only when making a display for computational
-efficiency. A broader list of touring notation is given in
+efficiency. A more comprehensive list of tour notation is given in
 \ref{sec:tour_notation}.
 
 \subsection{Toy data set}\label{toy-data-set}
@@ -1135,7 +1139,7 @@ matrix, producing, \textbf{RM}, the rotated manip space.
 \begin{align*}
   \textbf{RM}_{[p,~d+1,~i]}
   &= \textbf{M}_{[p,~d+1]} ~*~ \textbf{R}_{[d+1,~d+1]}
-    ~~~~~~~~~~~~~~~~~~~~~~~~\text{For the $d=2$ case:} \\
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\text{For the $d=2$ case:} \\
   &= \begin{bmatrix}
     M_{1,~1} & \dots & M_{1,~d} & M_{1,~d+1} \\
     M_{2,~1} & \dots & M_{2,~d} & M_{2,~d+1} \\
@@ -1178,8 +1182,8 @@ Figure \ref{fig:step3} illustrates the sequence with 15 projected bases
 and highlight the manip variable on top, while showing the corresponding
 projected data points on the bottom. A dynamic version of this tour can
 be viewed online at
-\url{https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/}, will
-take a moment to load.
+\url{https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/}, (may
+take a moment to load).
 
 
 

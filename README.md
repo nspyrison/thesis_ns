@@ -1,12 +1,12 @@
-Nick's Monash PhD Thesis
-========================
+Nick's Monash PhD research
+==========================
 
-Built with thanks from Rob's EBS template: https://github.com/robjhyndman/MonashThesis
-
-
+*Milestone deliverables:*
 Confirmation report: https://github.com/nspyrison/confirmation
 Confirmation presentation: https://github.com/nspyrison/confirmation_talk
 
+
+Built with thanks from Rob's EBS template: https://github.com/robjhyndman/MonashThesis
 
 
 ## Requirements
@@ -16,7 +16,6 @@ You will need to install `spinifex` to run Nick's thesis:
 ```r
 devtools::install_github("nspyrison/spinifex")
 ```
-
 
 __
 To set up the software, you will need to install the `bookdown` package and its dependencies as follows:

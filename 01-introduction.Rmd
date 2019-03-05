@@ -48,25 +48,13 @@ This current and future work is done with reproduction principles in mind, where
 
 (ref:dataanalysisworkflow-cap) Data analysis workflow. This research aids visualization in exploratory data analysis and in the workflow.
 
-```{r dataanalysisworkflow, echo=F, fig.cap = "(ref:dataanalysisworkflow-cap)"}
+```{r dataanalysisworkflow, echo=F, out.width='100%', fig.cap = "(ref:dataanalysisworkflow-cap)"}
 knitr::include_graphics("./figures/data_analysis_workflow.png")
 ```
 
 RO #1 is completed **applied research** following work lied [@cook_manual_1997] to allow for UCS. This forms the foundation for future work in the remaining objectives. The second objective is a **case study** comparison between dynamic linear projections and alternatives (static linear and static non-linear projections) will be applied to answer RO #2. RO #3 involves **experimental design** applying contribution from RO #1 with the work done in @cordeil_immersive_2019, an extensible toolkit for visualizing data in VR. An **empirical study** is used to explore the efficacy of bringing UCS into 3D as compared across various display devices in RO #4. This will be done by measuring participant speed and accuracy of tasks within the different modalities, comparing biometric readings, and subjective likert survey of participants. A lineup-type model as outlined in @hofmann_graphical_2012 may also be employed for assessing quality of display types.
 
-In this report, the related literature is discussed in chapter \ref{ch:lit_review}. a brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by the completed work and future work in chapters \ref{ch:completed_work} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic touring and VR data visualization can be found in appendix \ref{ch:glossary}, and excerpt of a paper draft to be submitted to the R Journal can be found in appendix \ref{ch:spinifex_paper}.
-
-
-<!-- ## Contributions -->
-
-<!-- Each of the previous RO line up with their corresponding contribution as outlined below -->
-
-<!-- **Contribution:** -->
-
-<!-- 1. Application of UCS in 2D -->
-<!-- 2. Quantify the benefits of dynamic linear projections over alternatives -->
-<!-- 3. Bring UCS into 3D immersive display -->
-<!-- 4. Quantify the benefits of UCS across display devices and dimensionality -->
+In this report, the related literature is discussed in chapter \ref{ch:lit_review}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by the completed work and future work in chapters \ref{ch:completed_work} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic touring and VR data visualization can be found in appendix \ref{ch:glossary}, and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex_paper}.
 
 
 
