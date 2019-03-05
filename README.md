@@ -1,10 +1,24 @@
-Monash PhD Thesis Rmarkdown Template
+Nick's Monash PhD Thesis
 ========================
 
-This repository provides a template for a Monash University PhD thesis using Rmarkdown with the bookdown package. It is designed for PhD students in the Department of Econometrics and Business Statistics, but can be modified for Masters degrees, other departments and other universities as required.
+Built with thanks from Rob's EBS template: https://github.com/robjhyndman/MonashThesis
+
+
+Confirmation report: https://github.com/nspyrison/confirmation
+Confirmation presentation: https://github.com/nspyrison/confirmation_talk
+
+
 
 ## Requirements
 
+You will need to install `spinifex` to run Nick's thesis:
+
+```r
+devtools::install_github("nspyrison/spinifex")
+```
+
+
+__
 To set up the software, you will need to install the `bookdown` package and its dependencies as follows:
 
 ```r
