@@ -97,7 +97,7 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 
 # Literature review {#ch:lit_review}
 
-In the section below we discuss the academic research in two primary areas: that of dynamic linear projection (collectively known as tours) followed by multivariate data visualization in stereoscopic 3D.
+In the following chapter we discuss the academic research in two primary areas: that of dynamic linear projection (collectively known as tours) followed by multivariate data visualization in stereoscopic 3D. After each section we highlight the research gaps and show how they relate to the research objectives.
 
 
 ## Dynamic linear projections of multivariate data (tours) {#sec:tour}
@@ -105,9 +105,9 @@ In the section below we discuss the academic research in two primary areas: that
 
 ### Overview
 
-In the introduction we have established that visualizing data-space is an important aspect of exploratory data analysis and data analysis in general. Yet, there is an inherent difficulty as the dimensionality of data increases. In univariate data sets histograms, or smoothed density curves are employed to visualize data. In bivariate data $x-y$ scatterplots and contour plots (2D density) can be employed. In three dimensions the two most common techniques are 3D scatterplot\footnote{Graphs depicting 3 dimensions are typically printed on paper, or rendered on a 2D monitor, they are intrinsically 2D images of monocular 3D spaces, sometimes referred to as 2.5D data visualization, more on this in section \ref{sec:3d-terminology}.} or 2D scatterplot with the 3rd variable as an aesthetic (such as color, size, or height). Such variable mappings can afford another dimension or 2, but this is not a sustainable solution.
+The introduction established that visualizing data-space is an important aspect of exploratory data analysis and data analysis in general. Yet, there is an inherent difficulty as the dimensionality of data increases. In univariate data sets histograms, or smoothed density curves are employed to visualize data. In bivariate data $x-y$ scatterplots and contour plots (2D density) can be employed. In three dimensions the two most common techniques are 3D scatterplot\footnote{Graphs depicting 3 dimensions are typically printed on paper, or rendered on a 2D monitor, they are intrinsically 2D images of monocular 3D spaces, sometimes referred to as 2.5D data visualization, more on this in section \ref{sec:3d-terminology}.} or 2D scatterplot with the 3rd variable as an aesthetic (such as color, size, or height). Such variable mappings can afford another dimension or 2, but this is not a sustainable solution.
 
-Visualization of multivariate data for modest $p$ numeric dimension, even 6 or 8, quickly becomes complex in. It's far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse: long tables of statistics without visuals [@wickham_visualizing_2015]. A solution that better scales with the dimensionality of data is needed; this is where dimensionality reduction comes in. This work will focus on a group of dynamic linear projection techniques know as *touring*. Broader review of dimensionality reduction techniques is discussed in @grinstein_high-dimensional_2002, and @heer_tour_2010. Tours are used for a couple of salient features: use of linear projections maintaining transparency back to the original variable space (which non-linear projections lose) and keeps all components and their information in tack (which static linear projections lose). Employing the breadth of tours extends the dimensionality visualization, and with it, the intrinsic understanding of structure and distribution of data that is more succinct or beyond the reach of summary statistics alone.
+Visualization of multivariate data for modest $p$ numeric dimension, even 6 or 8, quickly becomes complex in. It's far too common that visualizing in data-space is dropped altogether in favor of modeling parameter-space, model-space, or worse: long tables of statistics without visuals [@wickham_visualizing_2015]. A solution that better scales with the dimensionality of data is needed; this is where dimensionality reduction comes in. This work will focus on a group of dynamic linear projection techniques collectively known as *tours*. Broader review of dimensionality reduction techniques is discussed in @grinstein_high-dimensional_2002, and @heer_tour_2010. Tours are used for a couple of salient features: use of linear projections maintaining transparency back to the original variable space (which non-linear projections lose) and keeps all components and their information in tack (which static linear projections lose). Employing the breadth of tours extends the dimensionality visualization, and with it, the intrinsic understanding of structure and distribution of data that is more succinct or beyond the reach of summary statistics alone.
 
 Tours perform linear dimensionality reduction, orthogonally projecting $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making small rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When an object is introduced it projects a 2D shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a $d=2$ tour as the 3D object is manipulated. Some orientations explain more information about the shape of the object than others but watching an animation of the shadow changing gives a more robust understanding than looking at any one frame. More complex structures generally require more time to comprehend the nature of the geometry. These features hold true in touring as well.
 
@@ -128,7 +128,7 @@ Tours perform linear dimensionality reduction, orthogonally projecting $p$-space
 
 ### Example illustrations
 
-A list of touring notation is given in the glossary section \ref{sec:tour_notation}.
+A list of tour notation is given in the appendix section \ref{sec:tour_notation}.
 
 This sections a toy data set of 74 observations of flea beetles across 6 numeric variables corresponding to physical measurements, $\textbf{X}_{[74,~6]} \in \mathbb{R}^{6}$. Each observation belongs to one of 3 species as shown in the color and shape of the data points. Figure \@ref(fig:flea-refframe) shows one frame of a tour (left) and the corresponding reference frame (right) showing the linear combination of the variables onto the projection-space, a visual representation of the basis.
 
@@ -229,7 +229,7 @@ A fundamental aspect of touring is the path of rotation. Of which there are four
 
 ### Path evaluation 
 
-Consider $d=2$, then each projection is called a 2-frame (each spanning a 2-plane). Mathematically, a Grassmannian is the set of all possible unoriented 2-frames in $p$-space a , $\textbf{Gr}(2,~p)$. @asimov_grand_1985 pointed out that the unique 2-frames of the grand tour approaches $\textbf{Gr}(2,~p)$ as time goes to infinity. The *density* of a tour is defined as the fraction of the Grassmannian explored. Ideally an exploring tour will be dense, but the time taken to become dense vastly increases as variable space increase dimensionality. *Rapidity* is then defined as how quickly a tour encompasses the Grassmannian. Due to the random selection of a grand tour it will end up visiting homomorphisms of previous 2-frames, leading sub-optimal rapidity. 
+Consider $d=2$, then each projection is called a 2-frame (each spanning a 2-plane). Mathematically, a Grassmannian is the set of all possible unoriented 2-frames in $p$-space, $\textbf{Gr}(2,~p)$. @asimov_grand_1985 pointed out that the unique 2-frames of the grand tour approaches $\textbf{Gr}(2,~p)$ as time goes to infinity. The *density* of a tour is defined as the fraction of the Grassmannian explored. Ideally an exploring tour will be dense, but the time taken to become dense vastly increases as variable space increase dimensionality. *Rapidity* is then defined as how quickly a tour encompasses the Grassmannian. Due to the random selection of a grand tour it will end up visiting homomorphisms of previous 2-frames, leading sub-optimal rapidity. 
 
 The little tour introduced in @mcdonald_interactive_1982, on the other hand is necessarily both dense and rapid, performing essentially an exhaustive search on the Grassmannian. However, this path uninteresting and with long periods of similar projections strung together. The Grassmannian is necessarily large and increases with the square of $p$. Viewing of the whole Grassmannian is time consuming, and interesting projections are sparse, there was a clear space for computers to narrow the search space.
 
@@ -242,7 +242,7 @@ Up to this point this document has discussed 2D scatterplots, which offer a logi
 
 * 1D geometrics (geoms)
     + 1D densities: such as histogram, average shifted histograms [@scott_averaged_1985], and kernel density [@scott_incorporating_1995].
-    + image (pixel): [@wegman_pixel_2001]
+    + image (pixel): [@wegman_pixel_2001].
     + time series: where multivariate values are independently lagged to view peak and trough alignment. Currently no package implementation, but use case is discussed in [@cook_manual_1997]. 
 * 2D geoms
     + 2D density (available on GitHub at https://github.com/nspyrison/tourr)
@@ -287,7 +287,7 @@ A comparative study outlining the benefits of UCS vs alternatives is also absent
 
 ## Multivariate data visualization in 3D {#sec:3d}
 
-As this research pertains to numeric multivariate data, a wider overview of 3D data visualization is discussed in chapter 2 of @marriott_immersive_2018. Terminology for 3D visuals is in the glossary section \ref{sec:3d-terminology).
+As this research pertains to numeric multivariate data, a wider overview of 3D data visualization is discussed in chapter 2 of @marriott_immersive_2018. Terminology for 3D visuals is in the glossary section \ref{sec:3d-terminology}.
 
 
 <!-- ### Terminology {#sec:3d-terminology} -->
@@ -354,7 +354,7 @@ knitr::include_graphics("./figures/sedlmair13fig.PNG")
 
 ### Comparing 3D and 2D embeddings of multivariate data
 
-@nelson_xgobi_1998, depicted in figure \@ref(fig:nelson98fig), had $n=15$ participants perform brushing and touring tasks (identification of clusters, structure, and data dimensionality) in 3D with head-tracked binocular VR. 3D proved to have substantial advantage for cluster identification and some advantage in in identifying shape. Brushing did take longer in VR, perhaps due to the lower familiarity of manipulating 3D spaces. 
+@nelson_xgobi_1998, depicted in figure \@ref(fig:nelson98fig), had $n=15$ participants perform brushing and touring tasks (identification of clusters, structure, and data dimensionality) in 3D with head-tracked binocular VR. 3D proved to have substantial advantage for cluster identification and some advantage in identifying shape. Brushing did take longer in VR, perhaps due to the lower familiarity of manipulating 3D spaces. 
 
 (ref:nelson98fig-cap) Screen capture from @nelson_xgobi_1998: "Figure 4: This is a picture of a 3-D room, running VRGobi. Data is plotted in the center, with painting tools to the right and variable spheres to the left. In the viewing box the data can be seen to contain three clusters, and one is being brushed."
 

@@ -7,9 +7,9 @@ knit: "bookdown::render_book"
 Visualizing data space is crucial to exploratory and general data analysis yet doing so quickly becomes difficult as the dimensionality of the data increases. Traditionally, static, low-dimensional linear embeddings are used to identify clustering, outliers, and structure. Observing one such embedding often misses a significant amount of variation, and hence, information held within the data. Tours are a class of dynamic linear projections that animates many linear projections as the orientation in data space changes. This maintains transparency to the original variables, while preserving information in the data.
 User-controlled steering (UCS) of the original dimensionality offers fine control of the local structure of projections. 
 
-Studies in 3D visualization generally show increased accuracy and perception of visuals in 3D over 2D. Dynamic linear 2D projections have been viewing briefly in head-tracked VR, but never with true 3D projections. The Immersive Analytics Toolkit offers a frame works available for implementing data visualization in VR.
+Excitement and hype about virtual reality preceded hardware's progress in the 1980's and 90's for a false start with data visualization. Despite this and more recently, studies have regularly shown increased accuracy of perception of visuals displayed in 3D over 2D, including in projected subspaces.
 
-This research involves extending data visualization as data dimensionality increases, improving the perception of dynamic linear projections via application in VR, and novel dynamic projections in 3D space, and explores the potential gains from doing so.
+Multivariate data is ubiquitous and viewing it in data-space is a crucial aspect of data analysis and consumption. This research involves scaling data visualization as data dimensionality increases, improving the perception of dynamic linear projections via application in VR, and implements novel dynamic projections in 3D space, and explores the benefits of doing so.
 
 
 <!-- 

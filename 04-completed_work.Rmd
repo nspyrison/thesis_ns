@@ -99,7 +99,7 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 
 # Completed work {#ch:completed_work}
 
-Implementing UCS in low dimensions is preliminary to the extension of the UCS into 3D space. This contribution (C #1) answers the RO, and forms the foundation for future work addressed by RO #3 & 4. 
+Implementing UCS in low dimensions is fundamental to the extension of the UCS into 3D space. The implementation of such, forms the foundation for future work addressed in the remaining research objectives. 
 
 ## RO #1) How can UCS be implemented in 1- and 2D projections?
 
@@ -142,7 +142,7 @@ Start with multivariate data in an $n \times p$ numeric matrix, and an orthonorm
   \end{bmatrix}
 \end{align*}
 
-The algorithm is primarily operating on the projection basis and utilizes the data only when making a display for computational efficiency. A broader list of touring notation is given in \ref{sec:tour_notation}.
+The algorithm is primarily operating on the projection basis and utilizes the data only when making a display for computational efficiency. A more comprehensive list of tour notation is given in \ref{sec:tour_notation}.
 
 ### Toy data set
 
@@ -243,7 +243,7 @@ For each $\phi_i$, post multiply the manipulation space by a rotation matrix, pr
 \begin{align*}
   \textbf{RM}_{[p,~d+1,~i]}
   &= \textbf{M}_{[p,~d+1]} ~*~ \textbf{R}_{[d+1,~d+1]}
-    ~~~~~~~~~~~~~~~~~~~~~~~~\text{For the $d=2$ case:} \\
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\text{For the $d=2$ case:} \\
   &= \begin{bmatrix}
     M_{1,~1} & \dots & M_{1,~d} & M_{1,~d+1} \\
     M_{2,~1} & \dots & M_{2,~d} & M_{2,~d+1} \\
@@ -277,7 +277,7 @@ Where:
 In application: compile the sequence of $\phi_i$ and create an array for each rotated manipulation space. $\phi$ is the angle of change relative to the $\phi_1$, the transformation $\phi_i$ - $\phi_1$ to useful to think about $\phi$ relative to the basis plane. If the manip variable doesn't move as expected this is the first place to check.
 
 
-Figure \@ref(fig:step3) illustrates the sequence with 15 projected bases and highlight the manip variable on top, while showing the corresponding projected data points on the bottom. A dynamic version of this tour can be viewed online at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/, will take a moment to load.
+Figure \@ref(fig:step3) illustrates the sequence with 15 projected bases and highlight the manip variable on top, while showing the corresponding projected data points on the bottom. A dynamic version of this tour can be viewed online at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/, (may take a moment to load).
 
 
 (ref:step3-cap) Rotated manipulation spaces, a radial manual tour manipulating `aded2` of standardized flea data. The manipulation variable, `aede2`, extends from its initial contribution to a full contribution to the projection before decreasing to zero, and then returning to its initial state. A dynamic version can be viewed at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/.
