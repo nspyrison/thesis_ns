@@ -368,7 +368,7 @@ Another study, @gracia_new_2016, depicted in figure \@ref(fig:gracia16fig), perf
 (ref:gracia16fig-cap) Screen capture from @gracia_new_2016: "Figure 5. Distance perception test. Left-hand image: 2D version. Here, the yellow line could be perceived as roughly twice the length of the magenta line, thus the value to be introduced should be approximately 2.0. Right-hand image: 3D version. Here, the inclusion of an extra dimension could provide new information about the relation, in terms of distances, between both lines."
 
 ```{r gracia16fig, echo=F, out.width='70%', fig.cap = "(ref:gracia16fig-cap)"}
-knitr::include_graphics("./figures/gracia16fig")
+knitr::include_graphics("./figures/gracia16fig.PNG")
 ```
 
 
@@ -377,15 +377,21 @@ knitr::include_graphics("./figures/gracia16fig")
 (ref:wagner18fig-cap) Screen capture from @wagner_filho_immersive_2018, original captions contained in capture.
 
 ```{r wagner18fig, echo=F, out.width='50%', fig.cap = "(ref:wagner18fig-cap)"}
-knitr::include_graphics("./figures/wagner18fig")
+knitr::include_graphics("./figures/wagner18fig.PNG")
 ```
 
-### Immersive analytics in VR
+### Immersive analytics platform in VR
 
-ImAxes, ITAK.
+Immersive analytics is a emerging technology where data visualization and analysis is facilitated in an intuitive, immersive virtual reality environment. An example of which is shown in @cordeil_imaxes:_2017 introduces a collaborative space for immersive data analysis. Where axes are displayed and intuitively interacted with while respond to proximity to other variable axes and popping into place changing the resulting geometric display. For example, three variables can be placed as the $x,~y,~z$ axis for a 3D scatterplot or stood up right next to each other for a parallel coordinate plot. The subsequent work in @cordeil_immersive_2019 builds from the previous reference, and refines it for the next iteration in interactive, scalable data visualization in virtual spaces.
+
+(ref:cordeil2017fig-cap) Screen capture of figure 15 from @cordeil_imaxes:_2017.
+
+```{r cordeil2017fig, echo=F, out.width='50%', fig.cap = "(ref:cordeil2017fig-cap)"}
+knitr::include_graphics("./figures/cordeil2017fig.PNG")
+```
 
 ### Research gaps
 
-When comparing between 3D and 2D orthogonal views studies in general show that perception accuracy is better in 3D, though manipulation speed is generally slower. The speed discrepancy is confounded by the difference in users familiar with manipulating 2D vs 3D spaces [@lee_effects_1986; @wickens_implications_1994; @tory_visualization_2006; counter example @sedlmair_empirical_2013]. Similar results have been shown in static, 3D embedded spaces [@gracia_new_2016; @wagner_filho_immersive_2018] and in dynamic 2D embedded spaces depicted in immersive 3D [@nelson_xgobi_1998]. After more than two decades of hardware advancement, the quality, support, and prevalence of VR technology is better and more easily accessible than ever. It's time to view dynamic 3D projections with immersive spaces and quantify the benefits (RO #3 & 4).
+When comparing between 3D and 2D orthogonal views studies in general show that perception accuracy is better in 3D, though manipulation speed is generally slower. The speed discrepancy is confounded by the difference in users familiar with manipulating 2D vs 3D spaces [@lee_effects_1986; @wickens_implications_1994; @tory_visualization_2006; counter example @sedlmair_empirical_2013]. 
 
-@nelson_xgobi_1998 views $d=2$ projections in head tracked 3D comparing them to 2D counterparts but didn't implement $d=3$ dynamic projections (**RO #3**). After these implementations the efficacy of $d=3$ tours should be compared across display device (**RO #4**).
+Similar results have been shown in static, 3D projected spaces [@gracia_new_2016; @wagner_filho_immersive_2018] and in dynamic $d=2$ embedded spaces depicted in immersive 3D [@nelson_xgobi_1998]. The literature stops short of the dynamic $d=3$ linear projections. With Modern VR hardware advancement, so too does the, quality, resolution, and prevalence of VR advance, making VR more easily accessible than ever. It's time to view dynamic 3D projections with immersive spaces and quantify the corresponding benefits (**RO #3 & 4**).

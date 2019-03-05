@@ -38,24 +38,28 @@ projections across 2D and 3D display devices},
 \chapter*{Abstract}\label{abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
-Visualizing data space is crucial to exploratory data analysis yet doing
-so quickly becomes difficult as the dimensionality of the data
-increases. Traditionally, static, low-dimensional linear embeddings are
-used to identify clustering, outliers, and structure. Observing one such
-embedding often misses a significant amount of variation, and hence,
-information held within the data. Touring is a method that animates many
-linear projections as the orientation in data space is varied. This
-maintains transparency to the original variables, while preserving
-information in the data.
+Visualizing data space is crucial to exploratory and general data
+analysis yet doing so quickly becomes difficult as the dimensionality of
+the data increases. Traditionally, static, low-dimensional linear
+embeddings are used to identify clustering, outliers, and structure.
+Observing one such embedding often misses a significant amount of
+variation, and hence, information held within the data. Tours are a
+class of dynamic linear projections that animates many linear
+projections as the orientation in data space changes. This maintains
+transparency to the original variables, while preserving information in
+the data. User-controlled steering (UCS) of the original dimensionality
+offers fine control of the local structure of projections.
 
-There are various ways to generate tour paths and many geometrics to
-view each path. Once an interesting feature has been identified more
-information can be gleaned with finer control to explore the local
-structure, in particular through user-controlled steering (UCS).
+Studies in 3D visualization generally show increased accuracy and
+perception of visuals in 3D over 2D. Dynamic linear 2D projections have
+been viewing briefly in head-tracked VR, but never with true 3D
+projections. The Immersive Analytics Toolkit offers a frame works
+available for implementing data visualization in VR.
 
-This research has implemented UCS in 2D embeddings and will further
-compare 2D UCS with alternatives, bring UCS to 3D embeddings in virtual
-reality, and explore the efficacy of doing so.
+This research involves extending data visualization as data
+dimensionality increases, improving the perception of dynamic linear
+projections via application in VR, and novel dynamic projections in 3D
+space, and explores the potential gains from doing so.
 
 \clearpage\pagenumbering{arabic}\setcounter{page}{0}
 
@@ -160,10 +164,10 @@ research can then be summarized as:
 
 \section{Methodology}\label{methodology}
 
-This current and future work is done with reproduction priciples in
+This current and future work is done with reproduction principles in
 mind, where data, analysis, and code is stored in the same directory in
 order to make the work as transparent and reproducible as possible.
-Directories are hosted publically on GitHub. Reproduction of this report
+Directories are hosted publicly on GitHub. Reproduction of this report
 is discussed in section \ref{sec:source}.
 
 
@@ -176,7 +180,7 @@ is discussed in section \ref{sec:source}.
 }
 
 \caption{Data analysis workflow. This research
-aids visualisation in exploratory data analysis and in the workflow.}\label{fig:dataanalysisworkflow}
+aids visualization in exploratory data analysis and in the workflow.}\label{fig:dataanalysisworkflow}
 \end{figure}
 
 RO \#1 is completed \textbf{applied research} following work lied
@@ -190,45 +194,36 @@ applying contribution from RO \#1 with the work done in
 data in VR. An \textbf{empirical study} is used to explore the efficacy
 of bringing UCS into 3D as compared across various display devices in RO
 \#4. This will be done by measuring participant speed and accuracy of
-tasks wihtin the different modalities, comparing biometric readings, and
-subjective likert survey of paricipents. A lineup-type model as outlined
-in \textcite{hofmann_graphical_2012} may also be employed for assessing
-quality of display types.
+tasks within the different modalities, comparing biometric readings, and
+subjective likert survey of participants. A lineup-type model as
+outlined in \textcite{hofmann_graphical_2012} may also be employed for
+assessing quality of display types.
 
-In this report, the related liturature is discussed in chapter
+In this report, the related literature is discussed in chapter
 \ref{ch:lit_review}. a brief overview of the research is given in
 chapter \ref{ch:projectoverview}, followed by the completed work and
 future work in chapters \ref{ch:completed_work} and \ref{ch:future_work}
 respectively. A prospective timeline is listed in chapter
 \ref{ch:timeline}. Notation for dynamic touring and VR data
-vizualization can be found in appendix \ref{sec:tour_notation}, and
-except of a paper draft to be subbmitted to the R Journal can be found
-in \ref{ch:spinifex_paper}.
+visualization can be found in appendix \ref{sec:tour_notation}, and
+except of a paper draft to be submitted to the R Journal can be found in
+\ref{ch:spinifex_paper}.
 
 \chapter{Literature review}\label{ch:lit_review}
 
-In the section below we discuss the acedemic research in two primary
+In the section below we discuss the academic research in two primary
 areas: that of dynamic linear projection (collectively known as tours)
-followed by multivariate data visualisation in stereoscopic 3D.
+followed by multivariate data visualization in stereoscopic 3D.
 
 \section{Dynamic linear projections of multivariate data
 (tours)}\label{sec:tour}
 
 \subsection{Overview}\label{overview}
 
-Exploratory data analysis is a critical preliminary task at the root of
-any analysis. Understanding the distribution and summaries are at the
-heart of choosing and validating the assumptions of any methodology.
-However, there are risks associated with only looking at summary
-statistics alone. \textcite{anscombe_graphs_1973} and
-\textcite{matejka_same_2017} both point out the dangers of doing so,
-namely missing glaring patterns and peculiarity that can be held within
-data even when summary statistics are the same. It's clear that visual
-intuition, and consequently human-in-the-loop analysis, is still is a
-pivotal aspect of EDA.
-
-There is an issue with visualizing data as it is dimensionality
-increases. In univariate data sets histograms, or smoothed density
+In the introduction we have established that visualizing data-space is
+an important aspect of exploratory data analysis and data analysis in
+general. Yet, there is an inherent difficulty as the dimensionality of
+data increases. In univariate data sets histograms, or smoothed density
 curves are employed to visualize data. In bivariate data \(x-y\)
 scatterplots and contour plots (2D density) can be employed. In three
 dimensions the two most common techniques are 3D
@@ -269,14 +264,14 @@ rotates then the shadow correspondingly changes. Observers watching only
 the shadow are functionally watching a \(d=2\) tour as the 3D object is
 manipulated. Some orientations explain more information about the shape
 of the object than others but watching an animation of the shadow
-changing gives a more robust understanding than looking at any one still
+changing gives a more robust understanding than looking at any one
 frame. More complex structures generally require more time to comprehend
 the nature of the geometry. These features hold true in touring as well.
 
 \subsection{Example illustrations}\label{example-illustrations}
 
 A list of touring notation is given in the glossary section
-\ref{sec:tour_notation}
+\ref{sec:tour_notation}.
 
 This sections a toy data set of 74 observations of flea beetles across 6
 numeric variables corresponding to physical measurements,
@@ -485,9 +480,9 @@ The little tour introduced in \textcite{mcdonald_interactive_1982}, on
 the other hand is necessarily both dense and rapid, performing
 essentially an exhaustive search on the Grassmannian. However, this path
 uninteresting and with long periods of similar projections strung
-together. The Grassmanian is necessarily large and increases with the
-square of \(p\). Viewing of the whole Grassmanian is time consuming, and
-interesting projections are sparse, there was a clear space for
+together. The Grassmannian is necessarily large and increases with the
+square of \(p\). Viewing of the whole Grassmannian is time consuming,
+and interesting projections are sparse, there was a clear space for
 computers to narrow the search space.
 
 Guided tours \autocite{hurley_analyzing_1990} optimize an objective
@@ -629,12 +624,12 @@ including:
 Currently there is no compiling software that offers UCS (\textbf{RO
 \#1}). This leaves the class of dynamic linear projections without the
 most precise, fine scale control of rotating \(p\)-space. This should be
-reimplemented with an eye on extensiblity and maintanability,
+reimplemented with an eye on extensibility and maintainability,
 
 A comparative study outlining the benefits of UCS vs alternatives is
 also absent from the literature (\textbf{RO \#2}). The benefits of
-dynamic linear projections stands in theory, but a direct comparison
-with popular alternatives should be made. Barriers to addoption should
+dynamic linear projections withhold in theory, but a direct comparison
+with popular alternatives should be made. Barriers to adoption should
 also be addressed such as: dynamic display is not easy on print and in
 .pdf documents.
 
@@ -854,6 +849,36 @@ easier to find information.
 capture.}\label{fig:wagner18fig}
 \end{figure}
 
+\subsection{Immersive analytics platform in
+VR}\label{immersive-analytics-platform-in-vr}
+
+Immersive analytics is a emerging technology where data visualization
+and analysis is facilitated in an intuitive, immersive virtual reality
+environment. An example of which is shown in
+\textcite{cordeil_imaxes:_2017} introduces a collaborative space for
+immersive data analysis. Where axes are displayed and intuitively
+interacted with while respond to proximity to other variable axes and
+popping into place changing the resulting geometric display. For
+example, three variables can be placed as the \(x,~y,~z\) axis for a 3D
+scatterplot or stood up right next to each other for a parallel
+coordinate plot. The subsequent work in
+\textcite{cordeil_immersive_2019} builds from the previous reference,
+and refines it for the next iteration in interactive, scalable data
+visualization in virtual spaces.
+
+
+
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{./figures/cordeil2017fig} 
+
+}
+
+\caption{Screen capture of figure 15 from
+\textcite{cordeil_imaxes:_2017}.}\label{fig:cordeil2017fig}
+\end{figure}
+
 \subsection{Research gaps}\label{research-gaps-1}
 
 When comparing between 3D and 2D orthogonal views studies in general
@@ -861,28 +886,27 @@ show that perception accuracy is better in 3D, though manipulation speed
 is generally slower. The speed discrepancy is confounded by the
 difference in users familiar with manipulating 2D vs 3D spaces
 \autocites{lee_effects_1986}{wickens_implications_1994}{tory_visualization_2006}[counter
-example][]{sedlmair_empirical_2013}. Similar results have been shown in
-static, 3D embedded spaces
-\autocites{gracia_new_2016}{wagner_filho_immersive_2018} and in dynamic
-2D embedded spaces depicted in immersive 3D
-\autocite{nelson_xgobi_1998}. After more than two decades of hardware
-advancement, the quality, support, and prevalence of VR technology is
-better and more easily accessible than ever. It's time to view dynamic
-3D projections with immersive spaces and quantify the benefits (RO \#3
-\& 4).
+example][]{sedlmair_empirical_2013}.
 
-\textcite{nelson_xgobi_1998} views \(d=2\) projections in head tracked
-3D comparing them to 2D counterparts but didn't implement \(d=3\)
-dynamic projections (\textbf{RO \#3}). After the implementation The
-eficacy of \(d=3\) tours should be compared across display device
+Similar results have been shown in static, 3D projected spaces
+\autocites{gracia_new_2016}{wagner_filho_immersive_2018} and in dynamic
+\(d=2\) embedded spaces depicted in immersive 3D
+\autocite{nelson_xgobi_1998}. The literature stops short of the dynamic
+\(d=3\) linear projections. With Modern VR hardware advancement, so too
+does the, quality, resolution, and prevalence of VR advance, making VR
+more easily accessible than ever. It's time to view dynamic 3D
+projections with immersive spaces and quantify the corresponding
+benefits (\textbf{RO \#3 \& 4}).
 
 \chapter{Project overview}\label{ch:projectoverview}
 
-Figure \ref{fig:ProjectOverview} depicts a schematic flow chart that the
+The research gaps in the literature review leave room for the research
+objectives outlined in the introduction. Figure
+\ref{fig:ProjectOverview} depicts a schematic flow chart that the
 research objectives will be executed in. RO \#1, application of 2D
 user-controlled steering (UCS), sets the foundation for which the other
 objectives can be researched. RO \#3, the application of 3D UCS, must
-precede RO \#4, exploring the eficacy of 3D UCS accross display devices.
+precede RO \#4, exploring the efficacy of 3D UCS across display devices.
 RO \#2, the comparison of 2D UCS vs alternatives, must come after RO
 \#1, but is of lower priority to RO \#3 \& 4, and so will be conducted
 last, in the event of a time crunch.
@@ -892,19 +916,19 @@ last, in the event of a time crunch.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{./figures/ProjectOverview} 
+{\centering \includegraphics[width=1\linewidth]{./figures/ProjectOverview} 
 
 }
 
 \caption{Flow chart of research objective (RO)
-dependancies, work order, and methodology.}\label{fig:ProjectOverview}
+dependencies, work order, and methodology.}\label{fig:ProjectOverview}
 \end{figure}
 
 \chapter{Completed work}\label{ch:completed_work}
 
-Implementing UCS in low dimensions is preliminary to the extention of
+Implementing UCS in low dimensions is preliminary to the extension of
 the UCS into 3D space. This contribution (C \#1) answers the RO, and
-forms the foundation for future work adressed by RO \#3 \& 4.
+forms the foundation for future work addressed by RO \#3 \& 4.
 
 \section{RO \#1) How can UCS be implemented in 1- and 2D
 projections?}\label{ro-1-how-can-ucs-be-implemented-in-1--and-2d-projections}
@@ -944,7 +968,7 @@ Creating a manual tour animation requires these steps:
   contribution.
 \item
   Generate a rotation sequence which zeros coefficient and increases it
-  to 1 before returning to the inital position.
+  to 1 before returning to the initial position.
 \end{enumerate}
 
 These steps are described in more detail below.
@@ -1091,7 +1115,7 @@ illustration of such can been seen below in figure \ref{fig:step2}.
 Imagine being able to grab hold of the red axis and rotate it changing
 the projection onto the basis plane. This is what happens in a manual
 tour. For a radial tour, fix \(\theta\), the angle within the blue
-plane, and vary the \(\phi\), the angle orthagonal to the blue
+plane, and vary the \(\phi\), the angle orthogonal to the blue
 projection plane. The user controlling these angles changes the values
 of the coefficient the manip variable and performs a constrained
 rotation on the remaining variables.
@@ -1197,7 +1221,7 @@ data for the projection in data-space.
       \begin{bmatrix}
         RM_{1,~1} & RM_{1,~2} & RM_{1,~3} \\
         RM_{2,~1} & RM_{2,~2} & RM_{2,~3} \\
-        \vdots     & \vdots     & \vdots     \\
+        \vdots    & \vdots    & \vdots    \\
         RM_{p,~1} & RM_{p,~2} & RM_{p,~3}
       \end{bmatrix}_{[p,~d+1]}
 \end{align}
@@ -1223,57 +1247,67 @@ supplying angular speed.
 alternatives?}\label{ro-2-does-2d-ucs-provide-benefits-over-alternatives}
 
 High dimensional data and models are ubiquitous but viewing them in data
-space is not trivial. Currently it is common practice to use Principal
-Component Analysis (PCA), Multi-Dimensional Scaling (MDS), or a
-non-linear embedding like t-distributed neighbor embeddings (tSNE).
-These methods are all unsupervised projections of multivariate spaces to
-a single, static lower embedding. PCA is a linear transformation that
-orients linear combinations of the variables into basis components and
-orders them according to amount of variation shown. MDS has linear and
-non-linear versions that compare the distances between pairwise
-variables. tSNE is a nonlinear technique that iterates epochs of:
+space is not trivial. This work quanifies various measurements of 2D UCS
+implemented in RO \#1, and commonly used alternatives. All comparison
+groups are unsupervised (agnostic of clustering) static, single
+embeddings in lower dimension of the data, and would include:
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\begin{itemize}
 \tightlist
 \item
-  constructing a probability distributions for selecting neighboring
-  data and
+  \textbf{Principal Component Analysis (PCA)}, is a linear
+  transformation that orients linear combinations of the variables into
+  basis components and orders them according to amount of variation. The
+  first principal component is the linear combination that explains the
+  most variation with the second explaining the most of the remaining
+  variation and is orthogonal to the all previous components, and so on.
 \item
-  minimizing Kullback-Leibler divergence (a measure of relative
-  entropy).
-\end{enumerate}
+  \textbf{Multi-Dimensional Scaling (MDS)}, non-linear dimension
+  reduction that compares pairwise distances between observations.
+\item
+  \textbf{t-distributed neighbor embeddings (tSNE)}, a nonlinear
+  technique that iterates epochs of: 1) constructing a probability
+  distributions for selecting neighboring data and 2), minimizing
+  Kullback-Leibler divergence (a measure of relative entropy).
+\end{itemize}
 
 Unfortunately, static linear projections necessarily cut variation in
 the components not shown, while non-linear techniques lose transparency
-back to the original variable-space. Touring preserves transparency to
+back to the original variable-space. Tours preserve this transparency to
 variable-space and keeps variation in tack. Providing user-controlled
 steering of tour should allow for finer structural exploration than the
 alternatives.
 
-In this future work I plan to perform a case study between UCS leading
-alternatives. Design space includes data sets, techniques, and measures
-of comparison.
+The tentative methodology for this future work is a \textbf{case study}
+between UCS and leading alternatives. This will be a sufficient
+comparison if there are enough quantifiable measurements across the
+different techniques. However, if enough measurements are not comparable
+across technique an empirical study analogous to the study suggested in
+RO \# 4 will be considered. Design space includes data sets, techniques,
+and measures of comparison.
 
 \section{RO \#3) How can UCS be extended to
 3D?}\label{ro-3-how-can-ucs-be-extended-to-3d}
 
-Touring involves linear embeddings in typically \(d=2\) dimensions.
-While \textcite{nelson_xgobi_1998} and \textcite{arms_benefits_1999}
-have explored the efficacy of 2D vs 3D display, they have done so on 2D
-embeddings, I will generalize the UCS to scalable dimensions in R, built
-upon the existing packages \emph{tourr} and \emph{spinifex}. This will
-allow for the backend work of 3D rotations.
+The literature has shown positive results for improved accuracy and
+precision for 3D displays. Dynamic linear projections should have
+similar gains in \(d=2\) projections, and the additional dimension
+should allow for improved perception of surfaces and dynamic viewing of
+\(d=3\) projections. The work done in RO \#1) will be extended to these
+uses.
 
-Recently \textcite{cordeil_imaxes:_2017} shared immersive data analysis
-written in C\# to be used in conjunction with the 3D compatible game
-engine Unity. The outcome of this work was refined and generalized in
-the Immersive Analytics Toolkit (IATK),
-\textcite{cordeil_immersive_2019}.
+The work done in \textcite{cordeil_imaxes:_2017} creates a collaborative
+space for people to engage in immersive data analysis. The subsequent
+\textcite{cordeil_immersive_2019} created the immersive analytics
+toolkit (IATK), which generalized data visualization in the Unity game
+engine. By integrating dynamic linear touring in 3D with the IATK offers
+a consolidated user interface that can be used across various display
+devices in RO \#4.
 
-This future work in an exploratory design extending UCS to 3D
-projections and integrating the calling R scripts with the existing IATK
-for a compatible front end to be used across display devices.
+This \textbf{exploratory design} extending UCS to \(d=3\) projections is
+a novel contribution tying together open source work across computer
+languages and offers a compatible front end to be used across display
+devices.
 
 \section{RO \#4) Does UCS in 3D displays provide perception benefits
 over 2D displays?}\label{UCS_3dvs2d}
@@ -1294,23 +1328,27 @@ display as compared with 3D.
 The results of \textcite{wagner_filho_immersive_2018},
 \textcite{nelson_xgobi_1998} and, \textcite{arms_benefits_1999} cast
 positive light on 3D spaces improving the perception of embeddings of
-high-dimensional data. After implementing touring and UCS in 3D spaces
-(RO \#3), I plan to explore the efficacy of doing so with the following
-empirical study: comparison of 3D touring across display dimension in 4
-instances: standard 2D monitor, stereoscopic 3D monitor (on a zSpace
-200), and head-mounted VR goggle (HTC VIVE), and immersion in a CAVE
-environment. Implementation in the game engine Unity will allow for a
-standardized user interface. Tasks of structure perception will be
-conducted across 2 data sets of high energy physics data already in
-publication \autocites{wang_visualizing_2018}{cook_dynamical_2018} and
-discussed in appendix \ref{ch:spinifex_paper}. Task order will be
-randomly assigned to minimize learning bias. Participants will perform
-all tasks on each display devices, for each of the data sets. Time, and
-accuracy will be tracked, and participants will be asked to fill out a
-small survey with demographic data and subjective experience on a
-5-point Likert scale. The design space of this study includes display
-type, task type, survey questions, familiarity with 3D, familiarity with
-linear projections.
+high-dimensional data, while others have found the same for data already
+in three dimensions. After implementing touring and UCS in 3D spaces (RO
+\#3), the next step is to quantify the effects across display type.
+
+I plan to test the efficacy of doing so with the following
+\textbf{empirical study}: \emph{randomized full factorial design}, where
+every participant will complete every task on every display device. Task
+order and display device will be randomly assigned to minimize learning
+bias. Correctness and speed of tasks will be recorded alongside
+demographic data and subjective 5-point Likert scale survey. A
+lineup-type model as outlined in \textcite{hofmann_graphical_2012} may
+be employed to quantify ``best'' display device.
+
+Tasks will test perception of structure and surface, varying across
+manipulation variable. All tasks will be conducted across at least three
+display devices: standard 2D monitor, stereoscopic 3D monitor (on a
+zSpace 200), and head-mounted VR goggles (HTC VIVE). User interface will
+be standardized across display device. The data explored will be of high
+energy physics experiments already being discussed in publication
+\autocites{wang_visualizing_2018}{cook_dynamical_2018} and looked at in
+2D UCS in appendix \ref{ch:spinifex_paper}.
 
 \chapter{PhD schedule}\label{ch:timeline}
 
@@ -1319,7 +1357,7 @@ linear projections.
 \begin{center}\includegraphics{thesis_files/figure-latex/timeline-1} \end{center}
 
 \emph{Note RO \#2 logically would fit before RO \#3 \& 4, but is of
-lowwer impact and retrospective case study. I move this research to the
+lower impact and retrospective case study. I move this research to the
 end to give the other research objectives the priority.}
 
 \section{Accompanying documents}\label{accompanying-documents}
@@ -1369,7 +1407,10 @@ end to give the other research objectives the priority.}
 This article was created in \texttt{R} \autocite{r_core_team_r:_2018},
 using \texttt{bookdown} \autocite{xie_bookdown:_2016} and
 \texttt{rmarkdown} \autocite{xie_r_2018}, with code generating the
-examples inline. The source files can be found at:
+examples inline.
+
+Following good practice of version control and reproduction, the source
+files can be found at:
 \href{https://github.com/nspyrison/Confirmation}{github.com/nspyrison/confirmation/}.
 
 \appendix
@@ -1514,7 +1555,7 @@ non-linear transformations. Like PCA and LDA, touring uses linear
 dimension reduction that maintain transparency back to the original
 variable-space. PCA and LDA are typically represented with single static
 projection as a 2- or 3D scatterplot, inherently losing the variation
-held with the high components, whereas touring keep the information in
+held with the high components, whereas touring keeps the information in
 tack by showing the other components across time. Non-linear
 transformations such as tSNE (t-distributed stochastic nearest neighbor
 embeddings), MDS (multi-dimension scaling), and LLE (local linear
@@ -1562,7 +1603,7 @@ future research.
 \section{Algorithm}\label{sec:algorithm_paper}
 
 \emph{Algorithm and example is discussed above in section
-\ref{sec:algorithm} and is purposfully removed here.}
+\ref{sec:algorithm} and is purposefully removed here.}
 
 --\textgreater{}
 
