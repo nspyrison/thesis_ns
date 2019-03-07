@@ -10,9 +10,9 @@ knitr::opts_chunk$set(
 
 # Introduction {#ch:introduction}
 
-## Exploratory data analysis and visual intuition
+## Exploratory data analysis
 
-The term exploratory data analysis was coined in @tukey_exploratory_1977. Tukey purposfully leaves the term to broadly encompass the phase of exploring, understanding the structure of the data and validating assumptions made by prospective methodology. Data is everywhere and understanding the shape and distribution of the data is an early and fundamental task. Visualization is crucial to a clear understanding of the data. Things can go awry when data is summarized via numeric statistics alone [@anscombe_graphs_1973; @matejka_same_2017]. In these studies, bivariate data have the same summary statistics, while showing obvious red flags that could go completely unheeded if preliminary graphing is foregone. This requirement for visuals also necessitates *human-in-the-loop* analysis.
+The term exploratory data analysis was coined in @tukey_exploratory_1977. Tukey purposefully leaves the term to broadly encompass the phase of exploring, understanding the structure of the data and validating assumptions made by prospective methodology. Data is everywhere and understanding the shape and distribution of the data is an early and fundamental task. Visualization is crucial to a clear understanding of the data. Things can go awry when data is summarized via numeric statistics alone [@anscombe_graphs_1973; @matejka_same_2017]. In these studies, bivariate data have the same summary statistics, while showing obvious red flags that could go completely unheeded if preliminary graphing is foregone. This requirement for visuals also necessitates *human-in-the-loop* analysis.
 
 
 (ref:matejka17fig-cap) 12 data sets created from the datasaurus, each with the same summary statistics, yet visual peculiarity.
@@ -21,9 +21,9 @@ The term exploratory data analysis was coined in @tukey_exploratory_1977. Tukey 
 knitr::include_graphics("./figures/matejka17fig.png")
 ```
 
-It is clear that data-space visualization is needed, but becomes complex as data dimensionality increases. Embedding (or projecting) $p-$dimensional data on to a lower, $d$-dimensional subspace is a common dimension reduction approach to visualize multivariate data spaces. Traditionally single static projection is used to summarize a space, which necessarily shows a subset of the variation of the data. @asimov_grand_1985 suggested the use of viewing projections dynamically across a changing projection basis allows for more variation to be contained and viewed temporally. This dynamic view of many changing projections is known as *tours*. While, there are different methods of generating tour paths, human-in-the-loop user-controlled steering (UCS) offers the finest control for navigating local structure and is particularly useful in exploration after an interesting feature has been identified.
+It is clear that data-space visualization is needed but becomes complex as data dimensionality increases. Embedding (or projecting) $p-$dimensional data on to a lower, $d$-dimensional subspace is a common dimension reduction approach to visualize multivariate data spaces. Traditionally single static projection is used to summarize a space, which necessarily shows a subset of the variation of the data. @asimov_grand_1985 suggested the use of viewing projections dynamically across a changing projection basis allows for more variation to be contained and viewed temporally. This dynamic view of many changing projections is known as *tours*. While, there are different methods of generating tour paths, human-in-the-loop user-controlled steering (UCS) offers the finest control for navigating local structure and is particularly useful in exploration after an interesting feature has been identified.
 
-Recent headset hardware has made VR more affordable, available to a wide audience, at ever increasing resolutions of display. The literature points to improved perception  when viewing multivariate data in 3D VR as compared with traditional 2D monitors. Yet tours are often viewed on traditional 2D monitors while the selected geometric display dictates the dimensionality of graphic, $d=\{1, 2, p\}$. With the exception @nelson_xgobi_1998, where $d=2$ tours were viewed in 3D headtracked VR. Bringing dynamic projections and UCS into VR should improve perception of $d=2$ embeddings, allow for more accuracte and intuitive perception of 3D surfaces, and enable dynamic projections $d=3$ spaces.
+Hardware improvement has made VR more affordable and available to wider audiences, at ever increasing resolutions of display. The literature points to improved perception when viewing multivariate data in 3D VR as compared with traditional 2D monitors. Yet tours are often viewed on 2D monitors while the selected geometric display dictates the dimensionality of graphic, $d=\{1, 2, p\}$. With the exception @nelson_xgobi_1998, where $d=2$ tours were viewed in 3D head-tracked VR. Bringing dynamic projections and UCS into VR should improve perception of $d=2$ embeddings, allow for more accurate and intuitive perception of 3D surfaces, and enable dynamic projections $d=3$ spaces.
 
  
 ## Research objectives
@@ -44,17 +44,28 @@ Data and models are typically high-dimensional, with many variables or parameter
 
 ## Methodology
 
-This current and future work is done with reproduction principles in mind, where data, analysis, and code is stored in the same directory in order to make the work as transparent and reproducible as possible. Directories are hosted publicly on GitHub. Reproduction of this report is discussed in section \ref{sec:source}.
+RO #1 is completed **applied research** following work in @cook_manual_1997 to allow for UCS. This outcome of this is an *R* package, `spinifex`, which will be submitted to to CRAN and for hosting and distribution. This forms the foundation for future work in the remaining objectives. 
 
-(ref:dataanalysisworkflow-cap) Data analysis workflow. This research aids visualization in exploratory data analysis and in the workflow.
+The second objective is a **case study** comparison between dynamic linear projections and alternatives (static linear and static non-linear projections such as Principal Component Analysis, Multi-Dimensional Scaling, and t-distributed neighbor embeddings, described in more detail in chapter \ref{ch:future_work}). Measures comparing between the techniques will include: variation explained, transparency to the original variable space, clustering, and outlier identification.
+
+RO #3 involves **experimental design** applying contribution from RO #1 with the immersive analytics toolkit (IATK) in @cordeil_immersive_2019, an extensible toolkit for visualizing data in VR. First the work from RO # 1 will be extend into $d=3$ projections an surface projections. This will be called from the IATK and used for a standardized interface across display devices.
+
+The response to RO #4 is a *randomized full factorial design* **empirical study** to explore the efficacy of bringing UCS into 3D as compared across various display devices. In this design every participant will complete every task on every display device. Quantitative measurements include participant speed and accuracy of tasks, biometric readings, and subjective Likert survey of participants. A lineup-type model as outlined in @hofmann_graphical_2012 may also be employed for assessing quality of display types.
+
+In this report, the related literature is discussed in chapter \ref{ch:lit_review}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by the completed work and future work in chapters \ref{ch:completed_work} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic touring and VR data visualization can be found in appendix \ref{ch:glossary}, and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex_paper}.
+
+
+## Workflow and reproduction
+
+Figure \ref{dataanalysisworkflow} depicts general data analysis workflow [@wickham_r_2016]. Where data first must be imported into a tool, the structure of the data must be tidied and ordered neatly into the correct use format. After the data enters a repeating cycle, where values maybe transformed, visualized, and modeled with communication going to the appropriate recipients. 
+
+(ref:dataanalysisworkflow-cap) Data analysis workflow [@wickham_r_2016]. This research aids visualization in exploratory data analysis and in the workflow.
 
 ```{r dataanalysisworkflow, echo=F, out.width='100%', fig.cap = "(ref:dataanalysisworkflow-cap)"}
 knitr::include_graphics("./figures/data_analysis_workflow.png")
 ```
 
-RO #1 is completed **applied research** following work lied [@cook_manual_1997] to allow for UCS. This forms the foundation for future work in the remaining objectives. The second objective is a **case study** comparison between dynamic linear projections and alternatives (static linear and static non-linear projections) will be applied to answer RO #2. RO #3 involves **experimental design** applying contribution from RO #1 with the work done in @cordeil_immersive_2019, an extensible toolkit for visualizing data in VR. An **empirical study** is used to explore the efficacy of bringing UCS into 3D as compared across various display devices in RO #4. This will be done by measuring participant speed and accuracy of tasks within the different modalities, comparing biometric readings, and subjective likert survey of participants. A lineup-type model as outlined in @hofmann_graphical_2012 may also be employed for assessing quality of display types.
-
-In this report, the related literature is discussed in chapter \ref{ch:lit_review}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by the completed work and future work in chapters \ref{ch:completed_work} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic touring and VR data visualization can be found in appendix \ref{ch:glossary}, and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex_paper}.
+The programing language, *R*, is used in the work described below to import, tidy, and transform data. It can be use directly to visualize 2D tour (RO #1 & 2) or be consumed into the game engine *Unity* to visualize 3D tours (RO #3 & 4). Doing analysis and writeup in such programmatic ways allow work to be done reproducibly. All work completed and discussed is done with reproduction principles in mind, where data, analysis, and code are stored in the same directory in order to make the work as transparent and reproducible as possible. Transparency and reproduction of work is a key feature to a mature analysis workflow as they validate and defend the claims and methodology held within a work. Directories of completed and planned work are hosted publicly on GitHub, including this report. Accessing the source files for this report is discussed in section \ref{sec:source}.
 
 
 
