@@ -23,7 +23,7 @@ The literature has shown positive results for improved accuracy and precision fo
 
 The work done in @cordeil_imaxes:_2017 creates a collaborative space for people to engage in immersive data analysis. The subsequent @cordeil_immersive_2019 created the immersive analytics toolkit (IATK), which generalized data visualization in the Unity game engine. By integrating dynamic linear touring in  3D with the IATK offers a consolidated user interface that can be used across various display devices in RO #4.
 
-This **exploratory design** extending UCS to $d=3$ projections is a novel contribution tying together open source work across computer languages and offers a compatible front end to be used across display devices.
+This is an **exploratory design**, first the *R* package spinifex will be extended to 3D, and then calling it via the *Unity* package IATK for rendering in 3D VR and offers a compatible front end to be used across display devices.
 
 ## RO #4) Does UCS in 3D displays provide perception benefits over 2D displays? {#UCS_3dvs2d}
 
