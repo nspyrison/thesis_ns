@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+zGraveyard.rmd
 zYalong_confirmation.pdf
 figures/Project overview.xlsx
 _bookdown_files/*
@@ -12,4 +13,3 @@ thesis.out
 thesis.toc
 thesis.run.xlm
 thesis.xdv
-

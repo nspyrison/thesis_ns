@@ -99,11 +99,11 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 
 # Work in progress {#ch:workinprogress}
 
-Implementing UCS in low dimensions is fundamental to the extension of the UCS into 3D space. The implementation of such, forms the foundation for future work addressed in the remaining research objectives. 
+Implementing UCS in low dimensions is fundamental to the extension of the UCS into 3D space. The implementation of such forms the foundation for future work addressed in the remaining research objectives. 
 
 ## RO #1) How can UCS be implemented in 1- and 2D projections?
 
-This section covers the work done in the last year implementing USC via *manual tours*. Following experimental design methodology this work implements the manual tour as described in @cook_manual_1997 and allows users to rotate a selected variable into and out of a 2D projection of high-dimensional space for user-controlled steering (UCS). The primary use is to determine the sensitivity of structure visible in a projection to the contributions of a variable. This is particularly powerful for exploring the local structure once a feature of interest has been identified by a guided tour [@cook_grand_1995] for example. The algorithm for a manual tour allows rotations in horizontal, vertical, oblique, angular and radial directions. In the algorithm below focuses on radial rotation.
+This section covers the work done in the last year implementing USC via *manual tours*. Following experimental design methodology, this work implements the manual tour as described in @cook_manual_1997 and allows users to rotate a selected variable into and out of a 2D projection of high-dimensional space for user-controlled steering (UCS). The primary use is to determine the sensitivity of the structure to the contributions of the manipulation variable. This is particularly powerful for exploring the local structure once a feature of interest has been identified by a guided tour [@cook_grand_1995] for example. The algorithm for a manual tour allows rotations in horizontal, vertical, oblique, angular and radial directions. In the algorithm below focuses on radial rotation.
 
 Section \ref{sec:algorithm} explains the algorithm using a toy dataset. A wider discussion of implementation as an *R* package and application to high energy physics data [@wang_visualizing_2018; @cook_dynamical_2018] is attached in appendix \ref{ch:spinifex_paper} formatted as a paper that will be submitted to The R Journal.
 
@@ -113,7 +113,7 @@ Section \ref{sec:algorithm} explains the algorithm using a toy dataset. A wider 
 Creating a manual tour animation requires these steps:
 
 1. Provided with a 2D projection, choose a variable to explore. This is called the "manip" variable.
-2. Create a 3D manipulation space, where the manip variable has full contribution.
+2. Create a 3D manipulation space, where the manip variable has a full contribution.
 3. Generate a rotation sequence which zeros coefficient and increases it to 1 before returning to the initial position.
 
 These steps are described in more detail below.
@@ -148,7 +148,7 @@ The algorithm is primarily operating on the projection basis and utilizes the da
 
 The flea data from @lubischew_use_1962 will be used as an example dataset. The data contains 74 observations across 6 variables, corresponding to physical measurements of the insects. Each observation belonging to one of three species.
 
-A guided tour on the flea data is conducted by optimizing on the `holes` index [@cook_interactive_2007]. In a guided tour the data the projection sequence is shown by optimizing an index of interest. The `holes` index is maximized by when the projected data has a lack of observations in the center. Figure \@ref(fig:step0), shows an optimal projection of this data. The left plot displays the projection basis, while the right plot shows the projected data. The display of the basis has a unit circle with lines showing the horizontal and vertical contributions of each variable in the projection. Here is primarily `tars1` and `aede2` contrasting the other four variables. In the projected data there are three clusters, which have been colored, although not used in the optimization. The question that will be explored in the explanation of the algorithm is how important is `aede2` to the separation of the clusters.
+A guided tour on the flea data is conducted by optimizing on the `holes` index [@cook_interactive_2007]. In a guided tour the projection sequence is selected by optimizing an index of interest in the projection. The `holes` index is maximized by when the projected data has a lack of observations in the center. Figure \@ref(fig:step0), shows an optimal projection of this data. The left plot displays the projection basis, while the right plot shows the projected data. The display of the basis has a unit circle with lines showing the horizontal and vertical contributions of each variable in the projection. Here is primarily `tars1` and `aede2` contrasting the other four variables. In the projected data there are three clusters, which have been colored, although not used in the optimization. The question that will be explored in the explanation of the algorithm is: how important is `aede2` to the separation of the clusters.
 
 ```{r step0, echo=F, results='hide', out.width='98%', fig.cap = "Basis reference frame (left) and projected data (right) of standardized flea data. Basis identified by holes-index guided tour. The variables `aede2` and `tars1` contribute mostly in the X direction, whereas the other variables contribute mostly in the Y direction. Select `aede2` as the manipulation variable to see how the structure of the projection changes."}
 ## Flea holes tour
@@ -188,7 +188,7 @@ Select a manipulation variable, $k$. Initialize a zero vector $e$ and set the $k
   \end{bmatrix}
 \end{align*}
 
-In figure \@ref(fig:step0), above, notice that the variables `tars1` and `aede2` are almost orthogonal to the other 4 variables and control almost all of the variation in the x axis of the projection. `Aede2` has a larger contribution and is select it as the manip variable.
+In figure \@ref(fig:step0), above, notice that the variables `tars1` and `aede2` are almost orthogonal to the other 4 variables and control almost all of the variation in the x-axis of the projection. `Aede2` has a larger contribution and is select it as the manip variable.
 
 
 ### Step 2 Create the manip space
@@ -221,7 +221,7 @@ Use the Gram-Schmidt process to orthonormalize the concatenation of the basis an
 \end{align*}
 
 
-Adding an extra dimension to our basis plane allows for the manipulation of the specified variable. Orthonormalizing rescales the new vector, while leaving the first $d$ variables identical to the basis. An illustration of such can been seen below in figure \@ref(fig:step2).
+Adding an extra dimension to our basis plane allows for the manipulation of the specified variable. Orthonormalizing rescales the new vector while leaving the first $d$ variables identical to the basis. An illustration of such can be seen below in figure \@ref(fig:step2).
 
 ```{r step2, echo=F, out.width='100%', fig.cap = "Manipulation space for controlling the contribution of aede2 of standardized flea data. Basis was identified by holes-index guided tour. The out of plane axis, in red, shows how the manipulation variable can be rotated, while other dimensions stay embedded within the basis plane."}
 #=== Step 2 output
@@ -234,7 +234,7 @@ Imagine being able to grab hold of the red axis and rotate it changing the proje
 
 ### Step 3 Generate rotation
 
-Define a set of values for $\phi_i$, the angle of out of plane rotation, orthogonal to the projection plane. This corresponds to the angle between the red manipulation axis and the blue plane in figure \@ref(fig:step2).
+Define a set of values for $\phi_i$, the angle of out of the plane rotation, orthogonal to the projection plane. This corresponds to the angle between the red manipulation axis and the blue plane in figure \@ref(fig:step2).
 
 **For ** $i$ **in 1 to n_slides:**
 
