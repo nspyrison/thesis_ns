@@ -97,7 +97,7 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 }
 ```
 
-# Completed work {#ch:completed_work}
+# Work in progress {#ch:workinprogress}
 
 Implementing UCS in low dimensions is fundamental to the extension of the UCS into 3D space. The implementation of such, forms the foundation for future work addressed in the remaining research objectives. 
 

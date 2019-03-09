@@ -12,10 +12,10 @@ knitr::opts_chunk$set(
 
 ## Exploratory data analysis
 
-The term exploratory data analysis was coined in @tukey_exploratory_1977. Tukey purposefully leaves the term to broadly encompass the phase of exploring, understanding the structure of the data and validating assumptions made by prospective methodology. Data is everywhere and understanding the shape and distribution of the data is an early and fundamental task. Visualization is crucial to a clear understanding of the data. Things can go awry when data is summarized via numeric statistics alone [@anscombe_graphs_1973; @matejka_same_2017]. In these studies, bivariate data have the same summary statistics, while showing obvious red flags that could go completely unheeded if preliminary graphing is foregone. This requirement for visuals also necessitates *human-in-the-loop* analysis.
+The term exploratory data analysis was coined in @tukey_exploratory_1977. Tukey purposefully leaves the term to broadly encompass the phase of exploring, understanding the structure of the data and validating assumptions made by prospective methodology. Data is everywhere and understanding the shape and distribution of the data is an early and fundamental task. Visualization is crucial to a clear understanding of the data. Things can go awry when data is summarized via numeric statistics alone [@anscombe_graphs_1973], demonstrated in figure \@ref(fig:matejka17fig) [@matejka_same_2017]. In these studies, bivariate data have the same summary statistics, such as mean and standard deviation, yet contain obvious visual trends and shapes that could go completely unheeded if graphing the data is foregone. Because there are inhearant dangers to relying on statistics alone, this requirement for looking at visuals necessitates *human-in-the-loop* analysis, defined as a model that requires human interaction.
 
 
-(ref:matejka17fig-cap) 12 data sets created from the datasaurus, each with the same summary statistics, yet visual peculiarity.
+(ref:matejka17fig-cap) 12 data sets created from the datasaurus by simulated annealing. Each is restrained to the the same summary statistics, but given a shapes with visual peculiarity to mutate into [@matejka_same_2017].
 
 ```{r matejka17fig, echo=F, out.width='70%', fig.cap = "(ref:matejka17fig-cap)"}
 knitr::include_graphics("./figures/matejka17fig.png")
@@ -28,19 +28,17 @@ Hardware improvement has made VR more affordable and available to wider audience
  
 ## Research objectives
 
-Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualize high dimensions have been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor. The primary goal of this PhD research can then be summarized as:
+Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualize high dimensions has been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor. The primary goal of this PhD research can then be summarized as:
 
 **Research objectives (RO):**
 
-1. **How can UCS be implemented in 1- and 2D projections?** (Completed work, chapter \ref{ch:completed_work}.) Following the theory laid out in @cook_manual_1997 this work enables manual tours for fine control in exploring the local area of interesting features. Previous implementations are no longer compiling.
-<!-- User-controlled steering of dynamic projections allows for the user to select which and how a specific variable should be rotated. This is completed work following the research of @cook_manual_1997. I have implemented UCS in 1- and 2D and built an extensible platform for projection into $d>2$ spaces. -->
-2. **Does 2D UCS provide benefits over alternatives?** (Future work, chapter \ref{ch:future_work}.) This objective compares the effectiveness of dynamic linear projection and UCS against commonly used alternatives of static linear and static non-linear projections.
-<!-- *Case study* comparing dynamic, UCS projections with commonly used static alternatives. -->
-3. **How can UCS be extended to 3D?** (Future work, chapter \ref{ch:future_work}.) 
- Bringing dynamic projections into 3D not only allows for more accurate and precise interpretation of $d=2$ projections, but also for the projection of $d=3$ scatterplots and surfaces.
-<!-- This *experimental design* will be novel work in extending dynamic projections, including UCS, to 3D. The work done in RO 1 will be used in conjunction with @cordeil_immersive_2019 to form an UI compatible across display devices. -->
-4. **Does UCS in 3D displays provide perception benefits over 2D displays?** (Future work, chapter \ref{ch:future_work}.) This objective tests the efficacy of dynamic projections as compared across various display devices.
-<!-- *Empirical study* exploring the efficacy of bringing UCS into 3D as compared across various display devices. -->
+1. **How can UCS be implemented in 1- and 2D projections?** (Work in progress, chapter \ref{ch:workinprogress}.) \  
+Following the theory laid out in @cook_manual_1997, a new UCS algorithm is devised for use in animation specific implementations. This sets a frame work to be used in the remaining objectives.
+2. **Does 2D UCS provide benefits over alternatives?** (Future work, chapter \ref{ch:future_work}.) &nbsp
+The quality and effectiveness of the previous algorithm will be compared to benchmark datasets against commonly used alternatives of static, single, linear and non-linear projection techniques.
+3. **How can UCS be extended to 3D?** (Future work, chapter \ref{ch:future_work}.) This involves extending the UCS algorithm to abrbitary, or at least, a third dimension and the rendering of 3D tours for use across mixed reality display devices.
+4. **Does UCS in 3D displays provide perception benefits over 2D displays?** (Future work, chapter \ref{ch:future_work}.) Building on the work from the previous objective the efficacy of 3D tours should be explored using modern hardware across display devices.
+
 
 ## Methodology
 
@@ -52,12 +50,12 @@ RO #3 involves **experimental design** applying contribution from RO #1 with the
 
 The response to RO #4 is a *randomized full factorial design* **empirical study** to explore the efficacy of bringing UCS into 3D as compared across various display devices. In this design every participant will complete every task on every display device. Quantitative measurements include participant speed and accuracy of tasks, biometric readings, and subjective Likert survey of participants. A lineup-type model as outlined in @hofmann_graphical_2012 may also be employed for assessing quality of display types.
 
-In this report, the related literature is discussed in chapter \ref{ch:lit_review}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by the completed work and future work in chapters \ref{ch:completed_work} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic touring and VR data visualization can be found in appendix \ref{ch:glossary}, and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex_paper}.
+In this report, the related literature is discussed in chapter \ref{ch:lit_review}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by the completed work and future work in chapters \ref{ch:workinprogress} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic touring and VR data visualization can be found in appendix \ref{ch:glossary}, and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex_paper}.
 
 
-## Workflow and reproduction
+## Workflow and reproducibility 
 
-Figure \ref{dataanalysisworkflow} depicts general data analysis workflow [@wickham_r_2016]. Where data first must be imported into a tool, the structure of the data must be tidied and ordered neatly into the correct use format. After the data enters a repeating cycle, where values maybe transformed, visualized, and modeled with communication going to the appropriate recipients. 
+Figure \@ref(fig:dataanalysisworkflow) depicts general data analysis workflow [@wickham_r_2016]. Where data first must be imported into a tool, the structure of the data must be tidied and ordered neatly into the correct use format. After the data enters a repeating cycle, where values maybe transformed, visualized, and modeled with communication going to the appropriate recipients. 
 
 (ref:dataanalysisworkflow-cap) Data analysis workflow [@wickham_r_2016]. This research aids visualization in exploratory data analysis and in the workflow.
 
@@ -66,6 +64,16 @@ knitr::include_graphics("./figures/data_analysis_workflow.png")
 ```
 
 The programing language, *R*, is used in the work described below to import, tidy, and transform data. It can be use directly to visualize 2D tour (RO #1 & 2) or be consumed into the game engine *Unity* to visualize 3D tours (RO #3 & 4). Doing analysis and writeup in such programmatic ways allow work to be done reproducibly. All work completed and discussed is done with reproduction principles in mind, where data, analysis, and code are stored in the same directory in order to make the work as transparent and reproducible as possible. Transparency and reproduction of work is a key feature to a mature analysis workflow as they validate and defend the claims and methodology held within a work. Directories of completed and planned work are hosted publicly on GitHub, including this report. Accessing the source files for this report is discussed in section \ref{sec:source}.
+
+## Project overview {#ch:projectoverview}
+
+The research gaps in the literature review leave room for the research objectives outlined in the introduction. Figure \@ref(fig:ProjectOverview) depicts a schematic flow chart that the research objectives will be executed in. RO #1, application of 2D user-controlled steering (UCS), sets the foundation for which the other objectives can be researched. RO #3, the application of 3D UCS, must precede RO #4, exploring the efficacy of 3D UCS across display devices. RO #2, the comparison of 2D UCS vs alternatives, must come after RO #1, but is of lower priority to RO #3 & 4, and so will be conducted last, in the event of a time crunch.
+
+(ref:ProjectOverview-cap) Flow chart of research objective (RO) dependencies, work order, and methodology.
+
+```{r ProjectOverview, echo=F, out.width='100%', fig.cap = "(ref:ProjectOverview-cap)"}
+knitr::include_graphics("./figures/ProjectOverview.PNG")
+```
 
 
 
