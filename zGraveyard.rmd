@@ -417,3 +417,58 @@ print("!!!!USE 6 for best example, and 2 for worst.!!!!")
 <!-- * torus: where a $p$-dimensional torus, $T^p$ is created from a Cartesian product of $p$ unit circles with $T^p \in \mathbb{R}^p$. Unfortunately, uniformity of the parameters does not correlate to uniform points on the surface of the torus. If step distance between frames is fixed, disproportionate time is spent between subspaces. If step distance is change to account for uniform points on the torus then the continuity of the tour is lost.   -->
 <!-- * at-random: where each 2-frame is chosen at random without replacement. This affords an assured uniform distribution of subspaces but is far too discontinuous for observation. It also leaves no parameters to control. -->
 <!-- * random-walk: combines the continuity of the torus method and the uniformity of the at-random method while leaving room for a control parameter.  -->
+
+# 2019_03_09 from lit review, tours - toy example
+
+<!-- ALREADY USED IN 04-workinprogress, don't use here. -->
+<!-- ### Example illustrations -->
+
+<!-- A list of tour notation is given in the appendix section \ref{sec:tour_notation}. -->
+
+<!-- This sections a toy data set of 74 observations of flea beetles across 6 numeric variables corresponding to physical measurements. Each observation belongs to one of 3 species as shown in the color and shape of the data points. Figure \@ref(fig:flea-refframe) shows one frame of a tour (left) and the corresponding reference frame (right) showing the linear combination of the variables onto the projection-space, a visual representation of the basis. -->
+
+<!-- ```{r flea-refframe, results='hide', fig.cap = "(left) one frame of a x-y scatterplot projection, the results of holes tour with a corresponding reference frame indicating the direction and magnitude the variables contribute to the 2D projection."} -->
+<!-- f_dat  <- tourr::rescale(flea[,1:6]) -->
+<!-- f_cat  <- factor(flea$species) -->
+<!-- f_path <- save_history(f_dat, guided_tour(holes())) -->
+<!-- f_bas  <- matrix(f_path[,, max(dim(f_path)[3])], ncol=2) -->
+<!-- f_mvar <- 5 -->
+<!-- f_proj <- data.frame(tourr::rescale(f_dat %*% f_bas)) -->
+
+<!-- view_basis(f_bas, labels = colnames(f_dat)) + -->
+<!--   geom_point(data = f_proj,  -->
+<!--              mapping = aes(x = X1 - 2, y = X2 - .5, color = f_cat),  -->
+<!--              pch = as.integer(f_cat) + 15) -->
+<!-- ``` -->
+
+<!-- ```{r flea-basis} -->
+<!-- rownames(f_bas) <- colnames(f_dat) -->
+<!-- colnames(f_bas) <- c("x", "y") -->
+<!-- ``` -->
+
+<!-- Tours view many such frames in sequence, by identifying some target frames and then interpolating between them as shown schematically in figure \@ref(fig:buja05fig), captured from figure 1 of @buja_computational_2005. For illustration figure \@ref(fig:flea-static) lays out frames of a tour, -->
+<!-- A html version of a user-controlled steering can be found at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/. -->
+<!-- The sections below will outline path generation and enumerate display geoms. -->
+
+<!-- (ref:buja05fig-cap) Screen capture of figure 1 from @buja_computational_2005. A schematic representation of randomly generated planes (from a grand tour) and intermediate interpolation planes.  -->
+
+<!-- ```{r buja05fig, echo=F, out.width='70%', fig.cap = "(ref:buja05fig-cap)"} -->
+<!-- knitr::include_graphics("./figures/buja05fig.PNG") -->
+<!-- ``` -->
+
+<!-- (ref:flea-static-cap) Illustration of a radial manual tour (RO #1), a dynamic version can be viewed at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/. -->
+
+<!-- ```{r flea-static, echo=F, warning=F, fig.height=7.2, fig.width=6, out.height='7.2in', out.width='6in', fig.cap = "(ref:flea-static-cap)"} -->
+<!-- f_angle <- .27 -->
+<!-- f_mtour <- manual_tour(f_bas, manip_var = f_mvar, angle = f_angle) -->
+<!-- if(dim(f_mtour)[3] != 15) message( -->
+<!--   paste0("!!!!! step3 n_slides != 15 !!!!! n_slides = ", dim(f_mtour)[3])) -->
+
+<!-- #play_manual_tour(f_dat, f_bas, f_mvar, cat_var = f_cat, angle = f_angle) -->
+<!-- array2static(.m_tour = f_mtour, .data = f_dat, .m_var = f_mvar, .cat = f_cat) -->
+<!-- ``` -->
+
+#2019_03_09 from introduction/ lit review
+
+<!-- TODO: move this to tours lit rev. -->
+<!-- This thesis focuses on tour methods for visualizing high-dimensional data. Tours are a family of algorithms for generating paths on the space of low-dimensional ($d=1, 2, 3, ..., p$) projections of high-dimensional ($p$) space. The resulting projection of the data (or model) is displayed using low-dimensional techniques such as histograms, dot plots, scatterplots, or parallel coordinate plots, and the path generates a movie or animation to shows many low-dimensional projections. The method can be applied with other techniques such as machine learning techniques like discriminant analysis, neural networks, support vector machines, to open the black box, and complements dimension reduction techniques like principal component analysis (PCA), multidimensional scaling (MDS) on nonlinear embeddings (e.g. tSNE).  -->

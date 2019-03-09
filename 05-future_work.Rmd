@@ -21,9 +21,11 @@ The tentative methodology for this future work is a **case study** between UCS a
 
 The literature has shown positive results for improved accuracy and precision for 3D displays. Dynamic linear projections should have similar gains in $d=2$ projections, and the additional dimension should allow for improved perception of surfaces and dynamic viewing of $d=3$ projections. The work done in RO #1) will be extended to these uses.
 
-The work done in @cordeil_imaxes:_2017 creates a collaborative space for people to engage in immersive data analysis. The subsequent @cordeil_immersive_2019 created the immersive analytics toolkit (IATK), which generalized data visualization in the Unity game engine. By integrating dynamic linear touring in  3D with the IATK offers a consolidated user interface that can be used across various display devices in RO #4.
+The work done in @cordeil_imaxes:_2017 creates a collaborative space for people to engage in immersive data analysis, a generalized platform for data visualization in the Unity game engine. By integrating dynamic linear touring in  3D with the above work offers a consolidated user interface that can be used across various display devices in RO #4.
 
-This is an **exploratory design**, first the *R* package spinifex will be extended to 3D, and then calling it via the *Unity* package IATK for rendering in 3D VR and offers a compatible front end to be used across display devices.
+This is an **exploratory design**, first the *R* package spinifex will be extended to 3D, and then calling it via the *Unity* package for rendering in 3D VR and offers a compatible front end to be used across display devices.
+
+The design space includes the path generators (outlined in section \ref{sec:path_generation}), geometric display (section \ref{sec:geom_display}), layout in virtual space, dynamic interactions. Tour paths is conceptually straight-foreward mapping between values and 3D rendering. Each geometric display will need attention to recreate, though 3D scatterplot, parralle coordinate plot and scatterplot matrices (SPLOM) are currently supported in the respective packages in both languages. We will also explore surface and function vizualization in 3D. 
 
 ## RO #4) Does UCS in 3D displays provide perception benefits over 2D displays? {#UCS_3dvs2d}
 
