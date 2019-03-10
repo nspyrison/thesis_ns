@@ -85,13 +85,13 @@ timeline <- ggplot(tasks.long, aes(x=Task, y=task.date, colour=Project)) +
 timeline
 ```
 
-*Note RO #2 logically would fit before RO #3 & 4, but is of lower impact and retrospective case study. I move this research to the end to give the other research objectives the priority.*
+*Note RO #2 logically would fit before RO #3 & 4 but is of lower impact and retrospective case study. I move this research to the end to give the other research objectives the priority.*
 
 
 ## Accompanying documents
 
 - FIT 5144 hours
-    - \>120 hours **Tracked, awaiting mandatory events**, due at mid-candidature review
+    - \>120 hours **Tracked, awaiting mandatory events**, due at the mid-candidature review
 - WES Academic record
     - FIT6021: 2018 S2, **Completed** with Distinction
     - FIT5144: 2019 S1+2, **Upcoming**, due at mid-candidature review
@@ -108,4 +108,4 @@ timeline
 
 This article was created in `R` [@r_core_team_r:_2018], using `bookdown` [@xie_bookdown:_2016] and `rmarkdown` [@xie_r_2018], with code generating the examples inline. 
 
-Following good practice of version control and reproduction, the source files can be found at: [github.com/nspyrison/confirmation/](https://github.com/nspyrison/Confirmation).
+Following good practice of version control and reproduction, the source files can be found at [github.com/nspyrison/confirmation/](https://github.com/nspyrison/Confirmation).
