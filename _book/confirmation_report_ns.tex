@@ -146,16 +146,17 @@ Ph.D.~research can then be summarized as:
 \tightlist
 \item
   \textbf{How can UCS be implemented in 1- and 2D projections?} (Work in
-  progress, chapter \ref{ch:workinprogress}.) ~ Following the theory
-  laid out in \textcite{cook_manual_1997}, a new UCS algorithm is
-  devised for use in animation specific implementations. This sets a
-  framework to be used in the remaining objectives.
+  progress, chapter \ref{ch:workinprogress}.) Following the theory laid
+  out in \textcite{cook_manual_1997}, a new UCS algorithm is devised for
+  use in animation specific implementations. This sets a framework to be
+  used in the remaining objectives.
 \item
   \textbf{Does 2D UCS provide benefits over alternatives?} (Future work,
-  chapter \ref{ch:future_work}.) \&nbsp The quality and effectiveness of
-  the previous algorithm will be compared to benchmark datasets against
-  commonly used alternatives of static, single, linear and non-linear
-  projection techniques.
+  chapter \ref{ch:future_work}.) The quality and effectiveness of the
+  dynamic UCS will be compared to benchmark datasets against commonly
+  used alternatives of static, single, linear and non-linear projection
+  techniques. The addition of the temporal dimension should allow for
+  improved perception of sturucture.
 \item
   \textbf{How can UCS be extended to 3D?} (Future work, chapter
   \ref{ch:future_work}.) This involves extending the UCS algorithm to
@@ -213,8 +214,8 @@ quality of display types.
 
 In this report, the related literature is discussed in chapter
 \ref{ch:lit_review}. A brief overview of the research is given in
-chapter \ref{ch:projectoverview}, followed by the completed work and
-future work in chapters \ref{ch:workinprogress} and \ref{ch:future_work}
+chapter \ref{ch:projectoverview}, followed by on going work and future
+work in chapters \ref{ch:workinprogress} and \ref{ch:future_work}
 respectively. A prospective timeline is listed in chapter
 \ref{ch:timeline}. Notation for dynamic touring and VR data
 visualization can be found in appendix \ref{ch:glossary}, and an excerpt
@@ -472,8 +473,8 @@ choice, data-driven, precomputed choice, and manual control.
   interesting feature, perhaps via guided tour.
 \item
   \emph{dependence tour}, a combination of \(n\) independent 1D tours. A
-  vector describes the axis each variable will be displayed on.
-  \emph{ie} \(c(1, 1, 2, 2)\) is a 4- to 2D tour with the first 2
+  vector describes the axis each variable will be displayed on. for
+  example \(c(1, 1, 2, 2)\) is a 4- to 2D tour with the first 2
   variables on the first axis, and the remaining on the second.
 
   \begin{itemize}
@@ -683,38 +684,12 @@ cues, they are found to have more accurate perception than 2D
 counterparts \autocite[depicted in figure
 \ref{fig:lee86fig}]{lee_effects_1986}.
 
-
-
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{./figures/lee86fig} 
-
-}
-
-\caption{Screen capture of ``Figure 7. 3-D Block Model'' from
-\textcite{lee_effects_1986}.}\label{fig:lee86fig}
-\end{figure}
-
 Between 3D and split view 2D of 3-dimensional economics data
 \textcite{wickens_implications_1994}, depicted in figure
 \ref{fig:wickens94fig}, asked participants integrative questions,
 finding that participants were faster to answer when questions involved
 three dimensions, while the performance was similar when questions
 involved fewer dimensions.
-
-
-
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{./figures/wickens94fig} 
-
-}
-
-\caption{Screen capture of ``Figure 5. Example of a mesh
-display'' from \textcite{wickens_implications_1994}.}\label{fig:wickens94fig}
-\end{figure}
 
 Using 3D rotated projection gives more accurate perception (relative to
 2D) of a ball suspended above complex box shapes, while combinations of
@@ -823,29 +798,6 @@ identify outliers on 3D scatterplots. However, both tasks were performed
 slower with the use of the 3D scatterplots and statistical significance
 was not reported.
 
-
-
-
-
-
-
-
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{./figures/gracia16fig} 
-
-}
-
-\caption{Screen capture from \textcite{gracia_new_2016}:
-``Figure 5. Distance perception test. Left-hand image: 2D version. Here,
-the yellow line could be perceived as roughly twice the length of the
-magenta line, thus the value to be introduced should be approximately
-2.0. Right-hand image: 3D version. Here, the inclusion of an extra
-dimension could provide new information about the relation, in terms of
-distances, between both lines.''}\label{fig:gracia16fig}
-\end{figure}
-
 \textcite{wagner_filho_immersive_2018}, depicted in figure
 \ref{fig:wagner18fig}, performed an \(n=30\) empirical study of PCA
 embedded projections, and perception error across 4 tasks and 3 display
@@ -880,7 +832,7 @@ environment. An example of which is shown in
 immersive data analysis. Where axes are displayed and intuitively
 interacted with while responding to proximity to other variable axes and
 popping into place changing the resulting geometric display. For
-example, three variables can be placed as the \(x,~y,~z\) axis for a 3D
+example, three variables can be placed as the \(x,~y,~z-\) axes for a 3D
 scatterplot or stood up right next to each other for a parallel
 coordinate plot. The subsequent work in
 \textcite{cordeil_immersive_2019} builds from the previous reference and
@@ -1023,7 +975,7 @@ the clusters.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.98\linewidth]{thesis_files/figure-latex/step0-1} 
+{\centering \includegraphics[width=0.98\linewidth]{confirmation_report_ns_files/figure-latex/step0-1} 
 
 }
 
@@ -1100,7 +1052,7 @@ illustration of such can be seen below in figure \ref{fig:step2}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{thesis_files/figure-latex/step2-1} 
+{\centering \includegraphics[width=1\linewidth]{confirmation_report_ns_files/figure-latex/step2-1} 
 
 }
 
@@ -1154,8 +1106,8 @@ matrix, producing, \textbf{RM}, the rotated manip space.
 Where:
 
 \begin{description}
-  \item[$\theta$] is the angle that lies on the projection plane ($ie.$ on the $xy$ plane)
-  \item[$\phi$] is the angle orthogonal to the projection plane ($ie.$ in the $z$, direction)
+  \item[$\theta$] is the angle that lies on the projection plane, the *XY*-scatterplot
+  \item[$\phi$] is the angle orthogonal to the projection plane, in the *Z* direction relative to the *XY*-scatterplot
   \item[$c_\theta$] is the cosine of $\theta$
   \item[$c_\phi$]   is the cosine of $\phi$
   \item[$s_\theta$] is the sine of   $\theta$
@@ -1185,7 +1137,7 @@ take a moment to load).
 
 \begin{figure}
 
-{\centering \includegraphics[width=6in,height=7.2in]{thesis_files/figure-latex/step3-1} 
+{\centering \includegraphics[width=6in,height=7.2in]{confirmation_report_ns_files/figure-latex/step3-1} 
 
 }
 
@@ -1359,7 +1311,7 @@ looked at in 2D UCS in appendix \ref{ch:spinifex_paper}.
 
 \section{Timeline}\label{timeline}
 
-\begin{center}\includegraphics{thesis_files/figure-latex/timeline-1} \end{center}
+\begin{center}\includegraphics{confirmation_report_ns_files/figure-latex/timeline-1} \end{center}
 
 \emph{Note RO \#2 logically would fit before RO \#3 \& 4 but is of lower
 impact and retrospective case study. I move this research to the end to
@@ -1681,7 +1633,7 @@ of the clusters.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.98\linewidth]{thesis_files/figure-latex/step0-paper-1} 
+{\centering \includegraphics[width=0.98\linewidth]{confirmation_report_ns_files/figure-latex/step0-paper-1} 
 
 }
 
@@ -1773,7 +1725,7 @@ illustration of such can been seen below in figure
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{thesis_files/figure-latex/step2-paper-1} 
+{\centering \includegraphics[width=1\linewidth]{confirmation_report_ns_files/figure-latex/step2-paper-1} 
 
 }
 
@@ -1827,8 +1779,8 @@ matrix, producing, \textbf{RM}, the rotated manip space.
 Where:
 
 \begin{description}
-  \item[$\theta$] is the angle that lies on the projection plane ($ie.$ on the $xy$ plane)
-  \item[$\phi$] is the angle orthogonal to the projection plane ($ie.$ in the $z$,  direction)
+  \item[$\theta$] is the angle that lies on the projection plane, the *XY*-scatterplot
+  \item[$\phi$] is the angle orthogonal to the projection plane, in the *Z* direction relative to the *XY*-scatterplot
   \item[$c_\theta$] is the cosine of $\theta$
   \item[$c_\phi$]   is the cosine of $\phi$
   \item[$s_\theta$] is the sine of   $\theta$
@@ -1869,7 +1821,7 @@ version will be used again in section \ref{sec:application}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=6in,height=7.2in]{thesis_files/figure-latex/step3-paper-1} 
+{\centering \includegraphics[width=6in,height=7.2in]{confirmation_report_ns_files/figure-latex/step3-paper-1} 
 
 }
 
@@ -1991,7 +1943,7 @@ PC4, where features are mostly independent of the manip var.
 
 \begin{figure}
 
-{\centering \includegraphics[width=6in,height=7.2in]{thesis_files/figure-latex/JetClusterGood-1} 
+{\centering \includegraphics[width=6in,height=7.2in]{confirmation_report_ns_files/figure-latex/JetClusterGood-1} 
 
 }
 
@@ -2015,7 +1967,7 @@ A dynamic version can be viewed at
 
 \begin{figure}
 
-{\centering \includegraphics[width=6in,height=7.2in]{thesis_files/figure-latex/JetClusterBad-1} 
+{\centering \includegraphics[width=6in,height=7.2in]{confirmation_report_ns_files/figure-latex/JetClusterBad-1} 
 
 }
 
@@ -2060,7 +2012,7 @@ The page takes a bit to load, as the animation is several megabytes.
 
 \begin{figure}
 
-{\centering \includegraphics[width=6in,height=7.2in]{thesis_files/figure-latex/DISclusterGood-1} 
+{\centering \includegraphics[width=6in,height=7.2in]{confirmation_report_ns_files/figure-latex/DISclusterGood-1} 
 
 }
 
@@ -2089,7 +2041,7 @@ manipulate. In figure \ref{fig:DISclusterBad} we manipulate PC2.
 
 \begin{figure}
 
-{\centering \includegraphics[width=6in,height=7.2in]{thesis_files/figure-latex/DISclusterBad-1} 
+{\centering \includegraphics[width=6in,height=7.2in]{confirmation_report_ns_files/figure-latex/DISclusterBad-1} 
 
 }
 
@@ -2147,9 +2099,9 @@ unconstrained manual control, called oblique in
 The Givens rotations and Householder reflections as outlined in
 \textcite{buja_computational_2005} may provide a way to conduct higher
 dimensional manual control. In a Givens rotation, the \(x\) and \(y\)
-components (\(ie. \theta~= 0,~pi/2\)) of the in-plane rotation are
-calculated separately and would be applied sequentially to produce the
-radial rotation. Householder reflections define reflection axes to
+components (for example \(\theta~= 0,~pi/2\)) of the in-plane rotation
+are calculated separately and would be applied sequentially to produce
+the radial rotation. Householder reflections define reflection axes to
 project points on to the axes and generate rotations.
 
 The \emph{tourr} package provides several \(d\)-dimensional graphic
