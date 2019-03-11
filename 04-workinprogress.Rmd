@@ -266,8 +266,8 @@ For each $\phi_i$, post multiply the manipulation space by a rotation matrix, pr
 
 Where:
 \begin{description}
-  \item[$\theta$] is the angle that lies on the projection plane ($ie.$ on the $xy$ plane)
-  \item[$\phi$] is the angle orthogonal to the projection plane ($ie.$ in the $z$, direction)
+  \item[$\theta$] is the angle that lies on the projection plane, the *XY*-scatterplot
+  \item[$\phi$] is the angle orthogonal to the projection plane, in the *Z* direction relative to the *XY*-scatterplot
   \item[$c_\theta$] is the cosine of $\theta$
   \item[$c_\phi$]   is the cosine of $\phi$
   \item[$s_\theta$] is the sine of   $\theta$

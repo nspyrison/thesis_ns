@@ -32,10 +32,10 @@ Data and models are typically high-dimensional, with many variables or parameter
 
 **Research objectives (RO):**
 
-1. **How can UCS be implemented in 1- and 2D projections?** (Work in progress, chapter \ref{ch:workinprogress}.) \  
+1. **How can UCS be implemented in 1- and 2D projections?** (Work in progress, chapter \ref{ch:workinprogress}.) 
 Following the theory laid out in @cook_manual_1997, a new UCS algorithm is devised for use in animation specific implementations. This sets a framework to be used in the remaining objectives.
-2. **Does 2D UCS provide benefits over alternatives?** (Future work, chapter \ref{ch:future_work}.) &nbsp
-The quality and effectiveness of the previous algorithm will be compared to benchmark datasets against commonly used alternatives of static, single, linear and non-linear projection techniques.
+2. **Does 2D UCS provide benefits over alternatives?** (Future work, chapter \ref{ch:future_work}.) 
+The quality and effectiveness of the dynamic UCS will be compared to benchmark datasets against commonly used alternatives of static, single, linear and non-linear projection techniques. The addition of the temporal dimension should allow for improved perception of sturucture.
 3. **How can UCS be extended to 3D?** (Future work, chapter \ref{ch:future_work}.) This involves extending the UCS algorithm to arbitrary, or at least, a third dimension and the rendering of 3D tours for use across mixed reality display devices.
 4. **Does UCS in 3D displays provide perception benefits over 2D displays?** (Future work, chapter \ref{ch:future_work}.) Building on the work from the previous objective the efficacy of 3D tours should be explored using modern hardware across display devices.
 
@@ -52,7 +52,7 @@ RO #3 involves **experimental design** applying contribution from RO #1 with the
 
 The response to RO #4 is a *randomized full factorial design* **empirical study** to explore the efficacy of bringing UCS into 3D as compared across various display devices. In this design, every participant will complete every task on every display device. Quantitative measurements include participant speed and accuracy of tasks, biometric readings, and subjective Likert surveys of participants. A lineup-type model as outlined in @hofmann_graphical_2012 may also be employed for assessing the quality of display types.
 
-In this report, the related literature is discussed in chapter \ref{ch:lit_review}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by the completed work and future work in chapters \ref{ch:workinprogress} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic touring and VR data visualization can be found in appendix \ref{ch:glossary}, and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex_paper}.
+In this report, the related literature is discussed in chapter \ref{ch:lit_review}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by on going work and future work in chapters \ref{ch:workinprogress} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic touring and VR data visualization can be found in appendix \ref{ch:glossary}, and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex_paper}.
 
 
 ## Workflow and reproducibility 
