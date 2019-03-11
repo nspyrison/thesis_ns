@@ -153,7 +153,7 @@ A fundamental aspect of touring is the path of rotation. Of which there are four
     + *little tour* [@mcdonald_interactive_1982], where every permutation of variables is stepped through in order, analogous to brute-force or exhaustive search.
     + a saved path of any other tour, typically an array of basis targets to interpolate between.
 * Manual control, *manual tour*, a constrained rotation on selected manipulation variable and magnitude [@cook_manual_1997]. Typically used to explore the local area after identifying an interesting feature, perhaps via guided tour.
-* *dependence tour*, a combination of $n$ independent 1D tours. A vector describes the axis each variable will be displayed on. *ie* $c(1, 1, 2, 2)$ is a 4- to 2D tour with the first 2 variables on the first axis, and the remaining on the second.
+* *dependence tour*, a combination of $n$ independent 1D tours. A vector describes the axis each variable will be displayed on. for example $c(1, 1, 2, 2)$ is a 4- to 2D tour with the first 2 variables on the first axis, and the remaining on the second.
     + *correlation tour* [@buja_data_1987], a special case of the dependence tour, analogous to canonical correlation analysis.
 
 <!-- ### Interpolation -->
@@ -240,21 +240,15 @@ Scientific visualization has readily adopted mixed realities as a large amount o
 
 3D shapes can be represented by 3 orthogonal 2D views, or rather 3 pairwise projections. When 3D representations are used with binocular cues, they are found to have more accurate perception than 2D counterparts [@lee_effects_1986, depicted in figure \@ref(fig:lee86fig)].
 
-(ref:lee86fig-cap) Screen capture of "Figure 7. 3-D Block Model" from @lee_effects_1986. 
+<!-- REMOVED, for less data viz figs (as per Di)
+(ref:lee86fig-cap) Screen capture of "figure 7. 3-D Block Model" from @lee_effects_1986.  -->
 
-```{r lee86fig, echo=F, out.width='70%', fig.cap = "(ref:lee86fig-cap)"}
-knitr::include_graphics("./figures/lee86fig.PNG")
-```
+<!-- ```{r lee86fig, echo=F, out.width='70%', fig.cap = "(ref:lee86fig-cap)"} -->
+<!-- knitr::include_graphics("./figures/lee86fig.PNG") -->
+<!-- ``` -->
 
 
 Between 3D and split view 2D of 3-dimensional economics data @wickens_implications_1994, depicted in figure \@ref(fig:wickens94fig), asked participants integrative questions, finding that participants were faster to answer when questions involved three dimensions, while the performance was similar when questions involved fewer dimensions.
-
-(ref:wickens94fig-cap) Screen capture of "Figure 5. Example of a mesh display" from @wickens_implications_1994.
-
-```{r wickens94fig, echo=F, out.width='70%', fig.cap = "(ref:wickens94fig-cap)"}
-knitr::include_graphics("./figures/wickens94fig.PNG")
-```
-
 
 Using 3D rotated projection gives more accurate perception (relative to 2D) of a ball suspended above complex box shapes, while combinations of 2D and 3D give the most precise orientation and positioning information [@tory_visualization_2006, depicted in figure \@ref(fig:tory06fig)].
 
@@ -284,15 +278,7 @@ knitr::include_graphics("./figures/sedlmair13fig.PNG")
 knitr::include_graphics("./figures/nelson98fig.PNG")
 ```
 
-
 Another study, @gracia_new_2016, depicted in figure \@ref(fig:gracia16fig), performed dimensionality reduction down to 2- and 3D scatterplots, both displayed in monocular 3D on a standard monitor. Users were found to more accurately compare distances between points and identify outliers on 3D scatterplots. However, both tasks were performed slower with the use of the 3D scatterplots and statistical significance was not reported.
-
-(ref:gracia16fig-cap) Screen capture from @gracia_new_2016: "Figure 5. Distance perception test. Left-hand image: 2D version. Here, the yellow line could be perceived as roughly twice the length of the magenta line, thus the value to be introduced should be approximately 2.0. Right-hand image: 3D version. Here, the inclusion of an extra dimension could provide new information about the relation, in terms of distances, between both lines."
-
-```{r gracia16fig, echo=F, out.width='70%', fig.cap = "(ref:gracia16fig-cap)"}
-knitr::include_graphics("./figures/gracia16fig.PNG")
-```
-
 
 @wagner_filho_immersive_2018, depicted in figure \@ref(fig:wagner18fig), performed an $n=30$ empirical study of PCA embedded projections, and perception error across 4 tasks and 3 display types: 2D, 3D, and immersive. Overall task error was less in 3D and immersive relative to 2D. According to the user Likert-scale survey, 2D is slightly easier to navigate and slightly more comfortable, while, 3D and immersive display are slightly easier to interact and moderately easier to find information.
 
@@ -304,7 +290,7 @@ knitr::include_graphics("./figures/wagner18fig.PNG")
 
 ### Immersive analytics platform in VR
 
-Immersive analytics is an emerging field, where data visualization and analysis is facilitated in an intuitive, immersive virtual reality environment. An example of which is shown in @cordeil_imaxes:_2017 introduces a collaborative space for immersive data analysis. Where axes are displayed and intuitively interacted with while responding to proximity to other variable axes and popping into place changing the resulting geometric display. For example, three variables can be placed as the $x,~y,~z$ axis for a 3D scatterplot or stood up right next to each other for a parallel coordinate plot. The subsequent work in @cordeil_immersive_2019 builds from the previous reference and refines it for the next iteration in interactive, scalable data visualization in virtual spaces.
+Immersive analytics is an emerging field, where data visualization and analysis is facilitated in an intuitive, immersive virtual reality environment. An example of which is shown in @cordeil_imaxes:_2017 introduces a collaborative space for immersive data analysis. Where axes are displayed and intuitively interacted with while responding to proximity to other variable axes and popping into place changing the resulting geometric display. For example, three variables can be placed as the $x,~y,~z-$ axes for a 3D scatterplot or stood up right next to each other for a parallel coordinate plot. The subsequent work in @cordeil_immersive_2019 builds from the previous reference and refines it for the next iteration in interactive, scalable data visualization in virtual spaces.
 
 (ref:cordeil2017fig-cap) Screen capture of figure 15 from @cordeil_imaxes:_2017.
 
