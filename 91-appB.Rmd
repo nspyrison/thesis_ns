@@ -294,8 +294,8 @@ For each $\phi_i$, post multiply the manipulation space by a rotation matrix, pr
 
 Where:
 \begin{description}
-  \item[$\theta$] is the angle that lies on the projection plane ($ie.$ on the $xy$ plane)
-  \item[$\phi$] is the angle orthogonal to the projection plane ($ie.$ in the $z$,  direction)
+  \item[$\theta$] is the angle that lies on the projection plane, the *XY*-scatterplot
+  \item[$\phi$] is the angle orthogonal to the projection plane, in the *Z* direction relative to the *XY*-scatterplot
   \item[$c_\theta$] is the cosine of $\theta$
   \item[$c_\phi$]   is the cosine of $\phi$
   \item[$s_\theta$] is the sine of   $\theta$
@@ -481,7 +481,7 @@ This work has described an algorithm and package for exploring conducting a manu
 
 Future work on the algorithm and package would include developing it to work with arbitrary projection dimension, enabling the method to operate on other displays like parallel coordinates, and implementing the unconstrained manual control, called oblique in @cook_manual_1997.
 
-The Givens rotations and Householder reflections as outlined in @buja_computational_2005 may provide a way to conduct higher dimensional manual control. In a Givens rotation, the $x$ and $y$ components ($ie. \theta~= 0,~pi/2$) of the in-plane rotation are calculated separately and would be applied sequentially to produce the radial rotation. Householder reflections define reflection axes to project points on to the axes and generate rotations.
+The Givens rotations and Householder reflections as outlined in @buja_computational_2005 may provide a way to conduct higher dimensional manual control. In a Givens rotation, the $x$ and $y$ components (for example $\theta~= 0,~pi/2$) of the in-plane rotation are calculated separately and would be applied sequentially to produce the radial rotation. Householder reflections define reflection axes to project points on to the axes and generate rotations.
 
 The *tourr* package provides several $d$-dimensional graphic displays including Andrews curves, Chernoff faces, parallel coordinate plots, scatterplot matrix, and radial glyphs. Having manual controls available for these types of displays would require a dimensionally-generalized rotation matrix.
 
