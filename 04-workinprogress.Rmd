@@ -316,7 +316,7 @@ To get back to data-space pre-multiply the rotated manip space by the data for t
       \end{bmatrix}_{[p,~d+1]}
 \end{align}
 
-Plot the first $d=2$ variables from each projection in sequence for an XY scatterplot. The remaining variable is sometimes linked to a data point aesthetic to produce depth cues used in conjunction with the XY scatterplot. 
+Plot the first $d$ variables from each projection in sequence for an $XY$-scatterplot. The remaining variable is sometimes linked to a data point aesthetic to produce depth cues used in conjunction with the $XY$-scatterplot. 
 
 ### Storage and sharing
 
