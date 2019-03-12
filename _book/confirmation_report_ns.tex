@@ -11,7 +11,7 @@
 
 \author{Nicholas S Spyrison}
 \title{Dynamic visualization of high-dimensional data via low-dimension
-projections across 2D and 3D display devices}
+projections and sectioning across 2D and 3D display devices}
 \degrees{B.Sc. Statistics, Iowa State University}
 \def\degreetitle{Doctor of Philosophy}
 % Add subject and keywords below
@@ -20,7 +20,7 @@ projections across 2D and 3D display devices}
      %pdfkeywords={Some Keywords},
      pdfauthor={Nicholas S Spyrison},
      pdftitle={Dynamic visualization of high-dimensional data via low-dimension
-projections across 2D and 3D display devices},
+projections and sectioning across 2D and 3D display devices},
      pdfproducer={Bookdown with LaTeX}
 }
 
@@ -117,19 +117,19 @@ to be contained and viewed temporally. This dynamic view of many
 changing projections is known as \emph{tours}. While, there are
 different methods of generating tour paths, human-in-the-loop
 user-controlled steering (UCS) offers the finest control for navigating
-local structure and is particularly useful in exploration after an
+the local structure and is particularly useful in exploration after an
 interesting feature has been identified.
 
 Tours commonly view \(d=\{1, 2, 3\}\) embedded subspaces from standard
-2D monitors, and most commonly viewed as a projection down to \(d=2\).
-The exception being \textcite{nelson_xgobi_1998}, where \(d=3\) tours
-were viewed in 3D head-tracked VR. Data visualization studies generally
-show an improved perception of 3D visuals over 2D, especially when
-adequate depth cues are provided. The state of modern hardware
-improvements has made VR more affordable and available to wider
-audiences, at ever increasing resolutions of display than previously
-possible. Research should be conducted to compare the perception of
-dynamic linear projections across display type.
+2D monitors, and most commonly viewed as a projection down to 2D. The
+exception being \textcite{nelson_xgobi_1998}, where 3D tours were viewed
+in 3D head-tracked VR. Data visualization studies generally show an
+improved perception of 3D visuals over 2D, especially when adequate
+depth cues are provided. The state of modern hardware improvements has
+made VR more affordable and available to wider audiences, at ever
+increasing resolutions of display than previously possible. Research
+should be conducted to compare the perception of dynamic linear
+projections across display type.
 
 \section{Research objectives}\label{research-objectives}
 
@@ -162,17 +162,17 @@ Ph.D.~research can then be summarized as:
   allows for more information to be conveyed than in static projections.
 \item
   \textbf{How can UCS be extended to 3D?} (Future work, chapter
-  \ref{ch:future_work}.) The UCS algorithm needs to be extended to
-  arbitrary, or at least, a third dimension and the rendering of 3D
-  tours for use across mixed reality display devices. This involves
-  communication between programming languages and allows for the
-  comparison across display devices.
+  \ref{ch:future_work}.) The UCS algorithm needs to be extended to a
+  third dimension and the rendering of 3D dynamic projections and
+  sectioning for use across mixed reality display devices.
 \item
   \textbf{Does UCS in 3D displays provide perception benefits over 2D
-  displays?} (Future work, chapter \ref{ch:future_work}.)The addition of
-  a stereoscopic 3rd dimension has previously shown improved perception.
-  Building on the work from the previous objective the efficacy of 3D
-  tours should be explored using modern hardware across display devices.
+  displays?} (Future work, chapter \ref{ch:future_work}.) The addition
+  of a stereoscopic 3rd dimension has previously shown improved
+  perception in other visualization. Building on the work from the
+  previous objective the efficacy of 3D tours should be explored using
+  modern hardware across display devices (including 2D standard monitor,
+  3D head tracked monitor, and 3D head-mounted display).
 \end{enumerate}
 
 \section{Methodology}\label{methodology}
@@ -202,23 +202,21 @@ techniques, measurements will include variation explained, transparency
 to the original variable space, clustering, and outlier identification.
 
 The research for RO \#3 involves \textbf{algorithm design}, where the
-work in RO \#1 will be extended to the third dimension, if not arbitrary
-dimensions. Surface and function projections will also be developed.
-This forms the calculation base for the work. After the projections have
-been produced, they will be used consumed by the immersive analytics
-toolkit (IATK) \autocite{cordeil_immersive_2019}, an extensible toolkit
-for visualizing data in VR. This standardized interface across display
-devices.
+work in RO \#1 will be extended to the third dimension. Surface and
+function projections will also be developed. This forms the calculation
+base for the work. Several difficulties may arise in bringing dynamic
+touring to 3D spaces, especially when exploring 3D surfaces (discussed
+in more detail in chapter \ref{ch:future_work}).
 
 The research resulting from RO \#4 is a controlled \textbf{usability
 study} to explore the efficacy of bringing UCS into 3D as compared
-across various display devices. In this design, every participant will
-complete every task on every display device. Display device is the
-design variable with task type as the covariate. Quantitative
-measurements include participant speed and accuracy of tasks, biometric
-readings, and subjective Likert surveys of participants. A lineup-type
-model as outlined in \textcite{hofmann_graphical_2012} may also be
-employed for assessing the quality of display types.
+across various display devices, in a standardized interface allowed by
+the work stemming from RO \# 3. In this design, every participant will
+complete every task on every display device. Quantitative measurements
+include participant speed and accuracy of tasks, biometric readings, and
+subjective Likert surveys of participants. A lineup-type model as
+outlined in \textcite{hofmann_graphical_2012} may also be employed for
+assessing the quality of display types.
 
 \section{Workflow and
 reproducibility}\label{workflow-and-reproducibility}
@@ -250,7 +248,7 @@ exploratory data analysis and workflow.}\label{fig:dataanalysisworkflow}
 
 The programing language, \emph{R}, is used in the work described below
 to import, tidy, and transform data. It can be used directly to
-visualize 2D tour (RO \#1 \& 2) or be consumed into the game engine
+visualize 2D tours (RO \#1 \& 2) or be consumed into the game engine
 \emph{Unity} to visualize 3D tours (RO \#3 \& 4). Doing analysis and
 writeup in such programmatic ways allow work to be done reproducibly.
 Where data, analysis, and code are stored in the same directory.
@@ -354,12 +352,12 @@ When an object is introduced it projects a 2D shadow onto the wall. This
 is a physical representation of a simple projection, that from \(p=3\)
 down to \(d=2\). If the object rotates then the shadow correspondingly
 changes. Observers watching only the shadow are functionally watching a
-\(d=2\) tour as the 3D object is manipulated. Some orientations explain
-more information about the shape of the object than others but watching
-an animation of the shadow changing gives a more robust understanding
-than looking at any one frame. More complex structures generally require
-more time to comprehend the nature of the geometry. These features hold
-in touring as well.
+2D tour as the 3D object is manipulated. Some orientations explain more
+information about the shape of the object than others but watching an
+animation of the shadow changing gives a more robust understanding than
+looking at any one frame. More complex structures generally require more
+time to comprehend the nature of the geometry. These features hold in
+touring as well.
 
 \emph{Tour notation is listed in the appendix section
 \ref{sec:tour_notation}.}
@@ -495,9 +493,9 @@ choice, data-driven, precomputed choice, and manual control.
 
 \subsection{Path evaluation}\label{path-evaluation}
 
-Consider \(d=2\), then each projection is called a 2-frame (each
-spanning a 2-plane). Mathematically, a Grassmannian is the set of all
-possible unoriented 2-frames in \(p\)-space, \(\textbf{Gr}(2,~p)\).
+Consider projection to 2D, then each projection is called a 2-frame
+(each spanning a 2-plane). Mathematically, a Grassmannian is the set of
+all possible unoriented 2-frames in \(p\)-space, \(\textbf{Gr}(2,~p)\).
 \textcite{asimov_grand_1985} pointed out that the unique 2-frames of the
 grand tour approaches \(\textbf{Gr}(2,~p)\) as time goes to infinity.
 The \emph{density} of a tour is defined as the fraction of the
@@ -562,9 +560,7 @@ well.
     \(x-y\) scatterplot
   \end{itemize}
 \item
-  3D geoms - these geoms do not perform projections in 3 dimensions, but
-  rather are \(d=2\) projections that utilize the manipulation dimension
-  to give depth perception cues.
+  3D geoms
 
   \begin{itemize}
   \tightlist
@@ -689,15 +685,13 @@ projections}\label{d-rotated-projections-vs-3-2d-orthogonal-projections}
 3D shapes can be represented by 3 orthogonal 2D views, or rather 3
 pairwise projections. When 3D representations are used with binocular
 cues, they are found to have more accurate perception than 2D
-counterparts \autocite[depicted in figure
-\ref{fig:lee86fig}]{lee_effects_1986}.
+counterparts \autocite{lee_effects_1986}.
 
 Between 3D and split view 2D of 3-dimensional economics data
-\textcite{wickens_implications_1994}, depicted in figure
-\ref{fig:wickens94fig}, asked participants integrative questions,
-finding that participants were faster to answer when questions involved
-three dimensions, while the performance was similar when questions
-involved fewer dimensions.
+\textcite{wickens_implications_1994} asked participants integrative
+questions, finding that participants were faster to answer when
+questions involved three dimensions, while the performance was similar
+when questions involved fewer dimensions.
 
 Using 3D rotated projection gives more accurate perception (relative to
 2D) of a ball suspended above complex box shapes, while combinations of
@@ -798,13 +792,12 @@ spheres to the left. In the viewing box, the data can be seen to contain
 three clusters, and one is being brushed.''}\label{fig:nelson98fig}
 \end{figure}
 
-Another study, \textcite{gracia_new_2016}, depicted in figure
-\ref{fig:gracia16fig}, performed dimensionality reduction down to 2- and
-3D scatterplots, both displayed in monocular 3D on a standard monitor.
-Users were found to more accurately compare distances between points and
-identify outliers on 3D scatterplots. However, both tasks were performed
-slower with the use of the 3D scatterplots and statistical significance
-was not reported.
+Another study, \textcite{gracia_new_2016} performed dimensionality
+reduction down to 2- and 3D scatterplots, both displayed in monocular 3D
+on a standard monitor. Users were found to more accurately compare
+distances between points and identify outliers on 3D scatterplots.
+However, both tasks were performed slower with the use of the 3D
+scatterplots and statistical significance was not reported.
 
 \textcite{wagner_filho_immersive_2018}, depicted in figure
 \ref{fig:wagner18fig}, performed an \(n=30\) empirical study of PCA
@@ -870,11 +863,10 @@ difference in users familiar with manipulating 2D vs 3D spaces
 
 Similar results have been shown in static, 3D projected spaces
 \autocites{gracia_new_2016}{wagner_filho_immersive_2018} and in dynamic
-\(d=2\) embedded spaces depicted in immersive 3D
-\autocite{nelson_xgobi_1998}. The literature stops short of the dynamic
-\(d=3\) linear projections. With Modern VR hardware advancement, so too
-does the quality, resolution, and prevalence of VR advance, making VR
-more easily accessible than ever. It's time to view dynamic 3D
+2D embedded spaces depicted in immersive 3D
+\autocite{nelson_xgobi_1998}. With Modern VR hardware advancement, so
+too does the quality, resolution, and prevalence of VR advance, making
+VR more easily accessible than ever. It's time to view dynamic 3D
 projections with immersive spaces and quantify the corresponding
 benefits (\textbf{RO \#3 \& 4}).
 
@@ -1181,10 +1173,10 @@ data for the projection in data-space.
       \end{bmatrix}_{[p,~d+1]}
 \end{align}
 
-Plot the first \(d=2\) variables from each projection in sequence for an
-XY scatterplot. The remaining variable is sometimes linked to a data
-point aesthetic to produce depth cues used in conjunction with the XY
-scatterplot.
+Plot the first \(d\) variables from each projection in sequence for an
+\(XY\)-scatterplot. The remaining variable is sometimes linked to a data
+point aesthetic to produce depth cues used in conjunction with the
+\(XY\)-scatterplot.
 
 \subsection{Storage and sharing}\label{storage-and-sharing}
 
@@ -1247,10 +1239,10 @@ space includes data sets, techniques, and measures of comparison.
 
 The literature has shown positive results for improved accuracy and
 precision for 3D displays. Dynamic linear projections should have
-similar gains in \(d=2\) projections, and the additional dimension
-should allow for improved perception of surfaces and dynamic viewing of
-\(d=3\) projections. The research answering RO \#1) will be extended to
-these uses.
+similar gains in 2D projections, and the additional dimension should
+allow for improved perception of surfaces and dynamic viewing of 3D
+projections. The research answering RO \#1) will be extended to these
+uses.
 
 The work done in \textcite{cordeil_imaxes:_2017} creates a collaborative
 space for people to engage in immersive data analysis, a generalized
@@ -1260,10 +1252,28 @@ user interface that can be used across various display devices in RO
 \#4.
 
 This is an \textbf{algorithm design}, first, the \emph{R} package
-spinifex will be extended to 3D, and surface \& function projections
-will be implemented. After the projections are performed \emph{Unity}
-will be used to render the embeddings in 3D VR and offer a compatible
-front end to be used across display devices.
+spinifex will be extended to 3D and function projections will be
+implemented. After the projections are performed \emph{Unity} will be
+used to render the embeddings in 3D VR and offer a compatible front end
+to be used across display devices.
+
+Manipulating 3D spaces may not be straight forward. In section
+\{sec:algorithm\} the manipulation space was in 3D, where 2 angles
+defined a point that was projected back to the 2D projection. If we have
+to define a 4D manipulation space it may be complex and clunky to
+navigate. On the other hand, if we can control the projection to 3D with
+the now 3D reference volume, then navigating 3D space may be very
+intuitive.
+
+Viewing functions and surfaces have several difficulties in 3D the first
+of which is occulation, the surfaces in the foreground blocks the view
+behind it. Opacity, wire mesh, and projection sectioning are ways to
+address this issue. A second issue is that it may be disorienting or
+nauseating to watch surfaces folding into each other.
+
+If UCS happens in real time the angular speed of the tour should be
+regulated for continuity of observation and to mitigate potentially
+nauseating movement.
 
 The design space includes the path generators (outlined in section
 \ref{sec:path_generation}), geometric display (section
@@ -1280,28 +1290,41 @@ over 2D displays?}\label{UCS_3dvs2d}
 
 The bulk of past touring endeavors have existed whole in 2D, with the
 exceptions of \textcite{nelson_xgobi_1998} and
-\textcite{arms_benefits_1999} who performed a small (\(n=15\))
-experimental study comparing tasks performed across 2D and 3D touring
-displays. The XGobi interface was used on a standard 2D monitor while
-VRGobi (on the C2 setup) was used with head-tracked binocular VR. The 3
-accuracy tasks: clustering, intrinsic data dimensionality, and radial
-sparseness were recorded along with the speed of brushing data. Accuracy
-was the same for the dimensionality task, while 3D display outperformed
-2D on clustering, and even more so on the radial sparsity. However, the
-time taken to brush a cluster was less than half the time in 2D displays
-as compared with 3D.
+\textcite{arms_benefits_1999} who performed an \(n=15\) experimental
+study comparing tasks performed across 2D and 3D touring displays. The
+XGobi interface was used on a standard 2D monitor while VRGobi (on the
+C2 setup) was used with head-tracked binocular VR. The 3 accuracy tasks:
+clustering, intrinsic data dimensionality, and radial sparseness were
+recorded along with the speed of brushing data. Accuracy was the same
+for the dimensionality task, while 3D display outperformed 2D on
+clustering, and even more so on the radial sparsity. However, the time
+taken to brush a cluster was less than half the time in 2D displays as
+compared with 3D.
+
+\textcite{wagner_filho_immersive_2018} performed a user study on the
+perception of linear projections between 2D, 3D, and immersive 3D. The
+\(n=30\) user study created 3D embeddings of multidimensional data via
+principal component analysis (PCA, described in RO \#2, above). Users
+performed 3 tasks across 2 data sets and 3 displays; 2D, 3D, and
+immersive 3D. Data sets were chosen to have vastly different amounts of
+information contained in the 3rd principal component. They find that the
+introduction of a 3rd dimension in visualization improves task
+performance (perception error, task error, and completion time)
+regardless of immersion for only the dataset containing promising
+information gain in 3D. Independent of the dataset, immersive 3D display
+led to a larger subjective perception of accuracy and engagement.
 
 The results of \textcite{wagner_filho_immersive_2018},
 \textcite{nelson_xgobi_1998} and, \textcite{arms_benefits_1999} cast
 positive light on 3D spaces improving the perception of embeddings of
-high-dimensional data, while others have found the same for data already
-in three dimensions. After implementing touring and UCS in 3D spaces (RO
-\#3), the next step is to quantify the effects across display type.
+high-dimensional data. Others have found the same for data already in
+three dimensions. After implementing touring and UCS in 3D spaces (RO
+\#3), the effects of viewing dynamic projections should be quantified
+across the display type.
 
 I plan to test the efficacy of doing so with the following controlled
 \textbf{usability study}, where every participant will complete every
-task on every display device. Display device is the design variable with
-task type as the covariate. Task order and display device will be
+task on every display device. Task order and display device will be
 randomly assigned to minimize learning bias. Correctness and speed of
 tasks will be recorded alongside demographic data and subjective 5-point
 Likert scale survey. A lineup-type model as outlined in

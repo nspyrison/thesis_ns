@@ -109,7 +109,7 @@ The introduction established that visualizing data-space is an important aspect 
 
 As dimensionality of the data, $p$, increases the visualization of data-space quickly becomes complex. It's common that visualizing data-space is dropped in favor of graphing model-space (for example residuals), parameter-space (in fewer dimensions), or worse yet: long tables of statistics without visuals [@wickham_visualizing_2015]. To preserve the visualization of data-space, a solution that scales with the dimensionality of data is needed; this is where dimensionality reduction comes in. This work will focus on a group of dynamic linear projection techniques collectively known as *tours*. A broader review of dimensionality reduction techniques is discussed in @grinstein_high-dimensional_2002, and @heer_tour_2010. Tours are used for a couple of salient features: the use of linear projections maintains transparency back to the original variable space (which non-linear projections lose) and views many projections showing more variation than a single linear projection could show. Employing the breadth of tours extends the dimensionality of visualizations, and with it, the intrinsic understanding of the structure and distribution of data that is more succinct or beyond the reach of summary statistics alone.
 
-Let $p$ be the dimensionality of the data, and $d$ be the dimension of the projection space. Tours perform linear dimensionality reduction, orthogonally projecting $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making small rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When an object is introduced it projects a 2D shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a $d=2$ tour as the 3D object is manipulated. Some orientations explain more information about the shape of the object than others but watching an animation of the shadow changing gives a more robust understanding than looking at any one frame. More complex structures generally require more time to comprehend the nature of the geometry. These features hold in touring as well.
+Let $p$ be the dimensionality of the data, and $d$ be the dimension of the projection space. Tours perform linear dimensionality reduction, orthogonally projecting $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making small rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing touring. Imagine a fixed light source facing a wall. When an object is introduced it projects a 2D shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a 2D tour as the 3D object is manipulated. Some orientations explain more information about the shape of the object than others but watching an animation of the shadow changing gives a more robust understanding than looking at any one frame. More complex structures generally require more time to comprehend the nature of the geometry. These features hold in touring as well.
 
 *Tour notation is listed in the appendix section \ref{sec:tour_notation}.*
 
@@ -167,7 +167,7 @@ A fundamental aspect of touring is the path of rotation. Of which there are four
 
 ### Path evaluation 
 
-Consider $d=2$, then each projection is called a 2-frame (each spanning a 2-plane). Mathematically, a Grassmannian is the set of all possible unoriented 2-frames in $p$-space, $\textbf{Gr}(2,~p)$. @asimov_grand_1985 pointed out that the unique 2-frames of the grand tour approaches $\textbf{Gr}(2,~p)$ as time goes to infinity. The *density* of a tour is defined as the fraction of the Grassmannian explored. Ideally, an exploring tour will be dense, but the time taken to become dense vastly increases as variable space increases dimensionality. *Rapidity* is then defined as how quickly a tour encompasses the Grassmannian. Due to the random selection of a grand tour, it will end up visiting homomorphisms of previous 2-frames before all unique values are visited, leading sub-optimal rapidity. 
+Consider projection to 2D, then each projection is called a 2-frame (each spanning a 2-plane). Mathematically, a Grassmannian is the set of all possible unoriented 2-frames in $p$-space, $\textbf{Gr}(2,~p)$. @asimov_grand_1985 pointed out that the unique 2-frames of the grand tour approaches $\textbf{Gr}(2,~p)$ as time goes to infinity. The *density* of a tour is defined as the fraction of the Grassmannian explored. Ideally, an exploring tour will be dense, but the time taken to become dense vastly increases as variable space increases dimensionality. *Rapidity* is then defined as how quickly a tour encompasses the Grassmannian. Due to the random selection of a grand tour, it will end up visiting homomorphisms of previous 2-frames before all unique values are visited, leading sub-optimal rapidity. 
 
 The little tour introduced in @mcdonald_interactive_1982, on the other hand, is necessarily both dense and rapid, performing essentially an exhaustive search on the Grassmannian. However, this path uninteresting and with long periods of similar projections strung together. The Grassmannian is necessarily large and increases with the square of $p$. Viewing of the whole Grassmannian is time-consuming, and interesting projections are sparse, there was a clear space for computers to narrow the search space.
 
@@ -185,7 +185,7 @@ Up to this point, this document has discussed 2D scatterplots, which offer a log
 * 2D geoms
     + 2D density (available on GitHub at https://github.com/nspyrison/tourr)
     + $x-y$ scatterplot
-* 3D geoms - these geoms do not perform projections in 3 dimensions, but rather are $d=2$ projections that utilize the manipulation dimension to give depth perception cues.
+* 3D geoms
     + Anaglyphs, sometimes called stereo, where red images are positioned for the left channel and cyan for the right when viewed with corresponding filter glasses give a perception of depth to the image.
     + Depth, which gives depth cues via aesthetic mappings, most common size and/or color of data points.
 * $d$-dimensional geoms
@@ -238,7 +238,7 @@ Scientific visualization has readily adopted mixed realities as a large amount o
 
 ### 3D rotated projections vs 3 2D orthogonal projections 
 
-3D shapes can be represented by 3 orthogonal 2D views, or rather 3 pairwise projections. When 3D representations are used with binocular cues, they are found to have more accurate perception than 2D counterparts [@lee_effects_1986, depicted in figure \@ref(fig:lee86fig)].
+3D shapes can be represented by 3 orthogonal 2D views, or rather 3 pairwise projections. When 3D representations are used with binocular cues, they are found to have more accurate perception than 2D counterparts [@lee_effects_1986].
 
 <!-- REMOVED, for less data viz figs (as per Di)
 (ref:lee86fig-cap) Screen capture of "figure 7. 3-D Block Model" from @lee_effects_1986.  -->
@@ -248,7 +248,7 @@ Scientific visualization has readily adopted mixed realities as a large amount o
 <!-- ``` -->
 
 
-Between 3D and split view 2D of 3-dimensional economics data @wickens_implications_1994, depicted in figure \@ref(fig:wickens94fig), asked participants integrative questions, finding that participants were faster to answer when questions involved three dimensions, while the performance was similar when questions involved fewer dimensions.
+Between 3D and split view 2D of 3-dimensional economics data @wickens_implications_1994 asked participants integrative questions, finding that participants were faster to answer when questions involved three dimensions, while the performance was similar when questions involved fewer dimensions.
 
 Using 3D rotated projection gives more accurate perception (relative to 2D) of a ball suspended above complex box shapes, while combinations of 2D and 3D give the most precise orientation and positioning information [@tory_visualization_2006, depicted in figure \@ref(fig:tory06fig)].
 
@@ -278,7 +278,7 @@ knitr::include_graphics("./figures/sedlmair13fig.PNG")
 knitr::include_graphics("./figures/nelson98fig.PNG")
 ```
 
-Another study, @gracia_new_2016, depicted in figure \@ref(fig:gracia16fig), performed dimensionality reduction down to 2- and 3D scatterplots, both displayed in monocular 3D on a standard monitor. Users were found to more accurately compare distances between points and identify outliers on 3D scatterplots. However, both tasks were performed slower with the use of the 3D scatterplots and statistical significance was not reported.
+Another study, @gracia_new_2016 performed dimensionality reduction down to 2- and 3D scatterplots, both displayed in monocular 3D on a standard monitor. Users were found to more accurately compare distances between points and identify outliers on 3D scatterplots. However, both tasks were performed slower with the use of the 3D scatterplots and statistical significance was not reported.
 
 @wagner_filho_immersive_2018, depicted in figure \@ref(fig:wagner18fig), performed an $n=30$ empirical study of PCA embedded projections, and perception error across 4 tasks and 3 display types: 2D, 3D, and immersive. Overall task error was less in 3D and immersive relative to 2D. According to the user Likert-scale survey, 2D is slightly easier to navigate and slightly more comfortable, while, 3D and immersive display are slightly easier to interact and moderately easier to find information.
 
@@ -302,4 +302,4 @@ knitr::include_graphics("./figures/cordeil2017fig.PNG")
 
 When comparing between 3D and 2D orthogonal views studies, in general, show that perception accuracy is better in 3D, though manipulation speed is generally slower. The speed discrepancy is confounded by the difference in users familiar with manipulating 2D vs 3D spaces [@lee_effects_1986; @wickens_implications_1994; @tory_visualization_2006; counterexample @sedlmair_empirical_2013]. 
 
-Similar results have been shown in static, 3D projected spaces [@gracia_new_2016; @wagner_filho_immersive_2018] and in dynamic $d=2$ embedded spaces depicted in immersive 3D [@nelson_xgobi_1998]. The literature stops short of the dynamic $d=3$ linear projections. With Modern VR hardware advancement, so too does the quality, resolution, and prevalence of VR advance, making VR more easily accessible than ever. It's time to view dynamic 3D projections with immersive spaces and quantify the corresponding benefits (**RO #3 & 4**).
+Similar results have been shown in static, 3D projected spaces [@gracia_new_2016; @wagner_filho_immersive_2018] and in dynamic 2D embedded spaces depicted in immersive 3D [@nelson_xgobi_1998]. With Modern VR hardware advancement, so too does the quality, resolution, and prevalence of VR advance, making VR more easily accessible than ever. It's time to view dynamic 3D projections with immersive spaces and quantify the corresponding benefits (**RO #3 & 4**).
