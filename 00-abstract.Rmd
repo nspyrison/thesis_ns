@@ -4,12 +4,12 @@ knit: "bookdown::render_book"
 
 # Abstract {-}
 
-Visualizing data space is crucial to exploratory and general data analysis yet doing so quickly becomes difficult as the dimensionality of the data increases. Traditionally, static, low-dimensional linear embeddings are used to identify clustering, outliers, and structure. Observing one such embedding often misses a significant amount of variation, and hence, information held within the data. Tours are a class of dynamic linear projections that animates many linear projections as the orientation in data space changes. This maintains transparency to the original variables while preserving information in the data.
+Visualizing data space is crucial to exploratory and general data analysis yet doing so quickly becomes difficult as the dimensionality of the data increases. Traditionally, static, low-dimensional linear embeddings are used to identify clustering, outliers, and structure. Observing one such embedding often misses a significant amount of variation, and hence, information held within the data. *Tours* are a class of dynamic linear projections that animates many linear projections as the orientation in data space changes. This maintains transparency to the original variables while preserving information in the data.
 User-controlled steering (UCS) of the original dimensionality offers fine control of the local structure of projections. 
 
-Excitement and hype about virtual reality preceded hardware's progress in the 1980s and '90s for a false start with data visualization. Despite this and more recently, studies have regularly shown increased accuracy of perception of visuals displayed in 3D over 2D, including in projected subspaces.
+Data visualization has lagged behind in implementing 3D and virtual spaces after, overhype and excitement from the 1980s and '90s. Modern mixed reality  hardware has significantly improved the quality and simultaniously reduced the barrier to entry. Contemporary studies have regularly shown increased accuracy of perception of visuals displayed in 3D over 2D, including in projected subspaces. It's time to further explore dynamic projections in virtuals spaces
 
-Multivariate data is ubiquitous and viewing it in data-space is a crucial aspect of data analysis and consumption. This research involves scaling data visualization as data dimensionality increases, improving the perception of dynamic linear projections via application in VR, and implements novel dynamic projections in 3D space, and explores the benefits of doing so.
+Multivariate data is ubiquitous and viewing it in data-space is a crucial aspect of data analysis and consumption. This research allows for fine exploration of the data structure in embeddings of high dimensional spaces, contrasts UCS with traditional static techniques, implements known and surface dynamic projections in 3D space, and quantifies the benefits of dynamic projections across display types.
 
 
 <!-- 

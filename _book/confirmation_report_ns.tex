@@ -43,25 +43,27 @@ analysis yet doing so quickly becomes difficult as the dimensionality of
 the data increases. Traditionally, static, low-dimensional linear
 embeddings are used to identify clustering, outliers, and structure.
 Observing one such embedding often misses a significant amount of
-variation, and hence, information held within the data. Tours are a
-class of dynamic linear projections that animates many linear
+variation, and hence, information held within the data. \emph{Tours} are
+a class of dynamic linear projections that animates many linear
 projections as the orientation in data space changes. This maintains
 transparency to the original variables while preserving information in
 the data. User-controlled steering (UCS) of the original dimensionality
 offers fine control of the local structure of projections.
 
-Excitement and hype about virtual reality preceded hardware's progress
-in the 1980s and '90s for a false start with data visualization. Despite
-this and more recently, studies have regularly shown increased accuracy
-of perception of visuals displayed in 3D over 2D, including in projected
-subspaces.
+Data visualization has lagged behind in implementing 3D and virtual
+spaces after, overhype and excitement from the 1980s and '90s. Modern
+mixed reality hardware has significantly improved the quality and
+simultaniously reduced the barrier to entry. Contemporary studies have
+regularly shown increased accuracy of perception of visuals displayed in
+3D over 2D, including in projected subspaces. It's time to further
+explore dynamic projections in virtuals spaces
 
 Multivariate data is ubiquitous and viewing it in data-space is a
-crucial aspect of data analysis and consumption. This research involves
-scaling data visualization as data dimensionality increases, improving
-the perception of dynamic linear projections via application in VR, and
-implements novel dynamic projections in 3D space, and explores the
-benefits of doing so.
+crucial aspect of data analysis and consumption. This research allows
+for fine exploration of the data structure in embeddings of high
+dimensional spaces, contrasts UCS with traditional static techniques,
+implements known and surface dynamic projections in 3D space, and
+quantifies the benefits of dynamic projections across display types.
 
 \clearpage\pagenumbering{arabic}\setcounter{page}{0}
 
@@ -118,12 +120,12 @@ user-controlled steering (UCS) offers the finest control for navigating
 local structure and is particularly useful in exploration after an
 interesting feature has been identified.
 
-Tours are commonly view \(d=\{1, 2, 3\}\) embedded subspaces from
-standard 2D monitors, and most commonly viewed as a projection down to
-\(d=2\). The exception being \textcite{nelson_xgobi_1998}, where \(d=3\)
-tours were viewed in 3D head-tracked VR. Data visualization studies
-generally show an improved perception of 3D visuals over 2D, especially
-when adequate depth cues are provided. The state of modern hardware
+Tours commonly view \(d=\{1, 2, 3\}\) embedded subspaces from standard
+2D monitors, and most commonly viewed as a projection down to \(d=2\).
+The exception being \textcite{nelson_xgobi_1998}, where \(d=3\) tours
+were viewed in 3D head-tracked VR. Data visualization studies generally
+show an improved perception of 3D visuals over 2D, especially when
+adequate depth cues are provided. The state of modern hardware
 improvements has made VR more affordable and available to wider
 audiences, at ever increasing resolutions of display than previously
 possible. Research should be conducted to compare the perception of
@@ -148,34 +150,38 @@ Ph.D.~research can then be summarized as:
   \textbf{How can UCS be implemented in 1- and 2D projections?} (Work in
   progress, chapter \ref{ch:workinprogress}.) Following the theory laid
   out in \textcite{cook_manual_1997}, a new UCS algorithm is devised for
-  use in animation specific implementations. This sets a framework to be
-  used in the remaining objectives.
+  use in animation specific implementations. This enables fine control
+  of exploring the local structure of data in 2D embeddings, setting a
+  framework to be used in the remaining objectives.
 \item
   \textbf{Does 2D UCS provide benefits over alternatives?} (Future work,
   chapter \ref{ch:future_work}.) The quality and effectiveness of the
   dynamic UCS will be compared to benchmark datasets against commonly
   used alternatives of static, single, linear and non-linear projection
-  techniques. The addition of the temporal dimension should allow for
-  improved perception of sturucture.
+  techniques. The addition of the temporal dimension theoretically
+  allows for more information to be conveyed than in static projections.
 \item
   \textbf{How can UCS be extended to 3D?} (Future work, chapter
-  \ref{ch:future_work}.) This involves extending the UCS algorithm to
+  \ref{ch:future_work}.) The UCS algorithm needs to be extended to
   arbitrary, or at least, a third dimension and the rendering of 3D
-  tours for use across mixed reality display devices.
+  tours for use across mixed reality display devices. This involves
+  communication between programming languages and allows for the
+  comparison across display devices.
 \item
   \textbf{Does UCS in 3D displays provide perception benefits over 2D
-  displays?} (Future work, chapter \ref{ch:future_work}.) Building on
-  the work from the previous objective the efficacy of 3D tours should
-  be explored using modern hardware across display devices.
+  displays?} (Future work, chapter \ref{ch:future_work}.)The addition of
+  a stereoscopic 3rd dimension has previously shown improved perception.
+  Building on the work from the previous objective the efficacy of 3D
+  tours should be explored using modern hardware across display devices.
 \end{enumerate}
 
 \section{Methodology}\label{methodology}
 
-This research is interdisciplinary in nature; it's base on a dimension
-reduction technique developed by statisticians, extended with
-information technology into 3D including VR technologies, with
-applications in high energy physics
-identified\autocite{cook_dynamical_2018}. The research is supervised
+This research is interdisciplinary; it's base on a dimension reduction
+technique developed by statisticians, extended with information
+technology into 3D including VR technologies, with applications in high
+energy physics identified\autocite{cook_dynamical_2018}. The research is
+correspondingly supervised experts in these fields.
 
 The research corresponding with RO \#1 entails a work in progress
 \textbf{algorithm design} following the work in
@@ -186,41 +192,33 @@ implementations. This outcome of this is an \emph{R} package,
 distribution. This forms the foundation for future work in the remaining
 objectives.
 
-The second objective is addressed with a \textbf{benchmark comparison}
-between dynamic linear projections and alternatives (static linear and
-static non-linear projections such as Principal Component Analysis,
-Multi-Dimensional Scaling, and t-distributed neighbor embeddings,
-described in more detail in chapter \ref{ch:future_work}). Measures
-comparing between the techniques will include variation explained,
-transparency to the original variable space, clustering, and outlier
-identification.
+The second objective is addressed with a benchmark dataset comparison
+\textbf{case study} between dynamic linear projections and alternatives
+(static linear and static non-linear projections such as Principal
+Component Analysis, Multi-Dimensional Scaling, and t-distributed
+neighbor embeddings, described in more detail in chapter
+\ref{ch:future_work}). Benchmark datasets will be compared across
+techniques, measurements will include variation explained, transparency
+to the original variable space, clustering, and outlier identification.
 
-RO \#3 involves \textbf{experimental design} applying contribution from
-RO \#1 with the immersive analytics toolkit (IATK) in
-\textcite{cordeil_immersive_2019}, an extensible toolkit for visualizing
-data in VR. First, the work from RO \# 1 will be extended into \(d=3\)
-projections and surface projections. This will be called from the IATK
-and used for a standardized interface across display devices.
+The research for RO \#3 involves \textbf{algorithm design}, where the
+work in RO \#1 will be extended to the third dimension, if not arbitrary
+dimensions. Surface and function projections will also be developed.
+This forms the calculation base for the work. After the projections have
+been produced, they will be used consumed by the immersive analytics
+toolkit (IATK) \autocite{cordeil_immersive_2019}, an extensible toolkit
+for visualizing data in VR. This standardized interface across display
+devices.
 
-The response to RO \#4 is a \emph{randomized full factorial design}
-\textbf{empirical study} to explore the efficacy of bringing UCS into 3D
-as compared across various display devices. In this design, every
-participant will complete every task on every display device.
-Quantitative measurements include participant speed and accuracy of
-tasks, biometric readings, and subjective Likert surveys of
-participants. A lineup-type model as outlined in
-\textcite{hofmann_graphical_2012} may also be employed for assessing the
-quality of display types.
-
-In this report, the related literature is discussed in chapter
-\ref{ch:lit_review}. A brief overview of the research is given in
-chapter \ref{ch:projectoverview}, followed by on going work and future
-work in chapters \ref{ch:workinprogress} and \ref{ch:future_work}
-respectively. A prospective timeline is listed in chapter
-\ref{ch:timeline}. Notation for dynamic touring and VR data
-visualization can be found in appendix \ref{ch:glossary}, and an excerpt
-of a paper to be submitted to the R Journal can be found in appendix
-\ref{ch:spinifex_paper}.
+The research resulting from RO \#4 is a controlled \textbf{usability
+study} to explore the efficacy of bringing UCS into 3D as compared
+across various display devices. In this design, every participant will
+complete every task on every display device. Display device is the
+design variable with task type as the covariate. Quantitative
+measurements include participant speed and accuracy of tasks, biometric
+readings, and subjective Likert surveys of participants. A lineup-type
+model as outlined in \textcite{hofmann_graphical_2012} may also be
+employed for assessing the quality of display types.
 
 \section{Workflow and
 reproducibility}\label{workflow-and-reproducibility}
@@ -285,9 +283,19 @@ alternatives, must come after RO \#1, but is of lower priority to RO \#3
 
 }
 
-\caption{Flow chart of research objective (RO)
-dependencies, work order, and methodology.}\label{fig:ProjectOverview}
+\caption{Flow chart of research objective dependencies,
+work order, and methodology.}\label{fig:ProjectOverview}
 \end{figure}
+
+In this report, the related literature is discussed in chapter
+\ref{ch:lit_review}. A brief overview of the research is given in
+chapter \ref{ch:projectoverview}, followed by ongoing work and future
+work in chapters \ref{ch:workinprogress} and \ref{ch:future_work}
+respectively. A prospective timeline is listed in chapter
+\ref{ch:timeline}. Notation for dynamic touring and VR data
+visualization can be found in appendix \ref{ch:glossary}, and an excerpt
+of a paper to be submitted to the R Journal can be found in appendix
+\ref{ch:spinifex_paper}.
 
 \chapter{Literature review}\label{ch:lit_review}
 
@@ -711,7 +719,7 @@ Using 3D rotated projection gives more accurate perception (relative to
 }
 
 \caption{Screen capture from
-\textcite{tory_visualization_2006}: ``Fig. 1 (a) 2D, (b) 3D Rotated, (c)
+\textcite{tory_visualization_2006}: ``fig. 1 (a) 2D, (b) 3D Rotated, (c)
 3D Shadow, (d) Orientation Icon, and (e) ExoVis displays used in
 Experiment 1 (position estimation). Participants estimated the height of
 the ball relative to the block shape. In this example, the ball is at
@@ -746,8 +754,8 @@ explored more clearly.
 
 }
 
-\caption{Screen capture of ``Figure 5. Example of a mesh
-display'' from \textcite{sedlmair_empirical_2013}: ``Fig. 5. (a)-(d):
+\caption{Screen capture of ``figure 5. Example of a mesh
+display'' from \textcite{sedlmair_empirical_2013}: ``fig. 5. (a)-(d):
 Screenshots of the entangled dataset \texttt{entangled1-3d-3cl-separate}
 designed to show the most possible benefits for i3D. (a),(b) two
 viewpoints of the same i3D PCA scatterplot. An accompanying video shows
@@ -784,7 +792,7 @@ familiarity of manipulating 3D spaces.
 }
 
 \caption{Screen capture from \textcite{nelson_xgobi_1998}:
-``Figure 4: This is a picture of a 3-D room, running VRGobi. Data is
+``figure 4: This is a picture of a 3-D room, running VRGobi. Data is
 plotted in the center, with painting tools to the right and variable
 spheres to the left. In the viewing box, the data can be seen to contain
 three clusters, and one is being brushed.''}\label{fig:nelson98fig}
@@ -1226,13 +1234,13 @@ variable-space and keep variation in tack. Providing user-controlled
 steering of tours should allow for finer structural exploration than the
 alternatives.
 
-The tentative methodology for this future work is a \textbf{benchmark
-comparison study} between UCS and leading alternatives. This will be a
-sufficient comparison if there are enough quantifiable measurements
-across the different techniques. However, if enough measurements are not
-comparable across techniques an empirical study analogous to the study
-suggested in RO \# 4 will be considered. Design space includes data
-sets, techniques, and measures of comparison.
+The methodology for this future work is a \textbf{case study} comparing
+benchmark datasets across technique, UCS and leading alternatives. This
+will be a sufficient comparison if there are enough quantifiable
+measurements across the different techniques. However, if enough
+measurements are not comparable across techniques an empirical study
+analogous to the study suggested in RO \# 4 will be considered. Design
+space includes data sets, techniques, and measures of comparison.
 
 \section{RO \#3) How can UCS be extended to
 3D?}\label{ro-3-how-can-ucs-be-extended-to-3d}
@@ -1251,9 +1259,10 @@ dynamic linear touring in 3D with the above work offers a consolidated
 user interface that can be used across various display devices in RO
 \#4.
 
-This is an \textbf{exploratory design}, first the \emph{R} package
-spinifex will be extended to 3D, and then calling it via the
-\emph{Unity} package for rendering in 3D VR and offers a compatible
+This is an \textbf{algorithm design}, first, the \emph{R} package
+spinifex will be extended to 3D, and surface \& function projections
+will be implemented. After the projections are performed \emph{Unity}
+will be used to render the embeddings in 3D VR and offer a compatible
 front end to be used across display devices.
 
 The design space includes the path generators (outlined in section
@@ -1289,14 +1298,15 @@ high-dimensional data, while others have found the same for data already
 in three dimensions. After implementing touring and UCS in 3D spaces (RO
 \#3), the next step is to quantify the effects across display type.
 
-I plan to test the efficacy of doing so with the following
-\textbf{empirical study}: \emph{randomized full factorial design}, where
-every participant will complete every task on every display device. Task
-order and display device will be randomly assigned to minimize learning
-bias. Correctness and speed of tasks will be recorded alongside
-demographic data and subjective 5-point Likert scale survey. A
-lineup-type model as outlined in \textcite{hofmann_graphical_2012} may
-be employed to quantify the ``best'' display device.
+I plan to test the efficacy of doing so with the following controlled
+\textbf{usability study}, where every participant will complete every
+task on every display device. Display device is the design variable with
+task type as the covariate. Task order and display device will be
+randomly assigned to minimize learning bias. Correctness and speed of
+tasks will be recorded alongside demographic data and subjective 5-point
+Likert scale survey. A lineup-type model as outlined in
+\textcite{hofmann_graphical_2012} may be employed to quantify the
+``best'' display device.
 
 Tasks will test the perception of structure and surface, varying across
 the manipulation variable. All tasks will be conducted across at least
