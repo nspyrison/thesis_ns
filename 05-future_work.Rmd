@@ -15,7 +15,7 @@ High dimensional data and models are ubiquitous but viewing them in data space i
 
 Unfortunately, static linear projections necessarily cut variation in the components not shown, while non-linear techniques lose transparency back to the original variable space. Tours preserve this transparency to variable-space and keep variation in tack. Providing user-controlled steering of tours should allow for finer structural exploration than the alternatives.
 
-The tentative methodology for this future work is a **benchmark comparison study** between UCS and leading alternatives. This will be a sufficient comparison if there are enough quantifiable measurements across the different techniques. However, if enough measurements are not comparable across techniques an empirical study analogous to the study suggested in RO # 4 will be considered. Design space includes data sets, techniques, and measures of comparison.
+The methodology for this future work is a **case study** comparing benchmark datasets across technique, UCS and leading alternatives. This will be a sufficient comparison if there are enough quantifiable measurements across the different techniques. However, if enough measurements are not comparable across techniques an empirical study analogous to the study suggested in RO # 4 will be considered. Design space includes data sets, techniques, and measures of comparison.
 
 ## RO #3) How can UCS be extended to 3D?
 
@@ -23,7 +23,7 @@ The literature has shown positive results for improved accuracy and precision fo
 
 The work done in @cordeil_imaxes:_2017 creates a collaborative space for people to engage in immersive data analysis, a generalized platform for data visualization in the Unity game engine. By integrating dynamic linear touring in  3D with the above work offers a consolidated user interface that can be used across various display devices in RO #4.
 
-This is an **exploratory design**, first the *R* package spinifex will be extended to 3D, and then calling it via the *Unity* package for rendering in 3D VR and offers a compatible front end to be used across display devices.
+This is an **algorithm design**, first, the *R* package spinifex will be extended to 3D, and surface & function projections will be implemented. After the projections are performed *Unity* will be used to render the embeddings in 3D VR and offer a compatible front end to be used across display devices.
 
 The design space includes the path generators (outlined in section \ref{sec:path_generation}), geometric display (section \ref{sec:geom_display}), layout in virtual space, dynamic interactions. Tour paths are conceptually straight-forward mapping between values and 3D rendering. Each geometric display will need unique recreation, though 3D scatterplot, parallel coordinate plot and scatterplot matrices (SPLOM) are currently supported in the respective packages in both languages. We will also explore surface and function visualization in 3D. 
 
@@ -33,7 +33,7 @@ The bulk of past touring endeavors have existed whole in 2D, with the exceptions
 
 The results of @wagner_filho_immersive_2018, @nelson_xgobi_1998 and, @arms_benefits_1999 cast positive light on 3D spaces improving the perception of embeddings of high-dimensional data, while others have found the same for data already in three dimensions. After implementing touring and UCS in 3D spaces (RO #3), the next step is to quantify the effects across display type.
 
-I plan to test the efficacy of doing so with the following **empirical study**: *randomized full factorial design*, where every participant will complete every task on every display device. Task order and display device will be randomly assigned to minimize learning bias. Correctness and speed of tasks will be recorded alongside demographic data and subjective 5-point Likert scale survey. A lineup-type model as outlined in @hofmann_graphical_2012 may be employed to quantify the "best" display device.
+I plan to test the efficacy of doing so with the following controlled **usability study**, where every participant will complete every task on every display device. Display device is the design variable with task type as the covariate. Task order and display device will be randomly assigned to minimize learning bias. Correctness and speed of tasks will be recorded alongside demographic data and subjective 5-point Likert scale survey. A lineup-type model as outlined in @hofmann_graphical_2012 may be employed to quantify the "best" display device.
 
 Tasks will test the perception of structure and surface, varying across the manipulation variable. All tasks will be conducted across at least three display devices: standard 2D monitor, stereoscopic 3D monitor (on a zSpace 200), and head-mounted VR goggles (HTC VIVE). The user interface will be standardized across display devices. The data explored will be of high energy physics experiments already being discussed in publication [@wang_visualizing_2018; @cook_dynamical_2018] and looked at in 2D UCS in appendix \ref{ch:spinifex_paper}.
 

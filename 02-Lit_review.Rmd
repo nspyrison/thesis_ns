@@ -252,7 +252,7 @@ Between 3D and split view 2D of 3-dimensional economics data @wickens_implicatio
 
 Using 3D rotated projection gives more accurate perception (relative to 2D) of a ball suspended above complex box shapes, while combinations of 2D and 3D give the most precise orientation and positioning information [@tory_visualization_2006, depicted in figure \@ref(fig:tory06fig)].
 
-(ref:tory06fig-cap) Screen capture from @tory_visualization_2006: "Fig. 1 (a) 2D, (b) 3D Rotated, (c) 3D Shadow, (d) Orientation Icon, and (e) ExoVis displays used in Experiment 1 (position estimation). Participants estimated the height of the ball relative to the block shape. In this example, the ball is at height 1.5 diameters above the block shape."
+(ref:tory06fig-cap) Screen capture from @tory_visualization_2006: "fig. 1 (a) 2D, (b) 3D Rotated, (c) 3D Shadow, (d) Orientation Icon, and (e) ExoVis displays used in Experiment 1 (position estimation). Participants estimated the height of the ball relative to the block shape. In this example, the ball is at height 1.5 diameters above the block shape."
 
 ```{r tory06fig, echo=F, out.width='50%', fig.cap = "(ref:tory06fig-cap)"}
 knitr::include_graphics("./figures/tory06fig.PNG")
@@ -261,7 +261,7 @@ knitr::include_graphics("./figures/tory06fig.PNG")
 
 @sedlmair_empirical_2013, depicted in figure \@ref(fig:sedlmair13fig), tasked users with cluster separation across 2D scatterplot, 2D scatterplot matrices (SPLOMs) and interactive 3D scatterplots as viewed in monocular 3D from a standard monitor. They conclude that interactive 3D scatterplots perform worse for class separation. This result is surprising as the extra dimension theoretically allows for the clustering structure to be seen and explored more clearly.
 
-(ref:sedlmair13fig-cap) Screen capture of "Figure 5. Example of a mesh display" from @sedlmair_empirical_2013: "Fig. 5. (a)-(d): Screenshots of the entangled dataset `entangled1-3d-3cl-separate` designed to show the most possible benefits for i3D. (a),(b) two viewpoints of the same i3D PCA scatterplot. An accompanying video shows the full 3D rotation. (c) 2D PCA projection. (d) t-SNE untangles this class structure in 2D. (e)-(f): 2D scatterplots of the reduced `entangled2-15d-adjacent` dataset which we designed to have a ground truth entangled class structure in 15D. (e) Glimmer MDS cannot untangle the classes, neither can PCA and robPCA (see supplemental material). (f) t-SNE nicely untangles and separates the ground truth classes in 2D."
+(ref:sedlmair13fig-cap) Screen capture of "figure 5. Example of a mesh display" from @sedlmair_empirical_2013: "fig. 5. (a)-(d): Screenshots of the entangled dataset `entangled1-3d-3cl-separate` designed to show the most possible benefits for i3D. (a),(b) two viewpoints of the same i3D PCA scatterplot. An accompanying video shows the full 3D rotation. (c) 2D PCA projection. (d) t-SNE untangles this class structure in 2D. (e)-(f): 2D scatterplots of the reduced `entangled2-15d-adjacent` dataset which we designed to have a ground truth entangled class structure in 15D. (e) Glimmer MDS cannot untangle the classes, neither can PCA and robPCA (see supplemental material). (f) t-SNE nicely untangles and separates the ground truth classes in 2D."
 
 ```{r sedlmair13fig, echo=F, out.width='100%', fig.cap = "(ref:sedlmair13fig-cap)"}
 knitr::include_graphics("./figures/sedlmair13fig.PNG")
@@ -272,7 +272,7 @@ knitr::include_graphics("./figures/sedlmair13fig.PNG")
 
 @nelson_xgobi_1998, depicted in figure \@ref(fig:nelson98fig), had $n=15$ participants perform brushing and touring tasks (identification of clusters, structure, and data dimensionality) in 3D with head-tracked binocular VR. 3D proved to have a substantial advantage for cluster identification and some advantage in identifying the shape. Brushing did take longer in VR, perhaps due to the lower familiarity of manipulating 3D spaces. 
 
-(ref:nelson98fig-cap) Screen capture from @nelson_xgobi_1998: "Figure 4: This is a picture of a 3-D room, running VRGobi. Data is plotted in the center, with painting tools to the right and variable spheres to the left. In the viewing box, the data can be seen to contain three clusters, and one is being brushed."
+(ref:nelson98fig-cap) Screen capture from @nelson_xgobi_1998: "figure 4: This is a picture of a 3-D room, running VRGobi. Data is plotted in the center, with painting tools to the right and variable spheres to the left. In the viewing box, the data can be seen to contain three clusters, and one is being brushed."
 
 ```{r nelson98fig, echo=F, out.width='70%', fig.cap = "(ref:nelson98fig-cap)"}
 knitr::include_graphics("./figures/nelson98fig.PNG")
