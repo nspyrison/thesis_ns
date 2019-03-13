@@ -50,20 +50,20 @@ transparency to the original variables while preserving information in
 the data. User-controlled steering (UCS) of the original dimensionality
 offers fine control of the local structure of projections.
 
-Data visualization has lagged behind in implementing 3D and virtual
-spaces after, overhype and excitement from the 1980s and '90s. Modern
-mixed reality hardware has significantly improved the quality and
-simultaniously reduced the barrier to entry. Contemporary studies have
-regularly shown increased accuracy of perception of visuals displayed in
-3D over 2D, including in projected subspaces. It's time to further
-explore dynamic projections in virtuals spaces
+Data visualization has lagged behind in utilizing 3D and virtual spaces
+after overhype from the 1980s and '90s gave way to some unpromising
+results. Modern mixed reality hardware has significantly improved the
+quality and simultaniously reduced the barrier to entry. Contemporary
+studies have regularly shown increased accuracy of perception of visuals
+displayed in 3D over 2D, including in projected subspaces. It's time to
+further explore dynamic projections in virtuals spaces.
 
 Multivariate data is ubiquitous and viewing it in data-space is a
 crucial aspect of data analysis and consumption. This research allows
 for fine exploration of the data structure in embeddings of high
 dimensional spaces, contrasts UCS with traditional static techniques,
-implements known and surface dynamic projections in 3D space, and
-quantifies the benefits of dynamic projections across display types.
+extends UCS \& creates surface projections in 3D space, and quantifies
+the benefits of dynamic projections across display types.
 
 \clearpage\pagenumbering{arabic}\setcounter{page}{0}
 
@@ -72,21 +72,20 @@ quantifies the benefits of dynamic projections across display types.
 \section{Exploratory data analysis}\label{exploratory-data-analysis}
 
 The term exploratory data analysis was coined in
-\textcite{tukey_exploratory_1977}. Tukey does not specify specific
-processes and uses the term to encompass more broad aspects to initial
-summarization and visualization. This is the first conceptualization of
-the structure of the data and should validate assumptions made by
-prospective methodology. Visualization is crucial to a clear
-understanding of the data. Things can go awry when data is summarized
-via numeric statistics alone \autocite{anscombe_graphs_1973},
-demonstrated in figure \ref{fig:matejka17fig}
-\autocite{matejka_same_2017}. In these studies, bivariate data have the
-same summary statistics, such as mean and standard deviation, yet
-contain obvious visual trends and shapes that could go completely
-unheeded if graphing the data is foregone. Because there are inherent
-dangers to relying on statistics alone, this requirement for looking at
-visuals necessitates \emph{human-in-the-loop} analysis, defined as a
-model that requires human interaction.
+\textcite{tukey_exploratory_1977}, who leaves it as a broad term to
+encompass the initial summarization and visualization of a data set.
+This is a critical first step of checking for realistic values and
+validating assumptions made by prospective methodology. Visualization is
+crucial to a clear understanding of the data. Things can go awry when
+data is summarized via numeric statistics alone
+\autocite{anscombe_graphs_1973}, demonstrated in figure
+\ref{fig:matejka17fig} \autocite{matejka_same_2017}. In these studies,
+bivariate data have the same summary statistics (such as mean and
+standard deviation), yet contain obvious visual trends and shapes that
+could go completely unheeded if plotting is foregone. Because there are
+inherent dangers to relying on statistics alone, this requirement for
+looking at visuals necessitates \emph{human-in-the-loop} analysis,
+defined as any model that requires human interaction.
 
 
 
@@ -117,8 +116,8 @@ to be contained and viewed temporally. This dynamic view of many
 changing projections is known as \emph{tours}. While, there are
 different methods of generating tour paths, human-in-the-loop
 user-controlled steering (UCS) offers the finest control for navigating
-the local structure and is particularly useful in exploration after an
-interesting feature has been identified.
+the local structure. This makes it particularly useful in exploration
+after an interesting feature has been identified.
 
 Tours commonly view \(d=\{1, 2, 3\}\) embedded subspaces from standard
 2D monitors, and most commonly viewed as a projection down to 2D. The
@@ -147,11 +146,12 @@ Ph.D.~research can then be summarized as:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{How can UCS be implemented in 1- and 2D projections?} (Work in
-  progress, chapter \ref{ch:workinprogress}.) Following the theory laid
-  out in \textcite{cook_manual_1997}, a new UCS algorithm is devised for
-  use in animation specific implementations. This enables fine control
-  of exploring the local structure of data in 2D embeddings, setting a
+  \textbf{How can UCS be in 1- and 2D projections within an
+  animation-specific framework?} (Work in progress, chapter
+  \ref{ch:workinprogress}.) Following the theory laid out in
+  \textcite{cook_manual_1997}, a new UCS algorithm is devised for use
+  within animation-specific frameworks. This enables fine control of
+  exploring the local structure of data in 2D embeddings, setting a
   framework to be used in the remaining objectives.
 \item
   \textbf{Does 2D UCS provide benefits over alternatives?} (Future work,
@@ -169,10 +169,10 @@ Ph.D.~research can then be summarized as:
   \textbf{Does UCS in 3D displays provide perception benefits over 2D
   displays?} (Future work, chapter \ref{ch:future_work}.) The addition
   of a stereoscopic 3rd dimension has previously shown improved
-  perception in other visualization. Building on the work from the
-  previous objective the efficacy of 3D tours should be explored using
-  modern hardware across display devices (including 2D standard monitor,
-  3D head tracked monitor, and 3D head-mounted display).
+  perception in other visualization. The extension of UCS into 3D should
+  be used to explore user perception across display devices (including a
+  2D standard monitor, 3D head tracked monitor, and 3D head-mounted
+  display).
 \end{enumerate}
 
 \section{Methodology}\label{methodology}
@@ -186,11 +186,11 @@ correspondingly supervised experts in these fields.
 The research corresponding with RO \#1 entails a work in progress
 \textbf{algorithm design} following the work in
 \textcite{cook_manual_1997} to allow for UCS. The proposed algorithm
-discusses the generalized application of UCS for use across animation
-implementations. This outcome of this is an \emph{R} package,
-\texttt{spinifex}, which will be submitted to CRAN and for hosting and
-distribution. This forms the foundation for future work in the remaining
-objectives.
+discusses the generalized application of UCS for use across
+animation-specific frameworks. This outcome of this is an \emph{R}
+package, \texttt{spinifex}, which will be submitted to CRAN and for
+hosting and distribution. This forms the foundation for future work in
+the remaining objectives.
 
 The second objective is addressed with a benchmark dataset comparison
 \textbf{case study} between dynamic linear projections and alternatives
@@ -204,17 +204,17 @@ to the original variable space, clustering, and outlier identification.
 The research for RO \#3 involves \textbf{algorithm design}, where the
 work in RO \#1 will be extended to the third dimension. Surface and
 function projections will also be developed. This forms the calculation
-base for the work. Several difficulties may arise in bringing dynamic
-touring to 3D spaces, especially when exploring 3D surfaces (discussed
-in more detail in chapter \ref{ch:future_work}).
+base for the work. Several difficulties may arise when bringing dynamic
+projection into 3D spaces, especially when exploring 3D surfaces
+(discussed in more detail in chapter \ref{ch:future_work}).
 
 The research resulting from RO \#4 is a controlled \textbf{usability
 study} to explore the efficacy of bringing UCS into 3D as compared
 across various display devices, in a standardized interface allowed by
 the work stemming from RO \# 3. In this design, the factors are user
 task (such as separation of clusters and rank of manipulation variable)
-across treatment of display device (including 2D standard monitor, 3D
-head-tracked monitor, and head-mounted display). Quantitative
+across the treatment of display device (including 2D standard monitor,
+3D head-tracked monitor, and head-mounted display). Quantitative
 measurements include participant speed and accuracy of tasks, biometric
 readings, and subjective Likert surveys of participants. A lineup-type
 model as outlined in \textcite{hofmann_graphical_2012} may also be
@@ -292,7 +292,7 @@ In this report, the related literature is discussed in chapter
 chapter \ref{ch:projectoverview}, followed by ongoing work and future
 work in chapters \ref{ch:workinprogress} and \ref{ch:future_work}
 respectively. A prospective timeline is listed in chapter
-\ref{ch:timeline}. Notation for dynamic touring and VR data
+\ref{ch:timeline}. Notation for dynamic projections and VR data
 visualization can be found in appendix \ref{ch:glossary}, and an excerpt
 of a paper to be submitted to the R Journal can be found in appendix
 \ref{ch:spinifex_paper}.
@@ -349,28 +349,28 @@ Many such projections are interpolated, each making small rotations in
 \(p\)-space. These frames are then viewed in order as an animation of
 the lower dimensional embedding changing as the original variable space
 is manipulated. Shadow puppets offer a useful analogy to aid in
-conceptualizing touring. Imagine a fixed light source facing a wall.
-When an object is introduced it projects a 2D shadow onto the wall. This
-is a physical representation of a simple projection, that from \(p=3\)
-down to \(d=2\). If the object rotates then the shadow correspondingly
+conceptualizing tours. Imagine a fixed light source facing a wall. When
+an object is introduced it projects a 2D shadow onto the wall. This is a
+physical representation of a simple projection, that from \(p=3\) down
+to \(d=2\). If the object rotates then the shadow correspondingly
 changes. Observers watching only the shadow are functionally watching a
 2D tour as the 3D object is manipulated. Some orientations explain more
 information about the shape of the object than others but watching an
 animation of the shadow changing gives a more robust understanding than
 looking at any one frame. More complex structures generally require more
-time to comprehend the nature of the geometry. These features hold in
-touring as well.
+time to comprehend the nature of the geometry. These features hold for
+tours as well.
 
-\emph{Tour notation is listed in the appendix section
+\emph{An extended tour notation is listed in the appendix section
 \ref{sec:tour_notation}.}
 
 \subsection{History}\label{history}
 
-Touring was first introduced by \textcite{asimov_grand_1985} with his
-purposed \emph{grand tour} at the Stanford Linear Accelerator, Stanford
-University. In which, Asimov suggested three types of grand tours:
-torus, at-random, and random-walk. The original application of tours was
-performed on high energy physics on the PRIM-9 system.
+The first tour was introduced was the \emph{grand tour} in
+\textcite{asimov_grand_1985} at the Stanford Linear Accelerator,
+Stanford University. In which, Asimov suggested three types of grand
+tours: torus, at-random, and random-walk. The original application of
+tours was performed on high energy physics on the PRIM-9 system.
 
 Before choosing projection paths randomly, an exhaustive search of
 \(p-\)space was suggested by \textcite{mcdonald_interactive_1982}, also
@@ -379,24 +379,25 @@ tour}.
 
 \textcite{friedman_projection_1974} and later
 \textcite{huber_projection_1985} recommended projection pursuit (also
-referred to as PP). Projection pursuit involves identifying
-``interesting'' projection, remove a single component of the data, and
-then iterates in this newly embedded subspace. Within each subspace, the
-projection seeks for a local extremum via a hill climbing algorithm on
-an objective function. This formed the basis for \emph{guided tours}
-suggested by \textcite{hurley_analyzing_1990}.
+referred to as PP). Projection pursuit optimizes an objective function,
+identifying a projection of interest, remove a single component (or
+dimension) of the data, and then iterates in this newly embedded
+subspace. Within each subspace, the projection seeks for a local
+extremum via a hill climbing algorithm on an objective function. This
+formed the basis for \emph{guided tours} suggested by
+\textcite{hurley_analyzing_1990}.
 
 The grand and little tours have no input from the user aside from the
-starting basis. Guided tours allow for an index to be selected, but the
-bulk of touring development since has largely been around the dynamic
-display, user interaction, geometric representation, and application.
-The details are expounded on in the following sections.
+starting basis. Guided tours allow for an index to be selected. The bulk
+of tour development since has largely been around the dynamic display,
+user interaction, geometric representation, and application.
 
 \subsection{Path generation}\label{sec:path_generation}
 
-A fundamental aspect of touring is the path of rotation. Of which there
-are four primary distinctions \autocite{buja_computational_2005}: random
-choice, data-driven, precomputed choice, and manual control.
+A fundamental aspect of tours is the path of rotation. There are four
+primary distinctions of tour path generation
+\autocite{buja_computational_2005}: random choice, data-driven,
+precomputed choice, and manual control.
 
 \begin{itemize}
 \tightlist
@@ -457,8 +458,21 @@ choice, data-driven, precomputed choice, and manual control.
     splines2D \autocites{grimm_mbgraphic:_2017}{laa_using_2019} -
     measure of non-linear dependence by fitting spline models.
   \item
-    other user-defined objective function can be implemented with the
-    \emph{tourr} package \textcite{wickham_tourr_2011}.
+    other user-defined objective indices can be apply to the framework
+    provided in the \emph{tourr} package \textcite{wickham_tourr_2011}.
+  \end{itemize}
+\item
+  Another data-drive tour is the \emph{dependence tour}, a combination
+  of \(n\) independent 1D tours. A vector describes the axis each
+  variable will be displayed on. for example \(c(1, 1, 2, 2)\) is a 4-
+  to 2D tour with the first 2 variables on the first axis, and the
+  remaining on the second.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{correlation tour} \autocite{buja_data_1987}, a special case of
+    the dependence tour, analogous to canonical correlation analysis.
   \end{itemize}
 \item
   Precomputed choice, \emph{planned tour}, in which the path has already
@@ -479,18 +493,6 @@ choice, data-driven, precomputed choice, and manual control.
   manipulation variable and magnitude \autocite{cook_manual_1997}.
   Typically used to explore the local area after identifying an
   interesting feature, perhaps via guided tour.
-\item
-  \emph{dependence tour}, a combination of \(n\) independent 1D tours. A
-  vector describes the axis each variable will be displayed on. for
-  example \(c(1, 1, 2, 2)\) is a 4- to 2D tour with the first 2
-  variables on the first axis, and the remaining on the second.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \emph{correlation tour} \autocite{buja_data_1987}, a special case of
-    the dependence tour, analogous to canonical correlation analysis.
-  \end{itemize}
 \end{itemize}
 
 \subsection{Path evaluation}\label{path-evaluation}
@@ -512,10 +514,10 @@ The little tour introduced in \textcite{mcdonald_interactive_1982}, on
 the other hand, is necessarily both dense and rapid, performing
 essentially an exhaustive search on the Grassmannian. However, this path
 uninteresting and with long periods of similar projections strung
-together. The Grassmannian is necessarily large and increases with the
-square of \(p\). Viewing of the whole Grassmannian is time-consuming,
-and interesting projections are sparse, there was a clear space for
-computers to narrow the search space.
+together. The Grassmannian is necessarily large and increases
+exponentially at the rate of \(p\). Viewing of the whole Grassmannian is
+time-consuming, and interesting projections are sparse, there was a
+clear space for computers to narrow the search space.
 
 Guided tours \autocite{hurley_analyzing_1990} optimize an objective
 function generating path will be a relatively small subset of the
@@ -547,8 +549,8 @@ well.
     image (pixel): \autocite{wegman_pixel_2001}.
   \item
     time series: where multivariate values are independently lagged to
-    view peak and trough alignment. Currently no package implementation,
-    but use case is discussed in \autocite{cook_manual_1997}.
+    view peak and trough alignment. Use case is discussed in
+    \autocite{cook_manual_1997}.
   \end{itemize}
 \item
   2D geoms
@@ -559,7 +561,7 @@ well.
     2D density (available on GitHub at
     \url{https://github.com/nspyrison/tourr})
   \item
-    \(x-y\) scatterplot
+    \(XY\) scatterplot
   \end{itemize}
 \item
   3D geoms
@@ -601,8 +603,7 @@ well.
   \end{itemize}
 \end{itemize}
 
-\subsection{Tour software
-implementations}\label{tour-software-implementations}
+\subsection{Tour software}\label{tour-software}
 
 Tours have not yet been widely adopted, this is likely due in part, to
 the fact that print and static .pdf output does not accommodate dynamic
@@ -649,10 +650,11 @@ been a fair number of tour implementations, including:
 
 \subsection{Research gaps}\label{research-gaps}
 
-Currently, no compiling software offers UCS (\textbf{RO \#1}). This
-leaves the class of dynamic linear projections without the most precise,
-fine-scale control of rotating \(p\)-space. This should be reimplemented
-with an eye on extensibility and maintainability,
+Dynamic projections of UCS had not incorporated recent animation
+frameworks (\textbf{RO \#1}). This leaves the class of dynamic linear
+projections without the most precise, fine-scale control of rotating
+\(p\)-space. This should be implemented with an eye on extensibility and
+maintainability.
 
 A comparative study outlining the benefits of UCS vs alternatives is
 also absent from the literature (\textbf{RO \#2}). The benefits of
@@ -768,12 +770,12 @@ classes in 2D.''}\label{fig:sedlmair13fig}
 data}\label{comparing-3d-and-2d-embeddings-of-multivariate-data}
 
 \textcite{nelson_xgobi_1998}, depicted in figure \ref{fig:nelson98fig},
-had \(n=15\) participants perform brushing and touring tasks
-(identification of clusters, structure, and data dimensionality) in 3D
-with head-tracked binocular VR. 3D proved to have a substantial
-advantage for cluster identification and some advantage in identifying
-the shape. Brushing did take longer in VR, perhaps due to the lower
-familiarity of manipulating 3D spaces.
+had \(n=15\) participants perform brushing and identification tasks (of
+clusters, structure, and data dimensionality) in 3D with head-tracked
+binocular VR. 3D proved to have a substantial advantage for cluster
+identification and some advantage in identifying the shape. Brushing did
+take longer in VR, perhaps due to the lower familiarity of manipulating
+3D spaces.
 
 
 
@@ -874,25 +876,28 @@ benefits (\textbf{RO \#3 \& 4}).
 
 \chapter{Work in progress}\label{ch:workinprogress}
 
-Implementing UCS in low dimensions is fundamental to the extension of
-the UCS into 3D space. The implementation of such forms the foundation
-for future work addressed in the remaining research objectives.
+Designing an algorithm for UCS in low dimensions to new animation
+frameworks is fundamental to the extension of the UCS into 3D space.
+This forms the foundation for future work addressed in the remaining
+research objectives.
 
-\section{RO \#1) How can UCS be implemented in 1- and 2D
-projections?}\label{ro-1-how-can-ucs-be-implemented-in-1--and-2d-projections}
+\section{RO \#1) How can UCS be in 1- and 2D projections within an
+animation-specific
+framework?}\label{ro-1-how-can-ucs-be-in-1--and-2d-projections-within-an-animation-specific-framework}
 
-This section covers the work done in the last year implementing USC via
-\emph{manual tours}. Following experimental design methodology, this
-work implements the manual tour as described in
-\textcite{cook_manual_1997} and allows users to rotate a selected
+This section covers the work done in the last year, designing and
+applying an algorithm for low-dimension USC via \emph{manual tours}.
+This work builds on the manual tour as described in
+\textcite{cook_manual_1997} and extends an algorithm for specialized
+animation software. Manual tours allow users to rotate a selected
 variable into and out of a 2D projection of high-dimensional space for
 user-controlled steering (UCS). The primary use is to determine the
 sensitivity of the structure to the contributions of the manipulation
 variable. This is particularly powerful for exploring the local
 structure once a feature of interest has been identified by a guided
-tour \autocite{cook_grand_1995} for example. The algorithm for a manual
-tour allows rotations in horizontal, vertical, oblique, angular and
-radial directions. In the algorithm below focuses on radial rotation.
+tour for example. The algorithm for a manual tour allows rotations in
+horizontal, vertical, oblique, angular and radial directions. In the
+algorithm below focuses on radial rotation.
 
 Section \ref{sec:algorithm} explains the algorithm using a toy dataset.
 A wider discussion of implementation as an \emph{R} package and
@@ -1197,9 +1202,9 @@ alternatives?}\label{ro-2-does-2d-ucs-provide-benefits-over-alternatives}
 
 High dimensional data and models are ubiquitous but viewing them in data
 space is not trivial. This work quantifies various measurements of 2D
-UCS implemented in RO \#1, and commonly used alternatives. All
-comparison groups are unsupervised (agnostic of clustering), static,
-single embeddings in a lower dimension, and would include:
+UCS applied in RO \#1, and commonly used alternatives. All comparison
+groups are unsupervised (agnostic of clustering), static, single
+embeddings in a lower dimension, and would include:
 
 \begin{itemize}
 \tightlist
@@ -1239,25 +1244,25 @@ space includes data sets, techniques, and measures of comparison.
 \section{RO \#3) How can UCS be extended to
 3D?}\label{ro-3-how-can-ucs-be-extended-to-3d}
 
-The literature has shown positive results for improved accuracy and
-precision for 3D displays. Dynamic linear projections should have
-similar gains in 2D projections, and the additional dimension should
-allow for improved perception of surfaces and dynamic viewing of 3D
-projections. The research answering RO \#1) will be extended to these
-uses.
+The literature has shown positive results for improved perception of 3D
+graphics over 2D including static linear embeddings. The additional
+dimension theoretically allows for the perception benefits in dynamic 3D
+scatterplot projections and for improved perception of surfaces and
+dynamic viewing of 3D projections. The research answering RO \#1 will be
+extended to these uses.
 
 The work done in \textcite{cordeil_imaxes:_2017} creates a collaborative
 space for people to engage in immersive data analysis, a generalized
 platform for data visualization in the Unity game engine. By integrating
-dynamic linear touring in 3D with the above work offers a consolidated
-user interface that can be used across various display devices in RO
-\#4.
+dynamic linear projection in 3D with the above work offers a
+consolidated user interface that can be used across various display
+devices in RO \#4.
 
 This is an \textbf{algorithm design}, first, the \emph{R} package
-spinifex will be extended to 3D and function projections will be
-implemented. After the projections are performed \emph{Unity} will be
-used to render the embeddings in 3D VR and offer a compatible front end
-to be used across display devices.
+spinifex will be extended to 3D and function/surface projections will be
+developed. After the projections are performed \emph{Unity} will be used
+to render the embeddings in 3D VR and offer a compatible front end to be
+used across display devices.
 
 Manipulating 3D spaces may not be straight forward. In section
 \{sec:algorithm\} the manipulation space was in 3D, where 2 angles
@@ -1278,8 +1283,8 @@ intuitive.
 }
 
 \caption{A mockup of a 3D basis reference space and
-scatterplot projection. Basis and projection axes should marked from
-origin.}\label{fig:RO3MockUp}
+scatterplot projection. Basis and projection axes should be marked from
+the origin.}\label{fig:RO3MockUp}
 \end{figure}
 
 Viewing functions and surfaces have several difficulties in 3D the first
@@ -1305,18 +1310,17 @@ languages. We will also explore surface and function visualization in
 \section{RO \#4) Does UCS in 3D displays provide perception benefits
 over 2D displays?}\label{UCS_3dvs2d}
 
-The bulk of past touring endeavors have existed whole in 2D, with the
-exceptions of \textcite{nelson_xgobi_1998} and
-\textcite{arms_benefits_1999} who performed an \(n=15\) experimental
-study comparing tasks performed across 2D and 3D touring displays. The
-XGobi interface was used on a standard 2D monitor while VRGobi (on the
-C2 setup) was used with head-tracked binocular VR. The 3 accuracy tasks:
-clustering, intrinsic data dimensionality, and radial sparseness were
-recorded along with the speed of brushing data. Accuracy was the same
-for the dimensionality task, while 3D display outperformed 2D on
-clustering, and even more so on the radial sparsity. However, the time
-taken to brush a cluster was less than half the time in 2D displays as
-compared with 3D.
+The bulk of previous tours have existed whole in 2D, with the exceptions
+of \textcite{nelson_xgobi_1998} and \textcite{arms_benefits_1999} who
+performed an \(n=15\) experimental study comparing tasks performed
+across 2D and 3D tour displays. The XGobi interface was used on a
+standard 2D monitor while VRGobi (on the C2 setup) was used with
+head-tracked binocular VR. The 3 accuracy tasks: clustering, intrinsic
+data dimensionality, and radial sparseness were recorded along with the
+speed of brushing data. Accuracy was the same for the dimensionality
+task, while 3D display outperformed 2D on clustering, and even more so
+on the radial sparsity. However, the time taken to brush a cluster was
+less than half the time in 2D displays as compared with 3D.
 
 \textcite{wagner_filho_immersive_2018} performed a user study on the
 perception of linear projections between 2D, 3D, and immersive 3D. The
@@ -1335,9 +1339,9 @@ The results of \textcite{wagner_filho_immersive_2018},
 \textcite{nelson_xgobi_1998} and, \textcite{arms_benefits_1999} cast
 positive light on 3D spaces improving the perception of embeddings of
 high-dimensional data. Others have found the same for data already in
-three dimensions. After implementing touring and UCS in 3D spaces (RO
-\#3), the effects of viewing dynamic projections should be quantified
-across the display type.
+three dimensions. After tours have been extended in 3D spaces (RO \#3),
+the effects of viewing dynamic projections should be quantified across
+the display type.
 
 I plan to test the efficacy of doing so with the following controlled
 \textbf{usability study}, where every participant will complete every
@@ -1349,7 +1353,7 @@ Likert scale survey. A lineup-type model as outlined in
 ``best'' display device.
 
 The factors of the study are user tasks: the perception of cluster
-structure, surface structure, and ranking of manipulation variable. All
+structure, surface structure, and ranking of manipulation variables. All
 factors will be tested across the treatment of at least three display
 devices: standard 2D monitor, stereoscopic 3D monitor (on a zSpace 200),
 and head-mounted VR goggles (HTC VIVE). The user interface will be
@@ -1522,7 +1526,7 @@ Terminology varies across articles. In my work, I use the following:
   scatterplots with 1D density on the diagonal.
 \end{itemize}
 
-\chapter{Using animation to explore sensitivity of structure in a
+\chapter{Using animation to explore the sensitivity of structure in a
 low-dimensional projection of high-dimensional data with user controlled
 steering}\label{ch:spinifex_paper}
 
@@ -1532,13 +1536,13 @@ submitted to the R Journal.}
 
 \section{Abstract}\label{abstract-1}
 
-The tour algorithm, and its various versions provide a systematic
+The tour algorithm and its various versions provide a systematic
 approach to viewing low-dimensional projections of high-dimensional
 data. It is particularly useful for understanding multivariate data, and
 useful in association with techniques for dimension reduction,
-supervised and unsupervised classification. The \emph{R} package
+supervised, and unsupervised classification. The \emph{R} package
 \emph{tourr} provides many methods for conducting tours on multivariate
-data. This paper discusses an extension package which adds support for
+data. This paper discusses an extension package that adds support for
 the manual tour, called \emph{spinifex}. It is particularly usefully for
 exploring the sensitivity of structure discovered in a projection by a
 guided tour, to the contribution of a variable. \emph{Spinifex} utilizes
@@ -1559,11 +1563,11 @@ corresponds to a small change in the projection for a smooth transition
 to persevere the object continuity.
 
 Multivariate data analysis can be broken into 2 groups: linear and
-non-linear transformations. Like PCA and LDA, touring uses linear
-dimension reduction that maintain transparency back to the original
-variable-space. PCA and LDA are typically represented with single static
+non-linear transformations. Like PCA and LDA, tours use linear dimension
+reduction that maintains transparency back to the original variable
+space. PCA and LDA are typically represented with single static
 projection as a 2- or 3D scatterplot, inherently losing the variation
-held with the high components, whereas touring keeps the information in
+held with the high components, whereas tours keep the information in
 tack by showing the other components across time. Non-linear
 transformations such as tSNE (t-distributed stochastic nearest neighbor
 embeddings), MDS (multi-dimension scaling), and LLE (local linear
@@ -1577,23 +1581,23 @@ one, the manual tour. The manual tour was described in
 and out of a 2D projection of high-dimensional space. This will be
 called user-controlled steering (UCS). The primary purpose is to
 determine the sensitivity of structure visible in a projection to the
-contributions of a variable. Manual touring can also be useful for
+contributions of a variable. Making them particularly useful for
 exploring the local structure once a feature of interest has been
 identified, for example, by a guided tour \autocite{cook_grand_1995}.
 The algorithm for a manual tour allows rotations in horizontal,
 vertical, oblique, angular and radial directions. Rotation in a radial
-direction, would pull a variable into and out of the projection, which
+direction would pull a variable into and out of the projection, which
 allows for examining the sensitivity of structure in the projection to
 the contribution of this variable. This type of manual rotation is the
 focus of this paper.
 
-A manual tour relies on user input, and thus has been difficult to
-program in R. Ideally, the mouse movements of the user are captured, and
-passed to the computations, driving the rotation interactively. However,
-this type of interactivity is not simple in R. This has been the reason
-that the algorithm was not incorporated into the \emph{tourr} package.
-Spinifex utilizes two new animation packages, \emph{plotly}
-\autocite{sievert_plotly_2018} and \emph{gganimate}
+A manual tour relies on user input and thus has been difficult to
+implement dynamic control in R. Ideally, the mouse movements of the user
+are captured, and passed to the computations, driving the rotation
+interactively. However, this type of interactivity is not simple in R.
+This has been the reason that the algorithm was not incorporated into
+the \emph{tourr} package. Spinifex utilizes two new animation packages,
+\emph{plotly} \autocite{sievert_plotly_2018} and \emph{gganimate}
 \autocite{pedersen_gganimate:_2019}, to display manual tours or other
 saved tours. From a given projection, the user can choose which variable
 to control, and the animation sequence is generated to remove the
@@ -1669,12 +1673,12 @@ insects. Each observation belonging to one of three species.
 
 A guided tour on the flea data is conducted by optimizing on the
 \texttt{holes} index \autocite{cook_interactive_2007}. In a guided tour
-the data the projection sequence is shown by optimizing an index of
-interest. The holes index is maximized by when the projected data has a
-lack of observations in the center. Figure \ref{fig:step0}, shows an
-optimal projection of this data. The left plot displays the projection
-basis, while the right plot shows the projected data. The display of the
-basis has a unit circle with lines showing the horizontal and vertical
+the projection sequence is selected by optimizing an index of interest.
+The holes index is maximized by when the projected data has a lack of
+observations in the center. Figure \ref{fig:step0}, shows an optimal
+projection of this data. The left plot displays the projection basis,
+while the right plot shows the projected data. The display of the basis
+has a unit circle with lines showing the horizontal and vertical
 contributions of each variable in the projection. Here is primarily
 tars1 and aede2 contrasting the other four variables. In the projected
 data there are three clusters, which have been colored, although not
@@ -1721,8 +1725,8 @@ and set the \(k\)-th element set to 1.
 
 In figure \ref{fig:step0-paper}, above, notice that the variables
 \texttt{tars1} and \texttt{aede2} are almost orthogonal to the other 4
-variables and control almost all of the variation in the x axis of the
-projection. \texttt{Aede2} has a larger contribution in this basis, so
+variables and control almost all of the variation in the x-axis of the
+projection. \texttt{Aede2} has a larger contribution on this basis, so
 we'll select it as the manip variable.
 
 \subsection{Step 2 Create the manip
@@ -1769,10 +1773,9 @@ orthonormalize.
 \end{Shaded}
 
 Adding an extra dimension to our basis plane allows for the manipulation
-of the specified variable. Orthonormalizing rescales the new vector,
+of the specified variable. Orthonormalizing rescales the new vector
 while leaving the first \(d\) variables identical to the basis. An
-illustration of such can been seen below in figure
-\ref{fig:step2-paper}.
+illustration of such can be seen below in figure \ref{fig:step2-paper}.
 
 \begin{figure}
 
@@ -1785,15 +1788,15 @@ illustration of such can been seen below in figure
 
 Imagine being able to grab hold of the red axis and rotate it changing
 the projection onto the basis plane. This is what happens in a manual
-tour. For a radial tour we fix, \(\phi\), the angle within the blue
-plain, and vary the \(\theta\), the angle between the red and blue
-lines. The user controlling these angles changes the values of the
-coefficient the manip variable and performs a constrained rotation on
-the remaining variables.
+tour. For a radial tour, fix \(\phi\), the angle within the blue plain,
+and vary the \(\theta\), the angle between the red and blue lines. The
+user controlling these angles changes the values of the coefficient the
+manip variable and performs a constrained rotation on the remaining
+variables.
 
 \subsection{Step 3 Generate rotation}\label{step-3-generate-rotation-1}
 
-Define a set of values for \(\phi_i\), the angle of out of plane
+Define a set of values for \(\phi_i\), the angle of out of the plane
 rotation, orthogonal to the projection plane. This corresponds to the
 angle between the red manipulation axis and the blue plane in figure
 \ref{fig:step2-paper}.
@@ -1859,8 +1862,8 @@ projected bases and highlight the manip variable on top, while showing
 the corresponding projected data points on the bottom. A dynamic version
 of this tour can be viewed online at
 \url{https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/}, will
-take a moment to load. This format of this figure and linking to dynamic
-version will be used again in section \ref{sec:application}.
+take a moment to load. This format of this figure and linking to a
+dynamic version will be used again in section \ref{sec:application}.
 
 
 
@@ -1880,7 +1883,7 @@ version will be used again in section \ref{sec:application}.
 controlling the contribution from \texttt{aded2} of standardized flea
 data. The contribution of \texttt{aede2} extends from its initial
 contribution to a full contribution to the projection before decreasing
-to zero, and then returning to its initial state. A dynamic version can
+to zero and then returning to its initial state. A dynamic version can
 be viewed at
 \url{https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/}.}\label{fig:step3-paper}
 \end{figure}
@@ -1918,20 +1921,18 @@ scatterplot.
 \emph{tourr} utilizes R's base graphics for the display of tours. Use
 \texttt{render\_plotly()} to display as an dynamic \texttt{plotly}
 \textcite{sievert_plotly_2018} object or \texttt{render\_gganimate()}
-for a \texttt{gganimate} \textcite{pedersen_gganimate:_2019} graphic. A
-third notable animation related package is \texttt{animation}
-\textcite{xie_animation:_2018}. It's not yet implemented in
-\texttt{spinifex} as it uses base graphics, whereas the former two are
-compatible with \texttt{ggplot2}.
+for a \texttt{gganimate} \textcite{pedersen_gganimate:_2019} graphic.
+Both of which build off of \texttt{ggplot2} plotting in interal
+functions.
 
 Interaction with graphics in R is limited. Traditionally, all commands
 are passed to the R via calls to the console, conflicting with user
 engagement. Some recent packages have made advancement into this
-direction such as with the use of the R package \texttt{shinny}, which
+direction such as with the use of the R package \texttt{shiny}, which
 custom-made applications can be hosted either locally or remotely and
 interact with the R console, allowing for developers to code dynamic
-content interaction. To a lesser extent \texttt{plotly} offers static
-interactions with contained object, such as tool tips, brushing, and
+content interaction. To a lesser extent, \texttt{plotly} offers static
+interactions with the contained object, such as tooltips, brushing, and
 linking without communicating back to the R console.
 
 \subsection{Storage and sharing}\label{storage-and-sharing-1}
@@ -1943,8 +1944,8 @@ storage and sharing tours. Consider a radial manual tour, we can store
 the salient features in 3 bases, where \(\phi\) is at its starting,
 minimum, and maximum values. The frames in between can be interpolated
 by supplying angular speed. By using the \texttt{tourr::save\_history()}
-we can do just that. Save such tour path history and a single set of the
-data offers a performant storage and transferring.
+we can do just that. Save such tour path history and a single set of
+data offers performant storage and transfer.
 
 \section{Application}\label{sec:application}
 
@@ -1956,15 +1957,15 @@ experiments lies in 56 dimensions, \(\delta \in \mathbb{R}^{56}\), and
 are presented in this work in 3D subspaces of the 10 first principal
 components and non-linear embeddings.
 
-The work in \textcite{cook_dynamical_2018} applies touring for discern
-finer structure of this sensitivity. Table 1 of Cook et. al. summaries
-the key findings of PDFSense \& TFEP (TensorFlow embedded projection)
-and those from touring. The authors selected the 6 first principal
-components, containing 48\% of the variation held within the full data
-when centered, but not sphered. This data contained 3 clusters: jet,
-DIS, and VBP. Below pick up from the projections used in their figures 7
-and 8 (jet and DIS clusters respectively) and apply manual tours to
-explore the local structure with finer precision.
+The work in \textcite{cook_dynamical_2018} applies manual tours to
+discern the finer structure of this sensitivity. Table 1 of Cook et. al.
+summaries the key findings of PDFSense \& TFEP (TensorFlow embedded
+projection) and those from manual tours. The authors selected the 6
+first principal components, containing 48\% of the variation held within
+the full data when centered, but not sphered. This data contained 3
+clusters: jet, DIS, and VBP. Below pick up from the projections used in
+their figures 7 and 8 (jet and DIS clusters respectively) and apply
+manual tours to explore the local structure with finer precision.
 
 \subsection{Jet cluster}\label{jet-cluster}
 
@@ -1979,7 +1980,7 @@ observations and occupy different parts of the subspace. Below, we
 perform radial manual tours on various principal components within this
 scope. In PC3 and PC4 are manipulated in figure \ref{fig:JetClusterGood}
 and figure \ref{fig:JetClusterBad} respectively. Manipulating PC3, where
-varying the angle of rotation brings interesting features in-to and out
+varying the angle of rotation brings interesting features into and out
 of the center mass of the data, is interesting than the manipulation of
 PC4, where features are mostly independent of the manip var.
 
@@ -1998,10 +1999,10 @@ PC4, where features are mostly independent of the manip var.
 
 }
 
-\caption{Jet cluster, radial manual tour of PC3. Colored
-by experiment type: `ATLAS7new' in green and `ATLAS7old' in orange. When
-PC3 fully contributes to the projection ATLAS7new (green) occupies
-unique space and several outliers are identifiable. Zeroing the
+\caption{Jet cluster, a radial manual tour of PC3.
+Colored by experiment type: `ATLAS7new' in green and `ATLAS7old' in
+orange. When PC3 fully contributes to the projection ATLAS7new (green)
+occupies unique space and several outliers are identifiable. Zeroing the
 contribution from PC3 to the projection hides the outliers and indeed
 all observations with ATLAS7new are contained within ATLAS7old (orange).
 A dynamic version can be viewed at
@@ -2022,12 +2023,12 @@ A dynamic version can be viewed at
 
 }
 
-\caption{Jet cluster, radial manual tour of PC4. Colored
-by experiment type: `ATLAS7new' in green and `ATLAS7old' in orange. This
-tour contains less interesting information ATLAS7new (green) has points
-that are right and left of ATLAS7old, while most points occupy the same
-projection space, regardless of the contribution of PC4. A dynamic
-version can be viewed at
+\caption{Jet cluster, a radial manual tour of PC4.
+Colored by experiment type: `ATLAS7new' in green and `ATLAS7old' in
+orange. This tour contains less interesting information ATLAS7new
+(green) has points that are right and left of ATLAS7old, while most
+points occupy the same projection space, regardless of the contribution
+of PC4. A dynamic version can be viewed at
 \url{https://nspyrison.netlify.com/thesis/jetcluster_manualtour_pc3/}.}\label{fig:JetClusterBad}
 \end{figure}
 
@@ -2043,11 +2044,11 @@ and
 
 We perform a manual tour on this data, manipulating PC6 as depicted in
 figure \ref{fig:DISclusterGood}. Looking at several frames we see that
-DIS HERA lie mostly on a plane. When PC6 has full contributions, we see
-the dimuon SIDIS in purple is almost orthogonal to the DIS HERA (green).
-Yet the contribution of PC6 is zeroed the dimuon SIDIS data occupy the
-same space as the DIS HERA data. A dynamic version of this manual tour
-can be found at:
+DIS HERA data lies mostly on a plane. When PC6 has full contributions,
+we see the dimuon SIDIS in purple is almost orthogonal to the DIS HERA
+(green). Yet the contribution of PC6 has zeroed the dimuon SIDIS data
+occupy the same space as the DIS HERA data. A dynamic version of this
+manual tour can be found at:
 \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/}.
 The page takes a bit to load, as the animation is several megabytes.
 
@@ -2067,19 +2068,19 @@ The page takes a bit to load, as the animation is several megabytes.
 
 }
 
-\caption{DIS cluster, radial manual tour of PC6. colored
-by experiment type: `DIS HERA1+2' in green, `dimuon SIDIS' in purple,
-and `charm SIDIS' in orange. When the contribution PC 6 is large we see
-that dimuon SIDIS (purple) data are nearly orthogonal to DIS HERA
+\caption{DIS cluster, a radial manual tour of PC6.
+colored by experiment type: `DIS HERA1+2' in green, `dimuon SIDIS' in
+purple, and `charm SIDIS' in orange. When the contribution PC 6 is large
+we see that dimuon SIDIS (purple) data are nearly orthogonal to DIS HERA
 (green) data. As the data is rotated, we can also see that DIS HERA
-(green) practically lie on a plane in this 6-d subspace. When the
+(green) practically lies on a plane in this 6-d subspace. When the
 contribution of PC6 is near zero, dimonSIDIS (purple) occupies the same
 space as the DIS HERA data. A dynamic version can be viewed at
 \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/}.}\label{fig:DISclusterGood}
 \end{figure}
 
-This is different story than if we had selected a different variable to
-manipulate. In figure \ref{fig:DISclusterBad} we manipulate PC2.
+This is a different story than if we had selected a different variable
+to manipulate. In figure \ref{fig:DISclusterBad} we manipulate PC2.
 
 
 
@@ -2096,13 +2097,13 @@ manipulate. In figure \ref{fig:DISclusterBad} we manipulate PC2.
 
 }
 
-\caption{DIS cluster, radial manual tour of PC2. Colored
-by experiment type: `DIS HERA1+2' in green, `dimuon SIDIS' in purple,
-and `charm SIDIS' in orange. The structure of previously described plane
-of DIS HERA (green) and nearly orthogonal dimuon SIDIS (purple) is
-present, however the manipulating PC2 does not give a head-on view of
-either, a less useful manual tour than that of PC6. A dynamic version
-can be viewed at
+\caption{DIS cluster, a radial manual tour of PC2.
+Colored by experiment type: `DIS HERA1+2' in green, `dimuon SIDIS' in
+purple, and `charm SIDIS' in orange. The structure of previously
+described plane of DIS HERA (green) and nearly orthogonal dimuon SIDIS
+(purple) is present, however, the manipulating PC2 does not give a
+head-on view of either, a less useful manual tour than that of PC6. A
+dynamic version can be viewed at
 \url{https://nspyrison.netlify.com/thesis/discluster_manualtour_pc2/}.}\label{fig:DISclusterBad}
 \end{figure}
 
@@ -2121,7 +2122,7 @@ and
 This article was created in \texttt{R} \autocite{r_core_team_r:_2018},
 using \texttt{bookdown} \autocite{xie_bookdown:_2016} and
 \texttt{rmarkdown} \autocite{xie_r_2018}, with code generating the
-examples inline. The source files can be found at:
+examples inline. The source files can be found at
 \href{https://github.com/nspyrison/confirmation/}{github.com/nspyrison/confirmation/}.
 
 The source code for the \texttt{spinifex} package can be found at
@@ -2143,8 +2144,8 @@ sensitivity of structure to the contributions of a variable.
 
 Future work on the algorithm and package would include developing it to
 work with arbitrary projection dimension, enabling the method to operate
-on other displays like parallel coordinates, and implementing the
-unconstrained manual control, called oblique in
+on \(p-\) dimensional geoms, such as parallel coordinates, and
+implementing the unconstrained manual control, called oblique in
 \textcite{cook_manual_1997}.
 
 The Givens rotations and Householder reflections as outlined in
@@ -2161,11 +2162,15 @@ plots, scatterplot matrix, and radial glyphs. Having manual controls
 available for these types of displays would require a
 dimensionally-generalized rotation matrix.
 
-Development of a graphical user interface, e.g. \emph{shiny} app, would
-make the \emph{spinifex} package more flexible. The user could easily
-switch between variables to control, adjust the step size to make
+The development of a graphical user interface, e.g. \emph{shiny} app,
+would make the \emph{spinifex} package more flexible. The user could
+easily switch between variables to control, adjust the step size to make
 smoother rotation sequences, or save any state to continue to continue
-to explore the contributions of other variables.
+to explore the contributions of other variables. The \texttt{animation}
+package \textcite{xie_animation:_2018} could be implemented for another
+graphic framework. However, \texttt{animation} must stem from base
+graphing, unlike the \texttt{plotly} and \texttt{gganimate} which are
+using \texttt{ggplot2} graphics.
 
 \printbibliography[heading=bibintoc]
 

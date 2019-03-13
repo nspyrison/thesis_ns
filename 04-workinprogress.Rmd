@@ -99,11 +99,11 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 
 # Work in progress {#ch:workinprogress}
 
-Implementing UCS in low dimensions is fundamental to the extension of the UCS into 3D space. The implementation of such forms the foundation for future work addressed in the remaining research objectives. 
+Designing an algorithm for UCS in low dimensions to new animation frameworks is fundamental to the extension of the UCS into 3D space. This forms the foundation for future work addressed in the remaining research objectives. 
 
-## RO #1) How can UCS be implemented in 1- and 2D projections?
+## RO #1) How can UCS be in 1- and 2D projections within an animation-specific framework?
 
-This section covers the work done in the last year implementing USC via *manual tours*. Following experimental design methodology, this work implements the manual tour as described in @cook_manual_1997 and allows users to rotate a selected variable into and out of a 2D projection of high-dimensional space for user-controlled steering (UCS). The primary use is to determine the sensitivity of the structure to the contributions of the manipulation variable. This is particularly powerful for exploring the local structure once a feature of interest has been identified by a guided tour [@cook_grand_1995] for example. The algorithm for a manual tour allows rotations in horizontal, vertical, oblique, angular and radial directions. In the algorithm below focuses on radial rotation.
+This section covers the work done in the last year, designing and applying an algorithm for low-dimension USC via *manual tours*. This work builds on the manual tour as described in @cook_manual_1997 and extends an algorithm for specialized animation software. Manual tours allow users to rotate a selected variable into and out of a 2D projection of high-dimensional space for user-controlled steering (UCS). The primary use is to determine the sensitivity of the structure to the contributions of the manipulation variable. This is particularly powerful for exploring the local structure once a feature of interest has been identified by a guided tour for example. The algorithm for a manual tour allows rotations in horizontal, vertical, oblique, angular and radial directions. In the algorithm below focuses on radial rotation.
 
 Section \ref{sec:algorithm} explains the algorithm using a toy dataset. A wider discussion of implementation as an *R* package and application to high energy physics data [@wang_visualizing_2018; @cook_dynamical_2018] is attached in appendix \ref{ch:spinifex_paper} formatted as a paper that will be submitted to The R Journal.
 
