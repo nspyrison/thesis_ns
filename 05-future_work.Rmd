@@ -27,6 +27,12 @@ This is an **algorithm design**, first, the *R* package spinifex will be extende
 
 Manipulating 3D spaces may not be straight forward. In section {sec:algorithm} the manipulation space was in 3D, where 2 angles defined a point that was projected back to the 2D projection. If we have to define a 4D manipulation space it may be complex and clunky to navigate. On the other hand, if we can control the projection to 3D with the now 3D reference volume, then navigating 3D space may be very intuitive.
 
+(ref:RO3MockUp-cap) A mockup of a 3D basis reference space and scatterplot projection. Basis and projection axes should marked from origin.
+
+```{r RO3MockUp, echo=F, out.width='70%', fig.cap = "(ref:RO3MockUp-cap)"}
+knitr::include_graphics("./figures/RO3MockUp2.PNG")
+```
+
 Viewing functions and surfaces have several difficulties in 3D the first of which is occulation, the surfaces in the foreground blocks the view behind it. Opacity, wire mesh, and projection sectioning are ways to address this issue. A second issue is that it may be disorienting or nauseating to watch surfaces folding into each other. 
 
 If UCS happens in real time the angular speed of the tour should be regulated for continuity of observation and to mitigate potentially nauseating movement. 
@@ -43,5 +49,5 @@ The results of @wagner_filho_immersive_2018, @nelson_xgobi_1998 and, @arms_benef
 
 I plan to test the efficacy of doing so with the following controlled **usability study**, where every participant will complete every task on every display device. Task order and display device will be randomly assigned to minimize learning bias. Correctness and speed of tasks will be recorded alongside demographic data and subjective 5-point Likert scale survey. A lineup-type model as outlined in @hofmann_graphical_2012 may be employed to quantify the "best" display device.
 
-Tasks will test the perception of structure and surface, varying across the manipulation variable. All tasks will be conducted across at least three display devices: standard 2D monitor, stereoscopic 3D monitor (on a zSpace 200), and head-mounted VR goggles (HTC VIVE). The user interface will be standardized across display devices. The data explored will be of high energy physics experiments already being discussed in publication [@wang_visualizing_2018; @cook_dynamical_2018] and looked at in 2D UCS in appendix \ref{ch:spinifex_paper}.
+The factors of the study are user tasks: the perception of cluster structure, surface structure, and ranking of manipulation variable. All factors will be tested across the treatment of at least three display devices: standard 2D monitor, stereoscopic 3D monitor (on a zSpace 200), and head-mounted VR goggles (HTC VIVE). The user interface will be standardized across display devices. The data explored will be of high energy physics experiments already being discussed in publication [@wang_visualizing_2018; @cook_dynamical_2018] and looked at in 2D UCS in appendix \ref{ch:spinifex_paper}.
 
