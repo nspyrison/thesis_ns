@@ -295,7 +295,7 @@ array2static(.m_tour = f_mtour, .data = f_dat, .m_var = f_mvar, .cat = f_cat)
 
 ## Display projection sequence
 
-To get back to data-space pre-multiply the rotated manip space by the data for the projection in data-space.
+To return to data-space pre-multiply the rotated manip space by the data for the projection in data-space.
 
 \begin{align}
   \textbf{P}_{[n,~d+1]}
@@ -316,9 +316,5 @@ To get back to data-space pre-multiply the rotated manip space by the data for t
       \end{bmatrix}_{[p,~d+1]}
 \end{align}
 
-Plot the first $d$ variables from each projection in sequence for an $XY$-scatterplot. The remaining variable is sometimes linked to a data point aesthetic to produce depth cues used in conjunction with the $XY$-scatterplot. 
-
-### Storage and sharing
-
-Storing each data point for every frame with the overhead dynamic graphics is very inefficient. In the same way that efficiency is gain by performing math on the bases, the same approach suggested for storage and sharing tours. Consider a radial manual tour, the salient features can be stored in 3 bases, where $\phi$ is at its starting, minimum, and maximum values. The frames in between can be interpolated later by supplying angular speed.
+Plot the first $d$ variables from each projection in sequence for an $XY$-scatterplot. The remaining variable is sometimes linked to a data point aesthetic to produce depth cues used in conjunction with the $XY$-scatterplot.
 
