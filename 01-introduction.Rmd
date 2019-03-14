@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 
 ## Exploratory data analysis
 
-The term exploratory data analysis was coined in @tukey_exploratory_1977, who leaves it as a broad term to encompass the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values and validating assumptions made by prospective methodology. Visualization is crucial to a clear understanding of the data. Things can go awry when data is summarized via numeric statistics alone [@anscombe_graphs_1973], demonstrated in figure \@ref(fig:matejka17fig) [@matejka_same_2017]. In these studies, bivariate data have the same summary statistics (such as mean and standard deviation), yet contain obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Because there are inherent dangers to relying on statistics alone, this requirement for looking at visuals necessitates *human-in-the-loop* analysis, defined as any model that requires human interaction.
+The term exploratory data analysis was coined in @tukey_exploratory_1977, who leaves it as a broad term to encompass the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values and validating assumptions made by prospective methodology. Visualization is crucial to a clear understanding of the data. Things can go awry when data is summarized via numeric statistics alone [@anscombe_graphs_1973] as demonstrated in figure \@ref(fig:matejka17fig) [@matejka_same_2017]. In these studies, bivariate data have the same summary statistics (such as mean and standard deviation), yet contains obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Because there are inherent dangers to relying on statistics alone, this requirement for looking at visuals necessitates *human-in-the-loop* analysis, defined as any model that requires human interaction [@karwowski_international_2006].
 
 
 (ref:matejka17fig-cap) 12 data sets created from the datasaurus by simulated annealing. Each is restrained to the same summary statistics but given shapes with visual peculiarity to mutate into [@matejka_same_2017].
@@ -21,36 +21,53 @@ The term exploratory data analysis was coined in @tukey_exploratory_1977, who le
 knitr::include_graphics("./figures/matejka17fig.png")
 ```
 
-It is clear that data-space visualization is needed but becomes complex as data dimensionality increases. Embedding (or projecting) $p-$dimensional data on to a lower, $d$-dimensional subspace is a common dimension reduction approach to visualize multivariate data spaces. Traditionally a single static projection is used to summarize a space, which necessarily shows a subset of the variation of the data. @asimov_grand_1985 suggested the use of viewing projections dynamically across a changing projection basis allows for more variation to be contained and viewed temporally. This dynamic view of many changing projections is known as *tours*. While, there are different methods of generating tour paths, human-in-the-loop user-controlled steering (UCS) offers the finest control for navigating the local structure. This makes it particularly useful in exploration after an interesting feature has been identified. 
+It is clear that data-space visualization is needed but it becomes complex as data dimensionality increases. Embedding (or projecting) $p-$dimensional data on to a lower, $d$-dimensional subspace is a common dimension reduction approach to visualize multivariate data spaces. Traditionally a single static projection is used to summarize a space, which necessarily shows a subset of the variation of the data. @asimov_grand_1985 suggested the use of viewing projections dynamically across a changing projection basis allows for more variation to be contained and viewed temporally. This dynamic view of many changing projections is known as *tours*. While, there are different methods of generating tour paths, human-in-the-loop user-controlled steering (UCS) offers the finest control for navigating the local structure.
 
-Tours commonly view $d=\{1, 2, 3\}$ embedded subspaces from standard 2D monitors, and most commonly viewed as a projection down to 2D. The exception being @nelson_xgobi_1998, where 3D tours were viewed in 3D head-tracked VR. Data visualization studies generally show an improved perception of 3D visuals over 2D, especially when adequate depth cues are provided. The state of modern hardware improvements has made VR more affordable and available to wider audiences, at ever increasing resolutions of display than previously possible. Research should be conducted to compare the perception of dynamic linear projections across display type. 
+Tours are typically viewed from standard 2D monitors, and most commonly viewed as a projection down to 2D. A notable exception being @nelson_xgobi_1998, where 3D embeddings were viewed in 3D head-tracked VR. Data visualization studies generally show an improved perception of 3D visuals over 2D, especially when adequate depth cues are provided. The state of modern hardware has made VR more affordable and available to wider audiences, at ever increasing resolutions of display than previously possible. It is therefore timely for research to be conducted to compare the perception of dynamic linear projections across display type.
 
- 
+
 ## Research objectives
 
-Data and models are typically high-dimensional, with many variables or parameters. Developing new methods to visualize high dimensions has been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor. The primary goal of this Ph.D. research can then be summarized as:
+Data and models are typically high-dimensional, with many variables and parameters. Developing new methods to visualize high dimensions has been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor. The primary objectives of this Ph.D. research can then be summarized as the following.
 
 **Research objectives (RO):**
 
-1. **How can UCS be in 1- and 2D projections within an animation-specific framework?** (Work in progress, chapter \ref{ch:workinprogress}.)
-Following the theory laid out in @cook_manual_1997, a new UCS algorithm is devised for use within animation-specific frameworks. This enables fine control of exploring the local structure of data in 2D embeddings, setting a framework to be used in the remaining objectives.
-2. **Does 2D UCS provide benefits over alternatives?** (Future work, chapter \ref{ch:future_work}.) 
-The quality and effectiveness of the dynamic UCS will be compared to benchmark datasets against commonly used alternatives of static, single, linear and non-linear projection techniques. The addition of the temporal dimension theoretically allows for more information to be conveyed than in static projections.
-3. **How can UCS be extended to 3D?** (Future work, chapter \ref{ch:future_work}.) The UCS algorithm needs to be extended to a third dimension and the rendering of 3D dynamic projections and sectioning for use across mixed reality display devices. 
-4. **Does UCS in 3D displays provide perception benefits over 2D displays?** (Future work, chapter \ref{ch:future_work}.) The addition of a stereoscopic 3rd dimension has previously shown improved perception in other visualization. The extension of UCS into 3D should be used to explore user perception across display devices (including a 2D standard monitor, 3D head tracked monitor, and 3D head-mounted display). 
+1. **How can UCS be in 1- and 2D projections within an animation-specific framework?**\
+(Work in progress, chapter \ref{ch:workinprogress}.)\
+Following the theory laid out in @cook_manual_1997, a new UCS algorithm is devised for use within animation-specific frameworks. This enables fine control of exploring the local structure of data in 2D embeddings and sets the foundation to be used in the remaining objectives.
 
+2. **Does 2D UCS provide benefits over alternatives?**\
+(Future work, chapter \ref{ch:future_work}.)\
+The quality and effectiveness of the dynamic UCS will be compared to benchmark datasets against commonly used alternatives of static, single, linear and non-linear projection techniques. The addition of the temporal dimension theoretically allows for more information to be conveyed than in static projections.
+
+3. **How can UCS be extended to 3D?**\
+(Future work, chapter \ref{ch:future_work}.)\
+The UCS algorithm needs to be extended to a third dimension and the rendering of 3D dynamic projections and sectioning for use across mixed reality display devices. This will involve the addition of a new angle and it's control to the projection space, reference frame, and  manipulation space (now 4D) to the current algorithm.
+
+4. **Does UCS in 3D displays provide perception benefits over 2D displays?**\
+(Future work, chapter \ref{ch:future_work}.)\
+The addition of a stereoscopic 3rd dimension has previously shown improved perception over 2D in other visualization including embedded spaces. The extension of UCS into 3D should be used to explore user perception across display devices (including a 2D standard monitor, 3D head tracked monitor, and 3D head-mounted display).
+
+**Contributions:**
+
+The contributions and thus concluding scope of this study can then be summarized with:
+
+1. An algorithm for use in 1- and 2D animation frameworks.
+2. A comparison study of benchmark data sets across dynamic and static projection techniques.
+3. An algortithm for UCS and dynamic surface tours in 3D.
+4. Quantification of the speed, accuracy, and correctness of USC across display device.
 
 ## Methodology
 
-This research is interdisciplinary; it's base on a dimension reduction technique developed by statisticians, extended with information technology into 3D including VR technologies, with applications in high energy physics identified[@cook_dynamical_2018]. The research is correspondingly supervised experts in these fields.
+This research is interdisciplinary; it stems from a linear dimension reduction technique developed by statisticians and extended with information technology into 3D including VR technologies, with applications in high energy physics identified[@cook_dynamical_2018]. The research is correspondingly supervised by experts in these fields.
 
-The research corresponding with RO #1 entails a work in progress **algorithm design** following the work in @cook_manual_1997 to allow for UCS. The proposed algorithm discusses the generalized application of UCS for use across animation-specific frameworks. This outcome of this is an *R* package, `spinifex`, which will be submitted to CRAN and for hosting and distribution. This forms the foundation for future work in the remaining objectives. 
+The research corresponding with RO #1 entails a work in progress **algorithm design** following the work in @cook_manual_1997. The proposed algorithm discusses the generalized application of UCS for use across animation-specific frameworks. The outcome of this is an *R* package, `spinifex`, which will be submitted to CRAN and for hosting and distribution. This forms the foundation for future work in the remaining objectives. 
 
-The second objective is addressed with a benchmark dataset comparison **case study** between dynamic linear projections and alternatives (static linear and static non-linear projections such as Principal Component Analysis, Multi-Dimensional Scaling, and t-distributed neighbor embeddings, described in more detail in chapter \ref{ch:future_work}). Benchmark datasets will be compared across techniques, measurements will include variation explained, transparency to the original variable space, clustering, and outlier identification.
+The second objective is addressed with a benchmark dataset comparison **case study** between dynamic linear projections and alternatives (static linear and static non-linear projections such as principal component analysis, multi-dimensional scaling, and t-distributed neighbor embeddings, described in more detail in chapter \ref{ch:future_work}). Benchmark datasets will be compared across techniques, measurements will include variation explained, transparency to the original variable space, clustering identification, and outlier identification.
 
-The research for RO #3 involves **algorithm design**, where the work in RO #1 will be extended to the third dimension. Surface and function projections will also be developed. This forms the calculation base for the work. Several difficulties may arise when bringing dynamic projection into 3D spaces, especially when exploring 3D surfaces (discussed in more detail in chapter \ref{ch:future_work}).
+The research for RO #3 involves **algorithm design**, where the work in RO #1 will be extended to display with the use of a third spatial dimension. Surface and function projections will also be developed. This forms the calculation base for the work. Several difficulties may arise when bringing dynamic projection into 3D spaces, especially when exploring 3D surfaces (discussed in more detail in chapter \ref{ch:future_work}).
 
-The research resulting from RO #4 is a controlled **usability study** to explore the efficacy of bringing UCS into 3D as compared across various display devices, in a standardized interface allowed by the work stemming from RO # 3. In this design, the factors are user task (such as separation of clusters and rank of manipulation variable) across the treatment of display device (including 2D standard monitor, 3D head-tracked monitor, and head-mounted display). Quantitative measurements include participant speed and accuracy of tasks, biometric readings, and subjective Likert surveys of participants. A lineup-type model as outlined in @hofmann_graphical_2012 may also be employed for assessing the quality of display types.
+The research resulting from RO #4 is a controlled **usability study** to explore the efficacy of bringing UCS into 3D as compared across various display devices, in a standardized interface allowed by the work stemming from RO # 3. In this design, the factors are user tasks (such as separation of clusters and ranking of manipulation variable) across the treatment of display device (including 2D standard monitor, 3D head-tracked monitor, and head-mounted display). Quantitative measurements include participant speed and accuracy of tasks, biometric readings, and subjective Likert surveys of participants. A lineup-type model as outlined in @hofmann_graphical_2012 may also be employed for assessing the quality of display types.
 
 
 ## Workflow and reproducibility 
@@ -67,7 +84,7 @@ The programing language, *R*, is used in the work described below to import, tid
 
 ## Project overview {#ch:projectoverview}
 
-The research gaps in the literature review leave room for the research objectives outlined in the introduction. Figure \@ref(fig:ProjectOverview) depicts a schematic flow chart that the research objectives will be executed in. The research responding to RO #1, the application of 2D user-controlled steering (UCS), sets the foundation for which the other objectives can be researched. RO #3, the application of 3D UCS, must precede RO #4, exploring the efficacy of 3D UCS across display devices. RO #2, the comparison of 2D UCS vs alternatives, must come after RO #1, but is of lower priority to RO #3 & 4, and so will be conducted last, in the event of a time crunch.
+Figure \@ref(fig:ProjectOverview) depicts a schematic flow chart that the research objectives will be executed in. The research stemming from RO #1, the application of 2D user-controlled steering (UCS), sets the foundation for which the other objectives can be researched. RO #3, the application of 3D UCS, must precede RO #4, as it explores the efficacy of 3D UCS across display devices. RO #2, the comparison of 2D UCS vs alternatives, must come after RO #1, but is of lower priority to RO #3 & 4, and so will be conducted last, in the event of a time crunch.
 
 (ref:ProjectOverview-cap) Flow chart of research objective dependencies, work order, and methodology.
 
@@ -76,4 +93,4 @@ knitr::include_graphics("./figures/ProjectOverview.PNG")
 ```
 
 
-In this report, the related literature is discussed in chapter \ref{ch:lit_review}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by ongoing work and future work in chapters \ref{ch:workinprogress} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic projections and VR data visualization can be found in appendix \ref{ch:glossary}, and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex_paper}.
+In this report, the related literature is discussed in chapter \ref{ch:lit_review}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by ongoing work and future work in chapters \ref{ch:workinprogress} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic projections and VR data visualization can be found in appendix \ref{ch:glossary} and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex_paper}.
