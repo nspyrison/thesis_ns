@@ -145,14 +145,14 @@ Ph.D.~research can then be summarized as the following.
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  \textbf{How can UCS be generalized to work within various graphic
+  \textbf{How can UCS be generalized to work within graphic-specific
   environment for 2D projections?}\\
   (Work in progress, chapter \ref{ch:workinprogress}.)\\
-  The UCS algorithm in \textcite{cook_manual_1997} is designed for a
-  specific animation package. The algorithm should be generalized to
-  extend use to work with various graphics environments. This enables
-  fine control of exploring the local structure of data in 2D embeddings
-  and sets the foundation to be used in the remaining objectives.
+  Building from the UCS algorithm in \textcite{cook_manual_1997}, the
+  algorithm should be modified for generalized use with graphic-specific
+  environments. This enables fine control of exploring the local
+  structure of data in 2D embeddings and sets the foundation to be used
+  in the remaining objectives.
 \item
   \textbf{Does 2D UCS tours provide benefits over alternatives?}\\
   (Future work, chapter \ref{ch:future_work}.)\\
@@ -164,14 +164,16 @@ Ph.D.~research can then be summarized as the following.
   \textbf{How can UCS be extended to 3D?}\\
   (Future work, chapter \ref{ch:future_work}.)\\
   The addition of a 3rd dimension potentially allows for the improved
-  perception of the structure of the data. To investigate this UCS
-  algorithm needs to be extended to a third dimension and the rendering
-  of 3D dynamic projections and sectioning for use across mixed reality
-  display devices. This will involve the addition of a new angle and it
-  controls to the projection space, reference frame, and manipulation
+  perception of the structure of the data in dynamic UCS. To investigate
+  this UCS algorithm needs to be extended to a third dimension. This
+  would also allow for novel application mutli-parameter function
+  projection. This will involve the addition of a new angle and it
+  controls to the projection space, reference axes, and manipulation
   space. In particular, the manipulation space, now in 4D, will be hard
-  to visualize but should be able to interact with via a point on the
-  now 3D reference frame.
+  to visualize, but it should be able stand as a mathematical construct
+  facilitated through interaction with a point (the projection
+  coeffcients of the selected manipulation variable) on the on the now
+  3D reference axes volume.
 \item
   \textbf{Does UCS in 3D displays provide benefits over 2D displays?}\\
   (Future work, chapter \ref{ch:future_work}.)\\
@@ -333,7 +335,7 @@ of a paper to be submitted to the R Journal can be found in appendix
 
 \chapter{Literature review}\label{ch:lit_review}
 
-The following chapter, discusses the current research in two primary
+The following chapter discusses the current research in two primary
 areas: dynamic linear projections (collectively known as tours) and
 multivariate data visualization in stereoscopic 3D. After each section,
 research gaps are highlighted.
@@ -389,7 +391,7 @@ physical representation of a simple projection, that from \(p=3\) down
 to \(d=2\). If the object rotates then the shadow correspondingly
 changes. Observers watching only the shadow are functionally watching a
 2D tour as the 3D object is manipulated. Some orientations explain more
-information about the shape of the object than others, but watching an
+information about the shape of the object than others while watching an
 animation of the shadow changing gives a more robust understanding than
 looking at any one frame. More complex structures generally require more
 time to comprehend the nature of the geometry. These features hold for
@@ -491,7 +493,7 @@ precomputed choice, and manual control.
     splines2D \autocites{grimm_mbgraphic:_2017}{laa_using_2019} -
     measure of non-linear dependence by fitting spline models.
   \item
-    other user-defined objective indices can be apply to the framework
+    other user-defined objective indices can be applied to the framework
     provided in the \emph{tourr} package \textcite{wickham_tourr_2011}.
   \item
     Another data-drive tour is the \emph{dependence tour}, a combination
@@ -531,7 +533,7 @@ precomputed choice, and manual control.
 
 \subsection{Path evaluation}\label{path-evaluation}
 
-Consider projection to 2D, then each projection is called a 2-frame
+Consider projection down to 2D, then each projection is called a 2-frame
 (each spanning a 2-plane). Mathematically, a Grassmannian is the set of
 all possible unoriented 2-frames in \(p\)-space, \(\textbf{Gr}(2,~p)\).
 \textcite{asimov_grand_1985} pointed out that the unique 2-frames of the
@@ -555,18 +557,18 @@ clear space for computers to narrow the search space.
 
 Guided tours \autocite{hurley_analyzing_1990} optimize an objective
 function generating path will be a relatively small subset of the
-Grassmannian. As such, density and rapidity are poor measures, however,
-interesting projections are quickly identified. Recently,
-\textcite{laa_using_2019}, compared projection pursuit indices with the
-metrics: \emph{smoothness, squintability, flexibility, rotation
-invariance} and \emph{speed}.
+Grassmannian. As they are not used for exploration, density and rapidity
+are poor measures. On the other hand, they excel at finding interesting
+projections quickly. Recently, \textcite{laa_using_2019}, compared
+projection pursuit indices with the metrics: \emph{smoothness,
+squintability, flexibility, rotation invariance} and \emph{speed}.
 
 \subsection{Geometric display by dimensionality}\label{sec:geom_display}
 
-Up to this point, this document has discussed 2D scatterplots, which
-offer a logical display for viewing embeddings of high-dimensional point
-clouds. However, other geometrics offer perfectly valid projections as
-well.
+Up to this point, 2D scatterplots have been the primary display
+discussed, they offer a logical display for viewing embeddings of
+high-dimensional point clouds. However, other geometrics offer perfectly
+valid projections as well.
 
 \begin{itemize}
 \tightlist
@@ -621,15 +623,16 @@ well.
     parallel coordinate plots, discussed below.
   \item
     Chernoff faces \autocite{chernoff_use_1973}, variables linked to the
-    size of facial features for rapid cursory like-ness comparison of
+    size of facial features. The idea is to apply the human
+    facial-perception for rapid, cursory, like-ness comparisons between
     observations.
   \item
     Parallel coordinate plots \autocite{ocagne_coordonnees_1885}, where
     any number of variables are plotted in parallel with observations
     linked to their corresponding variable value by polylines.
   \item
-    Scatterplot matrix \autocite{becker_brushing_1987}, showing a
-    triangle matrix of bivariate scatterplots with 1D density on the
+    Scatterplot matrix (SPLOM) \autocite{becker_brushing_1987}, showing
+    a triangle matrix of bivariate scatterplots with 1D density on the
     diagonal.
   \item
     Radial glyphs, radial variants of parallel coordinates including
@@ -639,13 +642,13 @@ well.
 
 \subsection{Tour software}\label{tour-software}
 
-Tours have not yet been widely adopted, this is likely due in part, to
-the fact that print and static .pdf output does not accommodate dynamic
-viewing. Conceptual abstraction and technically density have also
-hampered user growth. Due to small adoption and rapid advancement of
-technology support and maintenance of such implementations give them a
-particularly short life span. Despite the small user base, there have
-been a fair number of tour implementations, including:
+Tours have yet to be widely adopted, due in part, to the fact that print
+and static .pdf output does not accommodate dynamic viewing. Conceptual
+abstraction and technically density have also hampered user growth. Due
+to low levels of adoption and the rapid advancement of technology
+support and maintenance of such implementations give them a particularly
+short life span. Despite the small user base, there have been a fair
+number of tour implementations, including:
 
 \begin{itemize}
 \tightlist
@@ -684,7 +687,7 @@ been a fair number of tour implementations, including:
 
 \subsection{Research gaps}\label{research-gaps}
 
-Dynamic projections of UCS had not incorporated recent animation
+Dynamic projections offering UCS have not incorporated recent animation
 frameworks (\textbf{RO \#1}). This leaves the class of dynamic linear
 projections without the most precise, fine-scale control of rotating
 \(p\)-space. This should be implemented with an eye on extensibility and
@@ -692,49 +695,49 @@ maintainability.
 
 A comparative study outlining the benefits of UCS vs alternatives is
 also absent from the literature (\textbf{RO \#2}). The benefits of
-dynamic linear projections withhold in theory, but a direct comparison
-with popular alternatives should be made. Barriers to adoption should
-also be addressed such as the dynamic display is not easy on print and
-in .pdf documents.
+dynamic linear projections hold in theory, but a direct comparison with
+popular alternatives should be made. Barriers to adoption and sharing
+should also be kept in mind as the dynamic display is not easy to
+display on print and in .pdf documents.
 
 \section{Multivariate data visualization in 3D}\label{sec:3d}
 
-As this research pertains to numeric multivariate data, a wider overview
-of 3D data visualization is discussed in chapter 2 of
+The scope of this research pertains to numeric multivariate data, a
+wider overview of 3D data visualization is discussed in chapter 2 of
 \textcite{marriott_immersive_2018}. Terminology for 3D visuals is in the
 glossary section \ref{sec:3d-terminology}.
 
 \subsection{A rocky start}\label{a-rocky-start}
 
 Scientific visualization has readily adopted mixed realities as a large
-amount of the science exists in 3 spatial dimensions, lending itself
+amount of the science exists in three spatial dimensions, lending itself
 well to virtual immersion \autocite{marriott_immersive_2018}. Data
 visualization, on the other hand, has been slow to utilize graphics
 above 2.5D, (and haptic interaction) primarily due to the mixed results
 of over-hyped of 3D visuals from the 1980s and '90s
-\autocite{munzner_visualization_2014}. However, since then there have
+\autocite{munzner_visualization_2014}. Since then, however, there have
 been several promising studies suggesting that it is time for data
-visualization to revisit and adopt 3D visuals for specific combinations
-of visuals and depth cues.
+visualization to revisit and adopt the use of 3D visuals for specific
+combinations of displays and depth cues.
 
 \subsection{3D rotated projections vs 3 2D orthogonal
 projections}\label{d-rotated-projections-vs-3-2d-orthogonal-projections}
 
-3D shapes can be represented by 3 orthogonal 2D views, or rather 3
-pairwise projections. When 3D representations are used with binocular
-cues, they are found to have more accurate perception than 2D
-counterparts \autocite{lee_effects_1986}.
+Three orthogonal 2D views can represent the three face-on views of 3D
+shapes. When 3D representations are used with binocular cues, they are
+found to have more accurate perception than 2D counterparts
+\autocite{lee_effects_1986}.
 
-Between 3D and split view 2D of 3-dimensional economics data
-\textcite{wickens_implications_1994} asked participants integrative
-questions, finding that participants were faster to answer when
-questions involved three dimensions, while the performance was similar
-when questions involved fewer dimensions.
+Between 3D and split view 2D of three-dimensional economics, data
+\textcite{wickens_implications_1994} asked participants questions
+integrating several variables, finding that 3D visuals resulted in
+faster answers when questions involved three dimensions, while the speed
+was similar when questions involved fewer dimensions.
 
-Using 3D rotated projection gives more accurate perception (relative to
-2D) of a ball suspended above complex box shapes, while combinations of
-2D and 3D give the most precise orientation and positioning information
-\autocite[depicted in figure
+Using 3D rotated projections gives more precise (relative to 2D)
+estimates of the height a ball is suspended above complex box shapes,
+while combinations of 2D and 3D give the most precise orientation and
+positioning information \autocite[depicted in figure
 \ref{fig:tory06fig}]{tory_visualization_2006}.
 
 
@@ -759,13 +762,13 @@ height 1.5 diameters above the block shape.''}\label{fig:tory06fig}
 \end{figure}
 
 \textcite{sedlmair_empirical_2013}, depicted in figure
-\ref{fig:sedlmair13fig}, tasked users with cluster separation across 2D
-scatterplot, 2D scatterplot matrices (SPLOMs) and interactive 3D
-scatterplots as viewed in monocular 3D from a standard monitor. They
-conclude that interactive 3D scatterplots perform worse for class
-separation. This result is surprising as the extra dimension
-theoretically allows for the clustering structure to be seen and
-explored more clearly.
+\ref{fig:sedlmair13fig}, asked users about cluster separation across 2D
+scatterplots, 2D scatterplot matrices (SPLOMs) and interactive 3D
+scatterplots, PCA (linear projection), and t-SNE (non-linear projection)
+as viewed in monocular 3D from a standard monitor. They conclude that
+interactive 3D scatterplots perform worse for class separation. This
+result is surprising as the extra dimension theoretically allows for the
+clustering structure to be seen and explored more clearly.
 
 
 
@@ -838,13 +841,13 @@ However, both tasks were performed slower with the use of the 3D
 scatterplots and statistical significance was not reported.
 
 \textcite{wagner_filho_immersive_2018}, depicted in figure
-\ref{fig:wagner18fig}, performed an \(n=30\) empirical study of PCA
-embedded projections, and perception error across 4 tasks and 3 display
-types: 2D, 3D, and immersive. Overall task error was less in 3D and
-immersive relative to 2D. According to the user Likert-scale survey, 2D
-is slightly easier to navigate and slightly more comfortable, while, 3D
-and immersive display are slightly easier to interact and moderately
-easier to find information.
+\ref{fig:wagner18fig}, performed an \(n=30\) empirical study on PCA
+embedded projections, measuring perception error across 4 tasks and 3
+display types: 2D, static 3D, and immersive 3D. Overall task error was
+less in static and immersive 3D relative to 2D. According to the user
+Likert-scale survey, 2D is slightly easier to navigate and slightly more
+comfortable, while, static and immersive 3D displays are slightly easier
+to interact with and moderately easier to find information on.
 
 
 
@@ -893,7 +896,7 @@ visualization in virtual spaces.
 
 \subsection{Research gaps}\label{research-gaps-1}
 
-When comparing between 3D and 2D orthogonal views studies, in general,
+When comparing between 2- and 3D orthogonal views, in general, studies
 show that perception accuracy is better in 3D, though manipulation speed
 is generally slower. The speed discrepancy is confounded by the
 difference in users familiar with manipulating 2D vs 3D spaces
@@ -902,20 +905,20 @@ difference in users familiar with manipulating 2D vs 3D spaces
 Similar results have been shown in static, 3D projected spaces
 \autocites{gracia_new_2016}{wagner_filho_immersive_2018} and in dynamic
 2D embedded spaces depicted in immersive 3D
-\autocite{nelson_xgobi_1998}. With Modern VR hardware advancement, so
-too does the quality, resolution, and prevalence of VR advance, making
-VR more easily accessible than ever. It's time to view dynamic 3D
-projections with immersive spaces and quantify the corresponding
+\autocite{nelson_xgobi_1998}. Modern VR hardware brings about a steady
+improvements to quality, resolution while driving down cost, making VR
+more easily accessible than ever. It's timely to review dynamic 3D
+projections and do so in immersive spaces to quantify the corresponding
 benefits (\textbf{RO \#3 \& 4}).
 
 \chapter{Work in progress}\label{ch:workinprogress}
 
-Extending the algorithm for UCS in low dimensions for generalized use in
-graphics environments is fundamental to the extension of the UCS into 3D
-space. This forms the foundation for future work addressed in the
-remaining research objectives. This is a synthesis of the work that will
-be submitted to the R Journal. A wider discussion of implementation as
-an \emph{R} package and application to high energy physics data
+Extending the algorithm for UCS in 2D for generalized use in graphics
+environments is fundamental to the extension of the UCS into 3D space.
+This forms the foundation for future work addressed in the remaining
+research objectives. This is a synthesis of the work that will be
+submitted to the R Journal. A wider discussion of implementation as an
+\emph{R} package and application to high energy physics data
 \autocites{wang_visualizing_2018}{cook_dynamical_2018} is attached in
 appendix \ref{ch:spinifex_paper} formatted as a paper.
 
@@ -924,18 +927,18 @@ graphics environment for 2D
 projections?}\label{ro-1-how-can-ucs-be-generalized-to-work-within-various-graphics-environment-for-2d-projections}
 
 This chapter builds off of \emph{manual tours}
-\autocite{cook_manual_1997} and extends the algorithm to generalized
-graphics implementation. Manual tours allow users to rotate a selected
-variable into and out of a 2D projection of high-dimensional space for
-user-controlled steering (UCS). The primary use is to determine the
-sensitivity of the structure to the contributions of a selected
-manipulation variable. This is particularly powerful for exploring the
-local structure once a feature of interest has been identified, by a
-guided tour for example.
+\autocite{cook_manual_1997} and modifies the algorithm for generalized
+use in graphics implementations. Manual tours allow users to rotate a
+selected variable into and out of a 2D projection of high-dimensional
+space for user-controlled steering (UCS). The primary use is to
+determine the sensitivity of the structure to the contributions of a
+selected manipulation variable. This is particularly powerful for
+exploring the local structure once a feature of interest has been
+identified, for example, by a guided tour.
 
 \section{Algorithm}\label{sec:algorithm}
 
-Creating a manual tour animation requires these steps:
+The algorithm for generating a manual tour path involves these steps:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -971,41 +974,44 @@ rather than being confined to the top of a table.
 
 \subsection{Step 3 Generate rotation}\label{step-3-generate-rotation}
 
-Define a set of values for two angles, the `in-plane' and
-`out-of-plane', picture within an \(XY\) plane, and out of \(Z\)-axis.
-For the corresponding value in each set, rotate (post multiply) the
-manip space according to a rotation matrix.
+Define or capture a sequence of values for two angles, the `in-plane'
+and `out-of-plane', picture within an \(XY\) plane, and out of
+\(Z\)-axis. For the corresponding value in each set, rotate (post
+multiply) the manip space according to a rotation matrix.
 
 \section{Display projection sequence}\label{display-projection-sequence}
 
-To return to data-space, pre-multiply the rotated manip space by the
-data. Plot the first two components as an \(XY\)-scatterplot viewed in
-order. The first two coefficients of the rotated manip space are
-typically drawn with lines returning to the origin within a unit circle
-showing the direction of each variables contribution in the 2D
-projection space.
+Once the path has been generated, return to data-space matrix multiply
+the data with the rotated manip space. Plot the first two components as
+an \(XY\)-scatterplot for each frame. The projected data is commonly
+shown with reference axes, the coefficients of each variable extending
+from a unit circle showing the direction and magnitude of contribution
+to the 2D projection space.
 
 \chapter{Future work}\label{ch:future_work}
 
 \section{RO \#2) Does 2D UCS provide benefits over
 alternatives?}\label{ro-2-does-2d-ucs-provide-benefits-over-alternatives}
 
-High dimensional data and models are ubiquitous but viewing them in data
-space is not trivial. This work quantifies various measurements of 2D
-UCS applied in RO \#1, and commonly used alternatives. All comparison
-groups are unsupervised (agnostic of clustering), static, single
-embeddings in a lower dimension, and would include:
+High dimensional data and models are ubiquitous, but viewing them in
+data space is not trivial. There are various dimensionality reduction
+techniques used to view projections of the data. This work would
+quantify the potential benefits of dynamic 2D UCS over various
+measurements of 2D UCS applied in RO \#1, and commonly used
+alternatives. All comparison groups are unsupervised (agnostic of
+clustering), static, single embeddings in a lower dimension, and would
+include:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Principal Component Analysis (PCA)}, is a linear
-  transformation that orients linear combinations of the variables into
-  basis components and orders them according to the amount of variation.
-  The first principal component is the linear combination that explains
-  the most variation with the second explaining the most of the
-  remaining variation and is orthogonal to all previous components, and
-  so on.
+  \textbf{Principal Component Analysis (PCA)}, a linear transformation
+  that forms orthogonal linear combinations of the variables by
+  maximizing the amount of variation that is independent of all
+  preceding components. That is, the first principal component is the
+  linear combination that explains the most variation in one direction
+  with the second explaining the most of the remaining variation and is
+  orthogonal to the first, and so on.
 \item
   \textbf{Multi-Dimensional Scaling (MDS)}, non-linear dimension
   reduction that compares pairwise distances between observations.
@@ -1018,50 +1024,54 @@ embeddings in a lower dimension, and would include:
 
 Unfortunately, static linear projections necessarily cut variation in
 the components not shown, while non-linear techniques lose transparency
-back to the original variable space. Tours preserve this transparency to
-variable-space and keep variation in tack. Providing user-controlled
-steering of tours should allow for finer structural exploration than the
-alternatives.
+back to the original variable space. On the other hand, dynamic linear
+projections keep variation in tack (at the cost of viewing over time)
+and also preserve this transparency to variable-space. User-controlled
+steering of tours allows for finer exploration local exploration, which
+should be reflected in the benefits over alternative options.
 
 The methodology for this future work is a \textbf{case study} comparing
-benchmark datasets across technique, UCS and leading alternatives. This
-will be a sufficient comparison if there are enough quantifiable
-measurements across the different techniques. However, if enough
-measurements are not comparable across techniques an empirical study
-analogous to the study suggested in RO \# 4 will be considered. Design
-space includes data sets, techniques, and measures of comparison.
+benefits across technique, by assessment across contemporary benchmark
+datasets. Differences in the techniques make for an uneven comparison,
+but measurements will be made where applicable comparing at least
+variation, clustering, and structure. The design space includes data
+sets, techniques, and measures of comparison.
 
 \section{RO \#3) How can UCS be extended to
 3D?}\label{ro-3-how-can-ucs-be-extended-to-3d}
 
 The literature has shown positive results for improved perception of 3D
 graphics over 2D including static linear embeddings. The additional
-dimension theoretically allows for the perception benefits in dynamic 3D
-scatterplot projections and for improved perception of surfaces and
-dynamic viewing of 3D projections. The research answering RO \#1 will be
+dimension theoretically allows for the improved structural perception in
+3D scatterplots and would allow for the novel application of projecting
+multidimensional function spaces. The research answering RO \#1 will be
 extended to these uses.
 
-The work done in \textcite{cordeil_imaxes:_2017} creates a collaborative
-space for people to engage in immersive data analysis, a generalized
-platform for data visualization in the Unity game engine. By integrating
-dynamic linear projection in 3D with the above work offers a
-consolidated user interface that can be used across various display
-devices in RO \#4.
+The work presented in \textcite{cordeil_imaxes:_2017} creates immersive
+space for users to explore data in a virtual environment. Users can
+actively create different visualization by spatial manipulation of
+virtual variable-axes. Bringing dynamic projection into such an
+immersive environment could be a huge boon to interacting with something
+so dynamic in nature. The ability to render in 3D could also act as a
+common interface that can be used across various display devices in RO
+\#4.
 
-This is an \textbf{algorithm design}, first, the \emph{R} package
-spinifex will be extended to 3D and function/surface projections will be
-developed. After the projections are performed \emph{Unity} will be used
-to render the embeddings in 3D VR and offer a compatible front end to be
-used across display devices.
+The research addressing this objective is an \textbf{algorithm design},
+first, the \emph{R} package spinifex will be extended to 3D and
+function/surface projections will be developed. After the projections
+are performed \emph{Unity} will be used to render the embeddings in 3D
+VR and offer a compatible front end to be used across display devices.
 
 Manipulating 3D spaces may not be straight forward. In section
 \{sec:algorithm\} the manipulation space was in 3D, where 2 angles
 defined a point that was projected back to the 2D reference frame. The
-now 4D manipulation space should only be nescary in internal
+now 4D manipulation space should only be necessary for internal
 mathematics, where the 3 angles spanning it, could be controlled through
 manipulation of a selected variable on the now 3D reference volume.
 Navigating 3D space may be very intuitive or may require a slide ruler
-for each axis may offer more control.
+for each axis may offer more control. The angular speed of the
+projections should be regulated for continuity of observation and to
+mitigate potentially nauseating movement.
 
 
 
@@ -1078,15 +1088,15 @@ scatterplot projection. Basis and projection axes should be marked from
 the origin.}\label{fig:RO3MockUp}
 \end{figure}
 
-Viewing functions and surfaces have several difficulties in 3D the first
-of which is occulation, the surfaces in the foreground blocks the view
-behind it. Opacity, wire mesh, and projection sectioning are ways to
-address this issue. A second issue is that it may be disorienting or
-nauseating to watch surfaces folding into each other.
-
-If UCS happens in real time the angular speed of the tour should be
-regulated for continuity of observation and to mitigate potentially
-nauseating movement.
+In a function projection, a multi-parameter function surface would be
+projected rather than individual data points. Imagining the projection
+of a unit grid is a useful middle ground. Viewing projected functions
+may have several difficulties in 3D the first of which is occulation,
+the surfaces in the foreground blocks the view behind it. Opacity, wire
+mesh, and projection sectioning are potential ways to address this
+issue. A second issue is that it may be disorienting or nauseating to
+watch surfaces folding into each other in seemingly non-euclidean
+movements.
 
 The design space includes the path generators (outlined in section
 \ref{sec:path_generation}), geometric display (section
@@ -1222,7 +1232,8 @@ files can be found at
 
 \section{Tour notation}\label{sec:tour_notation}
 
-Terminology varies across articles. In my work, I use the following:
+Tour notation varies across articles and authors. In my work, I use the
+following:
 
 \begin{itemize}
 \tightlist
@@ -1237,18 +1248,16 @@ Terminology varies across articles. In my work, I use the following:
   \(\textbf{X} \in \mathbb{R}^{p}\). Typically centered, scaled, and
   optionally sphered.
 \item
-  \(\textbf{B}_{[p,~d]}\), orthonormal basis set (\(d\) linear
-  combinations of \(p\) variables, each at a right angle, to the others,
-  with a norm of 1), defining the axes directions for the projection
-  from \(p-\) to \(d-\)space.
+  \(\textbf{B}_{[p,~d]}\), orthonormal (orthogonal and each column
+  normalized to a norm of 1) basis set, defining the axes directions for
+  the projection from \(p-\) to \(d-\)space.
 \item
   \(\textbf{Y}_{[n,~d]}\), projected data matrix in projection-space,
   \(\textbf{Y} \in \mathbb{R}^{d}\).
 \item
-  For projections down to 1- and 2D, it is common to display each
-  variable contribution and direction on its axis (1D) or relative to a
-  unit circle (2D), this is referred to as basis axes or sometimes the
-  reference frame.
+  Basis axes/refernece axes, a display showing how each variables
+  coeffiecient(s) contribute to a porjection. Either on its own axis
+  (1D) or relative to a unit circle (2D).
 \item
   Geometric objects are referred to in generalized dimensions; the use
   of the term plane is not necessarily a 2D surface, but a hyperplane in
@@ -1264,7 +1273,7 @@ Terminology varies across articles. In my work, I use the following:
   perception cues and minimal aesthetic mapping (such as color, size,
   and height) to data points.
 \item
-  2.5D - Following the definition given in
+  2.5D - following the definition given in
   \textcite{ware_designing_2000}: visualizations that are essentially 2D
   but select depth cues are used to provide some suggestion of 3D.
   However, the term 2.5D is commonly used for several meanings \emph{due

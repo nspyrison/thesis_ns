@@ -1,5 +1,5 @@
 ---
-chapter: 5
+chapter: 4
 knit: "bookdown::render_book"
 ---
 
@@ -7,25 +7,25 @@ knit: "bookdown::render_book"
 
 ## RO #2) Does 2D UCS provide benefits over alternatives?
 
-High dimensional data and models are ubiquitous but viewing them in data space is not trivial. This work quantifies various measurements of 2D UCS applied in RO #1, and commonly used alternatives. All comparison groups are unsupervised (agnostic of clustering), static, single embeddings in a lower dimension, and would include:
+High dimensional data and models are ubiquitous, but viewing them in data space is not trivial. There are various dimensionality reduction techniques used to view projections of the data. This work would quantify the potential benefits of dynamic 2D UCS over various measurements of 2D UCS applied in RO #1, and commonly used alternatives. All comparison groups are unsupervised (agnostic of clustering), static, single embeddings in a lower dimension, and would include:
 
-- **Principal Component Analysis (PCA)**, is a linear transformation that orients linear combinations of the variables into basis components and orders them according to the amount of variation. The first principal component is the linear combination that explains the most variation with the second explaining the most of the remaining variation and is orthogonal to all previous components, and so on. 
+- **Principal Component Analysis (PCA)**, a linear transformation that forms orthogonal linear combinations of the variables by maximizing the amount of variation that is independent of all preceding components. That is, the first principal component is the linear combination that explains the most variation in one direction with the second explaining the most of the remaining variation and is orthogonal to the first, and so on. 
 - **Multi-Dimensional Scaling (MDS)**, non-linear dimension reduction that compares pairwise distances between observations.
 - **t-distributed neighbor embeddings (tSNE)**, a nonlinear technique that iterates epochs of 1) constructing a probability distribution for selecting neighboring data and 2), minimizing Kullback-Leibler divergence (a measure of relative entropy).
 
-Unfortunately, static linear projections necessarily cut variation in the components not shown, while non-linear techniques lose transparency back to the original variable space. Tours preserve this transparency to variable-space and keep variation in tack. Providing user-controlled steering of tours should allow for finer structural exploration than the alternatives.
+Unfortunately, static linear projections necessarily cut variation in the components not shown, while non-linear techniques lose transparency back to the original variable space. On the other hand, dynamic linear projections keep variation in tack (at the cost of viewing over time) and also preserve this transparency to variable-space. User-controlled steering of tours allows for finer exploration local exploration, which should be reflected in the benefits over alternative options.
 
-The methodology for this future work is a **case study** comparing benchmark datasets across technique, UCS and leading alternatives. This will be a sufficient comparison if there are enough quantifiable measurements across the different techniques. However, if enough measurements are not comparable across techniques an empirical study analogous to the study suggested in RO # 4 will be considered. Design space includes data sets, techniques, and measures of comparison.
+The methodology for this future work is a **case study** comparing benefits across technique, by assessment across contemporary benchmark datasets. Differences in the techniques make for an uneven comparison, but measurements will be made where applicable comparing at least variation, clustering, and structure. The design space includes data sets, techniques, and measures of comparison.
 
 ## RO #3) How can UCS be extended to 3D?
 
-The literature has shown positive results for improved perception of 3D graphics over 2D including static linear embeddings. The additional dimension theoretically allows for the perception benefits in dynamic 3D scatterplot projections and for improved perception of surfaces and dynamic viewing of 3D projections. The research answering RO #1 will be extended to these uses.
+The literature has shown positive results for improved perception of 3D graphics over 2D including static linear embeddings. The additional dimension theoretically allows for the improved structural perception in 3D scatterplots and would allow for the novel application of projecting multidimensional function spaces. The research answering RO #1 will be extended to these uses.
 
-The work done in @cordeil_imaxes:_2017 creates a collaborative space for people to engage in immersive data analysis, a generalized platform for data visualization in the Unity game engine. By integrating dynamic linear projection in 3D with the above work offers a consolidated user interface that can be used across various display devices in RO #4.
+The work presented in @cordeil_imaxes:_2017 creates immersive space for users to explore data in a virtual environment. Users can actively create different visualization by spatial manipulation of virtual variable-axes. Bringing dynamic projection into such an immersive environment could be a huge boon to interacting with something so dynamic in nature. The ability to render in 3D could also act as a common interface that can be used across various display devices in RO #4.
 
-This is an **algorithm design**, first, the *R* package spinifex will be extended to 3D and function/surface projections will be developed. After the projections are performed *Unity* will be used to render the embeddings in 3D VR and offer a compatible front end to be used across display devices.
+The research addressing this objective is an **algorithm design**, first, the *R* package spinifex will be extended to 3D and function/surface projections will be developed. After the projections are performed *Unity* will be used to render the embeddings in 3D VR and offer a compatible front end to be used across display devices. 
 
-Manipulating 3D spaces may not be straight forward. In section {sec:algorithm} the manipulation space was in 3D, where 2 angles defined a point that was projected back to the 2D reference frame. The now 4D manipulation space should only be nescary in internal mathematics, where the 3 angles spanning it, could be controlled through manipulation of a selected variable on the now 3D reference volume. Navigating 3D space may be very intuitive or may require a slide ruler for each axis may offer more control.
+Manipulating 3D spaces may not be straight forward. In section {sec:algorithm} the manipulation space was in 3D, where 2 angles defined a point that was projected back to the 2D reference frame. The now 4D manipulation space should only be necessary for internal mathematics, where the 3 angles spanning it, could be controlled through manipulation of a selected variable on the now 3D reference volume. Navigating 3D space may be very intuitive or may require a slide ruler for each axis may offer more control. The angular speed of the projections should be regulated for continuity of observation and to mitigate potentially nauseating movement. 
 
 (ref:RO3MockUp-cap) A mockup of a 3D basis reference space and scatterplot projection. Basis and projection axes should be marked from the origin.
 
@@ -33,9 +33,7 @@ Manipulating 3D spaces may not be straight forward. In section {sec:algorithm} t
 knitr::include_graphics("./figures/RO3MockUp2.PNG")
 ```
 
-Viewing functions and surfaces have several difficulties in 3D the first of which is occulation, the surfaces in the foreground blocks the view behind it. Opacity, wire mesh, and projection sectioning are ways to address this issue. A second issue is that it may be disorienting or nauseating to watch surfaces folding into each other. 
-
-If UCS happens in real time the angular speed of the tour should be regulated for continuity of observation and to mitigate potentially nauseating movement. 
+In a function projection, a multi-parameter function surface would be projected rather than individual data points. Imagining the projection of a unit grid is a useful middle ground. Viewing projected functions may have several difficulties in 3D the first of which is occulation, the surfaces in the foreground blocks the view behind it. Opacity, wire mesh, and projection sectioning are potential ways to address this issue. A second issue is that it may be disorienting or nauseating to watch surfaces folding into each other in seemingly non-euclidean movements.
 
 The design space includes the path generators (outlined in section \ref{sec:path_generation}), geometric display (section \ref{sec:geom_display}), layout in virtual space, dynamic interactions. Tour paths are conceptually straight-forward mapping between values and 3D rendering. Each geometric display will need unique recreation, though 3D scatterplot, parallel coordinate plot and scatterplot matrices (SPLOM) are currently supported in the respective packages in both languages. Dynamic surface and function visualization will also be explored in 3D. 
 
