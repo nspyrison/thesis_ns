@@ -32,9 +32,9 @@ Data and models are typically high-dimensional, with many variables and paramete
 
 **Research objectives (RO):**
 
-1. **How can UCS be generalized to work within various graphic environment for 2D projections?**\
+1. **How can UCS be generalized to work within graphic-specific environment for 2D projections?**\
 (Work in progress, chapter \ref{ch:workinprogress}.)\
-The UCS algorithm in @cook_manual_1997 is designed for a specific animation package. The algorithm should be generalized to extend use to work with various graphics environments. This enables fine control of exploring the local structure of data in 2D embeddings and sets the foundation to be used in the remaining objectives.
+Building from the UCS algorithm in @cook_manual_1997, the algorithm should be modified for generalized use with graphic-specific environments. This enables fine control of exploring the local structure of data in 2D embeddings and sets the foundation to be used in the remaining objectives.
 
 2. **Does 2D UCS tours provide benefits over alternatives?**\
 (Future work, chapter \ref{ch:future_work}.)\
@@ -42,7 +42,7 @@ The quality and effectiveness of 2D UCS will be compared with alternatives of st
 
 3. **How can UCS be extended to 3D?**\
 (Future work, chapter \ref{ch:future_work}.)\
-The addition of a 3rd dimension potentially allows for the improved perception of the structure of the data. To investigate this UCS algorithm needs to be extended to a third dimension and the rendering of 3D dynamic projections and sectioning for use across mixed reality display devices. This will involve the addition of a new angle and it controls to the projection space, reference frame, and manipulation space. In particular, the manipulation space, now in 4D, will be hard to visualize but should be able to interact with via a point on the now 3D reference frame. 
+The addition of a 3rd dimension potentially allows for the improved perception of the structure of the data in dynamic UCS. To investigate this UCS algorithm needs to be extended to a third dimension. This would also allow for novel application mutli-parameter function projection. This will involve the addition of a new angle and it controls to the projection space, reference axes, and manipulation space. In particular, the manipulation space, now in 4D, will be hard to visualize, but it should be able stand as a mathematical construct facilitated through interaction with a point (the projection coeffcients of the selected manipulation variable) on the on the now 3D reference axes volume. 
 
 4. **Does UCS in 3D displays provide benefits over 2D displays?**\
 (Future work, chapter \ref{ch:future_work}.)\
