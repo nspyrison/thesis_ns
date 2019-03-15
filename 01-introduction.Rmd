@@ -23,7 +23,7 @@ knitr::include_graphics("./figures/matejka17fig.png")
 
 It is clear that data-space visualization is needed but it becomes complex as data dimensionality increases. Embedding (or projecting) $p-$dimensional data on to a lower, $d$-dimensional subspace is a common dimension reduction approach to visualize multivariate data spaces. Traditionally a single static projection is used to summarize a space, which necessarily shows a subset of the variation of the data. @asimov_grand_1985 suggested the use of viewing projections dynamically across a changing projection basis allows for more variation to be contained and viewed temporally. This dynamic view of many changing projections is known as *tours*. While, there are different methods of generating tour paths, human-in-the-loop user-controlled steering (UCS) offers the finest control for navigating the local structure.
 
-Tours are typically viewed from standard 2D monitors, and most commonly viewed as a projection down to 2D. A notable exception being @nelson_xgobi_1998, where 3D embeddings were viewed in 3D head-tracked VR. Data visualization studies generally show an improved perception of 3D visuals over 2D, especially when adequate depth cues are provided. The state of modern hardware has made VR more affordable and available to wider audiences, at ever increasing resolutions of display than previously possible. It is therefore timely for research to be conducted to compare the perception of dynamic linear projections across display type.
+Tours are typically viewed from standard 2D monitors, and most commonly viewed as a projection down to 2D. A notable exception being @nelson_xgobi_1998, where 3D embeddings were viewed in 3D head-tracked VR. Data visualization studies generally show benefits in 3D visuals over 2D, especially when adequate depth cues are provided. The state of modern hardware has made VR more affordable and available to wider audiences, at ever increasing resolutions of display than previously possible. It is therefore timely for research to be conducted to compare the structure and speed of comprehension of dynamic linear projections across 2- and 3D display devices.
 
 
 ## Research objectives
@@ -32,34 +32,34 @@ Data and models are typically high-dimensional, with many variables and paramete
 
 **Research objectives (RO):**
 
-1. **How can UCS be in 1- and 2D projections within an animation-specific framework?**\
+1. **How can UCS be generalized to work within various graphic environment for 2D projections?**\
 (Work in progress, chapter \ref{ch:workinprogress}.)\
-Following the theory laid out in @cook_manual_1997, a new UCS algorithm is devised for use within animation-specific frameworks. This enables fine control of exploring the local structure of data in 2D embeddings and sets the foundation to be used in the remaining objectives.
+The UCS algorithm in @cook_manual_1997 is designed for a specific animation package. The algorithm should be generalized to extend use to work with various graphics environments. This enables fine control of exploring the local structure of data in 2D embeddings and sets the foundation to be used in the remaining objectives.
 
-2. **Does 2D UCS provide benefits over alternatives?**\
+2. **Does 2D UCS tours provide benefits over alternatives?**\
 (Future work, chapter \ref{ch:future_work}.)\
-The quality and effectiveness of the dynamic UCS will be compared to benchmark datasets against commonly used alternatives of static, single, linear and non-linear projection techniques. The addition of the temporal dimension theoretically allows for more information to be conveyed than in static projections.
+The quality and effectiveness of 2D UCS will be compared with alternatives of static, single, linear and non-linear projection techniques. They will be quantified by the measurement of structure, variation, and clustering across on benchmark datasets.
 
 3. **How can UCS be extended to 3D?**\
 (Future work, chapter \ref{ch:future_work}.)\
-The UCS algorithm needs to be extended to a third dimension and the rendering of 3D dynamic projections and sectioning for use across mixed reality display devices. This will involve the addition of a new angle and it's control to the projection space, reference frame, and  manipulation space (now 4D) to the current algorithm.
+The addition of a 3rd dimension potentially allows for the improved perception of the structure of the data. To investigate this UCS algorithm needs to be extended to a third dimension and the rendering of 3D dynamic projections and sectioning for use across mixed reality display devices. This will involve the addition of a new angle and it controls to the projection space, reference frame, and manipulation space. In particular, the manipulation space, now in 4D, will be hard to visualize but should be able to interact with via a point on the now 3D reference frame. 
 
-4. **Does UCS in 3D displays provide perception benefits over 2D displays?**\
+4. **Does UCS in 3D displays provide benefits over 2D displays?**\
 (Future work, chapter \ref{ch:future_work}.)\
-The addition of a stereoscopic 3rd dimension has previously shown improved perception over 2D in other visualization including embedded spaces. The extension of UCS into 3D should be used to explore user perception across display devices (including a 2D standard monitor, 3D head tracked monitor, and 3D head-mounted display).
+The addition of a 3rd dimension has previously been shown to provide benefits. The extension of UCS into 3D should be used to explore the potential benefits of UCS projections as well. Interactive, time-varying tours theoretically allow for improved understanding and comprehension speed of the structure of the data. These metrics will be measured across display device (including a 2D standard monitor, 3D head tracked monitor, and 3D head-mounted display). 
 
 **Contributions:**
 
-The contributions and thus concluding scope of this study can then be summarized with:
+The intended contributions and scope of this research can be summarized as:
 
-1. An algorithm for use in 1- and 2D animation frameworks.
-2. A comparison study of benchmark data sets across dynamic and static projection techniques.
-3. An algortithm for UCS and dynamic surface tours in 3D.
-4. Quantification of the speed, accuracy, and correctness of USC across display device.
+1. A modified UCS algorithm and new implementation applied to contemporary high energy physics and astrophysics applications in 2D animation frameworks.
+2. A performance comparison of static and interactive UCS projection techniques assessed on benchmark data sets from the recent literature.
+3. A new algorithm for UCS in 3D. With new applications to function visualization in 3D.
+4. Quantitative understanding of the relative benefits of UCS across 2- and 3D display devices.
 
 ## Methodology
 
-This research is interdisciplinary; it stems from a linear dimension reduction technique developed by statisticians and extended with information technology into 3D including VR technologies, with applications in high energy physics identified[@cook_dynamical_2018]. The research is correspondingly supervised by experts in these fields.
+This research is interdisciplinary; it stems from a linear dimension reduction technique developed by statisticians and extended with information technology into 3D including VR technologies, with applications in high energy physics identified[@cook_dynamical_2018]. Experts in these fields correspondingly supervise the research.
 
 The research corresponding with RO #1 entails a work in progress **algorithm design** following the work in @cook_manual_1997. The proposed algorithm discusses the generalized application of UCS for use across animation-specific frameworks. The outcome of this is an *R* package, `spinifex`, which will be submitted to CRAN and for hosting and distribution. This forms the foundation for future work in the remaining objectives. 
 
