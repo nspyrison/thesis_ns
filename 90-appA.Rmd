@@ -8,22 +8,22 @@ knit: "bookdown::render_book"
 
 ## Tour notation {#sec:tour_notation}
 
-Terminology varies across articles. In my work, I use the following:
+Tour notation varies across articles and authors. In my work, I use the following:
 
 * $n$, number of observations in the data.
 * $p$, number of numeric variables, the dimensionality of data space.
 * $d$, the dimensionality of projection space.
 * $\textbf{X}_{[n,~p]}$, a data matrix in variable-space, $\textbf{X} \in \mathbb{R}^{p}$. Typically centered, scaled, and optionally sphered.
-* $\textbf{B}_{[p,~d]}$, orthonormal basis set ($d$ linear combinations of $p$ variables, each at a right angle, to the others, with a norm of 1), defining the axes directions for the projection from $p-$ to $d-$space.
+* $\textbf{B}_{[p,~d]}$, orthonormal (orthogonal and each column normalized to a norm of 1) basis set, defining the axes directions for the projection from $p-$ to $d-$space.
 * $\textbf{Y}_{[n,~d]}$, projected data matrix in projection-space, $\textbf{Y} \in \mathbb{R}^{d}$.
-* For projections down to 1- and 2D, it is common to display each variable contribution and direction on its axis (1D) or relative to a unit circle (2D), this is referred to as basis axes or sometimes the reference frame.
+* Basis axes/refernece axes, a display showing how each variables coeffiecient(s) contribute to a porjection. Either on its own axis (1D) or relative to a unit circle (2D).
 * Geometric objects are referred to in generalized dimensions; the use of the term plane is not necessarily a 2D surface, but a hyperplane in the arbitrary dimensions of the projection space.
 
 
 ## Data visualization terminology {#sec:3d-terminology}
 
 * 2D - representation of data in 2 dimensions, without the use of depth perception cues and minimal aesthetic mapping (such as color, size, and height) to data points.
-* 2.5D - Following the definition given in @ware_designing_2000: visualizations that are essentially 2D but select depth cues are used to provide some suggestion of 3D. However, the term 2.5D is commonly used for several meanings *due to the ambiguous use of 2.5D, this document errs on the side stating 3D with descriptions of depth cues used*.
+* 2.5D - following the definition given in @ware_designing_2000: visualizations that are essentially 2D but select depth cues are used to provide some suggestion of 3D. However, the term 2.5D is commonly used for several meanings *due to the ambiguous use of 2.5D, this document errs on the side stating 3D with descriptions of depth cues used*.
 * 3D - visualizations of 3 dimensions with liberal use of depth cues unless otherwise qualified.
 * Depth perception cues - an indication that indicates the depth to an observer, including:
     * linear perspective - the property of parallel lines converging on a vanishing point.
