@@ -627,16 +627,18 @@ valid projections as well.
     facial-perception for rapid, cursory, like-ness comparisons between
     observations.
   \item
-    Parallel coordinate plots \autocite{ocagne_coordonnees_1885}, where
-    any number of variables are plotted in parallel with observations
-    linked to their corresponding variable value by polylines.
+    Parallel coordinate plots {[}\textcite{ocagne_coordonnees_1885};
+    wegman\_hyperdimensional\_1990{]}, where any number of variables are
+    plotted in parallel with observations linked to their corresponding
+    variable value by polylines.
   \item
-    Scatterplot matrix (SPLOM) \autocite{becker_brushing_1987}, showing
-    a triangle matrix of bivariate scatterplots with 1D density on the
-    diagonal.
+    Scatterplot matrix (SPLOM) \autocite{chambers_graphical_1983},
+    showing a triangle matrix of bivariate scatterplots with 1D density
+    on the diagonal.
   \item
     Radial glyphs, radial variants of parallel coordinates including
-    radar, spider, and star glyphs \autocite{siegel_surgical_1972}.
+    radar, spider \autocite{duffin_spiders:_1994}, and star glyphs
+    \autocite{siegel_surgical_1972}.
   \end{itemize}
 \end{itemize}
 
@@ -672,6 +674,8 @@ number of tour implementations, including:
   stereoscopic 3D displays.
 \item
   ExplorN \autocite{carr_explorn:_1996} -- for SGI Unix.
+\item
+  ExploRe \autocite{hardle_xplore:_1995}
 \item
   XGobi \autocite{swayne_xgobi:_1991} -- for Linux, Unix, and Windows
   (via emulation).
@@ -869,14 +873,15 @@ VR}\label{immersive-analytics-platform-in-vr}
 
 Immersive analytics is an emerging field, where data visualization and
 analysis is facilitated in an intuitive, immersive virtual reality
-environment. An example of which is shown in
-\textcite{cordeil_imaxes:_2017} introduces a collaborative space for
-immersive data analysis. Where axes are displayed and intuitively
-interacted with while responding to proximity to other variable axes and
-popping into place changing the resulting geometric display. For
-example, three variables can be placed as the \(x,~y,~z-\) axes for a 3D
-scatterplot or stood up right next to each other for a parallel
-coordinate plot. The subsequent work in
+environments
+\autocites{chandler_immersive_2015}{cordeil_immersive_2017}. An example
+of which is shown in \textcite{cordeil_imaxes:_2017} introduces a
+collaborative space for immersive data analysis. Where axes are
+displayed and intuitively interacted with while responding to proximity
+to other variable axes and popping into place changing the resulting
+geometric display. For example, three variables can be placed as the
+\(x,~y,~z-\) axes for a 3D scatterplot or stood up right next to each
+other for a parallel coordinate plot. The subsequent work in
 \textcite{cordeil_immersive_2019} builds from the previous reference and
 refines it for the next iteration in interactive, scalable data
 visualization in virtual spaces.
@@ -1004,21 +1009,23 @@ include:
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Principal Component Analysis (PCA)}, a linear transformation
-  that forms orthogonal linear combinations of the variables by
-  maximizing the amount of variation that is independent of all
-  preceding components. That is, the first principal component is the
-  linear combination that explains the most variation in one direction,
-  the second component explaining the most of the remaining variation
-  and is orthogonal to the first, and so on.
+  \textbf{Principal Component Analysis (PCA)}
+  \autocite{pearson_liii._1901}, a linear transformation that forms
+  orthogonal linear combinations of the variables by maximizing the
+  amount of variation that is independent of all preceding components.
+  That is, the first principal component is the linear combination that
+  explains the most variation in one direction, the second component
+  explaining the most of the remaining variation and is orthogonal to
+  the first, and so on.
 \item
   \textbf{Multi-Dimensional Scaling (MDS)}, non-linear dimension
   reduction that compares pairwise distances between observations.
 \item
-  \textbf{t-distributed neighbor embeddings (tSNE)}, a nonlinear
-  technique that iterates epochs of 1) constructing a probability
-  distribution for selecting neighboring data and 2), minimizing
-  Kullback-Leibler divergence (a measure of relative entropy).
+  \textbf{t-distributed neighbor embeddings (tSNE)}
+  \autocite{maaten_visualizing_2008}, a nonlinear technique that
+  iterates epochs of 1) constructing a probability distribution for
+  selecting neighboring data and 2), minimizing Kullback-Leibler
+  divergence (a measure of relative entropy).
 \end{itemize}
 
 Unfortunately, static linear projections necessarily lose the variation
@@ -1097,11 +1104,11 @@ projected rather than individual data points. Imagining the projection
 of a unit grid is a useful middle ground. Viewing projected functions
 may have several difficulties in 3D. The first is occulation, the
 surfaces in the foreground blocks the view behind it. Opacity, wire
-mesh, and projection sectioning are potential ways to address this
-issue. A second issue is that it may be disorienting or nauseating to
-watch surfaces folding into each other in seemingly non-euclidean
-movements. Changing opacity or focus in the vicinity of these areas may
-mitigate the potential concern.
+mesh, and projection sectioning \autocite{furnas_prosection_1994} are
+potential ways to address this issue. A second issue is that it may be
+disorienting or nauseating to watch surfaces folding into each other in
+seemingly non-euclidean movements. Changing opacity or focus in the
+vicinity of these areas may mitigate the potential concern.
 
 The design space for this research includes the path generators
 (outlined in section \ref{sec:path_generation}), geometric display
@@ -1484,20 +1491,21 @@ utilizes the data only when making a display.
 
 \subsection{Toy data set}\label{toy-data-set}
 
-The flea data from the R package \emph{tourr}
-\autocite{wickham_tourr_2011}, is used to illustrate the algorithm. The
-data, originally from \textcite{lubischew_use_1962}, contains 74
-observations across 6 variables, which physical measurements of the
-insects. Each observation belonging to one of three species.
+The flea data \autocite{lubischew_use_1962} as accessed from the R
+package \emph{tourr} \autocite{wickham_tourr_2011}, is used to
+illustrate the algorithm. The data, originally from
+\textcite{lubischew_use_1962}, contains 74 observations across 6
+variables, which physical measurements of the insects. Each observation
+belonging to one of three species.
 
 A guided tour on the flea data is conducted by optimizing on the
 \texttt{holes} index \autocite{cook_interactive_2007}. In a guided tour
 the projection sequence is selected by optimizing an index of interest.
 The holes index is maximized by when the projected data has a lack of
-observations in the center. Figure \ref{fig:step0}, shows an optimal
-projection of this data. The left plot displays the projection basis,
-while the right plot shows the projected data. The display of the basis
-has a unit circle with lines showing the horizontal and vertical
+observations in the center. Figure \ref{fig:step0-paper}, shows an
+optimal projection of this data. The left plot displays the projection
+basis, while the right plot shows the projected data. The display of the
+basis has a unit circle with lines showing the horizontal and vertical
 contributions of each variable in the projection. Here is primarily
 tars1 and aede2 contrasting the other four variables. In the projected
 data there are three clusters, which have been colored, although not
@@ -1747,12 +1755,13 @@ functions.
 Interaction with graphics in R is limited. Traditionally, all commands
 are passed to the R via calls to the console, conflicting with user
 engagement. Some recent packages have made advancement into this
-direction such as with the use of the R package \texttt{shiny}, which
-custom-made applications can be hosted either locally or remotely and
-interact with the R console, allowing for developers to code dynamic
-content interaction. To a lesser extent, \texttt{plotly} offers static
-interactions with the contained object, such as tooltips, brushing, and
-linking without communicating back to the R console.
+direction such as with the use of the R package \texttt{shiny}
+\autocite{chang_shiny:_2018}, which allows applications can be hosted
+either locally or remotely and communicate with the R console, allowing
+for developers to code dynamic content interaction. To a lesser extent,
+\texttt{plotly} offers static interactions with the contained object,
+such as tooltips, brushing, and linking without communicating back to
+the R console.
 
 \subsection{Storage and sharing}\label{storage-and-sharing}
 
