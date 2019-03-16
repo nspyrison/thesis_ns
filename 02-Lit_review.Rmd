@@ -192,9 +192,9 @@ Up to this point, 2D scatterplots have been the primary display discussed, they 
 * $d$-dimensional geoms
     + Andrews curves [@andrews_plots_1972], smoothed variant of parallel coordinate plots, discussed below. 
     + Chernoff faces [@chernoff_use_1973], variables linked to the size of facial features. The idea is to apply the human facial-perception for rapid, cursory, like-ness comparisons between observations.
-    + Parallel coordinate plots [@ocagne_coordonnees_1885], where any number of variables are plotted in parallel with observations linked to their corresponding variable value by polylines.
-    + Scatterplot matrix (SPLOM) [@becker_brushing_1987], showing a triangle matrix of bivariate scatterplots with 1D density on the diagonal.
-    + Radial glyphs, radial variants of parallel coordinates including radar, spider, and star glyphs [@siegel_surgical_1972]. 
+    + Parallel coordinate plots [@ocagne_coordonnees_1885; wegman_hyperdimensional_1990], where any number of variables are plotted in parallel with observations linked to their corresponding variable value by polylines.
+    + Scatterplot matrix (SPLOM) [@chambers_graphical_1983], showing a triangle matrix of bivariate scatterplots with 1D density on the diagonal.
+    + Radial glyphs, radial variants of parallel coordinates including radar, spider [@duffin_spiders:_1994], and star glyphs [@siegel_surgical_1972]. 
 
 ### Tour software
 
@@ -209,6 +209,7 @@ Tours have yet to be widely adopted, due in part, to the fact that print and sta
 * ORCA [@sutherland_orca:_2000] -- Extensible toolkit build in Java.
 * VRGobi [@nelson_xgobi_1998] -- for use with the C2, tours in stereoscopic 3D displays.
 * ExplorN [@carr_explorn:_1996] -- for SGI Unix.
+* ExploRe [@hardle_xplore:_1995]
 * XGobi [@swayne_xgobi:_1991] -- for Linux, Unix, and Windows (via emulation).
 * XLispStat [@tierney_lisp-stat:_1990] -- for Unix and Windows.
 * Explor4 [@carr_explor4:_1988] -- Four-dimensional data using stereo-ray glyphs.
@@ -284,7 +285,7 @@ knitr::include_graphics("./figures/wagner18fig.PNG")
 
 ### Immersive analytics platform in VR
 
-Immersive analytics is an emerging field, where data visualization and analysis is facilitated in an intuitive, immersive virtual reality environment. An example of which is shown in @cordeil_imaxes:_2017 introduces a collaborative space for immersive data analysis. Where axes are displayed and intuitively interacted with while responding to proximity to other variable axes and popping into place changing the resulting geometric display. For example, three variables can be placed as the $x,~y,~z-$ axes for a 3D scatterplot or stood up right next to each other for a parallel coordinate plot. The subsequent work in @cordeil_immersive_2019 builds from the previous reference and refines it for the next iteration in interactive, scalable data visualization in virtual spaces.
+Immersive analytics is an emerging field, where data visualization and analysis is facilitated in an intuitive, immersive virtual reality environments [@chandler_immersive_2015; @cordeil_immersive_2017]. An example of which is shown in @cordeil_imaxes:_2017 introduces a collaborative space for immersive data analysis. Where axes are displayed and intuitively interacted with while responding to proximity to other variable axes and popping into place changing the resulting geometric display. For example, three variables can be placed as the $x,~y,~z-$ axes for a 3D scatterplot or stood up right next to each other for a parallel coordinate plot. The subsequent work in @cordeil_immersive_2019 builds from the previous reference and refines it for the next iteration in interactive, scalable data visualization in virtual spaces.
 
 
 (ref:cordeil2017fig-cap) Screen capture of figure 15 from @cordeil_imaxes:_2017.
