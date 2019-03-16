@@ -32,7 +32,7 @@ Data and models are typically high-dimensional, with many variables and paramete
 
 **Research objectives (RO):**
 
-1. **How can UCS be generalized to work within graphic-specific environment for 2D projections?**\
+1. **How can UCS be generalized to work within graphic-specific environments for 2D projections?**\
 (Work in progress, chapter \ref{ch:workinprogress}.)\
 Building from the UCS algorithm in @cook_manual_1997, the algorithm should be modified for generalized use with graphic-specific environments. This enables fine control of exploring the local structure of data in 2D embeddings and sets the foundation to be used in the remaining objectives.
 

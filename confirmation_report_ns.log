@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.15)  15 MAR 2019 21:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.15)  16 MAR 2019 16:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1428,7 +1428,7 @@ Chapter 4.
 <./figures/RO3MockUp2.png, id=556, 743.77875pt x 357.83687pt>
 File: ./figures/RO3MockUp2.png Graphic file (type png)
 <use ./figures/RO3MockUp2.png>
-Package pdftex.def Info: ./figures/RO3MockUp2.png  used on input line 1082.
+Package pdftex.def Info: ./figures/RO3MockUp2.png  used on input line 1085.
 (pdftex.def)             Requested size: 298.75264pt x 143.73282pt.
 [27 <./figures/RO3MockUp2.PNG>] [28] [29] [30
 
@@ -1440,10 +1440,10 @@ File: confirmation_report_ns_files/figure-latex/timeline-1.pdf Graphic file (ty
 pe pdf)
 <use confirmation_report_ns_files/figure-latex/timeline-1.pdf>
 Package pdftex.def Info: confirmation_report_ns_files/figure-latex/timeline-1.p
-df  used on input line 1170.
+df  used on input line 1180.
 (pdftex.def)             Requested size: 454.69763pt x 274.02307pt.
 
-Overfull \hbox (27.90628pt too wide) in paragraph at lines 1170--1170
+Overfull \hbox (27.90628pt too wide) in paragraph at lines 1180--1180
  [] 
  []
 
@@ -1455,7 +1455,7 @@ Chapter 6.
 
 ]
 Appendix A.
-LaTeX Font Info:    Try loading font information for U+fplmbb on input line 124
+LaTeX Font Info:    Try loading font information for U+fplmbb on input line 125
 8.
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
@@ -1464,7 +1464,7 @@ File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 ]
 Appendix B.
 
-Underfull \hbox (badness 1742) in paragraph at lines 1331--1331
+Underfull \hbox (badness 1742) in paragraph at lines 1341--1341
 \T1/fvs/b/n/24.88 dimensional pro-jec-tion of high-
  []
 
@@ -1477,7 +1477,7 @@ Package Fancyhdr Warning: \headheight is too small (15.0pt):
 
 [40] [41]
 
-LaTeX Warning: Reference `fig:step0' on page 42 undefined on input line 1478.
+LaTeX Warning: Reference `fig:step0' on page 42 undefined on input line 1488.
 
 [42]
 <confirmation_report_ns_files/figure-latex/step0-paper-1.pdf, id=676, 454.69875
@@ -1486,13 +1486,13 @@ File: confirmation_report_ns_files/figure-latex/step0-paper-1.pdf Graphic file
 (type pdf)
 <use confirmation_report_ns_files/figure-latex/step0-paper-1.pdf>
 Package pdftex.def Info: confirmation_report_ns_files/figure-latex/step0-paper-
-1.pdf  used on input line 1491.
+1.pdf  used on input line 1501.
 (pdftex.def)             Requested size: 418.2537pt x 252.06308pt.
 [43 <./confirmation_report_ns_files/figure-latex/step0-paper-1.pdf>]
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
-(Font)              scaled to size 9.85492pt on input line 1569.
+(Font)              scaled to size 9.85492pt on input line 1579.
 
-Underfull \vbox (badness 10000) detected at line 1573
+Underfull \vbox (badness 10000) detected at line 1583
  []
 
 [44]
@@ -1502,10 +1502,10 @@ File: confirmation_report_ns_files/figure-latex/step2-paper-1.pdf Graphic file
 (type pdf)
 <use confirmation_report_ns_files/figure-latex/step2-paper-1.pdf>
 Package pdftex.def Info: confirmation_report_ns_files/figure-latex/step2-paper-
-1.pdf  used on input line 1582.
+1.pdf  used on input line 1592.
 (pdftex.def)             Requested size: 426.79135pt x 257.21022pt.
 [45 <./confirmation_report_ns_files/figure-latex/step2-paper-1.pdf>]
-Overfull \hbox (51.86081pt too wide) detected at line 1631
+Overfull \hbox (51.86081pt too wide) detected at line 1641
 []
  []
 
@@ -1516,10 +1516,10 @@ File: confirmation_report_ns_files/figure-latex/step3-paper-1.pdf Graphic file
 (type pdf)
 <use confirmation_report_ns_files/figure-latex/step3-paper-1.pdf>
 Package pdftex.def Info: confirmation_report_ns_files/figure-latex/step3-paper-
-1.pdf  used on input line 1678.
+1.pdf  used on input line 1688.
 (pdftex.def)             Requested size: 433.63878pt x 520.34586pt.
 
-Overfull \hbox (6.84743pt too wide) in paragraph at lines 1678--1679
+Overfull \hbox (6.84743pt too wide) in paragraph at lines 1688--1689
  [][] 
  []
 
@@ -1530,10 +1530,10 @@ File: confirmation_report_ns_files/figure-latex/JetClusterGood-1.pdf Graphic fi
 le (type pdf)
 <use confirmation_report_ns_files/figure-latex/JetClusterGood-1.pdf>
 Package pdftex.def Info: confirmation_report_ns_files/figure-latex/JetClusterGo
-od-1.pdf  used on input line 1798.
+od-1.pdf  used on input line 1808.
 (pdftex.def)             Requested size: 433.63878pt x 520.34586pt.
 
-Overfull \hbox (6.84743pt too wide) in paragraph at lines 1798--1799
+Overfull \hbox (6.84743pt too wide) in paragraph at lines 1808--1809
  [][] 
  []
 
@@ -1544,10 +1544,10 @@ File: confirmation_report_ns_files/figure-latex/JetClusterBad-1.pdf Graphic fil
 e (type pdf)
 <use confirmation_report_ns_files/figure-latex/JetClusterBad-1.pdf>
 Package pdftex.def Info: confirmation_report_ns_files/figure-latex/JetClusterBa
-d-1.pdf  used on input line 1822.
+d-1.pdf  used on input line 1832.
 (pdftex.def)             Requested size: 433.63878pt x 520.34586pt.
 
-Overfull \hbox (6.84743pt too wide) in paragraph at lines 1822--1823
+Overfull \hbox (6.84743pt too wide) in paragraph at lines 1832--1833
  [][] 
  []
 
@@ -1557,10 +1557,10 @@ File: confirmation_report_ns_files/figure-latex/DISclusterGood-1.pdf Graphic fi
 le (type pdf)
 <use confirmation_report_ns_files/figure-latex/DISclusterGood-1.pdf>
 Package pdftex.def Info: confirmation_report_ns_files/figure-latex/DISclusterGo
-od-1.pdf  used on input line 1867.
+od-1.pdf  used on input line 1877.
 (pdftex.def)             Requested size: 433.63878pt x 520.34586pt.
 
-Overfull \hbox (6.84743pt too wide) in paragraph at lines 1867--1868
+Overfull \hbox (6.84743pt too wide) in paragraph at lines 1877--1878
  [][] 
  []
 
@@ -1570,10 +1570,10 @@ File: confirmation_report_ns_files/figure-latex/DISclusterBad-1.pdf Graphic fil
 e (type pdf)
 <use confirmation_report_ns_files/figure-latex/DISclusterBad-1.pdf>
 Package pdftex.def Info: confirmation_report_ns_files/figure-latex/DISclusterBa
-d-1.pdf  used on input line 1896.
+d-1.pdf  used on input line 1906.
 (pdftex.def)             Requested size: 433.63878pt x 520.34586pt.
 
-Overfull \hbox (6.84743pt too wide) in paragraph at lines 1896--1897
+Overfull \hbox (6.84743pt too wide) in paragraph at lines 1906--1907
  [][] 
  []
 
@@ -1581,7 +1581,7 @@ Overfull \hbox (6.84743pt too wide) in paragraph at lines 1896--1897
 3 <./confirmation_report_ns_files/figure-latex/JetClusterBad-1.pdf>] [54 <./con
 firmation_report_ns_files/figure-latex/DISclusterGood-1.pdf>] [55 <./confirmati
 on_report_ns_files/figure-latex/DISclusterBad-1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 1928--1931
+Underfull \hbox (badness 10000) in paragraph at lines 1938--1941
 []\T1/ppl/m/n/10.95 (+20) The source code for the \T1/fvm/m/n/10.95 spinifex \T
 1/ppl/m/n/10.95 (+20) pack-age can be found at
  []
@@ -1589,16 +1589,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 1928--1931
 [56] [57] [58
 
 ] [59] [60] [61] [62] [63]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1979.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1989.
 [64]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1979.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1989.
 (./confirmation_report_ns.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1979.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1979.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1989.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1989.
 
 Package rerunfilecheck Info: File `confirmation_report_ns.out' has not changed.
 
-(rerunfilecheck)             Checksum: AC5BA42337A59E9EDB26B1A0B6BF5F92;2501.
+(rerunfilecheck)             Checksum: EB1E7E216C9D5A783BECD07938778E8C;2502.
 
 LaTeX Warning: There were undefined references.
 
@@ -1612,8 +1612,8 @@ Package logreq Info: Writing requests to 'confirmation_report_ns.run.xml'.
 ### bottom level 
 Here is how much of TeX's memory you used:
  28380 strings out of 494585
- 510352 string characters out of 6176383
- 977346 words of memory out of 5000000
+ 510356 string characters out of 6176383
+ 977444 words of memory out of 5000000
  31162 multiletter control sequences out of 15000+600000
  650978 words of font info for 329 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1634,7 +1634,7 @@ type1/public/bera/fvsb8a.pfb><c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist
 mf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/Users/spyri/AppData/Roaming/Tin
 yTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/Users/spyri/AppData/Roa
 ming/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on confirmation_report_ns.pdf (70 pages, 3738564 bytes).
+Output written on confirmation_report_ns.pdf (70 pages, 3738947 bytes).
 PDF statistics:
  995 PDF objects out of 1000 (max. 8388607)
  855 compressed objects within 9 object streams
