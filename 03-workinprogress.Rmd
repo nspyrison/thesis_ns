@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 Extending the algorithm for UCS in 2D for generalized use in graphics environments is fundamental to the extension of the UCS into 3D space. This forms the foundation for future work addressed in the remaining research objectives. This is a synthesis of the work that will be submitted to the R Journal. A wider discussion of implementation as an *R* package and application to high energy physics data [@wang_visualizing_2018; @cook_dynamical_2018] is attached in appendix \ref{ch:spinifex_paper} formatted as a paper.
 
-## RO #1) How can UCS be generalized to work within various graphics environment for 2D projections?
+## RO #1) How can UCS be generalized to work within graphic-specific environments for 2D projections?
 
 This chapter builds off of *manual tours* [@cook_manual_1997] and modifies the algorithm for generalized use in graphics implementations. Manual tours allow users to rotate a selected variable into and out of a 2D projection of high-dimensional space for user-controlled steering (UCS). The primary use is to determine the sensitivity of the structure to the contributions of a selected manipulation variable. This is particularly powerful for exploring the local structure once a feature of interest has been identified, for example, by a guided tour. 
 
