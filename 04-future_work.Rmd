@@ -15,7 +15,7 @@ Dimensionality reduction is important to viewing high dimensional data spaces. T
 
 Unfortunately, static linear projections necessarily lose the variation of the components not displayed, while non-linear techniques lose transparency back to the original variable space. On the other hand, dynamic linear projections keep variation in tack (at the expense of viewing over time) and preserve transparency to variable-space. User-controlled steering of tours allows for finer exploration local exploration, which should be reflected in the benefits over alternative options.
 
-The methodology for this future work is a **case study** comparing benefits across technique, by assessment across contemporary benchmark datasets. Differences in the techniques make for an uneven comparison, but measurements will be made where applicable comparing at least variation, clustering, and structure. The design space includes data sets, techniques, and measures of comparison.
+The methodology for this future work is a **performace comparison** across technique, as assessed across contemporary benchmark datasets. Differences in the techniques make for an uneven comparison, but measurements will be made where applicable comparing at least variation, clustering, and structure. The design space includes data sets, techniques, and measures of comparison.
 
 ## RO #3) How can UCS be extended to 3D?
 

@@ -16,7 +16,7 @@ Tour notation varies across articles and authors. In my work, I use the followin
 * $\textbf{X}_{[n,~p]}$, a data matrix in variable-space, $\textbf{X} \in \mathbb{R}^{p}$. Typically centered, scaled, and optionally sphered.
 * $\textbf{B}_{[p,~d]}$, orthonormal (orthogonal and each column normalized to a norm of 1) basis set, defining the axes directions for the projection from $p-$ to $d-$space.
 * $\textbf{Y}_{[n,~d]}$, projected data matrix in projection-space, $\textbf{Y} \in \mathbb{R}^{d}$.
-* Basis axes/refernece axes, a display showing how each variables coeffiecient(s) contribute to a porjection. Either on its own axis (1D) or relative to a unit circle (2D).
+* Reference axes (or reference frame), a display showing how each variables coefficient(s) contribute to a projection. Either on its own axis (1D) or relative to a unit circle (2D).
 * Geometric objects are referred to in generalized dimensions; the use of the term plane is not necessarily a 2D surface, but a hyperplane in the arbitrary dimensions of the projection space.
 
 
@@ -33,7 +33,9 @@ Tour notation varies across articles and authors. In my work, I use the followin
     * accommodation - the change of focal length due to change in the shape of the eye. Effective for distances of less than 2 meters.
     * binocular stereopsis/disparity - the use of 2 images of slightly varied angles from the horizontal distance of the eyes. The disparity for distant objects is small, but it is significant for nearby objects.
     * binocular convergence - The ocular-motor cue due to stereopsis focusing on the same objects. Convergence is effective for distances up to 10 meters.
-* Virtual reality (VR) - a computer generated display of virtual spaces in place of physical vision.
-* Augmented reality (AR) - a computer generated display of information overlaid on a physical space.
-* Mixed reality (MR) - any degree of virtual or augmented reality.
-* Scatterplot matrices (SPLOM) - matrix display of pair-wise 2D scatterplots with 1D density on the diagonal.
+* Virtual reality (VR) - an immersive experience of computer-generated sensory input.
+* Augmented reality (AR) - view of physical spaces with augmenting/ supplementing sensory input of information.
+* Mixed reality (MR) - a mix of physical and virtual realities with objects from both interacting in real time. This differs from AR by the flow of interaction; AR augments physical reality while MR has reciprocating interactions.
+* Extended reality (XR) - any degree of virtual, augmented, or mixed reality.
+* Scatterplot matrices (SPLOMs) - matrix display of pair-wise 2D scatterplots, sometimes with 1D density on the diagonal.
+* Human-in-the-loop - any model that requires human interaction [@karwowski_international_2006].

@@ -106,7 +106,7 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 ## Abstract
 
 
-The tour algorithm and its various versions provide a systematic approach to viewing low-dimensional projections of high-dimensional data. It is particularly useful for understanding multivariate data, and useful in association with techniques for dimension reduction, supervised, and unsupervised classification. The *R* package *tourr* provides many methods for conducting tours on multivariate data. This paper discusses an extension package that adds support for the manual tour, called *spinifex*. It is particularly usefully for exploring the sensitivity of structure discovered in a projection by a guided tour, to the contribution of a variable. *Spinifex* utilizes the animation packages *plotly* and *gganimation* to allow users to rotate the selected variable into and out of a chosen projection.
+The tour algorithm and its various versions provide a systematic approach to viewing low-dimensional projections of high-dimensional data. It is particularly useful for understanding multivariate data, and useful in association with techniques for dimension reduction, supervised, and unsupervised classification. The *R* package *tourr* provides many methods for conducting tours on multivariate data. This paper discusses an extension package that adds support for the manual tour, called *spinifex*. It is particularly usefully for exploring the sensitivity of structure discovered in a projection by a guided tour, to the contribution of a variable. *Spinifex* utilizes the animation packages *plotly* and *gganimate* to allow users to rotate the selected variable into and out of a chosen projection.
 
 Keywords: grand tour, projection pursuit, manual tour, high dimensional data, multivariate data, data visualization, statistical graphics, data science, data mining.
 
@@ -132,7 +132,7 @@ In guided tours, an index of interest defined on the space of all projections, a
 Creating a manual tour animation requires these steps:
 
 1. Provided with a 2D projection, choose a variable to explore. This is called the "manip" variable.
-2. Create a 3D manipulation space, where the manip variable has full contribution.
+2. Create a 3D manipulation space, where the manip variable has the full contribution.
 3. Generate a rotation sequence which zero's the norm of the coefficient and increases it to 1.
 
 These steps are described in more detail below.
@@ -312,7 +312,7 @@ for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
 }
 ```
 
-In figure \@ref(fig:step3-paper) we illustrate the sequence with 15 projected bases and highlight the manip variable on top, while showing the corresponding projected data points on the bottom. A dynamic version of this tour can be viewed online at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/, will take a moment to load. This format of this figure and linking to a dynamic version will be used again in section \ref{sec:application}.
+In figure \@ref(fig:step3-paper) we illustrate the sequence with 15 projected bases and highlight the manip variable on top while showing the corresponding projected data points on the bottom. A dynamic version of this tour can be viewed online at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/, will take a moment to load. This format of this figure and linking to a dynamic version will be used again in section \ref{sec:application}.
 
 
 (ref:step3paper-cap) Rotated manipulation spaces, a radial manual tour controlling the contribution from `aded2` of standardized flea data. The contribution of `aede2` extends from its initial contribution to a full contribution to the projection before decreasing to zero and then returning to its initial state. A dynamic version can be viewed at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/.
@@ -353,7 +353,7 @@ To get back to data-space pre-multiply the rotated manip space by the data for t
 
 Plot the first 2 variables from each projection in sequence for an XY scatterplot. The remaining variable is sometimes linked to a data point aesthetic to produce depth cues used in conjunction with the XY scatterplot.
 
-*tourr* utilizes R's base graphics for the display of tours. Use `render_plotly()` to display as an dynamic `plotly` @sievert_plotly_2018 object or `render_gganimate()` for a `gganimate` @pedersen_gganimate:_2019 graphic. Both of which build off of `ggplot2` plotting in interal functions.
+*tourr* utilizes R's base graphics for the display of tours. Use `render_plotly()` to display as an dynamic `plotly` @sievert_plotly_2018 object or `render_gganimate()` for a `gganimate` @pedersen_gganimate:_2019 graphic. Both of which build off of `ggplot2` plotting in internal functions.
 
 Interaction with graphics in R is limited. Traditionally, all commands are passed to the R via calls to the console, conflicting with user engagement. Some recent packages have made advancement into this direction such as with the use of the R package `shiny`, which custom-made applications can be hosted either locally or remotely and interact with the R console, allowing for developers to code dynamic content interaction. To a lesser extent, `plotly` offers static interactions with the contained object, such as tooltips, brushing, and linking without communicating back to the R console.
 
@@ -486,4 +486,4 @@ The Givens rotations and Householder reflections as outlined in @buja_computatio
 
 The *tourr* package provides several $d$-dimensional graphic displays including Andrews curves, Chernoff faces, parallel coordinate plots, scatterplot matrix, and radial glyphs. Having manual controls available for these types of displays would require a dimensionally-generalized rotation matrix.
 
-The development of a graphical user interface, e.g. *shiny* app, would make the *spinifex* package more flexible. The user could easily switch between variables to control, adjust the step size to make smoother rotation sequences, or save any state to continue to continue to explore the contributions of other variables. The `animation` package @xie_animation:_2018 could be implemented for another graphic framework. However, `animation` must stem from base graphing, unlike the `plotly` and `gganimate` which are using `ggplot2` graphics.
+The development of a graphical user interface, e.g. *shiny* app, would make the *spinifex* package more flexible. The user could easily switch between variables to control, adjust the step size to make smoother rotation sequences, or save any state to continue to explore the contributions of other variables. The `animation` package @xie_animation:_2018 could be implemented for another graphics framework. However, `animation` builds from base graphs while `spinifex` current utilizes `ggplot2` graphics.
