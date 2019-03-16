@@ -227,11 +227,11 @@ frameworks. The outcome of this is an \emph{R} package,
 distribution. This forms the foundation for future work in the remaining
 objectives.
 
-The second objective is addressed with a benchmark dataset comparison
-\textbf{case study} between dynamic linear projections and alternatives
-(static linear and static non-linear projections such as principal
-component analysis, multi-dimensional scaling, and t-distributed
-neighbor embeddings, described in more detail in chapter
+The second objective is addressed with a benchmark dataset
+\textbf{performace comparison} between dynamic linear projections and
+alternatives (static linear and static non-linear projections such as
+principal component analysis, multi-dimensional scaling, and
+t-distributed neighbor embeddings, described in more detail in chapter
 \ref{ch:future_work}). Benchmark datasets will be compared across
 techniques, measurements will include variation explained, transparency
 to the original variable space, clustering identification, and outlier
@@ -1030,12 +1030,12 @@ User-controlled steering of tours allows for finer exploration local
 exploration, which should be reflected in the benefits over alternative
 options.
 
-The methodology for this future work is a \textbf{case study} comparing
-benefits across technique, by assessment across contemporary benchmark
-datasets. Differences in the techniques make for an uneven comparison,
-but measurements will be made where applicable comparing at least
-variation, clustering, and structure. The design space includes data
-sets, techniques, and measures of comparison.
+The methodology for this future work is a \textbf{performace comparison}
+across technique, as assessed across contemporary benchmark datasets.
+Differences in the techniques make for an uneven comparison, but
+measurements will be made where applicable comparing at least variation,
+clustering, and structure. The design space includes data sets,
+techniques, and measures of comparison.
 
 \section{RO \#3) How can UCS be extended to
 3D?}\label{ro-3-how-can-ucs-be-extended-to-3d}
@@ -1179,9 +1179,10 @@ energy physics experiments already being discussed in publication
 
 \begin{center}\includegraphics{confirmation_report_ns_files/figure-latex/timeline-1} \end{center}
 
-\emph{Note RO \#2 logically would fit before RO \#3 \& 4 but is of lower
-impact and retrospective case study. I move this research to the end to
-give the other research objectives the priority.}
+\emph{Note RO \#2 logically would fit before RO \#3 \& 4, but it is of
+lower impact and retrospective performance comparison. I move this
+research to the end of the timeline to give the other research
+objectives priority in the event of time constraints.}
 
 \section{Accompanying documents}\label{accompanying-documents}
 
@@ -1232,8 +1233,8 @@ using \texttt{bookdown} \autocite{xie_bookdown:_2016} and
 \texttt{rmarkdown} \autocite{xie_r_2018}, with code generating the
 examples inline.
 
-Following good practice of version control and reproduction, the source
-files can be found at
+Following best practices of version control, transparency and
+reproducibility, the source files can be found at
 \href{https://github.com/nspyrison/Confirmation}{github.com/nspyrison/confirmation/}.
 
 \appendix
@@ -1265,9 +1266,9 @@ following:
   \(\textbf{Y}_{[n,~d]}\), projected data matrix in projection-space,
   \(\textbf{Y} \in \mathbb{R}^{d}\).
 \item
-  Basis axes/refernece axes, a display showing how each variables
-  coeffiecient(s) contribute to a porjection. Either on its own axis
-  (1D) or relative to a unit circle (2D).
+  Reference axes (or reference frame), a display showing how each
+  variables coefficient(s) contribute to a projection. Either on its own
+  axis (1D) or relative to a unit circle (2D).
 \item
   Geometric objects are referred to in generalized dimensions; the use
   of the term plane is not necessarily a 2D surface, but a hyperplane in
@@ -1324,16 +1325,25 @@ following:
     up to 10 meters.
   \end{itemize}
 \item
-  Virtual reality (VR) - a computer generated display of virtual spaces
-  in place of physical vision.
+  Virtual reality (VR) - an immersive experience of computer-generated
+  sensory input.
 \item
-  Augmented reality (AR) - a computer generated display of information
-  overlaid on a physical space.
+  Augmented reality (AR) - view of physical spaces with augmenting/
+  supplementing sensory input of information.
 \item
-  Mixed reality (MR) - any degree of virtual or augmented reality.
+  Mixed reality (MR) - a mix of physical and virtual realities with
+  objects from both interacting in real time. This differs from AR by
+  the flow of interaction; AR augments physical reality while MR has
+  reciprocating interactions.
 \item
-  Scatterplot matrices (SPLOM) - matrix display of pair-wise 2D
-  scatterplots with 1D density on the diagonal.
+  Extended reality (XR) - any degree of virtual, augmented, or mixed
+  reality.
+\item
+  Scatterplot matrices (SPLOMs) - matrix display of pair-wise 2D
+  scatterplots, sometimes with 1D density on the diagonal.
+\item
+  Human-in-the-loop - any model that requires human interaction
+  \autocite{karwowski_international_2006}.
 \end{itemize}
 
 \chapter{Using animation to explore the sensitivity of structure in a
@@ -1356,9 +1366,8 @@ data. This paper discusses an extension package that adds support for
 the manual tour, called \emph{spinifex}. It is particularly usefully for
 exploring the sensitivity of structure discovered in a projection by a
 guided tour, to the contribution of a variable. \emph{Spinifex} utilizes
-the animation packages \emph{plotly} and \emph{gganimation} to allow
-users to rotate the selected variable into and out of a chosen
-projection.
+the animation packages \emph{plotly} and \emph{gganimate} to allow users
+to rotate the selected variable into and out of a chosen projection.
 
 Keywords: grand tour, projection pursuit, manual tour, high dimensional
 data, multivariate data, data visualization, statistical graphics, data
@@ -1433,7 +1442,7 @@ Creating a manual tour animation requires these steps:
   Provided with a 2D projection, choose a variable to explore. This is
   called the ``manip'' variable.
 \item
-  Create a 3D manipulation space, where the manip variable has full
+  Create a 3D manipulation space, where the manip variable has the full
   contribution.
 \item
   Generate a rotation sequence which zero's the norm of the coefficient
@@ -1668,7 +1677,7 @@ to check.
 \end{Shaded}
 
 In figure \ref{fig:step3-paper} we illustrate the sequence with 15
-projected bases and highlight the manip variable on top, while showing
+projected bases and highlight the manip variable on top while showing
 the corresponding projected data points on the bottom. A dynamic version
 of this tour can be viewed online at
 \url{https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/}, will
@@ -1732,7 +1741,7 @@ scatterplot.
 \texttt{render\_plotly()} to display as an dynamic \texttt{plotly}
 \textcite{sievert_plotly_2018} object or \texttt{render\_gganimate()}
 for a \texttt{gganimate} \textcite{pedersen_gganimate:_2019} graphic.
-Both of which build off of \texttt{ggplot2} plotting in interal
+Both of which build off of \texttt{ggplot2} plotting in internal
 functions.
 
 Interaction with graphics in R is limited. Traditionally, all commands
@@ -1975,12 +1984,11 @@ dimensionally-generalized rotation matrix.
 The development of a graphical user interface, e.g. \emph{shiny} app,
 would make the \emph{spinifex} package more flexible. The user could
 easily switch between variables to control, adjust the step size to make
-smoother rotation sequences, or save any state to continue to continue
-to explore the contributions of other variables. The \texttt{animation}
-package \textcite{xie_animation:_2018} could be implemented for another
-graphic framework. However, \texttt{animation} must stem from base
-graphing, unlike the \texttt{plotly} and \texttt{gganimate} which are
-using \texttt{ggplot2} graphics.
+smoother rotation sequences, or save any state to continue to explore
+the contributions of other variables. The \texttt{animation} package
+\textcite{xie_animation:_2018} could be implemented for another graphics
+framework. However, \texttt{animation} builds from base graphs while
+\texttt{spinifex} current utilizes \texttt{ggplot2} graphics.
 
 \printbibliography[heading=bibintoc]
 
