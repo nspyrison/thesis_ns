@@ -34,7 +34,7 @@ Data and models are typically high-dimensional, with many variables and paramete
 
 1. **How can UCS be generalized to work within graphic-specific environments for 2D projections?**\
 (Work in progress, chapter \ref{ch:workinprogress}.)\
-Building from the UCS algorithm in @cook_manual_1997, the algorithm should be modified for generalized use with graphic-specific environments. This enables fine control of exploring the local structure of data in 2D embeddings and sets the foundation to be used in the remaining objectives.
+Building from the UCS algorithm in @cook_manual_1997, the algorithm should be modified for generalized use with graphic-specific environments. This enables fine control to explore the the sensitivty of structure to the varaible contributing to the projection and sets the foundation to be used in the remaining objectives.
 
 2. **Does 2D UCS tours provide benefits over alternatives?**\
 (Future work, chapter \ref{ch:future_work}.)\
@@ -93,4 +93,4 @@ knitr::include_graphics("./figures/ProjectOverview.PNG")
 ```
 
 
-In this report, the related literature is discussed in chapter \ref{ch:lit_review}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by ongoing work and future work in chapters \ref{ch:workinprogress} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic projections and VR data visualization can be found in appendix \ref{ch:glossary} and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex_paper}.
+In this report, the related literature is discussed in chapter \ref{ch:lit_review}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by ongoing work and future work in chapters \ref{ch:workinprogress} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic projections and VR data visualization can be found in appendix \ref{ch:glossary} and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex}.
