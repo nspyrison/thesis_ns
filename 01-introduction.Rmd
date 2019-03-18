@@ -34,7 +34,7 @@ Data and models are typically high-dimensional, with many variables and paramete
 
 1. **How can UCS be generalized to work within graphic-specific environments for 2D projections?**\
 (Work in progress, chapter \ref{ch:workinprogress}.)\
-Building from the UCS algorithm in @cook_manual_1997, the algorithm should be modified for generalized use with graphic-specific environments. This enables fine control to explore the the sensitivty of structure to the varaible contributing to the projection and sets the foundation to be used in the remaining objectives.
+Building from the UCS algorithm in @cook_manual_1997, the algorithm should be modified for generalized use with graphic-specific environments. This enables fine control to explore the sensitivity of structure to the variable contributing to the projection and sets the foundation to be used in the remaining objectives.
 
 2. **Does 2D UCS tours provide benefits over alternatives?**\
 (Future work, chapter \ref{ch:future_work}.)\
@@ -42,11 +42,11 @@ The quality and effectiveness of 2D UCS will be compared with alternatives of st
 
 3. **How can UCS be extended to 3D?**\
 (Future work, chapter \ref{ch:future_work}.)\
-The addition of a 3rd dimension potentially allows for the improved perception of the structure of the data in dynamic UCS. To investigate this UCS algorithm needs to be extended to a third dimension. This would also allow for novel application mutli-parameter function projection. This will involve the addition of a new angle and it controls to the projection space, reference axes, and manipulation space. In particular, the manipulation space, now in 4D, will be hard to visualize, but it should be able stand as a mathematical construct facilitated through interaction with a point (the projection coeffcients of the selected manipulation variable) on the on the now 3D reference axes volume. 
+The addition of a 3rd dimension potentially allows for the improved perception of the structure of the data in dynamic UCS. To investigate this UCS algorithm needs to be extended to a third dimension. This would also allow for novel application multi-parameter function projection. This will involve the addition of a new angle and it controls to the projection space, reference axes, and manipulation space. In particular, the manipulation space, now in 4D, will be hard to visualize, but it should be able to stand as a mathematical construct facilitated through interaction with a point (the projection coefficients of the selected manipulation variable) on the now 3D reference axes volume. 
 
 4. **Does UCS in 3D displays provide benefits over 2D displays?**\
 (Future work, chapter \ref{ch:future_work}.)\
-The addition of a 3rd dimension has previously been shown to provide benefits. The extension of UCS into 3D should be used to explore the potential benefits of UCS projections as well. Interactive, time-varying tours theoretically allow for improved understanding and comprehension speed of the structure of the data. These metrics will be measured across display device (including a 2D standard monitor, 3D head tracked monitor, and 3D head-mounted display). 
+The addition of a 3rd dimension has previously been shown to provide benefits. The extension of UCS into 3D should be used to explore the potential benefits of UCS projections as well. Interactive, time-varying tours theoretically allow for improved understanding and comprehension speed of the structure of the data. These metrics will be measured across the display device (including a 2D standard monitor, 3D head tracked monitor, and 3D head-mounted display). 
 
 **Contributions:**
 
@@ -63,7 +63,7 @@ This research is interdisciplinary; it stems from a linear dimension reduction t
 
 The research corresponding with RO #1 entails a work in progress **algorithm design** following the work in @cook_manual_1997. The proposed algorithm discusses the generalized application of UCS for use across animation-specific frameworks. The outcome of this is an *R* package, `spinifex`, which will be submitted to CRAN and for hosting and distribution. This forms the foundation for future work in the remaining objectives. 
 
-The second objective is addressed with a benchmark dataset **performace comparison** between dynamic linear projections and alternatives (static linear and static non-linear projections such as principal component analysis, multi-dimensional scaling, and t-distributed neighbor embeddings, described in more detail in chapter \ref{ch:future_work}). Benchmark datasets will be compared across techniques, measurements will include variation explained, transparency to the original variable space, clustering identification, and outlier identification.
+The second objective is addressed with a benchmark dataset **performance comparison** between dynamic linear projections and alternatives (static linear and static non-linear projections such as principal component analysis, multi-dimensional scaling, and t-distributed neighbor embeddings, described in more detail in chapter \ref{ch:future_work}). Benchmark datasets will be compared across techniques, measurements will include variation explained, transparency to the original variable space, clustering identification, and outlier identification.
 
 The research for RO #3 involves **algorithm design**, where the work in RO #1 will be extended to display with the use of a third spatial dimension. Surface and function projections will also be developed. This forms the calculation base for the work. Several difficulties may arise when bringing dynamic projection into 3D spaces, especially when exploring 3D surfaces (discussed in more detail in chapter \ref{ch:future_work}).
 

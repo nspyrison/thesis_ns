@@ -52,7 +52,7 @@ local structure of projections.
 Data visualization has lagged behind in utilizing 3D and virtual spaces
 after the overhype of the 1980s and '90s gave way to some unpromising
 results. Modern mixed reality hardware has significantly improved the
-quality and simultaniously reduced the barrier to entry. Contemporary
+quality and simultaneously reduced the barrier to entry. Contemporary
 studies have regularly shown increased accuracy of perception of visuals
 displayed in 3D over 2D, including in projected subspaces. It's time to
 further explore dynamic projections in virtual spaces.
@@ -150,9 +150,9 @@ Ph.D.~research can then be summarized as the following.
   (Work in progress, chapter \ref{ch:workinprogress}.)\\
   Building from the UCS algorithm in \textcite{cook_manual_1997}, the
   algorithm should be modified for generalized use with graphic-specific
-  environments. This enables fine control to explore the the sensitivty
-  of structure to the varaible contributing to the projection and sets
-  the foundation to be used in the remaining objectives.
+  environments. This enables fine control to explore the sensitivity of
+  structure to the variable contributing to the projection and sets the
+  foundation to be used in the remaining objectives.
 \item
   \textbf{Does 2D UCS tours provide benefits over alternatives?}\\
   (Future work, chapter \ref{ch:future_work}.)\\
@@ -166,14 +166,14 @@ Ph.D.~research can then be summarized as the following.
   The addition of a 3rd dimension potentially allows for the improved
   perception of the structure of the data in dynamic UCS. To investigate
   this UCS algorithm needs to be extended to a third dimension. This
-  would also allow for novel application mutli-parameter function
+  would also allow for novel application multi-parameter function
   projection. This will involve the addition of a new angle and it
   controls to the projection space, reference axes, and manipulation
   space. In particular, the manipulation space, now in 4D, will be hard
-  to visualize, but it should be able stand as a mathematical construct
-  facilitated through interaction with a point (the projection
-  coeffcients of the selected manipulation variable) on the on the now
-  3D reference axes volume.
+  to visualize, but it should be able to stand as a mathematical
+  construct facilitated through interaction with a point (the projection
+  coefficients of the selected manipulation variable) on the now 3D
+  reference axes volume.
 \item
   \textbf{Does UCS in 3D displays provide benefits over 2D displays?}\\
   (Future work, chapter \ref{ch:future_work}.)\\
@@ -182,8 +182,8 @@ Ph.D.~research can then be summarized as the following.
   potential benefits of UCS projections as well. Interactive,
   time-varying tours theoretically allow for improved understanding and
   comprehension speed of the structure of the data. These metrics will
-  be measured across display device (including a 2D standard monitor, 3D
-  head tracked monitor, and 3D head-mounted display).
+  be measured across the display device (including a 2D standard
+  monitor, 3D head tracked monitor, and 3D head-mounted display).
 \end{enumerate}
 
 \textbf{Contributions:}
@@ -228,7 +228,7 @@ distribution. This forms the foundation for future work in the remaining
 objectives.
 
 The second objective is addressed with a benchmark dataset
-\textbf{performace comparison} between dynamic linear projections and
+\textbf{performance comparison} between dynamic linear projections and
 alternatives (static linear and static non-linear projections such as
 principal component analysis, multi-dimensional scaling, and
 t-distributed neighbor embeddings, described in more detail in chapter
@@ -873,15 +873,14 @@ VR}\label{immersive-analytics-platform-in-vr}
 
 Immersive analytics is an emerging field, where data visualization and
 analysis is facilitated in an intuitive, immersive virtual reality
-environments
-\autocites{chandler_immersive_2015}{cordeil_immersive_2017}. An example
-of which is shown in \textcite{cordeil_imaxes:_2017} introduces a
-collaborative space for immersive data analysis. Where axes are
-displayed and intuitively interacted with while responding to proximity
-to other variable axes and popping into place changing the resulting
-geometric display. For example, three variables can be placed as the
-\(x,~y,~z-\) axes for a 3D scatterplot or stood up right next to each
-other for a parallel coordinate plot. The subsequent work in
+environment \autocites{chandler_immersive_2015}{cordeil_immersive_2017}.
+An example of which is shown in \textcite{cordeil_imaxes:_2017}
+introduces a collaborative space for immersive data analysis. Where axes
+are displayed and intuitively interacted with while responding to
+proximity to other variable axes and popping into place changing the
+resulting geometric display. For example, three variables can be placed
+as the \(x,~y,~z-\) axes for a 3D scatterplot or stood up right next to
+each other for a parallel coordinate plot. The subsequent work in
 \textcite{cordeil_immersive_2019} builds from the previous reference and
 refines it for the next iteration in interactive, scalable data
 visualization in virtual spaces.
@@ -940,7 +939,7 @@ determine the sensitivity of the structure to the contributions of a
 selected manipulation variable. This is particularly useful once a
 feature of interest has been identified, for example, by a guided tour.
 
-\section{Algorithm}\label{sec:algorithm}
+\section{Algorithm}\label{sec:wip_algorithm}
 
 The algorithm for generating a manual tour path involves these steps:
 
@@ -980,7 +979,7 @@ to the top of a table.
 
 generate an animation sequence of 2D projection matrices that fully
 rotates the manip variable into and out of the projection. The sequence
-can be passed to any graphics render to display the projected data.
+can be passed to any graphics rendering to display the projected data.
 
 \section{Display projection sequence}\label{display-projection-sequence}
 
@@ -989,7 +988,7 @@ data matrix by a projection matrix. The algorithm needs only one copy of
 the data, and the sequence of projection matrices, to generate the data
 animation. The 2D projected data is currently displayed as a
 scatterplot, but alternative choices like a contour plot of the
-bivariate density contours, could be easily substituted.
+bivariate density could be easily substituted.
 
 \chapter{Future work}\label{ch:future_work}
 
@@ -1035,12 +1034,12 @@ User-controlled steering of tours allows for finer exploration local
 exploration, which should be reflected in the benefits over alternative
 options.
 
-The methodology for this future work is a \textbf{performace comparison}
-across technique, as assessed across contemporary benchmark datasets.
-Differences in the techniques make for an uneven comparison, but
-measurements will be made where applicable comparing at least variation,
-clustering, and structure. The design space includes data sets,
-techniques, and measures of comparison.
+The methodology for this future work is a \textbf{performance
+comparison} across technique, as assessed across contemporary benchmark
+datasets. Differences in the techniques make for an uneven comparison,
+but measurements will be made where applicable comparing at least
+variation, clustering, and structure. The design space includes data
+sets, techniques, and measures of comparison.
 
 \section{RO \#3) How can UCS be extended to
 3D?}\label{ro-3-how-can-ucs-be-extended-to-3d}
@@ -1068,7 +1067,7 @@ are computed, \emph{Unity} will be used to render the embeddings in 3D
 VR and act as a compatible front end to be used across display devices.
 
 Manipulating 3D spaces may not be straight forward. In section
-\{sec:algorithm\} the manipulation space was in 3D, where 2 angles
+\{sec:wip\_algorithm\} the manipulation space was in 3D, where 2 angles
 defined a point that was projected back to the 2D reference frame. The
 now 4D manipulation space should only be necessary for internal
 mathematics, where the 3 angles spanning it, could be controlled through
@@ -1100,10 +1099,10 @@ contributes to the projection.}\label{fig:RO3MockUp}
 In a function projection, a multi-parameter function surface would be
 projected rather than individual data points. Imagining the projection
 of a unit grid is a useful middle ground. Viewing projected functions
-may have several difficulties in 3D. The first is occulation, the
-surfaces in the foreground blocks the view behind it. Opacity, wire
-mesh, and projection sectioning \autocite{furnas_prosection_1994} are
-potential ways to address this issue. A second issue is that it may be
+may have several difficulties in 3D. The first is occulation, a surface
+in the foreground obscures the view behind it. Opacity, wire mesh, and
+projection sectioning \autocite{furnas_prosection_1994} are potential
+ways to address this issue. A second issue is that it may be
 disorienting or nauseating to watch surfaces folding into each other in
 seemingly non-euclidean movements. Changing opacity or focus in the
 vicinity of these areas may mitigate the potential concern.
