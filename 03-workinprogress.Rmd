@@ -45,7 +45,7 @@ A fully 3D space is created, using the Gram-Schmidt process, within which to rot
 
 ### Step 3 Generate rotation
 
-generate an animation sequence of 2D projection matrices that fully rotates the manip variable into and out of the projection. The sequence can be passed to any graphics rendering to display the projected data.
+Generate an animation sequence of 2D projection matrices that fully rotates the manip variable into and out of the projection. The sequence can be passed to any graphics rendering to display the projected data.
 
 
 ## Display projection sequence
