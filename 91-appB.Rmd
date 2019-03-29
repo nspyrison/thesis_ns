@@ -317,7 +317,7 @@ f_mtour <- manual_tour(f_bas, manip_var = f_mvar, angle = f_angle)
 if(dim(f_mtour)[3] != 15) message(
   paste0("!!!!! step3 n_slides != 15 !!!!! n_slides = ", dim(f_mtour)[3]))
 
-#play_manual_tour(f_dat, f_bas, f_mvar, cat_var = f_cat, angle = f_angle)
+#play_manual_tour(f_dat, f_bas, f_mvar, col = f_cat, angle = f_angle)
 array2static(.m_tour = f_mtour, .data = f_dat, .m_var = f_mvar, .cat = f_cat)
 ```
 
@@ -376,7 +376,7 @@ load("./data/JetCluster_basis.rda")
 
 jet_bas   <- JetCluster_basis
 jet_dat   <- tourr::rescale(JetCluster_sub[, 1:4])
-jet_cat   <- JetCluster_sub$exp
+jet_cat   <- factor(JetCluster_sub$exp)
 jet_mvar  <- 3
 jet_ang   <- .26
 jet_mtour <- manual_tour(basis = jet_bas, manip_var = jet_mvar, angle = jet_ang)
@@ -385,7 +385,7 @@ jet_mtour <- manual_tour(basis = jet_bas, manip_var = jet_mvar, angle = jet_ang)
 array2static(.m_tour = jet_mtour, .data = jet_dat,
              .m_var = jet_mvar, .cat = jet_cat)
 # play_manual_tour(data = jet_dat, basis = jet_bas, manip_var = jet_mvar,
-#                  angle = jet_ang, axes = "bottomleft", cat_var = jet_cat)
+#                  angle = jet_ang, axes = "bottomleft", col = jet_cat)
 
 ##M_VAR, RESULT
 # 1, good
@@ -431,7 +431,7 @@ DIS_mtour <- manual_tour(basis = DIS_bas, manip_var = DIS_mvar, angle = DIS_ang)
 array2static(.m_tour = DIS_mtour, .data = DIS_dat,
              .m_var = DIS_mvar, .cat = DIS_cat)
 # play_manual_tour(data = DIS_dat, basis = DIS_bas, manip_var = DIS_mvar,
-#                  angle = DIS_ang, axes="bottomleft", cat_var = DIS_cat)
+#                  angle = DIS_ang, axes="bottomleft", col = DIS_cat)
 
 ##M_VAR, RESULT
 # 1, purple jet
