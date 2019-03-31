@@ -105,7 +105,7 @@ array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
 
 ## Abstract
 
-
+<!-- SPINIFEX -->
 The class of dynamic linear projections that are collectively known as 'tours' provide a unique means of visualizing numeric multivariate data. Tours are particularly useful for understanding the structure held within multivariate data, and in association with techniques for dimension reduction, supervised, and unsupervised classification. The *R* package *tourr* offers a variety of path generators and geometric displays for conducting tours. This paper discusses an extension package, *spinifex*, that adds support for the path generation of manual tours and extends the display of tours to use with the contemporary animation packages, *plotly* and *gganimate*. Manual tours are used to explore the sensitivity of structure as the contributions of a manipulation variable are changed. This particularly useful after identifying a feature of interest.
 
 Keywords: manual tour, guided tour, grand tour, projection pursuit,   high dimensional data, multivariate data, data visualization, statistical graphics, data science.
@@ -113,17 +113,23 @@ Keywords: manual tour, guided tour, grand tour, projection pursuit,   high dimen
 
 ## Introduction
 
+<!-- TOURS -->
 A tour is a multivariate data analysis technique in which a sequence of linear (orthogonal) projections are viewed as an animation while the orientation of the projection basis is rotated across time. Each frame of the sequence corresponds to a small change in the projection for a smooth transition that perseveres continuity.
 
-While there are numerous methods that generate tour paths, this research focuses on the manual tour. The manual tour was described in @cook_manual_1997 and allows a user to control the projection coefficients of a select variable has in a 2D projection. The manipulation of these coefficients allows the analyst to explore how sensitive the projections structure is to these changes. This makes manual tours particularly useful once a feature of interest has been identified, for example, with the use of a guided tour [@cook_grand_1995]. The path of a guided tour is selected via projection pursuit, the optimization of an index function on the projection via a hill climbing algorithm. This allows guided tours to identify interesting projection features rapidly given the relatively large parameter-space.  Once the given projection has been provided It is time to define the path of rotation.
+<!-- MANUAL TOUR -->
+While there are numerous methods that generate tour paths, this research focuses on the manual tour. The manual tour was described in @cook_manual_1997 and allows a user to control the projection coefficients of a select variable has in a 2D projection. The manipulation of these coefficients allows the analyst to explore how sensitive the projections structure is to these changes. This makes manual tours particularly useful once a feature of interest has been identified, for example, with the use of a guided tour [@cook_grand_1995]. The path of a guided tour is selected via projection pursuit, the optimization of an index function on the projection via a hill climbing algorithm. This allows guided tours to identify interesting projection features rapidly given the relatively large parameter-space. Once the given projection has been provided, it is time to define the path of rotation.
 
-TODO: START HERE. mention oblique paths?
-A manual tour relies on user input and thus has been difficult to implement dynamic control in R. Ideally, the mouse movements of the user are captured, and passed to the computations, driving the rotation interactively. However, this type of interactivity is not simple in R. This has been the reason that the algorithm was not incorporated into the *tourr* package. Spinifex utilizes two new animation packages, *plotly* [@sievert_plotly_2018] and *gganimate* [@pedersen_gganimate:_2019], to display tours, manual or other saved tours. From a given projection, the user can choose which variable to control, and the animation sequence is generated to remove the variable from the projection, and then extend its contribution to be the sole variable in one direction. This allows the viewer to assess the change in structure induced in the projection by the variable's contribution.
+<!-- PATHS -->
+Ideally the path would be intuitively user-generated from physical movement, be it through mouse or motion capture. Unfortunately this type of dynamic control has proven difficult to capture for in R. Because of this manual tours were not implemented within *tourr*. This research allows for the consumption, but not the generation, of such dynamic input. 
 
+<!-- DISPLAY -->
+Spinifex utilizes two new animation packages, *plotly* [@sievert_plotly_2018] and *gganimate* [@pedersen_gganimate:_2019], to display tours, manual or other saved tours. From a given projection, the user can choose which variable to control, and the animation sequence is generated to remove the variable from the projection, and then extend its contribution to be the sole variable in one direction. This allows the viewer to assess the change in structure induced in the projection by the variable's contribution.
+
+<!-- PAPER STRUCTURE -->
 The paper is organized as follows. Section \ref{sec:algorithm} explains the algorithm using a toy dataset. Section \ref{sec:display} discussed the display of the animation after the path has been generated. Section \ref{sec:application} illustrates how this can be used for sensitivity analysis applied to contemporary high energy physics. The last section, \ref{sec:discussion} summarizes the work and discusses future research.
 
 
-
+#TODO: COntinue here!
 ## Algorithm {#sec:algorithm}
 
 Generating the path for a manual tour requires the iteration of these steps:

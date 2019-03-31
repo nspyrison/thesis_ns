@@ -7,6 +7,9 @@ knit: "bookdown::render_book"
 ## Timeline
 
 ```{r timeline, echo=F}
+# TODO: Cut out RO 2 and adjust RO 3,4 accordingly.
+# 
+
 ## working from: https://stats.andrewheiss.com/misc/gantt.html
 library(tidyverse)
 library(lubridate)
