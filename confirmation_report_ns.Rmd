@@ -1,4 +1,30 @@
 ---
+title: 'Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices'
+degreetype: 'Doctor of Philosophy'
+author: 'Nicholas S Spyrison'
+degrees: 'B.Sc. Statistics, Iowa State University'
+output: bookdown::pdf_book
+site: bookdown::bookdown_site
+link-citations: yes
+knit: "bookdown::render_book"
+---
+
+<!-- 
+Edit these lines as appropriate.
+The actual thesis content is in several Rmd files.
+
+You'll need to edit the _bookdown.yml file to set the order in which you'd like them to appear. 
+
+If you have specific LaTeX packages to add, put them in monashthesis.tex.
+
+You will need to ensure you have installed the knitr and bookdown packages for R.
+
+You will also need LaTeX installed on your computer.
+-->
+
+<!--chapter:end:index.Rmd-->
+
+---
 knit: "bookdown::render_book"
 ---
 
@@ -492,3 +518,6 @@ Future research on the algorithm would include extending it for use in 3D projec
 The Givens rotations and Householder reflections as outlined in @buja_computational_2005 could also be added. Currently, Gram-Schmidt is the only form of frame interpolation used. In a Givens rotation, the $x$ and $y$ components (for example $\theta~= 0,~pi/2$) of the in-plane rotation are calculated separately and would be applied sequentially to produce the radial rotation. Householder reflections define reflection axes to project points on to the axes and generate rotations.
 
 The development of a dynamic graphical user interface, perhaps with the use of a `shiny` app, would allow analysts to rapidly try manual tours with a more intuitive interaction than the command line. The user could easily switch between variables to control, adjust the step size to make smoother rotation sequences, or save any state to continue to explore the contributions of other variables. The `animation` package @xie_animation:_2018 could be implemented for another graphics framework. However, `animation` builds from base graphs while `spinifex` current utilizes `ggplot2` graphics.
+
+<!--chapter:end:91-appB.Rmd-->
+
