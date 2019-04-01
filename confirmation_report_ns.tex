@@ -40,24 +40,24 @@ low-dimensional projection of high-dimensional data with user controlled
 steering}\label{ch:spinifex}
 
 \emph{The content contained in this appendix document is work done in
-the last year of my research and currently formatted as a paper to be
-submitted to the R Journal.}
+the last year of my research and formatted as a paper to be submitted to
+the R Journal.}
 
 \section{Abstract}\label{abstract}
 
-The class of dynamic linear projections known collectively as tours
-provide a unique exploration and feature identification of
-high-dimensional data. Tours are particularly useful for understanding
-the structure held within multivariate data, and in association with
-techniques for dimension reduction, supervised, and unsupervised
-classification. The \emph{R} package \emph{tourr} offers a variety of
-path generators and geometric displays for conducting tours on. This
-paper discusses an extension package, \emph{spinifex}, that adds support
-for the path generation of manual tours and graphic display of tours.
+The class of dynamic linear projections that are collectively known as
+`tours' provide a unique means of visualizing numeric multivariate data.
+Tours are particularly useful for understanding the structure held
+within multivariate data, and in association with techniques for
+dimension reduction, supervised, and unsupervised classification. The
+\emph{R} package \emph{tourr} offers a variety of path generators and
+geometric displays for conducting tours. This paper discusses an
+extension package, \emph{spinifex}, that adds support for the path
+generation of manual tours and extends the display of tours to use with
+the contemporary animation packages, \emph{plotly} and \emph{gganimate}.
 Manual tours are used to explore the sensitivity of structure as the
-contributions of a manipulation variable are changed. \emph{Spinifex}
-utilizes the animation packages \emph{plotly} and \emph{gganimate} to
-display tours under animation frameworks.
+contributions of a manipulation variable are changed. This particularly
+useful after identifying a feature of interest.
 
 Keywords: manual tour, guided tour, grand tour, projection pursuit, high
 dimensional data, multivariate data, data visualization, statistical
@@ -71,30 +71,34 @@ orientation of the projection basis is rotated across time. Each frame
 of the sequence corresponds to a small change in the projection for a
 smooth transition that perseveres continuity.
 
-There are many ways that a tour path can be generated, we will focus on
-the manual tour. The manual tour was described in
-\textcite{cook_manual_1997} and allows a user to control the
-contribution of a select variable has in the 2D projection. We call such
-user-defined manipulation as user-controlled steering (UCS). The primary
-purpose of UCS is to determine the sensitivity of structure visible to
-the contributions of a selected manipulation variable. This makes UCS
-particularly useful once a feature of interest has been identified, for
-example, by a guided tour \autocite{cook_grand_1995}. The path of a
-guided tour is selected via projection pursuit, the optimization of an
-index function on the projection via a hill climbing algorithm. The
-algorithm for a manual tour allows rotations in horizontal, vertical,
-oblique, angular and radial directions as defined by the values of two
-angles. Rotation in a radial direction pulls a variable directly into
-and out of the projection. This type of manual rotation illustrated in
-this paper.
+While there are numerous methods that generate tour paths, this research
+focuses on the manual tour. The manual tour was described in
+\textcite{cook_manual_1997} and allows a user to control the projection
+coefficients of a select variable has in a 2D projection. The
+manipulation of these coefficients allows the analyst to explore how
+sensitive the projections structure is to these changes. This makes
+manual tours particularly useful once a feature of interest has been
+identified, for example, with the use of a guided tour
+\autocite{cook_grand_1995}. The path of a guided tour is selected via
+projection pursuit, the optimization of an index function on the
+projection via a hill climbing algorithm. This allows guided tours to
+identify interesting projection features rapidly given the relatively
+large parameter-space. Once the given projection has been provided, it
+is time to define the path of rotation.
 
-A manual tour relies on user input and thus has been difficult to
-implement dynamic control in R. Ideally, the mouse movements of the user
-are captured, and passed to the computations, driving the rotation
-interactively. However, this type of interactivity is not simple in R.
-This has been the reason that the algorithm was not incorporated into
-the \emph{tourr} package. Spinifex utilizes two new animation packages,
-\emph{plotly} \autocite{sievert_plotly_2018} and \emph{gganimate}
+Ideally the path would be intuitively user-generated from physical
+movement, be it through mouse or motion capture. Unfortunately this type
+of dynamic control has proven difficult to capture for in R. Because of
+this manual tours were not implemented within \emph{tourr}. This
+research allows for the consumption, but not the generation, of such
+dynamic input. After the capture of an oblique user motion the rotation
+needs to be applied to step 3 (rotation sequence) of the algorithm
+discussed below. In the section below we stick with a radial rotation
+where, \(\theta\), the angle of in-projection-plane rotation is held
+constant.
+
+Spinifex utilizes two new animation packages, \emph{plotly}
+\autocite{sievert_plotly_2018} and \emph{gganimate}
 \autocite{pedersen_gganimate:_2019}, to display tours, manual or other
 saved tours. From a given projection, the user can choose which variable
 to control, and the animation sequence is generated to remove the
@@ -112,8 +116,8 @@ analysis applied to contemporary high energy physics. The last section,
 
 \section{Algorithm}\label{sec:algorithm}
 
-Generating the path for a manual tour requires the iteration of these
-steps:
+The section below discribes the algorithm for performing a 2D radial
+manual tour:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -125,111 +129,91 @@ steps:
   Create a 3D manipulation space, where the manip variable has the full
   contribution.
 \item
-  Generate a rotation sequence which zero's the norm of the coefficient
-  and increases it to 1.
+  Generate a rotation sequence which increases the norm of the
+  coefficient to 1 and zeros it.
 \end{enumerate}
 
 The steps are described in more detail below.
 
 \subsection{Notation}\label{notation}
 
-This section describes the notation used in the algorithm description.
-The data is an \(n \times p\) numeric matrix to be embedded into a
-\(d-\)dimensions.
+This section describes the notation used in the algorithm for a 2D
+radial manual tour.
 
-\begin{align*}
-  \textbf{X}_{[n,~p]} ~=
-  \begin{bmatrix}
-    X_{1,~1} & \dots  & X_{1,~p} \\
-    X_{2,~1} & \dots  & X_{2,~p} \\
-    \vdots   & \ddots & \vdots   \\
-    X_{n,~1} & \dots  & X_{n,~p}
-  \end{bmatrix}
-\end{align*}
-
-An orthonormal \(d-\)dimensional basis set is describing the projection
-from \(p-\) to \(d-\) space.
-
-\begin{align*}
-  \textbf{B}_{[p,~d]} ~=
-  \begin{bmatrix}
-    B_{1,~1} & \dots  & B_{1,~d} \\
-    B_{2,~1} & \dots  & B_{2,~d} \\
-    \vdots   & \ddots & \vdots   \\
-    B_{p,~1} & \dots  & B_{p,~d}
-  \end{bmatrix}
-\end{align*}
+-\textbf{X}, the data, an \(n \times p\) numeric matrix to be embedded
+in two dimensions. -\(\textbf{B = (B_1,~ B_2)}\), any of orthonormal
+projection basis set, \(p \times 2\) matrix, describing the projection
+from \(p\) to two dimensions -\textbf{e}, the zero column vector of
+length \(p\) with the \(k-\)th element set to one, where \(k\) is the
+number of the variable to manipulate.
 
 The algorithm primarily operates on the projection basis and utilizes
-the data only when making a display.
+the data only when making a display. The projection space can be viewed
+at any point in the process by pre-multiplying the data and ploting the
+first 2 variables.
 
 \subsection{Toy data set}\label{toy-data-set}
 
-The flea data from \textcite{lubischew_use_1962}, available in the R
-package \emph{tourr} \autocite{wickham_tourr_2011}, is used to
+The flea data, originally from \textcite{lubischew_use_1962}, available
+in the R package \emph{tourr} \autocite{wickham_tourr_2011} is used to
 illustrate the algorithm. The data contains 74 observations across 6
 variables, physical measurements of the flea beetles. Each observation
 belonging to one of three species.
 
-A guided tour on the flea data is conducted by optimizing on the
-\texttt{holes} index \autocite{cook_interactive_2007}. In a guided tour
-the projection sequence is selected by optimizing an index of interest.
-In this case, the holes index is selected. The holes index is maximized
-by when the projected observations are furthest from the center. Figure
-\ref{fig:step0}, shows a locally optimized projection for this data. The
-left plot displays the reference axes of the projection basis, a visual
-indication of the magnitude and direction each variable contributed to
-the projections. The right plot shows the data projected through this
-basis. The variables \texttt{tars1} and \texttt{aede2} contribute mostly
-in the horizontal direction mostly orthogonal to the other four
-variables which explain more of the variation in the verticle direction
-of the projection. Data points are colored and given geoms according to
-the species of the flea, although the guided tour was unsupervised with
-this information. The question that will be explored in the explanation
-of the algorithm is how important is the variable \texttt{aede2} to the
-separation of the clusters.
+The data is defined. A basis set (ideally that views an interesting
+feature) should to be provided to explore the sensitivity of the
+variables to the structure. To indentify a projection containing an
+interesting feature, apply a guided tour\autocite{cook_interactive_2007}
+on the flea data. In a guided tour the projection sequence is selected
+by optimizing an index via hill-climbing. In this case, the holes index
+is selected. The holes index is maximized by when the projected
+observations are furthest from the center. Figure \ref{fig:step0} shows
+a locally optimized projection for this data. The left plot displays the
+reference axes of the projection basis, a visual indication of the
+magnitude and direction each variable contributed to the projections.
+The right plot shows the projection of the data through the basis set
+decribed by the reference axes (left). Data points are colored and given
+point characters according to the species of the flea (the guided tour
+was unsupervised with this information).
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.98\linewidth]{confirmation_report_ns_files/figure-latex/step0-1} 
+{\centering \includegraphics[width=0.95\linewidth,height=0.95\textheight]{confirmation_report_ns_files/figure-latex/step0-1} 
 
 }
 
-\caption{Basis reference axes (left) and projected data (right) of standardized flea data. Basis identified by holes-index guided tour. The variables `aede2` and `tars1` contribute mostly in the horizontal direction, whereas the other variables contribute mostly in the y direction. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection.}\label{fig:step0}
+\caption{Basis reference axes (left) and projected data (right) of standardized flea data. Data points color and shape are mapped to beetle species. Basis identified by holes-index guided tour. The variables `aede2` and `tars1` contribute mostly orthogonal to the other variables. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection.}\label{fig:step0}
 \end{figure}
 
-Call \texttt{view\_basis()} on a basis to produce a similar image as a
-\texttt{ggplot2} object. The right side shows how the data looks
-projected through this basis. If data is passed to the function, the
-projection will also be displayed. You can project a single basis at any
-time through the matrix multiplication
-\(\textbf{X}_{[n,~p]} ~*~ \textbf{B}_{[p,~d]} ~=~ \textbf{P}_{[n,~d]}\)
-to this effect.
+Call \texttt{view\_basis()} on a basis to produce a \texttt{ggplot2}
+graphic similar to \ref{fig:step0}. Projection space is always available
+for display via the matrix multiplication
+\(\textbf{X}_{[n,~p]} ~*~ \textbf{B}_{[p,~d]} ~=~ \textbf{P}_{[n,~d]}\).
 
-\subsection{Step 1 Choose variable of
+\chapter{TODO: continue here.}\label{todo-continue-here.}
+
+\subsection{Step 1) Choose variable of
 interest}\label{step-1-choose-variable-of-interest}
 
-Select a manipulation variable, \(k\). Initialize a zero vector \(e\)
-and set the \(k\)-th element set to 1. This gives the manip variable
-full contribution in this dimension.
+In figure \ref{fig:step0}, above, the variables \texttt{tars1} and
+\texttt{aede2} contribute mostly orthogonal to the other four variables.
+These two variables explain the variation of the data between the purple
+and green species. We select \texttt{aede2} as the manip var, the
+variable to be manipulated. The selection of \texttt{aded2} over
+\texttt{tars1} is due to magnitude of the contribution being larger,
+though \texttt{tars1} would yield a similar conclusion. The question
+that will be explored in the explanation of the algorithm is how
+important the variable \texttt{aede2} is to the separation of the
+clusters.
 
-\begin{align*}
-\textbf{e}_{[p,~1]} ~=~
-  \begin{bmatrix}
-    0 \\
-    0 \\
-    \vdots \\
-    1 \\
-    \vdots \\
-    0
-  \end{bmatrix}
-\end{align*}
+Initialize a zero vector \(e\). \texttt{aede2} is the fifth variable in
+the data; set the \(k=5\)-th element to one giving the manip var a full
+contribution in this dimension.
 
-In figure \ref{fig:step0}, above, notice that the variables
-\texttt{tars1} and \texttt{aede2} are almost orthogonal to the other 4
-variables and control almost all of the variation in the x-axis of the
-projection. \texttt{Aede2} has a larger contribution on this basis, so
-we'll select it as the manip variable.
+notice that the variables \texttt{tars1} and \texttt{aede2} are almost
+orthogonal to the other 4 variables and control almost all of the
+variation in the x-axis of the projection. \texttt{Aede2} has a larger
+contribution on this basis, so we'll select it as the manip variable.
 
 \subsection{Step 2 Create the manip
 space}\label{step-2-create-the-manip-space}
