@@ -141,8 +141,14 @@ The section below discribes the algorithm for performing a 2D radial manual tour
 The steps are described in more detail below.
 
 ### Notation
+#TODO: Notation needs work!
+This section describes the notation used in the algorithm for a 2D radial manual tour.
 
-This section describes the notation used in the algorithm description. The data is an $n \times p$ numeric matrix to be embedded into $d, (d \leq p),$ dimensions.
+- \textbf{X}, the data, an $n \times p$ numeric matrix to be embedded in two dimensions.
+- \textbf{B}, any of orthonormal projection basis set, $p \time d$ matrix, describing the projection from $p$ to two dimensions
+- e
+- +
+- +
 
 <!-- \begin{align*} -->
 <!--   \textbf{X}_{[n,~p]} ~= -->
@@ -154,7 +160,7 @@ This section describes the notation used in the algorithm description. The data 
 <!--   \end{bmatrix} -->
 <!-- \end{align*} -->
 
-An orthonormal $p \time d$ basis set must be provided which describes the projection from $p-$ to $d-$ space.
+<!-- An orthonormal $p \time d$ basis set must be provided which describes the projection from $p-$ to $d-$ space. -->
 
 <!-- \begin{align*} -->
 <!--   \textbf{B}_{[p,~d]} ~= -->
@@ -178,11 +184,7 @@ The flea data, originally from @lubischew_use_1962, available in the R package *
 The data is defined. A basis set (ideally that views an interesting feature)  should to be provided to explore the sensitivity of the variables to the structure. To indentify a projection containing an interesting feature, apply 
 a guided tour[@cook_interactive_2007] on the flea data. In a guided tour the projection sequence is selected by optimizing an index via hill-climbing. In this case, the holes index is selected. The holes index is maximized by when the projected observations are furthest from the center. Figure \@ref(fig:step0) shows a locally optimized projection for this data. The left plot displays the reference axes of the projection basis, a visual indication of the magnitude and direction each variable contributed to the projections. The right plot shows the projection of the data through the basis set decribed by the reference axes (left). Data points are colored and given point characters according to the species of the flea (the guided tour was unsupervised with this information).
 
-#TODO: continue here.
-<!-- select a manip var -->
-A variable for manipulation needs to be indentified The variables `tars1` and `aede2` contribute mostly orthogonal to the other four variables. These two variables explain the variation of the data between the purple and green species.  The question that will be explored in the explanation of the algorithm is how important is the variable `aede2` to the separation of the clusters.
-
-```{r step0, echo=F, results='hide', out.width='98%', fig.cap = "Basis reference axes (left) and projected data (right) of standardized flea data. Data points color and shape are mapped to beetle species. Basis identified by holes-index guided tour. The variables `aede2` and `tars1` contribute mostly orthogonal to the other variables. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."}
+```{r step0, echo=F, results='hide', out.width='95%', out.height='95%', fig.cap = "Basis reference axes (left) and projected data (right) of standardized flea data. Data points color and shape are mapped to beetle species. Basis identified by holes-index guided tour. The variables `aede2` and `tars1` contribute mostly orthogonal to the other variables. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."}
 ## Flea holes tour
 f_dat  <- tourr::rescale(flea[,1:6])
 f_cat  <- factor(flea$species)
@@ -201,27 +203,29 @@ view_basis(f_bas, labels = colnames(f_dat)) +
   theme(panel.border = element_rect(colour = "black", fill = NA))
 ```
 
-Call `view_basis()` on a basis to produce a similar image as a `ggplot2` object. The right side shows how the data looks projected through this basis. If data is passed to the function, the projection will also be displayed. You can project a single basis at any time through the matrix multiplication $\textbf{X}_{[n,~p]} ~*~ \textbf{B}_{[p,~d]} ~=~ \textbf{P}_{[n,~d]}$ to this effect.
+Call `view_basis()` on a basis to produce a `ggplot2` graphic similar to \@ref(fig:step0). Projection space is always available for display via the matrix multiplication $\textbf{X}_{[n,~p]} ~*~ \textbf{B}_{[p,~d]} ~=~ \textbf{P}_{[n,~d]}$.
 
+#TODO: continue here.
+### Step 1) Choose variable of interest
 
-### Step 1 Choose variable of interest
+<!-- select a manip var-->
+In figure \@ref(fig:step0), above, the variables `tars1` and `aede2` contribute mostly orthogonal to the other four variables. These two variables explain the variation of the data between the purple and green species. We select `aede2` as the manip var, the variable to be manipulated. The selection of `aded2` over `tars1` is due to magnitude of the contribution being larger, though `tars1` would yield a similar conclusion. The question that will be explored in the explanation of the algorithm is how important the variable `aede2` is to the separation of the clusters.
 
-Select a manipulation variable, $k$. Initialize a zero vector $e$ and set the $k$-th element set to 1. This gives the manip variable full contribution in this dimension.
+Initialize a zero vector $e$. `aede2` is the fifth variable in the data; set the $k=5$-th element to one giving the manip var a full contribution in this dimension.
 
-\begin{align*}
-\textbf{e}_{[p,~1]} ~=~
-  \begin{bmatrix}
-    0 \\
-    0 \\
-    \vdots \\
-    1 \\
-    \vdots \\
-    0
-  \end{bmatrix}
-\end{align*}
+<!-- \begin{align*} -->
+<!-- \textbf{e}_{[p,~1]} ~=~ -->
+<!--   \begin{bmatrix} -->
+<!--     0 \\ -->
+<!--     0 \\ -->
+<!--     \vdots \\ -->
+<!--     1 \\ -->
+<!--     \vdots \\ -->
+<!--     0 -->
+<!--   \end{bmatrix} -->
+<!-- \end{align*} -->
 
-In figure \@ref(fig:step0), above, notice that the variables `tars1` and `aede2` are almost orthogonal to the other 4 variables and control almost all of the variation in the x-axis of the projection. `Aede2` has a larger contribution on this basis, so we'll select it as the manip variable.
-
+ notice that the variables `tars1` and `aede2` are almost orthogonal to the other 4 variables and control almost all of the variation in the x-axis of the projection. `Aede2` has a larger contribution on this basis, so we'll select it as the manip variable.
 
 ### Step 2 Create the manip space
 
