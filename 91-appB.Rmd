@@ -149,95 +149,91 @@ This section describes the notation used in the algorithm for a 2D radial manual
   \item $\textbf{X}$, the data, an $n \times p$ numeric matrix to be embedded in two dimensions.
   \item $\textbf{B} = (B_1,~ B_2)$, any of orthonormal projection basis set, $p \times 2$ matrix, describing the projection from $p$ to two dimensions
   \item $\textbf{e}$, a zero column vector of length $p$ with the $k-$th element set to one, where $k$ is the number of the variable to manipulate.
+  \item $\theta$, the angle of in-projection-plane rotation, for example, on the reference axes. 
+  \item $\phi$, the angle of out-of-projection-plane rotation, coming into the manipulation space.
 \end{itemize}
 
 
-<!-- <!-- \begin{align*} --> -->
-<!-- <!--   \textbf{X}_{[n,~p]} ~= --> -->
-<!-- <!--   \begin{bmatrix} --> -->
-<!-- <!--     X_{1,~1} & \dots  & X_{1,~p} \\ --> -->
-<!-- <!--     X_{2,~1} & \dots  & X_{2,~p} \\ --> -->
-<!-- <!--     \vdots   & \ddots & \vdots   \\ --> -->
-<!-- <!--     X_{n,~1} & \dots  & X_{n,~p} --> -->
-<!-- <!--   \end{bmatrix} --> -->
-<!-- <!-- \end{align*} --> -->
+<!-- \begin{align*} -->
+<!--   \textbf{X}_{[n,~p]} ~= -->
+<!--   \begin{bmatrix} -->
+<!--     X_{1,~1} & \dots  & X_{1,~p} \\ -->
+<!--     X_{2,~1} & \dots  & X_{2,~p} \\ -->
+<!--     \vdots   & \ddots & \vdots   \\ -->
+<!--     X_{n,~1} & \dots  & X_{n,~p} -->
+<!--   \end{bmatrix} -->
+<!-- \end{align*} -->
 
-<!-- <!-- An orthonormal $p \time d$ basis set must be provided which describes the projection from $p-$ to $d-$ space. --> -->
-
-<!-- <!-- \begin{align*} --> -->
-<!-- <!--   \textbf{B}_{[p,~d]} ~= --> -->
-<!-- <!--   \begin{bmatrix} --> -->
-<!-- <!--     B_{1,~1} & \dots  & B_{1,~d} \\ --> -->
-<!-- <!--     B_{2,~1} & \dots  & B_{2,~d} \\ --> -->
-<!-- <!--     \vdots   & \ddots & \vdots   \\ --> -->
-<!-- <!--     B_{p,~1} & \dots  & B_{p,~d} --> -->
-<!-- <!--   \end{bmatrix} --> -->
-<!-- <!-- \end{align*} --> -->
-
-<!-- The algorithm primarily operates on the projection basis and utilizes the data only when making a display. The projection space can be viewed at any point in the process by pre-multiplying the data and ploting the first 2 variables.  -->
-
-
-<!-- ### Toy data set -->
-
-<!-- <!-- describe data. --> -->
-<!-- The flea data, originally from @lubischew_use_1962, available in the R package *tourr* [@wickham_tourr_2011] is used to illustrate the algorithm. The data contains 74 observations across 6 variables, physical measurements of the flea beetles. Each observation belonging to one of three species. -->
-
-<!-- <!-- Projection basis --> -->
-<!-- The data is defined. A basis set (ideally that views an interesting feature)  should to be provided to explore the sensitivity of the variables to the structure. To indentify a projection containing an interesting feature, apply  -->
-<!-- a guided tour[@cook_interactive_2007] on the flea data. In a guided tour the projection sequence is selected by optimizing an index via hill-climbing. In this case, the holes index is selected. The holes index is maximized by when the projected observations are furthest from the center. Figure \@ref(fig:step0) shows a locally optimized projection for this data. The left plot displays the reference axes of the projection basis, a visual indication of the magnitude and direction each variable contributed to the projections. The right plot shows the projection of the data through the basis set decribed by the reference axes (left). Data points are colored and given point characters according to the species of the flea (the guided tour was unsupervised with this information). -->
-
-<!-- ```{r step0, echo=F, results='hide', out.width='95%', out.height='95%', fig.cap = "Basis reference axes (left) and projected data (right) of standardized flea data. Data points color and shape are mapped to beetle species. Basis identified by holes-index guided tour. The variables `aede2` and `tars1` contribute mostly orthogonal to the other variables. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."} -->
-<!-- ## Flea holes tour -->
-<!-- f_dat  <- tourr::rescale(flea[,1:6]) -->
-<!-- f_cat  <- factor(flea$species) -->
-<!-- f_path <- save_history(f_dat, guided_tour(holes())) -->
-<!-- f_bas  <- matrix(f_path[,, max(dim(f_path)[3])], ncol=2) -->
-<!-- f_mvar <- 5 -->
-<!-- f_msp  <- create_manip_space(basis = f_bas, manip_var = f_mvar) -->
-<!-- f_proj <- data.frame(tourr::rescale(f_dat %*% f_msp[, 1:2])) -->
-
-<!-- # step0, output -->
-<!-- # Adjust centering to make axes and data side by side -->
-<!-- view_basis(f_bas, labels = colnames(f_dat)) + -->
-<!--   geom_point(data = f_proj, -->
-<!--              mapping = aes(x = X1 + .75, y = X2 - .5, color = f_cat), -->
-<!--              pch = as.integer(f_cat) + 15) + -->
-<!--   theme(panel.border = element_rect(colour = "black", fill = NA)) -->
-<!-- ``` -->
-
-<!-- Call `view_basis()` on a basis to produce a `ggplot2` graphic similar to \@ref(fig:step0). Projection space is always available for display via the matrix multiplication $\textbf{X}_{[n,~p]} ~*~ \textbf{B}_{[p,~d]} ~=~ \textbf{P}_{[n,~d]}$. -->
-
-<!-- #TODO: continue here. -->
-
-<!-- ### Step 1) Choose variable of interest -->
-
-<!-- <!-- select a manip var--> -->
-<!-- In figure \@ref(fig:step0), above, the variables `tars1` and `aede2` contribute mostly orthogonal to the other four variables. These two variables explain the variation of the data between the purple and green species. We select `aede2` as the manip var, the variable to be manipulated. The selection of `aded2` over `tars1` is due to magnitude of the contribution being larger, though `tars1` would yield a similar conclusion. The question that will be explored in the explanation of the algorithm is how important the variable `aede2` is to the separation of the clusters. -->
-
-<!-- Initialize a zero vector $e$. `aede2` is the fifth variable in the data; set the $k=5$-th element to one giving the manip var a full contribution in this dimension. -->
-
-<!-- <!-- \begin{align*} --> -->
-<!-- <!-- \textbf{e}_{[p,~1]} ~=~ --> -->
-<!-- <!--   \begin{bmatrix} --> -->
-<!-- <!--     0 \\ --> -->
-<!-- <!--     0 \\ --> -->
-<!-- <!--     \vdots \\ --> -->
-<!-- <!--     1 \\ --> -->
-<!-- <!--     \vdots \\ --> -->
-<!-- <!--     0 --> -->
-<!-- <!--   \end{bmatrix} --> -->
-<!-- <!-- \end{align*} --> -->
-
-<!--  notice that the variables `tars1` and `aede2` are almost orthogonal to the other 4 variables and control almost all of the variation in the x-axis of the projection. `Aede2` has a larger contribution on this basis, so we'll select it as the manip variable. -->
-
-<!-- ### Step 2 Create the manip space -->
-
-<!-- Use the Gram-Schmidt process to orthonormalize the concatenation of the basis and $e$ yielding the manipulation space. -->
+<!-- An orthonormal $p \time d$ basis set must be provided which describes the projection from $p-$ to $d-$ space. -->
 
 <!-- \begin{align*} -->
-<!--   \textbf{M}_{[p,~d+1]} -->
-<!--   &= Orthonormalize_{GS}( \textbf{B}_{[p,~d]}|\textbf{e}_{[p,~1]} ) \\ -->
-<!--   &= Orthonormalize_{GS} -->
+<!--   \textbf{B}_{[p,~d]} ~= -->
+<!--   \begin{bmatrix} -->
+<!--     B_{1,~1} & \dots  & B_{1,~d} \\ -->
+<!--     B_{2,~1} & \dots  & B_{2,~d} \\ -->
+<!--     \vdots   & \ddots & \vdots   \\ -->
+<!--     B_{p,~1} & \dots  & B_{p,~d} -->
+<!--   \end{bmatrix} -->
+<!-- \end{align*} -->
+
+The algorithm primarily operates on the projection basis and utilizes the data only when making a display. The projection space can be viewed at any point in the process by pre-multiplying the data and ploting the first 2 variables.
+
+
+### Toy data set
+
+<!-- describe data. -->
+The flea data, originally from @lubischew_use_1962, available in the R package *tourr* [@wickham_tourr_2011] is used to illustrate the algorithm. The data contains 74 observations across 6 variables, physical measurements of the flea beetles. Each observation belonging to one of three species.
+
+<!-- Projection basis -->
+The data is defined. A basis set (ideally that views an interesting feature)  should to be provided to explore the sensitivity of the variables to the structure. To indentify a projection containing an interesting feature, apply
+a guided tour[@cook_interactive_2007] on the flea data. In a guided tour the projection sequence is selected by optimizing an index via hill-climbing. In this case, the holes index is selected. The holes index is maximized by when the projected observations are furthest from the center. Figure \@ref(fig:step0) shows a locally optimized projection for this data. The left plot displays the reference axes of the projection basis, a visual indication of the magnitude and direction each variable contributed to the projections. The right plot shows the projection of the data through the basis set decribed by the reference axes (left). Data points are colored and given point characters according to the species of the flea (the guided tour was unsupervised with this information).
+
+```{r step0, echo=F, results='hide', out.width='95%', out.height='95%', fig.cap = "Basis reference axes (left) and projected data (right) of standardized flea data. Data points color and shape are mapped to beetle species. Basis identified by holes-index guided tour. The variables `aede2` and `tars1` contribute mostly orthogonal to the other variables. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."}
+## Flea holes tour
+f_dat  <- tourr::rescale(flea[,1:6])
+f_cat  <- factor(flea$species)
+f_path <- save_history(f_dat, guided_tour(holes()))
+f_bas  <- matrix(f_path[,, max(dim(f_path)[3])], ncol=2)
+f_mvar <- 5
+f_msp  <- create_manip_space(basis = f_bas, manip_var = f_mvar)
+f_proj <- data.frame(tourr::rescale(f_dat %*% f_msp[, 1:2]))
+
+# step0, output
+# Adjust centering to make axes and data side by side
+view_basis(f_bas, labels = colnames(f_dat)) +
+  geom_point(data = f_proj,
+             mapping = aes(x = X1 + .75, y = X2 - .5, color = f_cat),
+             pch = as.integer(f_cat) + 15) +
+  theme(panel.border = element_rect(colour = "black", fill = NA))
+```
+
+Call `view_basis()` on a basis to produce a `ggplot2` graphic similar to \@ref(fig:step0). Projection space is always available for display via the matrix multiplication $\textbf{X}_{[n,~p]} ~*~ \textbf{B}_{[p,~d]} ~=~ \textbf{P}_{[n,~d]}$.
+
+
+
+### Step 1) Choose variable of interest
+
+<!-- select a manip var-->
+In figure \@ref(fig:step0), above, the contributions of the variables `tars1` and `aede2` are mostly orthogonal to the contributions of the other four variables. These two variables explain the variation of the data between the purple and green species. We select `aede2` as the manip var, the variable to be manipulated as `aded2` typically has a larger contribution after the optimizing the holes index. The question that will be explored in the explanation of the algorithm is how important the variable `aede2` is to the separation of the clusters.
+
+
+## TODO: continue here.
+### Step 2 Create the manip space
+
+<!-- add the zero vector -->
+Initialize a zero vector $e$ of $p$ elements. Because `aede2` is the fifth variable in the data, set the $k=5$-th element to one giving the manip var a full contribution in this dimension. Use the Gram-Schmidt process to orthonormalize the zero vector onto the basis yielding the 3D manipulation space.
+
+\begin{align*}
+  \textbf{e} &\leftarrow Orthonormalize_{GS}(\textbf{e}) \\
+  &= \textbf{e} - \langle \textbf{e},\textbf{B}_1 \rangle \textbf{B}_1 - \langle \textbf{e}, \textbf{B}_2 \rangle \textbf{B}_2 \\
+  \\
+  \textbf{M}_{[p,~3]} &= (\textbf{B}_1,\textbf{B}_2,\textbf{e})
+\end{align*}
+
+<!-- \begin{align*} -->
+<!--   \textbf{M}_{[p,~3]} -->
+<!--   &= Orthonormalize_{GS}(\textbf{B}_1,\textbf{B}_2,\textbf{e}) \\ -->
+<!--   &= (\textbf{B}_1, \textbf{B}_2, \textbf{e} - \langle \textbf{e},\textbf{B}_1 \rangle \textbf{B}_1 - \langle \textbf{e}, \textbf{B}_2 \rangle \textbf{B}_2 \\ -->
 <!--   \left( -->
 <!--     \begin{bmatrix} -->
 <!--       B_{1,~1} & \dots  & B_{1,~d} \\ -->
@@ -260,83 +256,83 @@ This section describes the notation used in the algorithm for a 2D radial manual
 <!-- \end{align*} -->
 
 
-<!-- Adding an extra dimension to our basis plane allows for the manipulation of the specified variable. For example, lifting a piece of paper, rather than manipulating on a table top. Orthonormalizing rescales the new vector while leaving the first $d$ variables identical to the basis. An illustration of such can be seen below in figure \@ref(fig:step2). -->
+Adding an extra dimension to our basis plane allows for the manipulation of the specified variable. For example, lifting a piece of paper, rather than manipulating on a table top. Orthonormalizing rescales the new vector while leaving the first $d$ variables identical to the basis. An illustration of such can be seen below in figure \@ref(fig:step2).
 
-<!-- ```{r step2, echo=F, out.width='100%', fig.cap = "Manipulation space for controlling the contribution of aede2 of standardized flea data. Basis was identified by holes-index guided tour. The out of plane axis, in red, shows how the manipulation variable can be rotated, while other dimensions stay embedded within the basis plane."} -->
-<!-- #=== Step 2 output -->
-<!-- view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat)) + -->
-<!--     theme(panel.border = element_rect(colour = "black", fill = NA)) -->
-<!-- ``` -->
+```{r step2, echo=F, out.width='100%', fig.cap = "Manipulation space for controlling the contribution of aede2 of standardized flea data. Basis was identified by holes-index guided tour. The out of plane axis, in red, shows how the manipulation variable can be rotated, while other dimensions stay embedded within the basis plane."}
+#=== Step 2 output
+view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat)) +
+    theme(panel.border = element_rect(colour = "black", fill = NA))
+```
 
-<!-- Imagine being able to grab hold of the red axis and rotate it changing the projection onto the basis plane. This is what happens in a manual tour. For a radial tour, fix $\phi$, the angle within the blue plane, and vary the $\theta$, the angle between the red and blue lines. The user controlling these angles changes the values of the coefficient the manip variable and performs a constrained rotation on the remaining variables. -->
-
-
-<!-- ### Step 3 Generate rotation -->
-
-<!-- Define a set of values for $\phi_i$, the angle of out of the plane rotation, orthogonal to the projection plane. This corresponds to the angle between the red manipulation axis and the blue plane in figure \@ref(fig:step2). -->
-
-<!-- **For ** $i$ **in 1 to n_slides:** -->
-<!-- <!-- Stop trying clean the above, it's not going to happen... --> -->
-
-<!-- Post-multiply the manipulation space by a rotation matrix, producing, **RM**, the rotated manip space. -->
-
-<!-- \begin{align*} -->
-<!--   \textbf{RM}_{[p,~d+1,~i]} -->
-<!--   &= \textbf{M}_{[p,~d+1]} ~*~ \textbf{R}_{[d+1,~d+1]} -->
-<!--     ~~~~~~~~~~~~~~~~~~~~~~~~\text{For the $d=2$ case:} \\ -->
-<!--   &= \begin{bmatrix} -->
-<!--     M_{1,~1} & \dots & M_{1,~d} & M_{1,~d+1} \\ -->
-<!--     M_{2,~1} & \dots & M_{2,~d} & M_{2,~d+1} \\ -->
-<!--     \vdots   & \ddots& \vdots   \\ -->
-<!--     M_{p,~1} & \dots & M_{p,~d} & M_{p,~d+1} -->
-<!--   \end{bmatrix}_{[p,~d+1]} -->
-<!--     ~*~ -->
-<!--   \begin{bmatrix} -->
-<!--     c_\theta^2 c_\phi s_\theta^2 & -->
-<!--     -c_\theta s_\theta (1 - c_\phi) & -->
-<!--     -c_\theta s_\phi \\ -->
-<!--     -c_\theta s_\theta (1 - c_\phi) & -->
-<!--     s_\theta^2 c_\phi + c_\theta^2 & -->
-<!--     -s_\theta s_\phi \\ -->
-<!--     c_\theta s_\phi & -->
-<!--     s_\theta s_\phi & -->
-<!--     c_\phi -->
-<!--   \end{bmatrix}_{[3,~3]} -->
-<!-- \end{align*} -->
-
-<!-- Where: -->
-<!-- \begin{description} -->
-<!--   \item[$\theta$] is the angle that lies on the projection plane, the *XY*-scatterplot -->
-<!--   \item[$\phi$] is the angle orthogonal to the projection plane, in the *Z* direction relative to the *XY*-scatterplot -->
-<!--   \item[$c_\theta$] is the cosine of $\theta$ -->
-<!--   \item[$c_\phi$]   is the cosine of $\phi$ -->
-<!--   \item[$s_\theta$] is the sine of   $\theta$ -->
-<!--   \item[$s_\phi$]   is the sine of   $\phi$ -->
-<!-- \end{description} -->
-
-<!-- In application: compile the sequence of $\phi_i$ and create an array (or long table) for each rotated manipulation space. $\phi$ is the angle relative to the initial value of $\phi$, we find the transformation $\phi_i$ - $\phi_1$ useful to think about $\phi$ relative to the basis plane. If the manip variable doesn't move as expected this is the first place to check. -->
-
-<!-- ```{r STEP3CODEEXAMPLE, eval=F, echo=T} -->
-<!-- for (phi in seq(seq_start, seq_end, phi_inc_sign)) { -->
-<!--   slide <- slide + 1 -->
-<!--   tour[,, slide] <- rotate_manip_space(manip_space, theta, phi)[, 1:2] -->
-<!-- } -->
-<!-- ``` -->
-
-<!-- In figure \@ref(fig:step3) we illustrate the sequence with 15 projected bases and highlight the manip variable on top while showing the corresponding projected data points on the bottom. A dynamic version of this tour can be viewed online at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/, which may take a moment to load. The format of this figure and linking to a dynamic version will be used again in section \ref{sec:application}. -->
+Imagine being able to grab hold of the red axis and rotate it changing the projection onto the basis plane. This is what happens in a manual tour. For a radial tour, fix $\phi$, the angle within the blue plane, and vary the $\theta$, the angle between the red and blue lines. The user controlling these angles changes the values of the coefficient the manip variable and performs a constrained rotation on the remaining variables.
 
 
-<!-- (ref:step3paper-cap) Rotated manipulation spaces, a radial manual tour controlling the contribution from `aded2` of standardized flea data. The contribution of `aede2` extends from its initial contribution to a full contribution to the projection before decreasing to zero and then returning to its initial value. A dynamic version can be viewed at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/. -->
+### Step 3 Generate rotation
 
-<!-- ```{r step3, echo=F, warning=F, fig.height=7.2, fig.width=6, out.height='7.2in', out.width='6in', fig.cap = "(ref:step3paper-cap)"} -->
-<!-- f_angle <- .26 -->
-<!-- f_mtour <- manual_tour(f_bas, manip_var = f_mvar, angle = f_angle) -->
-<!-- if(dim(f_mtour)[3] != 15) message( -->
-<!--   paste0("!!!!! step3 n_slides != 15 !!!!! n_slides = ", dim(f_mtour)[3])) -->
+Define a set of values for $\phi_i$, the angle of out of the plane rotation, orthogonal to the projection plane. This corresponds to the angle between the red manipulation axis and the blue plane in figure \@ref(fig:step2).
 
-<!-- #play_manual_tour(f_dat, f_bas, f_mvar, col = f_cat, angle = f_angle) -->
-<!-- array2static(.m_tour = f_mtour, .data = f_dat, .m_var = f_mvar, .cat = f_cat) -->
-<!-- ``` -->
+**For ** $i$ **in 1 to n_slides:**
+<!-- Stop trying clean the above, it's not going to happen... -->
+
+Post-multiply the manipulation space by a rotation matrix, producing, **RM**, the rotated manip space.
+
+\begin{align*}
+  \textbf{RM}_{[p,~d+1,~i]}
+  &= \textbf{M}_{[p,~d+1]} ~*~ \textbf{R}_{[d+1,~d+1]}
+    ~~~~~~~~~~~~~~~~~~~~~~~~\text{For the $d=2$ case:} \\
+  &= \begin{bmatrix}
+    M_{1,~1} & \dots & M_{1,~d} & M_{1,~d+1} \\
+    M_{2,~1} & \dots & M_{2,~d} & M_{2,~d+1} \\
+    \vdots   & \ddots& \vdots   \\
+    M_{p,~1} & \dots & M_{p,~d} & M_{p,~d+1}
+  \end{bmatrix}_{[p,~d+1]}
+    ~*~
+  \begin{bmatrix}
+    c_\theta^2 c_\phi s_\theta^2 &
+    -c_\theta s_\theta (1 - c_\phi) &
+    -c_\theta s_\phi \\
+    -c_\theta s_\theta (1 - c_\phi) &
+    s_\theta^2 c_\phi + c_\theta^2 &
+    -s_\theta s_\phi \\
+    c_\theta s_\phi &
+    s_\theta s_\phi &
+    c_\phi
+  \end{bmatrix}_{[3,~3]}
+\end{align*}
+
+Where:
+\begin{description}
+  \item[$\theta$] is the angle that lies on the projection plane, the *XY*-scatterplot
+  \item[$\phi$] is the angle orthogonal to the projection plane, in the *Z* direction relative to the *XY*-scatterplot
+  \item[$c_\theta$] is the cosine of $\theta$
+  \item[$c_\phi$]   is the cosine of $\phi$
+  \item[$s_\theta$] is the sine of   $\theta$
+  \item[$s_\phi$]   is the sine of   $\phi$
+\end{description}
+
+In application: compile the sequence of $\phi_i$ and create an array (or long table) for each rotated manipulation space. $\phi$ is the angle relative to the initial value of $\phi$, we find the transformation $\phi_i$ - $\phi_1$ useful to think about $\phi$ relative to the basis plane. If the manip variable doesn't move as expected this is the first place to check.
+
+```{r STEP3CODEEXAMPLE, eval=F, echo=T}
+for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
+  slide <- slide + 1
+  tour[,, slide] <- rotate_manip_space(manip_space, theta, phi)[, 1:2]
+}
+```
+
+In figure \@ref(fig:step3) we illustrate the sequence with 15 projected bases and highlight the manip variable on top while showing the corresponding projected data points on the bottom. A dynamic version of this tour can be viewed online at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/, which may take a moment to load. The format of this figure and linking to a dynamic version will be used again in section \ref{sec:application}.
+
+
+(ref:step3paper-cap) Rotated manipulation spaces, a radial manual tour controlling the contribution from `aded2` of standardized flea data. The contribution of `aede2` extends from its initial contribution to a full contribution to the projection before decreasing to zero and then returning to its initial value. A dynamic version can be viewed at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/.
+
+```{r step3, echo=F, warning=F, fig.height=7.2, fig.width=6, out.height='7.2in', out.width='6in', fig.cap = "(ref:step3paper-cap)"}
+f_angle <- .26
+f_mtour <- manual_tour(f_bas, manip_var = f_mvar, angle = f_angle)
+if(dim(f_mtour)[3] != 15) message(
+  paste0("!!!!! step3 n_slides != 15 !!!!! n_slides = ", dim(f_mtour)[3]))
+
+#play_manual_tour(f_dat, f_bas, f_mvar, col = f_cat, angle = f_angle)
+array2static(.m_tour = f_mtour, .data = f_dat, .m_var = f_mvar, .cat = f_cat)
+```
 
 
 ## Display projection sequence {#sec:display}
