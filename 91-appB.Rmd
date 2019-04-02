@@ -188,7 +188,9 @@ The flea data, originally from @lubischew_use_1962, available in the R package *
 The data is defined. A basis set (ideally that views an interesting feature)  should to be provided to explore the sensitivity of the variables to the structure. To indentify a projection containing an interesting feature, apply
 a guided tour[@cook_interactive_2007] on the flea data. In a guided tour the projection sequence is selected by optimizing an index via hill-climbing. In this case, the holes index is selected. The holes index is maximized by when the projected observations are furthest from the center. Figure \@ref(fig:step0) shows a locally optimized projection for this data. The left plot displays the reference axes of the projection basis, a visual indication of the magnitude and direction each variable contributed to the projections. The right plot shows the projection of the data through the basis set decribed by the reference axes (left). Data points are colored and given point characters according to the species of the flea (the guided tour was unsupervised with this information).
 
-```{r step0, echo=F, results='hide', out.width='95%', out.height='95%', fig.cap = "Basis reference axes (left) and projected data (right) of standardized flea data. Data points color and shape are mapped to beetle species. Basis identified by holes-index guided tour. The variables `aede2` and `tars1` contribute mostly orthogonal to the other variables. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection."}
+(ref:step0-cap) Basis reference axes (left) and projected data (right) of standardized flea data. Data points color and shape are mapped to beetle species. Basis identified by holes-index guided tour. The variables `aede2` and `tars1` contribute mostly orthogonal to the other variables. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection.
+
+```{r step0, echo=F, results='hide', out.width='95%', fig.cap = "(ref:step0-cap)"}
 ## Flea holes tour
 f_dat  <- tourr::rescale(flea[,1:6])
 f_cat  <- factor(flea$species)
@@ -217,54 +219,32 @@ Call `view_basis()` on a basis to produce a `ggplot2` graphic similar to \@ref(f
 In figure \@ref(fig:step0), above, the contributions of the variables `tars1` and `aede2` are mostly orthogonal to the contributions of the other four variables. These two variables explain the variation of the data between the purple and green species. We select `aede2` as the manip var, the variable to be manipulated as `aded2` typically has a larger contribution after the optimizing the holes index. The question that will be explored in the explanation of the algorithm is how important the variable `aede2` is to the separation of the clusters.
 
 
-## TODO: continue here.
+
 ### Step 2 Create the manip space
 
-<!-- add the zero vector -->
+<!-- Zero Vect, manip sp -->
 Initialize a zero vector $e$ of $p$ elements. Because `aede2` is the fifth variable in the data, set the $k=5$-th element to one giving the manip var a full contribution in this dimension. Use the Gram-Schmidt process to orthonormalize the zero vector onto the basis yielding the 3D manipulation space.
 
 \begin{align*}
-  \textbf{e} &\leftarrow Orthonormalize_{GS}(\textbf{e}) \\
+  \textbf{e} &\leftarrow Orthonormalize_{GS}(\textbf{e}) w.r.t. Basis \\
   &= \textbf{e} - \langle \textbf{e},\textbf{B}_1 \rangle \textbf{B}_1 - \langle \textbf{e}, \textbf{B}_2 \rangle \textbf{B}_2 \\
   \\
   \textbf{M}_{[p,~3]} &= (\textbf{B}_1,\textbf{B}_2,\textbf{e})
 \end{align*}
 
-<!-- \begin{align*} -->
-<!--   \textbf{M}_{[p,~3]} -->
-<!--   &= Orthonormalize_{GS}(\textbf{B}_1,\textbf{B}_2,\textbf{e}) \\ -->
-<!--   &= (\textbf{B}_1, \textbf{B}_2, \textbf{e} - \langle \textbf{e},\textbf{B}_1 \rangle \textbf{B}_1 - \langle \textbf{e}, \textbf{B}_2 \rangle \textbf{B}_2 \\ -->
-<!--   \left( -->
-<!--     \begin{bmatrix} -->
-<!--       B_{1,~1} & \dots  & B_{1,~d} \\ -->
-<!--       B_{2,~1} & \dots  & B_{2,~d} \\ -->
-<!--       \vdots   & \ddots & \vdots   \\ -->
-<!--       B_{k,~1} & \dots  & B_{k,~d} \\ -->
-<!--       \vdots   & \ddots & \vdots   \\ -->
-<!--       B_{p,~1} & \dots  & B_{p,~d} -->
-<!--     \end{bmatrix} -->
-<!--   ~|~ -->
-<!--     \begin{bmatrix} -->
-<!--       0 \\ -->
-<!--       0 \\ -->
-<!--       \vdots \\ -->
-<!--       1 \\ -->
-<!--       \vdots \\ -->
-<!--       0 -->
-<!--     \end{bmatrix} -->
-<!--   \right) -->
-<!-- \end{align*} -->
+<!-- What the manip space facilitates -->
+Adding this extra dimension to our basis plane allows for the coefficients of the specified variable to be changed. For example, the ablility to lift a piece of paper, rather than being constrained to motion on a table top. Orthonormalizing rescales the new depth vector while the projection down to 2D is the original basis, that is the first $d$ vectors remain constant. Imagine the refererence axes being laid flat on a table, while a the new dimension projects to that position. An illustration of such can be seen below in figure \@ref(fig:step2). The manip var is highlighted, while the depths of the other variales are ignored. 
 
+(ref:step2-cap) Manipulation space for controlling the contribution of `aede2` of standardized flea data. Basis selected by holes-index guided tour. Reference plane shown in blue. The out-of-projection-plane axis, in red, allows the coeffiecients of the manip var to be changed.
 
-Adding an extra dimension to our basis plane allows for the manipulation of the specified variable. For example, lifting a piece of paper, rather than manipulating on a table top. Orthonormalizing rescales the new vector while leaving the first $d$ variables identical to the basis. An illustration of such can be seen below in figure \@ref(fig:step2).
-
-```{r step2, echo=F, out.width='100%', fig.cap = "Manipulation space for controlling the contribution of aede2 of standardized flea data. Basis was identified by holes-index guided tour. The out of plane axis, in red, shows how the manipulation variable can be rotated, while other dimensions stay embedded within the basis plane."}
+```{r step2, echo=F, out.width='100%', fig.cap = "(ref:step2-cap)"}
 #=== Step 2 output
 view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat)) +
     theme(panel.border = element_rect(colour = "black", fill = NA))
 ```
 
-Imagine being able to grab hold of the red axis and rotate it changing the projection onto the basis plane. This is what happens in a manual tour. For a radial tour, fix $\phi$, the angle within the blue plane, and vary the $\theta$, the angle between the red and blue lines. The user controlling these angles changes the values of the coefficient the manip variable and performs a constrained rotation on the remaining variables.
+
+Imagine being able to grab the red axis and rotate it changing the projection onto the basis plane. This is what happens in a manual tour. A  For a radial tour, fix $\phi$, the angle within the blue plane, and vary the $\theta$, the angle between the red and blue lines. The user controlling these angles changes the values of the coefficient the manip variable and performs a constrained rotation on the remaining variables.
 
 
 ### Step 3 Generate rotation
@@ -322,9 +302,9 @@ for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
 In figure \@ref(fig:step3) we illustrate the sequence with 15 projected bases and highlight the manip variable on top while showing the corresponding projected data points on the bottom. A dynamic version of this tour can be viewed online at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/, which may take a moment to load. The format of this figure and linking to a dynamic version will be used again in section \ref{sec:application}.
 
 
-(ref:step3paper-cap) Rotated manipulation spaces, a radial manual tour controlling the contribution from `aded2` of standardized flea data. The contribution of `aede2` extends from its initial contribution to a full contribution to the projection before decreasing to zero and then returning to its initial value. A dynamic version can be viewed at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/.
+(ref:step3cap) Rotated manipulation spaces, a radial manual tour controlling the contribution from `aded2` of standardized flea data. The contribution of `aede2` extends from its initial contribution to a full contribution to the projection before decreasing to zero and then returning to its initial value. A dynamic version can be viewed at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/.
 
-```{r step3, echo=F, warning=F, fig.height=7.2, fig.width=6, out.height='7.2in', out.width='6in', fig.cap = "(ref:step3paper-cap)"}
+```{r step3, echo=F, warning=F, fig.height=7.2, fig.width=6, out.height='7.2in', out.width='6in', fig.cap = "(ref:step3cap)"}
 f_angle <- .26
 f_mtour <- manual_tour(f_bas, manip_var = f_mvar, angle = f_angle)
 if(dim(f_mtour)[3] != 15) message(
