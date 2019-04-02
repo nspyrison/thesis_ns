@@ -138,7 +138,7 @@ The section below describes the algorithm for performing a 2D radial manual tour
 2. Create a 3D manipulation space, where the manip variable has the full contribution.
 3. Generate a rotation sequence which increases the norm of the coefficient to 1 and zeros it.
 
-The steps are described in more detail below.
+The steps are described in more detail below. The R functions used below mentioned briefly, but more complete code example can be found in section \ref{sec:usage}
 
 ### Notation
 
@@ -214,7 +214,6 @@ Adding this extra dimension to our basis plane allows for the coefficients of th
 (ref:step2-cap) Manipulation space for controlling the contribution of `aede2` of standardized flea data. Basis selected by a holes-index guided tour. The Projection plane is shown in blue. The manipulation axis, in red, allows the coefficients of the manip var to be changed.
 
 ```{r step2, echo=F, out.width='100%', fig.cap = "(ref:step2-cap)"}
-#=== Step 2 output
 view_manip_space(basis = f_bas, manip_var = f_mvar, labels = colnames(f_dat)) +
     theme(panel.border = element_rect(colour = "black", fill = NA))
 ```
@@ -293,11 +292,12 @@ if(dim(f_mtour)[3] != 15) message(
 array2static(.m_tour = f_mtour, .data = f_dat, .m_var = f_mvar, .cat = f_cat)
 ```
 
-## TODO: continue here.
+Animations can be produced using the function `play_manual_tour()`. This function defaults to an HTML5 widget produced from `plotly`.
 
-## Display projection sequence {#sec:display}
+## Display of data in the projection-space {#sec:display}
 
-To get back to data-space pre-multiply each rotated manip space by the data for the projection in data-space.
+<!-- reminder of basis operation and now apply data -->
+In light of performance, the above operatons are performed on the bases without use of the larger datasets. After the bases are brought into the projection-space, however, it is helpful to observe them with data in the same space. Pre-multiply the data by basis frame bringing the data into the projection-space.
 
 \begin{align}
   \textbf{P}_{[n,~3]}
@@ -313,14 +313,20 @@ To get back to data-space pre-multiply each rotated manip space by the data for 
       \begin{bmatrix}
         RM_{1,~1} & RM_{1,~2} & RM_{1,~3} \\
         RM_{2,~1} & RM_{2,~2} & RM_{2,~3} \\
-        \vdots     & \vdots     & \vdots     \\
+        \vdots     & \vdots     & \vdots  \\
         RM_{p,~1} & RM_{p,~2} & RM_{p,~3}
-      \end{bmatrix}_{[p,~d+1]}
+      \end{bmatrix}_{[p,~3]}
 \end{align}
 
-Plot the first 2 variables from each projection in sequence for an $XY$ scatterplot. The remaining variable is sometimes linked to a data point aesthetic to produce depth cues used in conjunction with the $XY$ scatterplot.
+<!-- plot 2 var in seq for animation -->
+For a 2D scatterplot, plot the first two variables from each frame statically as in the previous figure, or in sequence, producing an animated scatterplot. The remaining variable is sometimes linked to a data point aesthetic (such as size or color) to produce depth cues used in conjunction with the $XY$ scatterplot.
 
-*tourr* utilizes R's base graphics for the display of tours. Use `render_plotly()` to display as an dynamic `plotly` @sievert_plotly_2018 object or `render_gganimate()` for a `gganimate` @pedersen_gganimate:_2019 graphic. Both of which build from `ggplot2` plotting in internal functions.
+
+## TODO: continue here.
+<!-- Move storage and sharing up and rendering in R down? -->
+### Rendering in R
+
+The *tourr* package utilizes R's base graphics for the display of tours. *spinifex* allows tours to be used in rendered in `plotly` @sievert_plotly_2018 as an HTML5 object or`gganimate` @pedersen_gganimate:_2019 as .gif or .mp4 object. Both of which build from `ggplot2` plotting in internal functions.
 
 Interaction with graphics in R is limited. Traditionally, all commands are passed to the R via calls to the console, conflicting with user engagement. Some recent packages have made advancement into this direction such as with the use of the R package `shiny` [@chang_shiny:_2018], which allows applications can be hosted either locally or remotely and communicate with the R console, allowing for developers to code dynamic content interaction. To a lesser extent, `plotly` offers static interactions with the contained object, such as tooltips, brushing, and linking without communicating back to the R console.
 
@@ -431,16 +437,43 @@ array2static(.m_tour = DIS_mtour, .data = DIS_dat,
 DIS cluster manual tours manipulating each of the principal components can be viewed from the links: [PC1](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc1/), [PC2](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc2/), [PC3](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc3/), [PC4](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc4/), [PC5](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc5/), and [PC6](https://nspyrison.netlify.com/thesis/discluster_manualtour_pc6/).
 
 
-## Source code and usage
+## Source code and usage {#sec:usage}
+
+Use the below code as a guide for installation and finding the vigette. The vignette is more lighter discussion and goes though a couple more use cases and examples. If you preffer to follow along with the example in the algorithm then simplified code is also listed below.
+
+```{r INSTALLCODEEXAMPLE, eval=F, echo=T}
+# devtools::install_github("nspyrison/spinifex") # Development version
+install.package("spinifex")
+
+# Also see vignette:
+vignette("spinifex") # vignette ‘spinifex’ not found
+
+## manual tour of std flea from holes-index:
+library(spinifex)
+f_dat  <- tourr::rescale(flea[,1:6])
+f_cat  <- factor(flea$species)
+f_path <- save_history(f_dat, guided_tour(holes()))
+f_bas  <- matrix(f_path[,, max(dim(f_path)[3])], ncol=2)
+f_mvar <- 5
+f_lab  <- colnames(f_dat)
+
+# View the basis
+view_basis(f_bas, data = f_dat, labels = f_lab)
+# View the manip space
+view_manip_space(basis = f_bas, manip_var = f_mvar, labels = f_lab)
+# Play animation as HTML5 from plotly
+play_manual_tour(data = f_dat, basis = f_bas, manip_var = f_mvar, 
+                 col = f_cat, angle = f_angle)
+```
+
+
+### Aknowledgements
 
 This article was created in `R` [@r_core_team_r:_2018], using `bookdown` [@xie_bookdown:_2016] and `rmarkdown` [@xie_r_2018], with code generating the examples inline. The source files can be found at [github.com/nspyrison/confirmation/](https://github.com/nspyrison/confirmation/).
 
 The source code for the `spinifex` package can be found at [github.com/nspyrison/spinifex/](https://github.com/nspyrison/spinifex/). To install the package in R, run:
 
-```{r INSTALLCODEEXAMPLE, eval=F, echo=T}
-# install.package("devtools")
-devtools::install_github("nspyrison/spinifex")
-```
+
 
 
 ## Discussion {#sec:discussion}
