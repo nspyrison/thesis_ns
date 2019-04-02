@@ -173,13 +173,27 @@ decribed by the reference axes (left). Data points are colored and given
 point characters according to the species of the flea (the guided tour
 was unsupervised with this information).
 
+
+
+
+
+
+
+
+
 \begin{figure}
 
-{\centering \includegraphics[width=0.95\linewidth,height=0.95\textheight]{confirmation_report_ns_files/figure-latex/step0-1} 
+{\centering \includegraphics[width=0.95\linewidth]{confirmation_report_ns_files/figure-latex/step0-1} 
 
 }
 
-\caption{Basis reference axes (left) and projected data (right) of standardized flea data. Data points color and shape are mapped to beetle species. Basis identified by holes-index guided tour. The variables `aede2` and `tars1` contribute mostly orthogonal to the other variables. We'll select `aede2` as our manipulation variable to see how the structure of the projection changes as we rotate `aede2` into and out of the projection.}\label{fig:step0}
+\caption{Basis reference axes (left) and projected data (right)
+of standardized flea data. Data points color and shape are mapped to
+beetle species. Basis identified by holes-index guided tour. The
+variables \texttt{aede2} and \texttt{tars1} contribute mostly orthogonal
+to the other variables. We'll select \texttt{aede2} as our manipulation
+variable to see how the structure of the projection changes as we rotate
+\texttt{aede2} into and out of the projection.}\label{fig:step0}
 \end{figure}
 
 Call \texttt{view\_basis()} on a basis to produce a \texttt{ggplot2}
@@ -200,8 +214,6 @@ optimizing the holes index. The question that will be explored in the
 explanation of the algorithm is how important the variable
 \texttt{aede2} is to the separation of the clusters.
 
-\section{TODO: continue here.}\label{todo-continue-here.}
-
 \subsection{Step 2 Create the manip
 space}\label{step-2-create-the-manip-space}
 
@@ -212,17 +224,27 @@ Gram-Schmidt process to orthonormalize the zero vector onto the basis
 yielding the 3D manipulation space.
 
 \begin{align*}
-  \textbf{e} &\leftarrow Orthonormalize_{GS}(\textbf{e}) \\
+  \textbf{e} &\leftarrow Orthonormalize_{GS}(\textbf{e}) w.r.t. Basis \\
   &= \textbf{e} - \langle \textbf{e},\textbf{B}_1 \rangle \textbf{B}_1 - \langle \textbf{e}, \textbf{B}_2 \rangle \textbf{B}_2 \\
   \\
   \textbf{M}_{[p,~3]} &= (\textbf{B}_1,\textbf{B}_2,\textbf{e})
 \end{align*}
 
-Adding an extra dimension to our basis plane allows for the manipulation
-of the specified variable. For example, lifting a piece of paper, rather
-than manipulating on a table top. Orthonormalizing rescales the new
-vector while leaving the first \(d\) variables identical to the basis.
-An illustration of such can be seen below in figure \ref{fig:step2}.
+Adding this extra dimension to our basis plane allows for the
+coefficients of the specified variable to be changed. For example, the
+ablility to lift a piece of paper, rather than being constrained to
+motion on a table top. Orthonormalizing rescales the new depth vector
+while the projection down to 2D is the original basis, that is the first
+\(d\) vectors remain constant. Imagine the refererence axes being laid
+flat on a table, while a the new dimension projects to that position. An
+illustration of such can be seen below in figure \ref{fig:step2}. The
+manip var is highlighted, while the depths of the other variales are
+ignored.
+
+
+
+
+
 
 \begin{figure}
 
@@ -230,16 +252,18 @@ An illustration of such can be seen below in figure \ref{fig:step2}.
 
 }
 
-\caption{Manipulation space for controlling the contribution of aede2 of standardized flea data. Basis was identified by holes-index guided tour. The out of plane axis, in red, shows how the manipulation variable can be rotated, while other dimensions stay embedded within the basis plane.}\label{fig:step2}
+\caption{Manipulation space for controlling the contribution of
+\texttt{aede2} of standardized flea data. Basis selected by holes-index
+guided tour. Reference plane shown in blue. The out-of-projection-plane
+axis, in red, allows the coeffiecients of the manip var to be changed.}\label{fig:step2}
 \end{figure}
 
-Imagine being able to grab hold of the red axis and rotate it changing
-the projection onto the basis plane. This is what happens in a manual
-tour. For a radial tour, fix \(\phi\), the angle within the blue plane,
-and vary the \(\theta\), the angle between the red and blue lines. The
-user controlling these angles changes the values of the coefficient the
-manip variable and performs a constrained rotation on the remaining
-variables.
+Imagine being able to grab the red axis and rotate it changing the
+projection onto the basis plane. This is what happens in a manual tour.
+A For a radial tour, fix \(\phi\), the angle within the blue plane, and
+vary the \(\theta\), the angle between the red and blue lines. The user
+controlling these angles changes the values of the coefficient the manip
+variable and performs a constrained rotation on the remaining variables.
 
 \subsection{Step 3 Generate rotation}\label{step-3-generate-rotation}
 
