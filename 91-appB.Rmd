@@ -321,19 +321,18 @@ In light of performance, the above operatons are performed on the bases without 
 <!-- plot 2 var in seq for animation -->
 For a 2D scatterplot, plot the first two variables from each frame statically as in the previous figure, or in sequence, producing an animated scatterplot. The remaining variable is sometimes linked to a data point aesthetic (such as size or color) to produce depth cues used in conjunction with the $XY$ scatterplot.
 
+### Storage and sharing
+
+Storing each data point for every frame of the animation is very inefficient. Just as operations are performed on the bases, so too should tour paths be stored as bases. Consider a radial manual tour, we can store the salient features in 3 bases, where $\phi$ is at its starting, minimum, and maximum values. The frames in between can be interpolated by supplying angular speed. With use of the `tourr::save_history()` function, the target bases can be saved. From there geodesic interpolation can be used to populate the intermitten frames. This type of interpolation should not be used on manual tours, which have already been initialized into a 3D manipulation space where direct linear interpolation is appropriate.
 
 ## TODO: continue here.
-<!-- Move storage and sharing up and rendering in R down? -->
+
 ### Rendering in R
 
-The *tourr* package utilizes R's base graphics for the display of tours. *spinifex* allows tours to be used in rendered in `plotly` @sievert_plotly_2018 as an HTML5 object or`gganimate` @pedersen_gganimate:_2019 as .gif or .mp4 object. Both of which build from `ggplot2` plotting in internal functions.
+The *tourr* package utilizes R's base graphics for the display of tours. *spinifex* allows tours to be used in rendered in `plotly` @sievert_plotly_2018 as an HTML5 object or`gganimate` @pedersen_gganimate:_2019 as .gif or .mp4 object. Both of which build from `ggplot2` plotting in internal functions. Sharing on animations in not trivial especially in print and static formats such as .pdf. Even with the use of computers and dynamic file formats 
 
 Interaction with graphics in R is limited. Traditionally, all commands are passed to the R via calls to the console, conflicting with user engagement. Some recent packages have made advancement into this direction such as with the use of the R package `shiny` [@chang_shiny:_2018], which allows applications can be hosted either locally or remotely and communicate with the R console, allowing for developers to code dynamic content interaction. To a lesser extent, `plotly` offers static interactions with the contained object, such as tooltips, brushing, and linking without communicating back to the R console.
 
-
-### Storage and sharing
-
-Storing each data point for every frame of the animation is very inefficient. In the same way that we gain efficiency by performing math on the bases, that is the same approach suggested for storage and sharing tours. Consider a radial manual tour, we can store the salient features in 3 bases, where $\phi$ is at its starting, minimum, and maximum values. The frames in between can be interpolated by supplying angular speed. By using the function `tourr::save_history()` we can do just that. Save such tour path history and a single set of data offers performant storage and transfer.
 
 
 ## Application {#sec:application}

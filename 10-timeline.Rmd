@@ -98,9 +98,7 @@ timeline
 - WES Academic record
     - FIT6021: 2018 S2, **Completed** with distinction
     - FIT5144: 2019 S1+2, **Upcoming**, due at mid-candidature review
-    - FIT5113: 2018 S2, **Exemption submitted** (08/2018), 
-         - Follow up 14/02/2019, (Michael Morgan left, forwarded to Patrick Olivier)
-         - follow up 01/04/2019.
+    - FIT5113: 2018 S2, **Exemption** <!-- (submitted:08/2018, recorded 4/2019) -->
 - myDevelopment - IT: Monash Doctoral Program - Compulsory Module
     - Monash Graduate Research Student Induction: **Completed**
     - Research Integrity - Choose the Option most relevant: **Completed** (2 required of 4)
