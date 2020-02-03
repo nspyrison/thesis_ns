@@ -282,7 +282,7 @@ Figure \@ref(fig:step3) illustrates a sequence with 15 projected bases and highl
 <!-- step3 caption -->
 (ref:step3-cap) Radial manual tour changing the contributions from `aede2` of standardized flea data. The contributions increase from its initial contribution to a full contribution to the projection before decreasing to zero and then returning to its initial value. The change in the projected data shows that `aede2` is important for distinguishing between the purple and green clusters. An animated version can be viewed at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/.
 
-```{r step3, echo=F, warning=F, fig.height=7.2, fig.width=6, out.height='7.2in', out.width='6in', fig.cap = "(ref:step3-cap)"}
+```{r step3, echo=F, warning=F, fig.height=1.8, fig.width=6, out.height='1.8in', out.width='6in', fig.cap = "(ref:step3-cap)"}
 # f_angle <- .29
 # f_mtour <- manual_tour(f_bas, manip_var = f_mvar, angle = f_angle)
 # if(dim(f_mtour)[3] != 15) message(
@@ -291,7 +291,7 @@ Figure \@ref(fig:step3) illustrates a sequence with 15 projected bases and highl
 # #play_manual_tour(f_dat, f_bas, f_mvar, col = f_cat, angle = f_angle)
 # array2static(.m_tour = f_mtour, .data = f_dat, .m_var = f_mvar, .cat = f_cat)
 
-knitr::include_graphics("./output/step3_manual_tour.")
+knitr::include_graphics("./figures/step3.pdf")
 ```
 
 Animations can be produced using the function `play_manual_tour()`. This function defaults to an HTML5 widget produced from *plotly*.
