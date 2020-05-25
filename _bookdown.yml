@@ -1,4 +1,4 @@
-book_filename: "confirmation_report_ns"
+book_filename: "thesis_draft_ns"
 language:
   ui:
     chapter_name: "Chapter "
@@ -16,8 +16,3 @@ rmd_files: ["index.Rmd",
   "91-appB.Rmd"
   ]
 delete_merged_file: TRUE
-
-# A) Can we apply UCS to animation?
-# B) What benefit does UCS have over alternatives?
-# C) How do we extend UCS to 3d?
-# D) Does 3d provide benefit over 2d?

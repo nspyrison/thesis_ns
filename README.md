@@ -1,34 +1,35 @@
-Nick's Monash PhD research
+# Nicholas Spyrison's PhD research, Monash University, VIC, Australia
 ==========================
 
-*Milestone deliverables:* 
+## Milestone deliverables:
 
-Confirmation report: https://github.com/nspyrison/confirmation 
-
+Confirmation report: https://github.com/nspyrison/confirmation
 Confirmation presentation: https://github.com/nspyrison/confirmation_talk 
+Mid canidature report: https://github.com/nspyrison/mid_candidature/blob/master/_mid_candidature_document.pdf
+Mid canidature presentation: https://github.com/nspyrison/mid_candidature/tree/master/_slides
 
 
-Built with thanks from Rob's EBS template: https://github.com/robjhyndman/MonashThesis
+## Setup and & requirements
 
+To run this template you need `bookdown` and LaTeX:
 
-## Requirements
+```r
+install.packages('bookdown')
+install.packages('tinytex')
+tinytex::install_tinytex()
+```
 
-You will need to install `spinifex` to compile manual tours:
+To run my code inline you will also need atleast `spinifex` and potentially other packages that relate to touring:
 
 ```r
 devtools::install_github("nspyrison/spinifex")
 ```
 
-__ PhD template setup:
-To set up the software, you will need to install the `bookdown` package and its dependencies as follows:
+## Acknowledgements & Thanks {#sec:acknowledgements}
 
-```r
-install.packages('bookdown')
-```
+This thesis and milstone reports were created in `R` (R Core Team, 2019) using `rmarkdown` (Xie, 2018) and `bookdown` following Rob Hyndman's [MonashThesis](github.com/robjhyndman/MonashThesis) (Hyndman, 2019) Rmarkdown template. Slides are produced using `xaringan` (Xie, 2020).
 
-You will also need LaTeX installed. If you don't already have LaTeX, one convenient approach is to install it via R:
 
-```r
-install.packages('tinytex')
-tinytex::install_tinytex()
-```
+For version control, transparency, and reproducibility, the source files are made available found at [github.com/nspyrison/thesis_monash_phd](https://github.com/nspyrison/thesis_monash_phd).
+
+A huge thanks to Kim Marriott and Di Cook, my PhD supervisors for their guidance, insight, and patience. My graditude to the numerious fellow students, postdocs, and members of the NUMBATS and Imersive Analytics groups for their interest, critiques, and offering a rich ground for research.
