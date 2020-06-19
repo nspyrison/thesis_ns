@@ -3,9 +3,9 @@
 
 ## Milestone deliverables:
 
-Confirmation report: https://github.com/nspyrison/confirmation
-Confirmation presentation: https://github.com/nspyrison/confirmation_talk 
-Mid canidature report: https://github.com/nspyrison/mid_candidature/blob/master/_mid_candidature_document.pdf
+Confirmation report: https://github.com/nspyrison/confirmation \
+Confirmation presentation: https://github.com/nspyrison/confirmation_talk \
+Mid canidature report: https://github.com/nspyrison/mid_candidature/blob/master/_mid_candidature_document.pdf \
 Mid canidature presentation: https://github.com/nspyrison/mid_candidature/tree/master/_slides
 
 
