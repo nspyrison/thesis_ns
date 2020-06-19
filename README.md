@@ -3,7 +3,7 @@
 
 ## Milestone deliverables:
 
-Confirmation report: https://github.com/nspyrison/confirmation \
+Confirmation report: https://github.com/nspyrison/thesis_monash_phd/blob/master/_book/_confirmation_report_ns.pdf \
 Confirmation presentation: https://github.com/nspyrison/confirmation_talk \
 Mid canidature report: https://github.com/nspyrison/mid_candidature/blob/master/_mid_candidature_document.pdf \
 Mid canidature presentation: https://github.com/nspyrison/mid_candidature/tree/master/_slides
