@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 
 library(spinifex)
 library(ggplot2)
+library(tourr)
 
 ## FUNCTION FOR STATIC OUTPPUT, consider going to scalable facets.
 array2static <- function(.m_tour, .data, .m_var, .cat, .mag =2.2)
@@ -179,9 +180,9 @@ f_proj <- data.frame(tourr::rescale(f_dat %*% f_msp[, 1:2]))
 
 # step0, output
 # Adjust centering to make axes and data side by side
-view_basis(f_bas, lab = colnames(f_dat)) +
+view_frame(f_bas, lab = colnames(f_dat)) +
   geom_point(data = f_proj,
-             mapping = aes(x = X1 + .75, y = X2 - .5, color = f_cat),
+             mapping = aes(x = P1 + .75, y = P2 - .5, color = f_cat),
              pch = as.integer(f_cat) + 15) +
   theme(panel.border = element_rect(colour = "black", fill = NA))
 ```
@@ -269,12 +270,14 @@ then
 <!--  phi transform and application note -->
 A note on application: compile the sequence of $\phi_i$ and create an array/long table for each rotated manipulation space. $\phi$ is the angle relative to the initial value of $\phi$, we find the transformation $\phi_i$ - $\phi_1$ useful to think about $\phi$ relative to the basis plane. Additionally, the value of $\phi$ may be offset by a factor of pi. If the manip variable doesn't move as expected these are the first places to check.
 
+<!-- NOTE: eval = F, just example code. -->
 ```{r STEP3CODEEXAMPLE, eval=F, echo=T}
 for (phi in seq(seq_start, seq_end, phi_inc_sign)) {
   slide <- slide + 1
   tour[,, slide] <- rotate_manip_space(manip_space, theta, phi)[, 1:2]
 }
 ```
+
 
 <!-- description of slides, on the technical side we haven't gone back to data space yet. -->
 Figure \@ref(fig:step3) illustrates a sequence with 15 projected bases and highlight the manip variable on top while showing the corresponding projected data points on the bottom. Take note of how the changes in the manip var change the distance between the purple and green cluster of points, `aede2` is crucial in distinguishing between these groups. Tours are typically viewed as an animation such a dynamic version of this tour can be viewed online at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/. The page may take a moment to load. The format of this figure and linking to an HTML animation will be used again in the Application, section \ref{sec:application}.
@@ -283,6 +286,8 @@ Figure \@ref(fig:step3) illustrates a sequence with 15 projected bases and highl
 (ref:step3-cap) Radial manual tour changing the contributions from `aede2` of standardized flea data. The contributions increase from its initial contribution to a full contribution to the projection before decreasing to zero and then returning to its initial value. The change in the projected data shows that `aede2` is important for distinguishing between the purple and green clusters. An animated version can be viewed at https://nspyrison.netlify.com/thesis/flea_manualtour_mvar5/.
 
 ```{r step3, echo=F, warning=F, fig.height=1.8, fig.width=6, out.height='1.8in', out.width='6in', fig.cap = "(ref:step3-cap)"}
+knitr::include_graphics("./figures/step3.pdf")
+
 # f_angle <- .29
 # f_mtour <- manual_tour(f_bas, manip_var = f_mvar, angle = f_angle)
 # if(dim(f_mtour)[3] != 15) message(
@@ -290,8 +295,6 @@ Figure \@ref(fig:step3) illustrates a sequence with 15 projected bases and highl
 # 
 # #play_manual_tour(f_dat, f_bas, f_mvar, col = f_cat, angle = f_angle)
 # array2static(.m_tour = f_mtour, .data = f_dat, .m_var = f_mvar, .cat = f_cat)
-
-knitr::include_graphics("./figures/step3.pdf")
 ```
 
 Animations can be produced using the function `play_manual_tour()`. This function defaults to an HTML5 widget produced from *plotly*.
