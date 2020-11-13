@@ -16,12 +16,4 @@ thesis.run.xlm
 thesis.xdv
 thesis_cache/*
 _book/*.pdf
-confirmation_report_ns.aux
-confirmation_report_ns.bfc
-confirmation_report_ns.blg
-confirmation_report_ns.log
-confirmation_report_ns.out
-confirmation_report_ns.toc
-confirmation_report_ns.run.xlm
-confirmation_report_ns.xdv
-confirmation_report_ns_cache/*
+*_cache/*
