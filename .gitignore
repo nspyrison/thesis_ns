@@ -15,6 +15,7 @@ thesis.toc
 thesis.run.xlm
 thesis.xdv
 thesis_cache/*
+_book/*.pdf
 confirmation_report_ns.aux
 confirmation_report_ns.bfc
 confirmation_report_ns.blg
