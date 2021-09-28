@@ -13,6 +13,7 @@ knitr::opts_chunk$set(
   comment = "",
   cache = FALSE,
   cache.lazy = FALSE,
+  out.width = "100%",
   out.extra = '',fig.show='hold',fig.align='center'
 )
 ## Original R journal paper:
