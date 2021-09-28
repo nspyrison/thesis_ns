@@ -182,7 +182,7 @@ f_proj <- data.frame(tourr::rescale(f_dat %*% f_msp[, 1:2]))
 # Adjust centering to make axes and data side by side
 view_frame(f_bas, lab = colnames(f_dat)) +
   geom_point(data = f_proj,
-             mapping = aes(x = P1 + .75, y = P2 - .5, color = f_cat),
+             mapping = aes(x = y1 + .75, y = y2 - .5, color = f_cat),
              pch = as.integer(f_cat) + 15) +
   theme(panel.border = element_rect(colour = "black", fill = NA))
 ```
