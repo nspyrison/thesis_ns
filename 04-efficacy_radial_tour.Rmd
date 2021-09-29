@@ -1,30 +1,9 @@
 ---
-chapter: 3
+chapter: 4
 knit: "bookdown::render_book"
 ---
-```{r setup_ch3, include=FALSE}
-knitr::opts_chunk$set(
-  fig.align = "center",
-  echo = FALSE,
-  error = FALSE,
-  message = FALSE,
-  warning = FALSE,
-  collapse = TRUE,
-  comment = "",
-  cache = FALSE,
-  cache.lazy = FALSE,
-  out.width = "100%",
-  out.extra = '',fig.show='hold',fig.align='center'
-)
-## Original R journal paper:
-if(F)
-  file.edit("../spinifex_paper/paper/spyrison-cook.Rmd")
-## Creating figures in script (not ran upon compilation)
-if(F)
-  file.edit("./figures_from_script/_ch3_spinifex.r")
-```
 
-# Manual tours and the R package `spinifex` {#ch:spinifex}
+# Efficacy of the radial tour {#ch:efficacy_radial_tour}
 
 
 ```{r ch3fig1, fig.cap = "<a figure caption> XXX: TODO"}

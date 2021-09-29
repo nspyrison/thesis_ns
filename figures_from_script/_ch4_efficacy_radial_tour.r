@@ -8,6 +8,82 @@ require(gridExtra)
 require(dplyr)
 my_theme <- theme_spinifex()
 
+## FUNCTION FOR STATIC OUTPUT,
+# Going to facets loses control of multiple geoms and output size, simpler to just live with this.
+array2ggfacets <- function(tour_array, data, m_var, class, margin = 2.2){
+  n_frames <- dim(tour_array)[3]
+  if (n_frames != 15)
+    stop(paste0("stop: n_frames != 15!!! Check the angle step size. n_frames = ", n_frames))
+
+  ## Initialize
+  frames       <- array2df(array = tour_array, data = data)
+  basis_frames <- frames$basis_slides
+  data_frames  <- frames$data_slides
+  p            <- nrow(basis_frames) / n_frames
+
+  ## manip var asethetics
+  col_v        <- rep("grey80", p)
+  col_v[m_var] <- "blue"
+  col_v        <- rep(col_v, n_frames)
+  siz_v        <- rep(0.3, p)
+  siz_v[m_var] <- 1
+  siz_v        <- rep(siz_v, n_frames)
+  cat          <- rep(as.factor(class), n_frames)
+
+  ## circle
+  angle <- seq(0, 2 * pi, length = 180)
+  circ  <- data.frame(c_x = cos(angle), c_y = sin(angle))
+  circ[nrow(circ)+1, ] <- NA
+  ## Data asethetics
+  data_frames <- data.frame(data_frames, class = rep(class, n_frames))
+  colnames(data_frames)  <- c("x", "y", "frame", "class")
+  colnames(basis_frames) <- c("x", "y", "frame", "lab")
+  grid_b <- grid_t <- data.frame(
+    frame = 1:n_frames, x = margin * rep(1:5, 3), y = margin * rep(3:1, each = 5))
+  grid_t$y <- grid_t$y + max(grid_t$y)
+  ## OUTER JOIN
+  basis_grid <- merge(x = basis_frames, y = grid_t, by = "frame", all = TRUE)
+  ## CROSS JOIN
+  circ_grid  <- merge(x = circ, y = grid_t, by = NULL)
+  ## OUTER JOIN
+  data_grid  <- merge(x = data_frames, y = grid_b, by = "frame", all = TRUE)
+
+  ##### RENDER
+  ## SETUP
+  gg <- ggplot(data = basis_grid) +
+    ## AXES LINE SEGMETNS
+    geom_segment(aes(x = x.x + x.y, y = y.x + y.y, xend = x.y, yend = y.y),
+                 color = col_v, size = siz_v) +
+    ## AXES TEXT LABELS
+    geom_text(aes(x = x.x + x.y, y = y.x + y.y, label = lab),
+              color = col_v, vjust = "outward", hjust = "outward") +
+    ## AXES FRAME NUM
+    geom_text(aes(x = x.y - .7, y = y.y + 1.1,
+                  label = paste0("frame: ", frame)), color = "grey50") +
+    ## AXES CIRCLE PATH
+    suppressWarnings( # Suppress for "Removed 1 rows containing missing values."
+      geom_path(data = circ_grid, color = "grey50",
+                mapping = aes(x = x + c_x, y = y + c_y))
+    )
+
+  ## PROJECTION
+  gg <- gg +
+    ## PROJ DATA POINTS
+    geom_point(data = data_grid, size = .7,
+               mapping = aes(x = x.x + x.y, y = y.x + y.y,
+                             color = class, shape = class)) +
+    ## FACET FRAME NUM
+    geom_text(data = data_grid, color = "grey50",
+              mapping = aes(x = x.y - .7, y = y.y + 1.1,
+                            label = paste0("frame: ",frame))) +
+    my_theme
+
+  ## Return
+  gg
+}
+
+
+
 # fig1_biplot -----
 
 ## Flea holes tour
