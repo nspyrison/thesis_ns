@@ -6,17 +6,55 @@ knit: "bookdown::render_book"
 # Efficacy of the radial tour {#ch:efficacy_radial_tour}
 
 
-```{r ch3fig1, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig1_biplot.pdf")
+```{r ch4fig1, fig.cap = "<a figure caption> XXX: TODO"}
+# if(F) ##TODO: remove? should already be covered in intro/motivation
+#   knitr::include_graphics("./figures_from_script/ch4_fig1_pca_splom.pdf")
 ```
 
-```{r ch3fig2, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig2_manip_sp.pdf")
+```{r ch4fig2, fig.cap = "<a figure caption> XXX: TODO"}
+knitr::include_graphics("./figures_from_script/ch4_fig2_exp_factors.pdf")
 ```
 
-```{r ch3fig3, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig3_filmstrip.pdf")
+<!-- Define accuracy measure -->
+\begin{align*}
+W_{j} &=\frac
+{(\overline{X_{j=1, k=1}} - \overline{X_{1, k=2}}, ~...~
+(\overline{X_{j=p, k=1}} - \overline{X_{j=p, k=2}})}
+{\sum_{j=1}^{p}(|\overline{X_{j,k=1}} - \overline{X_{j,k=2}}|)}
+- \frac{1}{p} \\
+\\
+\text{Accuracy}, Y &= \sum_{j=1}^{p}I(r_j) * sign(w_j) * \sqrt{|w_j|}  \\
+\end{align*}
+
+```{r ch4fig3, fig.cap = "<a figure caption> XXX: TODO"}
+knitr::include_graphics("./figures_from_script/ch4_fig3_accuracy_measure.pdf")
 ```
+
+<!-- Y1 model array -->
+$$
+\begin{array}{ll}
+\textbf{Fixed effects:}          &\textbf{Full model:} \\
+\alpha                           &\widehat{Y_1} = \mu + \alpha_i + \textbf{Z} + \textbf{W} + \epsilon \\
+\alpha + \beta + \gamma + \delta &\widehat{Y_1} = \mu + \alpha_i + \beta_j + \gamma_k + \delta_l + \textbf{Z} + \textbf{W} + \epsilon \\
+\alpha * \beta + \gamma + \delta &\widehat{Y_1} = \mu + \alpha_i * \beta_j + \textbf{Z} + \textbf{W} + \epsilon \\
+\alpha * \beta * \gamma + \delta &\widehat{Y_1} = \mu + \alpha_i * \beta_j * \gamma_k + \textbf{Z} + \textbf{W} + \epsilon \\
+\alpha * \beta * \gamma * \delta &\widehat{Y_1} = \mu + \alpha_i * \beta_j * \gamma_k * \delta_l + \textbf{Z} + \textbf{W} + \epsilon
+\end{array}
+$$
+$$
+\begin{array}{ll}
+\text{where } &\mu \text{ is the intercept of the model including the mean of random effect} \\
+&\alpha_i \text{, fixed term for factor}~|~i\in (\text{pca, grand, radial}) \\
+&\beta_j  \text{, fixed term for location}~|~j\in (\text{0\_1, 33\_66, 50\_50}) \text{ \% noise/signal mixing} \\
+&\gamma_k \text{, fixed term for shape}~|~k\in (\text{EEE, EEV, EVV banana}) \text{ model shapes} \\
+&\delta_l \text{, fixed term for dimension}~|~l\in (\text{4 variables \& 3 cluster, 6 variables \& 4 clusters}) \\
+&\textbf{Z} \sim \mathcal{N}(0,~\tau), \text{ the random effect of participant} \\
+&\textbf{W} \sim \mathcal{N}(0,~\upsilon), \text{ the random effect of simulation} \\
+&\epsilon   \sim \mathcal{N}(0,~\sigma), \text{ the error of the model} \\
+\end{array}
+$$
+
+## TODO: CONTINUE HERE
 
 ```{r ch3fig4, fig.cap = "<a figure caption> XXX: TODO"}
 knitr::include_graphics("./figures_from_script/ch3_fig4_jet_better_pc4.pdf")

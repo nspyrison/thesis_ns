@@ -1,131 +1,304 @@
 # Setup ------
 if(F)
   remotes::install_github("nspyrison/spinifex")
-require(spinifex) ## Current version, likely a small diff from spinifex v0.3.1
+require(spinifex) ## Current dev ver, likely a small diff from CRAN spinifex v0.3.1
 require(tourr)
 require(ggplot2)
-require(gridExtra)
+require(GGally)
 require(dplyr)
-my_theme <- theme_spinifex()
+this_theme <- list(
+  scale_color_brewer(palette = "Dark2"),
+  theme_void(),
+  theme(axis.title = element_text(),
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5),
+        legend.position = "off"),
+  coord_fixed(),
+  labs(x = "", y = "")
+)
+.u = "in"
+.w = 6.25
+.h = 9
 
-## FUNCTION FOR STATIC OUTPUT,
-# Going to facets loses control of multiple geoms and output size, simpler to just live with this.
-array2ggfacets <- function(tour_array, data, m_var, class, margin = 2.2){
-  n_frames <- dim(tour_array)[3]
-  if (n_frames != 15)
-    stop(paste0("stop: n_frames != 15!!! Check the angle step size. n_frames = ", n_frames))
 
-  ## Initialize
-  frames       <- array2df(array = tour_array, data = data)
-  basis_frames <- frames$basis_slides
-  data_frames  <- frames$data_slides
-  p            <- nrow(basis_frames) / n_frames
 
-  ## manip var asethetics
-  col_v        <- rep("grey80", p)
-  col_v[m_var] <- "blue"
-  col_v        <- rep(col_v, n_frames)
-  siz_v        <- rep(0.3, p)
-  siz_v[m_var] <- 1
-  siz_v        <- rep(siz_v, n_frames)
-  cat          <- rep(as.factor(class), n_frames)
+# fig1_pca_scatterplotmatrix -----
+## TODO: This is already covered in the introduction/motivation
+if(F){ ## Not run!!
+  source("./figures_from_script/ch4_util_funcs.r")
+  if(F)
+    file.edit("./figures_from_script/ch4_util_funcs.r")
 
-  ## circle
-  angle <- seq(0, 2 * pi, length = 180)
-  circ  <- data.frame(c_x = cos(angle), c_y = sin(angle))
-  circ[nrow(circ)+1, ] <- NA
-  ## Data asethetics
-  data_frames <- data.frame(data_frames, class = rep(class, n_frames))
-  colnames(data_frames)  <- c("x", "y", "frame", "class")
-  colnames(basis_frames) <- c("x", "y", "frame", "lab")
-  grid_b <- grid_t <- data.frame(
-    frame = 1:n_frames, x = margin * rep(1:5, 3), y = margin * rep(3:1, each = 5))
-  grid_t$y <- grid_t$y + max(grid_t$y)
-  ## OUTER JOIN
-  basis_grid <- merge(x = basis_frames, y = grid_t, by = "frame", all = TRUE)
-  ## CROSS JOIN
-  circ_grid  <- merge(x = circ, y = grid_t, by = NULL)
-  ## OUTER JOIN
-  data_grid  <- merge(x = data_frames, y = grid_b, by = "frame", all = TRUE)
+  tgt_fp <- paste0("./data/EEV_p6_0_1_rep3.rda")
+  load(tgt_fp, envir = globalenv())
+  dat <- EEV_p6_0_1_rep3
+  clas <- as.factor(attr(dat, "cluster"))
 
-  ##### RENDER
-  ## SETUP
-  gg <- ggplot(data = basis_grid) +
-    ## AXES LINE SEGMETNS
-    geom_segment(aes(x = x.x + x.y, y = y.x + y.y, xend = x.y, yend = y.y),
-                 color = col_v, size = siz_v) +
-    ## AXES TEXT LABELS
-    geom_text(aes(x = x.x + x.y, y = y.x + y.y, label = lab),
-              color = col_v, vjust = "outward", hjust = "outward") +
-    ## AXES FRAME NUM
-    geom_text(aes(x = x.y - .7, y = y.y + 1.1,
-                  label = paste0("frame: ", frame)), color = "grey50") +
-    ## AXES CIRCLE PATH
-    suppressWarnings( # Suppress for "Removed 1 rows containing missing values."
-      geom_path(data = circ_grid, color = "grey50",
-                mapping = aes(x = x + c_x, y = y + c_y))
-    )
+  # str(dat)
+  # str(clas)
+  pca_obj <- #prcomp(dat)
+    dat %>% scale_01() %>% prcomp()
+  pca_proj1_3 <- as.data.frame(
+    cbind(pca_obj$x[, 1:3],
+          cluster = as.factor(clas)))
 
-  ## PROJECTION
-  gg <- gg +
-    ## PROJ DATA POINTS
-    geom_point(data = data_grid, size = .7,
-               mapping = aes(x = x.x + x.y, y = y.x + y.y,
-                             color = class, shape = class)) +
-    ## FACET FRAME NUM
-    geom_text(data = data_grid, color = "grey50",
-              mapping = aes(x = x.y - .7, y = y.y + 1.1,
-                            label = paste0("frame: ",frame))) +
-    my_theme
+  gg_pca <- GGally::ggpairs(
+    pca_proj1_3,
+    mapping = aes(color = clas, fill = clas, shape = clas),
+    columns = 1:3,
+    #diag = "blank",
+    upper = "blank",
+    lower = list(continuous = GGally::wrap("points", alpha = 0.7, size=1)),
+    columnLabels = paste0("PC", 1:3)) +
+    theme_bw() +
+    theme(axis.ticks = element_blank(),
+          axis.text = element_blank())
 
-  ## Return
-  gg
+  if(F)
+    ggsave(
+      "./figures_from_script/ch4_fig1_pca_splom.pdf", gg_pca, device = "pdf",
+      width = .w / 2, height = .w / 2, units = .u)
 }
 
 
 
-# fig1_biplot -----
+# fig2_exp_factors -----
+require("ggforce")
+require("ggplot2")
+require("ggExtra")
+require("magrittr")
+require("spinifex")
+palette(RColorBrewer::brewer.pal(8, "Dark2"))
+this_theme <- list(
+  theme_bw(),
+  scale_color_manual(values = palette()[1:8]),
+  scale_fill_manual( values = palette()[1:8]),
+  theme(axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        legend.position = "off",
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5))
+)
 
-## Flea holes tour
-set.seed(20190425) ## doesn't change tourr output,
-f_dat <- tourr::rescale(flea[,1:6])
-f_clas <- factor(flea$species)
-## Hard code a basis. tourr doesn't fit results with set.seed().
-f_bas <- c(.693, -.022, .082, -.119, .706, .023,
-           -.070, .438, .405, .515, .103, .604) %>%
-  matrix( ncol=2) %>%
-  tourr::orthonormalise()
-rownames(f_bas) <- colnames(f_dat)
+load("./data/EEE_p4_0_1_rep1.rda") ## In global env, obj EEE_p4_0_1_rep1
+clas <- attr(EEE_p4_0_1_rep1, "cluster")
 
-biplot <- ggtour(f_bas, f_dat) +
-  proto_default(list(color = f_clas, shape = f_clas))
+## Factors -----
+bas1 <- spinifex::basis_pca(EEE_p4_0_1_rep1)
+gt <- tourr::save_history(EEE_p4_0_1_rep1, tour_path = grand_tour(), max_bases = 1)
+bas2 <- matrix(gt[[1]], nrow=4, ncol=2)
+bas3_st <- basis_half_circle(EEE_p4_0_1_rep1)
+mt <- manual_tour(bas3_st, manip_var = 2)
+bas3 <- spinifex:::interpolate_manual_tour(mt, .05)[,,17]
 
-ggplot2::ggsave(
-  "./figures_from_script/ch3_fig1_biplot.pdf", biplot, "pdf",
-  height=3, scale=1, units="in")
+fct1 <- spinifex::view_frame(bas1, EEE_p4_0_1_rep1,
+                             aes_args = list(color = clas, shape = clas),
+                             identity_args = list(size = 1.5, alpha = 0)) +
+  this_theme +
+  theme(axis.title =  element_text()) +
+  labs(x = expression(paste(PC_j)), y = expression(paste(PC_k)), subtitle = "PCA \n\n Discrete jump to \n selected pair")# +
+fct2 <- spinifex::view_frame(bas2, EEE_p4_0_1_rep1,
+                             aes_args = list(color = clas, shape = clas),
+                             identity_args = list(size = 1.5, alpha = 0)) +
+  this_theme +
+  labs(subtitle = "grand tour \n\n Animation through \n random bases") #+
+fct3 <- spinifex::view_frame(
+  bas3, EEE_p4_0_1_rep1, manip_var = 2,
+  aes_args = list(color = clas, shape = clas),
+  identity_args = list(size = 1.5, alpha = 0)) +
+  this_theme +
+  labs(subtitle = "radial tour \n\n Animation changing \n contribution of \n selected variable")# +
 
-# fig2_manip_sp -----
-f_mvar <- 5
-manip_sp <- spinifex::view_manip_space(basis = f_bas, manip_var = f_mvar)
+## Locations ------
+##     Cluster A         Cluster B
+x <- c(rnorm(140, 0, 1), rnorm(140, 2, 1)) ## signal
+y <- c(rnorm(140, 0, 1), rnorm(140, 0, 1)) ## noise
+location_df <- data.frame( ## angles are 0, 30, 45 respectively
+  name = factor(rep(c("0/100%", "33/66%", "50/50%"), each = 2 * 140),
+                levels = c("0/100%", "33/66%", "50/50%")),
+  cluster = as.factor(rep(rep(c("a", "b"), each = 140), times = 3)),
+  signal = c(cos(0)*x + sin(0)*y, cos(pi/6)*x + sin(pi/6)*y, cos(pi/4)*x + sin(pi/4)*y),
+  noise  = c(-sin(0)*x + cos(0)*y, -sin(pi/6)*x + cos(pi/6)*y, -sin(pi/4)*x + cos(pi/4)*y)
+)
+.rang <- range(location_df$signal)
+lvls <- levels(location_df$name)
+x_nms <- c("1*V1 + 0*V2 \n (signal & noise respectively)", ".866*V1 + .5*V2", ".7071*V1 + .7071*V2")
+# y_nms <- c("V2 (noise)", "-sin(30)*V1 + cos(30)*V2", "-sin(45)*V1 + cos(45)*V2")
+for(i in 1:length(lvls)){ ## Creates obj: loc1:loc3
+  g <- location_df[location_df$name==lvls[i], ] %>%
+    ggplot() +
+    geom_vline(xintercept = 0, linetype=1) +
+    geom_vline(xintercept = 2, linetype=2) +
+    geom_density(aes(signal, fill = cluster), alpha = .5) +
+    this_theme +
+    theme(axis.title =  element_text()) +
+    ggplot2::labs(x = x_nms[i], y = "") +
+    labs(subtitle = lvls[i]) +
+    xlim(.rang)
+  assign(paste0("loc", i), g, envir = globalenv())
+}
 
-ggplot2::ggsave(
-  "./figures_from_script/ch3_fig2_manip_sp.pdf", manip_sp, "pdf",
-  height=3, scale=1, units="in")
+
+## Shapes ------
+## EEE, EEV, EVV*
+shape_df <- data.frame(
+  name = factor(c(rep(c("EEE", "EEV"), each = 3), rep("EVV, banana transformed", 7)),
+                levels = c("EEE", "EEV", "EVV, banana transformed")),
+  cluster = as.factor(c(rep(c("a", "b", "c"), 3), rep("b", 4))),
+  x = c(rep(c(-1, 1, -1), 3),              .5,   0,  .5,  0),
+  y = c(rep(c(-1, -1, 1), 3),              -1.5, -2, -.5, 0),
+  a = c(rep(1, 6),  rep(c(.5, .4, 1), 1),  rep(.4, 4)),
+  b = c(rep(.5, 6), rep(c(.5, .4, .5), 1), rep(.4, 4)),
+  angle = c(rep(pi / 4, 3),           ## EEE
+            rep(pi / 4, 2), -pi / 4,  ## EEV
+            0, 0, -pi / 4, rep(0, 4)) ## EVV_banana
+)
+clust_d <- data.frame(
+  name = c("EEI", "EEI", "EVI"),
+  cluster = rep("(d)", 3),
+  x = rep(-1, 3),
+  y = rep(-1, 3),
+  a = rep(.425, 3),
+  b = rep(.425, 3),
+  angle = rep(0, 3)
+)
+lvls <- levels(shape_df$name)
+for(i in 1:length(lvls)){ ## Creates obj; shp1:shp3
+  g <- shape_df[shape_df$name == lvls[i],] %>%
+    ggplot() +
+    ## Clusters a:c
+    ggforce::geom_ellipse(aes(x0 = x, y0 = y, a = a, b = b,
+                              angle = angle, color = cluster), size = 1) +
+    ## Cluster d
+    ggforce::geom_ellipse(aes(x0 = x, y0 = y, a = a, b = b,
+                              angle = angle, color = cluster),
+                          data = clust_d[i, ],
+                          size = .6, linetype = 2, alpha = .5) +
+    coord_fixed() +
+    this_theme +
+    labs(subtitle = lvls[i])
+  ## Add text on first 2, but not the last one.
+  if(i != length(lvls))
+    g <- g +
+      ## Cluster letters a-c
+      geom_text(aes(x = x, y = y, label = cluster, color = cluster), size = 7) +
+      ## Cluster letter d
+      geom_text(aes(x = x - .5, y = y + .5, color = cluster),
+                data = clust_d[i, ], size = 4, alpha =.7,
+                label = "(d)")
+  assign(paste0("shp", i), g, envir = globalenv())
+}
+shp2
 
 
-# fig3_filmstrip -----
-## All arguments
-mt <- manual_tour(basis = f_bas, manip_var = f_mvar)
-ggt <- ggtour(mt, f_dat, angle = 3) +
-  proto_default(list(color = f_clas, shape = f_clas))
-film <- filmstrip(ggt)
+## Dim ------
+load("./data/EEE_p4_0_1_rep1.rda") ## load obj EEE_p4_0_1_rep1
+load("./data/EEE_p6_0_1_rep1.rda") ## load obj EEE_p5_0_1_rep1
+bas4 <- spinifex::basis_half_circle(EEE_p4_0_1_rep1)
+bas6 <- spinifex::basis_half_circle(EEE_p6_0_1_rep1)
+clas4 <- attr(EEE_p4_0_1_rep1, "cluster")
+clas6 <- attr(EEE_p6_0_1_rep1, "cluster")
+dim4 <- spinifex::view_frame(
+  bas4, EEE_p4_0_1_rep1,
+  aes_args = list(color = clas4, shape = clas4),
+  identity_args = list(size = 1.5, alpha = 0)) +
+  this_theme +
+  ggplot2::labs(subtitle = "3 cluster in 4 dim")
+dim6 <- spinifex::view_frame(
+  bas6, EEE_p6_0_1_rep1,
+  aes_args = list(color = clas6, shape = clas6),
+  identity_args = list(size = 1.5, alpha = 0)) +
+  this_theme +
+  ggplot2::labs(subtitle = "4 cluster in 6 dim")
+dim_txt <- ggplot() +
+  geom_text(aes(0, 0), size = 3,
+            label = "Cluster 'd', above, only exists \n when there are 6 dim, is \n spherical like the noise dim, \n but has cluster separation \n behind the plane of the \n other 3 isodensities.") +
+  theme_void() +
+  theme(text = element_text(hjust = .5, vjust = .5))
 
-ggplot2::ggsave(
-  "./figures_from_script/ch3_fig3_filmstrip.pdf", film, "pdf",
-  width=8, scale=1, units="in")
+## Cowplot munging ------
+require("cowplot")
+.gg_empty <- ggplot() + theme_void()
+fct_row <- plot_grid(fct1, fct2, fct3, nrow = 1)
+loc_row <- plot_grid(loc1, loc2, loc3, nrow = 1)
+shp_row <- plot_grid(shp1, shp2, shp3, nrow = 1)
+dim_row <- plot_grid(dim4, dim6, dim_txt, nrow = 1)
+gc()
+gg_matrix <- plot_grid(fct_row, loc_row, shp_row, dim_row, ncol = 1, rel_heights = c(1,.8,.8,1))
+
+header_row <- ggplot() +
+  labs(title = "Levels of the block") +
+  theme_void() +
+  theme(plot.title = element_text(hjust = 0.5))
+header_matrix <- plot_grid(header_row, gg_matrix, ncol = 1, rel_heights = c(0.03, 1))
+
+t_fct <- ggplot() +
+  labs(title = "factor") +
+  theme_void()+
+  theme(plot.title = element_text(angle = 90))
+t_loc <- ggplot() +
+  labs(title = "location") +
+  theme_void()+
+  theme(plot.title = element_text(angle = 90))
+t_shp <- ggplot() +
+  labs(title = "shape") +
+  theme_void()+
+  theme(plot.title = element_text(angle = 90))
+t_dim <- ggplot() +
+  labs(title = "dimension") +
+  theme_void() +
+  theme(plot.title = element_text(angle = 90))
+tbl_col <- plot_grid(.gg_empty, t_fct, t_loc, t_shp, t_dim, ncol = 1, rel_heights = c(.8, 1.2,1.2,1,1))
+
+final <- plot_grid(tbl_col, header_matrix, nrow = 1, rel_widths = c(0.05, 1))
+.w = 6.25; .h = 9; .u = "in"; ## Save as previous
+
+ggsave(
+  "./figures_from_script/ch4_fig2_exp_factors.pdf", final, device = "pdf",
+  width = .w, height = .h, units = .u)
 
 
 
+# fig3_accuracy_measure -----
+tgt_fp <- paste0("./data/EEV_p6_33_66_rep2.rda")
+## Make data plot
+load(tgt_fp, envir = globalenv())
+dat <- EEV_p6_33_66_rep2
+clas <- attr(dat, "cluster")
+source("./figures_from_script/ch4_util_funcs.r") ## Redundant
+if(F)
+  file.edit("./figures_from_script/ch4_util_funcs.r")
+
+## Biplot -----
+gg1 <- ggplot() + theme_void() +
+  ggproto_pca_biplot(dat, aes_clas = clas, x_pc_num = 1L, y_pc_num = 4L) +
+  theme(axis.title = element_text(),
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5)) +
+  labs(subtitle = "factor=PCA, location=33/66%, \n shape=EEV, dimension=6&4 clusters",
+       x = "PC1", y = "PC4")
+
+## Accuracy measure -----
+ans_tbl <- readRDS("./data/ans_tbl.rds") ## load obj ans_tbl
+tgt_sim_nm <- "EEV_p6_33_66_rep2"
+sub <- ans_tbl %>% dplyr::filter(sim_nm == tgt_sim_nm)
+sub_longer <- pivot_longer_resp_ans_tbl(dat = sub)
+sub_longer$weight[c(3,5)] <- sub_longer$weight[c(3,5)] / sum(sub_longer$weight[c(3,5)])
+sub_longer$weight[c(-3,-5)] <- -sub_longer$weight[c(-3,-5)] / sum(sub_longer$weight[c(-3,-5)])
+
+gg2 <- ggplot() + theme_bw() +
+  ggproto_ans_plot(sub_longer) +
+  theme(plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5)) +
+  labs(subtitle = "Cluster separation & weights") +
+  theme(legend.position = "off")
+
+(final <- cowplot::plot_grid(gg1, gg2 , scale = c(1, 1)))
+.w = 6.25; .h = 9; .u = "in"; ## Save as previous
+ggsave(
+  "./figures_from_script/ch4_fig3_accuracy_measure.pdf", final, "pdf",
+  width = .w, height = .w / 2, units = .u)
 
 
 #fig4_jet_better_pc4 -----

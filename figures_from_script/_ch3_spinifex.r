@@ -1,17 +1,16 @@
 # Setup ------
 if(F)
   remotes::install_github("nspyrison/spinifex")
-require(spinifex) ## Current version, likely a small diff from spinifex v0.3.1
+require(spinifex) ## Current dev ver, likely a small diff from CRAN spinifex v0.3.1
 require(tourr)
 require(ggplot2)
 require(gridExtra)
 require(dplyr)
-my_theme <- theme_spinifex()
 
 # fig1_biplot -----
 
 ## Flea holes tour
-set.seed(20190425) ## doesn't change tourr output,
+set.seed(20190425) ## Doesn't change tourr output.
 f_dat <- tourr::rescale(flea[,1:6])
 f_clas <- factor(flea$species)
 ## Hard code a basis. tourr doesn't fit results with set.seed().
