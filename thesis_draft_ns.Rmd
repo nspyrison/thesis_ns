@@ -402,32 +402,119 @@ if(F)
 
 
 ```{r ch3fig1, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig1_biplot.pdf") 
+knitr::include_graphics("./figures_from_script/ch3_fig1_biplot.pdf")
 ```
 
 ```{r ch3fig2, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig2_manip_sp.pdf") 
+knitr::include_graphics("./figures_from_script/ch3_fig2_manip_sp.pdf")
 ```
 
 ```{r ch3fig3, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig3_filmstrip.pdf") 
+knitr::include_graphics("./figures_from_script/ch3_fig3_filmstrip.pdf")
 ```
 
 ```{r ch3fig4, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig4_jet_better_pc4.pdf") 
+knitr::include_graphics("./figures_from_script/ch3_fig4_jet_better_pc4.pdf")
 ```
 
 ```{r ch3fig5, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig5_jet_worse_pc3.pdf") 
+knitr::include_graphics("./figures_from_script/ch3_fig5_jet_worse_pc3.pdf")
 ```
 
 ```{r ch3fig6, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig6_DIS_better_pc6.pdf") 
+knitr::include_graphics("./figures_from_script/ch3_fig6_DIS_better_pc6.pdf")
 ```
 
 ```{r ch3fig7, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf") 
+knitr::include_graphics("./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf")
 ```
 
 <!--chapter:end:03-spinifex.Rmd-->
+
+---
+chapter: 4
+knit: "bookdown::render_book"
+editor_options: 
+  chunk_output_type: console
+---
+
+# Efficacy of the radial tour {#ch:efficacy_radial_tour}
+
+
+```{r ch4fig1, fig.cap = "<a figure caption> XXX: TODO"}
+# if(F) ##TODO: remove? should already be covered in intro/motivation
+#   knitr::include_graphics("./figures_from_script/ch4_fig1_pca_splom.pdf")
+```
+
+```{r ch4fig2, fig.cap = "<a figure caption> XXX: TODO"}
+knitr::include_graphics("./figures_from_script/ch4_fig2_exp_factors.pdf")
+```
+
+<!-- Define accuracy measure -->
+\begin{align*}
+W_{j} &=\frac
+{(\overline{X_{j=1, k=1}} - \overline{X_{1, k=2}}, ~...~
+(\overline{X_{j=p, k=1}} - \overline{X_{j=p, k=2}})}
+{\sum_{j=1}^{p}(|\overline{X_{j,k=1}} - \overline{X_{j,k=2}}|)}
+- \frac{1}{p} \\
+\\
+\text{Accuracy}, Y &= \sum_{j=1}^{p}I(r_j) * sign(w_j) * \sqrt{|w_j|}  \\
+\end{align*}
+
+```{r ch4fig3, fig.cap = "<a figure caption> XXX: TODO"}
+knitr::include_graphics("./figures_from_script/ch4_fig3_accuracy_measure.pdf")
+```
+
+<!-- Y1 model array -->
+$$
+\begin{array}{ll}
+\textbf{Fixed effects:}          &\textbf{Full model:} \\
+\alpha                           &\widehat{Y_1} = \mu + \alpha_i + \textbf{Z} + \textbf{W} + \epsilon \\
+\alpha + \beta + \gamma + \delta &\widehat{Y_1} = \mu + \alpha_i + \beta_j + \gamma_k + \delta_l + \textbf{Z} + \textbf{W} + \epsilon \\
+\alpha * \beta + \gamma + \delta &\widehat{Y_1} = \mu + \alpha_i * \beta_j + \textbf{Z} + \textbf{W} + \epsilon \\
+\alpha * \beta * \gamma + \delta &\widehat{Y_1} = \mu + \alpha_i * \beta_j * \gamma_k + \textbf{Z} + \textbf{W} + \epsilon \\
+\alpha * \beta * \gamma * \delta &\widehat{Y_1} = \mu + \alpha_i * \beta_j * \gamma_k * \delta_l + \textbf{Z} + \textbf{W} + \epsilon
+\end{array}
+$$
+$$
+\begin{array}{ll}
+\text{where } &\mu \text{ is the intercept of the model including the mean of random effect} \\
+&\alpha_i \text{, fixed term for factor}~|~i\in (\text{pca, grand, radial}) \\
+&\beta_j  \text{, fixed term for location}~|~j\in (\text{0\_1, 33\_66, 50\_50}) \text{ \% noise/signal mixing} \\
+&\gamma_k \text{, fixed term for shape}~|~k\in (\text{EEE, EEV, EVV banana}) \text{ model shapes} \\
+&\delta_l \text{, fixed term for dimension}~|~l\in (\text{4 variables \& 3 cluster, 6 variables \& 4 clusters}) \\
+&\textbf{Z} \sim \mathcal{N}(0,~\tau), \text{ the random effect of participant} \\
+&\textbf{W} \sim \mathcal{N}(0,~\upsilon), \text{ the random effect of simulation} \\
+&\epsilon   \sim \mathcal{N}(0,~\sigma), \text{ the error of the model} \\
+\end{array}
+$$
+
+## TODO: CONTINUE HERE
+
+```{r ch4tab1, fig.cap = "<TABLE FIGURES DFEFINED IN THE KABLE>"}
+mod_comp <- readRDS("./figures_from_script/ch4_tab1_model_comp_ls.rds") ## accuracy [[1]], log time [[2]]
+output <- kableExtra::kbl(
+  x = mod_comp[[1]], format = "latex",
+  align = c("l", rep("l", 2), rep("c", 5)),
+  booktabs = TRUE, linesep = "", caption = "<TABBLE CAPTION XXX:TODO> Model comparison of our random effect models regressing marks. Each model includes a random effect term of the participant, which explains the individual's influence on their marks. Complex models perform better in terms of R2 and RMSE, yet AIC and BIC penalize their large number of fixed effects in favor of the much simpler model containing only the visual factor.") %>%
+  kableExtra::column_spec(column = 1, width = "1.5cm") %>%
+  kableExtra::column_spec(column = c(2:3), width = "1cm") %>%
+  kableExtra::column_spec(column = c(4:8), width = "1.5cm") %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 10)
+#output
+```
+
+<!-- # ```{r ch4tab2, fig.cap = "<a figure caption> XXX: TODO"} -->
+<!-- # #knitr::include_graphics("./figures_from_script/ch3_fig5_jet_worse_pc3.pdf") -->
+<!-- # ``` -->
+<!-- #  -->
+<!-- # ```{r ch4fig6, fig.cap = "<a figure caption> XXX: TODO"} -->
+<!-- # #knitr::include_graphics("./figures_from_script/ch3_fig6_DIS_better_pc6.pdf") -->
+<!-- # ``` -->
+<!-- #  -->
+<!-- # ```{r ch4fig7, fig.cap = "<a figure caption> XXX: TODO"} -->
+<!-- # #knitr::include_graphics("./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf") -->
+<!-- # ``` -->
+
+<!--chapter:end:04-efficacy_radial_tour.Rmd-->
 

@@ -300,26 +300,22 @@ ggsave(
   "./figures_from_script/ch4_fig3_accuracy_measure.pdf", final, "pdf",
   width = .w, height = .w / 2, units = .u)
 
+# ch4_fig4_randomization_MANUAL.png -----
+# SEE: C:\Users\spyri\Documents\R\
+### spinifex_study\paper\figures\figParmeterizationExample.png
+# c+p to ./figures_from_script/
+### ch4_fig4_randomization_MANUAL.png
 
-#fig4_jet_better_pc4 -----
-load("./data/JetCluster_sub.rda")
-load("./data/JetCluster_basis.rda")
-jet_dat   <- tourr::rescale(JetCluster_sub[, 1:4])
-jet_bas   <- JetCluster_basis
-rownames(jet_bas) <- colnames(jet_dat)
-jet_clas  <- factor(JetCluster_sub$exp)
-jet_mvar  <- 4
-jet_ang   <- .315 ## gives 12 frames
-jet_mtour <- manual_tour(basis = jet_bas, manip_var = jet_mvar)
-ggt <- ggtour(jet_mtour, jet_dat, angle = pi*3) +
-  proto_default(list(color = jet_clas, shape = jet_clas),
-                list(alpha = .5))
-fig4_jet_better_pc4 <- filmstrip(ggt)
+#ch4_tab1_model_comparisons -----
+if(F){ ## paste directly to print in line.
+  kableExtra::kbl(
+    x = readRDS("./figures_from_script/ch4_tab1_model_comparison.rds"),
+    caption = "<table CAPTION XXX:TODO>")
+}
+## obj <- readRDS("<FP>")
 
-ggplot2::ggsave(
-  "./figures_from_script/ch3_fig4_jet_better_pc4.pdf",
-  fig4_jet_better_pc4, "pdf",
-  width=8, scale=1, units="in")
+#ch4_tab2_model_coefficients -----
+
 
 #fig5_jet_worse_pc3 -----
 jet_mvar  <- 3

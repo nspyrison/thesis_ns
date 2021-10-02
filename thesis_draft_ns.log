@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.17)  28 SEP 2021 19:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.17)  2 OCT 2021 15:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -964,10 +964,10 @@ Please type another file name for output
 l.1 ...\000A\000b\000s\000t\000r\000a\000c\000t}{}
                                                   % 1 
 Here is how much of TeX's memory you used:
- 21167 strings out of 480539
- 364769 string characters out of 5900821
- 1141455 words of memory out of 5000000
- 38542 multiletter control sequences out of 15000+600000
+ 21172 strings out of 480539
+ 364851 string characters out of 5900821
+ 1141679 words of memory out of 5000000
+ 38547 multiletter control sequences out of 15000+600000
  409038 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,1n,81p,2244b,15774s stack positions out of 5000i,500n,10000p,200000b,80000s

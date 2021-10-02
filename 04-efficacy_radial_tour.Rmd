@@ -1,6 +1,8 @@
 ---
 chapter: 4
 knit: "bookdown::render_book"
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Efficacy of the radial tour {#ch:efficacy_radial_tour}
@@ -56,18 +58,27 @@ $$
 
 ## TODO: CONTINUE HERE
 
-```{r ch3fig4, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig4_jet_better_pc4.pdf")
+```{r ch4tab1, fig.cap = "<TABLE FIGURES DFEFINED IN THE KABLE>"}
+mod_comp <- readRDS("./figures_from_script/ch4_tab1_model_comp_ls.rds") ## accuracy [[1]], log time [[2]]
+output <- kableExtra::kbl(
+  x = mod_comp[[1]], format = "latex",
+  align = c("l", rep("l", 2), rep("c", 5)),
+  booktabs = TRUE, linesep = "", caption = "<TABBLE CAPTION XXX:TODO> Model comparison of our random effect models regressing marks. Each model includes a random effect term of the participant, which explains the individual's influence on their marks. Complex models perform better in terms of R2 and RMSE, yet AIC and BIC penalize their large number of fixed effects in favor of the much simpler model containing only the visual factor.") %>%
+  kableExtra::column_spec(column = 1, width = "1.5cm") %>%
+  kableExtra::column_spec(column = c(2:3), width = "1cm") %>%
+  kableExtra::column_spec(column = c(4:8), width = "1.5cm") %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", font_size = 10)
+#output
 ```
 
-```{r ch3fig5, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig5_jet_worse_pc3.pdf")
-```
-
-```{r ch3fig6, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig6_DIS_better_pc6.pdf")
-```
-
-```{r ch3fig7, fig.cap = "<a figure caption> XXX: TODO"}
-knitr::include_graphics("./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf")
-```
+<!-- # ```{r ch4tab2, fig.cap = "<a figure caption> XXX: TODO"} -->
+<!-- # #knitr::include_graphics("./figures_from_script/ch3_fig5_jet_worse_pc3.pdf") -->
+<!-- # ``` -->
+<!-- #  -->
+<!-- # ```{r ch4fig6, fig.cap = "<a figure caption> XXX: TODO"} -->
+<!-- # #knitr::include_graphics("./figures_from_script/ch3_fig6_DIS_better_pc6.pdf") -->
+<!-- # ``` -->
+<!-- #  -->
+<!-- # ```{r ch4fig7, fig.cap = "<a figure caption> XXX: TODO"} -->
+<!-- # #knitr::include_graphics("./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf") -->
+<!-- # ``` -->
