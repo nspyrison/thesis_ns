@@ -25,7 +25,7 @@ biplot <- ggtour(f_bas, f_dat) +
 
 ggplot2::ggsave(
   "./figures_from_script/ch3_fig1_biplot.pdf", biplot, "pdf",
-  height=3, scale=1, units="in")
+  height=2, scale=1, units="in")
 
 # fig2_manip_sp -----
 f_mvar <- 5
@@ -33,7 +33,7 @@ manip_sp <- spinifex::view_manip_space(basis = f_bas, manip_var = f_mvar)
 
 ggplot2::ggsave(
   "./figures_from_script/ch3_fig2_manip_sp.pdf", manip_sp, "pdf",
-  height=3, scale=1, units="in")
+  height=2, scale=1, units="in")
 
 
 # fig3_filmstrip -----
