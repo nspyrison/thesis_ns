@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.17)  7 OCT 2021 10:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.17)  7 OCT 2021 14:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1390,14 +1390,31 @@ Overfull \hbox (28.9376pt too wide) detected at line 598
 [27
 
 ] [28 <./figures_from_script/ch4_fig2_exp_factors.pdf>] [29 <./figures_from_scr
-ipt/ch4_fig3_accuracy_measure.pdf>] [30] [31] [32
+ipt/ch4_fig3_accuracy_measure.pdf>] [30]
+<./figures_from_script/ch4_fig5_ABcd_violins.pdf, id=614, 451.6875pt x 451.6875
+pt>
+File: ./figures_from_script/ch4_fig5_ABcd_violins.pdf Graphic file (type pdf)
+<use ./figures_from_script/ch4_fig5_ABcd_violins.pdf>
+Package pdftex.def Info: ./figures_from_script/ch4_fig5_ABcd_violins.pdf  used 
+on input line 649.
+(pdftex.def)             Requested size: 426.79135pt x 426.81937pt.
+<./figures_from_script/ch4_fig6_subjective_measures.pdf, id=615, 451.6875pt x 4
+51.6875pt>
+File: ./figures_from_script/ch4_fig6_subjective_measures.pdf Graphic file (type
+ pdf)
+<use ./figures_from_script/ch4_fig6_subjective_measures.pdf>
+Package pdftex.def Info: ./figures_from_script/ch4_fig6_subjective_measures.pdf
+  used on input line 658.
+(pdftex.def)             Requested size: 426.79135pt x 426.81937pt.
+[31 <./figures_from_script/ch4_fig5_ABcd_violins.pdf>] [32 <./figures_from_scri
+pt/ch4_fig6_subjective_measures.pdf>] [33
 
-] [33] [34] [35] [36] [37] (./thesis_draft_ns.aux)
+] [34] [35] [36] [37] (./thesis_draft_ns.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis_draft_ns.out' has not changed.
-(rerunfilecheck)             Checksum: 5413563C9C1D1942FA0B2DBE3FE2D4AC;2460.
+(rerunfilecheck)             Checksum: 6AD16B7A393A2DBD9BDE687B80ABFDB8;2460.
 Package logreq Info: Writing requests to 'thesis_draft_ns.run.xml'.
 \openout1 = `thesis_draft_ns.run.xml'.
 
@@ -1407,10 +1424,10 @@ Package logreq Info: Writing requests to 'thesis_draft_ns.run.xml'.
 ### semi simple group (level 1) entered at line 102 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 24175 strings out of 480539
- 423608 string characters out of 5900821
- 1209172 words of memory out of 5000000
- 40919 multiletter control sequences out of 15000+600000
+ 24197 strings out of 480539
+ 424651 string characters out of 5900821
+ 1209463 words of memory out of 5000000
+ 40937 multiletter control sequences out of 15000+600000
  536582 words of font info for 261 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,12n,93p,2244b,18927s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1440,10 +1457,10 @@ onts/type1/public/lm/lmsy10.pfb><c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-d
 ist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/spyri/AppData/Roaming/TinyTeX/te
 xmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/spyri/AppData/Roaming/TinyT
 eX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on thesis_draft_ns.pdf (43 pages, 2106361 bytes).
+Output written on thesis_draft_ns.pdf (43 pages, 2313638 bytes).
 PDF statistics:
- 792 PDF objects out of 1000 (max. 8388607)
- 660 compressed objects within 7 object streams
- 174 named destinations out of 1000 (max. 500000)
- 79043 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 820 PDF objects out of 1000 (max. 8388607)
+ 681 compressed objects within 7 object streams
+ 176 named destinations out of 1000 (max. 500000)
+ 79053 words of extra memory for PDF output out of 89155 (max. 10000000)
 
