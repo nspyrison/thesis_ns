@@ -1,7 +1,7 @@
 ---
 chapter: 4
 knit: "bookdown::render_book"
-editor_options: 
+editor_options:
   chunk_output_type: console
 ---
 
@@ -41,10 +41,10 @@ $$
 \alpha * \beta + \gamma + \delta &\widehat{Y_1} = \mu + \alpha_i * \beta_j + \textbf{Z} + \textbf{W} + \epsilon \\
 \alpha * \beta * \gamma + \delta &\widehat{Y_1} = \mu + \alpha_i * \beta_j * \gamma_k + \textbf{Z} + \textbf{W} + \epsilon \\
 \alpha * \beta * \gamma * \delta &\widehat{Y_1} = \mu + \alpha_i * \beta_j * \gamma_k * \delta_l + \textbf{Z} + \textbf{W} + \epsilon
-\end{array}
-$$
-$$
-\begin{array}{ll}
+\% \end{array}
+\% $$
+\% $$
+\% \begin{array}{ll}
 \text{where } &\mu \text{ is the intercept of the model including the mean of random effect} \\
 &\alpha_i \text{, fixed term for factor}~|~i\in (\text{pca, grand, radial}) \\
 &\beta_j  \text{, fixed term for location}~|~j\in (\text{0\_1, 33\_66, 50\_50}) \text{ \% noise/signal mixing} \\
@@ -56,14 +56,13 @@ $$
 \end{array}
 $$
 
-## TODO: CONTINUE HERE
 
 ```{r ch4tab1, fig.cap = "<TABLE FIGURES DFEFINED IN THE KABLE>"}
 mod_comp <- readRDS("./figures_from_script/ch4_tab1_model_comp_ls.rds") ## accuracy [[1]], log time [[2]]
 output <- kableExtra::kbl(
   x = mod_comp[[1]], format = "latex",
   align = c("l", rep("l", 2), rep("c", 5)),
-  booktabs = TRUE, linesep = "", caption = "<TABBLE CAPTION XXX:TODO> Model comparison of our random effect models regressing marks. Each model includes a random effect term of the participant, which explains the individual's influence on their marks. Complex models perform better in terms of R2 and RMSE, yet AIC and BIC penalize their large number of fixed effects in favor of the much simpler model containing only the visual factor.") %>%
+  booktabs = TRUE, linesep = "", caption = "<TABLE CAPTION XXX:TODO> Model comparison of our random effect models regressing marks. Each model includes a random effect term of the participant, which explains the individual's influence on their marks. Complex models perform better in terms of R2 and RMSE, yet AIC and BIC penalize their large number of fixed effects in favor of the much simpler model containing only the visual factor.") %>%
   kableExtra::column_spec(column = 1, width = "1.5cm") %>%
   kableExtra::column_spec(column = c(2:3), width = "1cm") %>%
   kableExtra::column_spec(column = c(4:8), width = "1.5cm") %>%
@@ -71,9 +70,25 @@ output <- kableExtra::kbl(
 #output
 ```
 
-<!-- # ```{r ch4tab2, fig.cap = "<a figure caption> XXX: TODO"} -->
-<!-- # #knitr::include_graphics("./figures_from_script/ch3_fig5_jet_worse_pc3.pdf") -->
-<!-- # ``` -->
+```{r ch4tab2, fig.cap = "<TABLE FIGURES DFEFINED IN THE KABLE>"}
+mod_coef <- readRDS("./figures_from_script/ch4_tab2_model_coef_ls.rds") ## accuracy [[1]], log time [[2]]
+mod_coef
+str(mod_coef)
+output <- kableExtra::kbl(
+  x = mod_coef[[1]],format = "latex", booktabs = TRUE, linesep = "",
+                caption = "The task accuracy model coefficients for $\\widehat{Y_1} = \\alpha * \\beta + \\gamma + \\delta$, with factor=pca, location=0/100, and shape=EEE held as baselines. Factor being radial is the fixed term with the strongest evidence in support of the hypothesis. When crossing factor with location radial performs worse with 33/66 percent mixing relative to the PCA with no mixing. The model fit is based on the 648 evaluations by the 108 participants.") %>%
+  kableExtra::column_spec(column = 1, width = "5cm") %>%
+  kableExtra::column_spec(column = 3, width = "1.6cm") %>%
+  kableExtra::column_spec(column = c(2, 4:6), width = "1.4cm") %>%
+  kableExtra::pack_rows("factor", 2, 3) %>%
+  pack_rows("fixed effects", 4, 8) %>%
+  pack_rows("interactions", 9, 12) %>%
+  kable_styling(bootstrap_options = "striped", font_size = 10)
+## Cause latex error in print, works in /spinifex_study/ so a latex package issue??
+#output
+```
+
+
 <!-- #  -->
 <!-- # ```{r ch4fig6, fig.cap = "<a figure caption> XXX: TODO"} -->
 <!-- # #knitr::include_graphics("./figures_from_script/ch3_fig6_DIS_better_pc6.pdf") -->

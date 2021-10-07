@@ -92,23 +92,20 @@ bas3_st <- basis_half_circle(EEE_p4_0_1_rep1)
 mt <- manual_tour(bas3_st, manip_var = 2)
 bas3 <- spinifex:::interpolate_manual_tour(mt, .05)[,,17]
 
-fct1 <- spinifex::view_frame(bas1, EEE_p4_0_1_rep1,
-                             aes_args = list(color = clas, shape = clas),
-                             identity_args = list(size = 1.5, alpha = 0)) +
+fct1 <- spinifex::ggtour(bas1, EEE_p4_0_1_rep1) +
+  proto_basis() +
   this_theme +
-  theme(axis.title =  element_text()) +
-  labs(x = expression(paste(PC_j)), y = expression(paste(PC_k)), subtitle = "PCA \n\n Discrete jump to \n selected pair")# +
-fct2 <- spinifex::view_frame(bas2, EEE_p4_0_1_rep1,
-                             aes_args = list(color = clas, shape = clas),
-                             identity_args = list(size = 1.5, alpha = 0)) +
+  labs(x = expression(paste(PC_j)), y = expression(paste(PC_k)),
+       subtitle = "PCA \n\n Discrete jump to \n selected pair")
+fct2 <- spinifex::ggtour(bas2, EEE_p4_0_1_rep1) +
+  proto_basis() +
   this_theme +
-  labs(subtitle = "grand tour \n\n Animation through \n random bases") #+
-fct3 <- spinifex::view_frame(
-  bas3, EEE_p4_0_1_rep1, manip_var = 2,
-  aes_args = list(color = clas, shape = clas),
-  identity_args = list(size = 1.5, alpha = 0)) +
+  labs(subtitle = "grand tour \n\n Animation through \n random bases")
+attr(bas3, "manip_var") <- 2
+fct3 <- spinifex::ggtour(bas3, EEE_p4_0_1_rep1) +
+  proto_basis() +
   this_theme +
-  labs(subtitle = "radial tour \n\n Animation changing \n contribution of \n selected variable")# +
+  labs(subtitle = "radial tour \n\n Animation changing \n contribution of \n selected variable")
 
 ## Locations ------
 ##     Cluster A         Cluster B
@@ -178,8 +175,8 @@ for(i in 1:length(lvls)){ ## Creates obj; shp1:shp3
     coord_fixed() +
     this_theme +
     labs(subtitle = lvls[i])
-  ## Add text on first 2, but not the last one.
-  if(i != length(lvls))
+  ## Add text on first, but not the last two
+  if(i == 1)
     g <- g +
       ## Cluster letters a-c
       geom_text(aes(x = x, y = y, label = cluster, color = cluster), size = 7) +
@@ -199,22 +196,18 @@ bas4 <- spinifex::basis_half_circle(EEE_p4_0_1_rep1)
 bas6 <- spinifex::basis_half_circle(EEE_p6_0_1_rep1)
 clas4 <- attr(EEE_p4_0_1_rep1, "cluster")
 clas6 <- attr(EEE_p6_0_1_rep1, "cluster")
-dim4 <- spinifex::view_frame(
-  bas4, EEE_p4_0_1_rep1,
-  aes_args = list(color = clas4, shape = clas4),
-  identity_args = list(size = 1.5, alpha = 0)) +
+dim4 <- spinifex::ggtour(bas4, EEE_p4_0_1_rep1) +
+  proto_basis() +
   this_theme +
-  ggplot2::labs(subtitle = "3 cluster in 4 dim")
-dim6 <- spinifex::view_frame(
-  bas6, EEE_p6_0_1_rep1,
-  aes_args = list(color = clas6, shape = clas6),
-  identity_args = list(size = 1.5, alpha = 0)) +
+  labs(subtitle = "3 cluster in 4 dim")
+dim6 <- spinifex::ggtour(bas6, EEE_p6_0_1_rep1) +
+  proto_basis() +
   this_theme +
-  ggplot2::labs(subtitle = "4 cluster in 6 dim")
+  labs(subtitle = "4 cluster in 6 dim")
 dim_txt <- ggplot() +
   geom_text(aes(0, 0), size = 3,
             label = "Cluster 'd', above, only exists \n when there are 6 dim, is \n spherical like the noise dim, \n but has cluster separation \n behind the plane of the \n other 3 isodensities.") +
-  theme_void() +
+  theme_void()+
   theme(text = element_text(hjust = .5, vjust = .5))
 
 ## Cowplot munging ------
@@ -223,31 +216,32 @@ require("cowplot")
 fct_row <- plot_grid(fct1, fct2, fct3, nrow = 1)
 loc_row <- plot_grid(loc1, loc2, loc3, nrow = 1)
 shp_row <- plot_grid(shp1, shp2, shp3, nrow = 1)
-dim_row <- plot_grid(dim4, dim6, dim_txt, nrow = 1)
+dim_row <- plot_grid(dim4, dim6, dim_txt, nrow = 1,
+                     rel_widths=rep(1,3), rel_heights=rep(1,3))
 gc()
 gg_matrix <- plot_grid(fct_row, loc_row, shp_row, dim_row, ncol = 1, rel_heights = c(1,.8,.8,1))
 
 header_row <- ggplot() +
   labs(title = "Levels of the block") +
-  theme_void() +
+  theme_void()+
   theme(plot.title = element_text(hjust = 0.5))
 header_matrix <- plot_grid(header_row, gg_matrix, ncol = 1, rel_heights = c(0.03, 1))
 
 t_fct <- ggplot() +
   labs(title = "factor") +
-  theme_void()+
+  theme_void() + labs(x="", y="") +
   theme(plot.title = element_text(angle = 90))
 t_loc <- ggplot() +
   labs(title = "location") +
-  theme_void()+
+  theme_void() + labs(x="", y="") +
   theme(plot.title = element_text(angle = 90))
 t_shp <- ggplot() +
   labs(title = "shape") +
-  theme_void()+
+  theme_void() + labs(x="", y="") +
   theme(plot.title = element_text(angle = 90))
 t_dim <- ggplot() +
   labs(title = "dimension") +
-  theme_void() +
+  theme_void() + labs(x="", y="") +
   theme(plot.title = element_text(angle = 90))
 tbl_col <- plot_grid(.gg_empty, t_fct, t_loc, t_shp, t_dim, ncol = 1, rel_heights = c(.8, 1.2,1.2,1,1))
 
@@ -258,6 +252,11 @@ ggsave(
   "./figures_from_script/ch4_fig2_exp_factors.pdf", final, device = "pdf",
   width = .w, height = .h, units = .u)
 
+## save for project 2
+if(F)
+  ggsave(
+    "../spinifex_study/paper/figures/figExpFactors.pdf", final, device = "pdf",
+    width = .w, height = .h, units = .u)
 
 
 # fig3_accuracy_measure -----
@@ -271,7 +270,7 @@ if(F)
   file.edit("./figures_from_script/ch4_util_funcs.r")
 
 ## Biplot -----
-gg1 <- ggplot() + theme_void() +
+gg1 <- ggplot() + theme_bw()+
   ggproto_pca_biplot(dat, aes_clas = clas, x_pc_num = 1L, y_pc_num = 4L) +
   theme(axis.title = element_text(),
         plot.title = element_text(hjust = 0.5),
@@ -306,60 +305,16 @@ ggsave(
 # c+p to ./figures_from_script/
 ### ch4_fig4_randomization_MANUAL.png
 
-#ch4_tab1_model_comparisons -----
-if(F){ ## paste directly to print in line.
-  kableExtra::kbl(
-    x = readRDS("./figures_from_script/ch4_tab1_model_comparison.rds"),
-    caption = "<table CAPTION XXX:TODO>")
-}
-## obj <- readRDS("<FP>")
+# ch4_tab1_model_comparisons -----
+## Handled inline, see `04-efficacy_radial_tour.Rmd`
 
-#ch4_tab2_model_coefficients -----
+# ch4_tab2_model_coefficients -----
+## Handled inline, see `04-efficacy_radial_tour.Rmd`
+
+# ch4_fig5_subjestive_measures -----
+# ... not yet done? manually transfer?
+
+# ch4_fig6_rand_effect_size ----
+# include? I think it really supports the idea of using mixxed models.
 
 
-#fig5_jet_worse_pc3 -----
-jet_mvar  <- 3
-jet_mtour <- manual_tour(basis = jet_bas, manip_var = jet_mvar)
-ggt <- ggtour(jet_mtour, jet_dat, angle = pi*3) +
-  proto_default(list(color = jet_clas, shape = jet_clas),
-                list(alpha = .5))
-fig5_jet_worse_pc3 <- filmstrip(ggt)
-
-ggplot2::ggsave(
-  "./figures_from_script/ch3_fig5_jet_worse_pc3.pdf",
-  fig5_jet_worse_pc3, "pdf",
-  width=8, scale=1, units="in")
-
-# fig6_DIS_better_pc6 -----
-load("./data/grDIScenter.rda")
-load("./data/DIScluster_centered_basis.rda")
-DIS_dat   <- tourr::rescale(grDIScenter[, 1:6])
-DIS_bas   <- DIScluster_centered_basis
-rownames(DIS_bas) <- colnames(DIS_dat)
-DIS_clas  <- factor(grDIScenter$disID,
-                    labels = c("DIS HERA1+2", "dimuon SIDIS", "charm SIDIS"))
-DIS_mvar  <- 6
-DIS_ang   <- .32
-DIS_mtour <- manual_tour(basis = DIS_bas, manip_var = DIS_mvar)
-
-ggt <- ggtour(DIS_mtour, DIS_dat, angle = pi*3) +
-  proto_default(list(color = DIS_clas, shape = DIS_clas),
-                list(alpha = .5))
-fig6_DIS_better_pc6 <- filmstrip(ggt)
-ggplot2::ggsave(
-  "./figures_from_script/ch3_fig6_DIS_better_pc6.pdf",
-  fig6_DIS_better_pc6, "pdf",
-  width=8, scale=1, units="in")
-
-# fig7_DIS_worse_pc2 -----
-DIS_mvar <- 2
-DIS_mtour <- manual_tour(basis = DIS_bas, manip_var = DIS_mvar)
-
-ggt <- ggtour(DIS_mtour, DIS_dat, angle = pi*3) +
-  proto_default(list(color = DIS_clas, shape = DIS_clas),
-                list(alpha = .5))
-fig7_DIS_worse_pc2 <- filmstrip(ggt)
-ggplot2::ggsave(
-  "./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf",
-  fig7_DIS_worse_pc2, "pdf",
-  width=8, scale=1, units="in")
