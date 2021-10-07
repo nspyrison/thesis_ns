@@ -480,14 +480,102 @@ Similar results have been shown in static, 3D projected spaces \autocite{gracia_
 \hypertarget{ch:spinifex}{%
 \chapter{\texorpdfstring{Manual tours and the R package \texttt{spinifex}}{Manual tours and the R package spinifex}}\label{ch:spinifex}}
 
+TODO:XXX Segue. Bring over abstract?
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Exploring multivariate spaces is a challenging task, increasingly so as dimensionality increases. Traditionally, static low-dimensional projections are used to display multivariate data in two dimensions including principal component analysis, linear discriminant spaces or projection pursuit. These are useful for finding relationships between multiple variables, but they are limited because they show only a glimpse of the high-dimensional space. An alternative approach is to use a tour \autocite{asimov_grand_1985} of dynamic linear projections to look at many different low-dimensional projections. Tours can be considered to extend the dimensionality of visualization, which is important as data and models exist in more than 3D. The package \{tourr\} \autocite{wickham_tourr:_2011} provides a platform for generating tours. It can produce a variety of tours, each paired with a variety of possible displays. A user can make a grand, guided, little, local or frozen tour, and display the resulting projected data as a scatterplot, density plot, histogram, or even as Chernoff faces if the projection dimension is more than 3.
+
+This work adds a manual tour to the collection. The manual tour was described in \textcite{cook_manual_1997} and allows a user to control the projection coefficients of a selected variable in a 2D projection. The manipulation of these coefficients allows the analyst to explore their sensitivity to the structure within the projection. As manual tours operate on only one variable at a time, they are particularly useful once a feature of interest has been identified.
+
+One way to identify ``interesting'' features is with the use of a guided tour \autocite{cook_grand_1995}. Guided tours select a very specific path, which approaches a projection that optimizes an objective function. The optimization used to guide the tour is simulated annealing \autocite{kirkpatrick_optimization_1983}. The direct optimization of a function allows guided tours to rapidly identify interesting projection features given the relatively large parameter-space. After a projection of interest is identified, an analyst can then use the ``finer brush'' of the manual tour to control the contributions of individual variables to explore the sensitivity they have on the structure visible in the projection.
+
+The paper is organized as follows. Section \ref{sec:algorithm} describes the algorithm used to perform a radial manual tour as implemented in the package \{spinifex\}. Section \ref{sec:display} explains how to generate an animation of the manual tour using the animation frameworks offered by \{plotly\} \autocite{sievert_interactive_2020} and \{gganimate\} \autocite{pedersen_gganimate_2020}. Package functionality and code usage following the order applied in the algorithm follows in section \ref{sec:usage}. Section \ref{sec:application} illustrates how this can be used for sensitivity analysis applied to multivariate data collected on high energy physics experiments \autocite{wang_mapping_2018}. Section \ref{sec:discussion} summarizes this paper and discusses potential future directions.
+
+\hypertarget{sec:algorithm}{%
+\section{Algorithm}\label{sec:algorithm}}
+
+The algorithm to conduct a manual tour interactively, by recording mouse/cursor motion, is described in detail in \textcite{cook_manual_1997}. Movement can be in any direction and magnitude, but it can also be constrained in several ways:
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{radial}: fix the direction of contribution, and allow the magnitude to change.
+\item
+  \emph{angular}: fix the magnitude, and allow the angle or direction of the contribution to vary.
+\item
+  \emph{horizontal}, \emph{vertical}: allow rotation only around the horizontal or vertical axis of the current 2D projection.
+\end{itemize}
+
+The algorithm described here produces a \textbf{radial} tour as an \emph{animation sequence}. It takes the current contribution of the chosen variable, and using rotation brings this variable fully into the projection, completely removes it, and then returns to the original position.
+
+\hypertarget{notation}{%
+\subsection{Notation}\label{notation}}
+
+The notation used to describe the algorithm for a 2D radial manual tour is as follows:
+
+\begin{itemize}
+\item
+  \(\textbf{X}\), the data, an \(n \times p\) numeric matrix to be projected to 2D.
+\item
+  \(\textbf{B} = (B_1,~ B_2)\), any 2D orthonormal projection basis, \(p \times 2\) matrix, describing the projection from \(\mathbb{R}^p \Rightarrow \mathbb{R}^2\). This is called this the ``original projection'' because it is the starting point for the manual tour.
+\item
+  \(k\), is the index of the variable to manipulate, called the ``manip var''.
+\item
+  \(\textbf{e}\), a 1D basis vector of length \(p\), with 1 in the \(k\)-th position and 0 elsewhere.
+\item
+  \(\textbf{M}\) is a \(p \times 3\) matrix, defining the 3D subspace where data rotation occurs and is called the manip(ulation) space.
+\item
+  \(\textbf{R}\), the 3D rotation matrix, for performing unconstrained 3D rotations within the manip space, \(\textbf{M}\).
+\item
+  \(\theta\), the angle of in-projection rotation, for example, on the reference axes; \(c_\theta, s_\theta\) are its cosine and sine.
+\item
+  \(\phi\), the angle of out-of-projection rotation, into the manip space; \(c_\phi, s_\phi\) are its cosine and sine. The initial value for animation purposes is \(\phi_1\).
+\item
+  \(\textbf{U}\), the axis of rotation for out-of-projection rotation orthogonal to \(\textbf{e}\).
+\item
+  \(\textbf{Y}\), the resulting projection of the data through the manip space, \(\textbf{M}\), and rotation matrix, \(\textbf{R}\).
+\end{itemize}
+
+The algorithm operates entirely on projection bases and incorporates the data only when making the projected data plots, in light of efficiency.
+
+\hypertarget{steps}{%
+\subsection{Steps}\label{steps}}
+
+\hypertarget{step-0-setup}{%
+\subsubsection{Step 0) Setup}\label{step-0-setup}}
+
+The flea data (\textcite{lubischew_use_1962}), available in the \{tourr\} package, is used to illustrate the algorithm. The data contains 74 observations on 6 variables, which are physical measurements made on flea beetles. Each observation belongs to one of three species.
+
+An initial 2D projection basis must be provided. A suggested way to start is to identify an interesting projection using a projection pursuit guided tour. Here the holes index is used to find a 2D projection of the flea data, which shows three separated species groups. Figure \ref{fig:ch3fig1} shows the initial projection of the data. The left panel displays the projection basis (\(\textbf{B}\)) and can be used as a visual guide of the magnitude and direction that each variable contributes to the projection. The right panel shows the projected data, \(\textbf{Y}_{[n,~2]} ~=~ \textbf{X}_{[n,~p]} \textbf{B}_{[p,~2]}\). The color and shape of points are mapped to the flea species. This plot is made using the \texttt{view\textbackslash{}\_basis()} function in \{spinifex\}, which generates a \{ggplot2\} \autocite{wickham_ggplot2_2016} object.
+
 \begin{figure}
 
 {\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig1_biplot} 
 
 }
 
-\caption{<a figure caption> XXX: TODO}\label{fig:ch3fig1}
+\caption{Biplot of the initial 2D projection: representation of the basis (left) and resulting data projection (right) of standardized flea data. The color and shape of data points are mapped to the species of flea beetle. The basis was produced by a projection pursuit guided tour, with the holes index. The contribution of the variables aede2 and tars1 approximately contrasts the other variables. The visible structure in the projection are the three clusters corresponding to the three species.}\label{fig:ch3fig1}
 \end{figure}
+
+\hypertarget{step-1-choose-manip-variable}{%
+\subsubsection{Step 1) Choose manip variable}\label{step-1-choose-manip-variable}}
+
+In figure \ref{fig:ch3fig1} the contribution of the variables tars1 and aede2 mostly contrast the contribution of the other four variables. These two variables combined contribute in the direction of the projection where the purple cluster is separated from the other two clusters. The variable aede2 is selected as the manip var, the variable to be controlled in the tour. The question that will be explored is: how important is this variable to the separation of the clusters in this projection?
+
+\hypertarget{step-2-create-the-3d-manip-space}{%
+\subsubsection{Step 2) Create the 3D manip space}\label{step-2-create-the-3d-manip-space}}
+
+Initialize the coordinate basis vector as a zero vector, \(\textbf{e}\), of length \(p\), and set the \(k\)-th element to 1. In the example data, aede2 is the fifth variable in the data, so \(k=5\), set \(e_5=1\). Use a Gram-Schmidt process to orthonormalize the coordinate basis vector on the original 2D projection to describe a 3D manip space, \(\textbf{M}\).
+
+\begin{align*}
+  e_k &\leftarrow 1 \\ 
+  \textbf{e}^*_{[p,~1]} &= \textbf{e} - \langle \textbf{e}, \textbf{B}_1 \rangle \textbf{B}_1 - \langle \textbf{e}, \textbf{B}_2 \rangle \textbf{B}_2 \\ 
+  \textbf{M}_{[p,~3]} &= (\textbf{B}_1,\textbf{B}_2,\textbf{e}^*)
+\end{align*}
+
+The manip space provides a 3D projection from \(p\)-dimensional space, where the coefficient of the manip var can range completely between {[}0, 1{]}. This 3D space serves as the medium to rotate the projection basis relative to the selected manipulation variable. Figure \ref{fig:ch3fig2} illustrates this 3D manip space with the manip var highlighted. This representation is produced by calling the \texttt{view\textbackslash{}\_manip\textbackslash{}\_space()} function. This diagram is purely used to help explain the algorithm.
 
 \begin{figure}
 
@@ -495,8 +583,73 @@ Similar results have been shown in static, 3D projected spaces \autocite{gracia_
 
 }
 
-\caption{<a figure caption> XXX: TODO}\label{fig:ch3fig2}
+\caption{Illustration of a 3D manip space, the projection plane is shown as blue circle extending into and out of the display. A manipulation direction is initalized, the red circle, orthogonal to the projection plane. This allows the selected variable, aede2, a means to change it's contribution back to the projection plane. The other variables contributions rotate into this space as well, preserving the orthagonal structure, but are omitted in the manipulation dimension for simplicity.}\label{fig:ch3fig2}
 \end{figure}
+
+\hypertarget{step-3-defining-a-3d-rotation}{%
+\subsubsection{Step 3) Defining a 3D rotation}\label{step-3-defining-a-3d-rotation}}
+
+The basis vector corresponding to the manip var (red line in Figure \ref{fig:ch3fig2}), can be operated like a lever anchored to the origin. This is the process of the manual control, that rotates the manip variable into and out of the 2D projection (Figure \ref{fig:ch3fig3}). As the variable contribution is controlled, the manip space rotates, and the projection onto the horizontal projection plane correspondingly changes. This is a manual tour. Generating a sequence of values for the rotation angles produces a path for the rotation of the manip space.
+
+For a radial tour, fix \(\theta\), the angle describing rotation within the projection plane, and compute a sequence for \(\phi\), defining movement out of the plane. This will change \(\phi\) from the initial value, \(\phi_1\), the angle between \(\textbf{e}\) and its shadow in \(\textbf{B}\), to a maximum of \(0\) (manip var fully in projection), then to a minimum of \(\pi/2\) (manip var out of projection), before returning to \(\phi_1\).
+
+Rotations in 3D can be defined by the axes they pivot on. Rotation within the projection, \(\theta\), is rotation around the \(Z\) axis. Out-of-projection rotation, \(\phi\), is the rotation around an axis on the \(XY\) plane, \(\textbf{U}\), orthogonal to \(\textbf{e}\). Given these axes, the rotation matrix, \(\textbf{R}\) can be written as follows, using Rodrigues' rotation formula (originally published in \textcite{rodrigues_lois_1840}):
+
+\begin{align*}
+    \textbf{R}_{[3,~3]} 
+    &= \textbf{I}_3 + s_\phi\*\textbf{U} + (1-c_\phi)\*\textbf{U}^2 \\
+        &=
+    \begin{bmatrix}
+      1 & 0 & 0 \\ 
+      0 & 1 & 0 \\ 
+      0 & 0 & 1 \\
+    \end{bmatrix} +
+    \begin{bmatrix}
+      0 & 0 & c_\theta s_\phi \\
+      0 & 0 & s_\theta s_\phi \\
+      -c_\theta s_\phi & -s_\theta s_\phi & 0 \\
+    \end{bmatrix} +
+    \begin{bmatrix}
+      -c_\theta (1-c_\phi) & s^2_\theta (1-c_\phi) & 0 \\
+      -c_\theta s_\theta (1-c_\phi) & -s^2_\theta (1-c_\phi) & 0 \\
+      0 & 0 & c_\phi-1 \\
+    \end{bmatrix} \\
+    &= 
+    \begin{bmatrix}
+      c_\theta^2 c_\phi + s_\theta^2 &
+      -c_\theta s_\theta (1 - c_\phi) &
+      -c_\theta s_\phi \\
+      -c_\theta s_\theta (1 - c_\phi) &
+      s_\theta^2 c_\phi + c_\theta^2 &
+      -s_\theta s_\phi \\
+      c_\theta s_\phi &
+      s_\theta s_\phi &
+      c_\phi
+    \end{bmatrix} \\
+\end{align*}
+
+\noindent where
+
+\begin{align*}
+  \textbf{U} &= (u_x, u_y, u_z) =
+  (s_\theta, -c_\theta, 0) \\ 
+  &=
+  \begin{bmatrix}
+  0 & -u_z & u_y  \\
+  u_z & 0 & -u_x \\
+  -u_y & u_x & 0 \\
+  \end{bmatrix} =
+  \begin{bmatrix}
+    0 & 0 & -c_\theta \\
+    0 & 0 & -s_\theta \\
+    c_\theta & s_\theta & 0 \\
+  \end{bmatrix} \\
+  \end{align*}
+
+\hypertarget{step-4-creating-an-animation-of-the-radial-rotation}{%
+\subsubsection{Step 4) Creating an animation of the radial rotation}\label{step-4-creating-an-animation-of-the-radial-rotation}}
+
+The steps outlined above can be used to create any arbitrary rotation in the manip space. To use these for sensitivity analysis, the radial rotation is built into an animation where the manip var is rotated fully into the projection, completely out, and then back to the initial value. This involves allowing \(\phi\) to vary between \(0\) and \(\pi/2\), call the steps \(\phi_i\).
 
 \begin{figure}
 
@@ -504,8 +657,133 @@ Similar results have been shown in static, 3D projected spaces \autocite{gracia_
 
 }
 
-\caption{<a figure caption> XXX: TODO}\label{fig:ch3fig3}
+\caption{Select frames highlight the animation of a radial manual tour manipulating aede2: (1) original projection, (2) full contribution, (3) zero contribution, before returning to the original original contribution.}\label{fig:ch3fig3}
 \end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Set initial value of \(\phi_1\) and \(\theta\): \(\phi_1 = \cos^{-1}{\sqrt{B_{k1}^2+B_{k2}^2}}\), \(\theta = \tan^{-1}\frac{B_{k2}}{B_{k1}}\). Where \(\phi_1\) is the angle between \(\textbf{e}\) and its shadow in \(\textbf{B}\).
+\item
+  Set an angle increment (\(\Delta_\phi\)) that sets the step size for the animation, to rotate the manip var into and out of the projection. (Note: Using angle increment, rather than a number of steps, to control the movement, is consistent with the tour algorithm as implemented in the \{tourr\}).
+\item
+  Step towards \(0\), where the manip var is completely in the projection plane.
+\item
+  Step towards \(\pi/2\), where the manip variable has no contribution to the projection.
+\item
+  Step back to \(\phi_1\).
+\end{enumerate}
+
+In each of the steps 3-5, a small step may be added to ensure that the endpoints of \(\phi\) (\(0\), \(\pi/2\), \(\phi_1\)) are reached.
+
+\hypertarget{sec:display}{%
+\subsubsection{Step 5) Projecting the data}\label{sec:display}}
+
+The operation of a manual tour is defined on the projection bases. Only when the data plot needs to be made is the data projected into the relevant basis.
+
+\begin{align*}
+  \textbf{Y}^{(i)}_{[n,~3]} &= \textbf{X}_{[n,~p]} \textbf{M}_{[p,~3]} \textbf{R}^{(i)}_{[3,3]}
+\end{align*}
+
+\noindent where \(\textbf{R}^{(i)}_{[3,3]}\) is the incremental rotation matrix, using \(\phi_i\). To make the data plot, use the first two columns of \textbf{Y}. Show the projected data for each frame in sequence to form an animation.
+
+Tours are typically viewed as an animation. The animation of this tour can be viewed online at \url{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/flea_radialtour_mvar5.gif}. The page may take a moment to load. Animations can be produced using the function \texttt{play\textbackslash{}\_manual\textbackslash{}\_tour()}.
+
+\hypertarget{package-structure-and-functionality}{%
+\section{Package structure and functionality}\label{package-structure-and-functionality}}
+
+This section describes the functions available in the package, and how to use them.
+
+\hypertarget{installation}{%
+\subsection{Installation}\label{installation}}
+
+The \{spinifex\} is available from CRAN, and can be installed by:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Setup:}
+\FunctionTok{install.package}\NormalTok{(}\StringTok{"spinifex"}\NormalTok{) }\DocumentationTok{\#\# Install from CRAN}
+\FunctionTok{library}\NormalTok{(}\StringTok{"spinifex"}\NormalTok{) }\DocumentationTok{\#\# Read into session}
+
+\CommentTok{\# Getting started:}
+\DocumentationTok{\#\# Shiny app for visualizing basic application}
+\FunctionTok{run\_app}\NormalTok{(}\StringTok{"intro"}\NormalTok{)}
+\DocumentationTok{\#\# View the code vignette}
+\FunctionTok{vignette}\NormalTok{(}\StringTok{"spinifex\_vignette"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{functions}{%
+\subsection{Functions}\label{functions}}
+
+Table \ref{tab:functionsTable} lists the primary functions and their purpose. These are grouped into four types: construction for building a tour path, render to make the plot objects, animation for running the animation, and specialty for providing illustrations used in the algorithm description.
+
+\begin{table}
+
+\caption{\label{tab:functionsTable}Summary of available functions.}
+\centering
+\begin{tabular}[t]{lll}
+\toprule
+Type & Function & Description\\
+\midrule
+construction & create\_manip\_space & forms the 3D space of rotation\\
+construction & rotate\_manip\_space & performs 3D rotation\\
+construction & manual\_tour & generates sequence of 2D frames\\
+ &  & \\
+render & array2df & turn the tour path array into long form, for plotting\\
+render & render\_ & render long form as a ggplot2 objection for animation\\
+render & render\_plotly & render the animation as a plotly object (default)\\
+render & render\_gganimate & render the animation as a gganimate object\\
+ &  & \\
+animation & play\_tour\_path & composite function animating the specified tour path\\
+animation & play\_manual\_tour & composite function animating the specified manual tour\\
+ &  & \\
+specialty & print\_manip\_space & table of the rotated basis and manip space\\
+specialty & oblique\_frame & display the reference axes of a given basis\\
+specialty & view\_manip\_space & illustrative display of any manip space\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{sec:usage}{%
+\subsection{Usage}\label{sec:usage}}
+
+Using the flea data from the \{tourr\} package, we will illustrate generating a manual tour to explore the sensitivity of the cluster structure is to the variable aede2.
+
+\noindent The \texttt{play\textbackslash{}\_manual\textbackslash{}\_tour()} function is a composite function handling interaction between \texttt{manual\textbackslash{}\_tour()}, \texttt{array2df()}, and \texttt{render\textbackslash{}\_plotly()}. This will generate an html animation using plotly. Switching the renderer to \texttt{render\textbackslash{}\_gganimate()} alternatively creates an animated gif. Each of these formats allows for the animation to be made available on a web site, or directly visible in an html formatted document.
+
+\hypertarget{making-illustrations}{%
+\subsection{Making illustrations}\label{making-illustrations}}
+
+The function \texttt{oblique\_frame} can be used to show a projection of the basis, or with the data overlaid. For example, the plots in Figures \ref{fig:ch3fig1} and \ref{fig:ch3fig3} were made with code similar to this:
+
+\noindent An illustration of the manip space (as shown in Figure \ref{fig:ch3fig2}) is made with the \texttt{view\_manip\_space} function, as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Displays the projection plane and manipulation space for the }
+\FunctionTok{view\_manip\_space}\NormalTok{(}\AttributeTok{basis =}\NormalTok{ f\_basis, }
+                 \AttributeTok{manip\_var =}\NormalTok{ f\_mvar, }
+                 \AttributeTok{lab =} \FunctionTok{colnames}\NormalTok{(f\_data))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sec:application}{%
+\section{Application}\label{sec:application}}
+
+\textcite{wang_mapping_2018} introduces a new tool, PDFSense, to visualize the sensitivity of hadronic experiments to nucleon structure. The parameter-space of these experiments lies in 56 dimensions, \(\delta \in \mathbb{R}^{56}\), and are visualized as 3D subspaces of the 10 first principal components in linear (PCA) and non-linear (t-SNE) embeddings.
+
+\textcite{cook_dynamical_2018} illustrates how to learn more about the structures using a grand tour. Tours can better resolve the shape of clusters, intra-cluster detail, and better outlier detection than PDFSense \& TFEP (TensorFlow embedded projections) or traditional static embeddings. This example builds from here, illustrating how the manual tour can be used to examine the sensitivity of structure in a projection to different parameters. The specific 2D projections passed to the manual tour were provided in their work.
+
+The data has a hierarchical structure with top-level clusters; DIS, VBP, and jet. Each cluster is a particular class of experiments, each with many experimental datasets which, each have many observations of their own. In consideration of data density, we conduct manual tours on subsets of the DIS and jet clusters. This explores the sensitivity of the structure to each of the variables in turn and we present the subjectively best and worst variable to manipulate for identifying dimensionality of the clusters and describing the span of the clusters.
+
+\hypertarget{jet-cluster}{%
+\subsection{Jet cluster}\label{jet-cluster}}
+
+The jet cluster resides in a smaller dimensionality than the full set of experiments with four principal components explaining 95\% of the variation in the cluster \autocite{cook_dynamical_2018}. The data within this 4D embedding is further subsetted, to ATLAS7old and ATLAS7new, to focus on two groups that occupy different parts of the subspace. Radial manual tours controlling contributions from PC4 and PC3 are shown in Figures \ref{fig:ch3fig4} and \ref{fig:ch3fig5}, respectively. The difference in shape can be interpreted as the experiments probing different phase-spaces. Back-transforming the principal components to the original variables can be done for a more detailed interpretation.
+
+When PC4 is removed from the projection (Figure \ref{fig:ch3fig4}) the difference between the two groups is removed, indicating that it is important for distinguishing experiments. However, removing PC3 from the projection (Figure \ref{fig:ch3fig5}) does not affect the structure, indicating it is not important for distinguishing experiments. Animations for the remaining PCs can be viewed at the following links: \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc1.gif}{PC1}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc2.gif}{PC2}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc3.gif}{PC3}, and \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc4.gif}{PC4}. It can be seen that only PC4 is important for viewing the difference in these two experiments.
 
 \begin{figure}
 
@@ -513,7 +791,7 @@ Similar results have been shown in static, 3D projected spaces \autocite{gracia_
 
 }
 
-\caption{<a figure caption> XXX: TODO}\label{fig:ch3fig4}
+\caption{Select frames from a radial tour of PC4 within the jet cluster, with color indicating experiment type: ATLAS7new (green) and ATLAS7old (orange). When PC4 is removed from the projection (frame 10) there is little difference between the clusters, suggesting that PC4 is important for distinguishing the experiments.}\label{fig:ch3fig4}
 \end{figure}
 
 \begin{figure}
@@ -522,8 +800,15 @@ Similar results have been shown in static, 3D projected spaces \autocite{gracia_
 
 }
 
-\caption{<a figure caption> XXX: TODO}\label{fig:ch3fig5}
+\caption{Frames from the radial tour manipulating PC3 within the jet cluster, with color indicating experiment type: ATLAS7new (green) and ATLAS7old (orange).  When the contribution from PC3 is changed there is little change in the separation of the clusters, suggesting that PC3 is not important for distinguishing the experiments.}\label{fig:ch3fig5}
 \end{figure}
+
+\hypertarget{dis-cluster}{%
+\subsection{DIS cluster}\label{dis-cluster}}
+
+Following \textcite{cook_dynamical_2018}, to explore the DIS cluster, PCA is recomputed and the first six principal components, explaining 48\% of the full sample variation, are used. The contributions of PC6 and PC2 are explored in Figures \ref{fig:ch3fig6} and \ref{fig:ch3fig7}, respectively. Three experiments are examined: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange).
+
+Both PC2 and PC6 contribute to the projection similarly. When PC6 is rotated into the projection, variation in the DIS HERA1+2 is greatly reduced. When PC2 is removed from the projection, dimuon SIDIS becomes more clearly distinct. Even though both variables contribute similarly to the original projection, their contributions have quite different effects on the structure of each cluster, and the distinction between clusters. Animations of all of the principal components can be viewed from the links: \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc1.gif}{PC1}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc2.gif}{PC2}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc3.gif}{PC3}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc4.gif}{PC4}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc5.gif}{PC5}, and \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc6.gif}{PC6}.
 
 \begin{figure}
 
@@ -531,7 +816,7 @@ Similar results have been shown in static, 3D projected spaces \autocite{gracia_
 
 }
 
-\caption{<a figure caption> XXX: TODO}\label{fig:ch3fig6}
+\caption{Select frames from a radial tour exploring the sensitivity that PC6 has on the structure of the DIS cluster, with color indicating experiment type: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange). DIS HERA1+2 is distributed in a cross-shaped plane, charm SIDIS occupies the center of this cross, and dimuon SIDIS is a linear cluster crossing DIS HERA1+2. As the contribution of PC6 is increased, DIS HERA1+2 becomes almost singular in one direction (frame 5), indicating that this cluster has very little variability in the direction of PC6.}\label{fig:ch3fig6}
 \end{figure}
 
 \begin{figure}
@@ -540,14 +825,34 @@ Similar results have been shown in static, 3D projected spaces \autocite{gracia_
 
 }
 
-\caption{<a figure caption> XXX: TODO}\label{fig:ch3fig7}
+\caption{Frames from the radial tour exploring the sensitivity PC2 to the structure of the DIS cluster, with color indicating experiment type: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange). As contribution from PC2 is decreased, dimuon SIDIS becomes more distinguishable from the other two clusters, indicating that in its absence PC2 is important for separating this cluster from the others.}\label{fig:ch3fig7}
 \end{figure}
+
+\hypertarget{sec:discussion}{%
+\section{Discussion}\label{sec:discussion}}
+
+Dynamic linear projections of numeric multivariate data, tours, play an important role in data visualization; they extend the dimensionality of visuals to peek into high-dimensional data and parameter spaces. This research has taken the manual tour algorithm, specifically the radial rotation, used in GGobi \autocite{swayne_ggobi:_2003} to interactively rotate a variable into or out of a 2D projection, and modified it to create an animation that performs the same task. It is most useful for examining the importance of variables, and how the structure in the projection is sensitive or not to specific variables. This functionality available in package \{spinifex\}. The work complements the methods available in the \{tourr\} package.
+
+This work was motivated by problems in physics, and thus the usage was illustrated on data comparing experiments of hadronic collisions, to explore the sensitivity of cluster structure to different principal components. These tools can be applied quite broadly to many multivariate data analysis problems.
+
+The manual tour is constrained in the sense that the effect of one variable is dependent on the contributions of other variables in the manip space. However, this can be useful to simplify a projection by removing variables without affecting the visible structure. Defining a manual rotation in high dimensions is possible using Givens rotations and Householder reflections as outlined in \textcite{buja_computational_2005}. This would provide more flexible manual rotation, but more difficult for a user because they have the choice (too much choice) of which directions to move.
+
+Another future research topic could be to extend the algorithm for use on 3D projections. With the current popularity and availability of 3D virtual displays, this may benefit the detection and understanding of the higher dimensional structure, or enable the examination of functions.
+
+Having a graphical user interface would be useful for making it easier and more accessible to a general audience. This is possible to implement using \{shiny\} \autocite{chang_shiny_2020}. The primary purposes of the interface would be to allow the user to interactively change the manip variable easily, and the interpolation step for more or less detailed views.
+
+\hypertarget{acknowledgments}{%
+\section{Acknowledgments}\label{acknowledgments}}
+
+This article was created in R, using \{knitr\} \autocite{xie_knitr_2020} and \{rmarkdown\} \autocite{allaire_rmarkdown_2020}, with code generating the examples inline. The source files for this article be found at \href{https://github.com/nspyrison/spinifex_paper/}{github.com/nspyrison/spinifex\_paper/}. The animated gifs can also be viewed at this site, and also in the supplementary material for this paper. The source code for the \{spinifex\} package can be found at \href{https://github.com/nspyrison/spinifex/}{github.com/nspyrison/spinifex/}.
 
 \hypertarget{ch:efficacy_radial_tour}{%
 \chapter{Efficacy of the radial tour}\label{ch:efficacy_radial_tour}}
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
+TODO:XXX Segue. Bring over abstract?
+
+\hypertarget{introduction-1}{%
+\section{Introduction}\label{introduction-1}}
 
 Multivariate data underlies most classification problems. Yet exploratory data analysis \autocite[EDA,][]{tukey_exploratory_1977} of such spaces is difficult, increasingly so as dimension increases, and often leads to the consideration of models for these problems being considered to be black-boxes. There is increasing emphasis on the need to provide explainers to improve the interpretability for black-box models \autocite{biecek_dalex_2018,biecek_explanatory_2021,lundberg_unified_2017,ribeiro_why_2016,wickham_visualizing_2015}. Visualization is an important part of providing interpretations \autocite{anscombe_graphs_1973,coleman_geometric_1986,goodman_dirty_2008,matejka_same_2017}. Tour methods \autocite{lee_review_2021,cook_grand_2008} provide ways to visualize linear projections of high-dimensional spaces, to obtain an overview of shape (distributions and associations) and anomalies (outliers, clusters). The recently introduced radial tour \autocite{spyrison_spinifex_2020} provides a user-controlled manual rotation of variables into and out of a projection, which might especially be useful for studying variable importance.
 
@@ -559,10 +864,10 @@ This paper describes a user study conducted to assess the benefit of the radial 
 The paper is structured as follows. Section \ref{sec:background} provides the background on the visualization methods being compared. Section \ref{sec:userstudy} describes the user study, the tasks, evaluation, and measures used. The results of the study are in Section \ref{sec:results}. Conclusions and potential future directions are discussed in Section \ref{sec:conclusion}. The software used for the study is described in Section \ref{sec:spinifex}.
 
 \hypertarget{sec:background}{%
-\chapter{Background}\label{sec:background}}
+\section{Background}\label{sec:background}}
 
 \hypertarget{principal-component-analysis}{%
-\section{Principal component analysis}\label{principal-component-analysis}}
+\subsection{Principal component analysis}\label{principal-component-analysis}}
 
 Principal component analysis is a good baseline of comparison for linear projections because of its frequent and broad use across disciplines. Principal component analysis \autocite[PCA,][]{pearson_liii._1901} creates new components that are linear combinations of the original variables. The creation of these variables is ordered by decreasing variation which is orthogonally constrained to all previous components. While the full dimensionality is intact, the benefit comes from the ordered nature of the components. The first 2 or 3 components are typically used to approximate the variation multivariate data set, while the rest are discarded.
 
@@ -576,22 +881,22 @@ Principal component analysis is a good baseline of comparison for linear project
 \end{figure}
 
 \hypertarget{scatterplot-matrix}{%
-\section{Scatterplot matrix}\label{scatterplot-matrix}}
+\subsection{Scatterplot matrix}\label{scatterplot-matrix}}
 
 An extension to showing only a few components is to show pairs of components as a scatterplot matrix \autocite{chambers_graphical_1983}, where all pairs of the components are displayed on the upper or lower triangles of the matrix. This is a convenient way to fit many plots onto a page, but when there are many variables there is insufficient space on a page to display them all. Figure \ref{fig:ch4fig1} shows the first three components of simulated data as a scatterplot matrix.
 
 \hypertarget{data-visualization-tours}{%
-\section{Data visualization tours}\label{data-visualization-tours}}
+\subsection{Data visualization tours}\label{data-visualization-tours}}
 
 A data visualization \emph{tour} uses time to animate local changes in the projection basis. One of the key features of the tour is the object permanence of the data points; that is to say by watching nearby frames one can track the relative changes of observations as the basis moves toward the next target basis. There are various types of tours that are distinguished by the selection or generation of their basis paths \autocite{lee_review_2021,cook_grand_2008}. To contrast with the discrete orientations of PCA, we compare with continuous changes of linear projection with \emph{grand} and \emph{radial} tours.
 
 \hypertarget{grand-tours}{%
-\subsection{Grand tours}\label{grand-tours}}
+\subsubsection{Grand tours}\label{grand-tours}}
 
 In a grand tour \autocite{asimov_grand_1985} the target bases are selected randomly. The grand tour is the first and most widely known tour. It will serve as an intermediate unit of comparison which has continuity of data points in nearby frames along with the radial tour but lacks the user control enjoyed by PCA and radial tours. This lack of control makes grand tours more of a generalist exploratory tool.
 
 \hypertarget{radial-manual-tours}{%
-\subsection{Radial (manual) tours}\label{radial-manual-tours}}
+\subsubsection{Radial (manual) tours}\label{radial-manual-tours}}
 
 The \emph{manual} tour \autocite{cook_manual_1997} defines its basis path by manipulating the basis contribution of a selected variable. A manipulation dimension is appended onto the projection plane, with a full contribution given to the selected variable. The target bases are then selected based on rotating this newly created manipulation space. The target bases are then similarly orthogonally restrained, data projected, and rendered into an animation. For the variables to remain independent of each other, the contributions of the other variables must also change, \emph{ie.} dimension space should maintain its orthonormal structure. A key feature of the manual tour is that it affords users a way to control the variable contributions of the next target basis. This means that such manipulations can be selected and queued in advance or select on the spot for human-in-the-loop analysis \autocite{karwowski_international_2006}. However, this navigation is relatively time-consuming due to the huge volume of \(p\)-space (an aspect of the curse of dimensionality \autocite{bellman_dynamic_1957}) and the abstract method of steering the projection basis. It is advisable to first identify a basis of particular interest and then use a manual tour as a finer, local exploration tool to observe how the contributions of the selected variable do or do not contribute to the feature of interest.
 
@@ -600,14 +905,14 @@ To simplify the task and keep its duration realistic, we consider a variant of t
 The recent implementation of manual tours us the R package \{spinifex\} \autocite{spyrison_spinifex_2020}, which facilitates manual tours (and radial variant). It is also compatible with tours made with \{tourr\} \autocite{wickham_tourr:_2011} and facilitates exporting to .gif or .html widget, with recent graphic packages. Now that we have a readily available means to produce various tours, we want to see how they fare against traditional discrete displays commonly used with PCA.
 
 \hypertarget{sec:userstudy}{%
-\chapter{User study}\label{sec:userstudy}}
+\section{User study}\label{sec:userstudy}}
 
 An experiment was constructed to assess the performance of the radial tour relative to the tour and scatterplots of principal components for interpreting the importance of variables to class separations.
 
 The three methods were examined for three different cluster shapes, using different combinations of contributing variables, and data dimensionality. Data was collected using a specially constructed web app, through crowd-sourced with prolific.co \autocite{palan_prolific_2018}.
 
 \hypertarget{sec:blocks}{%
-\section{Experimental factors}\label{sec:blocks}}
+\subsection{Experimental factors}\label{sec:blocks}}
 
 In addition to visual factor, we vary the data across 3 aspects: 1) The \emph{location} of the difference between clusters, by mixing a signal and a noise variable at different ratios, we vary the number of variables and their magnitude of cluster separation, 2) the \emph{shape} of the clusters, to reflect different distributions of the data, and 3) the \emph{dimension}-ality of the data.
 
@@ -627,7 +932,7 @@ In selecting the \emph{shape} of the clusters we follow the convention given by 
 \emph{Dimension}-ality is tested at 2 modest levels, namely, in 4 dimensions containing 3 clusters and 6 dimensions with 4 clusters. We must do so to bound the difficulty and search space to keep the task realistic for crowdsourcing.
 
 \hypertarget{sec:objective}{%
-\section{Objective}\label{sec:objective}}
+\subsection{Objective}\label{sec:objective}}
 
 PCA will be used as a baseline for comparison as it is the most common linear embedding. The grand tour will act as a secondary control that will help evaluate the benefit of animation, with the persistence of the data points across changes in basis, but without the ability to influence its path. Lastly, the radial tour should perform best as it benefits both from animation and being able to select an individual variable to change the contribution. Next we cover how we expect them to perform and state the hypothesis to test.
 
@@ -639,7 +944,7 @@ We measure the accuracy and speed over the support of the discussed experimental
 \(~~~~~~H_0: \text{visualization factor does not impact task } \textit{speed}, Y_2. \\\)
 
 \hypertarget{sec:task}{%
-\section{Task and evaluation}\label{sec:task}}
+\subsection{Task and evaluation}\label{sec:task}}
 
 With our hypothesis formulated let's turn our attention to the task and how to evaluate it.
 Recall that the display was a 2D scatterplot with axis biplot to its left. Observations were supervised with the cluster level coded by color and shape.
@@ -674,7 +979,7 @@ where \(I\) is the indicator function. Then the total marks for this task is the
 \end{figure}
 
 \hypertarget{sec:standardization}{%
-\section{Visual design standardization}\label{sec:standardization}}
+\subsection{Visual design standardization}\label{sec:standardization}}
 
 Section \ref{sec:background} gives the sources and a description of the visual factors PCA, grand tours, and radial manual tours. The factors are tested within-participant, with each factor being evaluated by each participant. The order that factors are experienced is controlled with the block assignment as illustrated below in Figure \ref{fig:ch4fig4}. Below we cover the visual design standardization, as well the input and display within each factor.
 
@@ -683,7 +988,7 @@ The visualization methods were standardized wherever possible. each factor was s
 PCA inputs allowed for users to select between the top 4 principal components for both the x and y-axis regardless of the data dimensionality (either 4 or 6). There was no user input for the grand tour, users were instead shown a 15-second animation of the same randomly selected path. Users were able to view the same clip up to 4 times within the time limit. Radial tours were also displayed at 5 frames per second within the interpolation step size of 0.1 radians. Users were able to swap between variables, upon which the display would change the start of radially increasing the contribution of the selected variable till it was full, zeroed, and then back to its initial contribution. The complete animation of any variable takes about 20 seconds and is almost fully in the projection frame at around 6 seconds. The starting basis of each is initialized to a half-clock design, where the variables were evenly distributed in half of the circle which is then orthonormalized. This design was created to be variable agnostic while maximizing the independence of the variables.
 
 \hypertarget{data-simulation-task}{%
-\section{Data simulation, task}\label{data-simulation-task}}
+\subsection{Data simulation, task}\label{data-simulation-task}}
 
 Each dimension is originally distributed as \(\mathcal{N}(2 * I(signal), 1)~|~\text{covariance}~\Sigma\), a function of the shape. Signal variables have a correlation of 0.9 when they have equal orientation and -0.9 when their orientations vary. Noise variables were restricted to 0 correlation. Each cluster is simulated with 140 observations and is offset in a variable that does not separate previous variables.
 
@@ -694,7 +999,7 @@ All variables are then standardized by standard deviation. The rows and columns 
 Each of these replications are then iterated with each level of the factor. For PCA, every pair of the top 4 principal components and saved as 12 plots. For the grand tour, we first save 2 basis paths (for 4 and 6 dimension), each replication is then projected through the common basis path as the variable(s) containing the were previously shuffled. The resulting animations were saved as .gif files. The radial tour starts at either the 4 or 6-variable ``half-clock'' basis, where each variable has a uniform contribution, and no variable contributing in the opposite direction (to minimize variable dependence), a radial tour is then produced for each variable and saved as a .gif.
 
 \hypertarget{data-collection-and-factor-assignment}{%
-\section{Data collection, and factor assignment}\label{data-collection-and-factor-assignment}}
+\subsection{Data collection, and factor assignment}\label{data-collection-and-factor-assignment}}
 
 Now, with simulation and their artifacts in hand. We explain how the experimental factors are assignment, and illustrate how this is experienced from a participant's perspective.
 
@@ -716,12 +1021,12 @@ The order of the levels of the factor and location is randomized with a nested L
 Through pilot studies sampled by convenience (information technology and statistics Ph.D.~students attending Monash University), we predict that we need 3 full evaluations to properly power our study; we set out to crowdsource \(N = 3 * 3!^2 = 108\) participants.
 
 \hypertarget{sec:subjects}{%
-\section{Recruiting subjects}\label{sec:subjects}}
+\subsection{Recruiting subjects}\label{sec:subjects}}
 
 We recruited \(N = 108\) participants via prolific.co \autocite{palan_prolific_2018}. We filtered participants based on their claimed education requiring that they have completed at least an undergraduate degree (some 58,700 of the 150,400 users at the time); we apply this filter under the premise that linear projections and biplot displays used will not be regularly used for consumption by general audiences. There is also the implicit filter that Prolific participants must be at least 18 years of age and location/language bias associated with. Participants were compensated for their time at \pounds 7.50 per hour, whereas the mean duration of the survey was about 16 minutes. We can't preclude previous knowledge or experience with the factors, but validate this assumption in the follow-up survey where we ask about familiarity with the factors (see Figure \ref{fig:ch4fig6}). The appendix contains a heatmap distribution of age and education paneled across preferred pronouns of the participants that completed the survey, who are relatively young and well educated.
 
 \hypertarget{collecting-participant-data}{%
-\section{Collecting participant data}\label{collecting-participant-data}}
+\subsection{Collecting participant data}\label{collecting-participant-data}}
 
 Data were recorded by a \{shiny\} application and were written to a Google Sheet after each third of the study. Especially at the start of the study, participants experienced adverse network conditions due to the volume of participants hitting the application with modest allocated resources. In addition to this, API read/write limitations further hindered data collection. To mitigate this we throttled the volume of participant and over-collect survey trials until we had received our target 3 evaluations of our 36 permutation levels.
 
@@ -730,14 +1035,14 @@ The processing steps were minimal. First, we format to an analysis ready form, d
 The code, response files, their analyses, and the study application are publicly available at on GitHub \url{https://github.com/nspyrison/spinifex_study}.
 
 \hypertarget{sec:results}{%
-\chapter{Results}\label{sec:results}}
+\section{Results}\label{sec:results}}
 
 To recap, the primary response variable is task marks as defined in section \ref{sec:task}, and the log of response time will be used as a secondary response variable. We have 2 primary data sets; the user study evaluations and post-study survey. The former is contains the 108 trials with explanatory variables: visual factor, location of the cluster separation signal, the shape of variance-covariance matrix, and the dimension-ality of the data. Block parameterization and randomization were discussed in section \ref{sec:blocks}. The survey was completed for 84 of these 108 trials and contains demographic information (preferred pronoun, age, and education), and subjective measures for each of the factors (preference, familiarity, ease of use, and confidence).
 
 Below we look at the marginal performance of the block parameters and survey responses. After that, we build a battery of regression models to explore the variables and their interactions. Lastly, we look at the subjective measures between the factors.
 
 \hypertarget{random-effect-regression-against-marks}{%
-\section{Random effect regression against marks}\label{random-effect-regression-against-marks}}
+\paragraph{Random effect regression against marks}\label{random-effect-regression-against-marks}}
 
 To more thoroughly examine explanatory variables, we regress against marks. All models have a random effect term on the participant, which captures the effect of the individual participant. After we look at models of the block parameters we extend to compare against survey variables. Last, we compare how adding a random effect for data and regressing against time till last response fares against benchmark models. The matrices for models with more than a few terms quickly become rank deficient; there is not enough information in the data to explain all of the effect terms. In which case the least impactful terms are dropped.
 
@@ -806,7 +1111,7 @@ We also want to visually explore the conditional variables in the model. Figure 
 \end{figure}
 
 \hypertarget{subjective-measures}{%
-\section{Subjective measures}\label{subjective-measures}}
+\subsection{Subjective measures}\label{subjective-measures}}
 
 The 84 evaluations of the post-study survey also collect 4 subjective measures for each factor. Figure \ref{fig:ch4fig6} shows the Likert plots, or stacked percentage bar plots, alongside violin plots with the same non-parametric, ranked sum tests previously used. Participants preferred to use radial for this task. Participants were also more confident of their answers and found radial tours easier to use compared with the grand tour. All factors have reportedly low familiarity something we expect from crowdsourced participants.
 
@@ -820,14 +1125,14 @@ The 84 evaluations of the post-study survey also collect 4 subjective measures f
 \end{figure}
 
 \hypertarget{sec:conclusion}{%
-\chapter{Conclusion}\label{sec:conclusion}}
+\section{Conclusion}\label{sec:conclusion}}
 
 Above we discussed an \(n=108\), with-in participant user study comparing the efficacy of 3 linear projection techniques. The participants performed a supervised cluster task, specifically the identification of which variables contribute to the separation between 2 target clusters. This was evaluated evenly over 4 block parameterizations. In summary, we find that radial tour increases accuracy while the grand tour decreases the time it takes to perform this task. These effects are large relative to the other block parameterizations, but smaller than the random effect of the participant. Radial tour was subjectively most preferred, lead to more confidence in answers, and is easier to use than alternatives.
 
 There are several ways that this study could be extended. In addition to expanding the support of the block parameterizations, more interesting directions include: type of the task, visualizations used, and experience level of the target population. It is difficult to achieve good coverage given the number of possible permutations. Be sure to step back and plan the target support of your block parameters. Keep in mind the volume and quality of responses from participants especially when crowdsourcing. These planning steps are useful for navigating when the complexity of the application details.
 
 \hypertarget{sec:spinifex}{%
-\chapter{Accompanying tool: radial tour application}\label{sec:spinifex}}
+\section{Accompanying tool: radial tour application}\label{sec:spinifex}}
 
 To accompany this study we have produced a more general use tool to perform such exploratory analysis of high dimensional data. The R package, \{spinifex\}, \autocite{spyrison_spinifex_2020} contains a free, open-source \{shiny\} \autocite{chang_shiny_2020} application. The application allows users to upload, perform limited preprocessing, and interactively explore their data via interactive radial tour. The .html widget produced is a more interactive variant relative to the application in the user study. Screencaptures and more details are provided in the appendix. Data can be imported from .csv, .rds, or .rda format, and projections. Run the following R code to run the application locally.
 
@@ -839,7 +1144,7 @@ To accompany this study we have produced a more general use tool to perform such
 \end{Shaded}
 
 \hypertarget{sec:acknowledgments}{%
-\chapter{Acknowledgments}\label{sec:acknowledgments}}
+\section{Acknowledgments}\label{sec:acknowledgments}}
 
 This research was supported by an Australian Government Research Training Program (RTP) Scholarship. This article was created in R \autocite{r_core_team_r:_2020} and \{rmarkdown\} \autocite{xie_r_2018}. Visuals were prepared with \{spinifex\}. All packages used are available from the Comprehensive R Archive Network (CRAN) at \url{https://CRAN.R-project.org/}. The source files for this article, application, data, and analysis can be found at \url{https://github.com/nspyrison/spinifex_study/}. The source code for the \{spinifex\} package and accompanying shiny application can be found at \url{https://github.com/nspyrison/spinifex/}.
 
