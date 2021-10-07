@@ -72,8 +72,6 @@ output <- kableExtra::kbl(
 
 ```{r ch4tab2, fig.cap = "<TABLE FIGURES DFEFINED IN THE KABLE>"}
 mod_coef <- readRDS("./figures_from_script/ch4_tab2_model_coef_ls.rds") ## accuracy [[1]], log time [[2]]
-mod_coef
-str(mod_coef)
 output <- kableExtra::kbl(
   x = mod_coef[[1]],format = "latex", booktabs = TRUE, linesep = "",
                 caption = "The task accuracy model coefficients for $\\widehat{Y_1} = \\alpha * \\beta + \\gamma + \\delta$, with factor=pca, location=0/100, and shape=EEE held as baselines. Factor being radial is the fixed term with the strongest evidence in support of the hypothesis. When crossing factor with location radial performs worse with 33/66 percent mixing relative to the PCA with no mixing. The model fit is based on the 648 evaluations by the 108 participants.") %>%
@@ -89,11 +87,17 @@ output <- kableExtra::kbl(
 ```
 
 
-<!-- #  -->
-<!-- # ```{r ch4fig6, fig.cap = "<a figure caption> XXX: TODO"} -->
-<!-- # #knitr::include_graphics("./figures_from_script/ch3_fig6_DIS_better_pc6.pdf") -->
-<!-- # ``` -->
-<!-- #  -->
-<!-- # ```{r ch4fig7, fig.cap = "<a figure caption> XXX: TODO"} -->
-<!-- # #knitr::include_graphics("./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf") -->
-<!-- # ``` -->
+
+```{r ch4fig4, fig.cap = "<a figure caption> XXX: TODO"}
+### MIA
+```
+
+```{r ch4fig5, fig.cap = "<a figure caption> XXX: TODO"}
+knitr::include_graphics(
+  "./figures_from_script/ch4_fig5_ABcd_violins.pdf")
+```
+
+```{r ch4fig6, fig.cap = "<a figure caption> XXX: TODO"}
+knitr::include_graphics(
+  "./figures_from_script/ch4_fig6_subjective_measures.pdf")
+```
