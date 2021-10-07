@@ -34,9 +34,7 @@ if(F){ ## Not run!!
   dat <- EEV_p6_0_1_rep3
   clas <- as.factor(attr(dat, "cluster"))
 
-  # str(dat)
-  # str(clas)
-  pca_obj <- #prcomp(dat)
+  pca_obj <-
     dat %>% scale_01() %>% prcomp()
   pca_proj1_3 <- as.data.frame(
     cbind(pca_obj$x[, 1:3],
@@ -54,10 +52,9 @@ if(F){ ## Not run!!
     theme(axis.ticks = element_blank(),
           axis.text = element_blank())
 
-  if(F)
-    ggsave(
-      "./figures_from_script/ch4_fig1_pca_splom.pdf", gg_pca, device = "pdf",
-      width = .w / 2, height = .w / 2, units = .u)
+  ggsave(
+    "./figures_from_script/ch4_fig1_pca_splom.pdf", gg_pca, device = "pdf",
+    width = .w / 2, height = .w / 2, units = .u)
 }
 
 
