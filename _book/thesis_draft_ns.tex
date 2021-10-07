@@ -9,6 +9,18 @@
 % Add any LaTeX packages and other preamble here if required
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage{thumbpdf,lmodern}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{booktabs}
+%%%% NS
+\usepackage{graphicx}
+%\usepackage{pdflscape} %% Allow landscape layout, not used
+%\usepackage{lmodern} %% Already loaded, allows GB Pound sign
+\usepackage{animate} %% Needed for animations
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref} %% Trying to wrap and format urls correctly
+
+
 \author{Nicholas S Spyrison}
 \title{Dynamic visualization of high-dimensional data via low-dimension projections and sectioning across 2D and 3D display devices}
 \degrees{B.Sc. Statistics, Iowa State University}
@@ -570,10 +582,10 @@ W_{j} &=\frac
 \alpha * \beta + \gamma + \delta &\widehat{Y_1} = \mu + \alpha_i * \beta_j + \textbf{Z} + \textbf{W} + \epsilon \\
 \alpha * \beta * \gamma + \delta &\widehat{Y_1} = \mu + \alpha_i * \beta_j * \gamma_k + \textbf{Z} + \textbf{W} + \epsilon \\
 \alpha * \beta * \gamma * \delta &\widehat{Y_1} = \mu + \alpha_i * \beta_j * \gamma_k * \delta_l + \textbf{Z} + \textbf{W} + \epsilon
-\end{array}
-\]
-\[
-\begin{array}{ll}
+\% \end{array}
+\% \]
+\% \[
+\% \begin{array}{ll}
 \text{where } &\mu \text{ is the intercept of the model including the mean of random effect} \\
 &\alpha_i \text{, fixed term for factor}~|~i\in (\text{pca, grand, radial}) \\
 &\beta_j  \text{, fixed term for location}~|~j\in (\text{0\_1, 33\_66, 50\_50}) \text{ \% noise/signal mixing} \\
@@ -585,8 +597,52 @@ W_{j} &=\frac
 \end{array}
 \]
 
-\hypertarget{todo-continue-here}{%
-\section{TODO: CONTINUE HERE}\label{todo-continue-here}}
+\begin{verbatim}
+$ABcd_coef
+                     Estimate Std. Error    df t value Pr(>|t|)    
+(Intercept)             -0.12       0.08  43.9   -1.50     0.14    
+fct=grand                0.15       0.09 622.4    1.74     0.08    
+fct=radial               0.37       0.09 617.1    4.18     0.00 ***
+loc=33_66                0.17       0.09  83.2    1.78     0.08    
+loc=50_50                0.14       0.09  84.8    1.52     0.13    
+shp=EEV                  0.04       0.06  11.5    0.79     0.44    
+shp=ban                 -0.03       0.06  11.5   -0.48     0.64    
+dim=6                   -0.06       0.05  11.5   -1.39     0.19    
+fct=grand:loc=33_66     -0.06       0.13 587.3   -0.49     0.63    
+fct=radial:loc=33_66    -0.34       0.13 585.2   -2.65     0.01  **
+fct=grand:loc=50_50     -0.09       0.13 589.6   -0.68     0.50    
+fct=radial:loc=50_50    -0.19       0.13 574.3   -1.43     0.15    
+
+$t_ABcd_coef
+                     Estimate Std. Error    df t value Pr(>|t|)    
+(Intercept)              2.71       0.14  42.6   19.06     0.00 ***
+fct=grand               -0.23       0.12 567.6   -1.97     0.05   *
+fct=radial               0.16       0.12 573.5    1.34     0.18    
+loc=33_66                0.05       0.14  40.9    0.34     0.74    
+loc=50_50               -0.05       0.14  42.1   -0.35     0.73    
+shp=EEV                 -0.15       0.09   8.3   -1.61     0.14    
+shp=ban                 -0.13       0.09   8.3   -1.42     0.19    
+dim=6                    0.14       0.08   8.3    1.90     0.09    
+fct=grand:loc=33_66      0.24       0.18 580.9    1.34     0.18    
+fct=radial:loc=33_66    -0.24       0.18 582.4   -1.32     0.19    
+fct=grand:loc=50_50      0.12       0.18 578.6    0.69     0.49    
+fct=radial:loc=50_50     0.05       0.18 584.4    0.25     0.80    
+List of 2
+ $ ABcd_coef  :'data.frame':    12 obs. of  6 variables:
+  ..$ Estimate  : num [1:12] -0.12 0.15 0.37 0.17 0.14 0.04 -0.03 -0.06 -0.06 -0.34 ...
+  ..$ Std. Error: num [1:12] 0.08 0.09 0.09 0.09 0.09 0.06 0.06 0.05 0.13 0.13 ...
+  ..$ df        : num [1:12] 43.9 622.4 617.1 83.2 84.8 ...
+  ..$ t value   : num [1:12] -1.5 1.74 4.18 1.78 1.52 0.79 -0.48 -1.39 -0.49 -2.65 ...
+  ..$ Pr(>|t|)  : num [1:12] 0.14 0.08 0 0.08 0.13 0.44 0.64 0.19 0.63 0.01 ...
+  ..$           : chr [1:12] "" "" "***" "" ...
+ $ t_ABcd_coef:'data.frame':    12 obs. of  6 variables:
+  ..$ Estimate  : num [1:12] 2.71 -0.23 0.16 0.05 -0.05 -0.15 -0.13 0.14 0.24 -0.24 ...
+  ..$ Std. Error: num [1:12] 0.14 0.12 0.12 0.14 0.14 0.09 0.09 0.08 0.18 0.18 ...
+  ..$ df        : num [1:12] 42.6 567.6 573.5 40.9 42.1 ...
+  ..$ t value   : num [1:12] 19.06 -1.97 1.34 0.34 -0.35 ...
+  ..$ Pr(>|t|)  : num [1:12] 0 0.05 0.18 0.74 0.73 0.14 0.19 0.09 0.18 0.19 ...
+  ..$           : chr [1:12] "***" "*" "" "" ...
+\end{verbatim}
 
 \printbibliography[heading=bibintoc]
 
