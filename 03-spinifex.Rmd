@@ -375,5 +375,5 @@ Having a graphical user interface would be useful for making it easier and more 
 
 This article was created in R, using {knitr} [@xie_knitr_2020] and {rmarkdown} [@allaire_rmarkdown_2020], with code generating the examples inline. The source files for this article be found at [github.com/nspyrison/spinifex_paper/](https://github.com/nspyrison/spinifex_paper/). The animated gifs can also be viewed at this site, and also in the supplementary material for this paper. The source code for the {spinifex} package can be found at [github.com/nspyrison/spinifex/](https://github.com/nspyrison/spinifex/).
 
-<!-- Adds a bib file at the end of every chapter -->
+<!-- Adds a bib section at the end of every chapter -->
 
