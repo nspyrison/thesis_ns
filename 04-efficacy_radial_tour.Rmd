@@ -376,11 +376,4 @@ This research was supported by an Australian Government Research Training Progra
 
 <!-- If you are looking for a vignette to reproduce animations in for a pdf document from R with base or {gganimate} graphics, see the reproducible example: \url{https://github.com/nspyrison/spinifex_study/blob/master/zDevExamples/animated_pdf.rmd}. -->
 
-<!-- Adds a bib file at the end of every chapter -->
-<!-- # References {#sec:bib} -->
-
-<!-- # Appendix {#sec:appendix} -->
-<!-- ```{r, child="appendix.rmd", echo=FALSE} -->
-<!-- if(F) -->
-<!--   file.edit("./paper/appendix.rmd") -->
-<!-- ``` -->
+<!-- Adds a bib section at the end of every chapter -->
