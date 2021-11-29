@@ -1,0 +1,54 @@
+---
+knit: "bookdown::render_book"
+---
+
+# Declaration {-}
+
+I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
+
+Three publications are included in this thesis, one of which has been accepted for publication in the _The R Journal_ [@spyrison_spinifex_2020]. The user study described in Chapter \ref{ch:efficacy_radial_tour} will shortly be submitted to the *Journal of Data Science, Statistics, and Visualisation*. The reseach covered in Chapter \ref{ch:cheem} will shortly be submitted to *IEEE Transactions on Knowledge and Data Engineering*.
+
+All of the papers in the thesis were conceptualized, developed, and written by myself, the student, while working in the Department of Human-Centred Computing under the supervision of professor Kimbal Marriott and professor Dianne Cook. When co-authors are listed, it indicates that the work was produced through active collaboration between researchers and that their contributions to team-based research have been recognized. The following table details the work, including my and my fellow co-authors' contributions.
+
+\begin{table}
+\centering\footnotesize\tabcolsep=0.12cm
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.5cm}|p{3.5cm}|p{3.5cm}|p{1.5cm}|}
+\hline
+\RaggedRight\textbf{Thesis Chapter}  &
+\RaggedRight\textbf{Publication Title}  &
+\RaggedRight\textbf{Status (published, in press, accepted or returned for revision)}  & \RaggedRight\textbf{Nature and} {\%} \RaggedRight\textbf{of student contribution} & \RaggedRight\textbf{Co-author name(s) Nature and} {\%} \RaggedRight\textbf{of Co-author’s contribution} &
+\RaggedRight\textbf{Co-author(s), Monash student Y/N} \\ \hline
+3 & spinifex: An R Package for Creating a Manual Tour of Low-dimensional Projections of Multivariate Data & Published & 75\%. Concept, development, writing first draft and software development & (1) Dianne Cook, concept, methodology, writing 25\% & N \\ \hline
+4 & The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections & To be submitted & 80\%. Concept, development, writing first draft, application, and conducting user study & (1) Dianne Cook, Concept, methodology, editing 12\% (2) Kimbal Marriott, concept, methodology, editing 8\% & N \\ \hline
+5 & Interrogating the linear variable importance of local explanations of
+black-box models with animated linear projections & To be submitted & 85\%. Concept, development, writing first draft and software development & (1) Dianne Cook, methodology, editing 10\% (2) Kimbal Marriott, methodology, editing 5\% & N \\ \hline
+\end{tabular}
+\end{table}
+
+I have renumbered and updated sections of submitted or published papers in order to generate a consistent presentation within the thesis.
+
+\textbf{Student name:} Nicholas Spyrison
+
+\textbf{Student signature:}
+
+```{r, out.width = "50%", fig.align = "left"}
+knitr::include_graphics("figures/signature.jpg")
+```
+
+\textbf{Date:} `r as.Date("2021-12-12")`
+
+`r if (knitr::is_html_output()) '-->'`
+\vspace{2em}
+\noindent
+The undersigned hereby certify that the above declaration correctly reflects the nature and extent of the student's co-authors' contribution to this work.
+In instances where I am not the responsible author I have consulted with the responsible author to agree on the respective contributions of the authors.
+
+\textbf{Main Supervisor name:} Kimbal Marriott
+
+\textbf{Main Supervisor signature:}
+
+\vspace*{2cm}
+
+\textbf{Date:} `r as.Date("2021-12-12")`
+
+

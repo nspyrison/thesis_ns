@@ -3,13 +3,9 @@ chapter: 2
 knit: "bookdown::render_book"
 ---
 
-```{r setup_02, include=FALSE}
-knitr::opts_chunk$set(
-  fig.align = "center",
-  echo = F, message = F, warning = F, error = F, cache = F, cache.lazy = F
-)
+```{r, include=FALSE}
 library(spinifex)
-library(gganimate) 
+library(gganimate)
 library(ggplot2)
 library(magrittr)
 library(knitr)
@@ -17,17 +13,24 @@ library(kableExtra)
 ```
 
 
-
-
-# Literature review {#ch:lit_review}
+# Motivation {#ch:motivation}
 
 The following chapter discusses the current research in two primary areas: dynamic linear projections (collectively known as tours) and multivariate data visualization in stereoscopic 3D. After each section, research gaps are highlighted.
 
 
-## Dynamic linear projections of multivariate data (tours) {#sec:tour}
+
+## Exploratory data analysis
+
+The term exploratory data analysis (EDA) was coined in @tukey_exploratory_1977, who leaves it as an intentionally broad term which encompass the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values and validating assumptions. Visualization is crucial to a clear understanding of the data and ensuring that models are suitable. Visualization is much more robust than numerical summarization alone [@anscombe_graphs_1973; @matejka_same_2017]. In these studies the data have the same summary statistics, yet contains obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Data visualization is fundamental to EDA and quickly evaluating data supports ensuring that models are suitability.
+
+(ref:matejka17fig-cap) Starting with the datasarus plot, observations are allows to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the originally listed statistics [@matejka_same_2017].
+
+```{r matejka17fig, echo=F, out.width='70%', fig.cap = "(ref:matejka17fig-cap)"}
+knitr::include_graphics("./figures/matejka17fig.png")
+```
 
 
-### Overview
+## Tours, animated linear projections {#sec:tour}
 
 The introduction established that visualizing data-space is an important aspect of exploratory data analysis and data analysis in general. Yet, there is an inherent difficulty as the dimensionality of data increases. In univariate data sets histograms or smoothed density curves are employed to visualize data. In bivariate data, $XY$ scatterplots and contour plots (2D density) can be employed. In three dimensions, the two most common techniques are 3D scatterplot\footnote{Graphs depicting three dimensions are typically viewed on a 2D display, in print or with a standard monitor. These are 2D images of monocular 3D spaces, sometimes referred to as 2.5D data visualization, more on this in section \ref{sec:3d-terminology}.} or 2D scatterplot with the 3rd variable as an aesthetic (such as color, size, or height). These aesthetic cues convey some information but are not a sufficient replacement for axes for use with continuous variables.
 
@@ -90,7 +93,7 @@ A fundamental aspect of tours is the path of rotation. There are four primary di
 <!-- * Givens rotations -->
 <!-- * Householder reflections -->
 
-### Path evaluation 
+### Path evaluation
 
 Consider projection down to 2D, then each projection is called a 2-frame (each spanning a 2-plane). Mathematically, a Grassmannian is the set of all possible unoriented 2-frames in $p$-space, $\textbf{Gr}(2,~p)$. @asimov_grand_1985 pointed out that the unique 2-frames of the grand tour approaches $\textbf{Gr}(2,~p)$ as time goes to infinity. The *density* of a tour is defined as the fraction of the Grassmannian explored. Ideally, an exploring tour will be dense, but the time taken to become dense vastly increases as variable space increases dimensionality. *Rapidity* is then defined as how quickly a tour encompasses the Grassmannian. Due to the random selection of a grand tour, it will end up visiting homomorphisms of previous 2-frames before all unique values are visited, leading sub-optimal rapidity. 
 

@@ -1,0 +1,7 @@
+---
+knit: "bookdown::render_book"
+---
+
+# Preface {-}
+
+I recognize that terminology is often overburdened by ambiguous use, with several changing meanings coming from different fields. My background comes from Statsistics and I will default to terms from statistics and geometry. I provide terminology and notation definition upon first use and in the Glossary \ref{ch:glossary}.
