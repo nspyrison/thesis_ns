@@ -35,7 +35,7 @@ As dimensionality of the data, $p$, increases the visualization of data-space qu
 
 Let $p$ be the dimensionality of the data, and $d$ be the dimension of the projection space. Tours perform linear dimensionality reduction, orthogonally projecting $p$-space down to $d(\leq p)$ dimensions. Many such projections are interpolated, each making small rotations in $p$-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing tours. Imagine a fixed light source facing a wall. When an object is introduced it projects a 2D shadow onto the wall. This is a physical representation of a simple projection, that from $p=3$ down to $d=2$. If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a 2D tour as the 3D object is manipulated. Some orientations explain more information about the shape of the object than others while watching an animation of the shadow changing gives a more robust understanding than looking at any one frame. More complex structures generally require more time to comprehend the nature of the geometry. These features hold for tours as well.
 
-*An extended tour notation is listed in the appendix section \ref{sec:tour_notation}.*
+*An extended tour notation is listed in the appendix section \ref{sec:notation}.*
 
 <!-- ### Notation {#sec:terminology_tours} -->
 <!-- Notation moved to appendix A in 90-appA.Rmd. -->
@@ -149,7 +149,7 @@ A comparative study outlining the benefits of UCS vs alternatives is also absent
 
 ## Multivariate data visualization in 3D {#sec:3d}
 
-The scope of this research pertains to numeric multivariate data, a wider overview of 3D data visualization is discussed in chapter 2 of @marriott_immersive_2018. Terminology for 3D visuals is in the glossary section \ref{sec:3d-terminology}.
+The scope of this research pertains to numeric multivariate data, a wider overview of 3D data visualization is discussed in chapter 2 of @marriott_immersive_2018. Terminology for 3D visuals is in the glossary section \ref{sec:terminology}.
 
 
 ### A rocky start

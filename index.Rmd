@@ -1,5 +1,5 @@
 ---
-title: 'Dynamic visualization of high-dimensional data via low-dimension projections, their efficay, and their application to model-agnostic local explanations'
+title: 'Dynamic visualization of high-dimensional data via low-dimension projections, their efficacy, and their application to model-agnostic local explanations'
 degreetype: 'Doctor of Philosophy'
 author: 'Nicholas S Spyrison'
 degrees: 'B.Sc. Statistics, Iowa State University'
