@@ -5,8 +5,10 @@ knit: "bookdown::render_book"
 # Acknowledgements {-}
 
 <!-- Firstly,  -->
-I would like to express my sincere gratitude to my advisors professor Kimbal Marriott, professor Dianne Cook, and professor German Valencia for their support of my Ph.D studies and research, for their patience, motivation, and immense knowledge. Their guidance was and continues to be an indispensable help through my research and writing.
+I would like to express my sincere gratitude to my supervisors professor Kimbal Marriott, professor Dianne Cook for their support of my Ph.D studies and research, their subject expertise, and their careers of supervising and performing research. Thank you for continuously pushing me and my research to new levels. I have enjoyed teaching data visualization which has been strongly shaped by Di's practical, data-first, visualization-often style. I will continue to imagine hearing Kim's persistent question "what did we learn from this?" as a reminder not to get lost in the details of implementation, but also to regularly step-back and analize if this is the correct aspect to be checking.
 
-<!-- I thank my fellow Ph.D students in for the stimulating discussions, the countless hours we spent working all hours of the week, and their unwavering support. I could not have asked for better company. -->
+A special thanks to professor Przemyslaw Biecek for giving his input in the formulation stages of my project and his easy to understand explanations of complex modeling aspects. Thank you for responding to cold emails and being available for collaboration.
 
-<!-- Last but not the least, I would like to thank my family: my parents, brother and sister for supporting me in this thesis and the thick and thins of life. -->
+I thank my fellow Ph.D students, lab members, and pomodoro partners especially on the occasional of stimulating discussions and for the positive peer-pressure of knowing others are around and working. Thanks immensely to those that have empathized with me and others especially though the hard-ships of studies and COVID-19. Gratitude to Ying Zhou for her enduring support though the thick of my studies and wavering mental health.
+
+Last but not the least, I would like to thank my parents, Doug and Terry, for their support and concerns at odd hours of the day. Thanks to Alan and Claire for their companionship and support now and in our more formative years. I am looking forward to be seeing you all in person shortly.

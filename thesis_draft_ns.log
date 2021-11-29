@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.17)  8 OCT 2021 13:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.11.25)  29 NOV 2021 17:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **thesis_draft_ns.tex
 (./thesis_draft_ns.tex
-LaTeX2e <2021-06-01> patch level 1
-L3 programming layer <2021-08-27> (./monashthesis.cls
+LaTeX2e <2021-11-15>
+L3 programming layer <2021-11-22> (./monashthesis.cls
 Document Class: monashthesis 2016/09/06 Monash Thesis Class
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
@@ -49,21 +49,21 @@ y
 Package: mathpazo 2020/03/25 PSNFSS-v9.3 Palatino w/ Pazo Math (D.Puga, WaS) 
 \symupright=\mathgroup4
 ) (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/report.cls
-Document Class: report 2021/02/12 v1.4n Standard LaTeX document class
+Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
 (Font)              scaled to size 9.85492pt on input line 54.
 )
-\c@part=\count182
-\c@chapter=\count183
-\c@section=\count184
-\c@subsection=\count185
-\c@subsubsection=\count186
-\c@paragraph=\count187
-\c@subparagraph=\count188
-\c@figure=\count189
-\c@table=\count190
+\c@part=\count183
+\c@chapter=\count184
+\c@section=\count185
+\c@subsection=\count186
+\c@subsubsection=\count187
+\c@paragraph=\count188
+\c@subparagraph=\count189
+\c@figure=\count190
+\c@table=\count191
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
@@ -77,9 +77,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count191
-\Gm@cntv=\count192
-\c@Gm@tempcnt=\count193
+\Gm@cnth=\count192
+\Gm@cntv=\count193
+\c@Gm@tempcnt=\count194
 \Gm@bindingoffset=\dimen139
 \Gm@wd@mp=\dimen140
 \Gm@odd@mp=\dimen141
@@ -106,8 +106,8 @@ Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
 \caption@hangindent=\dimen153
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count194
-\c@continuedfloat=\count195
+\c@caption@flags=\count195
+\c@continuedfloat=\count196
 )
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.
 sty
@@ -133,13 +133,13 @@ LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.st
 y
-Package: amsmath 2021/04/20 v2.17j AMS math features
+Package: amsmath 2021/10/15 v2.17l AMS math features
 \@mathmargin=\skip58
 For additional information on amsmath, use the `?' option.
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.st
 y
-Package: amstext 2000/06/29 v2.01 AMS text
+Package: amstext 2021/08/26 v2.01 AMS text
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
@@ -152,15 +152,15 @@ LaTeX Info: Redefining \boldsymbol on input line 28.
 \pmbraise@=\dimen155
 )
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2016/03/08 v2.02 operator names
+Package: amsopn 2021/08/26 v2.02 operator names
 )
-\inf@bad=\count196
+\inf@bad=\count197
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count197
-\leftroot@=\count198
+\uproot@=\count198
+\leftroot@=\count199
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count199
-\DOTSCASE@=\count266
+\classnum@=\count266
+\DOTSCASE@=\count267
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -169,15 +169,15 @@ LaTeX Info: Redefining \cdots on input line 620.
 \big@size=\dimen156
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count267
-\c@MaxMatrixCols=\count268
+\macc@depth=\count268
+\c@MaxMatrixCols=\count269
 \dotsspace@=\muskip16
-\c@parentequation=\count269
-\dspbrk@lvl=\count270
+\c@parentequation=\count270
+\dspbrk@lvl=\count271
 \tag@help=\toks21
-\row@=\count271
-\column@=\count272
-\maxfields@=\count273
+\row@=\count272
+\column@=\count273
+\maxfields@=\count274
 \andhelp@=\toks22
 \eqnshift@=\dimen157
 \alignsep@=\dimen158
@@ -189,18 +189,18 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \multlinegap=\skip59
 \multlinetaggap=\skip60
 \mathdisplay@stack=\toks24
-LaTeX Info: Redefining \[ on input line 2923.
-LaTeX Info: Redefining \] on input line 2924.
+LaTeX Info: Redefining \[ on input line 2938.
+LaTeX Info: Redefining \] on input line 2939.
 )
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.
 sty
-Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.
 sty
 Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graph
 ics.cfg
@@ -238,18 +238,26 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 )
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtyp
 e.sty
-Package: microtype 2021/03/14 v2.8c Micro-typographical refinements (RS)
+Package: microtype 2021/10/31 v3.0 Micro-typographical refinements (RS)
+
+(c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.
+sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count275
+)
 \MT@toks=\toks26
-\MT@count=\count274
-LaTeX Info: Redefining \textls on input line 790.
-\MT@outer@kern=\dimen170
-LaTeX Info: Redefining \textmicrotypecontext on input line 1374.
-\MT@listname@count=\count275
+\MT@count=\count276
+\MT@tempbox=\box53
+\MT@leftmarginkern=\dimen170
+\MT@rightmarginkern=\dimen171
+LaTeX Info: Redefining \textls on input line 1114.
+\MT@outer@kern=\dimen172
+LaTeX Info: Redefining \textmicrotypecontext on input line 1700.
+\MT@listname@count=\count277
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtyp
 e-pdftex.def
-File: microtype-pdftex.def 2021/03/14 v2.8c Definitions specific to pdftex (RS)
-
+File: microtype-pdftex.def 2021/10/31 v3.0 Definitions specific to pdftex (RS)
 LaTeX Info: Redefining \lsstyle on input line 915.
 LaTeX Info: Redefining \lslig on input line 915.
 \MT@outer@space=\skip63
@@ -258,7 +266,7 @@ Package microtype Info: Loading configuration file microtype.cfg.
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtyp
 e.cfg
-File: microtype.cfg 2021/03/14 v2.8c microtype main configuration file (RS)
+File: microtype.cfg 2021/10/31 v3.0 microtype main configuration file (RS)
 ))
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.
 sty
@@ -281,11 +289,6 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.
-sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count276
-)
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoption
 s.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
@@ -296,7 +299,7 @@ Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )) (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/logreq/logreq.s
 ty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count277
+\lrq@indent=\count278
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 )) (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty
@@ -305,48 +308,48 @@ Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count278
-\c@listtotal=\count279
-\c@listcount=\count280
-\c@liststart=\count281
-\c@liststop=\count282
-\c@citecount=\count283
-\c@citetotal=\count284
-\c@multicitecount=\count285
-\c@multicitetotal=\count286
-\c@instcount=\count287
-\c@maxnames=\count288
-\c@minnames=\count289
-\c@maxitems=\count290
-\c@minitems=\count291
-\c@citecounter=\count292
-\c@maxcitecounter=\count293
-\c@savedcitecounter=\count294
-\c@uniquelist=\count295
-\c@uniquename=\count296
-\c@refsection=\count297
-\c@refsegment=\count298
-\c@maxextratitle=\count299
-\c@maxextratitleyear=\count300
-\c@maxextraname=\count301
-\c@maxextradate=\count302
-\c@maxextraalpha=\count303
-\c@abbrvpenalty=\count304
-\c@highnamepenalty=\count305
-\c@lownamepenalty=\count306
-\c@maxparens=\count307
-\c@parenlevel=\count308
-\blx@tempcnta=\count309
-\blx@tempcntb=\count310
-\blx@tempcntc=\count311
-\blx@maxsection=\count312
-\blx@maxsegment@0=\count313
-\blx@notetype=\count314
-\blx@parenlevel@text=\count315
-\blx@parenlevel@foot=\count316
-\blx@sectionciteorder@0=\count317
-\blx@entrysetcounter=\count318
-\blx@biblioinstance=\count319
+\c@tabx@nest=\count279
+\c@listtotal=\count280
+\c@listcount=\count281
+\c@liststart=\count282
+\c@liststop=\count283
+\c@citecount=\count284
+\c@citetotal=\count285
+\c@multicitecount=\count286
+\c@multicitetotal=\count287
+\c@instcount=\count288
+\c@maxnames=\count289
+\c@minnames=\count290
+\c@maxitems=\count291
+\c@minitems=\count292
+\c@citecounter=\count293
+\c@maxcitecounter=\count294
+\c@savedcitecounter=\count295
+\c@uniquelist=\count296
+\c@uniquename=\count297
+\c@refsection=\count298
+\c@refsegment=\count299
+\c@maxextratitle=\count300
+\c@maxextratitleyear=\count301
+\c@maxextraname=\count302
+\c@maxextradate=\count303
+\c@maxextraalpha=\count304
+\c@abbrvpenalty=\count305
+\c@highnamepenalty=\count306
+\c@lownamepenalty=\count307
+\c@maxparens=\count308
+\c@parenlevel=\count309
+\blx@tempcnta=\count310
+\blx@tempcntb=\count311
+\blx@tempcntc=\count312
+\blx@maxsection=\count313
+\blx@maxsegment@0=\count314
+\blx@notetype=\count315
+\blx@parenlevel@text=\count316
+\blx@parenlevel@foot=\count317
+\blx@sectionciteorder@0=\count318
+\blx@entrysetcounter=\count319
+\blx@biblioinstance=\count320
 \labelnumberwidth=\skip64
 \labelalphawidth=\skip65
 \biblabelsep=\skip66
@@ -358,9 +361,9 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \blx@bcfin=\read2
 \blx@bcfout=\write3
 \blx@langwohyphens=\language4
-\c@mincomprange=\count320
-\c@maxcomprange=\count321
-\c@mincompwidth=\count322
+\c@mincomprange=\count321
+\c@maxcomprange=\count322
+\c@mincompwidth=\count323
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -372,74 +375,74 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'authoryear-comp.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count323
-\c@savedafterword=\count324
-\c@annotator=\count325
-\c@savedannotator=\count326
-\c@author=\count327
-\c@savedauthor=\count328
-\c@bookauthor=\count329
-\c@savedbookauthor=\count330
-\c@commentator=\count331
-\c@savedcommentator=\count332
-\c@editor=\count333
-\c@savededitor=\count334
-\c@editora=\count335
-\c@savededitora=\count336
-\c@editorb=\count337
-\c@savededitorb=\count338
-\c@editorc=\count339
-\c@savededitorc=\count340
-\c@foreword=\count341
-\c@savedforeword=\count342
-\c@holder=\count343
-\c@savedholder=\count344
-\c@introduction=\count345
-\c@savedintroduction=\count346
-\c@namea=\count347
-\c@savednamea=\count348
-\c@nameb=\count349
-\c@savednameb=\count350
-\c@namec=\count351
-\c@savednamec=\count352
-\c@translator=\count353
-\c@savedtranslator=\count354
-\c@shortauthor=\count355
-\c@savedshortauthor=\count356
-\c@shorteditor=\count357
-\c@savedshorteditor=\count358
-\c@labelname=\count359
-\c@savedlabelname=\count360
-\c@institution=\count361
-\c@savedinstitution=\count362
-\c@lista=\count363
-\c@savedlista=\count364
-\c@listb=\count365
-\c@savedlistb=\count366
-\c@listc=\count367
-\c@savedlistc=\count368
-\c@listd=\count369
-\c@savedlistd=\count370
-\c@liste=\count371
-\c@savedliste=\count372
-\c@listf=\count373
-\c@savedlistf=\count374
-\c@location=\count375
-\c@savedlocation=\count376
-\c@organization=\count377
-\c@savedorganization=\count378
-\c@origlocation=\count379
-\c@savedoriglocation=\count380
-\c@origpublisher=\count381
-\c@savedorigpublisher=\count382
-\c@publisher=\count383
-\c@savedpublisher=\count384
-\c@language=\count385
-\c@savedlanguage=\count386
-\c@origlanguage=\count387
-\c@savedoriglanguage=\count388
-\c@pageref=\count389
-\c@savedpageref=\count390
+\c@afterword=\count324
+\c@savedafterword=\count325
+\c@annotator=\count326
+\c@savedannotator=\count327
+\c@author=\count328
+\c@savedauthor=\count329
+\c@bookauthor=\count330
+\c@savedbookauthor=\count331
+\c@commentator=\count332
+\c@savedcommentator=\count333
+\c@editor=\count334
+\c@savededitor=\count335
+\c@editora=\count336
+\c@savededitora=\count337
+\c@editorb=\count338
+\c@savededitorb=\count339
+\c@editorc=\count340
+\c@savededitorc=\count341
+\c@foreword=\count342
+\c@savedforeword=\count343
+\c@holder=\count344
+\c@savedholder=\count345
+\c@introduction=\count346
+\c@savedintroduction=\count347
+\c@namea=\count348
+\c@savednamea=\count349
+\c@nameb=\count350
+\c@savednameb=\count351
+\c@namec=\count352
+\c@savednamec=\count353
+\c@translator=\count354
+\c@savedtranslator=\count355
+\c@shortauthor=\count356
+\c@savedshortauthor=\count357
+\c@shorteditor=\count358
+\c@savedshorteditor=\count359
+\c@labelname=\count360
+\c@savedlabelname=\count361
+\c@institution=\count362
+\c@savedinstitution=\count363
+\c@lista=\count364
+\c@savedlista=\count365
+\c@listb=\count366
+\c@savedlistb=\count367
+\c@listc=\count368
+\c@savedlistc=\count369
+\c@listd=\count370
+\c@savedlistd=\count371
+\c@liste=\count372
+\c@savedliste=\count373
+\c@listf=\count374
+\c@savedlistf=\count375
+\c@location=\count376
+\c@savedlocation=\count377
+\c@organization=\count378
+\c@savedorganization=\count379
+\c@origlocation=\count380
+\c@savedoriglocation=\count381
+\c@origpublisher=\count382
+\c@savedorigpublisher=\count383
+\c@publisher=\count384
+\c@savedpublisher=\count385
+\c@language=\count386
+\c@savedlanguage=\count387
+\c@origlanguage=\count388
+\c@savedoriglanguage=\count389
+\c@pageref=\count390
+\c@savedpageref=\count391
 \shorthandwidth=\skip72
 \shortjournalwidth=\skip73
 \shortserieswidth=\skip74
@@ -467,19 +470,19 @@ Package biblatex Info: ... file 'biblatex.def' found.
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.
 def
 File: biblatex.def 2020/12/31 v3.16 biblatex compatibility (PK/MW)
-\c@textcitecount=\count391
-\c@textcitetotal=\count392
-\c@textcitemaxnames=\count393
-\c@biburlbigbreakpenalty=\count394
-\c@biburlbreakpenalty=\count395
-\c@biburlnumpenalty=\count396
-\c@biburlucpenalty=\count397
-\c@biburllcpenalty=\count398
+\c@textcitecount=\count392
+\c@textcitetotal=\count393
+\c@textcitemaxnames=\count394
+\c@biburlbigbreakpenalty=\count395
+\c@biburlbreakpenalty=\count396
+\c@biburlnumpenalty=\count397
+\c@biburlucpenalty=\count398
+\c@biburllcpenalty=\count399
 \biburlbigskip=\muskip18
 \biburlnumskip=\muskip19
 \biburlucskip=\muskip20
 \biburllcskip=\muskip21
-\c@smartand=\count399
+\c@smartand=\count400
 )
 Package biblatex Info: Trying to load natbib compatibility...
 Package biblatex Info: ... file 'blx-natbib.def' found.
@@ -508,8 +511,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/stand
 ard.bbx
 File: standard.bbx 2020/12/31 v3.16 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count400
-\c@bbx:relatedtotal=\count401
+\c@bbx:relatedcount=\count401
+\c@bbx:relatedtotal=\count402
 )))
 Package biblatex Info: Trying to load citation style 'authoryear-comp'...
 Package biblatex Info: ... file 'authoryear-comp.cbx' found.
@@ -539,37 +542,37 @@ File: biblatex.cfg
 )) (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xpatch/xpatch.s
 ty
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2021-08-27 L3 programming layer (loader) 
+Package: expl3 2021-11-22 L3 programming layer (loader) 
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backen
 d-pdftex.def
-File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count402
-\l__pdf_internal_box=\box53
+File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count403
+\l__pdf_internal_box=\box54
 ))
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/
 xparse.sty
-Package: xparse 2021-08-27 L3 Experimental document command parser
+Package: xparse 2021-11-12 L3 Experimental document command parser
 )) (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.s
 ty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color
 .cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 225.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
 )
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.
 sty
@@ -595,9 +598,9 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 y
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen171
-\Hy@linkcounter=\count403
-\Hy@pagecounter=\count404
+\@linkdim=\dimen173
+\Hy@linkcounter=\count404
+\Hy@pagecounter=\count405
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.de
 f
@@ -618,7 +621,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 s.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count405
+\Hy@SavedSpaceFactor=\count406
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
@@ -633,9 +636,9 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count406
+\c@Hy@tempcnt=\count407
 LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen172
+\XeTeXLinkMargin=\dimen174
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.st
 y
@@ -646,9 +649,9 @@ tcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count407
-\Field@Width=\dimen173
-\Fld@charsize=\dimen174
+\Fld@menulength=\count408
+\Field@Width=\dimen175
+\Fld@charsize=\dimen176
 Package hyperref Info: Hyper figures OFF on input line 6076.
 Package hyperref Info: Link nesting OFF on input line 6081.
 Package hyperref Info: Hyper index ON on input line 6084.
@@ -664,9 +667,9 @@ sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count408
-\c@Item=\count409
-\c@Hfootnote=\count410
+\Hy@abspage=\count409
+\c@Item=\count410
+\c@Hfootnote=\count411
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -676,12 +679,12 @@ File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx
 .sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
-e
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
 with kernel methods
 )
-\Fld@listcount=\count411
-\c@bookmark@seq@number=\count412
+\Fld@listcount=\count412
+\c@bookmark@seq@number=\count413
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rer
 unfilecheck.sty
@@ -743,8 +746,8 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 \cftbeforefigskip=\skip113
 \cftfigindent=\skip114
 \cftfignumwidth=\skip115
-\c@lofdepth=\count413
-\c@lotdepth=\count414
+\c@lofdepth=\count414
+\c@lotdepth=\count415
 \cftbeforelottitleskip=\skip116
 \cftafterlottitleskip=\skip117
 \cftbeforetabskip=\skip118
@@ -754,61 +757,62 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 y
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip121
-\fb@frw=\dimen175
-\fb@frh=\dimen176
-\FrameRule=\dimen177
-\FrameSep=\dimen178
+\fb@frw=\dimen177
+\fb@frh=\dimen178
+\FrameRule=\dimen179
+\FrameSep=\dimen180
 )
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.
 sty
-Package: fancyvrb 2021/08/12 v3.8 verbatim text (tvz,hv)
-\FV@CodeLineNo=\count415
+Package: fancyvrb 2021/11/24\nobreakspace {} 4.1a\nobreakspace {}verbatim text 
+(tvz,hv)
+\FV@CodeLineNo=\count416
 \FV@InFile=\read3
-\FV@TabBox=\box54
-\c@FancyVerbLine=\count416
-\FV@StepNumber=\count417
+\FV@TabBox=\box55
+\c@FancyVerbLine=\count417
+\FV@StepNumber=\count418
 \FV@OutFile=\write4
 )
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.st
 y
-Package: longtable 2021-05-07 v4.16 Multi-page Table package (DPC)
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTleft=\skip122
 \LTright=\skip123
 \LTpre=\skip124
 \LTpost=\skip125
-\LTchunksize=\count418
-\LTcapwidth=\dimen179
-\LT@head=\box55
-\LT@firsthead=\box56
-\LT@foot=\box57
-\LT@lastfoot=\box58
-\LT@gbox=\box59
-\LT@cols=\count419
-\LT@rows=\count420
-\c@LT@tables=\count421
-\c@LT@chunks=\count422
+\LTchunksize=\count419
+\LTcapwidth=\dimen181
+\LT@head=\box56
+\LT@firsthead=\box57
+\LT@foot=\box58
+\LT@lastfoot=\box59
+\LT@gbox=\box60
+\LT@cols=\count420
+\LT@rows=\count421
+\c@LT@tables=\count422
+\c@LT@chunks=\count423
 \LT@p@ftn=\toks27
 )
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.
 sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen180
-\lightrulewidth=\dimen181
-\cmidrulewidth=\dimen182
-\belowrulesep=\dimen183
-\belowbottomsep=\dimen184
-\aboverulesep=\dimen185
-\abovetopsep=\dimen186
-\cmidrulesep=\dimen187
-\cmidrulekern=\dimen188
-\defaultaddspace=\dimen189
-\@cmidla=\count423
-\@cmidlb=\count424
-\@aboverulesep=\dimen190
-\@belowrulesep=\dimen191
-\@thisruleclass=\count425
-\@lastruleclass=\count426
-\@thisrulewidth=\dimen192
+\heavyrulewidth=\dimen182
+\lightrulewidth=\dimen183
+\cmidrulewidth=\dimen184
+\belowrulesep=\dimen185
+\belowbottomsep=\dimen186
+\aboverulesep=\dimen187
+\abovetopsep=\dimen188
+\cmidrulesep=\dimen189
+\cmidrulekern=\dimen190
+\defaultaddspace=\dimen191
+\@cmidla=\count424
+\@cmidlb=\count425
+\@aboverulesep=\dimen192
+\@belowrulesep=\dimen193
+\@thisruleclass=\count426
+\@lastruleclass=\count427
+\@thisrulewidth=\dimen194
 ))
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/thumbpdf/thumbpd
 f.sty
@@ -851,7 +855,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 )
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/animate/animate.st
 y
-Package: animate 2021/09/02 PDF & SVG animations from files and inline graphics
+Package: animate 2021/11/09 PDF & SVG animations from files and inline graphics
 
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.st
@@ -865,7 +869,7 @@ tex
 \XKV@toks=\toks28
 \XKV@tempa@toks=\toks29
 )
-\XKV@depth=\count427
+\XKV@depth=\count428
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/oberdiek/ifdraft.s
@@ -873,15 +877,15 @@ ty
 Package: ifdraft 2016/05/16 v1.4 Detect class options draft and final (HO)
 ) (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count428
-\calc@Bcount=\count429
-\calc@Adimen=\dimen193
-\calc@Bdimen=\dimen194
+\calc@Acount=\count429
+\calc@Bcount=\count430
+\calc@Adimen=\dimen195
+\calc@Bdimen=\dimen196
 \calc@Askip=\skip126
 \calc@Bskip=\skip127
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count430
+\calc@Ccount=\count431
 \calc@Cskip=\skip128
 )
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/zref/zref-abspage.
@@ -894,44 +898,44 @@ Package zref Info: New property list: main on input line 764.
 Package zref Info: New property: default on input line 765.
 Package zref Info: New property: page on input line 766.
 )
-\c@abspage=\count431
+\c@abspage=\count432
 Package zref Info: New property: abspage on input line 66.
 )
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/media9/pdfbase.sty
 
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2
 e/l3keys2e.sty
-Package: l3keys2e 2021-08-27 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2021-11-12 LaTeX2e option processing using LaTeX3 keys
 )
 Package: pdfbase 2021/09/12 v0.53 driver independent access to low-level PDF fe
 atures
-\g_pbs_page_int=\count432
-\g_pbs_oc_int=\count433
+\g_pbs_page_int=\count433
+\g_pbs_oc_int=\count434
 ) (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/ocgx2/ocgbase.st
 y
 Package: ocgbase 2021/06/11 v0.20 support package for ocgx2.sty
-\g_ocgbase_nd_int=\count434
+\g_ocgbase_nd_int=\count435
 )
-\@anim@box=\box60
-\@anim@measbox=\box61
-\@anim@tmpdima=\dimen195
-\@anim@tmpdimb=\dimen196
-\@anim@num=\count435
-\@anim@curframe=\count436
-\@anim@curframe@zb=\count437
-\@anim@resizeflags=\count438
-\@anim@skipfram=\count439
-\@anim@mulframecnt=\count440
+\@anim@box=\box61
+\@anim@measbox=\box62
+\@anim@tmpdima=\dimen197
+\@anim@tmpdimb=\dimen198
+\@anim@num=\count436
+\@anim@curframe=\count437
+\@anim@curframe@zb=\count438
+\@anim@resizeflags=\count439
+\@anim@skipfram=\count440
+\@anim@mulframecnt=\count441
 \@anim@@tmlnfile=\read4
-\@anim@tmpcnt=\count441
-\c@@anim@ltxcnt=\count442
-\@anim@curlayer=\count443
-\@anim@lineno=\count444
-\@anim@curfield=\count445
-\@anim@@resizeflags=\count446
+\@anim@tmpcnt=\count442
+\c@@anim@ltxcnt=\count443
+\@anim@curlayer=\count444
+\@anim@lineno=\count445
+\@anim@curfield=\count446
+\@anim@@resizeflags=\count447
 )
-\@quotelevel=\count447
-\@quotereset=\count448
+\@quotelevel=\count448
+\@quotereset=\count449
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 40
 .
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
@@ -1013,6 +1017,10 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Info: Redefining \microtypecontext on input line 40.
+Package microtype Info: Applying patch `item' on input line 40.
+Package microtype Info: Applying patch `toc' on input line 40.
+Package microtype Info: Applying patch `eqnum' on input line 40.
+Package microtype Info: Applying patch `footnote' on input line 40.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1041,7 +1049,7 @@ Package biblatex Info: Data encoding 'utf8' specified.
 (biblatex)             No need to reencode data.
 Package biblatex Info: Document encoding is UTF8 ....
 Package biblatex Info: ... and expl3
-(biblatex)             2021-08-27 L3 programming layer (loader) 
+(biblatex)             2021-11-22 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
 
@@ -1053,7 +1061,22 @@ Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis_draft_ns.bbl' found.
-(./thesis_draft_ns.bbl)
+(./thesis_draft_ns.bbl
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                adadi_peeking_2018
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                leone_fifa_2020
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+)
 Package biblatex Info: Reference section=0 on input line 40.
 Package biblatex Info: Reference segment=0 on input line 40.
 Package hyperref Info: Link coloring ON on input line 40.
@@ -1070,7 +1093,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count449
+\c@section@level=\count450
 )
 LaTeX Info: Redefining \ref on input line 40.
 LaTeX Info: Redefining \pageref on input line 40.
@@ -1090,7 +1113,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <24.88> not available
 (Font)              Font shape `T1/lmss/bx/n' tried instead on input line 44.
-<figures/crest.jpg, id=108, 509.905pt x 553.06625pt>
+<figures/crest.jpg, id=156, 509.905pt x 553.06625pt>
 File: figures/crest.jpg Graphic file (type jpg)
 <use figures/crest.jpg>
 Package pdftex.def Info: figures/crest.jpg  used on input line 44.
@@ -1161,8 +1184,8 @@ LaTeX Font Info:    Trying to load font information for OMS+zplm on input line
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-7.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
+3.
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1170,83 +1193,86 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-)
+[3])
 \tf@toc=\write6
 \openout6 = `thesis_draft_ns.toc'.
 
-[3] [4
-
-]
+[4]
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <20.74> not available
 (Font)              Font shape `T1/lmss/bx/n' tried instead on input line 49.
-[5] [0
+[5
+
+] [6
+
+] [7] [8
+
+] [9] [10
+
+] [11] [12] [0
 
 
 ]
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <15> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 64.
-<./figures/matejka17fig.png, id=181, 1188.44pt x 834.11626pt>
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 94.
+<./figures/matejka17fig.png, id=293, 1188.44pt x 834.11626pt>
 File: ./figures/matejka17fig.png Graphic file (type png)
 <use ./figures/matejka17fig.png>
-Package pdftex.def Info: ./figures/matejka17fig.png  used on input line 72.
+Package pdftex.def Info: ./figures/matejka17fig.png  used on input line 102.
 (pdftex.def)             Requested size: 298.75264pt x 209.68675pt.
 [1] [2 <./figures/matejka17fig.png>]
 
 LaTeX Warning: Reference `ch:workinprogress' on page 3 undefined on input line 
-94.
+124.
 
 
-LaTeX Warning: Reference `ch:future_work' on page 3 undefined on input line 98.
-
-
-
-LaTeX Warning: Reference `ch:future_work' on page 3 undefined on input line 102
+LaTeX Warning: Reference `ch:future_work' on page 3 undefined on input line 128
 .
 
 
-LaTeX Warning: Reference `ch:future_work' on page 3 undefined on input line 106
+LaTeX Warning: Reference `ch:future_work' on page 3 undefined on input line 132
+.
+
+
+LaTeX Warning: Reference `ch:future_work' on page 3 undefined on input line 136
 .
 
 [3]
 
-LaTeX Warning: Reference `ch:future_work' on page 4 undefined on input line 134
+LaTeX Warning: Reference `ch:future_work' on page 4 undefined on input line 164
 .
 
 [4]
 
-LaTeX Warning: Reference `ch:future_work' on page 5 undefined on input line 136
+LaTeX Warning: Reference `ch:future_work' on page 5 undefined on input line 166
 .
 
-<./figures/data_analysis_workflow.png, id=237, 360.34625pt x 141.52875pt>
+<./figures/data_analysis_workflow.png, id=346, 360.34625pt x 141.52875pt>
 File: ./figures/data_analysis_workflow.png Graphic file (type png)
 <use ./figures/data_analysis_workflow.png>
 Package pdftex.def Info: ./figures/data_analysis_workflow.png  used on input li
-ne 149.
+ne 179.
 (pdftex.def)             Requested size: 426.79135pt x 167.62442pt.
 
-LaTeX Warning: Reference `sec:source' on page 5 undefined on input line 156.
+LaTeX Warning: Reference `sec:source' on page 5 undefined on input line 186.
 
 [5]
-<./figures/ProjectOverview.png, id=250, 579.16376pt x 280.04625pt>
+<./figures/ProjectOverview.png, id=359, 579.16376pt x 280.04625pt>
 File: ./figures/ProjectOverview.png Graphic file (type png)
 <use ./figures/ProjectOverview.png>
-Package pdftex.def Info: ./figures/ProjectOverview.png  used on input line 167.
+Package pdftex.def Info: ./figures/ProjectOverview.png  used on input line 197.
 
 (pdftex.def)             Requested size: 426.79135pt x 206.36778pt.
 
 LaTeX Warning: Reference `ch:workinprogress' on page 6 undefined on input line 
-174.
+204.
 
 
-LaTeX Warning: Reference `ch:future_work' on page 6 undefined on input line 174
+LaTeX Warning: Reference `ch:future_work' on page 6 undefined on input line 204
 .
 
 
-LaTeX Warning: Reference `ch:timeline' on page 6 undefined on input line 174.
-
-
-LaTeX Warning: Reference `ch:glossary' on page 6 undefined on input line 174.
+LaTeX Warning: Reference `ch:timeline' on page 6 undefined on input line 204.
 
 [6 <./figures/data_analysis_workflow.png>] [7 <./figures/ProjectOverview.PNG>] 
 [8
@@ -1254,59 +1280,45 @@ LaTeX Warning: Reference `ch:glossary' on page 6 undefined on input line 174.
 ]
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <12> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 185.
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 215.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 187.
+(Font)              <9> on input line 217.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 187.
+(Font)              <7> on input line 217.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 187.
-
-LaTeX Warning: Reference `sec:3d-terminology' on page 9 undefined on input line
- 187.
-
-[9]
-
-LaTeX Warning: Reference `sec:tour_notation' on page 10 undefined on input line
- 193.
-
-[10]
+(Font)              <5> on input line 217.
+[9] [10]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-14.
+44.
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [11] [12] [13] [14] [15]
-
-LaTeX Warning: Reference `sec:3d-terminology' on page 16 undefined on input lin
-e 386.
-
-[16]
-<./figures/tory06fig.png, id=444, 244.41313pt x 282.55562pt>
+) [11] [12] [13] [14] [15] [16]
+<./figures/tory06fig.png, id=555, 244.41313pt x 282.55562pt>
 File: ./figures/tory06fig.png Graphic file (type png)
 <use ./figures/tory06fig.png>
-Package pdftex.def Info: ./figures/tory06fig.png  used on input line 406.
+Package pdftex.def Info: ./figures/tory06fig.png  used on input line 436.
 (pdftex.def)             Requested size: 213.39568pt x 246.70093pt.
 [17 <./figures/tory06fig.PNG>]
-<./figures/sedlmair13fig.png, id=461, 599.23875pt x 99.37125pt>
+<./figures/sedlmair13fig.png, id=571, 599.23875pt x 99.37125pt>
 File: ./figures/sedlmair13fig.png Graphic file (type png)
 <use ./figures/sedlmair13fig.png>
-Package pdftex.def Info: ./figures/sedlmair13fig.png  used on input line 419.
+Package pdftex.def Info: ./figures/sedlmair13fig.png  used on input line 449.
 (pdftex.def)             Requested size: 426.79135pt x 70.77545pt.
-<./figures/nelson98fig.png, id=466, 448.17438pt x 270.51062pt>
+<./figures/nelson98fig.png, id=576, 448.17438pt x 270.51062pt>
 File: ./figures/nelson98fig.png Graphic file (type png)
 <use ./figures/nelson98fig.png>
-Package pdftex.def Info: ./figures/nelson98fig.png  used on input line 435.
+Package pdftex.def Info: ./figures/nelson98fig.png  used on input line 465.
 (pdftex.def)             Requested size: 298.75264pt x 180.32895pt.
 [18 <./figures/sedlmair13fig.PNG>]
-<./figures/wagner18fig.png, id=485, 236.885pt x 295.1025pt>
+<./figures/wagner18fig.png, id=597, 236.885pt x 295.1025pt>
 File: ./figures/wagner18fig.png Graphic file (type png)
 <use ./figures/wagner18fig.png>
-Package pdftex.def Info: ./figures/wagner18fig.png  used on input line 450.
+Package pdftex.def Info: ./figures/wagner18fig.png  used on input line 480.
 (pdftex.def)             Requested size: 213.39568pt x 265.84644pt.
-<./figures/cordeil2017fig.png, id=492, 357.83687pt x 270.00874pt>
+<./figures/cordeil2017fig.png, id=604, 357.83687pt x 270.00874pt>
 File: ./figures/cordeil2017fig.png Graphic file (type png)
 <use ./figures/cordeil2017fig.png>
-Package pdftex.def Info: ./figures/cordeil2017fig.png  used on input line 466.
+Package pdftex.def Info: ./figures/cordeil2017fig.png  used on input line 496.
 (pdftex.def)             Requested size: 213.39568pt x 161.0218pt.
 [19 <./figures/nelson98fig.PNG>] [20 <./figures/wagner18fig.PNG> <./figures/cor
 deil2017fig.PNG>] [21] [22
@@ -1315,72 +1327,72 @@ deil2017fig.PNG>] [21] [22
 Chapter 3.
 [23] [24]
 LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 
-522.
+552.
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 ) [25]
-<./figures_from_script/ch3_fig1_biplot.pdf, id=586, 423.5825pt x 144.54pt>
+<./figures_from_script/ch3_fig1_biplot.pdf, id=697, 423.5825pt x 144.54pt>
 File: ./figures_from_script/ch3_fig1_biplot.pdf Graphic file (type pdf)
 <use ./figures_from_script/ch3_fig1_biplot.pdf>
 Package pdftex.def Info: ./figures_from_script/ch3_fig1_biplot.pdf  used on inp
-ut line 555.
+ut line 585.
 (pdftex.def)             Requested size: 426.79135pt x 145.64017pt.
 [26]
-<./figures_from_script/ch3_fig2_manip_sp.pdf, id=605, 423.5825pt x 144.54pt>
+<./figures_from_script/ch3_fig2_manip_sp.pdf, id=715, 423.5825pt x 144.54pt>
 File: ./figures_from_script/ch3_fig2_manip_sp.pdf Graphic file (type pdf)
 <use ./figures_from_script/ch3_fig2_manip_sp.pdf>
 Package pdftex.def Info: ./figures_from_script/ch3_fig2_manip_sp.pdf  used on i
-nput line 582.
+nput line 612.
 (pdftex.def)             Requested size: 426.79135pt x 145.64017pt.
 [27 <./figures_from_script/ch3_fig1_biplot.pdf>] [28 <./figures_from_script/ch3
 _fig2_manip_sp.pdf>]
-<./figures_from_script/ch3_fig3_filmstrip.pdf, id=642, 578.16pt x 316.18124pt>
+<./figures_from_script/ch3_fig3_filmstrip.pdf, id=753, 578.16pt x 316.18124pt>
 File: ./figures_from_script/ch3_fig3_filmstrip.pdf Graphic file (type pdf)
 <use ./figures_from_script/ch3_fig3_filmstrip.pdf>
 Package pdftex.def Info: ./figures_from_script/ch3_fig3_filmstrip.pdf  used on 
-input line 656.
+input line 686.
 (pdftex.def)             Requested size: 426.79135pt x 233.40115pt.
 [29] [30 <./figures_from_script/ch3_fig3_filmstrip.pdf>]
 
 LaTeX Font Warning: Font shape `T1/lmtt/b/it' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 706.
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 736.
 
 
-Overfull \hbox (36.59175pt too wide) in paragraph at lines 726--747
+Overfull \hbox (36.59175pt too wide) in paragraph at lines 756--777
  [][] 
  []
 
 [31] [32] [33]
-<./figures_from_script/ch3_fig4_jet_better_pc4.pdf, id=721, 578.16pt x 316.1812
+<./figures_from_script/ch3_fig4_jet_better_pc4.pdf, id=831, 578.16pt x 316.1812
 4pt>
 File: ./figures_from_script/ch3_fig4_jet_better_pc4.pdf Graphic file (type pdf)
 
 <use ./figures_from_script/ch3_fig4_jet_better_pc4.pdf>
 Package pdftex.def Info: ./figures_from_script/ch3_fig4_jet_better_pc4.pdf  use
-d on input line 790.
+d on input line 820.
 (pdftex.def)             Requested size: 426.79135pt x 233.40115pt.
-<./figures_from_script/ch3_fig5_jet_worse_pc3.pdf, id=722, 578.16pt x 316.18124
+<./figures_from_script/ch3_fig5_jet_worse_pc3.pdf, id=832, 578.16pt x 316.18124
 pt>
 File: ./figures_from_script/ch3_fig5_jet_worse_pc3.pdf Graphic file (type pdf)
 <use ./figures_from_script/ch3_fig5_jet_worse_pc3.pdf>
 Package pdftex.def Info: ./figures_from_script/ch3_fig5_jet_worse_pc3.pdf  used
- on input line 799.
+ on input line 829.
 (pdftex.def)             Requested size: 426.79135pt x 233.40115pt.
 [34 <./figures_from_script/ch3_fig4_jet_better_pc4.pdf>]
-<./figures_from_script/ch3_fig6_DIS_better_pc6.pdf, id=751, 578.16pt x 316.1812
+<./figures_from_script/ch3_fig6_DIS_better_pc6.pdf, id=862, 578.16pt x 316.1812
 4pt>
 File: ./figures_from_script/ch3_fig6_DIS_better_pc6.pdf Graphic file (type pdf)
 
 <use ./figures_from_script/ch3_fig6_DIS_better_pc6.pdf>
 Package pdftex.def Info: ./figures_from_script/ch3_fig6_DIS_better_pc6.pdf  use
-d on input line 815.
+d on input line 845.
 (pdftex.def)             Requested size: 426.79135pt x 233.40115pt.
-<./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf, id=752, 578.16pt x 316.18124
+<./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf, id=863, 578.16pt x 316.18124
 pt>
 File: ./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf Graphic file (type pdf)
 <use ./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf>
 Package pdftex.def Info: ./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf  used
- on input line 824.
+ on input line 854.
 (pdftex.def)             Requested size: 426.79135pt x 233.40115pt.
 [35 <./figures_from_script/ch3_fig5_jet_worse_pc3.pdf>] [36 <./figures_from_scr
 ipt/ch3_fig6_DIS_better_pc6.pdf>] [37 <./figures_from_script/ch3_fig7_DIS_worse
@@ -1391,74 +1403,179 @@ _pc2.pdf>] [38
 ]
 Chapter 4.
 [41]
-<./figures_from_script/ch4_fig1_pca_splom.pdf, id=870, 225.84375pt x 225.84375p
+<./figures_from_script/ch4_fig1_pca_splom.pdf, id=981, 225.84375pt x 225.84375p
 t>
 File: ./figures_from_script/ch4_fig1_pca_splom.pdf Graphic file (type pdf)
 <use ./figures_from_script/ch4_fig1_pca_splom.pdf>
 Package pdftex.def Info: ./figures_from_script/ch4_fig1_pca_splom.pdf  used on 
-input line 876.
+input line 906.
 (pdftex.def)             Requested size: 426.79135pt x 426.84692pt.
 [42] [43 <./figures_from_script/ch4_fig1_pca_splom.pdf>] [44] [45]
-<./figures_from_script/ch4_fig2_exp_factors.pdf, id=930, 451.6875pt x 650.43pt>
-
+<./figures_from_script/ch4_fig2_exp_factors.pdf, id=1041, 451.6875pt x 650.43pt
+>
 File: ./figures_from_script/ch4_fig2_exp_factors.pdf Graphic file (type pdf)
 <use ./figures_from_script/ch4_fig2_exp_factors.pdf>
 Package pdftex.def Info: ./figures_from_script/ch4_fig2_exp_factors.pdf  used o
-n input line 921.
+n input line 951.
 (pdftex.def)             Requested size: 426.79135pt x 614.6199pt.
 [46] [47 <./figures_from_script/ch4_fig2_exp_factors.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 943--945
+Underfull \hbox (badness 10000) in paragraph at lines 973--975
 
  []
 
 [48]
-<./figures_from_script/ch4_fig3_accuracy_measure.pdf, id=967, 451.6875pt x 225.
-84375pt>
+<./figures_from_script/ch4_fig3_accuracy_measure.pdf, id=1078, 451.6875pt x 225
+.84375pt>
 File: ./figures_from_script/ch4_fig3_accuracy_measure.pdf Graphic file (type pd
 f)
 <use ./figures_from_script/ch4_fig3_accuracy_measure.pdf>
 Package pdftex.def Info: ./figures_from_script/ch4_fig3_accuracy_measure.pdf  u
-sed on input line 974.
+sed on input line 1004.
 (pdftex.def)             Requested size: 426.79135pt x 213.40967pt.
 [49] [50 <./figures_from_script/ch4_fig3_accuracy_measure.pdf>] [51]
-<./figures_from_script/ch4_fig4_randomization_MANUAL.png, id=1000, 595.62524pt 
+<./figures_from_script/ch4_fig4_randomization_MANUAL.png, id=1111, 595.62524pt 
 x 342.68025pt>
 File: ./figures_from_script/ch4_fig4_randomization_MANUAL.png Graphic file (typ
 e png)
 <use ./figures_from_script/ch4_fig4_randomization_MANUAL.png>
 Package pdftex.def Info: ./figures_from_script/ch4_fig4_randomization_MANUAL.pn
-g  used on input line 1014.
+g  used on input line 1044.
 (pdftex.def)             Requested size: 426.79135pt x 245.55309pt.
 [52 <./figures_from_script/ch4_fig4_randomization_MANUAL.png>] [53] [54]
-Overfull \hbox (28.9376pt too wide) detected at line 1072
+Overfull \hbox (28.9376pt too wide) detected at line 1102
 \OT1/lmr/m/n/10.95 %[]
  []
 
 [55]
-<./figures_from_script/ch4_fig5_ABcd_violins.pdf, id=1037, 451.6875pt x 451.687
+<./figures_from_script/ch4_fig5_ABcd_violins.pdf, id=1148, 451.6875pt x 451.687
 5pt>
 File: ./figures_from_script/ch4_fig5_ABcd_violins.pdf Graphic file (type pdf)
 <use ./figures_from_script/ch4_fig5_ABcd_violins.pdf>
 Package pdftex.def Info: ./figures_from_script/ch4_fig5_ABcd_violins.pdf  used 
-on input line 1105.
+on input line 1136.
 (pdftex.def)             Requested size: 426.79135pt x 426.81937pt.
-<./figures_from_script/ch4_fig6_subjective_measures.pdf, id=1039, 451.6875pt x 
+<./figures_from_script/ch4_fig6_subjective_measures.pdf, id=1150, 451.6875pt x 
 451.6875pt>
 File: ./figures_from_script/ch4_fig6_subjective_measures.pdf Graphic file (type
  pdf)
 <use ./figures_from_script/ch4_fig6_subjective_measures.pdf>
 Package pdftex.def Info: ./figures_from_script/ch4_fig6_subjective_measures.pdf
-  used on input line 1119.
+  used on input line 1150.
 (pdftex.def)             Requested size: 426.79135pt x 426.81937pt.
 [56] [57 <./figures_from_script/ch4_fig5_ABcd_violins.pdf>] [58 <./figures_from
-_script/ch4_fig6_subjective_measures.pdf>] [59] [60] [61
+_script/ch4_fig6_subjective_measures.pdf>] [59] [60]
+Chapter 5.
+[61
 
-] [62] [63] [64] [65] [66] [67] [68] (./thesis_draft_ns.aux)
+]
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 25.28426pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.28426pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
+
+[62]
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 25.28426pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.28426pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
+
+[63]
+
+LaTeX Warning: Reference `fig:ch5fig1' on page 64 undefined on input line 1243.
+
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 25.28426pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.28426pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
+
+[64]
+
+LaTeX Warning: Reference `fig:ch5fig1' on page 65 undefined on input line 1245.
+
+
+
+LaTeX Warning: Reference `fig:ch5fig2' on page 65 undefined on input line 1252.
+
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 25.28426pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.28426pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
+
+[65]
+
+LaTeX Warning: Reference `fig:ch5fig2' on page 66 undefined on input line 1258.
+
+
+
+LaTeX Warning: Reference `fig:ch5fig3' on page 66 undefined on input line 1260.
+
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 25.28426pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.28426pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
+
+[66]
+
+LaTeX Warning: Reference `fig:cheemTour' on page 67 undefined on input line 126
+2.
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 25.28426pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.28426pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
+
+[67]
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 25.28426pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.28426pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
+
+[68]
+Chapter 6.
+
+Underfull \hbox (badness 3536) in paragraph at lines 1282--1283
+[]\T1/lmr/m/n/10.95 (+20) For trans-parency and re-pro-ducibil-ity, the source 
+files are made avail-able at
+ []
+
+[69
+
+] [70
+
+]
+Appendix A.
+[71] [72] [73] [74
+
+] [75] [76] [77] [78] [79] [80] [81] [82] (./thesis_draft_ns.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis_draft_ns.out' has not changed.
-(rerunfilecheck)             Checksum: 8B73EE3DB2CACF842233FA76E53D1337;4475.
+(rerunfilecheck)             Checksum: 969DB30A3F1A001D8D08A5DDF72B84BF;6849.
 Package logreq Info: Writing requests to 'thesis_draft_ns.run.xml'.
 \openout1 = `thesis_draft_ns.run.xml'.
 
@@ -1468,13 +1585,13 @@ Package logreq Info: Writing requests to 'thesis_draft_ns.run.xml'.
 ### semi simple group (level 1) entered at line 102 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 24673 strings out of 480539
- 435285 string characters out of 5900821
- 1225677 words of memory out of 5000000
- 41208 multiletter control sequences out of 15000+600000
- 548129 words of font info for 288 fonts, out of 8000000 for 9000
+ 25695 strings out of 480293
+ 468810 string characters out of 5894820
+ 1228798 words of memory out of 5000000
+ 42426 multiletter control sequences out of 15000+600000
+ 544997 words of font info for 286 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,14n,93p,2244b,18927s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,14n,93p,2244b,19563s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dv
 ips/lm/lm-ec.enc}{c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/d
 vips/lm/lm-rm.enc}{c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/
@@ -1510,10 +1627,10 @@ Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb
 ><c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti
 10.pfb><c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palat
 ino/uplr8a.pfb>
-Output written on thesis_draft_ns.pdf (74 pages, 2633562 bytes).
+Output written on thesis_draft_ns.pdf (95 pages, 2675265 bytes).
 PDF statistics:
- 1366 PDF objects out of 1440 (max. 8388607)
- 1173 compressed objects within 12 object streams
- 329 named destinations out of 1000 (max. 500000)
- 83775 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1594 PDF objects out of 1728 (max. 8388607)
+ 1378 compressed objects within 14 object streams
+ 381 named destinations out of 1000 (max. 500000)
+ 81823 words of extra memory for PDF output out of 89155 (max. 10000000)
 
