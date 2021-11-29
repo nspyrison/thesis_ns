@@ -3,7 +3,7 @@
 % This template was produced by Rob Hyndman
 % Version: 6 September 2016
 
-\documentclass{monashthesis}
+\documentclass{template/monashthesis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Add any LaTeX packages and other preamble here if required
@@ -14,12 +14,13 @@
 \usepackage{bm}
 \usepackage{booktabs}
 %%%% NS
+%\usepackage{mathtools,amssymb,booktabs,amsthm,todonotes,colortbl,amsthm,multirow,array} %% blind c+p from sayani
+\usepackage{ragged2e} %% declaration table RaggedRight
 \usepackage{graphicx}
 %\usepackage{pdflscape} %% Allow landscape layout, not used
 %\usepackage{lmodern} %% Already loaded, allows GB Pound sign
-\usepackage{animate} %% Needed for animations
+%\usepackage{animate} %% Needed for animations
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref} %% Trying to wrap and format urls correctly
-
 
 \author{Nicholas S Spyrison}
 \title{Dynamic visualization of high-dimensional data via low-dimension projections, their efficacy, and their application to model-agnostic local explanations}
@@ -34,7 +35,6 @@
      pdfproducer={Bookdown with LaTeX}
 }
 
-
 \bibliography{thesisrefs}
 
 \begin{document}
@@ -45,33 +45,15 @@
 
 {\setstretch{1.2}\sf\tighttoc\doublespacing}
 
-\hypertarget{acknowledgements}{%
-\chapter*{Acknowledgements}\label{acknowledgements}}
-\addcontentsline{toc}{chapter}{Acknowledgements}
+\hypertarget{ch-copyright}{%
+\chapter*{Copyright notice}\label{ch-copyright}}
+\addcontentsline{toc}{chapter}{Copyright notice}
 
-I would like to express my sincere gratitude to my supervisors professor Kimbal Marriott, professor Dianne Cook for their support of my Ph.D studies and research, their subject expertise, and their careers of supervising and performing research. Thank you for continuously pushing me and my research to new levels. I have enjoyed teaching data visualization which has been strongly shaped by Di's practical, data-first, visualization-often style. I will continue to imagine hearing Kim's persistent question ``what did we learn from this?'' as a reminder not to get lost in the details of implementation, but also to regularly step-back and analize if this is the correct aspect to be checking.
+\textcopyright { }Nicholas Spyrison (\number\the\year).
 
-A special thanks to professor Przemyslaw Biecek for giving his input in the formulation stages of my project and his easy to understand explanations of complex modeling aspects. Thank you for responding to cold emails and being available for collaboration.
+I certify that I have made all reasonable efforts to secure copyright permissions for third-party content included in this thesis and have not knowingly added copyright content to my work without the owner's permission.
 
-I thank my fellow Ph.D students, lab members, and pomodoro partners especially on the occasional of stimulating discussions and for the positive peer-pressure of knowing others are around and working. Thanks immensely to those that have empathized with me and others especially though the hard-ships of studies and COVID-19. Gratitude to Ying Zhou for her enduring support though the thick of my studies and wavering mental health.
-
-Last but not the least, I would like to thank my parents, Doug and Terry, for their support and concerns at odd hours of the day. Thanks to Alan and Claire for their companionship and support now and in our more formative years. I am looking forward to be seeing you all in person shortly.
-
-\hypertarget{declaration}{%
-\chapter*{Declaration}\label{declaration}}
-\addcontentsline{toc}{chapter}{Declaration}
-
-I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma in any university or equivalent institution, and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
-
-\vspace*{2cm}\par\authorname
-
-\hypertarget{preface}{%
-\chapter*{Preface}\label{preface}}
-\addcontentsline{toc}{chapter}{Preface}
-
-The material in Chapter \ref{ch:spinifex} has been published in the \emph{The R Journal} here: \url{https://journal.r-project.org/archive/2020/RJ-2020-027/index.html}. The user study described in Chapter \ref{ch:efficacy_radial_tour} will shortly be submitted to the \emph{Journal of Data Science, Statistics, and Visualisation}. The reseach covered in Chapter \ref{ch:cheem} will shortly be submitted to \emph{IEEE Transactions on Knowledge and Data Engineering}.
-
-I recognize that terminology is often overburdened by ambiguous use, with several changing meanings coming from different fields. My background comes from Statsistics and I will default to terms from statistics and geometry. I provide terminology and notation definition upon first use and in the Glossary \ref{ch:glossary}.
+\newpage
 
 \hypertarget{abstract}{%
 \chapter*{Abstract}\label{abstract}}
@@ -87,28 +69,79 @@ Modern modeling techniques are sometimes refered to as black-box models due the 
 
 \clearpage\pagenumbering{arabic}\setcounter{page}{0}
 
+\hypertarget{declaration}{%
+\chapter*{Declaration}\label{declaration}}
+\addcontentsline{toc}{chapter}{Declaration}
+
+I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
+
+Three publications are included in this thesis, one of which has been accepted for publication in the \emph{The R Journal} \autocite{spyrison_spinifex_2020}. The user study described in Chapter \ref{ch:efficacy_radial_tour} will shortly be submitted to the \emph{Journal of Data Science, Statistics, and Visualisation}. The reseach covered in Chapter \ref{ch:cheem} will shortly be submitted to \emph{IEEE Transactions on Knowledge and Data Engineering}.
+
+All of the papers in the thesis were conceptualized, developed, and written by myself, the student, while working in the Department of Human-Centred Computing under the supervision of professor Kimbal Marriott and professor Dianne Cook. When co-authors are listed, it indicates that the work was produced through active collaboration between researchers and that their contributions to team-based research have been recognized. The following table details the work, including my and my fellow co-authors' contributions.
+
+\begin{table}
+\centering\footnotesize\tabcolsep=0.12cm
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.5cm}|p{3.5cm}|p{3.5cm}|p{1.5cm}|}
+\hline
+\RaggedRight\textbf{Thesis Chapter}  &
+\RaggedRight\textbf{Publication Title}  &
+\RaggedRight\textbf{Status (published, in press, accepted or returned for revision)}  & \RaggedRight\textbf{Nature and} {\%} \RaggedRight\textbf{of student contribution} & \RaggedRight\textbf{Co-author name(s) Nature and} {\%} \RaggedRight\textbf{of Co-author’s contribution} &
+\RaggedRight\textbf{Co-author(s), Monash student Y/N} \\ \hline
+3 & spinifex: An R Package for Creating a Manual Tour of Low-dimensional Projections of Multivariate Data & Published & 75\%. Concept, development, writing first draft and software development & (1) Dianne Cook, concept, methodology, writing 25\% & N \\ \hline
+4 & The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections & To be submitted & 80\%. Concept, development, writing first draft, application, and conducting user study & (1) Dianne Cook, Concept, methodology, editing 12\% (2) Kimbal Marriott, concept, methodology, editing 8\% & N \\ \hline
+5 & Interrogating the linear variable importance of local explanations of
+black-box models with animated linear projections & To be submitted & 85\%. Concept, development, writing first draft and software development & (1) Dianne Cook, methodology, editing 10\% (2) Kimbal Marriott, methodology, editing 5\% & N \\ \hline
+\end{tabular}
+\end{table}
+
+I have renumbered and updated sections of submitted or published papers in order to generate a consistent presentation within the thesis.
+
+\textbf{Student name:} Nicholas Spyrison
+
+\textbf{Student signature:}
+
+\begin{flushleft}\includegraphics[width=0.5\linewidth,]{figures/signature} \end{flushleft}
+
+\textbf{Date:} 2021-12-12
+
+\vspace{2em}
+
+\noindent
+The undersigned hereby certify that the above declaration correctly reflects the nature and extent of the student's co-authors' contribution to this work.
+In instances where I am not the responsible author I have consulted with the responsible author to agree on the respective contributions of the authors.
+
+\textbf{Main Supervisor name:} Kimbal Marriott
+
+\textbf{Main Supervisor signature:}
+
+\vspace*{2cm}
+
+\textbf{Date:} 2021-12-12
+
+\hypertarget{acknowledgements}{%
+\chapter*{Acknowledgements}\label{acknowledgements}}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+I would like to express my sincere gratitude to my supervisors professor Kimbal Marriott, professor Dianne Cook for their support of my Ph.D studies and research, their subject expertise, and their careers of supervising and performing research. Thank you for continuously pushing me and my research to new levels. I have enjoyed teaching data visualization which has been strongly shaped by Di's practical, data-first, visualization-often style. I will continue to imagine hearing Kim's persistent question ``what did we learn from this?'' as a reminder not to get lost in the details of implementation, but also to regularly step-back and analize if this is the correct aspect to be checking.
+
+A special thanks to professor Przemyslaw Biecek for giving his input in the formulation stages of my project and his easy to understand explanations of complex modeling aspects. Thank you for responding to cold emails and being available for collaboration.
+
+I thank my fellow Ph.D students, lab members, and pomodoro partners especially on the occasional of stimulating discussions and for the positive peer-pressure of knowing others are around and working. Thanks immensely to those that have empathized with me and others especially though the hard-ships of studies and COVID-19. Gratitude to Ying Zhou for her enduring support though the thick of my studies and wavering mental health.
+
+Last but not the least, I would like to thank my parents, Doug and Terry, for their support and concerns at odd hours of the day. Thanks to Alan and Claire for their companionship and support now and in our more formative years. I am looking forward to be seeing you all in person shortly.
+
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
+\addcontentsline{toc}{chapter}{Preface}
+
+I recognize that terminology is often overburdened by ambiguous use, with several changing meanings coming from different fields. My background comes from Statsistics and I will default to terms from statistics and geometry. I provide terminology and notation definition upon first use and in the Glossary \ref{ch:glossary}.
+
 \hypertarget{ch:introduction}{%
 \chapter{Introduction}\label{ch:introduction}}
 
-\hypertarget{exploratory-data-analysis}{%
-\section{Exploratory data analysis}\label{exploratory-data-analysis}}
+This thesis is related broadly to multivariate data visualization. That is visualizing an arbitrary \(p-\)dimensional space. First I discuss the context and scope before list the research objectives and methodology. Chapter \ref{ch:motivation} covers the motivation for such research. The research chapters 3 through 5 will cover their respective own backgrounds and follow-up discussion. Chapter \ref{ch:efficacy_radial_tour} dicusses a user study evaluating the efficacy of the radial, manual tour. Chapter \ref{ch:cheem} extends the use of manual tours to extend the interpretability of black-box models. Lastly Chapter \ref{ch:conclusion} concludes with some take-aways and discussion of possible extensions.
 
-The term exploratory data analysis was coined in \textcite{tukey_exploratory_1977}, who leaves it as an intentionally broad term wich encompass the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values and validating assumptions made by prospective methodology. Visualization is crucial to a clear understanding of the data. Things can go awry when data is summarized via numeric statistics alone \autocite{anscombe_graphs_1973} as demonstrated in figure \ref{fig:matejka17fig} \autocite{matejka_same_2017}. In these studies, bivariate data have the same summary statistics (such as mean and standard deviation), yet contains obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Because there are inherent dangers to relying on statistics alone, this requirement for looking at visuals necessitates \emph{human-in-the-loop} analysis, defined as any model that requires human interaction \autocite{karwowski_international_2006}.
-
-
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{./figures/matejka17fig} 
-
-}
-
-\caption{12 data sets created from the datasaurus by simulated annealing. Each is restrained to the same summary statistics but given shapes with visual peculiarity to mutate into \autocite{matejka_same_2017}.}\label{fig:matejka17fig}
-\end{figure}
-
-It is clear that data-space visualization is needed but it becomes complex as data dimensionality increases. Embedding (or projecting) \(p-\)dimensional data on to a lower, \(d\)-dimensional subspace is a common dimension reduction approach to visualize multivariate data spaces. Traditionally a single static projection is used to summarize a space, which necessarily shows a subset of the variation of the data. \textcite{asimov_grand_1985} suggested the use of viewing projections dynamically across a changing projection basis allows for more variation to be contained and viewed temporally. This dynamic view of many changing projections is known as \emph{tours}. While, there are different methods of generating tour paths, human-in-the-loop user-controlled steering (UCS) offers the finest control for navigating the local structure.
-
-Tours are typically viewed from standard 2D monitors, and most commonly viewed as a projection down to 2D. A notable exception being \textcite{nelson_xgobi_1998}, where 3D embeddings were viewed in 3D head-tracked VR. Data visualization studies generally show benefits in 3D visuals over 2D, especially when adequate depth cues are provided. The state of modern hardware has made VR more affordable and available to wider audiences, at ever increasing resolutions of display than previously possible. It is therefore timely for research to be conducted to compare the structure and speed of comprehension of dynamic linear projections across 2- and 3D display devices.
+-------- previous content below: --------
 
 \hypertarget{research-objectives}{%
 \section{Research objectives}\label{research-objectives}}
@@ -176,7 +209,7 @@ Figure \ref{fig:dataanalysisworkflow} depicts the general data analysis workflow
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{./figures/data_analysis_workflow} 
+{\centering \includegraphics[width=1\linewidth,]{./figures/data_analysis_workflow} 
 
 }
 
@@ -194,25 +227,38 @@ Figure \ref{fig:ProjectOverview} depicts a schematic flow chart that the researc
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{./figures/ProjectOverview} 
+{\centering \includegraphics[width=1\linewidth,]{./figures/ProjectOverview} 
 
 }
 
 \caption{Flow chart of research objective dependencies, work order, and methodology.}\label{fig:ProjectOverview}
 \end{figure}
 
-In this report, the related literature is discussed in chapter \ref{ch:lit_review}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by ongoing work and future work in chapters \ref{ch:workinprogress} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic projections and VR data visualization can be found in appendix \ref{ch:glossary} and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex}.
+In this report, the related literature is discussed in chapter \ref{ch:motivation}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by ongoing work and future work in chapters \ref{ch:workinprogress} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic projections and VR data visualization can be found in appendix \ref{ch:glossary} and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex}.
 
-\hypertarget{ch:lit_review}{%
-\chapter{Literature review}\label{ch:lit_review}}
+\hypertarget{ch:motivation}{%
+\chapter{Motivation}\label{ch:motivation}}
 
 The following chapter discusses the current research in two primary areas: dynamic linear projections (collectively known as tours) and multivariate data visualization in stereoscopic 3D. After each section, research gaps are highlighted.
 
-\hypertarget{sec:tour}{%
-\section{Dynamic linear projections of multivariate data (tours)}\label{sec:tour}}
+\hypertarget{exploratory-data-analysis}{%
+\section{Exploratory data analysis}\label{exploratory-data-analysis}}
 
-\hypertarget{overview}{%
-\subsection{Overview}\label{overview}}
+The term exploratory data analysis (EDA) was coined in \textcite{tukey_exploratory_1977}, who leaves it as an intentionally broad term which encompass the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values and validating assumptions. Visualization is crucial to a clear understanding of the data and ensuring that models are suitable. Visualization is much more robust than numerical summarization alone \autocite{anscombe_graphs_1973,matejka_same_2017}. In these studies the data have the same summary statistics, yet contains obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Data visualization is fundamental to EDA and quickly evaluating data supports ensuring that models are suitability.
+
+
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,]{./figures/matejka17fig} 
+
+}
+
+\caption{Starting with the datasarus plot, observations are allows to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the originally listed statistics \autocite{matejka_same_2017}.}\label{fig:matejka17fig}
+\end{figure}
+
+\hypertarget{sec:tour}{%
+\section{Tours, animated linear projections}\label{sec:tour}}
 
 The introduction established that visualizing data-space is an important aspect of exploratory data analysis and data analysis in general. Yet, there is an inherent difficulty as the dimensionality of data increases. In univariate data sets histograms or smoothed density curves are employed to visualize data. In bivariate data, \(XY\) scatterplots and contour plots (2D density) can be employed. In three dimensions, the two most common techniques are 3D scatterplot\footnote{Graphs depicting three dimensions are typically viewed on a 2D display, in print or with a standard monitor. These are 2D images of monocular 3D spaces, sometimes referred to as 2.5D data visualization, more on this in section \ref{sec:3d-terminology}.} or 2D scatterplot with the 3rd variable as an aesthetic (such as color, size, or height). These aesthetic cues convey some information but are not a sufficient replacement for axes for use with continuous variables.
 
@@ -220,7 +266,7 @@ As dimensionality of the data, \(p\), increases the visualization of data-space 
 
 Let \(p\) be the dimensionality of the data, and \(d\) be the dimension of the projection space. Tours perform linear dimensionality reduction, orthogonally projecting \(p\)-space down to \(d(\leq p)\) dimensions. Many such projections are interpolated, each making small rotations in \(p\)-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing tours. Imagine a fixed light source facing a wall. When an object is introduced it projects a 2D shadow onto the wall. This is a physical representation of a simple projection, that from \(p=3\) down to \(d=2\). If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a 2D tour as the 3D object is manipulated. Some orientations explain more information about the shape of the object than others while watching an animation of the shadow changing gives a more robust understanding than looking at any one frame. More complex structures generally require more time to comprehend the nature of the geometry. These features hold for tours as well.
 
-\emph{An extended tour notation is listed in the appendix section \ref{sec:tour_notation}.}
+\emph{An extended tour notation is listed in the appendix section \ref{sec:notation}.}
 
 \hypertarget{history}{%
 \subsection{History}\label{history}}
@@ -413,7 +459,7 @@ A comparative study outlining the benefits of UCS vs alternatives is also absent
 \hypertarget{sec:3d}{%
 \section{Multivariate data visualization in 3D}\label{sec:3d}}
 
-The scope of this research pertains to numeric multivariate data, a wider overview of 3D data visualization is discussed in chapter 2 of \textcite{marriott_immersive_2018}. Terminology for 3D visuals is in the glossary section \ref{sec:3d-terminology}.
+The scope of this research pertains to numeric multivariate data, a wider overview of 3D data visualization is discussed in chapter 2 of \textcite{marriott_immersive_2018}. Terminology for 3D visuals is in the glossary section \ref{sec:terminology}.
 
 \hypertarget{a-rocky-start}{%
 \subsection{A rocky start}\label{a-rocky-start}}
@@ -433,7 +479,7 @@ Using 3D rotated projections gives more precise (relative to 2D) estimates of th
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.5\linewidth]{./figures/tory06fig} 
+{\centering \includegraphics[width=0.5\linewidth,]{./figures/tory06fig} 
 
 }
 
@@ -446,7 +492,7 @@ Using 3D rotated projections gives more precise (relative to 2D) estimates of th
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{./figures/sedlmair13fig} 
+{\centering \includegraphics[width=1\linewidth,]{./figures/sedlmair13fig} 
 
 }
 
@@ -462,7 +508,7 @@ Using 3D rotated projections gives more precise (relative to 2D) estimates of th
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{./figures/nelson98fig} 
+{\centering \includegraphics[width=0.7\linewidth,]{./figures/nelson98fig} 
 
 }
 
@@ -477,7 +523,7 @@ Another study, \textcite{gracia_new_2016} performed dimensionality reduction dow
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.5\linewidth]{./figures/wagner18fig} 
+{\centering \includegraphics[width=0.5\linewidth,]{./figures/wagner18fig} 
 
 }
 
@@ -493,7 +539,7 @@ Immersive analytics is an emerging field, where data visualization and analysis 
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.5\linewidth]{./figures/cordeil2017fig} 
+{\centering \includegraphics[width=0.5\linewidth,]{./figures/cordeil2017fig} 
 
 }
 
@@ -508,7 +554,7 @@ When comparing between 2- and 3D orthogonal views, in general, studies show that
 Similar results have been shown in static, 3D projected spaces \autocite{gracia_new_2016,wagner_filho_immersive_2018} and in dynamic 2D embedded spaces depicted in immersive 3D \autocite{nelson_xgobi_1998}. Modern VR hardware brings about a steady improvements to quality, resolution while driving down cost, making VR more easily accessible than ever. It's timely to review dynamic 3D projections and do so in immersive spaces to quantify the corresponding benefits (\textbf{RO \#3 \& 4}).
 
 \hypertarget{ch:spinifex}{%
-\chapter{\texorpdfstring{Manual tours and the R package \texttt{spinifex}}{Manual tours and the R package spinifex}}\label{ch:spinifex}}
+\chapter{spinifex: An R Package for Creating a Manual Tour of Low-dimensional Projections of Multivariate Data}\label{ch:spinifex}}
 
 TODO:XXX Segue. Bring over abstract?
 
@@ -877,7 +923,7 @@ Having a graphical user interface would be useful for making it easier and more 
 This article was created in R, using \{knitr\} \autocite{xie_knitr_2020} and \{rmarkdown\} \autocite{allaire_rmarkdown_2020}, with code generating the examples inline. The source files for this article be found at \href{https://github.com/nspyrison/spinifex_paper/}{github.com/nspyrison/spinifex\_paper/}. The animated gifs can also be viewed at this site, and also in the supplementary material for this paper. The source code for the \{spinifex\} package can be found at \href{https://github.com/nspyrison/spinifex/}{github.com/nspyrison/spinifex/}.
 
 \hypertarget{ch:efficacy_radial_tour}{%
-\chapter{Efficacy of the radial tour}\label{ch:efficacy_radial_tour}}
+\chapter{The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections}\label{ch:efficacy_radial_tour}}
 
 TODO:XXX Segue. Bring over abstract?
 
@@ -1102,31 +1148,30 @@ In building a set of models to test we include all single term models, a model w
 \]
 
 \begin{verbatim}
-# A tibble: 5 x 8
-  `Fixed effects` `No. levels` `No. terms` AIC    BIC    `R2 cond. (on RE)`
-  <chr>                  <int>       <int> <chr>  <chr>  <chr>             
-1 a                          1           3 *1000* *1027* 0.18              
-2 a+b+c+d                    4           8 1026   1075   0.187             
-3 a*b+c+d                    5          12 1036   1103   0.198             
-4 a*b*c+d                    8          28 1069   1207   0.238             
-5 a*b*c*d                   15          54 1125   1380   *0.255*           
-# ... with 2 more variables: R2 marg. (w/o RE) <chr>, RMSE <chr>
+## # A tibble: 5 x 8
+##   `Fixed effects` `No. levels` `No. terms` AIC    BIC    `R2 cond. (on RE)` `R2 marg. (w/o RE)` RMSE   
+##   <chr>                  <int>       <int> <chr>  <chr>  <chr>              <chr>               <chr>  
+## 1 a                          1           3 *1000* *1027* 0.18               0.022               0.462  
+## 2 a+b+c+d                    4           8 1026   1075   0.187              0.03                0.46   
+## 3 a*b+c+d                    5          12 1036   1103   0.198              0.043               0.457  
+## 4 a*b*c+d                    8          28 1069   1207   0.238              0.08                0.447  
+## 5 a*b*c*d                   15          54 1125   1380   *0.255*            *0.115*             *0.438*
 \end{verbatim}
 
 \begin{verbatim}
-                     Estimate Std. Error    df t value Pr(>|t|)    
-(Intercept)             -0.12       0.08  43.9   -1.50     0.14    
-fct=grand                0.15       0.09 622.4    1.74     0.08    
-fct=radial               0.37       0.09 617.1    4.18     0.00 ***
-loc=33_66                0.17       0.09  83.2    1.78     0.08    
-loc=50_50                0.14       0.09  84.8    1.52     0.13    
-shp=EEV                  0.04       0.06  11.5    0.79     0.44    
-shp=ban                 -0.03       0.06  11.5   -0.48     0.64    
-dim=6                   -0.06       0.05  11.5   -1.39     0.19    
-fct=grand:loc=33_66     -0.06       0.13 587.3   -0.49     0.63    
-fct=radial:loc=33_66    -0.34       0.13 585.2   -2.65     0.01  **
-fct=grand:loc=50_50     -0.09       0.13 589.6   -0.68     0.50    
-fct=radial:loc=50_50    -0.19       0.13 574.3   -1.43     0.15    
+##                      Estimate Std. Error    df t value Pr(>|t|)    
+## (Intercept)             -0.12       0.08  43.9   -1.50     0.14    
+## fct=grand                0.15       0.09 622.4    1.74     0.08    
+## fct=radial               0.37       0.09 617.1    4.18     0.00 ***
+## loc=33_66                0.17       0.09  83.2    1.78     0.08    
+## loc=50_50                0.14       0.09  84.8    1.52     0.13    
+## shp=EEV                  0.04       0.06  11.5    0.79     0.44    
+## shp=ban                 -0.03       0.06  11.5   -0.48     0.64    
+## dim=6                   -0.06       0.05  11.5   -1.39     0.19    
+## fct=grand:loc=33_66     -0.06       0.13 587.3   -0.49     0.63    
+## fct=radial:loc=33_66    -0.34       0.13 585.2   -2.65     0.01  **
+## fct=grand:loc=50_50     -0.09       0.13 589.6   -0.68     0.50    
+## fct=radial:loc=50_50    -0.19       0.13 574.3   -1.43     0.15
 \end{verbatim}
 
 We also want to visually explore the conditional variables in the model. Figure \ref{fig:ch4fig5} explores violin plots of marks by factor while faceting on the location (vertical) and shape (horizontal). Radial tends to increase the marks received, and especially so when there is no signal/noise mixing.
@@ -1190,22 +1235,29 @@ TODO:XXX Segue.
   \AttributeTok{eval =} \ConstantTok{FALSE}\NormalTok{)}
 
 \StringTok{"Error on first evalauated include\_image, yet, directory clearly sees them in the right spot..."}
-\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"Error on first evalauated include\_image, yet, directory clearly sees them in the right spot..."}
-\FunctionTok{dir}\NormalTok{(}\StringTok{"./figures\_from\_script/"}\NormalTok{)}
-\NormalTok{ [}\DecValTok{1}\NormalTok{] }\StringTok{"\_ch3\_spinifex.r"}                   \StringTok{"\_ch4\_efficacy\_radial\_tour.r"}      
-\NormalTok{ [}\DecValTok{3}\NormalTok{] }\StringTok{"\_ch5\_cheem.r"}                      \StringTok{"ch3\_fig1\_biplot.pdf"}              
-\NormalTok{ [}\DecValTok{5}\NormalTok{] }\StringTok{"ch3\_fig2\_manip\_sp.pdf"}             \StringTok{"ch3\_fig3\_filmstrip.pdf"}           
-\NormalTok{ [}\DecValTok{7}\NormalTok{] }\StringTok{"ch3\_fig4\_jet\_better\_pc4.pdf"}       \StringTok{"ch3\_fig5\_jet\_worse\_pc3.pdf"}       
-\NormalTok{ [}\DecValTok{9}\NormalTok{] }\StringTok{"ch3\_fig6\_DIS\_better\_pc6.pdf"}       \StringTok{"ch3\_fig7\_DIS\_worse\_pc2.pdf"}       
-\NormalTok{[}\DecValTok{11}\NormalTok{] }\StringTok{"ch4\_fig1\_pca\_splom.pdf"}            \StringTok{"ch4\_fig2\_exp\_factors.pdf"}         
-\NormalTok{[}\DecValTok{13}\NormalTok{] }\StringTok{"ch4\_fig3\_accuracy\_measure.pdf"}     \StringTok{"ch4\_fig4\_randomization\_MANUAL.png"}
-\NormalTok{[}\DecValTok{15}\NormalTok{] }\StringTok{"ch4\_fig5\_ABcd\_violins.pdf"}         \StringTok{"ch4\_fig6\_subjective\_measures.pdf"} 
-\NormalTok{[}\DecValTok{17}\NormalTok{] }\StringTok{"ch4\_figX\_demographic\_heatmap.pdf"}  \StringTok{"ch4\_tab1\_model\_comp\_ls.rds"}       
-\NormalTok{[}\DecValTok{19}\NormalTok{] }\StringTok{"ch4\_tab2\_model\_coef\_ls.rds"}        \StringTok{"ch4\_util\_funcs.r"}                 
-\NormalTok{[}\DecValTok{21}\NormalTok{] }\StringTok{"ch5\_fig2\_global\_space.pdf"}         \StringTok{"ch5\_fig3\_cheem\_initial\_bas.pdf"}   
-\NormalTok{[}\DecValTok{23}\NormalTok{] }\StringTok{"ch5\_fig4\_cheem\_endpts.pdf"}        
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## [1] "Error on first evalauated include_image, yet, directory clearly sees them in the right spot..."
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dir}\NormalTok{(}\StringTok{"./figures\_from\_script/"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "_ch3_spinifex.r"                   "_ch4_efficacy_radial_tour.r"       "_ch5_cheem.r"                     
+##  [4] "ch3_fig1_biplot.pdf"               "ch3_fig2_manip_sp.pdf"             "ch3_fig3_filmstrip.pdf"           
+##  [7] "ch3_fig4_jet_better_pc4.pdf"       "ch3_fig5_jet_worse_pc3.pdf"        "ch3_fig6_DIS_better_pc6.pdf"      
+## [10] "ch3_fig7_DIS_worse_pc2.pdf"        "ch4_fig1_pca_splom.pdf"            "ch4_fig2_exp_factors.pdf"         
+## [13] "ch4_fig3_accuracy_measure.pdf"     "ch4_fig4_randomization_MANUAL.png" "ch4_fig5_ABcd_violins.pdf"        
+## [16] "ch4_fig6_subjective_measures.pdf"  "ch4_figX_demographic_heatmap.pdf"  "ch4_tab1_model_comp_ls.rds"       
+## [19] "ch4_tab2_model_coef_ls.rds"        "ch4_util_funcs.r"                  "ch5_fig1_shap_distr_bd.pdf"       
+## [22] "ch5_fig2_global_space.pdf"         "ch5_fig3_cheem_initial_bas.pdf"    "ch5_fig4_cheem_endpts.pdf"
+\end{verbatim}
 
 \hypertarget{sec:intro}{%
 \section{Introduction}\label{sec:intro}}
@@ -1281,22 +1333,49 @@ This research was supported by an Australian government Research Training Progra
 
 For transparency and reproducibility, the source files are made available at \href{https://github.com/nspyrison/phd_milestones}{github.com/nspyrison/phd\_milestones}.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# At one point chap5/cheem images we not working make sure the stop gap is reverted here.}
+\NormalTok{knitr}\SpecialCharTok{::}\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{(}
+  \AttributeTok{eval =} \ConstantTok{TRUE}\NormalTok{)}
+
+\StringTok{"Error on first evalauated include\_image, yet, directory clearly sees them in the right spot..."}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Error on first evalauated include_image, yet, directory clearly sees them in the right spot..."
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dir}\NormalTok{(}\StringTok{"./figures\_from\_script/"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "_ch3_spinifex.r"                   "_ch4_efficacy_radial_tour.r"       "_ch5_cheem.r"                     
+##  [4] "ch3_fig1_biplot.pdf"               "ch3_fig2_manip_sp.pdf"             "ch3_fig3_filmstrip.pdf"           
+##  [7] "ch3_fig4_jet_better_pc4.pdf"       "ch3_fig5_jet_worse_pc3.pdf"        "ch3_fig6_DIS_better_pc6.pdf"      
+## [10] "ch3_fig7_DIS_worse_pc2.pdf"        "ch4_fig1_pca_splom.pdf"            "ch4_fig2_exp_factors.pdf"         
+## [13] "ch4_fig3_accuracy_measure.pdf"     "ch4_fig4_randomization_MANUAL.png" "ch4_fig5_ABcd_violins.pdf"        
+## [16] "ch4_fig6_subjective_measures.pdf"  "ch4_figX_demographic_heatmap.pdf"  "ch4_tab1_model_comp_ls.rds"       
+## [19] "ch4_tab2_model_coef_ls.rds"        "ch4_util_funcs.r"                  "ch5_fig1_shap_distr_bd.pdf"       
+## [22] "ch5_fig2_global_space.pdf"         "ch5_fig3_cheem_initial_bas.pdf"    "ch5_fig4_cheem_endpts.pdf"
+\end{verbatim}
+
+\hypertarget{ch:conclusion}{%
+\chapter{Conclusion}\label{ch:conclusion}}
+
+TODO: XXX
+
 \appendix
 
 \hypertarget{ch:glossary}{%
 \chapter{Glossary}\label{ch:glossary}}
 
-\hypertarget{terminology}{%
-\section{Terminology}\label{terminology}}
-
-\begin{itemize}
-    \item[] Dash
-    \item[] Dash
-    \item[] Asterisk
-\end{itemize}
-
-\hypertarget{sec:tour_notation}{%
-\section{Tour notation}\label{sec:tour_notation}}
+\hypertarget{sec:notation}{%
+\section{Notation}\label{sec:notation}}
 
 Tour notation varies across articles and authors. In my work, I use the following:
 
@@ -1326,8 +1405,8 @@ Tour notation varies across articles and authors. In my work, I use the followin
   Geometric objects are referred to in generalized dimensions; the use of the term plane is not necessarily a 2D surface, but a hyperplane in the arbitrary dimensions of the projection space.
 \end{itemize}
 
-\hypertarget{sec:3d-terminology}{%
-\section{Data visualization terminology}\label{sec:3d-terminology}}
+\hypertarget{sec:terminology}{%
+\section{Data visualization terminology}\label{sec:terminology}}
 
 \begin{itemize}
 \tightlist
@@ -1372,7 +1451,5 @@ Tour notation varies across articles and authors. In my work, I use the followin
 \end{itemize}
 
 \printbibliography[heading=bibintoc]
-
-
 
 \end{document}

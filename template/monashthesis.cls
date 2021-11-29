@@ -198,14 +198,13 @@
         {\LARGE\@author}\\[0.2cm]
          Supervisors:\\
          Prof. Kimbal Marriott,\\
-         Prof. Dianne Cook,\\
-         Prof. German Valencia\\[0.2cm]
-
+         Prof. Dianne Cook,\\[0.2cm]
         \vfill\vfill
 
-        \includegraphics[width=3cm]{figures/crest}
+        \includegraphics[width=3cm]{template/crest}
 
         Faculty of Information Technology\\
+        Department of Human-Centred Computing\\
         Monash University\\
         Australia
     \end{center}
@@ -299,5 +298,4 @@
 
 \usepackage{longtable,booktabs}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \raggedbottom

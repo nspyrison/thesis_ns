@@ -3,7 +3,7 @@
 % This template was produced by Rob Hyndman
 % Version: 6 September 2016
 
-\documentclass{monashthesis}
+\documentclass{template/monashthesis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Add any LaTeX packages and other preamble here if required
@@ -14,12 +14,13 @@
 \usepackage{bm}
 \usepackage{booktabs}
 %%%% NS
+%\usepackage{mathtools,amssymb,booktabs,amsthm,todonotes,colortbl,amsthm,multirow,array} %% blind c+p from sayani
+\usepackage{ragged2e} %% declaration table RaggedRight
 \usepackage{graphicx}
 %\usepackage{pdflscape} %% Allow landscape layout, not used
 %\usepackage{lmodern} %% Already loaded, allows GB Pound sign
-\usepackage{animate} %% Needed for animations
+%\usepackage{animate} %% Needed for animations
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref} %% Trying to wrap and format urls correctly
-
 
 \author{$author$}
 \title{$title$}
@@ -34,7 +35,6 @@
      pdfproducer={Bookdown with LaTeX}
 }
 
-
 \bibliography{thesisrefs}
 
 \begin{document}
@@ -48,7 +48,5 @@
 $body$
 
 \printbibliography[heading=bibintoc]
-
-
 
 \end{document}

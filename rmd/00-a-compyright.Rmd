@@ -1,0 +1,21 @@
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo  = FALSE, 
+  cache = FALSE,
+  cache.lazy = FALSE,
+  out.width = "100%",
+  out.extra = '',fig.show='hold',fig.align='center'
+)
+```
+
+`r if (knitr::is_html_output()) '<!--'`
+
+# Copyright notice {- #ch-copyright}
+
+\textcopyright { }Nicholas Spyrison (\number\the\year).
+
+I certify that I have made all reasonable efforts to secure copyright permissions for third-party content included in this thesis and have not knowingly added copyright content to my work without the owner's permission.
+
+\newpage
+
+`r if (knitr::is_html_output()) '-->'`

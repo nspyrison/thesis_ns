@@ -3,27 +3,15 @@ chapter: 1
 knit: "bookdown::render_book"
 ---
 
-```{r setup_01, include=FALSE}
-knitr::opts_chunk$set(
-  fig.align = "center", cache = F, cache.lazy = F)
-```
-
 # Introduction {#ch:introduction}
 
-## Exploratory data analysis
-
-The term exploratory data analysis was coined in @tukey_exploratory_1977, who leaves it as an intentionally broad term wich encompass the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values and validating assumptions made by prospective methodology. Visualization is crucial to a clear understanding of the data. Things can go awry when data is summarized via numeric statistics alone [@anscombe_graphs_1973] as demonstrated in figure \@ref(fig:matejka17fig) [@matejka_same_2017]. In these studies, bivariate data have the same summary statistics (such as mean and standard deviation), yet contains obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Because there are inherent dangers to relying on statistics alone, this requirement for looking at visuals necessitates *human-in-the-loop* analysis, defined as any model that requires human interaction [@karwowski_international_2006].
+This thesis is related broadly to multivariate data visualization. That is visualizing an arbitrary $p-$dimensional space. First I discuss the context and scope before list the research objectives and methodology. Chapter \ref{ch:motivation} covers the motivation for such research. The research chapters 3 through 5 will cover their respective own backgrounds and follow-up discussion. Chapter \ref{ch:efficacy_radial_tour} dicusses a user study evaluating the efficacy of the radial, manual tour. Chapter \ref{ch:cheem} extends the use of manual tours to extend the interpretability of black-box models. Lastly Chapter \ref{ch:conclusion} concludes with some take-aways and discussion of possible extensions.
 
 
-(ref:matejka17fig-cap) 12 data sets created from the datasaurus by simulated annealing. Each is restrained to the same summary statistics but given shapes with visual peculiarity to mutate into [@matejka_same_2017].
 
-```{r matejka17fig, echo=F, out.width='70%', fig.cap = "(ref:matejka17fig-cap)"}
-knitr::include_graphics("./figures/matejka17fig.png")
-```
+-------- previous content below: --------
 
-It is clear that data-space visualization is needed but it becomes complex as data dimensionality increases. Embedding (or projecting) $p-$dimensional data on to a lower, $d$-dimensional subspace is a common dimension reduction approach to visualize multivariate data spaces. Traditionally a single static projection is used to summarize a space, which necessarily shows a subset of the variation of the data. @asimov_grand_1985 suggested the use of viewing projections dynamically across a changing projection basis allows for more variation to be contained and viewed temporally. This dynamic view of many changing projections is known as *tours*. While, there are different methods of generating tour paths, human-in-the-loop user-controlled steering (UCS) offers the finest control for navigating the local structure.
 
-Tours are typically viewed from standard 2D monitors, and most commonly viewed as a projection down to 2D. A notable exception being @nelson_xgobi_1998, where 3D embeddings were viewed in 3D head-tracked VR. Data visualization studies generally show benefits in 3D visuals over 2D, especially when adequate depth cues are provided. The state of modern hardware has made VR more affordable and available to wider audiences, at ever increasing resolutions of display than previously possible. It is therefore timely for research to be conducted to compare the structure and speed of comprehension of dynamic linear projections across 2- and 3D display devices.
 
 
 ## Research objectives
@@ -93,4 +81,4 @@ knitr::include_graphics("./figures/ProjectOverview.PNG")
 ```
 
 
-In this report, the related literature is discussed in chapter \ref{ch:lit_review}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by ongoing work and future work in chapters \ref{ch:workinprogress} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic projections and VR data visualization can be found in appendix \ref{ch:glossary} and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex}.
+In this report, the related literature is discussed in chapter \ref{ch:motivation}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by ongoing work and future work in chapters \ref{ch:workinprogress} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic projections and VR data visualization can be found in appendix \ref{ch:glossary} and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex}.

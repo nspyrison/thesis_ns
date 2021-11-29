@@ -1,0 +1,18 @@
+---
+chapter: 6
+knit: "bookdown::render_book"
+---
+```{r, echo = TRUE,eval = TRUE}
+## At one point chap5/cheem images we not working make sure the stop gap is reverted here.
+knitr::opts_chunk$set(
+  eval = TRUE)
+
+"Error on first evalauated include_image, yet, directory clearly sees them in the right spot..."
+dir("./figures_from_script/")
+```
+
+# Conclusion {#ch:conclusion}
+
+TODO: XXX
+
+<!-- Adds a bib section at the end of every chapter -->

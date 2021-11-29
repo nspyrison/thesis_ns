@@ -1,9 +1,0 @@
----
-knit: "bookdown::render_book"
----
-
-# Preface {-}
-
-The material in Chapter \ref{ch:spinifex} has been published in the *The R Journal* here: https://journal.r-project.org/archive/2020/RJ-2020-027/index.html. The user study described in Chapter \ref{ch:efficacy_radial_tour} will shortly be submitted to the *Journal of Data Science, Statistics, and Visualisation*. The reseach covered in Chapter \ref{ch:cheem} will shortly be submitted to *IEEE Transactions on Knowledge and Data Engineering*.
-
-I recognize that terminology is often overburdened by ambiguous use, with several changing meanings coming from different fields. My background comes from Statsistics and I will default to terms from statistics and geometry. I provide terminology and notation definition upon first use and in the Glossary \ref{ch:glossary}.
