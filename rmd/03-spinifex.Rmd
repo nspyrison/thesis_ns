@@ -3,6 +3,10 @@ chapter: 3
 knit: "bookdown::render_book"
 ---
 ```{r, include=FALSE}
+knitr::opts_chunk$set(
+   ### TODO: CAHP 2 images not found, make sure to eval here ---
+  eval = TRUE)
+
 ## Original R journal paper:
 if(F)
   file.edit("../spinifex_paper/paper/spyrison-cook.Rmd")
