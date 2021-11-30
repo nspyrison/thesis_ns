@@ -59,7 +59,7 @@ We know that data visualization is important in EDA and assumption validation. U
 
 Local explanations describe the linear variable weights in the vicinity of an observation in $p-dim$ space. Local explanations are point-measurements of the weights for each variable describing the importance to the prediction at that point. In a highly non-linear space, the importance of the variables may change rapidly with even a small change in the explanatory variables. There are several *model-agnostic* local explanations such as LIME [@ribeiro_why_2016], and SHAP [@lundberg_unified_2017]. In practice, this application can be used with any model and compatible local explanation. However, below we apply and discuss SHAP values extracted from a random forest model.
 
-#### How a SHAP value is calculated
+### How a SHAP value is calculated
 
 We use FIFA soccer data [@leone_fifa_2020] to explain SHAP values. We use 5000 player-observations of 9 aggregate skill measures to predict that player's wages. We use SHAP to observe how the skill attribution changes for different players, which should reflect different fielding positions. Fielding position is not explicitly used in the model, but we would expect that SHAP finds a way to change the variable weights across differing skill distributions to improve the accuracy of its wage predictions.
 
@@ -73,7 +73,7 @@ knitr::include_graphics("./figures_from_script/ch5_fig1_shap_distr_bd.pdf")
 At the top of figure \@ref(fig:ch5fig1) we see the relative wages of the 2 different players. SHAP uses permutations of the X variables to approximate the variable weights. In the middle, we see the distributions of the variable weightings for each player across 25 such permutations. We use the median of those distributions (large dot) as the SHAP value. We see a difference in the weights across the 2 players that makes sense considering their positions. Reaction skills are important for both players, while offensive and movement are weighted higher of the offensive player. Conversely, defensive, power, and accuracy skills are weighted higher for the defensive player. The bottom used the SHAP values to explain their relative wage predictions. We see a similar trend of the SHAP values additively explaining the difference of the global intercept to their predictions. We would expect that other offensive players have explanations closer to Messi and defensive players to lie closer to van Dijk's. The local explanations of middle fielders and goalkeepers would be expected to be different from both of these.
 
 
-#### Our application; Trees of Cheem
+### Our application; Trees of Cheem
 
 <!-- transistion to simulated data -->
 Above, the FIFA data was used to regress continuous wages. In introducing this application, `Trees of Cheem`, we will be discussing the classification of simulated data. We simulation of 3 spherical clusters on the vertices of a triangle. The difference between the clusters is contained in the first 2 dimensions with no mean separation in another 2 noise dimensions. After extracting all observations' SHAP values, forming a SHAP _matrix_, of the original dimensionality, $(n~\times~p)$.
@@ -108,7 +108,7 @@ Now that we have identified that V2 is the variable that deviated most from its 
 
 This application is still maturing and has mostly focused on classification tasks. We have partial implementation of regression which will be demonstrated in the presentation, time permitting. This work is being written up to be submitted to the WHY-21 workshop, part of the NeurIPS 2021 Conference.
 
-#### Discussion
+### Discussion
 
 We have used radial tours to improve the interpretability of black-box models. We display 2D approximations of the data to keep the global context in mind and facilitate the selection of points to focus on. After a target point have been identified, its SHAP values are used as the initial projection basis. Where the within-class distributions of the value values are displayed. The default variable selected contains the largest difference from the median of SHAP values within that point's actual classification. That is that variable that deviates the most from what would be expected from a typical correctly classified observation.
 
@@ -117,7 +117,7 @@ Taking a step back, it is important to remember that this visualization and anal
 Turning for a minute to real-world application, developing methods to better interpret black-box models is an important and impactful challenge. Private corporations and nation-states increasingly using complex models to classify and predict their customers and citizens from loans and insurance claims to employment and credit scores, the real-world impact of highly non-linear is here to stay. Being able to see the specifics of one observation may seem small in the context of a model, but it is crucial to that instance; if misclassificated, that  observation may receive an outcome a world apart from its actual peers.
 
 
-# Acknowledgements {#sec:acknowledgements}
+## Acknowledgments {#sec:acknowledgments}
 
 I would like to thank Professor Przemyslaw Biecek (Warsaw University of Technology) for his time and input in suggesting to look at SHAP local explanations and try applying to the FIFA dataset.
 
