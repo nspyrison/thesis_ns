@@ -12,16 +12,14 @@ library(knitr)
 library(kableExtra)
 ```
 
-
+<!-- motivation or background?? -->
 # Motivation {#ch:motivation}
 
 The following chapter discusses the current research in two primary areas: dynamic linear projections (collectively known as tours) and multivariate data visualization in stereoscopic 3D. After each section, research gaps are highlighted.
 
 
-
-## Exploratory data analysis
-
-The term exploratory data analysis (EDA) was coined in @tukey_exploratory_1977, who leaves it as an intentionally broad term which encompass the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values and validating assumptions. Visualization is crucial to a clear understanding of the data and ensuring that models are suitable. Visualization is much more robust than numerical summarization alone [@anscombe_graphs_1973; @matejka_same_2017]. In these studies the data have the same summary statistics, yet contains obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Data visualization is fundamental to EDA and quickly evaluating data supports ensuring that models are suitability.
+<!-- better than numerical summarization  -->
+Visualization is much more robust than numerical summarization alone [@anscombe_graphs_1973; @matejka_same_2017]. In these studies the data have the same summary statistics, yet contains obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Data visualization is fundamental to EDA and quickly evaluating data supports ensuring that models are suitability.
 
 (ref:matejka17fig-cap) Starting with the datasarus plot, observations are allows to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the originally listed statistics [@matejka_same_2017].
 
