@@ -5,80 +5,68 @@ knit: "bookdown::render_book"
 
 # Introduction {#ch:introduction}
 
-This thesis is related broadly to multivariate data visualization. That is visualizing an arbitrary $p-$dimensional space. First I discuss the context and scope before list the research objectives and methodology. Chapter \ref{ch:motivation} covers the motivation for such research. The research chapters 3 through 5 will cover their respective own backgrounds and follow-up discussion. Chapter \ref{ch:efficacy_radial_tour} dicusses a user study evaluating the efficacy of the radial, manual tour. Chapter \ref{ch:cheem} extends the use of manual tours to extend the interpretability of black-box models. Lastly Chapter \ref{ch:conclusion} concludes with some take-aways and discussion of possible extensions.
+<!-- Exploratory data analysis -->
+Exploratory data analysis (EDA) is a term which encompass the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values, finding improper data formats and revealing insights [@tukey_exploratory_1977]. Early and frequent data visualization is key to the data analyst's workflow cycle [@wickham_r_2017]. As modern datasets grow in complexity use of multivariate data is ubiquitous. The number of variables in the data increases the difficulty of creating and portraying an accurate representation of the data which is central to the iterated workflow.
 
-
-
--------- previous content below: --------
-
-
-
-
-## Research objectives
-
-Data and models are typically high-dimensional, with many variables and parameters. Developing new methods to visualize high dimensions has been a pursuit of statisticians, computer scientists and visualization researchers for decades. As technology evolves examining, extending, and assessing current techniques, in new environments, for new data challenges, is an important endeavor. The primary objectives of this Ph.D. research can then be summarized as the following.
-
-**Research objectives (RO):**
-
-1. **How can UCS be generalized to work within graphic-specific environments for 2D projections?**\
-(Work in progress, chapter \ref{ch:workinprogress}.)\
-Building from the UCS algorithm in @cook_manual_1997, the algorithm should be modified for generalized use with graphic-specific environments. This enables fine control to explore the sensitivity of structure to the variable contributing to the projection and sets the foundation to be used in the remaining objectives.
-
-2. **Does 2D UCS tours provide benefits over alternatives?**\
-(Future work, chapter \ref{ch:future_work}.)\
-The quality and effectiveness of 2D UCS will be compared with alternatives of static, single, linear and non-linear projection techniques. They will be quantified by the measurement of structure, variation, and clustering across on benchmark datasets.
-
-3. **How can UCS be extended to 3D?**\
-(Future work, chapter \ref{ch:future_work}.)\
-The addition of a 3rd dimension potentially allows for the improved perception of the structure of the data in dynamic UCS. To investigate this UCS algorithm needs to be extended to a third dimension. This would also allow for novel application multi-parameter function projection. This will involve the addition of a new angle and it controls to the projection space, reference axes, and manipulation space. In particular, the manipulation space, now in 4D, will be hard to visualize, but it should be able to stand as a mathematical construct facilitated through interaction with a point (the projection coefficients of the selected manipulation variable) on the now 3D reference axes volume. 
-
-4. **Does UCS in 3D displays provide benefits over 2D displays?**\
-(Future work, chapter \ref{ch:future_work}.)\
-The addition of a 3rd dimension has previously been shown to provide benefits. The extension of UCS into 3D should be used to explore the potential benefits of UCS projections as well. Interactive, time-varying tours theoretically allow for improved understanding and comprehension speed of the structure of the data. These metrics will be measured across the display device (including a 2D standard monitor, 3D head tracked monitor, and 3D head-mounted display). 
-
-**Contributions:**
-
-The intended contributions and scope of this research can be summarized as:
-
-1. A modified UCS algorithm and new implementation applied to contemporary high energy physics and astrophysics applications in 2D animation frameworks.
-2. A performance comparison of static and interactive UCS projection techniques assessed on benchmark data sets from the recent literature.
-3. A new algorithm for UCS in 3D. With new applications to function visualization in 3D.
-4. Quantitative understanding of the relative benefits of UCS across 2- and 3D display devices.
-
-## Methodology
-
-This research is interdisciplinary; it stems from a linear dimension reduction technique developed by statisticians and extended with information technology into 3D including VR technologies, with applications in high energy physics identified[@cook_dynamical_2018]. Experts in these fields correspondingly supervise the research.
-
-The research corresponding with RO #1 entails a work in progress **algorithm design** following the work in @cook_manual_1997. The proposed algorithm discusses the generalized application of UCS for use across animation-specific frameworks. The outcome of this is an *R* package, `spinifex`, which will be submitted to CRAN and for hosting and distribution. This forms the foundation for future work in the remaining objectives. 
-
-The second objective is addressed with a benchmark dataset **performance comparison** between dynamic linear projections and alternatives (static linear and static non-linear projections such as principal component analysis, multi-dimensional scaling, and t-distributed neighbor embeddings, described in more detail in chapter \ref{ch:future_work}). Benchmark datasets will be compared across techniques, measurements will include variation explained, transparency to the original variable space, clustering identification, and outlier identification.
-
-The research for RO #3 involves **algorithm design**, where the work in RO #1 will be extended to display with the use of a third spatial dimension. This will also be used to develop visualization of projected multi-dimension function surfaces. This forms the calculation base for the work. Several difficulties may arise when bringing dynamic projection into 3D spaces, especially when exploring 3D surfaces (discussed in more detail in chapter \ref{ch:future_work}).
-
-The research resulting from RO #4 is a controlled **usability study** to explore the efficacy of bringing UCS into 3D as compared across various display devices, in a standardized interface allowed by the work stemming from RO # 3. In this design, the factors are user tasks (such as separation of clusters and ranking of manipulation variable) across the treatment of display device (including 2D standard monitor, 3D head-tracked monitor, and head-mounted display). Quantitative measurements include participant speed and accuracy of tasks, biometric readings, and subjective Likert surveys of participants. A lineup-type model as outlined in @hofmann_graphical_2012 may also be employed for assessing the quality of display types.
-
-
-## Workflow and reproducibility 
-
-Figure \@ref(fig:dataanalysisworkflow) depicts the general data analysis workflow [@wickham_r_2016]. Where data first must be imported into a tool, the structure of the data must be tidied and ordered neatly into the correct use format. After the data enters a repeating cycle, where values may be transformed, visualized, and modeled with communication going to the appropriate recipients. The research proposed in this document aids exploratory data analysis as well as the visualization aspect of this workflow. Mature analysis workflow is also made reproducible with the use of programmatic scripts.
-
-(ref:dataanalysisworkflow-cap) Data analysis workflow [@wickham_r_2016]. This research aids visualization in exploratory data analysis and workflow.
+(ref:dataanalysisworkflow-cap) Data analysis workflow [@wickham_r_2017]. This work focuses primary on multivariate data visualization, but also facilitates transforming data and interpretation of models.
 
 ```{r dataanalysisworkflow, echo=F, out.width='100%', fig.cap = "(ref:dataanalysisworkflow-cap)"}
 knitr::include_graphics("./figures/data_analysis_workflow.png")
 ```
 
-The programing language, *R*, is used in the work described below to import, tidy, and transform data. It can be used directly to visualize 2D tours (RO #1 & 2) or be consumed into the game engine *Unity* to visualize 3D tours (RO #3 & 4). Doing analysis and writeup in such programmatic ways allow work to be done reproducibly. Where data, analysis, and code are stored in the same directory. Reproducible work facilitates validation, maintains transparency and minimizes the chance for human error. Reproduction of work is a key feature to validate and defend the claims and methodology held within a work. Directories of current and planned work are/will be hosted publicly on GitHub, including this report. Accessing the source files for this report is discussed in section \ref{sec:source}.
-
-## Project overview {#ch:projectoverview}
-
-Figure \@ref(fig:ProjectOverview) depicts a schematic flow chart that the research objectives will be executed in. The research stemming from RO #1, the application of 2D user-controlled steering (UCS), sets the foundation for which the other objectives can be researched. RO #3, the application of 3D UCS, must precede RO #4, as it explores the efficacy of 3D UCS across display devices. RO #2, the comparison of 2D UCS vs alternatives, must come after RO #1, but is of lower priority to RO #3 & 4, and so will be conducted last, in the event of a time crunch.
-
-(ref:ProjectOverview-cap) Flow chart of research objective dependencies, work order, and methodology.
-
-```{r ProjectOverview, echo=F, out.width='100%', fig.cap = "(ref:ProjectOverview-cap)"}
-knitr::include_graphics("./figures/ProjectOverview.PNG")
-```
+A data visualization _tour_ [@cook_grand_2008; @lee_review_2021] are a class linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames, the rotation of the data object. In the shadow analogy an object, such as a bar stool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intutive interpretation of the object. In this way and aided with linked brushing and other interactions such continous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch:motivation} will motiveate why we decide to use such linear dimension reduction techniques. 
 
 
-In this report, the related literature is discussed in chapter \ref{ch:motivation}. A brief overview of the research is given in chapter \ref{ch:projectoverview}, followed by ongoing work and future work in chapters \ref{ch:workinprogress} and \ref{ch:future_work} respectively. A prospective timeline is listed in chapter \ref{ch:timeline}. Notation for dynamic projections and VR data visualization can be found in appendix \ref{ch:glossary} and an excerpt of a paper to be submitted to the R Journal can be found in appendix \ref{ch:spinifex}.
+## Research questions
+<!-- Hypothesis statement -->
+
+The over-arching question of interest can be stated as:
+
+**Can the radial tour with user interaction help analysts understand linear projections, and explore the sensitivity of structure in the projection to the variables contributing to the projection?**
+
+Understanding variable sensitivity to the structure in a projection frame is crucial factor analysis after identifying a feature of interest. If an identified feature is the _what_ of an analysis then its variable attributions are its _how_. The user interaction afforded by the radial tour should allow for more precise exploration of this structure.
+
+RQ 1. **How do we define user interaction for the radial tours to add and remove variables smoothly from a 2D linear projection of data?**\
+@cook_manual_1997 described an algorithm for manually controlling a tour, to rotate a variable into and out of a 2D projection. This algorithm provides the start to human-controlled radial tours. The work [@spyrison_spinifex_2020] was adapted so that the user has more control of the interpolation. The user can set the full range of the contribution from $[-1, 1]$, and output to a device that allows the user to reproduce motions and animate or rock the rotation backward and forwards. These fine-tuned controls provide a better tool for sensitivity analysis.
+
+RQ 2. **Do analysts understand the relationship between variables and structure in a 2D linear projection better when the radial tour is available?**\
+We performed an $N=108$, within-participant user study comparing accuracy and time with the primary factor as the type of data visualization. Each participant performed 2 evaluations with either Principal Component Analysis (PCA, which is user control, but discrete), grand tour (continuous interpolated frames, but lack user control), or radial tour (user control and continuous animation). We find strong evidence that the radial tour increases accuracy. We also show the effects from the other experimental factors of location, shape data dimensionality, and the random effects from the data and that of the participants.
+
+RQ 3. **Can the radial tours be used in conjunction with the local explanation, SHAP, to improve the interpretability of black-box models?**\
+The tension from the trade-off between accuracy and interpretability of black-box models is rising. There is a clear need to be able to explain black-box models. We use SHAP to extract local explanations which form the projection basis to perform radial tours. We explore how misclassified observations behave relative to nearby correctly classified observations.
+
+
+## Methodology
+<!-- HOW YOU WILL GO ABOUT EACH PROJECT -->
+
+The research corresponding with RO #1 entails _algorithm design_ adapting the algorithm from @cook_manual_1997. This allows for interactive control of 2D projections and serves as a foundation for the remaining work to follow.
+
+To address RO #2, a controlled _experimental study_ has explored the efficacy of interactive radial tours as compared with 2 benchmark methods: Principal Component Analysis (PCA, @pearson_liii._1901) and the grand tour [@asimov_grand_1985]. This was a within-participant user study where each participant experienced each visual. Trials were balanced across 3 other experimental factors: location of the signal, the shape of the cluster distributions, and the dimensionality of the data.
+
+The research for RO #3 involves _fundamental visualization design_. We know that the SAHP value is a local explanation for one observation. This SHAP value will also serve as the 1D basis for the radial tour. While using SHAP as a projection basis is novel it is not particularly insightful by itself. We provide tracking marks on the tour as well as showing the within-class distributions of the SHAP components as parallel coordinate marks on the basis. We also offer a global view and quantitative analysis evaluating the sensitivity of the SHAP-space relative to the sensitivity of the original data space.
+
+
+## Contributions
+
+1. __spinifex__ a package offering consistent framework for performing radial tour and rendering all tours to various formats:
+   - Perform radial tours to explore the variable senstiveity to structure
+   - Transform numeric variable in the data
+   - Extract various bases exposing features of the data
+   - Interoperable with tours generated with __tour__ [@wickham_tourr:_2011]
+   - Layered interface for producing tours that mirrors the layered approach of __ggplot2__ [@wickham_ggplot2_2016]
+2. A user study comparing the efficacy of the radial tour against the alternatives of PCA the grand tour including:
+   - Creation of supervised classification task to assess the variable attribution to the separation of cluster performed under various levels of experimental factors: location, shape, and dimensionality.
+   - Definition of an accuracy measure to evaluate this task.
+   - Results: strong evidence that the radial tour increases the accuracy of this task by a large amount while the task is performed fastest with the grand tour.
+   - Attribution of the error, by performing a mixed model regression helps to explain the source of the error term into the variability of participants skill aptitude for this task and variability of the difficultly of a simulation by random chance.
+3. __cheem__ a package applying the radial tour to local explanations of black-box models, including:
+   - Preproccing; creation of a random forest model, the extraction of all observation's tree SHAP local explanation, and extraction of other statistics for display.
+   - Visualization of approximations of the data- and attribution-space side-by-side with linked brushing, hover tooltips, and tabular display of selected points.
+   - Evaluating the local explanations with use of the radial tour we can explore the sensitivity to the structure identified better see what variable support the explanation holds realistic.
+
+
+## Thesis structure
+
+The remainder of the thesis is organized as follows: Chapter \ref{ch:motivation} covers the motivation for such research. The research chapters 3 through 5 will cover their respective own backgrounds and follow-up discussion. Chapter \ref{ch:efficacy_radial_tour} discusses a user study evaluating the efficacy of the radial, manual tour. Chapter \ref{ch:cheem} extends the use of manual tours to extend the interpretability of black-box models. Lastly Chapter \ref{ch:conclusion} concludes with some take aways and discussion of possible extensions.
+
+
