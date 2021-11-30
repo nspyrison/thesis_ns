@@ -6,7 +6,7 @@ knit: "bookdown::render_book"
 # Introduction {#ch:introduction}
 
 <!-- Exploratory data analysis -->
-Exploratory data analysis (EDA) is a term which encompass the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values, finding improper data formats and revealing insights [@tukey_exploratory_1977]. Early and frequent data visualization is key to the data analyst's workflow cycle [@wickham_r_2017]. As modern datasets grow in complexity use of multivariate data is ubiquitous. The number of variables in the data increases the difficulty of creating and portraying an accurate representation of the data which is central to the iterated workflow.
+Exploratory data analysis (EDA) is a term that encompass the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values, finding improper data formats, and revealing insights [@tukey_exploratory_1977]. Early and frequent data visualization is key to the data analyst's workflow cycle [@wickham_r_2017]. As modern datasets grow in complexity use of multivariate data is ubiquitous. The number of variables in the data increases the difficulty of creating and portraying an accurate representation of the data which is central to the iterated workflow.
 
 (ref:dataanalysisworkflow-cap) Data analysis workflow [@wickham_r_2017]. This work focuses primary on multivariate data visualization, but also facilitates transforming data and interpretation of models.
 
@@ -14,7 +14,7 @@ Exploratory data analysis (EDA) is a term which encompass the initial summarizat
 knitr::include_graphics("./figures/data_analysis_workflow.png")
 ```
 
-A data visualization _tour_ [@cook_grand_2008; @lee_review_2021] are a class linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames, the rotation of the data object. In the shadow analogy an object, such as a bar stool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intuitive interpretation of the object. In this way and aided with linked brushing and other interactions such continuous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch:motivation} will motivate why we decide to use such linear dimension reduction techniques.
+A data visualization _tour_ [@cook_grand_2008; @lee_review_2021] is a class of linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower-dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames, the rotation of the data object. In the shadow analogy an object, such as a barstool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intuitive interpretation of the object. Similar looking at a data object over the rotation of its variables yields information about its structure. In this way and aided with linked brushing and other interactions, such continuous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch:motivation} will motivate why we decide to use such linear dimension reduction techniques.
 
 
 ## Research questions
@@ -24,10 +24,10 @@ The over-arching question of interest can be stated as:
 
 **Can the radial tour with user interaction help analysts understand linear projections, and explore the sensitivity of structure in the projection to the variables contributing to the projection?**
 
-Understanding variable sensitivity to the structure in a projection frame is crucial factor analysis after identifying a feature of interest. If an identified feature is the _what_ of an analysis then its variable attributions are its _how_. The user interaction afforded by the radial tour should allow for more precise exploration of this structure.
+Understanding variable sensitivity to the structure in a projection frame is crucial factor analysis after identifying a feature of interest. If an identified feature is the _what_ of an analysis then its variable attributions are its _how_. The user interaction afforded by the radial tour should allow for a more precise exploration of this structure.
 
 RQ 1. **How do we define user interaction for the radial tours to add and remove variables smoothly from a 2D linear projection of data?**\
-@cook_manual_1997 described an algorithm for manually controlling a tour, to rotate a variable into and out of a 2D projection. This algorithm provides the start to human-controlled radial tours. The work [@spyrison_spinifex_2020] was adapted so that the user has more control of the interpolation. The user can set the full range of the contribution from $[-1, 1]$, and output to a device that allows the user to reproduce motions and animate or rock the rotation backward and forwards. These fine-tuned controls provide a better tool for sensitivity analysis.
+@cook_manual_1997 described an algorithm for manually controlling a tour, to rotate a variable into and out of a 2D projection. This algorithm provides the start to user-controlled radial tours. The work [@spyrison_spinifex_2020] was adapted so that the user has more control of the interpolation. The user can set the full range of the contribution from $[-1, 1]$, and output to a device that allows the user to reproduce motions and animate or rock the rotation backward and forwards. These fine-tuned controls provide a better tool for sensitivity analysis.
 
 RQ 2. **Do analysts understand the relationship between variables and structure in a 2D linear projection better when the radial tour is available?**\
 We performed an $N=108$, within-participant user study comparing accuracy and time with the primary factor as the type of data visualization. Each participant performed 2 evaluations with either Principal Component Analysis (PCA, which is user control, but discrete), grand tour (continuous interpolated frames, but lack user control), or radial tour (user control and continuous animation). We find strong evidence that the radial tour increases accuracy. We also show the effects from the other experimental factors of location, shape data dimensionality, and the random effects from the data and that of the participants.
@@ -48,25 +48,25 @@ The research for RO #3 involves _fundamental visualization design_. We know that
 
 ## Contributions
 
-1. __spinifex__ a package offering consistent framework for performing radial tour and rendering all tours to various formats:
-   - Perform radial tours to explore the variable senstiveity to structure
+1. __spinifex__ a package offering a consistent framework for performing radial tour and rendering all tours to various formats:
+   - Perform radial tours to explore the variable sensitivity to structure
    - Transform numeric variable in the data
    - Extract various bases exposing features of the data
    - Interoperable with tours generated with __tour__ [@wickham_tourr:_2011]
-   - Layered interface for producing tours that mirrors the layered approach of __ggplot2__ [@wickham_ggplot2_2016]
-2. A user study comparing the efficacy of the radial tour against the alternatives of PCA the grand tour including:
-   - Creation of supervised classification task to assess the variable attribution to the separation of cluster performed under various levels of experimental factors: location, shape, and dimensionality.
+   - Layered interface for producing tours that mirror the layered approach of __ggplot2__ [@wickham_ggplot2_2016]
+2. A user study comparing the efficacy of the radial tour against the alternatives of PCA the grand tour includes:
+   - Creation of supervised classification task to assess the variable attribution to the separation of clusters performed under various levels of experimental factors: location, shape, and dimensionality.
    - Definition of an accuracy measure to evaluate this task.
    - Results: strong evidence that the radial tour increases the accuracy of this task by a large amount while the task is performed fastest with the grand tour.
    - Attribution of the error, by performing a mixed model regression helps to explain the source of the error term into the variability of participants skill aptitude for this task and variability of the difficultly of a simulation by random chance.
 3. __cheem__ a package applying the radial tour to local explanations of black-box models, including:
    - Preproccing; creation of a random forest model, the extraction of all observation's tree SHAP local explanation, and extraction of other statistics for display.
    - Visualization of approximations of the data- and attribution-space side-by-side with linked brushing, hover tooltips, and tabular display of selected points.
-   - Evaluating the local explanations with use of the radial tour we can explore the sensitivity to the structure identified better see what variable support the explanation holds realistic.
+   - Evaluating the local explanations with the use of the radial tour we can explore the sensitivity to the structure identified better see what variable support the explanation holds realistic.
 
 
 ## Thesis structure
 
-The remainder of the thesis is organized as follows: Chapter \ref{ch:motivation} covers the motivation for such research. The research chapters 3 through 5 will cover their respective own backgrounds and follow-up discussion. Chapter \ref{ch:efficacy_radial_tour} discusses a user study evaluating the efficacy of the radial, manual tour. Chapter \ref{ch:cheem} extends the use of manual tours to extend the interpretability of black-box models. Lastly Chapter \ref{ch:conclusion} concludes with some take aways and discussion of possible extensions.
+The remainder of the thesis is organized as follows: Chapter \ref{ch:motivation} covers the motivation for such research. The research chapters 3 through 5 will cover their respective own backgrounds and follow-up discussion. Chapter \ref{ch:efficacy_radial_tour} discusses a user study evaluating the efficacy of the radial, manual tour. Chapter \ref{ch:cheem} extends the use of manual tours to extend the interpretability of black-box models. Lastly, Chapter \ref{ch:conclusion} concludes with some takeaways and a discussion of possible extensions.
 
 

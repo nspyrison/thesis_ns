@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.11.25)  30 NOV 2021 21:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.11.25)  1 DEC 2021 10:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -881,7 +881,11 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 40
 .
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./thesis_draft_ns.aux)
+) (./thesis_draft_ns.aux
+
+LaTeX Warning: Label `sec:acknowledgments' multiply defined.
+
+)
 \openout1 = `thesis_draft_ns.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
@@ -1289,28 +1293,8 @@ Package pdftex.def Info: figures/signature.jpg  used on input line 103.
 ] [5] [6
 
 ]
-
-LaTeX Warning: Reference `ch:glossary' on page 7 undefined on input line 137.
-
-[7] [8
-
-]
-Chapter 1.
-<./figures/data_analysis_workflow.png, id=296, 360.34625pt x 141.52875pt>
-File: ./figures/data_analysis_workflow.png Graphic file (type png)
-<use ./figures/data_analysis_workflow.png>
-Package pdftex.def Info: ./figures/data_analysis_workflow.png  used on input li
-ne 148.
-(pdftex.def)             Requested size: 426.79135pt x 167.62442pt.
-[9 <./figures/data_analysis_workflow.png>]
-LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <15> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 158.
-[10] [11] [12] [13] [14
-
-]
-Chapter 2.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-43.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+37.
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1318,9 +1302,26 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+[7] [8
+
+]
+Chapter 1.
+<./figures/data_analysis_workflow.png, id=304, 360.34625pt x 141.52875pt>
+File: ./figures/data_analysis_workflow.png Graphic file (type png)
+<use ./figures/data_analysis_workflow.png>
+Package pdftex.def Info: ./figures/data_analysis_workflow.png  used on input li
+ne 152.
+(pdftex.def)             Requested size: 426.79135pt x 167.62442pt.
+[9 <./figures/data_analysis_workflow.png>]
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <15> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 162.
+[10] [11] [12] [13] [14
+
+]
+Chapter 2.
 
 LaTeX Font Warning: Font shape `T1/lmtt/b/it' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 245.
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 249.
 
 [15] [16] [17] [18] [19] [20
 
@@ -1337,9 +1338,9 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [22]
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <12> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 352.
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 356.
 LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 
-360.
+364.
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
@@ -1353,10 +1354,10 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [23]
 
-LaTeX Warning: Reference `fig:ch3fig1' on page 24 undefined on input line 389.
+LaTeX Warning: Reference `fig:ch3fig1' on page 24 undefined on input line 393.
 
 
-LaTeX Warning: Reference `fig:ch3fig1' on page 24 undefined on input line 394.
+LaTeX Warning: Reference `fig:ch3fig1' on page 24 undefined on input line 398.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1368,13 +1369,13 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [24]
 
-LaTeX Warning: Reference `fig:ch3fig2' on page 25 undefined on input line 407.
+LaTeX Warning: Reference `fig:ch3fig2' on page 25 undefined on input line 411.
 
 
-LaTeX Warning: Reference `fig:ch3fig2' on page 25 undefined on input line 412.
+LaTeX Warning: Reference `fig:ch3fig2' on page 25 undefined on input line 416.
 
 
-LaTeX Warning: Reference `fig:ch3fig3' on page 25 undefined on input line 412.
+LaTeX Warning: Reference `fig:ch3fig3' on page 25 undefined on input line 416.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1405,7 +1406,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 [27]
 
 LaTeX Warning: Reference `tab:functionsTable' on page 28 undefined on input lin
-e 531.
+e 535.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1417,16 +1418,16 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [28]
 
-LaTeX Warning: Reference `fig:ch3fig1' on page 29 undefined on input line 543.
+LaTeX Warning: Reference `fig:ch3fig1' on page 29 undefined on input line 547.
 
 
-LaTeX Warning: Reference `fig:ch3fig3' on page 29 undefined on input line 543.
+LaTeX Warning: Reference `fig:ch3fig3' on page 29 undefined on input line 547.
 
 
-LaTeX Warning: Reference `fig:ch3fig2' on page 29 undefined on input line 545.
+LaTeX Warning: Reference `fig:ch3fig2' on page 29 undefined on input line 549.
 
 
-Underfull \hbox (badness 1062) in paragraph at lines 545--546
+Underfull \hbox (badness 1062) in paragraph at lines 549--550
 \T1/lmr/m/n/10.95 (+20) An il-lus-tra-tion of the ma-nip space (as shown in Fig
 -ure []) is made with the
  []
@@ -1441,22 +1442,22 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [29]
 
-LaTeX Warning: Reference `fig:ch3fig4' on page 30 undefined on input line 568.
+LaTeX Warning: Reference `fig:ch3fig4' on page 30 undefined on input line 572.
 
 
-LaTeX Warning: Reference `fig:ch3fig5' on page 30 undefined on input line 568.
+LaTeX Warning: Reference `fig:ch3fig5' on page 30 undefined on input line 572.
 
 
-LaTeX Warning: Reference `fig:ch3fig4' on page 30 undefined on input line 570.
+LaTeX Warning: Reference `fig:ch3fig4' on page 30 undefined on input line 574.
 
 
-LaTeX Warning: Reference `fig:ch3fig5' on page 30 undefined on input line 570.
+LaTeX Warning: Reference `fig:ch3fig5' on page 30 undefined on input line 574.
 
 
-LaTeX Warning: Reference `fig:ch3fig6' on page 30 undefined on input line 575.
+LaTeX Warning: Reference `fig:ch3fig6' on page 30 undefined on input line 579.
 
 
-LaTeX Warning: Reference `fig:ch3fig7' on page 30 undefined on input line 575.
+LaTeX Warning: Reference `fig:ch3fig7' on page 30 undefined on input line 579.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1499,7 +1500,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [34]
 
-LaTeX Warning: Reference `fig:ch4fig1' on page 35 undefined on input line 627.
+LaTeX Warning: Reference `fig:ch4fig1' on page 35 undefined on input line 631.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1520,7 +1521,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [36]
 
-LaTeX Warning: Reference `fig:ch4fig2' on page 37 undefined on input line 662.
+LaTeX Warning: Reference `fig:ch4fig2' on page 37 undefined on input line 666.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1531,7 +1532,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-23.88426pt}.
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 675--677
+Underfull \hbox (badness 10000) in paragraph at lines 679--681
 
  []
 
@@ -1554,7 +1555,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [39]
 
-LaTeX Warning: Reference `fig:ch4fig4' on page 40 undefined on input line 707.
+LaTeX Warning: Reference `fig:ch4fig4' on page 40 undefined on input line 711.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1575,10 +1576,10 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [41]
 
-LaTeX Warning: Reference `fig:ch4fig4' on page 42 undefined on input line 733.
+LaTeX Warning: Reference `fig:ch4fig4' on page 42 undefined on input line 737.
 
 
-LaTeX Warning: Reference `fig:ch4fig6' on page 42 undefined on input line 740.
+LaTeX Warning: Reference `fig:ch4fig6' on page 42 undefined on input line 744.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1598,7 +1599,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-23.88426pt}.
 
 [43]
-Overfull \hbox (28.9376pt too wide) detected at line 786
+Overfull \hbox (28.9376pt too wide) detected at line 790
 \OT1/lmr/m/n/10.95 %[]
  []
 
@@ -1612,10 +1613,10 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [44]
 
-LaTeX Warning: Reference `fig:ch4fig5' on page 45 undefined on input line 788.
+LaTeX Warning: Reference `fig:ch4fig5' on page 45 undefined on input line 792.
 
 
-LaTeX Warning: Reference `fig:ch4fig6' on page 45 undefined on input line 793.
+LaTeX Warning: Reference `fig:ch4fig6' on page 45 undefined on input line 797.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1648,13 +1649,6 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 ]
 Chapter 5.
 [49]
-<./figures_from_script/ch5_fig1_shap_distr_bd.pdf, id=753, 433.62pt x 505.89pt>
-
-File: ./figures_from_script/ch5_fig1_shap_distr_bd.pdf Graphic file (type pdf)
-<use ./figures_from_script/ch5_fig1_shap_distr_bd.pdf>
-Package pdftex.def Info: ./figures_from_script/ch5_fig1_shap_distr_bd.pdf  used
- on input line 863.
-(pdftex.def)             Requested size: 426.79135pt x 497.94563pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 25.28426pt, for example:
@@ -1663,7 +1657,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
-[50 <./figures_from_script/ch5_fig1_shap_distr_bd.pdf>]
+[50]
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 25.28426pt, for example:
@@ -1683,7 +1677,10 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [52]
 
-LaTeX Warning: Reference `fig:ch5fig1' on page 53 undefined on input line 900.
+LaTeX Warning: Reference `fig:ch5fig1' on page 53 undefined on input line 906.
+
+
+LaTeX Warning: Reference `fig:ch5fig1' on page 53 undefined on input line 908.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1695,10 +1692,13 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [53]
 
-LaTeX Warning: Reference `fig:ch5fig1' on page 54 undefined on input line 902.
+LaTeX Warning: Reference `fig:ch5fig2' on page 54 undefined on input line 915.
 
 
-LaTeX Warning: Reference `fig:ch5fig2' on page 54 undefined on input line 909.
+LaTeX Warning: Reference `fig:ch5fig2' on page 54 undefined on input line 921.
+
+
+LaTeX Warning: Reference `fig:ch5fig3' on page 54 undefined on input line 923.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1710,13 +1710,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [54]
 
-LaTeX Warning: Reference `fig:ch5fig2' on page 55 undefined on input line 915.
-
-
-LaTeX Warning: Reference `fig:ch5fig3' on page 55 undefined on input line 917.
-
-
-LaTeX Warning: Reference `fig:cheemTour' on page 55 undefined on input line 919
+LaTeX Warning: Reference `fig:cheemTour' on page 55 undefined on input line 925
 .
 
 
@@ -1727,7 +1721,17 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
-[55]
+[55]pdfTeX warning (ext4): destination with the same identifier (name{sec:ackno
+wledgments}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.939 ...nowledgments}\label{sec:acknowledgments}}
+                                                  
+Underfull \hbox (badness 3536) in paragraph at lines 945--946
+[]\T1/lmr/m/n/10.95 (+20) For trans-parency and re-pro-ducibil-ity, the source 
+files are made avail-able at
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 25.28426pt, for example:
@@ -1737,40 +1741,20 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [56]
-
-Package fancyhdr Warning: \headheight is too small (15.0pt): 
-(fancyhdr)                Make it at least 25.28426pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.28426pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
-
-[57] [58
-
-]
 Chapter 6.
+[57
 
-Underfull \hbox (badness 3536) in paragraph at lines 939--940
-[]\T1/lmr/m/n/10.95 (+20) For trans-parency and re-pro-ducibil-ity, the source 
-files are made avail-able at
- []
+] [58] [59
 
-[59] [60
-
-]
-Chapter 7.
-
-LaTeX Warning: Reference `ch:ch:efficacy_radial_tour' on page 61 undefined on i
-nput line 954.
-
-[61] [62] [63
-
-] [64] [65] [66] [67] (./thesis_draft_ns.aux)
+] [60] [61] [62] [63] (./thesis_draft_ns.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `thesis_draft_ns.out' has not changed.
-(rerunfilecheck)             Checksum: E75FA06D9470E292C1E8E44519A76412;7317.
+(rerunfilecheck)             Checksum: 2D19BBFCF494A208DF80835368B6F748;7328.
 Package logreq Info: Writing requests to 'thesis_draft_ns.run.xml'.
 \openout1 = `thesis_draft_ns.run.xml'.
 
@@ -1780,13 +1764,13 @@ Package logreq Info: Writing requests to 'thesis_draft_ns.run.xml'.
 ### semi simple group (level 1) entered at line 102 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 23866 strings out of 480293
- 427416 string characters out of 5894820
- 1170010 words of memory out of 5000000
- 40755 multiletter control sequences out of 15000+600000
- 547277 words of font info for 285 fonts, out of 8000000 for 9000
+ 23848 strings out of 480293
+ 426910 string characters out of 5894820
+ 1170085 words of memory out of 5000000
+ 40749 multiletter control sequences out of 15000+600000
+ 546887 words of font info for 282 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,14n,77p,1828b,18434s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,14n,77p,1828b,18445s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dv
 ips/lm/lm-ec.enc}{c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/d
 vips/lm/lm-rm.enc}{c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/
@@ -1821,10 +1805,10 @@ rs/spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c
 :/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.
 pfb><c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palatino
 /uplr8a.pfb>
-Output written on thesis_draft_ns.pdf (76 pages, 909301 bytes).
+Output written on thesis_draft_ns.pdf (72 pages, 899757 bytes).
 PDF statistics:
- 1072 PDF objects out of 1200 (max. 8388607)
- 927 compressed objects within 10 object streams
- 279 named destinations out of 1000 (max. 500000)
- 83269 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1051 PDF objects out of 1200 (max. 8388607)
+ 912 compressed objects within 10 object streams
+ 275 named destinations out of 1000 (max. 500000)
+ 83264 words of extra memory for PDF output out of 89155 (max. 10000000)
 

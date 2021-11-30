@@ -6,7 +6,7 @@ knit: "bookdown::render_book"
 
 I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
 
-Three publications are included in this thesis, one of which has been accepted for publication in the _The R Journal_ [@spyrison_spinifex_2020]. The user study described in Chapter \ref{ch:efficacy_radial_tour} will shortly be submitted to the *Journal of Data Science, Statistics, and Visualisation*. The reseach covered in Chapter \ref{ch:cheem} will shortly be submitted to *IEEE Transactions on Knowledge and Data Engineering*.
+Three publications are included in this thesis, one of which has been accepted for publication in _The R Journal_ [@spyrison_spinifex_2020]. The user study described in Chapter \ref{ch:efficacy_radial_tour} will shortly be submitted to the *Journal of Data Science, Statistics, and Visualisation*. The research covered in Chapter \ref{ch:cheem} will shortly be submitted to *IEEE Transactions on Knowledge and Data Engineering*.
 
 All of the papers in the thesis were conceptualized, developed, and written by myself, the student, while working in the Department of Human-Centred Computing under the supervision of professor Kimbal Marriott and professor Dianne Cook. When co-authors are listed, it indicates that the work was produced through active collaboration between researchers and that their contributions to team-based research have been recognized. The following table details the work, including my and my fellow co-authors' contributions.
 
@@ -25,7 +25,7 @@ black-box models with animated linear projections & To be submitted & 85\%. Conc
 \end{tabular}
 \end{table}
 
-I have renumbered and updated sections of submitted or published papers in order to generate a consistent presentation within the thesis.
+I have renumbered and updated sections of submitted or published papers to generate a consistent presentation within the thesis.
 
 \textbf{Student name:} Nicholas Spyrison
 

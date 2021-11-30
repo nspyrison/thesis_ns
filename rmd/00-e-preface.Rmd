@@ -4,4 +4,11 @@ knit: "bookdown::render_book"
 
 # Preface {-}
 
-I recognize that terminology is often overburdened by ambiguous use, with several changing meanings coming from different fields. My background comes from Statsistics and I will default to terms from statistics and geometry. I provide terminology and notation definition upon first use and in the Glossary \ref{ch:glossary}.
+This thesis has been written using R Markdown with the bookdown package [@xie_bookdown:_2016].  All materials required to compile the thesis are available at https://github.com/nspyrison/thesis_monash_phd. 
+<!-- The renv package has been used to create a reproducible environment to build the thesis from source (Ushey, 2019). -->
+<!-- An online version of the thesis is available to read at https://sa-lee.github.io/thesis. -->
+
+Chapter \ref{ch:spinifex} has been published in _The R Journal_.  Chapters \ref{ch:efficacy_radial_tour} and \ref{ch:cheem} have not been submitted yet.
+
+I recognize that terminology is often overburdened by ambiguous use, with several changing meanings coming from different fields. My background comes from Statsistics and I will default to terms from statistics and geometry. 
+<!-- I provide terminology and notation definition upon first use and in the Glossary \ref{ch:glossary}. -->

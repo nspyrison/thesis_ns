@@ -59,13 +59,13 @@ I certify that I have made all reasonable efforts to secure copyright permission
 \chapter*{Abstract}\label{abstract}}
 \addcontentsline{toc}{chapter}{Abstract}
 
-Visualizing data space is crucial to exploratory data analysis, checking model assumptions and validating model performance. Yet visualization quickly becomes difficult as the dimensionality of the data or features increases. Traditionally, static, low-dimensional linear embeddings are used to mitigate this complexity. Such embedded space is a lossy approximation of the full space. However, by viewing many embeddings with interactive supporting views, maximizes the information conveied. Data visualization \emph{tours} are a class of dynamic linear projections that animate many linear projections over small changes to the projection basis.
+Visualizing data space is crucial to exploratory data analysis, checking model assumptions, and validating model performance. Yet visualization quickly becomes difficult as the dimensionality of the data or features increases. Traditionally, static, low-dimensional linear embeddings are used to mitigate this complexity. Such embedded space is a lossy approximation of the full space. However, viewing many embeddings with interactive supporting views, maximizes the information conveyed. Data visualization \emph{tours} are a class of dynamic linear projections that animate many linear projections over small changes to the projection basis.
 
-Tours are distinguished the path of their projection bases. \emph{Manual tours} allow for User-Controlled Steering (UCS) of bases path, where the contributions of individual variables can be controlled. First I create a free, open-source \textbf{R} package, \textbf{spinifex} that facilitates the creation of such tours. These manipulations of the variables can be precomputed or made in real-time. The animations are interoperable with the existing package \textbf{tourr} and can be rendered with recent graphics interfaces \textbf{plotly} and \textbf{gganimate}. The former offers interactive use with HTML widgets while the latter can render to static formats such as .gif or .mp4 files. An interactive application is inclused to illustration use of the manual tour.
+Tours are categorized by the path of their bases. \emph{Manual tours} allow for User-Controlled Steering (UCS) of bases path, where the contributions of individual variables can be controlled. First I create a free, open-source \textbf{R} package, \textbf{spinifex} that facilitates the creation of such tours. These manipulations of the variables can be precomputed or made in real-time. The animations are interoperable with the existing package \textbf{tourr} and can be rendered with recent graphics interfaces \textbf{plotly} and \textbf{gganimate}. The former offers interactive use with HTML widgets while the latter can render to static formats such as .gif or .mp4 files. An interactive application is included to illustrate the use of the manual tour.
 
-Theoretically, UCS should enable an analyst to better explore explore the variable attribution to the structure identified in an embedding. To test this I conduct a within-participant, crowd-sourced user study. The primary variable of interest is the visualization method where manual tours are compared against the benchmarks of Principal Component Analysis (PCA) and an alternative tour variant, the grand tour. Each of the \(n=108\) participants performs two trials with each visual for 648 total trials. The task is a supervised classification problem asking participants which variables attribution to the separation of 2 clusters. I find strong evidence to support that use of the radial tour leads to a large improvement in the accuracy of the variable attribution for this task.
+Theoretically, UCS should enable an analyst to better explore the variable attribution to the structure identified in an embedding. To test this I conduct a within-participant, crowd-sourced user study. The primary variable of interest is the visualization method where manual tours are compared against the benchmarks of Principal Component Analysis (PCA) and an alternative tour variant, the grand tour. Each of the \(n=108\) participants performs two trials with each visual for 648 total trials. The task is a supervised classification problem asking participants which variables attribute to the separation of 2 clusters. I find strong evidence to support that use of the radial tour leads to a large improvement in the accuracy of the variable attribution for this task.
 
-Modern modeling techniques are sometimes refered to as black-box models due the un-interpretable nature of model terms which are often many and non-linear. Recent research in Explainable Artificial Intelligence (XAI) tries to bring interpretability to these models through the use of \emph{local explanations}. Local explanations are a class of techniques that approximate the linear-variable importance at one point in the data. I purpose interactively exploring data- and explanation-spaces side-by-side to identify two observation to compare. Then the explanations can be evaluated to see how well they hold up under the varying contributions with the manual tour. I have created the free open-sourced \textbf{R} package \textbf{cheem} provides preprocessing defaults and in interactive application to explore.
+Modern modeling techniques are sometimes referred to as black-box models due to the uninterpretable nature of model terms which are often many and non-linear. Recent research in Explainable Artificial Intelligence (XAI) tries to bring interpretability to these models through the use of \emph{local explanations}. Local explanations are a class of techniques that approximate the linear-variable importance at one point in the data. I purpose interactively exploring data- and explanation-spaces side-by-side to identify two observations to compare. Then the explanations can be evaluated to see how well they hold up under the varying contributions with the manual tour. I have created the free open-sourced \textbf{R} package \textbf{cheem} provides preprocessing defaults and an interactive application to explore.
 
 \clearpage\pagenumbering{arabic}\setcounter{page}{0}
 
@@ -75,7 +75,7 @@ Modern modeling techniques are sometimes refered to as black-box models due the 
 
 I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
 
-Three publications are included in this thesis, one of which has been accepted for publication in the \emph{The R Journal} \autocite{spyrison_spinifex_2020}. The user study described in Chapter \ref{ch:efficacy_radial_tour} will shortly be submitted to the \emph{Journal of Data Science, Statistics, and Visualisation}. The reseach covered in Chapter \ref{ch:cheem} will shortly be submitted to \emph{IEEE Transactions on Knowledge and Data Engineering}.
+Three publications are included in this thesis, one of which has been accepted for publication in \emph{The R Journal} \autocite{spyrison_spinifex_2020}. The user study described in Chapter \ref{ch:efficacy_radial_tour} will shortly be submitted to the \emph{Journal of Data Science, Statistics, and Visualisation}. The research covered in Chapter \ref{ch:cheem} will shortly be submitted to \emph{IEEE Transactions on Knowledge and Data Engineering}.
 
 All of the papers in the thesis were conceptualized, developed, and written by myself, the student, while working in the Department of Human-Centred Computing under the supervision of professor Kimbal Marriott and professor Dianne Cook. When co-authors are listed, it indicates that the work was produced through active collaboration between researchers and that their contributions to team-based research have been recognized. The following table details the work, including my and my fellow co-authors' contributions.
 
@@ -94,7 +94,7 @@ black-box models with animated linear projections & To be submitted & 85\%. Conc
 \end{tabular}
 \end{table}
 
-I have renumbered and updated sections of submitted or published papers in order to generate a consistent presentation within the thesis.
+I have renumbered and updated sections of submitted or published papers to generate a consistent presentation within the thesis.
 
 \textbf{Student name:} Nicholas Spyrison
 
@@ -118,28 +118,32 @@ In instances where I am not the responsible author I have consulted with the res
 
 \textbf{Date:} 2021-12-12
 
-\hypertarget{acknowledgements}{%
-\chapter*{Acknowledgements}\label{acknowledgements}}
-\addcontentsline{toc}{chapter}{Acknowledgements}
+\hypertarget{acknowledgments}{%
+\chapter*{Acknowledgments}\label{acknowledgments}}
+\addcontentsline{toc}{chapter}{Acknowledgments}
 
-I would like to express my sincere gratitude to my supervisors professor Kimbal Marriott, professor Dianne Cook for their support of my Ph.D studies and research, their subject expertise, and their careers of supervising and performing research. Thank you for continuously pushing me and my research to new levels. I have enjoyed teaching data visualization which has been strongly shaped by Di's practical, data-first, visualization-often style. I will continue to imagine hearing Kim's persistent question ``what did we learn from this?'' as a reminder not to get lost in the details of implementation, but also to regularly step-back and analize if this is the correct aspect to be checking.
+I would like to express my sincere gratitude to my supervisors professor Kimbal Marriott and professor Dianne Cook for their support of my Ph.D studies and research, their subject expertise, and their careers of supervising and teaching in addition to performing research. Thank you for continuously pushing me and my research to new levels. I have enjoyed teaching data visualization which has been strongly shaped by Di's practical, data-first, visualization-often style. I will continue to imagine hearing Kim's persistent question ``what did we learn from this?'' as a reminder not to get lost in the details of implementation, but also to regularly step back and analyze if this is the correct aspect to be checking.
 
-A special thanks to professor Przemyslaw Biecek for giving his input in the formulation stages of my project and his easy to understand explanations of complex modeling aspects. Thank you for responding to cold emails and being available for collaboration.
+A special thanks to professor Przemyslaw Biecek for giving his input in the formulation stages of my project and his easy-to-understand explanations of complex modeling aspects. Thank you for responding to cold emails and being available for collaboration.
 
-I thank my fellow Ph.D students, lab members, and pomodoro partners especially on the occasional of stimulating discussions and for the positive peer-pressure of knowing others are around and working. Thanks immensely to those that have empathized with me and others especially though the hard-ships of studies and COVID-19. Gratitude to Ying Zhou for her enduring support though the thick of my studies and wavering mental health.
+I thank my fellow Ph.D students, lab members, and Pomodoro partners especially on the occasional of stimulating discussions and for the positive peer pressure of knowing others are around and working. Thanks immensely to those that have empathized with me and others especially through the hard ships of studies and COVID-19. Gratitude to Ying Zhou for her enduring support though the thick of my studies and wavering mental health.
 
-Last but not the least, I would like to thank my parents, Doug and Terry, for their support and concerns at odd hours of the day. Thanks to Alan and Claire for their companionship and support now and in our more formative years. I am looking forward to be seeing you all in person shortly.
+Last but not the least, I would like to thank my parents, Doug and Terry, for their support and concerns at odd hours of the day. Thanks to Alan and Claire for their companionship and support now and in our more formative years. I am looking forward to seeing you all in person shortly.
 
 \hypertarget{preface}{%
 \chapter*{Preface}\label{preface}}
 \addcontentsline{toc}{chapter}{Preface}
 
-I recognize that terminology is often overburdened by ambiguous use, with several changing meanings coming from different fields. My background comes from Statsistics and I will default to terms from statistics and geometry. I provide terminology and notation definition upon first use and in the Glossary \ref{ch:glossary}.
+This thesis has been written using R Markdown with the bookdown package \autocite{xie_bookdown:_2016}. All materials required to compile the thesis are available at \url{https://github.com/nspyrison/thesis_monash_phd}.
+
+Chapter \ref{ch:spinifex} has been published in \emph{The R Journal}. Chapters \ref{ch:efficacy_radial_tour} and \ref{ch:cheem} have not been submitted yet.
+
+I recognize that terminology is often overburdened by ambiguous use, with several changing meanings coming from different fields. My background comes from Statsistics and I will default to terms from statistics and geometry.
 
 \hypertarget{ch:introduction}{%
 \chapter{Introduction}\label{ch:introduction}}
 
-Exploratory data analysis (EDA) is a term which encompass the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values, finding improper data formats and revealing insights \autocite{tukey_exploratory_1977}. Early and frequent data visualization is key to the data analyst's workflow cycle \autocite{wickham_r_2017}. As modern datasets grow in complexity use of multivariate data is ubiquitous. The number of variables in the data increases the difficulty of creating and portraying an accurate representation of the data which is central to the iterated workflow.
+Exploratory data analysis (EDA) is a term that encompass the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values, finding improper data formats, and revealing insights \autocite{tukey_exploratory_1977}. Early and frequent data visualization is key to the data analyst's workflow cycle \autocite{wickham_r_2017}. As modern datasets grow in complexity use of multivariate data is ubiquitous. The number of variables in the data increases the difficulty of creating and portraying an accurate representation of the data which is central to the iterated workflow.
 
 
 
@@ -152,7 +156,7 @@ Exploratory data analysis (EDA) is a term which encompass the initial summarizat
 \caption{Data analysis workflow \autocite{wickham_r_2017}. This work focuses primary on multivariate data visualization, but also facilitates transforming data and interpretation of models.}\label{fig:dataanalysisworkflow}
 \end{figure}
 
-A data visualization \emph{tour} \autocite{cook_grand_2008,lee_review_2021} are a class linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames, the rotation of the data object. In the shadow analogy an object, such as a bar stool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intuitive interpretation of the object. In this way and aided with linked brushing and other interactions such continuous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch:motivation} will motivate why we decide to use such linear dimension reduction techniques.
+A data visualization \emph{tour} \autocite{cook_grand_2008,lee_review_2021} is a class of linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower-dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames, the rotation of the data object. In the shadow analogy an object, such as a barstool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intuitive interpretation of the object. Similar looking at a data object over the rotation of its variables yields information about its structure. In this way and aided with linked brushing and other interactions, such continuous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch:motivation} will motivate why we decide to use such linear dimension reduction techniques.
 
 \hypertarget{research-questions}{%
 \section{Research questions}\label{research-questions}}
@@ -161,10 +165,10 @@ The over-arching question of interest can be stated as:
 
 \textbf{Can the radial tour with user interaction help analysts understand linear projections, and explore the sensitivity of structure in the projection to the variables contributing to the projection?}
 
-Understanding variable sensitivity to the structure in a projection frame is crucial factor analysis after identifying a feature of interest. If an identified feature is the \emph{what} of an analysis then its variable attributions are its \emph{how}. The user interaction afforded by the radial tour should allow for more precise exploration of this structure.
+Understanding variable sensitivity to the structure in a projection frame is crucial factor analysis after identifying a feature of interest. If an identified feature is the \emph{what} of an analysis then its variable attributions are its \emph{how}. The user interaction afforded by the radial tour should allow for a more precise exploration of this structure.
 
 RQ 1. \textbf{How do we define user interaction for the radial tours to add and remove variables smoothly from a 2D linear projection of data?}\\
-\textcite{cook_manual_1997} described an algorithm for manually controlling a tour, to rotate a variable into and out of a 2D projection. This algorithm provides the start to human-controlled radial tours. The work \autocite{spyrison_spinifex_2020} was adapted so that the user has more control of the interpolation. The user can set the full range of the contribution from \([-1, 1]\), and output to a device that allows the user to reproduce motions and animate or rock the rotation backward and forwards. These fine-tuned controls provide a better tool for sensitivity analysis.
+\textcite{cook_manual_1997} described an algorithm for manually controlling a tour, to rotate a variable into and out of a 2D projection. This algorithm provides the start to user-controlled radial tours. The work \autocite{spyrison_spinifex_2020} was adapted so that the user has more control of the interpolation. The user can set the full range of the contribution from \([-1, 1]\), and output to a device that allows the user to reproduce motions and animate or rock the rotation backward and forwards. These fine-tuned controls provide a better tool for sensitivity analysis.
 
 RQ 2. \textbf{Do analysts understand the relationship between variables and structure in a 2D linear projection better when the radial tour is available?}\\
 We performed an \(N=108\), within-participant user study comparing accuracy and time with the primary factor as the type of data visualization. Each participant performed 2 evaluations with either Principal Component Analysis (PCA, which is user control, but discrete), grand tour (continuous interpolated frames, but lack user control), or radial tour (user control and continuous animation). We find strong evidence that the radial tour increases accuracy. We also show the effects from the other experimental factors of location, shape data dimensionality, and the random effects from the data and that of the participants.
@@ -188,12 +192,12 @@ The research for RO \#3 involves \emph{fundamental visualization design}. We kno
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{spinifex} a package offering consistent framework for performing radial tour and rendering all tours to various formats:
+  \textbf{spinifex} a package offering a consistent framework for performing radial tour and rendering all tours to various formats:
 
   \begin{itemize}
   \tightlist
   \item
-    Perform radial tours to explore the variable senstiveity to structure
+    Perform radial tours to explore the variable sensitivity to structure
   \item
     Transform numeric variable in the data
   \item
@@ -201,15 +205,15 @@ The research for RO \#3 involves \emph{fundamental visualization design}. We kno
   \item
     Interoperable with tours generated with \textbf{tour} \autocite{wickham_tourr:_2011}
   \item
-    Layered interface for producing tours that mirrors the layered approach of \textbf{ggplot2} \autocite{wickham_ggplot2_2016}
+    Layered interface for producing tours that mirror the layered approach of \textbf{ggplot2} \autocite{wickham_ggplot2_2016}
   \end{itemize}
 \item
-  A user study comparing the efficacy of the radial tour against the alternatives of PCA the grand tour including:
+  A user study comparing the efficacy of the radial tour against the alternatives of PCA the grand tour includes:
 
   \begin{itemize}
   \tightlist
   \item
-    Creation of supervised classification task to assess the variable attribution to the separation of cluster performed under various levels of experimental factors: location, shape, and dimensionality.
+    Creation of supervised classification task to assess the variable attribution to the separation of clusters performed under various levels of experimental factors: location, shape, and dimensionality.
   \item
     Definition of an accuracy measure to evaluate this task.
   \item
@@ -227,14 +231,14 @@ The research for RO \#3 involves \emph{fundamental visualization design}. We kno
   \item
     Visualization of approximations of the data- and attribution-space side-by-side with linked brushing, hover tooltips, and tabular display of selected points.
   \item
-    Evaluating the local explanations with use of the radial tour we can explore the sensitivity to the structure identified better see what variable support the explanation holds realistic.
+    Evaluating the local explanations with the use of the radial tour we can explore the sensitivity to the structure identified better see what variable support the explanation holds realistic.
   \end{itemize}
 \end{enumerate}
 
 \hypertarget{thesis-structure}{%
 \section{Thesis structure}\label{thesis-structure}}
 
-The remainder of the thesis is organized as follows: Chapter \ref{ch:motivation} covers the motivation for such research. The research chapters 3 through 5 will cover their respective own backgrounds and follow-up discussion. Chapter \ref{ch:efficacy_radial_tour} discusses a user study evaluating the efficacy of the radial, manual tour. Chapter \ref{ch:cheem} extends the use of manual tours to extend the interpretability of black-box models. Lastly Chapter \ref{ch:conclusion} concludes with some take aways and discussion of possible extensions.
+The remainder of the thesis is organized as follows: Chapter \ref{ch:motivation} covers the motivation for such research. The research chapters 3 through 5 will cover their respective own backgrounds and follow-up discussion. Chapter \ref{ch:efficacy_radial_tour} discusses a user study evaluating the efficacy of the radial, manual tour. Chapter \ref{ch:cheem} extends the use of manual tours to extend the interpretability of black-box models. Lastly, Chapter \ref{ch:conclusion} concludes with some takeaways and a discussion of possible extensions.
 
 \hypertarget{ch:motivation}{%
 \chapter{Motivation}\label{ch:motivation}}
@@ -269,51 +273,51 @@ The remainder of the thesis is organized as follows: Chapter \ref{ch:motivation}
 \end{Shaded}
 
 \begin{verbatim}
-## <simpleError in include_graphics("./figures_from_script/ch2_penguins_splom.pdf"): Cannot find the file(s): "./figures_from_script/ch2_penguins_splom.pdf">
+## <simpleError in include_graphics("./figures_from_script/ch2_penguins_splom.pdf"): could not find function "include_graphics">
 \end{verbatim}
 
 First I motivation the early are frequent us of data visualization in general. Then we discuss some of the alternative data visualizations, and their scalability. The we discuss dimension reduction before cover tours in more detail.
 
 For our purposes I will be focusing the case where data \(X_{nxp}\) contains \(n\) observations of \(p\) variables, is complete with no missing values, variables are numeric (ideally not ordinal levels), and \(n>p\) typically many more observations than variables. While I write as though always operating on the original variable space these methods could similarly be applied to feature decomposition of data not fitting this description. In the case of the linear projection let, \(Y_{nxd} = X_{nxp} * A_{pxd}\) be the embedding of the data mapped by the basis \(A\), where \(d<p\). When \(p\) is large, say over 10 or 20 variables, the viewing space is quite large. In these cases a PCA initialization step is commonly used where the variables are approximated as fewer principal components and this reduced space can be view, albeit with the disadvantage of having another linear mapping back to the original space. \textcite{wickham_visualizing_2015} also views model spaces and features while urging to have a preference for visualizing data-space directly.
 
-Visualization is much more robust than numerical summarization alone \autocite{anscombe_graphs_1973,matejka_same_2017}. In these studies the data have the same summary statistics, yet contains obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Data visualization is fundamental to EDA and quickly evaluating data supports ensuring that models are suitability.
+Visualization is much more robust than numerical summarization alone \autocite{anscombe_graphs_1973,matejka_same_2017}. In these studies the data have the same summary statistics, yet contains obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Data visualization is fundamental to EDA and quickly evaluating data supports ensuring that models are suitable.
 
 
 
 \hypertarget{visualizing-multivariate-data.}{%
 \section{Visualizing multivariate data.}\label{visualizing-multivariate-data.}}
 
-The work in \textcite{grinstein_high-dimensional_2002} gives a good taxonoy of high-dimensional visualization. We will follow a few example building up to why we conclude with tour methods. boardly speaking, we are concerned with the question ``How can an analyst visualize an arbitrary \(p-\) dimensions?''. To illustrate some of the options for data I use the penguins data\autocite[horst\_palmerpenguins\_2020]{gorman_ecological_2014}. It contains 333 observations of 4 phyical measurements for 3 species of penguins observed near Palm Station, Antarctica.
+The work in \textcite{grinstein_high-dimensional_2002} gives a good taxonomy of high-dimensional visualization. We will follow a few examples building up to why we conclude with tour methods. Broadly speaking, we are concerned with the question ``How can an analyst visualize arbitrary \(p-\) dimensions?''. To illustrate some of the options for data I use the penguins data\autocite[horst\_palmerpenguins\_2020]{gorman_ecological_2014}. It contains 333 observations of 4 physical measurements for 3 species of penguins observed near Palm Station, Antarctica.
 
-Viewing as many univariate histograms or density curves is one method. Similarly one could look at all variable pairing as scatter plots. This forms the crux of scatterplot matrices, also known as SPLOM \autocite{chambers_graphical_1983}. In a scatterplot matrix variables are displayed across the columns and row, the diagonal elements show the univariate densities while one or both side of the off diagonals show scatterplot pairs. This is useful for getting a handle on the support and shapes of the variables, but is not going to scale well with dimension and is not a suitable audience-ready display as it is very busy and doesn't draw attention to any one spot. Munzner reminds us to abstract all of the cognitive work out of the visual allowing the audience to focus on seeing the evidence supporting the claim \autocite{munzner_visualization_2014}.
+Viewing as many univariate histograms or density curves is one method. Similarly, one could look at all variable pairing as scatter plots. This forms the crux of scatterplot matrices, also known as SPLOM \autocite{chambers_graphical_1983}. In a scatterplot matrix variables are displayed across the columns and row, the diagonal elements show the univariate densities while one or both sides of the off diagonal show scatterplot pairs. This is useful for getting a handle on the support and shapes of the variables, but is not going to scale well with dimension and is not a suitable audience-ready display as it is very busy and doesn't draw attention to any one spot. Munzner reminds us to abstract all of the cognitive work out of the visual allowing the audience to focus on seeing the evidence supporting the claim \autocite{munzner_visualization_2014}.
 
 
 
-Alternatively we could consider a class of observation-based visual. In parallel coordinate plots \autocite{ocagne_coordonnees_1885} variable are arrange horizontally and observations are connected by lines with the height mapping to the quantile or z-value for each variable. This scales much better with dimensions, but poorly with observations. It also suffers from an asymmetry with the variable order, that is, changing the order of the variable will lead people to very different conclusions. The x axis is also used to display variables rather than the values of the observations. This restricts the amount of information that can be gleaned between variables. Munzner assert that position is the more human-perceptable channel for encoding information; we should like to reserve it for the values of the observations. The same issues persist across other observation-based displays such as radial variants, pixel-oriented visuals, and Chernoff faces {[}\textcite{keim_designing_2000}; chernoff\_use\_1973{]}. These visuals are better suited for the \(n<p\) case where there are more variable than observations.
+Alternatively, we could consider a class of observation-based visuals. In parallel coordinate plots \autocite{ocagne_coordonnees_1885} variables are arranged horizontally and observations are connected by lines with the height mapping to the quantile or z-value for each variable. This scales much better with dimensions, but poorly with observations. It also suffers from an asymmetry with the variable order, that is, changing the order of the variable will lead people to very different conclusions. The x-axis is also used to display variables rather than the values of the observations. This restricts the amount of information that can be gleaned between variables. Munzner asserts that position is the more human-perceptible channel for encoding information; we should like to reserve it for the values of the observations. The same issues persist across other observation-based displays such as radial variants, pixel-oriented visuals, and Chernoff faces {[}\textcite{keim_designing_2000}; chernoff\_use\_1973{]}. These visuals are better suited for the \(n<p\) case where there are more variables than observations.
 
 
 
 \hypertarget{dimension-reduction}{%
 \section{Dimension reduction}\label{dimension-reduction}}
 
-Ultimately, we will need to turn to dimension reduction to create a compelling visuals allowing audiences to focus on signal across multiple variables. Dimension reduction is separated into two categories, linear and non-linear. The linear case spans all affine mathematical transformations, essentially any mapping where parallel lines stay parallel. Non-linear transformations are the complement of that, think transformations with exponents or interacting terms. Examples in low dimension is quite relatable. For instance shadows are examples of linear projections where a 3 dimensional object casts a 2D projection, the shadow. Our vision at one instance in time is also a 2D projection. An example of a non-linear transformation is that of 2D representation of the globe. There are many different ways (and features to optimize) to distort the surface to display as a map. Most common may be rectangular display where space is distorted more and more moving away from the equator.
+Ultimately, we will need to turn to dimension reduction to create a compelling visual allowing audiences to focus on features with contributions from multiple variables. Dimension reduction is separated into two categories, linear and non-linear. The linear case spans all affine mathematical transformations, essentially any mapping where parallel lines stay parallel. Non-linear transformations are the complement of that, think transformations with exponents or interacting terms. Examples in low dimension are relatable. For instance shadows are examples of linear projections where a 3-dimensional object casts a 2D projection, the shadow. Our vision at one instance in time is also a 2D projection-perspective. An example of a non-linear transformation is that of 2D representation of the globe. There are many different ways (and features to optimize) to distort the surface to display as a map. Most common may be rectangular display where area is distorted more and more with distance away from the equator. Other distortions are created when the surface is unwrapped as a long ellipse. Yet others create non-continuous gaps in oceans to minimize the distortion of countries.
 
-In data visualization non-linear techniques often have hyperparameters that effect how the spaces is distorted to fit into lower dimensional space. To quote Anastasios Panagiotelis ``All non-linear projections are wrong, but some are useful'', a play on George Box quote about models. Non-linear technique distort the space in unclear ways, and what is more, they can introduce features not in the data depending on the selection of hyperparameters. It feels like they are necessary, but not sufficient to conclude the existence of a feature, that is, if a non-linear embedding resolves a feature, we shouldn't be certain that it really exists in the data.
+Non-linear techniques often have hyperparameters that affect how the spaces are distorted to fit into a lower-space. To quote Anastasios Panagiotelis ``All non-linear projections are wrong, but some are useful'', a play on George Box quote about models. Non-linear techniques distort the space in unclear ways, and what is more, they can introduce features not in the data depending on the selection of hyperparameters. It feels like they are necessary, but not sufficient to conclude the existence of a feature, that is, if a non-linear embedding resolves a feature, we shouldn't be certain that it really exists in the data.
 
-Unfortunately there is no free lunch here. An increase in data space will lead a \(p-d\) dimension viewing space in the linear case and an increasing perterbed and distored space in non-linear techniques. The intrinsic dimensionality of data is the number of variables needed to minimally represent the data \autocite{grinstein_high-dimensional_2002}. This is an important aspect of dimension reduction which doesn't have to end in visual, but is also a common part of factor analysis and preprocessing data. Consider a Psychology survey consisting of 100 questions about the Big Five personality traits. The data consists of 100 variables, while the theory would suggest the intrinsic dimensionality is five. The data likely picks up on other aspects and may better be summarized in a 8 or 10 dimensions. If this were the case, reducing the data to this space will be nesicary to gate the exponentially increase view time.
+Unfortunately, there is no free lunch here. An increase in data space will lead a \(p-d\)-dimensional viewing space in the linear case and an increasingly perturbed and distorted space in non-linear techniques. The intrinsic dimensionality of data is the number of variables needed to minimally represent the data \autocite{grinstein_high-dimensional_2002}. This is an important aspect of dimension reduction that does not have to end in visual, but is also a common part of factor analysis and preprocessing data. Consider a Psychology survey consisting of 100 questions about the Big Five personality traits. The data consists of 100 variables, while the theory would suggest the intrinsic dimensionality is five. The data likely picks up on other aspects and may better be summarized in with 8 or 10 dimensions. If this were the case, reducing the data to this space will be necessary to gate the exponentially increasing view time.
 
 \hypertarget{tours-animated-linear-projections}{%
 \section{Tours, animated linear projections}\label{tours-animated-linear-projections}}
 
-A single linear projection is resulting space from the data multiplied by the basis where the basis is an orthogonormal orientation mapping the data space to a lower dimension. A data visualization tour animates many such projections through small changes in the basis. Originally in a \emph{grand} tour \autocite{asimov_grand_1985} several target frames are randomly selected and then interpolated along their geodesic path.
+A single linear projection is a resulting space from the data multiplied by the basis where the basis is an orthonormal matrix (the orientation of the unit origin) mapping the data space to a lower dimension. A data visualization tour animates many such projections through small changes in the basis. Originally in a \emph{grand} tour \autocite{asimov_grand_1985} several target frames are randomly selected and then interpolated along their geodesic path.
 
 
 
 There are various types of tours that are classified by the generation of their basis paths. A \emph{guided} tour uses simulated annealing to move progressively closer to an objective function in the embedded space\autocite{hurley_analyzing_1990}. A more comprehensive discussion and review of tours can be found in the works of \textcite{cook_grand_2008}; \textcite{lee_review_2021}{]}.
 
-Tours are used for a couple of salient features: maintains transparency back to the original variable space and the persistence data points from frame to frame conveys more information than looking at discrete jumps to other bases. Because of these features tours are a good method to extend the visualization of data space as dimensionality increases.
+Tours are used for a couple of salient features: maintains transparency back to the original variable space and the persistence data points from frame to frame convey more information than looking at discrete jumps to other bases. Because of these features tours are a good method to extend the visualization of data space as dimensionality increases.
 
-The work below covers manual tours \autocite{cook_manual_1997,spyrison_spinifex_2020} in Chapter \ref{ch:spinifex}. Radial tours are one type of manual tour that where the contribution of one variable is extended radially to a full contribution, removed completely, then restored to its original contribution. In Chapter \ref{ch:efficacy_radial_tour} compares the efficacy of the radial tour as compared with PCA and the grand tour in a user study. Lastly, Chapter \ref{ch:cheem} extends the use of the radial tour to evaluate the local explanation of black-box models.
+The work below covers manual tours \autocite{cook_manual_1997,spyrison_spinifex_2020} in Chapter \ref{ch:spinifex}. Radial tours are one type of manual tour that where the contribution of one variable is extended radially to a full contribution, removed completely, then restored to its original contribution. Chapter \ref{ch:efficacy_radial_tour} compares the efficacy of the radial tour as compared with PCA and the grand tour in a user study. Lastly, Chapter \ref{ch:cheem} extends the use of the radial tour to evaluate the local explanation of black-box models.
 
 \hypertarget{ch:spinifex}{%
 \chapter{spinifex: An R Package for Creating a Manual Tour of Low-dimensional Projections of Multivariate Data}\label{ch:spinifex}}
@@ -589,8 +593,8 @@ Another future research topic could be to extend the algorithm for use on 3D pro
 
 Having a graphical user interface would be useful for making it easier and more accessible to a general audience. This is possible to implement using \{shiny\} \autocite{chang_shiny_2020}. The primary purposes of the interface would be to allow the user to interactively change the manip variable easily, and the interpolation step for more or less detailed views.
 
-\hypertarget{acknowledgments}{%
-\section{Acknowledgments}\label{acknowledgments}}
+\hypertarget{acknowledgments-1}{%
+\section{Acknowledgments}\label{acknowledgments-1}}
 
 This article was created in R, using \{knitr\} \autocite{xie_knitr_2020} and \{rmarkdown\} \autocite{allaire_rmarkdown_2020}, with code generating the examples inline. The source files for this article be found at \href{https://github.com/nspyrison/spinifex_paper/}{github.com/nspyrison/spinifex\_paper/}. The animated gifs can also be viewed at this site, and also in the supplementary material for this paper. The source code for the \{spinifex\} package can be found at \href{https://github.com/nspyrison/spinifex/}{github.com/nspyrison/spinifex/}.
 
@@ -860,7 +864,9 @@ THIS CHAPTER IS CURRENTLY BEING EDITED IN IT's OWN REPOSITORY, THIS VERSION IS O
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth,]{./figures_from_script/ch5_fig1_shap_distr_bd} \end{center}
+\begin{verbatim}
+## <simpleError in include_graphics("./figures_from_script/ch5_fig1_shap_distr_bd.pdf"): could not find function "include_graphics">
+\end{verbatim}
 
 TODO:XXX Segue.
 
@@ -893,7 +899,7 @@ We know that data visualization is important in EDA and assumption validation. U
 Local explanations describe the linear variable weights in the vicinity of an observation in \(p-dim\) space. Local explanations are point-measurements of the weights for each variable describing the importance to the prediction at that point. In a highly non-linear space, the importance of the variables may change rapidly with even a small change in the explanatory variables. There are several \emph{model-agnostic} local explanations such as LIME \autocite{ribeiro_why_2016}, and SHAP \autocite{lundberg_unified_2017}. In practice, this application can be used with any model and compatible local explanation. However, below we apply and discuss SHAP values extracted from a random forest model.
 
 \hypertarget{how-a-shap-value-is-calculated}{%
-\subsubsection{How a SHAP value is calculated}\label{how-a-shap-value-is-calculated}}
+\subsection{How a SHAP value is calculated}\label{how-a-shap-value-is-calculated}}
 
 We use FIFA soccer data \autocite{leone_fifa_2020} to explain SHAP values. We use 5000 player-observations of 9 aggregate skill measures to predict that player's wages. We use SHAP to observe how the skill attribution changes for different players, which should reflect different fielding positions. Fielding position is not explicitly used in the model, but we would expect that SHAP finds a way to change the variable weights across differing skill distributions to improve the accuracy of its wage predictions.
 
@@ -902,7 +908,7 @@ We have trained a random forest model and wish to further explore the weightings
 At the top of figure \ref{fig:ch5fig1} we see the relative wages of the 2 different players. SHAP uses permutations of the X variables to approximate the variable weights. In the middle, we see the distributions of the variable weightings for each player across 25 such permutations. We use the median of those distributions (large dot) as the SHAP value. We see a difference in the weights across the 2 players that makes sense considering their positions. Reaction skills are important for both players, while offensive and movement are weighted higher of the offensive player. Conversely, defensive, power, and accuracy skills are weighted higher for the defensive player. The bottom used the SHAP values to explain their relative wage predictions. We see a similar trend of the SHAP values additively explaining the difference of the global intercept to their predictions. We would expect that other offensive players have explanations closer to Messi and defensive players to lie closer to van Dijk's. The local explanations of middle fielders and goalkeepers would be expected to be different from both of these.
 
 \hypertarget{our-application-trees-of-cheem}{%
-\subsubsection{Our application; Trees of Cheem}\label{our-application-trees-of-cheem}}
+\subsection{Our application; Trees of Cheem}\label{our-application-trees-of-cheem}}
 
 Above, the FIFA data was used to regress continuous wages. In introducing this application, \texttt{Trees\ of\ Cheem}, we will be discussing the classification of simulated data. We simulation of 3 spherical clusters on the vertices of a triangle. The difference between the clusters is contained in the first 2 dimensions with no mean separation in another 2 noise dimensions. After extracting all observations' SHAP values, forming a SHAP \emph{matrix}, of the original dimensionality, \((n~\times~p)\).
 
@@ -921,7 +927,7 @@ Now that we have identified that V2 is the variable that deviated most from its 
 This application is still maturing and has mostly focused on classification tasks. We have partial implementation of regression which will be demonstrated in the presentation, time permitting. This work is being written up to be submitted to the WHY-21 workshop, part of the NeurIPS 2021 Conference.
 
 \hypertarget{discussion}{%
-\subsubsection{Discussion}\label{discussion}}
+\subsection{Discussion}\label{discussion}}
 
 We have used radial tours to improve the interpretability of black-box models. We display 2D approximations of the data to keep the global context in mind and facilitate the selection of points to focus on. After a target point have been identified, its SHAP values are used as the initial projection basis. Where the within-class distributions of the value values are displayed. The default variable selected contains the largest difference from the median of SHAP values within that point's actual classification. That is that variable that deviates the most from what would be expected from a typical correctly classified observation.
 
@@ -929,8 +935,8 @@ Taking a step back, it is important to remember that this visualization and anal
 
 Turning for a minute to real-world application, developing methods to better interpret black-box models is an important and impactful challenge. Private corporations and nation-states increasingly using complex models to classify and predict their customers and citizens from loans and insurance claims to employment and credit scores, the real-world impact of highly non-linear is here to stay. Being able to see the specifics of one observation may seem small in the context of a model, but it is crucial to that instance; if misclassificated, that observation may receive an outcome a world apart from its actual peers.
 
-\hypertarget{sec:acknowledgements}{%
-\chapter{Acknowledgements}\label{sec:acknowledgements}}
+\hypertarget{sec:acknowledgments}{%
+\section{Acknowledgments}\label{sec:acknowledgments}}
 
 I would like to thank Professor Przemyslaw Biecek (Warsaw University of Technology) for his time and input in suggesting to look at SHAP local explanations and try applying to the FIFA dataset.
 
@@ -949,9 +955,11 @@ For transparency and reproducibility, the source files are made available at \hr
 \hypertarget{ch:conclusion}{%
 \chapter{Conclusion}\label{ch:conclusion}}
 
-In Chapter \ref{ch:spinifex} we discussed \textbf{spinifex}. How its facilitate the preprocessing transformations with \texttt{scale\_*} functions, identifies features with \texttt{basis\_*} functions, and creates manual tours. It creates a framework for layered creation of tour visuals with \texttt{proto\_*} fucntions that will feel at home to \textbf{ggplot2} users. Manual tours and those created from \textbf{tourr} can be rendered and exported as interactive HTML widgets, .gif or .mp4 files. It has been downloaded over 14400 times from CRAN between 09 April 2019 and 28 November 2021. my contributions \textbf{spinifex} and \textbf{tourr} won the ACEMS Impact and Engagement Award, 2018.
+In Chapter \ref{ch:spinifex} we discussed \textbf{spinifex}. How it facilitates the preprocess transformations with \texttt{scale\_*} functions, identifies features with \texttt{basis\_*} functions, and creates manual tours. It creates a framework for layered creation of tour visuals with \texttt{proto\_*} functions that will feel at home to \textbf{ggplot2} users. Manual tours and those created from \textbf{tourr} can be rendered and exported as interactive HTML widgets, .gif, or .mp4 files. It has been downloaded over 14400 times from CRAN between 09 April 2019 and 28 November 2021. my contributions \textbf{spinifex} and \textbf{tourr} won the ACEMS Impact and Engagement Award, 2018.
 
-Chapter \ref{ch:ch:efficacy_radial_tour} dicussed the
+Chapter \ref{ch:efficacy_radial_tour} discussed \ldots{}
+
+Chapter \ref{ch:cheem} \ldots{}
 
 \hypertarget{futher-extensions}{%
 \section{Futher extensions}\label{futher-extensions}}
@@ -959,15 +967,15 @@ Chapter \ref{ch:ch:efficacy_radial_tour} dicussed the
 \hypertarget{other-contributions}{%
 \section{Other contributions:}\label{other-contributions}}
 
-In addition to the research discussed around the central theme of the radial tour I have a number of other notable contributions including:
+In addition to the research discussed around the central theme of the radial tour there are other notable contributions I would mention:
 
 \begin{itemize}
 \tightlist
 \item
-  \emph{``Is IEEE VIS that good?'' On key factors in the initial assessment of manuscript and venue quality} \autocite{spyrison_is_2021}, A survey IEEE VIS authors, how they source articles, decide which to read, and evaluate venue quality. We find low evidence that sentiment changes with across acedemic position for these topics and provide commentary and discussion on the effects of ``publish or perish'' environment, standard author and journal metrics, and the need to publish ``null finding'' and replication studies.
+  \emph{``Is IEEE VIS that good?'' On key factors in the initial assessment of manuscript and venue quality} \autocite{spyrison_is_2021}, A survey IEEE VIS authors, how they source articles, decide which to read, and evaluate venue quality. We find low evidence that sentiment changes across academic positions for these topics and provide commentary and discussion on the effects of ``publish or perish'' environment, standard author and journal metrics, and the need to publish ``null finding'' and replication studies.
 \item
-  \emph{Intraday effect of COVID-19 restrictions on Melbourne electricity consumption} \autocite{barrow_changes_2020}, We corroborate that the Victorian interday effect on energy consumption did not change, and novely find that the intraday distribution of energy consumption does change. Namely we find a statistically significant change in the height of the morning and evening peak energy consumption. We were awarded 1st place of hundreds of entries in the insights category of the Melbourne 2020 Datathon.
-  -Student volunteering at conferences: UseR!2021 - Online, CHI Down Under 2020 - Online, and UseR!2018 - Brisbane, Australia
+  \emph{Intraday effect of COVID-19 restrictions on Melbourne electricity consumption} \autocite{barrow_changes_2020}, We corroborate that the Victorian interday effect on energy consumption did not change, and novelly find that the intraday distribution of energy consumption does change. Namely we find a statistically significant change in the height of the morning and evening peak energy consumption that we posit is due to less strict schedules accociated with working from home, abence of commute time, or other employment changes. We were awarded 1st place of hundreds of entries in the insights category of the Melbourne 2020 Datathon.
+  -Student volunteering at conferences: UseR!2021 - Online, CHI Down Under 2020 - Online, and UseR!2018 - Brisbane, Australia.
 \end{itemize}
 
 \printbibliography[heading=bibintoc]
