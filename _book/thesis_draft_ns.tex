@@ -152,7 +152,7 @@ Exploratory data analysis (EDA) is a term which encompass the initial summarizat
 \caption{Data analysis workflow \autocite{wickham_r_2017}. This work focuses primary on multivariate data visualization, but also facilitates transforming data and interpretation of models.}\label{fig:dataanalysisworkflow}
 \end{figure}
 
-A data visualization \emph{tour} \autocite{cook_grand_2008,lee_review_2021} are a class linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames, the rotation of the data object. In the shadow analogy an object, such as a bar stool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intutive interpretation of the object. In this way and aided with linked brushing and other interactions such continous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch:motivation} will motiveate why we decide to use such linear dimension reduction techniques.
+A data visualization \emph{tour} \autocite{cook_grand_2008,lee_review_2021} are a class linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames, the rotation of the data object. In the shadow analogy an object, such as a bar stool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intuitive interpretation of the object. In this way and aided with linked brushing and other interactions such continuous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch:motivation} will motivate why we decide to use such linear dimension reduction techniques.
 
 \hypertarget{research-questions}{%
 \section{Research questions}\label{research-questions}}
@@ -239,316 +239,81 @@ The remainder of the thesis is organized as follows: Chapter \ref{ch:motivation}
 \hypertarget{ch:motivation}{%
 \chapter{Motivation}\label{ch:motivation}}
 
-The following chapter discusses the current research in two primary areas: dynamic linear projections (collectively known as tours) and multivariate data visualization in stereoscopic 3D. After each section, research gaps are highlighted.
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{(}
+   \DocumentationTok{\#\#\# }\AlertTok{TODO}\DocumentationTok{: XXX REMOVE ME FOR CHAP 2 IMAGES {-}{-}{-}}
+  \AttributeTok{eval =} \ConstantTok{FALSE}\NormalTok{)}
+
+\FunctionTok{dir}\NormalTok{(}\StringTok{"./figures\_from\_script/"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "_ch2_motivation.r"                 "_ch3_spinifex.r"                   "_ch4_efficacy_radial_tour.r"      
+##  [4] "_ch5_cheem.r"                      "ch2_fig1_penguin_splom.pdf"        "ch2_fig2_penguin_pcp.pdf"         
+##  [7] "ch3_fig1_biplot.pdf"               "ch3_fig2_manip_sp.pdf"             "ch3_fig3_filmstrip.pdf"           
+## [10] "ch3_fig4_jet_better_pc4.pdf"       "ch3_fig5_jet_worse_pc3.pdf"        "ch3_fig6_DIS_better_pc6.pdf"      
+## [13] "ch3_fig7_DIS_worse_pc2.pdf"        "ch4_fig1_pca_splom.pdf"            "ch4_fig2_exp_factors.pdf"         
+## [16] "ch4_fig3_accuracy_measure.pdf"     "ch4_fig4_randomization_MANUAL.png" "ch4_fig5_ABcd_violins.pdf"        
+## [19] "ch4_fig6_subjective_measures.pdf"  "ch4_figX_demographic_heatmap.pdf"  "ch4_tab1_model_comp_ls.rds"       
+## [22] "ch4_tab2_model_coef_ls.rds"        "ch4_util_funcs.r"                  "ch5_fig1_shap_distr_bd.pdf"       
+## [25] "ch5_fig2_global_space.pdf"         "ch5_fig3_cheem_initial_bas.pdf"    "ch5_fig4_cheem_endpts.pdf"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tryCatch}\NormalTok{(}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"./figures\_from\_script/ch2\_penguins\_splom.pdf"}\NormalTok{), }
+         \AttributeTok{error=}\ControlFlowTok{function}\NormalTok{(e)e)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## <simpleError in include_graphics("./figures_from_script/ch2_penguins_splom.pdf"): Cannot find the file(s): "./figures_from_script/ch2_penguins_splom.pdf">
+\end{verbatim}
+
+First I motivation the early are frequent us of data visualization in general. Then we discuss some of the alternative data visualizations, and their scalability. The we discuss dimension reduction before cover tours in more detail.
+
+For our purposes I will be focusing the case where data \(X_{nxp}\) contains \(n\) observations of \(p\) variables, is complete with no missing values, variables are numeric (ideally not ordinal levels), and \(n>p\) typically many more observations than variables. While I write as though always operating on the original variable space these methods could similarly be applied to feature decomposition of data not fitting this description. In the case of the linear projection let, \(Y_{nxd} = X_{nxp} * A_{pxd}\) be the embedding of the data mapped by the basis \(A\), where \(d<p\). When \(p\) is large, say over 10 or 20 variables, the viewing space is quite large. In these cases a PCA initialization step is commonly used where the variables are approximated as fewer principal components and this reduced space can be view, albeit with the disadvantage of having another linear mapping back to the original space. \textcite{wickham_visualizing_2015} also views model spaces and features while urging to have a preference for visualizing data-space directly.
 
 Visualization is much more robust than numerical summarization alone \autocite{anscombe_graphs_1973,matejka_same_2017}. In these studies the data have the same summary statistics, yet contains obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Data visualization is fundamental to EDA and quickly evaluating data supports ensuring that models are suitability.
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth,]{./figures/matejka17fig} 
-
-}
-
-\caption{Starting with the datasarus plot, observations are allows to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the originally listed statistics \autocite{matejka_same_2017}.}\label{fig:matejka17fig}
-\end{figure}
-
-\hypertarget{sec:tour}{%
-\section{Tours, animated linear projections}\label{sec:tour}}
-
-The introduction established that visualizing data-space is an important aspect of exploratory data analysis and data analysis in general. Yet, there is an inherent difficulty as the dimensionality of data increases. In univariate data sets histograms or smoothed density curves are employed to visualize data. In bivariate data, \(XY\) scatterplots and contour plots (2D density) can be employed. In three dimensions, the two most common techniques are 3D scatterplot\footnote{Graphs depicting three dimensions are typically viewed on a 2D display, in print or with a standard monitor. These are 2D images of monocular 3D spaces, sometimes referred to as 2.5D data visualization, more on this in section \ref{sec:3d-terminology}.} or 2D scatterplot with the 3rd variable as an aesthetic (such as color, size, or height). These aesthetic cues convey some information but are not a sufficient replacement for axes for use with continuous variables.
-
-As dimensionality of the data, \(p\), increases the visualization of data-space quickly becomes complex. It is common that visualizing data-space is dropped in favor of graphing model-space (for example residuals), parameter-space (in fewer dimensions), or worse yet: long tables of statistics without visuals \autocite{wickham_visualizing_2015}. To preserve the visualization of data-space, a solution that scales with the dimensionality of data is needed; this is where dimensionality reduction comes in. This work will focus on a group of dynamic linear projection techniques collectively known as \emph{tours}. The scope of the project lies within the dynamic linear projections; a broader review of dimensionality reduction techniques is discussed in the review paper by \textcite{grinstein_high-dimensional_2002}. Tours are used for a couple of salient features: the use of linear projections maintains transparency back to the original variable space (which non-linear projections lose) and the use of many projections shows more variation than a single linear projection. Employing the breadth of tours extends the dimensionality of visualizations, and with it, the intrinsic understanding of the structure and distribution of data that is more succinct or beyond the reach of summary statistics alone.
-
-Let \(p\) be the dimensionality of the data, and \(d\) be the dimension of the projection space. Tours perform linear dimensionality reduction, orthogonally projecting \(p\)-space down to \(d(\leq p)\) dimensions. Many such projections are interpolated, each making small rotations in \(p\)-space. These frames are then viewed in order as an animation of the lower dimensional embedding changing as the original variable space is manipulated. Shadow puppets offer a useful analogy to aid in conceptualizing tours. Imagine a fixed light source facing a wall. When an object is introduced it projects a 2D shadow onto the wall. This is a physical representation of a simple projection, that from \(p=3\) down to \(d=2\). If the object rotates then the shadow correspondingly changes. Observers watching only the shadow are functionally watching a 2D tour as the 3D object is manipulated. Some orientations explain more information about the shape of the object than others while watching an animation of the shadow changing gives a more robust understanding than looking at any one frame. More complex structures generally require more time to comprehend the nature of the geometry. These features hold for tours as well.
-
-\emph{An extended tour notation is listed in the appendix section \ref{sec:notation}.}
-
-\hypertarget{history}{%
-\subsection{History}\label{history}}
-
-The first tour was introduced was the \emph{grand tour} in \textcite{asimov_grand_1985} at the Stanford Linear Accelerator, Stanford University. Asimov suggested three types of grand tours: torus, at-random, and random-walk. The original application of tours was performed on high energy physics on the PRIM-9 system.
-
-Before choosing projection paths randomly, an exhaustive search of \(p-\)space was suggested by \textcite{mcdonald_interactive_1982}, also at the Stanford Linear Accelerator. This was later coined \emph{little tour}.
-
-\textcite{friedman_projection_1974} and later \textcite{huber_projection_1985} recommended projection pursuit (also referred to as PP). Projection pursuit optimizes an objective function before it removes a single component/variable and then iterates in this newly embedded subspace. Within each subspace, the projection seeks for a local extremum via a hill climbing algorithm on an objective function. This formed the basis for \emph{guided tours} suggested by \textcite{hurley_analyzing_1990}.
-
-The grand and little tours have no input from the user aside from the starting basis. Guided tours allow for an index to be selected. The bulk of tour development since has largely been around the dynamic display, user interaction, geometric representation, and application.
-
-\hypertarget{sec:path_generation}{%
-\subsection{Path generation}\label{sec:path_generation}}
-
-A fundamental aspect of tours is the path of rotation. There are four primary distinctions of tour path generation \autocite{buja_computational_2005}: random choice, data-driven, precomputed choice, and manual control.
-
-\begin{itemize}
-\tightlist
-\item
-  Random choice, \emph{grand tour}, constrained random walks \(p\)-space. Paths are constrained for changes in direction small enough to maintain continuity and aid in user comprehension
-
-  \begin{itemize}
-  \tightlist
-  \item
-    torus-surface \autocite{asimov_grand_1985}
-  \item
-    at-random \autocite{asimov_grand_1985}
-  \item
-    random-walk \autocite{asimov_grand_1985}
-  \item
-    \emph{local tour} \autocite{wickham_tourr_2011}, a sort of grand tour on a leash, such that it goes to a nearby random projection before returning to the original position and iterating to a new nearby projection.
-  \end{itemize}
-\item
-  Data-driven, \emph{guided tour}, optimizing some objective function/index within the projection-space, called projection pursuit (PP) \autocite{hurley_analyzing_1990}, including the following indexes:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    holes \autocite{cook_projection_1993} - moves points away from the center.
-  \item
-    cmass \autocite{cook_projection_1993} - moves points toward the center.
-  \item
-    lda \autocite{lee_projection_2005} - linear discriminant analysis, seeks a projection where 2 or more classes are most separated.
-  \item
-    pda \autocite{lee_projection_2010} - penalized discriminant analysis for use in highly correlated variables when classification is needed.
-  \item
-    convex \autocite{laa_using_2019} - the ratio of the area of convex and alpha hulls.
-  \item
-    skinny \autocite{laa_using_2019} - the ratio of the perimeter distance to the area of the alpha hull.
-  \item
-    stringy \autocite{laa_using_2019} - based on the minimum spanning tree (MST), the diameter of the MST over the length of the MST.
-  \item
-    dcor2D \autocite{grimm_mbgraphic:_2017,laa_using_2019} - distance correlation that finds linear and non-linear dependencies between variables.
-  \item
-    splines2D \autocite{grimm_mbgraphic:_2017,laa_using_2019} - measure of non-linear dependence by fitting spline models.
-  \item
-    other user-defined objective indices can be applied to the framework provided in the \emph{tourr} package \textcite{wickham_tourr_2011}.
-  \item
-    Another data-drive tour is the \emph{dependence tour}, a combination of \(n\) independent 1D tours. A vector describes the axis each variable will be displayed on. for example \(c(1, 1, 2, 2)\) is a 4- to 2D tour with the first 2 variables on the first axis, and the remaining on the second.
-
-    \begin{itemize}
-    \tightlist
-    \item
-      \emph{correlation tour} \autocite{buja_data_1987}, a special case of the dependence tour, analogous to canonical correlation analysis.
-    \end{itemize}
-  \end{itemize}
-\item
-  Precomputed choice, \emph{planned tour}, in which the path has already been generated or defined.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \emph{little tour} \autocite{mcdonald_interactive_1982}, where every permutation of variables is stepped through in order, analogous to brute-force or exhaustive search.
-  \item
-    a saved path of any other tour, typically an array of basis targets to interpolate between.
-  \end{itemize}
-\item
-  Manual control, \emph{manual tour}, a constrained rotation on selected manipulation variable and magnitude \autocite{cook_manual_1997}. Typically used to explore the local area after identifying an interesting feature, perhaps via guided tour.
-\end{itemize}
-
-\hypertarget{path-evaluation}{%
-\subsection{Path evaluation}\label{path-evaluation}}
-
-Consider projection down to 2D, then each projection is called a 2-frame (each spanning a 2-plane). Mathematically, a Grassmannian is the set of all possible unoriented 2-frames in \(p\)-space, \(\textbf{Gr}(2,~p)\). \textcite{asimov_grand_1985} pointed out that the unique 2-frames of the grand tour approaches \(\textbf{Gr}(2,~p)\) as time goes to infinity. The \emph{density} of a tour is defined as the fraction of the Grassmannian explored. Ideally, an exploring tour will be dense, but the time taken to become dense vastly increases as variable space increases dimensionality. \emph{Rapidity} is then defined as how quickly a tour encompasses the Grassmannian. Due to the random selection of a grand tour, it will end up visiting homomorphisms of previous 2-frames before all unique values are visited, leading sub-optimal rapidity.
-
-The little tour introduced in \textcite{mcdonald_interactive_1982}, on the other hand, is necessarily both dense and rapid, performing essentially an exhaustive search on the Grassmannian. However, this path uninteresting and with long periods of similar projections strung together. The Grassmannian is necessarily large and increases exponentially at the rate of \(p\). Viewing of the whole Grassmannian is time-consuming, and interesting projections are sparse, there was a clear space for computers to narrow the search space.
-
-Guided tours \autocite{hurley_analyzing_1990} optimize an objective function generating path will be a relatively small subset of the Grassmannian. As they are not used for exploration, density and rapidity are poor measures. On the other hand, they excel at finding interesting projections quickly. Recently, \textcite{laa_using_2019}, compared projection pursuit indices with the metrics: \emph{smoothness, squintability, flexibility, rotation invariance} and \emph{speed}.
-
-\hypertarget{sec:geom_display}{%
-\subsection{Geometric display by dimensionality}\label{sec:geom_display}}
-
-Up to this point, 2D scatterplots have been the primary display discussed, they offer a logical display for viewing embeddings of high-dimensional point clouds. However, other geometrics offer perfectly valid projections as well.
-
-\begin{itemize}
-\tightlist
-\item
-  1D geometrics (geoms)
-
-  \begin{itemize}
-  \tightlist
-  \item
-    1D densities: such as histogram, average shifted histograms \autocite{scott_averaged_1985}, and kernel density \autocite{scott_incorporating_1995}.
-  \item
-    image (pixel): \autocite{wegman_pixel_2001}.
-  \item
-    time series: where multivariate values are independently lagged to view peak and trough alignment. Use case is discussed in \autocite{cook_manual_1997}.
-  \end{itemize}
-\item
-  2D geoms
-
-  \begin{itemize}
-  \tightlist
-  \item
-    2D density (available on GitHub at \url{https://github.com/nspyrison/tourr})
-  \item
-    \(XY\) scatterplot
-  \end{itemize}
-\item
-  3D geoms
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Anaglyphs, sometimes called stereo, where red images are positioned for the left channel and cyan for the right when viewed with corresponding filter glasses give a perception of depth to the image.
-  \item
-    Depth, which gives depth cues via aesthetic mappings, most common size and/or color of data points.
-  \end{itemize}
-\item
-  \(d\)-dimensional geoms
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Andrews curves \autocite{andrews_plots_1972}, smoothed variant of parallel coordinate plots, discussed below.
-  \item
-    Chernoff faces \autocite{chernoff_use_1973}, variables linked to the size of facial features. The idea is to apply the human facial-perception for rapid, cursory, like-ness comparisons between observations.
-  \item
-    Parallel coordinate plots {[}\textcite{ocagne_coordonnees_1885}; wegman\_hyperdimensional\_1990{]}, where any number of variables are plotted in parallel with observations linked to their corresponding variable value by polylines.
-  \item
-    Scatterplot matrix (SPLOM) \autocite{chambers_graphical_1983}, showing a triangle matrix of bivariate scatterplots with 1D density on the diagonal.
-  \item
-    Radial glyphs, radial variants of parallel coordinates including radar, spider \autocite{duffin_spiders:_1994}, and star glyphs \autocite{siegel_surgical_1972}.
-  \end{itemize}
-\end{itemize}
+\hypertarget{visualizing-multivariate-data.}{%
+\section{Visualizing multivariate data.}\label{visualizing-multivariate-data.}}
 
-\hypertarget{tour-software}{%
-\subsection{Tour software}\label{tour-software}}
+The work in \textcite{grinstein_high-dimensional_2002} gives a good taxonoy of high-dimensional visualization. We will follow a few example building up to why we conclude with tour methods. boardly speaking, we are concerned with the question ``How can an analyst visualize an arbitrary \(p-\) dimensions?''. To illustrate some of the options for data I use the penguins data\autocite[horst\_palmerpenguins\_2020]{gorman_ecological_2014}. It contains 333 observations of 4 phyical measurements for 3 species of penguins observed near Palm Station, Antarctica.
 
-Tours have yet to be widely adopted, due in part, to the fact that print and static .pdf output does not accommodate dynamic viewing. Conceptual abstraction and technically density have also hampered user growth. Due to low levels of adoption and the rapid advancement of technology support and maintenance of such implementations give them a particularly short life span. Despite the small user base, there have been a fair number of tour implementations, including:
+Viewing as many univariate histograms or density curves is one method. Similarly one could look at all variable pairing as scatter plots. This forms the crux of scatterplot matrices, also known as SPLOM \autocite{chambers_graphical_1983}. In a scatterplot matrix variables are displayed across the columns and row, the diagonal elements show the univariate densities while one or both side of the off diagonals show scatterplot pairs. This is useful for getting a handle on the support and shapes of the variables, but is not going to scale well with dimension and is not a suitable audience-ready display as it is very busy and doesn't draw attention to any one spot. Munzner reminds us to abstract all of the cognitive work out of the visual allowing the audience to focus on seeing the evidence supporting the claim \autocite{munzner_visualization_2014}.
 
-\begin{itemize}
-\tightlist
-\item
-  spinifex \href{https://github.com/nspyrison/spinifex}{github.com/nspyrison/spinifex} -- R package, all platforms.
-\item
-  tourr \autocite{wickham_tourr_2011} -- R package, all platforms.
-\item
-  CyrstalVision \autocite{wegman_visual_2003} -- for Windows.
-\item
-  GGobi \autocite{swayne_ggobi:_2003} -- for Linux and Windows.
-\item
-  DAVIS \autocite{huh_davis:_2002} -- Java based, with GUI.
-\item
-  ORCA \autocite{sutherland_orca:_2000} -- Extensible toolkit built in Java.
-\item
-  VRGobi \autocite{nelson_xgobi_1998} -- for use with the C2, tours in stereoscopic 3D displays.
-\item
-  ExplorN \autocite{carr_explorn:_1996} -- for SGI Unix.
-\item
-  ExploRe \autocite{hardle_xplore:_1995}
-\item
-  XGobi \autocite{swayne_xgobi:_1991} -- for Linux, Unix, and Windows (via emulation).
-\item
-  XLispStat \autocite{tierney_lisp-stat:_1990} -- for Unix and Windows.
-\item
-  Explor4 \autocite{carr_explor4:_1988} -- Four-dimensional data using stereo-ray glyphs.
-\item
-  Prim-9 \autocite{asimov_grand_1985,fisherkeller_prim-9:_1974} -- on an internal operating system.
-\end{itemize}
 
-\hypertarget{research-gaps}{%
-\subsection{Research gaps}\label{research-gaps}}
 
-Dynamic projections offering UCS have not incorporated recent animation frameworks (\textbf{RO \#1}). This leaves the class of dynamic linear projections without the most precise, fine-scale control of rotating \(p\)-space. This should be implemented with an eye on extensibility and maintainability.
+Alternatively we could consider a class of observation-based visual. In parallel coordinate plots \autocite{ocagne_coordonnees_1885} variable are arrange horizontally and observations are connected by lines with the height mapping to the quantile or z-value for each variable. This scales much better with dimensions, but poorly with observations. It also suffers from an asymmetry with the variable order, that is, changing the order of the variable will lead people to very different conclusions. The x axis is also used to display variables rather than the values of the observations. This restricts the amount of information that can be gleaned between variables. Munzner assert that position is the more human-perceptable channel for encoding information; we should like to reserve it for the values of the observations. The same issues persist across other observation-based displays such as radial variants, pixel-oriented visuals, and Chernoff faces {[}\textcite{keim_designing_2000}; chernoff\_use\_1973{]}. These visuals are better suited for the \(n<p\) case where there are more variable than observations.
 
-A comparative study outlining the benefits of UCS vs alternatives is also absent from the literature (\textbf{RO \#2}). The benefits of dynamic linear projections hold in theory, but a direct comparison with popular alternatives should be made. Barriers to adoption and sharing should also be kept in mind as the dynamic display is not easy to display on print and in .pdf documents.
 
-\hypertarget{sec:3d}{%
-\section{Multivariate data visualization in 3D}\label{sec:3d}}
 
-The scope of this research pertains to numeric multivariate data, a wider overview of 3D data visualization is discussed in chapter 2 of \textcite{marriott_immersive_2018}. Terminology for 3D visuals is in the glossary section \ref{sec:terminology}.
+\hypertarget{dimension-reduction}{%
+\section{Dimension reduction}\label{dimension-reduction}}
 
-\hypertarget{a-rocky-start}{%
-\subsection{A rocky start}\label{a-rocky-start}}
+Ultimately, we will need to turn to dimension reduction to create a compelling visuals allowing audiences to focus on signal across multiple variables. Dimension reduction is separated into two categories, linear and non-linear. The linear case spans all affine mathematical transformations, essentially any mapping where parallel lines stay parallel. Non-linear transformations are the complement of that, think transformations with exponents or interacting terms. Examples in low dimension is quite relatable. For instance shadows are examples of linear projections where a 3 dimensional object casts a 2D projection, the shadow. Our vision at one instance in time is also a 2D projection. An example of a non-linear transformation is that of 2D representation of the globe. There are many different ways (and features to optimize) to distort the surface to display as a map. Most common may be rectangular display where space is distorted more and more moving away from the equator.
 
-Scientific visualization has readily adopted mixed realities as a large amount of the science exists in three spatial dimensions, lending itself well to virtual immersion \autocite{marriott_immersive_2018}. Data visualization, on the other hand, has been slow to utilize graphics above 2.5D, (and haptic interaction) primarily due to the mixed results of over-hyped of 3D visuals from the 1980s and '90s \autocite{munzner_visualization_2014}. Since then, however, there have been several promising studies suggesting that it is time for data visualization to revisit and adopt the use of 3D visuals for specific combinations of displays and depth cues.
+In data visualization non-linear techniques often have hyperparameters that effect how the spaces is distorted to fit into lower dimensional space. To quote Anastasios Panagiotelis ``All non-linear projections are wrong, but some are useful'', a play on George Box quote about models. Non-linear technique distort the space in unclear ways, and what is more, they can introduce features not in the data depending on the selection of hyperparameters. It feels like they are necessary, but not sufficient to conclude the existence of a feature, that is, if a non-linear embedding resolves a feature, we shouldn't be certain that it really exists in the data.
 
-\hypertarget{d-rotated-projections-vs-3-2d-orthogonal-projections}{%
-\subsection{3D rotated projections vs 3 2D orthogonal projections}\label{d-rotated-projections-vs-3-2d-orthogonal-projections}}
+Unfortunately there is no free lunch here. An increase in data space will lead a \(p-d\) dimension viewing space in the linear case and an increasing perterbed and distored space in non-linear techniques. The intrinsic dimensionality of data is the number of variables needed to minimally represent the data \autocite{grinstein_high-dimensional_2002}. This is an important aspect of dimension reduction which doesn't have to end in visual, but is also a common part of factor analysis and preprocessing data. Consider a Psychology survey consisting of 100 questions about the Big Five personality traits. The data consists of 100 variables, while the theory would suggest the intrinsic dimensionality is five. The data likely picks up on other aspects and may better be summarized in a 8 or 10 dimensions. If this were the case, reducing the data to this space will be nesicary to gate the exponentially increase view time.
 
-Three orthogonal 2D views can represent the three face-on views of 3D shapes. When 3D representations are used with binocular cues, they are found to have more accurate perception than 2D counterparts \autocite{lee_effects_1986}.
+\hypertarget{tours-animated-linear-projections}{%
+\section{Tours, animated linear projections}\label{tours-animated-linear-projections}}
 
-Between 3D and split view 2D of three-dimensional economics, data \textcite{wickens_implications_1994} asked participants questions integrating several variables, finding that 3D visuals resulted in faster answers when questions involved three dimensions, while the speed was similar when questions involved fewer dimensions.
+A single linear projection is resulting space from the data multiplied by the basis where the basis is an orthogonormal orientation mapping the data space to a lower dimension. A data visualization tour animates many such projections through small changes in the basis. Originally in a \emph{grand} tour \autocite{asimov_grand_1985} several target frames are randomly selected and then interpolated along their geodesic path.
 
-Using 3D rotated projections gives more precise (relative to 2D) estimates of the height a ball is suspended above complex box shapes, while combinations of 2D and 3D give the most precise orientation and positioning information \autocite[depicted in figure \ref{fig:tory06fig}]{tory_visualization_2006}.
 
 
+There are various types of tours that are classified by the generation of their basis paths. A \emph{guided} tour uses simulated annealing to move progressively closer to an objective function in the embedded space\autocite{hurley_analyzing_1990}. A more comprehensive discussion and review of tours can be found in the works of \textcite{cook_grand_2008}; \textcite{lee_review_2021}{]}.
 
-\begin{figure}
+Tours are used for a couple of salient features: maintains transparency back to the original variable space and the persistence data points from frame to frame conveys more information than looking at discrete jumps to other bases. Because of these features tours are a good method to extend the visualization of data space as dimensionality increases.
 
-{\centering \includegraphics[width=0.5\linewidth,]{./figures/tory06fig} 
-
-}
-
-\caption{Screen capture from \textcite{tory_visualization_2006}: ``fig.~1 (a) 2D, (b) 3D Rotated, (c) 3D Shadow, (d) Orientation Icon, and (e) ExoVis displays used in Experiment 1 (position estimation). Participants estimated the height of the ball relative to the block shape. In this example, the ball is at height 1.5 diameters above the block shape.''}\label{fig:tory06fig}
-\end{figure}
-
-\textcite{sedlmair_empirical_2013}, depicted in figure \ref{fig:sedlmair13fig}, asked users about cluster separation across 2D scatterplots, 2D scatterplot matrices (SPLOMs) and interactive 3D scatterplots, PCA (linear projection), and t-SNE (non-linear projection) as viewed in monocular 3D from a standard monitor. They conclude that interactive 3D scatterplots perform worse for class separation. This result is surprising as the extra dimension theoretically allows for the clustering structure to be seen and explored more clearly.
-
-
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures/sedlmair13fig} 
-
-}
-
-\caption{Screen capture of ``figure 5. example of a mesh display'' from \textcite{sedlmair_empirical_2013}: ``fig.~5. (a)-(d): Screenshots of the entangled dataset \texttt{entangled1-3d-3cl-separate} designed to show the most possible benefits for i3D. (a),(b) two viewpoints of the same i3D PCA scatterplot. An accompanying video shows the full 3D rotation. (c) 2D PCA projection. (d) t-SNE untangles this class structure in 2D. (e)-(f): 2D scatterplots of the reduced \texttt{entangled2-15d-adjacent} dataset which we designed to have a ground truth entangled class structure in 15D. (e) Glimmer MDS cannot untangle the classes, neither can PCA and robPCA (see supplemental material). (f) t-SNE nicely untangles and separates the ground truth classes in 2D.''}\label{fig:sedlmair13fig}
-\end{figure}
-
-\hypertarget{comparing-3d-and-2d-embeddings-of-multivariate-data}{%
-\subsection{Comparing 3D and 2D embeddings of multivariate data}\label{comparing-3d-and-2d-embeddings-of-multivariate-data}}
-
-\textcite{nelson_xgobi_1998}, depicted in figure \ref{fig:nelson98fig}, had \(n=15\) participants perform brushing and identification tasks (of clusters, structure, and data dimensionality) in 3D with head-tracked binocular VR. 3D proved to have a substantial advantage for cluster identification and some advantage in identifying the shape. Brushing did take longer in VR, perhaps due to the lower familiarity of manipulating 3D spaces.
-
-
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth,]{./figures/nelson98fig} 
-
-}
-
-\caption{Screen capture from \textcite{nelson_xgobi_1998}: ``figure 4: This is a picture of a 3-D room, running VRGobi. Data is plotted in the center, with painting tools to the right and variable spheres to the left. In the viewing box, the data can be seen to contain three clusters, and one is being brushed.''}\label{fig:nelson98fig}
-\end{figure}
-
-Another study, \textcite{gracia_new_2016} performed dimensionality reduction down to 2- and 3D scatterplots, both displayed in monocular 3D on a standard monitor. Users were found to more accurately compare distances between points and identify outliers on 3D scatterplots. However, both tasks were performed slower with the use of the 3D scatterplots and statistical significance was not reported.
-
-\textcite{wagner_filho_immersive_2018}, depicted in figure \ref{fig:wagner18fig}, performed an \(n=30\) empirical study on PCA embedded projections, measuring perception error across 4 tasks and 3 display types: 2D, static 3D, and immersive 3D. Overall task error was less in static and immersive 3D relative to 2D. According to the user Likert-scale survey, 2D is slightly easier to navigate and slightly more comfortable, while, static and immersive 3D displays are slightly easier to interact with and moderately easier to find information on.
-
-
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth,]{./figures/wagner18fig} 
-
-}
-
-\caption{Screen capture from \textcite{wagner_filho_immersive_2018}, original captions contained in the capture.}\label{fig:wagner18fig}
-\end{figure}
-
-\hypertarget{immersive-analytics-platform-in-vr}{%
-\subsection{Immersive analytics platform in VR}\label{immersive-analytics-platform-in-vr}}
-
-Immersive analytics is an emerging field, where data visualization and analysis is facilitated in an intuitive, immersive virtual reality environment \autocite{chandler_immersive_2015,cordeil_immersive_2017}. An example of which is shown in \textcite{cordeil_imaxes:_2017} introduces a collaborative space for immersive data analysis. Where axes are displayed and intuitively interacted with while responding to proximity to other variable axes and popping into place changing the resulting geometric display. For example, three variables can be placed as the \(x,~y,~z-\) axes for a 3D scatterplot or stood up right next to each other for a parallel coordinate plot. The subsequent work in \textcite{cordeil_iatk:_2019} builds from the previous reference and refines it for the next iteration in interactive, scalable data visualization in virtual spaces.
-
-
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth,]{./figures/cordeil2017fig} 
-
-}
-
-\caption{Screen capture of figure 15 from \textcite{cordeil_imaxes:_2017}.}\label{fig:cordeil2017fig}
-\end{figure}
-
-\hypertarget{research-gaps-1}{%
-\subsection{Research gaps}\label{research-gaps-1}}
-
-When comparing between 2- and 3D orthogonal views, in general, studies show that perception accuracy is better in 3D, though manipulation speed is generally slower. The speed discrepancy is confounded by the difference in users familiar with manipulating 2D vs 3D spaces \autocites{lee_effects_1986,wickens_implications_1994,tory_visualization_2006}[counterexample][]{sedlmair_empirical_2013}.
-
-Similar results have been shown in static, 3D projected spaces \autocite{gracia_new_2016,wagner_filho_immersive_2018} and in dynamic 2D embedded spaces depicted in immersive 3D \autocite{nelson_xgobi_1998}. Modern VR hardware brings about a steady improvements to quality, resolution while driving down cost, making VR more easily accessible than ever. It's timely to review dynamic 3D projections and do so in immersive spaces to quantify the corresponding benefits (\textbf{RO \#3 \& 4}).
+The work below covers manual tours \autocite{cook_manual_1997,spyrison_spinifex_2020} in Chapter \ref{ch:spinifex}. Radial tours are one type of manual tour that where the contribution of one variable is extended radially to a full contribution, removed completely, then restored to its original contribution. In Chapter \ref{ch:efficacy_radial_tour} compares the efficacy of the radial tour as compared with PCA and the grand tour in a user study. Lastly, Chapter \ref{ch:cheem} extends the use of the radial tour to evaluate the local explanation of black-box models.
 
 \hypertarget{ch:spinifex}{%
 \chapter{spinifex: An R Package for Creating a Manual Tour of Low-dimensional Projections of Multivariate Data}\label{ch:spinifex}}
@@ -623,15 +388,6 @@ The flea data (\textcite{lubischew_use_1962}), available in the \{tourr\} packag
 
 An initial 2D projection basis must be provided. A suggested way to start is to identify an interesting projection using a projection pursuit guided tour. Here the holes index is used to find a 2D projection of the flea data, which shows three separated species groups. Figure \ref{fig:ch3fig1} shows the initial projection of the data. The left panel displays the projection basis (\(\textbf{B}\)) and can be used as a visual guide of the magnitude and direction that each variable contributes to the projection. The right panel shows the projected data, \(\textbf{Y}_{[n,~2]} ~=~ \textbf{X}_{[n,~p]} \textbf{B}_{[p,~2]}\). The color and shape of points are mapped to the flea species. This plot is made using the \texttt{view\textbackslash{}\_basis()} function in \{spinifex\}, which generates a \{ggplot2\} \autocite{wickham_ggplot2_2016} object.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig1_biplot} 
-
-}
-
-\caption{Biplot of the initial 2D projection: representation of the basis (left) and resulting data projection (right) of standardized flea data. The color and shape of data points are mapped to the species of flea beetle. The basis was produced by a projection pursuit guided tour, with the holes index. The contribution of the variables aede2 and tars1 approximately contrasts the other variables. The visible structure in the projection are the three clusters corresponding to the three species.}\label{fig:ch3fig1}
-\end{figure}
-
 \hypertarget{step-1-choose-manip-variable}{%
 \subsubsection{Step 1) Choose manip variable}\label{step-1-choose-manip-variable}}
 
@@ -649,15 +405,6 @@ Initialize the coordinate basis vector as a zero vector, \(\textbf{e}\), of leng
 \end{align*}
 
 The manip space provides a 3D projection from \(p\)-dimensional space, where the coefficient of the manip var can range completely between {[}0, 1{]}. This 3D space serves as the medium to rotate the projection basis relative to the selected manipulation variable. Figure \ref{fig:ch3fig2} illustrates this 3D manip space with the manip var highlighted. This representation is produced by calling the \texttt{view\textbackslash{}\_manip\textbackslash{}\_space()} function. This diagram is purely used to help explain the algorithm.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig2_manip_sp} 
-
-}
-
-\caption{Illustration of a 3D manip space, the projection plane is shown as blue circle extending into and out of the display. A manipulation direction is initalized, the red circle, orthogonal to the projection plane. This allows the selected variable, aede2, a means to change it's contribution back to the projection plane. The other variables contributions rotate into this space as well, preserving the orthagonal structure, but are omitted in the manipulation dimension for simplicity.}\label{fig:ch3fig2}
-\end{figure}
 
 \hypertarget{step-3-defining-a-3d-rotation}{%
 \subsubsection{Step 3) Defining a 3D rotation}\label{step-3-defining-a-3d-rotation}}
@@ -724,15 +471,6 @@ Rotations in 3D can be defined by the axes they pivot on. Rotation within the pr
 
 The steps outlined above can be used to create any arbitrary rotation in the manip space. To use these for sensitivity analysis, the radial rotation is built into an animation where the manip var is rotated fully into the projection, completely out, and then back to the initial value. This involves allowing \(\phi\) to vary between \(0\) and \(\pi/2\), call the steps \(\phi_i\).
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig3_filmstrip} 
-
-}
-
-\caption{Select frames highlight the animation of a radial manual tour manipulating aede2: (1) original projection, (2) full contribution, (3) zero contribution, before returning to the original original contribution.}\label{fig:ch3fig3}
-\end{figure}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -792,33 +530,6 @@ The \{spinifex\} is available from CRAN, and can be installed by:
 
 Table \ref{tab:functionsTable} lists the primary functions and their purpose. These are grouped into four types: construction for building a tour path, render to make the plot objects, animation for running the animation, and specialty for providing illustrations used in the algorithm description.
 
-\begin{table}
-
-\caption{\label{tab:functionsTable}Summary of available functions.}
-\centering
-\begin{tabular}[t]{lll}
-\toprule
-Type & Function & Description\\
-\midrule
-construction & create\_manip\_space & forms the 3D space of rotation\\
-construction & rotate\_manip\_space & performs 3D rotation\\
-construction & manual\_tour & generates sequence of 2D frames\\
- &  & \\
-render & array2df & turn the tour path array into long form, for plotting\\
-render & render\_ & render long form as a ggplot2 objection for animation\\
-render & render\_plotly & render the animation as a plotly object (default)\\
-render & render\_gganimate & render the animation as a gganimate object\\
- &  & \\
-animation & play\_tour\_path & composite function animating the specified tour path\\
-animation & play\_manual\_tour & composite function animating the specified manual tour\\
- &  & \\
-specialty & print\_manip\_space & table of the rotated basis and manip space\\
-specialty & oblique\_frame & display the reference axes of a given basis\\
-specialty & view\_manip\_space & illustrative display of any manip space\\
-\bottomrule
-\end{tabular}
-\end{table}
-
 \hypertarget{sec:usage}{%
 \subsection{Usage}\label{sec:usage}}
 
@@ -858,48 +569,12 @@ The jet cluster resides in a smaller dimensionality than the full set of experim
 
 When PC4 is removed from the projection (Figure \ref{fig:ch3fig4}) the difference between the two groups is removed, indicating that it is important for distinguishing experiments. However, removing PC3 from the projection (Figure \ref{fig:ch3fig5}) does not affect the structure, indicating it is not important for distinguishing experiments. Animations for the remaining PCs can be viewed at the following links: \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc1.gif}{PC1}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc2.gif}{PC2}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc3.gif}{PC3}, and \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc4.gif}{PC4}. It can be seen that only PC4 is important for viewing the difference in these two experiments.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig4_jet_better_pc4} 
-
-}
-
-\caption{Select frames from a radial tour of PC4 within the jet cluster, with color indicating experiment type: ATLAS7new (green) and ATLAS7old (orange). When PC4 is removed from the projection (frame 10) there is little difference between the clusters, suggesting that PC4 is important for distinguishing the experiments.}\label{fig:ch3fig4}
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig5_jet_worse_pc3} 
-
-}
-
-\caption{Frames from the radial tour manipulating PC3 within the jet cluster, with color indicating experiment type: ATLAS7new (green) and ATLAS7old (orange).  When the contribution from PC3 is changed there is little change in the separation of the clusters, suggesting that PC3 is not important for distinguishing the experiments.}\label{fig:ch3fig5}
-\end{figure}
-
 \hypertarget{dis-cluster}{%
 \subsection{DIS cluster}\label{dis-cluster}}
 
 Following \textcite{cook_dynamical_2018}, to explore the DIS cluster, PCA is recomputed and the first six principal components, explaining 48\% of the full sample variation, are used. The contributions of PC6 and PC2 are explored in Figures \ref{fig:ch3fig6} and \ref{fig:ch3fig7}, respectively. Three experiments are examined: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange).
 
 Both PC2 and PC6 contribute to the projection similarly. When PC6 is rotated into the projection, variation in the DIS HERA1+2 is greatly reduced. When PC2 is removed from the projection, dimuon SIDIS becomes more clearly distinct. Even though both variables contribute similarly to the original projection, their contributions have quite different effects on the structure of each cluster, and the distinction between clusters. Animations of all of the principal components can be viewed from the links: \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc1.gif}{PC1}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc2.gif}{PC2}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc3.gif}{PC3}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc4.gif}{PC4}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc5.gif}{PC5}, and \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc6.gif}{PC6}.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig6_DIS_better_pc6} 
-
-}
-
-\caption{Select frames from a radial tour exploring the sensitivity that PC6 has on the structure of the DIS cluster, with color indicating experiment type: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange). DIS HERA1+2 is distributed in a cross-shaped plane, charm SIDIS occupies the center of this cross, and dimuon SIDIS is a linear cluster crossing DIS HERA1+2. As the contribution of PC6 is increased, DIS HERA1+2 becomes almost singular in one direction (frame 5), indicating that this cluster has very little variability in the direction of PC6.}\label{fig:ch3fig6}
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig7_DIS_worse_pc2} 
-
-}
-
-\caption{Frames from the radial tour exploring the sensitivity PC2 to the structure of the DIS cluster, with color indicating experiment type: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange). As contribution from PC2 is decreased, dimuon SIDIS becomes more distinguishable from the other two clusters, indicating that in its absence PC2 is important for separating this cluster from the others.}\label{fig:ch3fig7}
-\end{figure}
 
 \hypertarget{sec:discussion}{%
 \section{Discussion}\label{sec:discussion}}
@@ -922,6 +597,8 @@ This article was created in R, using \{knitr\} \autocite{xie_knitr_2020} and \{r
 \hypertarget{ch:efficacy_radial_tour}{%
 \chapter{The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections}\label{ch:efficacy_radial_tour}}
 
+THIS CHAPTER IS CURRENTLY BEING EDITED IN IT's OWN REPOSITORY, THIS VERSION IS OUT OF DATE.
+
 TODO:XXX Segue. Bring over abstract?
 
 \hypertarget{introduction-1}{%
@@ -943,15 +620,6 @@ The paper is structured as follows. Section \ref{sec:background} provides the ba
 \subsection{Principal component analysis}\label{principal-component-analysis}}
 
 Principal component analysis is a good baseline of comparison for linear projections because of its frequent and broad use across disciplines. Principal component analysis \autocite[PCA,][]{pearson_liii._1901} creates new components that are linear combinations of the original variables. The creation of these variables is ordered by decreasing variation which is orthogonally constrained to all previous components. While the full dimensionality is intact, the benefit comes from the ordered nature of the components. The first 2 or 3 components are typically used to approximate the variation multivariate data set, while the rest are discarded.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch4_fig1_pca_splom} 
-
-}
-
-\caption{Scatterplot matrix of the first 3 principal components for simulated data. Traditional multivariate visualization of *data*-space involes static display of the first several principal components.}\label{fig:ch4fig1}
-\end{figure}
 
 \hypertarget{scatterplot-matrix}{%
 \subsection{Scatterplot matrix}\label{scatterplot-matrix}}
@@ -988,15 +656,6 @@ The three methods were examined for three different cluster shapes, using differ
 \subsection{Experimental factors}\label{sec:blocks}}
 
 In addition to visual factor, we vary the data across 3 aspects: 1) The \emph{location} of the difference between clusters, by mixing a signal and a noise variable at different ratios, we vary the number of variables and their magnitude of cluster separation, 2) the \emph{shape} of the clusters, to reflect different distributions of the data, and 3) the \emph{dimension}-ality of the data.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch4_fig2_exp_factors} 
-
-}
-
-\caption{Illustration of the experimental factors: visualization factor, the variable location of the cluster separationm, the shape of the clusters, and the dimensionality (and clusters) of the data.}\label{fig:ch4fig2}
-\end{figure}
 
 The \emph{location} of the separation of the clusters is a crucial aspect of analysis, it is the variables or combination their of that is important to the explanation of the structure. To test the sensitivity to this we mix a noise-variable with the signal-containing variable such that the difference in the clusters is mixed at the following percentages: 0/100\% (not mixed), 33/66\%, 50/50\% (evenly mixed).
 
@@ -1042,15 +701,6 @@ W_{j} &=\frac
 
 where \(I\) is the indicator function. Then the total marks for this task is the sum of this marks vector. We use the time till the last response as a secondary dependent variable \(Y_2\).
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch4_fig3_accuracy_measure} 
-
-}
-
-\caption{(L), PCA biplot of the components showing the most cluster separation with (R) illustration of the magnitude of cluster separation is for each variable (wide bar) and the weight of the marks given if a variable is selected (red/green line). The horizontal dashed line is 1 / dimensionality, the amount of separation each variable would have if evenly distributed. The weights equal the signed square of the difference between each variable value and the dashed line.}\label{fig:ch4fig3}
-\end{figure}
-
 \hypertarget{sec:standardization}{%
 \subsection{Visual design standardization}\label{sec:standardization}}
 
@@ -1081,15 +731,6 @@ We section the study into 3 periods, each period is linked to a randomized level
 The period starts with an untimed training task at the simplest remaining block parameterization; location = 0/100\%, shape = EEE, and 4 dimensions with 3 clusters. This serves to introduce and familiarize participants with input and visual differences. After the training, the participant is evaluated on 2 tasks with the same factor * location level, across the increasing difficulty of dimension * shape. These evaluations removed the plot after 60 seconds, though this limit was rarely reached by participants.
 
 The order of the levels of the factor and location is randomized with a nested Latin square where all levels of factor are exhausted before advancing to the next level of location. That means we need \(3!^2 = 36\) participants to perform a full block evaluation. This randomization is important to control for any potential learning effects the participant may receive. Figure \ref{fig:ch4fig4} illustrates how an arbitrary participant experiences the experimental factors.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch4_fig4_randomization_MANUAL} 
-
-}
-
-\caption{Illustration of the nested latin square and how a hypothetical participant 63 is assigned factor and block parameterizations. Each of the 6-factor permutations is exhausted before iterating to the next permutation of location.}\label{fig:ch4fig4}
-\end{figure}
 
 Through pilot studies sampled by convenience (information technology and statistics Ph.D.~students attending Monash University), we predict that we need 3 full evaluations to properly power our study; we set out to crowdsource \(N = 3 * 3!^2 = 108\) participants.
 
@@ -1144,57 +785,12 @@ In building a set of models to test we include all single term models, a model w
 \end{array}
 \]
 
-\begin{verbatim}
-## # A tibble: 5 x 8
-##   `Fixed effects` `No. levels` `No. terms` AIC    BIC    `R2 cond. (on RE)` `R2 marg. (w/o RE)` RMSE   
-##   <chr>                  <int>       <int> <chr>  <chr>  <chr>              <chr>               <chr>  
-## 1 a                          1           3 *1000* *1027* 0.18               0.022               0.462  
-## 2 a+b+c+d                    4           8 1026   1075   0.187              0.03                0.46   
-## 3 a*b+c+d                    5          12 1036   1103   0.198              0.043               0.457  
-## 4 a*b*c+d                    8          28 1069   1207   0.238              0.08                0.447  
-## 5 a*b*c*d                   15          54 1125   1380   *0.255*            *0.115*             *0.438*
-\end{verbatim}
-
-\begin{verbatim}
-##                      Estimate Std. Error    df t value Pr(>|t|)    
-## (Intercept)             -0.12       0.08  43.9   -1.50     0.14    
-## fct=grand                0.15       0.09 622.4    1.74     0.08    
-## fct=radial               0.37       0.09 617.1    4.18     0.00 ***
-## loc=33_66                0.17       0.09  83.2    1.78     0.08    
-## loc=50_50                0.14       0.09  84.8    1.52     0.13    
-## shp=EEV                  0.04       0.06  11.5    0.79     0.44    
-## shp=ban                 -0.03       0.06  11.5   -0.48     0.64    
-## dim=6                   -0.06       0.05  11.5   -1.39     0.19    
-## fct=grand:loc=33_66     -0.06       0.13 587.3   -0.49     0.63    
-## fct=radial:loc=33_66    -0.34       0.13 585.2   -2.65     0.01  **
-## fct=grand:loc=50_50     -0.09       0.13 589.6   -0.68     0.50    
-## fct=radial:loc=50_50    -0.19       0.13 574.3   -1.43     0.15
-\end{verbatim}
-
 We also want to visually explore the conditional variables in the model. Figure \ref{fig:ch4fig5} explores violin plots of marks by factor while faceting on the location (vertical) and shape (horizontal). Radial tends to increase the marks received, and especially so when there is no signal/noise mixing.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch4_fig5_ABcd_violins} 
-
-}
-
-\caption{Violin plots of terms of the model $\widehat{Y_1} = \alpha * \beta + \gamma + \delta$. Overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests suitable for handling discrete data. Participants are more confident and find the radial easier to use relative to the grand tour. Participants claim low familiarity as we expect from crowdsourced participants. Radial is more preferred compared with either alternative for this task.}\label{fig:ch4fig5}
-\end{figure}
 
 \hypertarget{subjective-measures}{%
 \subsection{Subjective measures}\label{subjective-measures}}
 
 The 84 evaluations of the post-study survey also collect 4 subjective measures for each factor. Figure \ref{fig:ch4fig6} shows the Likert plots, or stacked percentage bar plots, alongside violin plots with the same non-parametric, ranked sum tests previously used. Participants preferred to use radial for this task. Participants were also more confident of their answers and found radial tours easier to use compared with the grand tour. All factors have reportedly low familiarity something we expect from crowdsourced participants.
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch4_fig6_subjective_measures} 
-
-}
-
-\caption{The subjective measures of the 84 responses of the post-study survey, 5 discrete Likert scale levels of aggrement. (L) Likert plots (stacked percent bar plots) with (R) violin plots of the same measures. Violin plots are overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests.}\label{fig:ch4fig6}
-\end{figure}
 
 \hypertarget{sec:conclusion}{%
 \section{Conclusion}\label{sec:conclusion}}
@@ -1223,7 +819,7 @@ This research was supported by an Australian Government Research Training Progra
 \hypertarget{ch:cheem}{%
 \chapter{Application of the radial tour to model-agnostic local explanations}\label{ch:cheem}}
 
-TODO:XXX Segue.
+THIS CHAPTER IS CURRENTLY BEING EDITED IN IT's OWN REPOSITORY, THIS VERSION IS OUT OF DATE.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1246,15 +842,27 @@ TODO:XXX Segue.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "_ch3_spinifex.r"                   "_ch4_efficacy_radial_tour.r"       "_ch5_cheem.r"                     
-##  [4] "ch3_fig1_biplot.pdf"               "ch3_fig2_manip_sp.pdf"             "ch3_fig3_filmstrip.pdf"           
-##  [7] "ch3_fig4_jet_better_pc4.pdf"       "ch3_fig5_jet_worse_pc3.pdf"        "ch3_fig6_DIS_better_pc6.pdf"      
-## [10] "ch3_fig7_DIS_worse_pc2.pdf"        "ch4_fig1_pca_splom.pdf"            "ch4_fig2_exp_factors.pdf"         
-## [13] "ch4_fig3_accuracy_measure.pdf"     "ch4_fig4_randomization_MANUAL.png" "ch4_fig5_ABcd_violins.pdf"        
-## [16] "ch4_fig6_subjective_measures.pdf"  "ch4_figX_demographic_heatmap.pdf"  "ch4_tab1_model_comp_ls.rds"       
-## [19] "ch4_tab2_model_coef_ls.rds"        "ch4_util_funcs.r"                  "ch5_fig1_shap_distr_bd.pdf"       
-## [22] "ch5_fig2_global_space.pdf"         "ch5_fig3_cheem_initial_bas.pdf"    "ch5_fig4_cheem_endpts.pdf"
+##  [1] "_ch2_motivation.r"                 "_ch3_spinifex.r"                   "_ch4_efficacy_radial_tour.r"      
+##  [4] "_ch5_cheem.r"                      "ch2_fig1_penguin_splom.pdf"        "ch2_fig2_penguin_pcp.pdf"         
+##  [7] "ch3_fig1_biplot.pdf"               "ch3_fig2_manip_sp.pdf"             "ch3_fig3_filmstrip.pdf"           
+## [10] "ch3_fig4_jet_better_pc4.pdf"       "ch3_fig5_jet_worse_pc3.pdf"        "ch3_fig6_DIS_better_pc6.pdf"      
+## [13] "ch3_fig7_DIS_worse_pc2.pdf"        "ch4_fig1_pca_splom.pdf"            "ch4_fig2_exp_factors.pdf"         
+## [16] "ch4_fig3_accuracy_measure.pdf"     "ch4_fig4_randomization_MANUAL.png" "ch4_fig5_ABcd_violins.pdf"        
+## [19] "ch4_fig6_subjective_measures.pdf"  "ch4_figX_demographic_heatmap.pdf"  "ch4_tab1_model_comp_ls.rds"       
+## [22] "ch4_tab2_model_coef_ls.rds"        "ch4_util_funcs.r"                  "ch5_fig1_shap_distr_bd.pdf"       
+## [25] "ch5_fig2_global_space.pdf"         "ch5_fig3_cheem_initial_bas.pdf"    "ch5_fig4_cheem_endpts.pdf"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tryCatch}\NormalTok{(}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"./figures\_from\_script/ch5\_fig1\_shap\_distr\_bd.pdf"}\NormalTok{),}
+         \AttributeTok{error=}\ControlFlowTok{function}\NormalTok{(e)e)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=1\linewidth,]{./figures_from_script/ch5_fig1_shap_distr_bd} \end{center}
+
+TODO:XXX Segue.
 
 \hypertarget{sec:intro}{%
 \section{Introduction}\label{sec:intro}}
@@ -1335,116 +943,31 @@ For transparency and reproducibility, the source files are made available at \hr
 \DocumentationTok{\#\# At one point chap5/cheem images we not working make sure the stop gap is reverted here.}
 \NormalTok{knitr}\SpecialCharTok{::}\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{(}
   \AttributeTok{eval =} \ConstantTok{TRUE}\NormalTok{)}
-
-\StringTok{"Error on first evalauated include\_image, yet, directory clearly sees them in the right spot..."}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] "Error on first evalauated include_image, yet, directory clearly sees them in the right spot..."
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{dir}\NormalTok{(}\StringTok{"./figures\_from\_script/"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1] "_ch3_spinifex.r"                   "_ch4_efficacy_radial_tour.r"       "_ch5_cheem.r"                     
-##  [4] "ch3_fig1_biplot.pdf"               "ch3_fig2_manip_sp.pdf"             "ch3_fig3_filmstrip.pdf"           
-##  [7] "ch3_fig4_jet_better_pc4.pdf"       "ch3_fig5_jet_worse_pc3.pdf"        "ch3_fig6_DIS_better_pc6.pdf"      
-## [10] "ch3_fig7_DIS_worse_pc2.pdf"        "ch4_fig1_pca_splom.pdf"            "ch4_fig2_exp_factors.pdf"         
-## [13] "ch4_fig3_accuracy_measure.pdf"     "ch4_fig4_randomization_MANUAL.png" "ch4_fig5_ABcd_violins.pdf"        
-## [16] "ch4_fig6_subjective_measures.pdf"  "ch4_figX_demographic_heatmap.pdf"  "ch4_tab1_model_comp_ls.rds"       
-## [19] "ch4_tab2_model_coef_ls.rds"        "ch4_util_funcs.r"                  "ch5_fig1_shap_distr_bd.pdf"       
-## [22] "ch5_fig2_global_space.pdf"         "ch5_fig3_cheem_initial_bas.pdf"    "ch5_fig4_cheem_endpts.pdf"
-\end{verbatim}
 
 \hypertarget{ch:conclusion}{%
 \chapter{Conclusion}\label{ch:conclusion}}
 
-TODO: XXX
+In Chapter \ref{ch:spinifex} we discussed \textbf{spinifex}. How its facilitate the preprocessing transformations with \texttt{scale\_*} functions, identifies features with \texttt{basis\_*} functions, and creates manual tours. It creates a framework for layered creation of tour visuals with \texttt{proto\_*} fucntions that will feel at home to \textbf{ggplot2} users. Manual tours and those created from \textbf{tourr} can be rendered and exported as interactive HTML widgets, .gif or .mp4 files. It has been downloaded over 14400 times from CRAN between 09 April 2019 and 28 November 2021. my contributions \textbf{spinifex} and \textbf{tourr} won the ACEMS Impact and Engagement Award, 2018.
 
-\appendix
+Chapter \ref{ch:ch:efficacy_radial_tour} dicussed the
 
-\hypertarget{ch:glossary}{%
-\chapter{Glossary}\label{ch:glossary}}
+\hypertarget{futher-extensions}{%
+\section{Futher extensions}\label{futher-extensions}}
 
-\hypertarget{sec:notation}{%
-\section{Notation}\label{sec:notation}}
+\hypertarget{other-contributions}{%
+\section{Other contributions:}\label{other-contributions}}
 
-Tour notation varies across articles and authors. In my work, I use the following:
-
-\begin{itemize}
-\tightlist
-\item
-  \(n\), number of observations in the data.
-\item
-  \(p\), number of numeric variables, the dimensionality of data space.
-\item
-  \(d\), the dimensionality of projection space.
-\item
-  \(\textbf{X}_{[n,~p]}\), a data matrix in variable-space, \(\textbf{X} \in \mathbb{R}^{p}\). Typically centered, scaled, and optionally sphered.
-\item
-  \(\textbf{A}_{[p,~d]}\), an orthonormal matrix (columns are independant, at right angles with eachother and each normalized to a length of 1). This is the linear combination of variables from the orignal space to a lower embedding space. That is, the orientation of the variables, mapping from \(p-\) to \(d-\)space.
-\item
-  \(\textbf{Y}_{[n,~d]}\), projected data matrix in projection-space, \(\textbf{Y} \in \mathbb{R}^{d}\).
-
-  \begin{itemize}
-  \tightlist
-  \item
-    In chapter
-  \end{itemize}
-\item
-  Reference axes, a display showing how each variables coefficient(s) contribute to a projection. Either on its own axis (1D) or relative to a unit circle (2D).
-\item
-  Geometric objects are referred to in generalized dimensions; the use of the term plane is not necessarily a 2D surface, but a hyperplane in the arbitrary dimensions of the projection space.
-\end{itemize}
-
-\hypertarget{sec:terminology}{%
-\section{Data visualization terminology}\label{sec:terminology}}
+In addition to the research discussed around the central theme of the radial tour I have a number of other notable contributions including:
 
 \begin{itemize}
 \tightlist
 \item
-  2D - representation of data in 2 dimensions, without the use of depth perception cues and minimal aesthetic mapping (such as color, size, and height) to data points.
+  \emph{``Is IEEE VIS that good?'' On key factors in the initial assessment of manuscript and venue quality} \autocite{spyrison_is_2021}, A survey IEEE VIS authors, how they source articles, decide which to read, and evaluate venue quality. We find low evidence that sentiment changes with across acedemic position for these topics and provide commentary and discussion on the effects of ``publish or perish'' environment, standard author and journal metrics, and the need to publish ``null finding'' and replication studies.
 \item
-  2.5D - following the definition given in \textcite{ware_designing_2000}: visualizations that are essentially 2D but select depth cues are used to provide some suggestion of 3D. However, the term 2.5D is commonly used for several meanings \emph{due to the ambiguous use of 2.5D, this document errs on the side stating 3D with descriptions of depth cues used}.
-\item
-  3D - visualizations of 3 dimensions with liberal use of depth cues unless otherwise qualified.
-\item
-  Depth perception cues - an indication that indicates the depth to an observer, including:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    linear perspective - the property of parallel lines converging on a vanishing point.
-  \item
-    aerial perspective - objects that far away have lower contrast and color saturation due to light scattering in the atmosphere.
-  \item
-    occultation (or interposition) - where closer objects partially block the view of further objects.
-  \item
-    motion perspective/parallax - closer objects, move across the field of view faster than further objects.
-  \item
-    accommodation - the change of focal length due to change in the shape of the eye. Effective for distances of less than 2 meters.
-  \item
-    binocular stereopsis/disparity - the use of 2 images of slightly varied angles from the horizontal distance of the eyes. The disparity for distant objects is small, but it is significant for nearby objects.
-  \item
-    binocular convergence - The ocular-motor cue due to stereopsis focusing on the same objects. Convergence is effective for distances up to 10 meters.
-  \end{itemize}
-\item
-  Virtual reality (VR) - an immersive experience of computer-generated sensory input.
-\item
-  Augmented reality (AR) - view of physical spaces with augmenting/ supplementing sensory input of information.
-\item
-  Mixed reality (MR) - a mix of physical and virtual realities with objects from both interacting in real time. This differs from AR by the flow of interaction; AR augments physical reality while MR has reciprocating interactions.
-\item
-  Extended reality (XR) - any degree of virtual, augmented, or mixed reality.
-\item
-  Scatterplot matrices (SPLOMs) - matrix display of pair-wise 2D scatterplots, sometimes with 1D density on the diagonal.
-\item
-  Human-in-the-loop - any model that requires human interaction \autocite{karwowski_international_2006}.
+  \emph{Intraday effect of COVID-19 restrictions on Melbourne electricity consumption} \autocite{barrow_changes_2020}, We corroborate that the Victorian interday effect on energy consumption did not change, and novely find that the intraday distribution of energy consumption does change. Namely we find a statistically significant change in the height of the morning and evening peak energy consumption. We were awarded 1st place of hundreds of entries in the insights category of the Melbourne 2020 Datathon.
+  -Student volunteering at conferences: UseR!2021 - Online, CHI Down Under 2020 - Online, and UseR!2018 - Brisbane, Australia
 \end{itemize}
 
 \printbibliography[heading=bibintoc]

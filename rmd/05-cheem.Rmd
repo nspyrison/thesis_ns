@@ -3,12 +3,12 @@ chapter: 5
 knit: "bookdown::render_book"
 ---
 ```{r, include=FALSE}
-## Most recent content in `cheem_paper`:
+##NOTE: Most recent content in repo: `cheem_paper`:
 ```
 
 # Application of the radial tour to model-agnostic local explanations {#ch:cheem}
 
-TODO:XXX Segue.
+THIS CHAPTER IS CURRENTLY BEING EDITED IN IT's OWN REPOSITORY, THIS VERSION IS OUT OF DATE.
 
 ```{r, echo = TRUE,eval = TRUE}
 knitr::opts_chunk$set(
@@ -17,7 +17,11 @@ knitr::opts_chunk$set(
 
 "Error on first evalauated include_image, yet, directory clearly sees them in the right spot..."
 dir("./figures_from_script/")
+tryCatch(include_graphics("./figures_from_script/ch5_fig1_shap_distr_bd.pdf"),
+         error=function(e)e)
 ```
+
+TODO:XXX Segue.
 
 ## Introduction {#sec:intro}
 <!-- WHAT TOPICS -->
@@ -62,9 +66,7 @@ We use FIFA soccer data [@leone_fifa_2020] to explain SHAP values. We use 5000 p
 We have trained a random forest model and wish to further explore the weightings of this non-linear model. Following the work in [@biecek_dalex_2018; @biecek_explanatory_2021] we can similarly extract SHAP values, highlighting that different skills are valued differently across player positions within the model. We also show "break down" profiles, that is additive prediction explanations, how much of each player's predicted wages is added by each of the skill evaluations. Figure \@ref(fig:ch5fig1) takes a look at the SHAP and break down profiles of a star offensive and defensive player.
 
 ```{r ch5fig1, echo=FALSE, out.width = "100%", fig.align='center', fig.cap = "SHAP values and prediction explanations of an offensive player (Messi, top) and a defensive player (van Dijk). SHAP values show a change in weights at the location of each player. Break down profiles show one order-sensitive explanation for the prediction of that observation."}
-dir(".")
-dir("./figures_from_script/")
-#knitr::include_graphics("./figures_from_script/ch5_fig1_shap_distr_bd.pdf")
+knitr::include_graphics("./figures_from_script/ch5_fig1_shap_distr_bd.pdf")
 ```
 
 <!-- Explanation of the wage, SHAP, and breakdown profiles. -->

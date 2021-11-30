@@ -7,6 +7,8 @@ editor_options:
 
 # The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections {#ch:efficacy_radial_tour}
 
+THIS CHAPTER IS CURRENTLY BEING EDITED IN IT's OWN REPOSITORY, THIS VERSION IS OUT OF DATE.
+
 <!-- current draft title: -->
 <!-- # A study examining the benefit of the -->
 <!-- user-controlled radial tour for -->

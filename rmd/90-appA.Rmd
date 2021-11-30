@@ -1,3 +1,4 @@
+<!--
 ---
 knit: "bookdown::render_book"
 ---
@@ -22,7 +23,7 @@ Tour notation varies across articles and authors. In my work, I use the followin
 * Reference axes, a display showing how each variables coefficient(s) contribute to a projection. Either on its own axis (1D) or relative to a unit circle (2D).
 * Geometric objects are referred to in generalized dimensions; the use of the term plane is not necessarily a 2D surface, but a hyperplane in the arbitrary dimensions of the projection space.
 
-
+<!-- 
 ## Data visualization terminology {#sec:terminology}
 
 * 2D - representation of data in 2 dimensions, without the use of depth perception cues and minimal aesthetic mapping (such as color, size, and height) to data points.
@@ -41,4 +42,87 @@ Tour notation varies across articles and authors. In my work, I use the followin
 * Mixed reality (MR) - a mix of physical and virtual realities with objects from both interacting in real time. This differs from AR by the flow of interaction; AR augments physical reality while MR has reciprocating interactions.
 * Extended reality (XR) - any degree of virtual, augmented, or mixed reality.
 * Scatterplot matrices (SPLOMs) - matrix display of pair-wise 2D scatterplots, sometimes with 1D density on the diagonal.
-* Human-in-the-loop - any model that requires human interaction [@karwowski_international_2006].
+* Human-in-the-loop - any model that requires human interaction [@karwowski_international_2006]. -->
+
+<!--
+### Notation {#sec:terminology_tours}
+Notation moved to appendix A in 90-appA.Rmd.
+
+### History
+
+The first tour was introduced was the *grand tour* in @asimov_grand_1985 at the Stanford Linear Accelerator, Stanford University. Asimov suggested three types of grand tours: torus, at-random, and random-walk. The original application of tours was performed on high energy physics on the PRIM-9 system.
+
+Before choosing projection paths randomly, an exhaustive search of $p-$space was suggested by @mcdonald_interactive_1982, also at the Stanford Linear Accelerator. This was later coined *little tour*.
+<!-- Buja and Asimov were in the acknowledgments.
+
+@friedman_projection_1974 and later @huber_projection_1985 recommended projection pursuit (also referred to as PP). Projection pursuit optimizes an objective function before it removes a single component/variable and then iterates in this newly embedded subspace. Within each subspace, the projection seeks for a local extremum via a hill climbing algorithm on an objective function. This formed the basis for *guided tours* suggested by @hurley_analyzing_1990.
+
+The grand and little tours have no input from the user aside from the starting basis. Guided tours allow for an index to be selected. The bulk of tour development since has largely been around the dynamic display, user interaction, geometric representation, and application.
+<!--Note c2 paper, pointing to: Buja & Asimov 1986, Hurley & Buja 1990, Wegman 1991, Cook, Buja, Cabrera, & Hurley 1995, Buja, Cook Asimov & Hurley 1997,Cook & Buja 1997.
+
+
+### Path generation {#sec:path_generation}
+
+A fundamental aspect of tours is the path of rotation. There are four primary distinctions of tour path generation [@buja_computational_2005]: random choice, data-driven, precomputed choice, and manual control.
+
+* Random choice, *grand tour*, constrained random walks $p$-space. Paths are constrained for changes in direction small enough to maintain continuity and aid in user comprehension
+    + torus-surface [@asimov_grand_1985]
+    + at-random [@asimov_grand_1985]
+    + random-walk [@asimov_grand_1985]
+    + *local tour* [@wickham_tourr_2011], a sort of grand tour on a leash, such that it goes to a nearby random projection before returning to the original position and iterating to a new nearby projection.
+* Data-driven, *guided tour*, optimizing some objective function/index within the projection-space, called projection pursuit (PP) [@hurley_analyzing_1990], including the following indexes:
+    + holes [@cook_projection_1993] - moves points away from the center.
+    + cmass [@cook_projection_1993] - moves points toward the center.
+    + lda [@lee_projection_2005] - linear discriminant analysis, seeks a projection where 2 or more classes are most separated.
+    + pda [@lee_projection_2010] - penalized discriminant analysis for use in highly correlated variables when classification is needed.
+    + convex [@laa_using_2019] - the ratio of the area of convex and alpha hulls.
+    + skinny [@laa_using_2019] - the ratio of the perimeter distance to the area of the alpha hull.
+    + stringy [@laa_using_2019] - based on the minimum spanning tree (MST), the diameter of the MST over the length of the MST.
+    + dcor2D [@grimm_mbgraphic:_2017; @laa_using_2019] - distance correlation that finds linear and non-linear dependencies between variables.
+    + splines2D [@grimm_mbgraphic:_2017; @laa_using_2019] - measure of non-linear dependence by fitting spline models.
+    + other user-defined objective indices can be applied to the framework provided in the *tourr* package @wickham_tourr_2011.
+    + Another data-drive tour is the *dependence tour*, a combination of $n$ independent 1D tours. A vector describes the axis each variable will be displayed on. for example $c(1, 1, 2, 2)$ is a 4- to 2D tour with the first 2 variables on the first axis, and the remaining on the second.
+        - *correlation tour* [@buja_data_1987], a special case of the dependence tour, analogous to canonical correlation analysis.
+* Precomputed choice, *planned tour*, in which the path has already been generated or defined.
+    + *little tour* [@mcdonald_interactive_1982], where every permutation of variables is stepped through in order, analogous to brute-force or exhaustive search.
+    + a saved path of any other tour, typically an array of basis targets to interpolate between.
+* Manual control, *manual tour*, a constrained rotation on selected manipulation variable and magnitude [@cook_manual_1997]. Typically used to explore the local area after identifying an interesting feature, perhaps via guided tour.
+
+
+### Interpolation
+
+NOTE: Search 'Interpolator' in Wickham’s tourr paper
+After target bases are identified, the frames in-between need to be filled in. There are several methods to do so:
+
+* Geodesic - via Gram-Schmidt process
+* Givens rotations
+* Householder reflections
+
+### Path evaluation
+
+Consider projection down to 2D, then each projection is called a 2-frame (each spanning a 2-plane). Mathematically, a Grassmannian is the set of all possible unoriented 2-frames in $p$-space, $\textbf{Gr}(2,~p)$. @asimov_grand_1985 pointed out that the unique 2-frames of the grand tour approaches $\textbf{Gr}(2,~p)$ as time goes to infinity. The *density* of a tour is defined as the fraction of the Grassmannian explored. Ideally, an exploring tour will be dense, but the time taken to become dense vastly increases as variable space increases dimensionality. *Rapidity* is then defined as how quickly a tour encompasses the Grassmannian. Due to the random selection of a grand tour, it will end up visiting homomorphisms of previous 2-frames before all unique values are visited, leading sub-optimal rapidity.
+
+The little tour introduced in @mcdonald_interactive_1982, on the other hand, is necessarily both dense and rapid, performing essentially an exhaustive search on the Grassmannian. However, this path uninteresting and with long periods of similar projections strung together. The Grassmannian is necessarily large and increases exponentially at the rate of $p$. Viewing of the whole Grassmannian is time-consuming, and interesting projections are sparse, there was a clear space for computers to narrow the search space.
+
+Guided tours [@hurley_analyzing_1990] optimize an objective function generating path will be a relatively small subset of the Grassmannian. As they are not used for exploration, density and rapidity are poor measures. On the other hand, they excel at finding interesting projections quickly. Recently, @laa_using_2019, compared projection pursuit indices with the metrics: *smoothness, squintability, flexibility, rotation invariance* and *speed*.
+
+### Tour software
+
+Tours have yet to be widely adopted, due in part, to the fact that print and static .pdf output does not accommodate dynamic viewing. Conceptual abstraction and technically density have also hampered user growth. Due to low levels of adoption and the rapid advancement of technology support and maintenance of such implementations give them a particularly short life span. Despite the small user base, there have been a fair number of tour implementations, including:
+<!-- See Wickham’s thesis and C2 paper for partial lists. 
+
+* spinifex [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex) -- R package, all platforms.
+* tourr [@wickham_tourr_2011] -- R package, all platforms.
+* CyrstalVision [@wegman_visual_2003] -- for Windows.
+* GGobi [@swayne_ggobi:_2003] -- for Linux and Windows.
+* DAVIS [@huh_davis:_2002] -- Java based, with GUI.
+* ORCA [@sutherland_orca:_2000] -- Extensible toolkit built in Java.
+* VRGobi [@nelson_xgobi_1998] -- for use with the C2, tours in stereoscopic 3D displays.
+* ExplorN [@carr_explorn:_1996] -- for SGI Unix.
+* ExploRe [@hardle_xplore:_1995]
+* XGobi [@swayne_xgobi:_1991] -- for Linux, Unix, and Windows (via emulation).
+* XLispStat [@tierney_lisp-stat:_1990] -- for Unix and Windows.
+* Explor4 [@carr_explor4:_1988] -- Four-dimensional data using stereo-ray glyphs.
+* Prim-9 [@asimov_grand_1985;@fisherkeller_prim-9:_1974] -- on an internal operating system.
+-->
+
