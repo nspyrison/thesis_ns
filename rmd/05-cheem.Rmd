@@ -10,16 +10,6 @@ knit: "bookdown::render_book"
 
 THIS CHAPTER IS CURRENTLY BEING EDITED IN IT's OWN REPOSITORY, THIS VERSION IS OUT OF DATE.
 
-```{r, echo = TRUE,eval = TRUE}
-knitr::opts_chunk$set(
-   ### TODO: XXX REMOVE ME FOR CHAP 5 IMAGES ---
-  eval = FALSE)
-
-"Error on first evalauated include_image, yet, directory clearly sees them in the right spot..."
-dir("./figures_from_script/")
-tryCatch(include_graphics("./figures_from_script/ch5_fig1_shap_distr_bd.pdf"),
-         error=function(e)e)
-```
 
 TODO:XXX Segue.
 
@@ -94,7 +84,7 @@ Given the global view shown in figure \@ref(fig:ch5fig2), we want to look at the
 
 ```{r ch5fig3, echo=FALSE, out.width="100%", fig.align='center', fig.cap="Top: 1D projection basis, the normalized SHAP values of the select observation are shown as grey/black bars. The distribution of the other observations is shown with parallel coordinate lines. The primary and comparison points ('*/x' previous) are shown as bolder dashed lines and fainter dotted lines respectively. Bottom: the 1D density and rug marks of the current projection basis."}
 knitr::include_graphics(
-  "./figures_from_script/cheem_initial_bas.pdf")
+  "./figures_from_script/ch5_fig3_cheem_initial_bas.pdf")
 ```
 
 Now we have the global context and a comparison of the sensitivity of the SHAP spaces let's turn more toward the target observations. Figure \@ref(fig:ch5fig3) highlights the same selected points, bolder dashed and fainter dotted lines (previously '*/x' points respectively). The top of the figure shows the selected observation's SHAP values as grey/black bars. The other values of the SHAP matrix are displayed as short vertical bars and joining parallel coordinate lines and are similarly colored with their predicted class. The majority of the easy-to-classify points form a relatively tight spread in the first 2 variables (signal) and more chaotic behavior in the two noise variables as we would expect. Our dotted comparison lies with the bulk of the purple class. The dashed primary point is actually a green point misclassified as a purple, its weight for V1 looks like a green point, but its V2 weight deviates and is much closer to that of a purple. V2 is the variable that is crucial to the explanation of the model for why this particular point is misclassified. In the absence of V2, our target observation is weighted much closer to the that of its true class. This is the variable we want to explore the structure of in the radial tour as indicated with the black contribution bar.

@@ -6,15 +6,6 @@ knit: "bookdown::render_book"
 <!-- motivation or background?? -->
 # Motivation {#ch:motivation}
 
-```{r echo = TRUE, eval= TRUE}
-knitr::opts_chunk$set(
-   ### TODO: XXX REMOVE ME FOR CHAP 2 IMAGES ---
-  eval = FALSE)
-
-dir("./figures_from_script/")
-tryCatch(include_graphics("./figures_from_script/ch2_penguins_splom.pdf"), 
-         error=function(e)e)
-```
 
 First I motivation the early are frequent us of data visualization in general. Then we discuss some of the alternative data visualizations, and their scalability. The we discuss dimension reduction before cover tours in more detail.
 
@@ -39,13 +30,9 @@ The work in @grinstein_high-dimensional_2002 gives a good taxonomy of high-dimen
 Viewing as many univariate histograms or density curves is one method. Similarly, one could look at all variable pairing as scatter plots. This forms the crux of scatterplot matrices, also known as SPLOM [@chambers_graphical_1983]. In a scatterplot matrix variables are displayed across the columns and row, the diagonal elements show the univariate densities while one or both sides of the off diagonal show scatterplot pairs. This is useful for getting a handle on the support and shapes of the variables, but is not going to scale well with dimension and is not a suitable audience-ready display as it is very busy and doesn't draw attention to any one spot. Munzner reminds us to abstract all of the cognitive work out of the visual allowing the audience to focus on seeing the evidence supporting the claim [@munzner_visualization_2014].
 
 (ref:penguinsplom-cap) Scatterplot matrix of penguins data. This is a good initial step, but will not scale well at $p$ increases.
-```{r, }
-dir(.)
-```
-
 
 ```{r penguinsplom, echo=F, out.width='100%', fig.cap = "(ref:penguinsmplom-cap)"}
-knitr::include_graphics("./figures_from_script/ch2_penguins_splom.pdf")
+knitr::include_graphics("./figures_from_script/ch2_fig1_penguin_splom.pdf")
 ```
 
 <!-- PCP & observation based visuals -->
@@ -53,8 +40,8 @@ Alternatively, we could consider a class of observation-based visuals. In parall
 
 (ref:penguinpcp-cap) Parallel coordinate plots of penguins data. Doesn't scale well with observations, suffers from asymmetry with the variable ordering, and horizontal position is used for variable rather than observation levels.
 
-```{r penguinsmplom, echo=F, out.width='100%', fig.cap = "(ref:penguinsmplom-cap)"}
-knitr::include_graphics("./figures_from_script/ch2_penguins_splom.pdf")
+```{r penguinpcp, echo=F, out.width='100%', fig.cap = "(ref:penguinpcp-cap)"}
+knitr::include_graphics("./figures_from_script/ch2_fig2_penguin_pcp.pdf")
 ```
 
 
