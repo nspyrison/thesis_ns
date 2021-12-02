@@ -198,10 +198,11 @@
         {\LARGE\@author}\\[0.2cm]
          Supervisors:\\
          Prof. Kimbal Marriott,\\
-         Prof. Dianne Cook,\\[0.2cm]
+         Prof. Dianne Cook\\[0.2cm]
         \vfill\vfill
 
-        \includegraphics[width=3cm]{template/crest}
+        %\includegraphics[width=3cm]{template/crest}
+        \includegraphics[width=15cm]{template/monash-logo}
 
         Faculty of Information Technology\\
         Department of Human-Centred Computing\\

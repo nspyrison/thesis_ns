@@ -220,6 +220,8 @@ The research for RO \#3 involves \emph{fundamental visualization design}. We kno
     Results: strong evidence that the radial tour increases the accuracy of this task by a large amount while the task is performed fastest with the grand tour.
   \item
     Attribution of the error, by performing a mixed model regression helps to explain the source of the error term into the variability of participants skill aptitude for this task and variability of the difficultly of a simulation by random chance.
+  \item
+    Introduces an interactive application to preprocess data and explore with radial tour. Users can choose from six supplied datasets or upload their own.
   \end{itemize}
 \item
   \textbf{cheem} a package applying the radial tour to local explanations of black-box models, including:
@@ -243,39 +245,6 @@ The remainder of the thesis is organized as follows: Chapter \ref{ch:motivation}
 \hypertarget{ch:motivation}{%
 \chapter{Motivation}\label{ch:motivation}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{(}
-   \DocumentationTok{\#\#\# }\AlertTok{TODO}\DocumentationTok{: XXX REMOVE ME FOR CHAP 2 IMAGES {-}{-}{-}}
-  \AttributeTok{eval =} \ConstantTok{FALSE}\NormalTok{)}
-
-\FunctionTok{dir}\NormalTok{(}\StringTok{"./figures\_from\_script/"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1] "_ch2_motivation.r"                 "_ch3_spinifex.r"                   "_ch4_efficacy_radial_tour.r"      
-##  [4] "_ch5_cheem.r"                      "ch2_fig1_penguin_splom.pdf"        "ch2_fig2_penguin_pcp.pdf"         
-##  [7] "ch3_fig1_biplot.pdf"               "ch3_fig2_manip_sp.pdf"             "ch3_fig3_filmstrip.pdf"           
-## [10] "ch3_fig4_jet_better_pc4.pdf"       "ch3_fig5_jet_worse_pc3.pdf"        "ch3_fig6_DIS_better_pc6.pdf"      
-## [13] "ch3_fig7_DIS_worse_pc2.pdf"        "ch4_fig1_pca_splom.pdf"            "ch4_fig2_exp_factors.pdf"         
-## [16] "ch4_fig3_accuracy_measure.pdf"     "ch4_fig4_randomization_MANUAL.png" "ch4_fig5_ABcd_violins.pdf"        
-## [19] "ch4_fig6_subjective_measures.pdf"  "ch4_figX_demographic_heatmap.pdf"  "ch4_tab1_model_comp_ls.rds"       
-## [22] "ch4_tab2_model_coef_ls.rds"        "ch4_util_funcs.r"                  "ch5_fig1_shap_distr_bd.pdf"       
-## [25] "ch5_fig2_global_space.pdf"         "ch5_fig3_cheem_initial_bas.pdf"    "ch5_fig4_cheem_endpts.pdf"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{tryCatch}\NormalTok{(}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"./figures\_from\_script/ch2\_penguins\_splom.pdf"}\NormalTok{), }
-         \AttributeTok{error=}\ControlFlowTok{function}\NormalTok{(e)e)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## <simpleError in include_graphics("./figures_from_script/ch2_penguins_splom.pdf"): could not find function "include_graphics">
-\end{verbatim}
-
 First I motivation the early are frequent us of data visualization in general. Then we discuss some of the alternative data visualizations, and their scalability. The we discuss dimension reduction before cover tours in more detail.
 
 For our purposes I will be focusing the case where data \(X_{nxp}\) contains \(n\) observations of \(p\) variables, is complete with no missing values, variables are numeric (ideally not ordinal levels), and \(n>p\) typically many more observations than variables. While I write as though always operating on the original variable space these methods could similarly be applied to feature decomposition of data not fitting this description. In the case of the linear projection let, \(Y_{nxd} = X_{nxp} * A_{pxd}\) be the embedding of the data mapped by the basis \(A\), where \(d<p\). When \(p\) is large, say over 10 or 20 variables, the viewing space is quite large. In these cases a PCA initialization step is commonly used where the variables are approximated as fewer principal components and this reduced space can be view, albeit with the disadvantage of having another linear mapping back to the original space. \textcite{wickham_visualizing_2015} also views model spaces and features while urging to have a preference for visualizing data-space directly.
@@ -283,6 +252,15 @@ For our purposes I will be focusing the case where data \(X_{nxp}\) contains \(n
 Visualization is much more robust than numerical summarization alone \autocite{anscombe_graphs_1973,matejka_same_2017}. In these studies the data have the same summary statistics, yet contains obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Data visualization is fundamental to EDA and quickly evaluating data supports ensuring that models are suitable.
 
 
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,]{./figures/matejka17fig} 
+
+}
+
+\caption{Starting with the datasarus plot, observations are allows to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the originally listed statistics \autocite{matejka_same_2017}.}\label{fig:matejka17fig}
+\end{figure}
 
 \hypertarget{visualizing-multivariate-data.}{%
 \section{Visualizing multivariate data.}\label{visualizing-multivariate-data.}}
@@ -293,9 +271,27 @@ Viewing as many univariate histograms or density curves is one method. Similarly
 
 
 
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch2_fig1_penguin_splom} 
+
+}
+
+\caption{(ref:penguinsmplom-cap)}\label{fig:penguinsplom}
+\end{figure}
+
 Alternatively, we could consider a class of observation-based visuals. In parallel coordinate plots \autocite{ocagne_coordonnees_1885} variables are arranged horizontally and observations are connected by lines with the height mapping to the quantile or z-value for each variable. This scales much better with dimensions, but poorly with observations. It also suffers from an asymmetry with the variable order, that is, changing the order of the variable will lead people to very different conclusions. The x-axis is also used to display variables rather than the values of the observations. This restricts the amount of information that can be gleaned between variables. Munzner asserts that position is the more human-perceptible channel for encoding information; we should like to reserve it for the values of the observations. The same issues persist across other observation-based displays such as radial variants, pixel-oriented visuals, and Chernoff faces {[}\textcite{keim_designing_2000}; chernoff\_use\_1973{]}. These visuals are better suited for the \(n<p\) case where there are more variables than observations.
 
 
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch2_fig2_penguin_pcp} 
+
+}
+
+\caption{Parallel coordinate plots of penguins data. Doesn't scale well with observations, suffers from asymmetry with the variable ordering, and horizontal position is used for variable rather than observation levels.}\label{fig:penguinpcp}
+\end{figure}
 
 \hypertarget{dimension-reduction}{%
 \section{Dimension reduction}\label{dimension-reduction}}
@@ -312,6 +308,15 @@ Unfortunately, there is no free lunch here. An increase in data space will lead 
 A single linear projection is a resulting space from the data multiplied by the basis where the basis is an orthonormal matrix (the orientation of the unit origin) mapping the data space to a lower dimension. A data visualization tour animates many such projections through small changes in the basis. Originally in a \emph{grand} tour \autocite{asimov_grand_1985} several target frames are randomly selected and then interpolated along their geodesic path.
 
 
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures/buja05fig} 
+
+}
+
+\caption{Illustration of the grand tour selecting random target frames (grey) connected via geodesically interpolated frame (white), figure from \textcite{buja_computational_2005}.}\label{fig:buja05fig}
+\end{figure}
 
 There are various types of tours that are classified by the generation of their basis paths. A \emph{guided} tour uses simulated annealing to move progressively closer to an objective function in the embedded space\autocite{hurley_analyzing_1990}. A more comprehensive discussion and review of tours can be found in the works of \textcite{cook_grand_2008}; \textcite{lee_review_2021}{]}.
 
@@ -392,6 +397,15 @@ The flea data (\textcite{lubischew_use_1962}), available in the \{tourr\} packag
 
 An initial 2D projection basis must be provided. A suggested way to start is to identify an interesting projection using a projection pursuit guided tour. Here the holes index is used to find a 2D projection of the flea data, which shows three separated species groups. Figure \ref{fig:ch3fig1} shows the initial projection of the data. The left panel displays the projection basis (\(\textbf{B}\)) and can be used as a visual guide of the magnitude and direction that each variable contributes to the projection. The right panel shows the projected data, \(\textbf{Y}_{[n,~2]} ~=~ \textbf{X}_{[n,~p]} \textbf{B}_{[p,~2]}\). The color and shape of points are mapped to the flea species. This plot is made using the \texttt{view\textbackslash{}\_basis()} function in \{spinifex\}, which generates a \{ggplot2\} \autocite{wickham_ggplot2_2016} object.
 
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig1_biplot} 
+
+}
+
+\caption{Biplot of the initial 2D projection: representation of the basis (left) and resulting data projection (right) of standardized flea data. The color and shape of data points are mapped to the species of flea beetle. The basis was produced by a projection pursuit guided tour, with the holes index. The contribution of the variables aede2 and tars1 approximately contrasts the other variables. The visible structure in the projection are the three clusters corresponding to the three species.}\label{fig:ch3fig1}
+\end{figure}
+
 \hypertarget{step-1-choose-manip-variable}{%
 \subsubsection{Step 1) Choose manip variable}\label{step-1-choose-manip-variable}}
 
@@ -409,6 +423,15 @@ Initialize the coordinate basis vector as a zero vector, \(\textbf{e}\), of leng
 \end{align*}
 
 The manip space provides a 3D projection from \(p\)-dimensional space, where the coefficient of the manip var can range completely between {[}0, 1{]}. This 3D space serves as the medium to rotate the projection basis relative to the selected manipulation variable. Figure \ref{fig:ch3fig2} illustrates this 3D manip space with the manip var highlighted. This representation is produced by calling the \texttt{view\textbackslash{}\_manip\textbackslash{}\_space()} function. This diagram is purely used to help explain the algorithm.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig2_manip_sp} 
+
+}
+
+\caption{Illustration of a 3D manip space, the projection plane is shown as blue circle extending into and out of the display. A manipulation direction is initalized, the red circle, orthogonal to the projection plane. This allows the selected variable, aede2, a means to change it's contribution back to the projection plane. The other variables contributions rotate into this space as well, preserving the orthagonal structure, but are omitted in the manipulation dimension for simplicity.}\label{fig:ch3fig2}
+\end{figure}
 
 \hypertarget{step-3-defining-a-3d-rotation}{%
 \subsubsection{Step 3) Defining a 3D rotation}\label{step-3-defining-a-3d-rotation}}
@@ -475,6 +498,15 @@ Rotations in 3D can be defined by the axes they pivot on. Rotation within the pr
 
 The steps outlined above can be used to create any arbitrary rotation in the manip space. To use these for sensitivity analysis, the radial rotation is built into an animation where the manip var is rotated fully into the projection, completely out, and then back to the initial value. This involves allowing \(\phi\) to vary between \(0\) and \(\pi/2\), call the steps \(\phi_i\).
 
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig3_filmstrip} 
+
+}
+
+\caption{Select frames highlight the animation of a radial manual tour manipulating aede2: (1) original projection, (2) full contribution, (3) zero contribution, before returning to the original original contribution.}\label{fig:ch3fig3}
+\end{figure}
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -534,6 +566,33 @@ The \{spinifex\} is available from CRAN, and can be installed by:
 
 Table \ref{tab:functionsTable} lists the primary functions and their purpose. These are grouped into four types: construction for building a tour path, render to make the plot objects, animation for running the animation, and specialty for providing illustrations used in the algorithm description.
 
+\begin{table}
+
+\caption{\label{tab:functionsTable}Summary of available functions.}
+\centering
+\begin{tabular}[t]{lll}
+\toprule
+Type & Function & Description\\
+\midrule
+construction & create\_manip\_space & forms the 3D space of rotation\\
+construction & rotate\_manip\_space & performs 3D rotation\\
+construction & manual\_tour & generates sequence of 2D frames\\
+ &  & \\
+render & array2df & turn the tour path array into long form, for plotting\\
+render & render\_ & render long form as a ggplot2 objection for animation\\
+render & render\_plotly & render the animation as a plotly object (default)\\
+render & render\_gganimate & render the animation as a gganimate object\\
+ &  & \\
+animation & play\_tour\_path & composite function animating the specified tour path\\
+animation & play\_manual\_tour & composite function animating the specified manual tour\\
+ &  & \\
+specialty & print\_manip\_space & table of the rotated basis and manip space\\
+specialty & oblique\_frame & display the reference axes of a given basis\\
+specialty & view\_manip\_space & illustrative display of any manip space\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \hypertarget{sec:usage}{%
 \subsection{Usage}\label{sec:usage}}
 
@@ -573,12 +632,48 @@ The jet cluster resides in a smaller dimensionality than the full set of experim
 
 When PC4 is removed from the projection (Figure \ref{fig:ch3fig4}) the difference between the two groups is removed, indicating that it is important for distinguishing experiments. However, removing PC3 from the projection (Figure \ref{fig:ch3fig5}) does not affect the structure, indicating it is not important for distinguishing experiments. Animations for the remaining PCs can be viewed at the following links: \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc1.gif}{PC1}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc2.gif}{PC2}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc3.gif}{PC3}, and \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc4.gif}{PC4}. It can be seen that only PC4 is important for viewing the difference in these two experiments.
 
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig4_jet_better_pc4} 
+
+}
+
+\caption{Select frames from a radial tour of PC4 within the jet cluster, with color indicating experiment type: ATLAS7new (green) and ATLAS7old (orange). When PC4 is removed from the projection (frame 10) there is little difference between the clusters, suggesting that PC4 is important for distinguishing the experiments.}\label{fig:ch3fig4}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig5_jet_worse_pc3} 
+
+}
+
+\caption{Frames from the radial tour manipulating PC3 within the jet cluster, with color indicating experiment type: ATLAS7new (green) and ATLAS7old (orange).  When the contribution from PC3 is changed there is little change in the separation of the clusters, suggesting that PC3 is not important for distinguishing the experiments.}\label{fig:ch3fig5}
+\end{figure}
+
 \hypertarget{dis-cluster}{%
 \subsection{DIS cluster}\label{dis-cluster}}
 
 Following \textcite{cook_dynamical_2018}, to explore the DIS cluster, PCA is recomputed and the first six principal components, explaining 48\% of the full sample variation, are used. The contributions of PC6 and PC2 are explored in Figures \ref{fig:ch3fig6} and \ref{fig:ch3fig7}, respectively. Three experiments are examined: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange).
 
 Both PC2 and PC6 contribute to the projection similarly. When PC6 is rotated into the projection, variation in the DIS HERA1+2 is greatly reduced. When PC2 is removed from the projection, dimuon SIDIS becomes more clearly distinct. Even though both variables contribute similarly to the original projection, their contributions have quite different effects on the structure of each cluster, and the distinction between clusters. Animations of all of the principal components can be viewed from the links: \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc1.gif}{PC1}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc2.gif}{PC2}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc3.gif}{PC3}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc4.gif}{PC4}, \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc5.gif}{PC5}, and \href{https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc6.gif}{PC6}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig6_DIS_better_pc6} 
+
+}
+
+\caption{Select frames from a radial tour exploring the sensitivity that PC6 has on the structure of the DIS cluster, with color indicating experiment type: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange). DIS HERA1+2 is distributed in a cross-shaped plane, charm SIDIS occupies the center of this cross, and dimuon SIDIS is a linear cluster crossing DIS HERA1+2. As the contribution of PC6 is increased, DIS HERA1+2 becomes almost singular in one direction (frame 5), indicating that this cluster has very little variability in the direction of PC6.}\label{fig:ch3fig6}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch3_fig7_DIS_worse_pc2} 
+
+}
+
+\caption{Frames from the radial tour exploring the sensitivity PC2 to the structure of the DIS cluster, with color indicating experiment type: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange). As contribution from PC2 is decreased, dimuon SIDIS becomes more distinguishable from the other two clusters, indicating that in its absence PC2 is important for separating this cluster from the others.}\label{fig:ch3fig7}
+\end{figure}
 
 \hypertarget{sec:discussion}{%
 \section{Discussion}\label{sec:discussion}}
@@ -625,6 +720,15 @@ The paper is structured as follows. Section \ref{sec:background} provides the ba
 
 Principal component analysis is a good baseline of comparison for linear projections because of its frequent and broad use across disciplines. Principal component analysis \autocite[PCA,][]{pearson_liii._1901} creates new components that are linear combinations of the original variables. The creation of these variables is ordered by decreasing variation which is orthogonally constrained to all previous components. While the full dimensionality is intact, the benefit comes from the ordered nature of the components. The first 2 or 3 components are typically used to approximate the variation multivariate data set, while the rest are discarded.
 
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch4_fig1_pca_splom} 
+
+}
+
+\caption{Scatterplot matrix of the first 3 principal components for simulated data. Traditional multivariate visualization of *data*-space involes static display of the first several principal components.}\label{fig:ch4fig1}
+\end{figure}
+
 \hypertarget{scatterplot-matrix}{%
 \subsection{Scatterplot matrix}\label{scatterplot-matrix}}
 
@@ -660,6 +764,15 @@ The three methods were examined for three different cluster shapes, using differ
 \subsection{Experimental factors}\label{sec:blocks}}
 
 In addition to visual factor, we vary the data across 3 aspects: 1) The \emph{location} of the difference between clusters, by mixing a signal and a noise variable at different ratios, we vary the number of variables and their magnitude of cluster separation, 2) the \emph{shape} of the clusters, to reflect different distributions of the data, and 3) the \emph{dimension}-ality of the data.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch4_fig2_exp_factors} 
+
+}
+
+\caption{Illustration of the experimental factors: visualization factor, the variable location of the cluster separationm, the shape of the clusters, and the dimensionality (and clusters) of the data.}\label{fig:ch4fig2}
+\end{figure}
 
 The \emph{location} of the separation of the clusters is a crucial aspect of analysis, it is the variables or combination their of that is important to the explanation of the structure. To test the sensitivity to this we mix a noise-variable with the signal-containing variable such that the difference in the clusters is mixed at the following percentages: 0/100\% (not mixed), 33/66\%, 50/50\% (evenly mixed).
 
@@ -705,6 +818,15 @@ W_{j} &=\frac
 
 where \(I\) is the indicator function. Then the total marks for this task is the sum of this marks vector. We use the time till the last response as a secondary dependent variable \(Y_2\).
 
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch4_fig3_accuracy_measure} 
+
+}
+
+\caption{(L), PCA biplot of the components showing the most cluster separation with (R) illustration of the magnitude of cluster separation is for each variable (wide bar) and the weight of the marks given if a variable is selected (red/green line). The horizontal dashed line is 1 / dimensionality, the amount of separation each variable would have if evenly distributed. The weights equal the signed square of the difference between each variable value and the dashed line.}\label{fig:ch4fig3}
+\end{figure}
+
 \hypertarget{sec:standardization}{%
 \subsection{Visual design standardization}\label{sec:standardization}}
 
@@ -735,6 +857,15 @@ We section the study into 3 periods, each period is linked to a randomized level
 The period starts with an untimed training task at the simplest remaining block parameterization; location = 0/100\%, shape = EEE, and 4 dimensions with 3 clusters. This serves to introduce and familiarize participants with input and visual differences. After the training, the participant is evaluated on 2 tasks with the same factor * location level, across the increasing difficulty of dimension * shape. These evaluations removed the plot after 60 seconds, though this limit was rarely reached by participants.
 
 The order of the levels of the factor and location is randomized with a nested Latin square where all levels of factor are exhausted before advancing to the next level of location. That means we need \(3!^2 = 36\) participants to perform a full block evaluation. This randomization is important to control for any potential learning effects the participant may receive. Figure \ref{fig:ch4fig4} illustrates how an arbitrary participant experiences the experimental factors.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch4_fig4_randomization_MANUAL} 
+
+}
+
+\caption{Illustration of the nested latin square and how a hypothetical participant 63 is assigned factor and block parameterizations. Each of the 6-factor permutations is exhausted before iterating to the next permutation of location.}\label{fig:ch4fig4}
+\end{figure}
 
 Through pilot studies sampled by convenience (information technology and statistics Ph.D.~students attending Monash University), we predict that we need 3 full evaluations to properly power our study; we set out to crowdsource \(N = 3 * 3!^2 = 108\) participants.
 
@@ -789,12 +920,57 @@ In building a set of models to test we include all single term models, a model w
 \end{array}
 \]
 
+\begin{verbatim}
+## # A tibble: 5 x 8
+##   `Fixed effects` `No. levels` `No. terms` AIC    BIC    `R2 cond. (on RE)` `R2 marg. (w/o RE)` RMSE   
+##   <chr>                  <int>       <int> <chr>  <chr>  <chr>              <chr>               <chr>  
+## 1 a                          1           3 *1000* *1027* 0.18               0.022               0.462  
+## 2 a+b+c+d                    4           8 1026   1075   0.187              0.03                0.46   
+## 3 a*b+c+d                    5          12 1036   1103   0.198              0.043               0.457  
+## 4 a*b*c+d                    8          28 1069   1207   0.238              0.08                0.447  
+## 5 a*b*c*d                   15          54 1125   1380   *0.255*            *0.115*             *0.438*
+\end{verbatim}
+
+\begin{verbatim}
+##                      Estimate Std. Error    df t value Pr(>|t|)    
+## (Intercept)             -0.12       0.08  43.9   -1.50     0.14    
+## fct=grand                0.15       0.09 622.4    1.74     0.08    
+## fct=radial               0.37       0.09 617.1    4.18     0.00 ***
+## loc=33_66                0.17       0.09  83.2    1.78     0.08    
+## loc=50_50                0.14       0.09  84.8    1.52     0.13    
+## shp=EEV                  0.04       0.06  11.5    0.79     0.44    
+## shp=ban                 -0.03       0.06  11.5   -0.48     0.64    
+## dim=6                   -0.06       0.05  11.5   -1.39     0.19    
+## fct=grand:loc=33_66     -0.06       0.13 587.3   -0.49     0.63    
+## fct=radial:loc=33_66    -0.34       0.13 585.2   -2.65     0.01  **
+## fct=grand:loc=50_50     -0.09       0.13 589.6   -0.68     0.50    
+## fct=radial:loc=50_50    -0.19       0.13 574.3   -1.43     0.15
+\end{verbatim}
+
 We also want to visually explore the conditional variables in the model. Figure \ref{fig:ch4fig5} explores violin plots of marks by factor while faceting on the location (vertical) and shape (horizontal). Radial tends to increase the marks received, and especially so when there is no signal/noise mixing.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch4_fig5_ABcd_violins} 
+
+}
+
+\caption{Violin plots of terms of the model $\widehat{Y_1} = \alpha * \beta + \gamma + \delta$. Overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests suitable for handling discrete data. Participants are more confident and find the radial easier to use relative to the grand tour. Participants claim low familiarity as we expect from crowdsourced participants. Radial is more preferred compared with either alternative for this task.}\label{fig:ch4fig5}
+\end{figure}
 
 \hypertarget{subjective-measures}{%
 \subsection{Subjective measures}\label{subjective-measures}}
 
 The 84 evaluations of the post-study survey also collect 4 subjective measures for each factor. Figure \ref{fig:ch4fig6} shows the Likert plots, or stacked percentage bar plots, alongside violin plots with the same non-parametric, ranked sum tests previously used. Participants preferred to use radial for this task. Participants were also more confident of their answers and found radial tours easier to use compared with the grand tour. All factors have reportedly low familiarity something we expect from crowdsourced participants.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch4_fig6_subjective_measures} 
+
+}
+
+\caption{The subjective measures of the 84 responses of the post-study survey, 5 discrete Likert scale levels of aggrement. (L) Likert plots (stacked percent bar plots) with (R) violin plots of the same measures. Violin plots are overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests.}\label{fig:ch4fig6}
+\end{figure}
 
 \hypertarget{sec:conclusion}{%
 \section{Conclusion}\label{sec:conclusion}}
@@ -824,49 +1000,6 @@ This research was supported by an Australian Government Research Training Progra
 \chapter{Application of the radial tour to model-agnostic local explanations}\label{ch:cheem}}
 
 THIS CHAPTER IS CURRENTLY BEING EDITED IN IT's OWN REPOSITORY, THIS VERSION IS OUT OF DATE.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{(}
-   \DocumentationTok{\#\#\# }\AlertTok{TODO}\DocumentationTok{: XXX REMOVE ME FOR CHAP 5 IMAGES {-}{-}{-}}
-  \AttributeTok{eval =} \ConstantTok{FALSE}\NormalTok{)}
-
-\StringTok{"Error on first evalauated include\_image, yet, directory clearly sees them in the right spot..."}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "Error on first evalauated include_image, yet, directory clearly sees them in the right spot..."
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{dir}\NormalTok{(}\StringTok{"./figures\_from\_script/"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1] "_ch2_motivation.r"                 "_ch3_spinifex.r"                   "_ch4_efficacy_radial_tour.r"      
-##  [4] "_ch5_cheem.r"                      "ch2_fig1_penguin_splom.pdf"        "ch2_fig2_penguin_pcp.pdf"         
-##  [7] "ch3_fig1_biplot.pdf"               "ch3_fig2_manip_sp.pdf"             "ch3_fig3_filmstrip.pdf"           
-## [10] "ch3_fig4_jet_better_pc4.pdf"       "ch3_fig5_jet_worse_pc3.pdf"        "ch3_fig6_DIS_better_pc6.pdf"      
-## [13] "ch3_fig7_DIS_worse_pc2.pdf"        "ch4_fig1_pca_splom.pdf"            "ch4_fig2_exp_factors.pdf"         
-## [16] "ch4_fig3_accuracy_measure.pdf"     "ch4_fig4_randomization_MANUAL.png" "ch4_fig5_ABcd_violins.pdf"        
-## [19] "ch4_fig6_subjective_measures.pdf"  "ch4_figX_demographic_heatmap.pdf"  "ch4_tab1_model_comp_ls.rds"       
-## [22] "ch4_tab2_model_coef_ls.rds"        "ch4_util_funcs.r"                  "ch5_fig1_shap_distr_bd.pdf"       
-## [25] "ch5_fig2_global_space.pdf"         "ch5_fig3_cheem_initial_bas.pdf"    "ch5_fig4_cheem_endpts.pdf"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{tryCatch}\NormalTok{(}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"./figures\_from\_script/ch5\_fig1\_shap\_distr\_bd.pdf"}\NormalTok{),}
-         \AttributeTok{error=}\ControlFlowTok{function}\NormalTok{(e)e)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## <simpleError in include_graphics("./figures_from_script/ch5_fig1_shap_distr_bd.pdf"): could not find function "include_graphics">
-\end{verbatim}
 
 TODO:XXX Segue.
 
@@ -905,6 +1038,15 @@ We use FIFA soccer data \autocite{leone_fifa_2020} to explain SHAP values. We us
 
 We have trained a random forest model and wish to further explore the weightings of this non-linear model. Following the work in \autocite{biecek_dalex_2018,biecek_explanatory_2021} we can similarly extract SHAP values, highlighting that different skills are valued differently across player positions within the model. We also show ``break down'' profiles, that is additive prediction explanations, how much of each player's predicted wages is added by each of the skill evaluations. Figure \ref{fig:ch5fig1} takes a look at the SHAP and break down profiles of a star offensive and defensive player.
 
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch5_fig1_shap_distr_bd} 
+
+}
+
+\caption{SHAP values and prediction explanations of an offensive player (Messi, top) and a defensive player (van Dijk). SHAP values show a change in weights at the location of each player. Break down profiles show one order-sensitive explanation for the prediction of that observation.}\label{fig:ch5fig1}
+\end{figure}
+
 At the top of figure \ref{fig:ch5fig1} we see the relative wages of the 2 different players. SHAP uses permutations of the X variables to approximate the variable weights. In the middle, we see the distributions of the variable weightings for each player across 25 such permutations. We use the median of those distributions (large dot) as the SHAP value. We see a difference in the weights across the 2 players that makes sense considering their positions. Reaction skills are important for both players, while offensive and movement are weighted higher of the offensive player. Conversely, defensive, power, and accuracy skills are weighted higher for the defensive player. The bottom used the SHAP values to explain their relative wage predictions. We see a similar trend of the SHAP values additively explaining the difference of the global intercept to their predictions. We would expect that other offensive players have explanations closer to Messi and defensive players to lie closer to van Dijk's. The local explanations of middle fielders and goalkeepers would be expected to be different from both of these.
 
 \hypertarget{our-application-trees-of-cheem}{%
@@ -916,11 +1058,38 @@ We want to show a global view of the SHAP matrix and show how its sensitivity di
 
 This gives an orientation showing where selected observation lies. We facilitate exploration and observation identification by adding a hovering tooltip displaying row number and class (actual \& predicted) with linked brushing highlighting selected points and displaying their data tabularly below the plot.
 
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch5_fig2_global_space} 
+
+}
+
+\caption{The first two principal conompents of the data- and SHAP-spaces (left and right respectively) of simulated data. The points are colored and shaped according to their predicted class, misclassified points are identified with a red circle. A target observation '*' is shown in contrast to a comparison point 'x', containing a nearby value in data space, but quite different SHAP space. These same 2 points are tracked in the proceeding tour.}\label{fig:ch5fig2}
+\end{figure}
+
 Looking at the SHAP space (right) the bulk of the correctly classified points are clustered in relatively small areas. This means that the distribution of their SHAP values is quite similar; the model is selecting a very tight variable contribution to explain the predicted class of each observation. Conversely, misclassified points tend to lie in between 2 clusters of correctly classified points. Using the interactive brushing and hover tooltips we confirm that these points lie between the actual and predicted classes.
 
 Given the global view shown in figure \ref{fig:ch5fig2}, we want to look at the local explanation of primary and comparison points (highlighted as '*/x'). In this case, the primary observation is misclassified while the comparison point is a correctly classified nearby point. These 2 points that are classified differently, but otherwise have very similar values in the explanatory variables, lie quite far apart in SHAP space.
 
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch5_fig3_cheem_initial_bas} 
+
+}
+
+\caption{Top: 1D projection basis, the normalized SHAP values of the select observation are shown as grey/black bars. The distribution of the other observations is shown with parallel coordinate lines. The primary and comparison points ('*/x' previous) are shown as bolder dashed lines and fainter dotted lines respectively. Bottom: the 1D density and rug marks of the current projection basis.}\label{fig:ch5fig3}
+\end{figure}
+
 Now we have the global context and a comparison of the sensitivity of the SHAP spaces let's turn more toward the target observations. Figure \ref{fig:ch5fig3} highlights the same selected points, bolder dashed and fainter dotted lines (previously '*/x' points respectively). The top of the figure shows the selected observation's SHAP values as grey/black bars. The other values of the SHAP matrix are displayed as short vertical bars and joining parallel coordinate lines and are similarly colored with their predicted class. The majority of the easy-to-classify points form a relatively tight spread in the first 2 variables (signal) and more chaotic behavior in the two noise variables as we would expect. Our dotted comparison lies with the bulk of the purple class. The dashed primary point is actually a green point misclassified as a purple, its weight for V1 looks like a green point, but its V2 weight deviates and is much closer to that of a purple. V2 is the variable that is crucial to the explanation of the model for why this particular point is misclassified. In the absence of V2, our target observation is weighted much closer to the that of its true class. This is the variable we want to explore the structure of in the radial tour as indicated with the black contribution bar.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,]{./figures_from_script/ch5_fig4_cheem_endpts} 
+
+}
+
+\caption{The first frame of the radial tour. The SHAP values of the selected observation set the initial basis, shown as the grey and black bars on top. Within class distributions of the SHAP values are shown as parallel coordinate plots next to the variable contributions. The class densities and observation positions of the 1D projection are shown on the bottom. The tour animates over small changes in the basis (top bars) as the variable with the largest contribution (weight) is rotated to have a full contribution, zero contribution, and then back to the initial contribution. Variable 2 is critical to this local explanation; In the initial contribution, both selected observations are in the middle of the purple. With a full contribution of V2 typical of most purple, our primary observation is toward the tail. When there is no contribution of variable 2, the selected observation is in the middle of the green distribution, its true class.}\label{fig:ch5fig4}
+\end{figure}
 
 Now that we have identified that V2 is the variable that deviated most from its true peer observation, we select it to rotate with the radial tour. In figure \ref{fig:cheemTour} illustrates the difference in the extremes of the contribution. The tour starts at the original contributions as described by the SHAP values (left frame). As the tour gives V2 a full contribution (middle frame) the comparison lies in the middle of the purples while the target observation is in the tails of both the purple and green (true class). In the right-most frame, the contribution from variable 2 is zero and the target variable lies in the middle of its true class. That is to say, without the contribution of variable 2 the local explanation does not seem reasonable; the selected observation looks much more like that of its true class.
 
@@ -944,25 +1113,25 @@ This research was supported by an Australian government Research Training Progra
 
 For transparency and reproducibility, the source files are made available at \href{https://github.com/nspyrison/phd_milestones}{github.com/nspyrison/phd\_milestones}.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\DocumentationTok{\#\# At one point chap5/cheem images we not working make sure the stop gap is reverted here.}
-\NormalTok{knitr}\SpecialCharTok{::}\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{(}
-  \AttributeTok{eval =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{ch:conclusion}{%
 \chapter{Conclusion}\label{ch:conclusion}}
 
 In Chapter \ref{ch:spinifex} we discussed \textbf{spinifex}. How it facilitates the preprocess transformations with \texttt{scale\_*} functions, identifies features with \texttt{basis\_*} functions, and creates manual tours. It creates a framework for layered creation of tour visuals with \texttt{proto\_*} functions that will feel at home to \textbf{ggplot2} users. Manual tours and those created from \textbf{tourr} can be rendered and exported as interactive HTML widgets, .gif, or .mp4 files. It has been downloaded over 14400 times from CRAN between 09 April 2019 and 28 November 2021. my contributions \textbf{spinifex} and \textbf{tourr} won the ACEMS Impact and Engagement Award, 2018.
 
-Chapter \ref{ch:efficacy_radial_tour} discussed \ldots{}
+Chapter \ref{ch:efficacy_radial_tour} discussed a user study comparing the radial tour against PCA and the grand tour. Participants performed a variable attribution task of the supervised cluster separation. We define an accuracy measure for this task and aditional experemental factors of location, shape, and dimensionality. I find strong evidence that use of the radial tour leads to high accurcay for this task. Using mixed model regression, I partition the error term of the model into the variation from participant's skill, and variation in difficult of the simulations due to random draws.
 
-Chapter \ref{ch:cheem} \ldots{}
+Now that we have evidence to support the radial tours use for variable attribution we extend their use to the further explore the local explanation of black-box models. Chapter \ref{ch:cheem} introduces an interactive global view that compares approximations of data- and attribution- spaces next to model performance. The explanations of selected observation from this global view are used as the initial basis for a radial tour to explore what support of variable contributions aggree with the explanation view. Preprocessing functions as well as interactive application are provided in a free, open-source package \textbf{cheem}.
 
 \hypertarget{futher-extensions}{%
 \section{Futher extensions}\label{futher-extensions}}
+
+There are direct natural extension to \textbf{spinifex} such as adding adding protos, such as adding a text table of the basis, 2D density contours, convex hulls, alpha hulls, and an `high density region' display where the bulk of the data is shown as density contour, while the outer most observations are displayed as points \autocite{hyndman_computing_1996}.
+
+Similarly, \textbf{cheem} could be generalized to a broader range models and local explanations. The models and local explanations facilitated by \texttt{DALEX::explain()} seems to be a good starting point {[}\textcite{biecek_dalex_2018}; biecek\_explanatory\_2021{]}. Alternatively there may be other statistics that better show the structure identified by explanations that could be added.
+
+Experiencing tours as 3D scatterplots on 2D display, or in extended reality with steroscopically true head tracking may be fruitful. This has been partial explored {[}\textcite{nelson_xgobi_1998}; yang\_3d\_1999; yang\_interactive\_2000{]}, though it would be interesting see an modern implementations using WebGL, Mozilla Aframe, or Unity. One concern would be trying to keep hardware and software as generalized as possible.
+
+In addition to application that involve one tour variant such as the applications we have discussed or \textbf{liminal} \autocite{lee_casting_2020}, a general more consolidated application with multiple linked brushing would be nice to have. Amiddedly there have been many takes on applications to facilitate the exploration of multivariate data and the audience that know and use tours remains small {[}\textcite{fisherkeller_prim-9:_1974}; \textcite{carr_explor4:_1988}; \textcite{tierney_lisp-stat:_1990}; \textcite{swayne_xgobi:_1991}; \textcite{hardle_xplore:_1995}; \textcite{carr_explorn:_1996}; \textcite{nelson_xgobi_1998}; \textcite{sutherland_orca:_2000}; \textcite{huh_davis:_2002}; \textcite{swayne_ggobi:_2003}; \textcite{wegman_visual_2003}; \textcite{jeong_ipca:_2009}, hadjar\_webvr\_2018; cordeil\_iatk\_2019{]}.
 
 \hypertarget{other-contributions}{%
 \section{Other contributions:}\label{other-contributions}}

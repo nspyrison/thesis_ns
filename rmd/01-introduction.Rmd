@@ -59,6 +59,7 @@ The research for RO #3 involves _fundamental visualization design_. We know that
    - Definition of an accuracy measure to evaluate this task.
    - Results: strong evidence that the radial tour increases the accuracy of this task by a large amount while the task is performed fastest with the grand tour.
    - Attribution of the error, by performing a mixed model regression helps to explain the source of the error term into the variability of participants skill aptitude for this task and variability of the difficultly of a simulation by random chance.
+   - Introduces an interactive application to preprocess data and explore with radial tour. Users can choose from six supplied datasets or upload their own.
 3. __cheem__ a package applying the radial tour to local explanations of black-box models, including:
    - Preproccing; creation of a random forest model, the extraction of all observation's tree SHAP local explanation, and extraction of other statistics for display.
    - Visualization of approximations of the data- and attribution-space side-by-side with linked brushing, hover tooltips, and tabular display of selected points.
