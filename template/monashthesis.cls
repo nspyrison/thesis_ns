@@ -183,43 +183,45 @@
   \space \number\the\year}
 
 \def\titlepage{{\sf
-    \thispagestyle{empty}%
-    \null\vskip1cm%
+    \thispagestyle{empty}
+    \null\vskip1cm
+    \includegraphics[width=15cm]{template/monash-logo}
+    \vfill
     \begin{center}
         \Huge\textbf{\expandafter{\@title}}
     \end{center}
-    \vfill
-    \begin{center}\Large
-        {Candidature confirmation report}
+    \begin{center}
+        \Large Nicholas Spyrison\\
+        \@degrees
     \end{center}
     \vfill
     \begin{center}
-        %by\\[0.6cm]
-        {\LARGE\@author}\\[0.2cm]
-         Supervisors:\\
-         Prof. Kimbal Marriott,\\
-         Prof. Dianne Cook\\[0.2cm]
-        \vfill\vfill
-
-        %\includegraphics[width=3cm]{template/crest}
-        \includegraphics[width=15cm]{template/monash-logo}
-
-        Faculty of Information Technology\\
+        A thesis submitted for the degree of \degreetitle { }at\\
+        Monash University in \@submitdate\\
         Department of Human-Centred Computing\\
-        Monash University\\
-        Australia
+
+        %{\LARGE\@author}\\[0.2cm]
+        % Supervisors:\\
+        % Prof. Kimbal Marriott,\\
+        % Prof. Dianne Cook\\[0.2cm]
+        %\vfill\vfill
+        %%\includegraphics[width=3cm]{template/crest}
+        %Faculty of Information Technology\\
+        %Department of Human-Centred Computing\\
+        %Monash University\\
+        %Australia
     \end{center}
         \begin{center}\large
         \@submitdate
     \end{center}
-    \newpage\thispagestyle{empty}}}
+    \newpage\thispagestyle{empty}\newpage}}
 
 \numberwithin{section}{chapter}
 \numberwithin{equation}{chapter}
 
 \setcounter{tocdepth}{1}
 
-\def\prefacesection#1{%
+\def\prefacesection#1{
     \chapter*{#1}
     \addcontentsline{toc}{chapter}{#1}
     \markboth{#1}{#1}}
