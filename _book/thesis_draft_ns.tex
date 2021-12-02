@@ -23,7 +23,7 @@
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref} %% Trying to wrap and format urls correctly
 
 \author{Nicholas S Spyrison}
-\title{Dynamic visualization of high-dimensional data via low-dimension projections, their efficacy, and their application to model-agnostic local explanations}
+\title{Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models}
 \degrees{B.Sc. Statistics, Iowa State University}
 \def\degreetitle{Doctor of Philosophy}
 % Add subject and keywords below
@@ -31,7 +31,7 @@
      %pdfsubject={The Subject},
      %pdfkeywords={Some Keywords},
      pdfauthor={Nicholas S Spyrison},
-     pdftitle={Dynamic visualization of high-dimensional data via low-dimension projections, their efficacy, and their application to model-agnostic local explanations},
+     pdftitle={Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models},
      pdfproducer={Bookdown with LaTeX}
 }
 
@@ -61,11 +61,11 @@ I certify that I have made all reasonable efforts to secure copyright permission
 
 Visualizing data space is crucial to exploratory data analysis, checking model assumptions, and validating model performance. Yet visualization quickly becomes difficult as the dimensionality of the data or features increases. Traditionally, static, low-dimensional linear embeddings are used to mitigate this complexity. Such embedded space is a lossy approximation of the full space. However, viewing many embeddings with interactive supporting views, maximizes the information conveyed. Data visualization \emph{tours} are a class of dynamic linear projections that animate many linear projections over small changes to the projection basis.
 
-Tours are categorized by the path of their bases. \emph{Manual tours} allow for User-Controlled Steering (UCS) of bases path, where the contributions of individual variables can be controlled. First I create a free, open-source \textbf{R} package, \textbf{spinifex} that facilitates the creation of such tours. These manipulations of the variables can be precomputed or made in real-time. The animations are interoperable with the existing package \textbf{tourr} and can be rendered with recent graphics interfaces \textbf{plotly} and \textbf{gganimate}. The former offers interactive use with HTML widgets while the latter can render to static formats such as .gif or .mp4 files. An interactive application is included to illustrate the use of the manual tour.
+Tours are categorized by the path of their bases. \emph{Manual tours} allow for User-Controlled Steering (UCS) of bases path, where the contributions of individual variables can be controlled. I create a free, open-source \textbf{R} package, \textbf{spinifex} that facilitates the creation of such tours. These manipulations of the variables can be precomputed or made in real-time. The animations are interoperable with the existing package \textbf{tourr} and can be rendered with recent graphics interfaces \textbf{plotly} and \textbf{gganimate}. The former offers interactive use with HTML widgets while the latter can render to static formats such as .gif or .mp4 files. An interactive application is included to illustrate the use of the manual tour.
 
-Theoretically, UCS should enable an analyst to better explore the variable attribution to the structure identified in an embedding. To test this I conduct a within-participant, crowd-sourced user study. The primary variable of interest is the visualization method where manual tours are compared against the benchmarks of Principal Component Analysis (PCA) and an alternative tour variant, the grand tour. Each of the \(n=108\) participants performs two trials with each visual for 648 total trials. The task is a supervised classification problem asking participants which variables attribute to the separation of 2 clusters. I find strong evidence to support that use of the radial tour leads to a large improvement in the accuracy of the variable attribution for this task.
+Theoretically, UCS of the manual tour should enable an analyst to better explore the variable attribution to the structure identified in an embedding. I find strong evidence to support that radial tour leads to a significant and large increase in accuracay as compared with Principal Component Analysis (PCA) and an alternative tour variant, the grand tour. I conduct a within-participant, crowd-sourced user study comparing these visualization methods. Each of the \(n=108\) participants performs two trials with each visual for 648 total trials. The task is a supervised classification problem asking participants which variables attribute to the separation of 2 clusters.
 
-Modern modeling techniques are sometimes referred to as black-box models due to the uninterpretable nature of model terms which are often many and non-linear. Recent research in Explainable Artificial Intelligence (XAI) tries to bring interpretability to these models through the use of \emph{local explanations}. Local explanations are a class of techniques that approximate the linear-variable importance at one point in the data. I purpose interactively exploring data- and explanation-spaces side-by-side to identify two observations to compare. Then the explanations can be evaluated to see how well they hold up under the varying contributions with the manual tour. I have created the free open-sourced \textbf{R} package \textbf{cheem} provides preprocessing defaults and an interactive application to explore.
+Modern modeling techniques are sometimes referred to as black-box models due to the uninterpretable nature of model terms which are often many and non-linear. Recent research in Explainable Artificial Intelligence (XAI) tries to bring interpretability to these models through the use of \emph{local explanations}. Local explanations are a class of techniques that approximate the linear-variable importance at one point in the data. I build an \textbf{cheem}, an \textbf{R} package to streamline model and local explanation preprocessing and two novel visuals. First the global view pits the data- and explanation-spaces side-by-side with a residual plot. Interactive features such as linked bushing and tooltips aid in the identification of observations to compare. The local explanation from the selected observation becomes a basis used in the creation of the radial tour. This allows us to evaluate the explanation and see explore how sensitive the explanation is to changes in the variable contribution.
 
 \clearpage\pagenumbering{arabic}\setcounter{page}{0}
 
@@ -156,7 +156,11 @@ Exploratory data analysis (EDA) is a term that encompass the initial summarizati
 \caption{Data analysis workflow \autocite{wickham_r_2017}. This work focuses primary on multivariate data visualization, but also facilitates transforming data and interpretation of models.}\label{fig:dataanalysisworkflow}
 \end{figure}
 
-A data visualization \emph{tour} \autocite{cook_grand_2008,lee_review_2021} is a class of linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower-dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames, the rotation of the data object. In the shadow analogy an object, such as a barstool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intuitive interpretation of the object. Similar looking at a data object over the rotation of its variables yields information about its structure. In this way and aided with linked brushing and other interactions, such continuous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch:motivation} will motivate why we decide to use such linear dimension reduction techniques.
+Early attempts at high-dimension visuals in scatterplot matrices \autocite{chambers_graphical_1983} and parallel coordinate plots\autocite{ocagne_coordonnees_1885}. Pricipal component analysis (PCA, \textcite{pearson_liii._1901}) reorients the basis to components, linear combinations of the original variables ordered by descending amount of variation explained. These components are typically viewed as discrete orthogonal pairs.
+
+A data visualization \emph{tour} \autocite{cook_grand_2008,lee_review_2021} is a class of linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower-dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames. In the shadow analogy an object, such as a barstool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intuitive interpretation of the object. Similarly looking at a data object over the rotation of its variables yields information about its structure. In this way and aided with linked brushing and other interactions, such continuous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch:motivation} motivates why we decide to use such linear dimension reduction techniques.
+
+Component spaces, and tours optimize for the certain objectives or choose randomly, though lends itself particularly well \emph{human-in-the-loop} \autocite{karwowski_international_2006} analysis. If the analyst wants to explore what what happens to the structure of one variable were removed or increase the contribution of another. This sort of variable level control is just not possible. The work in \textcite{cook_manual_1997} suggests a means for performing this manipulation though there is no compiling implementaiton of this method.
 
 \hypertarget{research-questions}{%
 \section{Research questions}\label{research-questions}}
@@ -168,22 +172,22 @@ The over-arching question of interest can be stated as:
 Understanding variable sensitivity to the structure in a projection frame is crucial factor analysis after identifying a feature of interest. If an identified feature is the \emph{what} of an analysis then its variable attributions are its \emph{how}. The user interaction afforded by the radial tour should allow for a more precise exploration of this structure.
 
 RQ 1. \textbf{How do we define user interaction for the radial tours to add and remove variables smoothly from a 2D linear projection of data?}\\
-\textcite{cook_manual_1997} described an algorithm for manually controlling a tour, to rotate a variable into and out of a 2D projection. This algorithm provides the start to user-controlled radial tours. The work \autocite{spyrison_spinifex_2020} was adapted so that the user has more control of the interpolation. The user can set the full range of the contribution from \([-1, 1]\), and output to a device that allows the user to reproduce motions and animate or rock the rotation backward and forwards. These fine-tuned controls provide a better tool for sensitivity analysis.
+Niether component spaces nor grand tour provide a means for changing the contributions of a desired variable. In order to facilitate variable interaction we need to have a means of manipulating the basis. This crutial to exploring sensitivity of the variable contributions to the structure in a frame.
 
 RQ 2. \textbf{Do analysts understand the relationship between variables and structure in a 2D linear projection better when the radial tour is available?}\\
-We performed an \(N=108\), within-participant user study comparing accuracy and time with the primary factor as the type of data visualization. Each participant performed 2 evaluations with either Principal Component Analysis (PCA, which is user control, but discrete), grand tour (continuous interpolated frames, but lack user control), or radial tour (user control and continuous animation). We find strong evidence that the radial tour increases accuracy. We also show the effects from the other experimental factors of location, shape data dimensionality, and the random effects from the data and that of the participants.
+How can we be certain the having this control leads to a meaningfully method than looking at discrete components or by watching enough continuous frames of grand tour?
 
 RQ 3. \textbf{Can the radial tours be used in conjunction with the local explanation, SHAP, to improve the interpretability of black-box models?}\\
-The tension from the trade-off between accuracy and interpretability of black-box models is rising. There is a clear need to be able to explain black-box models. We use SHAP to extract local explanations which form the projection basis to perform radial tours. We explore how misclassified observations behave relative to nearby correctly classified observations.
+The tension from the trade-off between accuracy and interpretability of black-box models is rising. There is a clear need to be able to explain black-box models. After extaploating local explanations of all observations we want to explore that space with the help of the radial tour.
 
 \hypertarget{methodology}{%
 \section{Methodology}\label{methodology}}
 
-The research corresponding with RO \#1 entails \emph{algorithm design} adapting the algorithm from \textcite{cook_manual_1997}. This allows for interactive control of 2D projections and serves as a foundation for the remaining work to follow.
+The research corresponding with RO \#1 entails \emph{algorithm/software design} adapting the algorithm from \textcite{cook_manual_1997}. This allows for interactive control of 2D projections and serves as a foundation for the remaining work to follow.
 
-To address RO \#2, a controlled \emph{experimental study} has explored the efficacy of interactive radial tours as compared with 2 benchmark methods: Principal Component Analysis (PCA, \textcite{pearson_liii._1901}) and the grand tour \autocite{asimov_grand_1985}. This was a within-participant user study where each participant experienced each visual. Trials were balanced across 3 other experimental factors: location of the signal, the shape of the cluster distributions, and the dimensionality of the data.
+To address RO \#2, a controlled \emph{experimental study} has explored the efficacy of interactive radial tours as compared with 2 benchmark methods: Principal Component Analysis (PCA, \textcite{pearson_liii._1901}) and the grand tour \autocite{asimov_grand_1985}. This was a within-participant user study where each participant experienced each visual. Trials were balanced across 3 other experimental factors: location of the signal, the shape of the cluster distributions, and the dimensionality of the data. Ethics approval was obtained for this work. The approval and disclosure form are available at the project repository: \url{https://github.com/nspyrison/spinifex_study/tree/master/ethics}.
 
-The research for RO \#3 involves \emph{fundamental visualization design}. We know that the SAHP value is a local explanation for one observation. This SHAP value will also serve as the 1D basis for the radial tour. While using SHAP as a projection basis is novel it is not particularly insightful by itself. We provide tracking marks on the tour as well as showing the within-class distributions of the SHAP components as parallel coordinate marks on the basis. We also offer a global view and quantitative analysis evaluating the sensitivity of the SHAP-space relative to the sensitivity of the original data space.
+The research for RO \#3 involves \emph{fundamental visualization design}. We know that the SAHP value is a local explanation for one observation. This SHAP value will also serve as the 1D basis for the radial tour. While using SHAP as a projection basis is novel it is not particularly insightful by itself. We provide tracking marks on the tour as well as showing the within-class distributions of the SHAP components as parallel coordinate marks on the basis. We also offer a global view and related statistics to map to color to aid in exploring the sensitivity of the SHAP-space relative to the sensitivity of the original data space.
 
 \hypertarget{contributions}{%
 \section{Contributions}\label{contributions}}
@@ -922,13 +926,13 @@ In building a set of models to test we include all single term models, a model w
 
 \begin{verbatim}
 ## # A tibble: 5 x 8
-##   `Fixed effects` `No. levels` `No. terms` AIC    BIC    `R2 cond. (on RE)` `R2 marg. (w/o RE)` RMSE   
-##   <chr>                  <int>       <int> <chr>  <chr>  <chr>              <chr>               <chr>  
-## 1 a                          1           3 *1000* *1027* 0.18               0.022               0.462  
-## 2 a+b+c+d                    4           8 1026   1075   0.187              0.03                0.46   
-## 3 a*b+c+d                    5          12 1036   1103   0.198              0.043               0.457  
-## 4 a*b*c+d                    8          28 1069   1207   0.238              0.08                0.447  
-## 5 a*b*c*d                   15          54 1125   1380   *0.255*            *0.115*             *0.438*
+##   `Fixed effects` `No. levels` `No. terms` AIC    BIC    `R2 cond. (on RE)` `R2 marg. (w/o RE)` RMSE  
+##   <chr>                  <int>       <int> <chr>  <chr>  <chr>              <chr>               <chr> 
+## 1 a                          1           3 *1000* *1027* 0.18               0.022               0.462 
+## 2 a+b+c+d                    4           8 1026   1075   0.187              0.03                0.46  
+## 3 a*b+c+d                    5          12 1036   1103   0.198              0.043               0.457 
+## 4 a*b*c+d                    8          28 1069   1207   0.238              0.08                0.447 
+## 5 a*b*c*d                   15          54 1125   1380   *0.255*            *0.115*             *0.43~
 \end{verbatim}
 
 \begin{verbatim}
@@ -1010,9 +1014,9 @@ This work is concerned with linear projections of multivariate data. More specif
 
 Radial tours change the basis by selecting one variable and specifying how to change its contribution to the current projection. By controlling the contribution of a single variable, a user can explore its sensitivity to the structure of the projection and identify which variables are ultimately most important to the structure in question. In the work addressing RO\#1, we improve upon the geodesic interpolator for use in the radial tour, and apply it in an open-source \texttt{R} package, \texttt{spinifex}, this package facilitates making radial tours and extends the graphics packages interoperability for itself and the tours made from the existing package \texttt{tourr}.
 
-Next, we substantiated the efficacy of radial tours as compared with user-selected, discrete combinations of principal components \autocite{pearson_liii._1901} and continuous projections without interaction with the \emph{grand tour} \autocite{asimov_grand_1985}. We conducted an \(N=108\) within-participant user study, where all participants use each of these visual factors. This is performed over balanced trials across the other experimental factors: location, shape, and dimension of the data. This addresses the second research objective.
+Next, we substantiated the efficacy of radial tours as compared with user-selected, discrete combinations of principal components \autocite{pearson_liii._1901} and continuous projections without interaction with the \emph{grand tour} \autocite{asimov_grand_1985}. We conducted an \(N=108\) within-participant user study, where all participants use each of these visual factors. This is performed over balanced trials across the other experimental factors: location, shape, and dimension of the data. This addresses the second research question.
 
-In our latest work, we want to see if we can apply the radial tour to aid the interpretability of black-box models. Such models have a non-linear space making them hard to interpret or understand. One recent branch in explainable artificial intelligence \autocite[XAI,][\textcite{arrieta_explainable_2020}]{adadi_peeking_2018} is the use of local explanations or the attribution of the variables for one observation of a black-box model. We use such an explanation to form a 1D basis and perform radial tours to explore how the SHAP values behave differently for misclassified observations against neighboring correctly classified observations. This work corresponds to the third research objective.
+In our latest work, we want to see if we can apply the radial tour to aid the interpretability of black-box models. Such models have a non-linear space making them hard to interpret or understand. One recent branch in explainable artificial intelligence \autocite[XAI,][\textcite{arrieta_explainable_2020}]{adadi_peeking_2018} is the use of local explanations or the attribution of the variables for one observation of a black-box model. We use such an explanation to form a 1D basis and perform radial tours to explore how the SHAP values behave differently for misclassified observations against neighboring correctly classified observations.
 
 \hypertarget{motivation}{%
 \section{Motivation}\label{motivation}}
@@ -1144,7 +1148,8 @@ In addition to the research discussed around the central theme of the radial tou
   \emph{``Is IEEE VIS that good?'' On key factors in the initial assessment of manuscript and venue quality} \autocite{spyrison_is_2021}, A survey IEEE VIS authors, how they source articles, decide which to read, and evaluate venue quality. We find low evidence that sentiment changes across academic positions for these topics and provide commentary and discussion on the effects of ``publish or perish'' environment, standard author and journal metrics, and the need to publish ``null finding'' and replication studies.
 \item
   \emph{Intraday effect of COVID-19 restrictions on Melbourne electricity consumption} \autocite{barrow_changes_2020}, We corroborate that the Victorian interday effect on energy consumption did not change, and novelly find that the intraday distribution of energy consumption does change. Namely we find a statistically significant change in the height of the morning and evening peak energy consumption that we posit is due to less strict schedules accociated with working from home, abence of commute time, or other employment changes. We were awarded 1st place of hundreds of entries in the insights category of the Melbourne 2020 Datathon.
-  -Student volunteering at conferences: UseR!2021 - Online, CHI Down Under 2020 - Online, and UseR!2018 - Brisbane, Australia.
+\item
+  Student volunteering at conferences: UseR!2021 - Online, CHI Down Under 2020 - Online, and UseR!2018 - Brisbane, Australia.
 \end{itemize}
 
 \printbibliography[heading=bibintoc]
