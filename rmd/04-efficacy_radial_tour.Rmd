@@ -5,7 +5,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-# The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections {#ch:efficacy_radial_tour}
+# The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections {#ch-efficacy_radial_tour}
 
 THIS CHAPTER IS CURRENTLY BEING EDITED IN IT's OWN REPOSITORY, THIS VERSION IS OUT OF DATE.
 
@@ -377,7 +377,7 @@ install.packages("spinifex", dependencies = TRUE)
 spinifex::run_app("radial_tour")
 ```
 
-## Acknowledgments {#sec:acknowledgments}
+## Acknowledgments
 
 This research was supported by an Australian Government Research Training Program (RTP) Scholarship. This article was created in R [@r_core_team_r:_2020] and {rmarkdown} [@xie_r_2018]. Visuals were prepared with {spinifex}. All packages used are available from the Comprehensive R Archive Network (CRAN) at \url{https://CRAN.R-project.org/}. The source files for this article, application, data, and analysis can be found at \url{https://github.com/nspyrison/spinifex_study/}. The source code for the {spinifex} package and accompanying shiny application can be found at \url{https://github.com/nspyrison/spinifex/}.
 

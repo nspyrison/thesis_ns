@@ -1,13 +1,15 @@
-<!--
----
-knit: "bookdown::render_book"
----
+# Appendix {#ch-appendix}
 
 \appendix
 
-# Glossary {#ch:glossary}
+ADD SPINIFEX VIGNETTE GGPROTO API HERE? after first paper?
 
 
+<!-- at the end, creat bib for html version -->
+`r if (knitr::is_html_output()) '# Bibliography {-}'`
+
+<!--
+# Glossary {#ch-glossary}
 
 ## Notation {#sec:notation}
 

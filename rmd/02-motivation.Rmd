@@ -4,7 +4,7 @@ knit: "bookdown::render_book"
 ---
 
 <!-- motivation or background?? -->
-# Motivation {#ch:motivation}
+# Motivation {#ch-motivation}
 
 
 First I motivation the early are frequent us of data visualization in general. Then we discuss some of the alternative data visualizations, and their scalability. The we discuss dimension reduction before cover tours in more detail.
@@ -68,6 +68,6 @@ There are various types of tours that are classified by the generation of their 
 
 Tours are used for a couple of salient features: maintains transparency back to the original variable space and the persistence data points from frame to frame convey more information than looking at discrete jumps to other bases. Because of these features tours are a good method to extend the visualization of data space as dimensionality increases.
 
-The work below covers manual tours [@cook_manual_1997; @spyrison_spinifex_2020] in Chapter \ref{ch:spinifex}. Radial tours are one type of manual tour that where the contribution of one variable is extended radially to a full contribution, removed completely, then restored to its original contribution. Chapter \ref{ch:efficacy_radial_tour} compares the efficacy of the radial tour as compared with PCA and the grand tour in a user study. Lastly, Chapter \ref{ch:cheem} extends the use of the radial tour to evaluate the local explanation of black-box models.
+The work below covers manual tours [@cook_manual_1997; @spyrison_spinifex_2020] in Chapter \ref{ch-spinifex}. Radial tours are one type of manual tour that where the contribution of one variable is extended radially to a full contribution, removed completely, then restored to its original contribution. Chapter \ref{ch-efficacy_radial_tour} compares the efficacy of the radial tour as compared with PCA and the grand tour in a user study. Lastly, Chapter \ref{ch-cheem} extends the use of the radial tour to evaluate the local explanation of black-box models.
 
 
