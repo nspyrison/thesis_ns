@@ -47,7 +47,7 @@ if (Sys.getenv("RSTUDIO") != "1" && Sys.info()['sysname'] == "Darwin") {
 # provide default formats if necessary
 formats <- commandArgs(trailingOnly = TRUE)
 if (length(formats) == 0) {
-  formats <- "bookdown::pdf_book"
+  formats <- c("bookdown::pdf_book", "bookdown::gitbook")
 }
 # render the book to all formats
 for (fmt in formats)

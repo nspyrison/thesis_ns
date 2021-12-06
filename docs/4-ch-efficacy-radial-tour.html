@@ -233,7 +233,7 @@ for dimension reduction comparing across embeddings and display dimensionality <
 <h3><span class="header-section-number">4.2.1</span> Principal component analysis</h3>
 <p>Principal component analysis is a good baseline of comparison for linear projections because of its frequent and broad use across disciplines. Principal component analysis <span class="citation">[PCA, @pearson_liii._1901]</span> creates new components that are linear combinations of the original variables. The creation of these variables is ordered by decreasing variation which is orthogonally constrained to all previous components. While the full dimensionality is intact, the benefit comes from the ordered nature of the components. The first 2 or 3 components are typically used to approximate the variation multivariate data set, while the rest are discarded.</p>
 <div class="figure" style="text-align: center"><span id="fig:ch4fig1"></span>
-<img src="figures_from_script/ch4_fig1_pca_splom.pdf" alt="Scatterplot matrix of the first 3 principal components for simulated data. Traditional multivariate visualization of *data*-space involes static display of the first several principal components." width="100%"  />
+<img src="figures_from_script/ch4_fig1_pca_splom.pdf" alt="Scatterplot matrix of the first 3 principal components for simulated data. Traditional multivariate visualization of *data*-space involes static display of the first several principal components." width="100%" />
 <p class="caption">
 Figure 4.1: Scatterplot matrix of the first 3 principal components for simulated data. Traditional multivariate visualization of <em>data</em>-space involes static display of the first several principal components.
 </p>
@@ -278,7 +278,7 @@ Figure 4.1: Scatterplot matrix of the first 3 principal components for simulated
 <!-- Introduction to blocks -->
 <p>In addition to visual factor, we vary the data across 3 aspects: 1) The <em>location</em> of the difference between clusters, by mixing a signal and a noise variable at different ratios, we vary the number of variables and their magnitude of cluster separation, 2) the <em>shape</em> of the clusters, to reflect different distributions of the data, and 3) the <em>dimension</em>-ality of the data.</p>
 <div class="figure" style="text-align: center"><span id="fig:ch4fig2"></span>
-<img src="figures_from_script/ch4_fig2_exp_factors.pdf" alt="Illustration of the experimental factors: visualization factor, the variable location of the cluster separationm, the shape of the clusters, and the dimensionality (and clusters) of the data." width="100%"  />
+<img src="figures_from_script/ch4_fig2_exp_factors.pdf" alt="Illustration of the experimental factors: visualization factor, the variable location of the cluster separationm, the shape of the clusters, and the dimensionality (and clusters) of the data." width="100%" />
 <p class="caption">
 Figure 4.2: Illustration of the experimental factors: visualization factor, the variable location of the cluster separationm, the shape of the clusters, and the dimensionality (and clusters) of the data.
 </p>
@@ -325,7 +325,7 @@ W_{j} &amp;=\frac
 \end{align*}\]</span></p>
 <p>where <span class="math inline">\(I\)</span> is the indicator function. Then the total marks for this task is the sum of this marks vector. We use the time till the last response as a secondary dependent variable <span class="math inline">\(Y_2\)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:ch4fig3"></span>
-<img src="figures_from_script/ch4_fig3_accuracy_measure.pdf" alt="(L), PCA biplot of the components showing the most cluster separation with (R) illustration of the magnitude of cluster separation is for each variable (wide bar) and the weight of the marks given if a variable is selected (red/green line). The horizontal dashed line is 1 / dimensionality, the amount of separation each variable would have if evenly distributed. The weights equal the signed square of the difference between each variable value and the dashed line." width="100%"  />
+<img src="figures_from_script/ch4_fig3_accuracy_measure.pdf" alt="(L), PCA biplot of the components showing the most cluster separation with (R) illustration of the magnitude of cluster separation is for each variable (wide bar) and the weight of the marks given if a variable is selected (red/green line). The horizontal dashed line is 1 / dimensionality, the amount of separation each variable would have if evenly distributed. The weights equal the signed square of the difference between each variable value and the dashed line." width="100%" />
 <p class="caption">
 Figure 4.3: (L), PCA biplot of the components showing the most cluster separation with (R) illustration of the magnitude of cluster separation is for each variable (wide bar) and the weight of the marks given if a variable is selected (red/green line). The horizontal dashed line is 1 / dimensionality, the amount of separation each variable would have if evenly distributed. The weights equal the signed square of the difference between each variable value and the dashed line.
 </p>
@@ -364,7 +364,7 @@ Figure 4.3: (L), PCA biplot of the components showing the most cluster separatio
 <p>The order of the levels of the factor and location is randomized with a nested Latin square where all levels of factor are exhausted before advancing to the next level of location. That means we need <span class="math inline">\(3!^2 = 36\)</span> participants to perform a full block evaluation. This randomization is important to control for any potential learning effects the participant may receive. Figure <a href="4-ch-efficacy-radial-tour.html#fig:ch4fig4">4.4</a> illustrates how an arbitrary participant experiences the experimental factors.</p>
 <!-- Nested latin square assignment -->
 <div class="figure" style="text-align: center"><span id="fig:ch4fig4"></span>
-<img src="figures_from_script/ch4_fig4_randomization_MANUAL.png" alt="Illustration of the nested latin square and how a hypothetical participant 63 is assigned factor and block parameterizations. Each of the 6-factor permutations is exhausted before iterating to the next permutation of location." width="100%"  />
+<img src="figures_from_script/ch4_fig4_randomization_MANUAL.png" alt="Illustration of the nested latin square and how a hypothetical participant 63 is assigned factor and block parameterizations. Each of the 6-factor permutations is exhausted before iterating to the next permutation of location." width="100%" />
 <p class="caption">
 Figure 4.4: Illustration of the nested latin square and how a hypothetical participant 63 is assigned factor and block parameterizations. Each of the 6-factor permutations is exhausted before iterating to the next permutation of location.
 </p>
@@ -420,33 +420,33 @@ Figure 4.4: Illustration of the nested latin square and how a hypothetical parti
 &amp;\epsilon   \sim \mathcal{N}(0,~\sigma), \text{ the error of the model} \\
 \end{array}
 \]</span></p>
-<pre><code>## # A tibble: 5 x 8
-##   `Fixed effects` `No. levels` `No. terms` AIC    BIC    `R2 cond. (on RE)`
-##   &lt;chr&gt;                  &lt;int&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;             
-## 1 a                          1           3 *1000* *1027* 0.18              
-## 2 a+b+c+d                    4           8 1026   1075   0.187             
-## 3 a*b+c+d                    5          12 1036   1103   0.198             
-## 4 a*b*c+d                    8          28 1069   1207   0.238             
-## 5 a*b*c*d                   15          54 1125   1380   *0.255*           
-## # ... with 2 more variables: R2 marg. (w/o RE) &lt;chr&gt;, RMSE &lt;chr&gt;</code></pre>
-<pre><code>##                      Estimate Std. Error    df t value Pr(&gt;|t|)    
-## (Intercept)             -0.12       0.08  43.9   -1.50     0.14    
-## fct=grand                0.15       0.09 622.4    1.74     0.08    
-## fct=radial               0.37       0.09 617.1    4.18     0.00 ***
-## loc=33_66                0.17       0.09  83.2    1.78     0.08    
-## loc=50_50                0.14       0.09  84.8    1.52     0.13    
-## shp=EEV                  0.04       0.06  11.5    0.79     0.44    
-## shp=ban                 -0.03       0.06  11.5   -0.48     0.64    
-## dim=6                   -0.06       0.05  11.5   -1.39     0.19    
-## fct=grand:loc=33_66     -0.06       0.13 587.3   -0.49     0.63    
-## fct=radial:loc=33_66    -0.34       0.13 585.2   -2.65     0.01  **
-## fct=grand:loc=50_50     -0.09       0.13 589.6   -0.68     0.50    
-## fct=radial:loc=50_50    -0.19       0.13 574.3   -1.43     0.15</code></pre>
+<pre><code>#&gt; # A tibble: 5 x 8
+#&gt;   `Fixed effects` `No. levels` `No. terms` AIC    BIC    `R2 cond. (on RE)`
+#&gt;   &lt;chr&gt;                  &lt;int&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;             
+#&gt; 1 a                          1           3 *1000* *1027* 0.18              
+#&gt; 2 a+b+c+d                    4           8 1026   1075   0.187             
+#&gt; 3 a*b+c+d                    5          12 1036   1103   0.198             
+#&gt; 4 a*b*c+d                    8          28 1069   1207   0.238             
+#&gt; 5 a*b*c*d                   15          54 1125   1380   *0.255*           
+#&gt; # ... with 2 more variables: R2 marg. (w/o RE) &lt;chr&gt;, RMSE &lt;chr&gt;</code></pre>
+<pre><code>#&gt;                      Estimate Std. Error    df t value Pr(&gt;|t|)    
+#&gt; (Intercept)             -0.12       0.08  43.9   -1.50     0.14    
+#&gt; fct=grand                0.15       0.09 622.4    1.74     0.08    
+#&gt; fct=radial               0.37       0.09 617.1    4.18     0.00 ***
+#&gt; loc=33_66                0.17       0.09  83.2    1.78     0.08    
+#&gt; loc=50_50                0.14       0.09  84.8    1.52     0.13    
+#&gt; shp=EEV                  0.04       0.06  11.5    0.79     0.44    
+#&gt; shp=ban                 -0.03       0.06  11.5   -0.48     0.64    
+#&gt; dim=6                   -0.06       0.05  11.5   -1.39     0.19    
+#&gt; fct=grand:loc=33_66     -0.06       0.13 587.3   -0.49     0.63    
+#&gt; fct=radial:loc=33_66    -0.34       0.13 585.2   -2.65     0.01  **
+#&gt; fct=grand:loc=50_50     -0.09       0.13 589.6   -0.68     0.50    
+#&gt; fct=radial:loc=50_50    -0.19       0.13 574.3   -1.43     0.15</code></pre>
 <!-- Conditional effects of variables -->
 <p>We also want to visually explore the conditional variables in the model. Figure <a href="4-ch-efficacy-radial-tour.html#fig:ch4fig5">4.5</a> explores violin plots of marks by factor while faceting on the location (vertical) and shape (horizontal). Radial tends to increase the marks received, and especially so when there is no signal/noise mixing.</p>
 <!-- Violin plots and test overlay for Y1 factors -->
 <div class="figure" style="text-align: center"><span id="fig:ch4fig5"></span>
-<img src="figures_from_script/ch4_fig5_ABcd_violins.pdf" alt="Violin plots of terms of the model $\widehat{Y_1} = \alpha * \beta + \gamma + \delta$. Overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests suitable for handling discrete data. Participants are more confident and find the radial easier to use relative to the grand tour. Participants claim low familiarity as we expect from crowdsourced participants. Radial is more preferred compared with either alternative for this task." width="100%"  />
+<img src="figures_from_script/ch4_fig5_ABcd_violins.pdf" alt="Violin plots of terms of the model $\widehat{Y_1} = \alpha * \beta + \gamma + \delta$. Overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests suitable for handling discrete data. Participants are more confident and find the radial easier to use relative to the grand tour. Participants claim low familiarity as we expect from crowdsourced participants. Radial is more preferred compared with either alternative for this task." width="100%" />
 <p class="caption">
 Figure 4.5: Violin plots of terms of the model <span class="math inline">\(\widehat{Y_1} = \alpha * \beta + \gamma + \delta\)</span>. Overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests suitable for handling discrete data. Participants are more confident and find the radial easier to use relative to the grand tour. Participants claim low familiarity as we expect from crowdsourced participants. Radial is more preferred compared with either alternative for this task.
 </p>
@@ -486,7 +486,7 @@ Figure 4.5: Violin plots of terms of the model <span class="math inline">\(\wide
 <!-- Introduce subjective measures from n=84 survey results, -->
 <p>The 84 evaluations of the post-study survey also collect 4 subjective measures for each factor. Figure <a href="4-ch-efficacy-radial-tour.html#fig:ch4fig6">4.6</a> shows the Likert plots, or stacked percentage bar plots, alongside violin plots with the same non-parametric, ranked sum tests previously used. Participants preferred to use radial for this task. Participants were also more confident of their answers and found radial tours easier to use compared with the grand tour. All factors have reportedly low familiarity something we expect from crowdsourced participants.</p>
 <div class="figure" style="text-align: center"><span id="fig:ch4fig6"></span>
-<img src="figures_from_script/ch4_fig6_subjective_measures.pdf" alt="The subjective measures of the 84 responses of the post-study survey, 5 discrete Likert scale levels of aggrement. (L) Likert plots (stacked percent bar plots) with (R) violin plots of the same measures. Violin plots are overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests." width="100%"  />
+<img src="figures_from_script/ch4_fig6_subjective_measures.pdf" alt="The subjective measures of the 84 responses of the post-study survey, 5 discrete Likert scale levels of aggrement. (L) Likert plots (stacked percent bar plots) with (R) violin plots of the same measures. Violin plots are overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests." width="100%" />
 <p class="caption">
 Figure 4.6: The subjective measures of the 84 responses of the post-study survey, 5 discrete Likert scale levels of aggrement. (L) Likert plots (stacked percent bar plots) with (R) violin plots of the same measures. Violin plots are overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests.
 </p>
@@ -503,8 +503,8 @@ Figure 4.6: The subjective measures of the 84 responses of the post-study survey
 <div id="sec:spinifex" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Accompanying tool: radial tour application</h2>
 <p>To accompany this study we have produced a more general use tool to perform such exploratory analysis of high dimensional data. The R package, {spinifex}, <span class="citation">[@spyrison_spinifex_2020]</span> contains a free, open-source {shiny} <span class="citation">[@chang_shiny_2020]</span> application. The application allows users to upload, perform limited preprocessing, and interactively explore their data via interactive radial tour. The .html widget produced is a more interactive variant relative to the application in the user study. Screencaptures and more details are provided in the appendix. Data can be imported from .csv, .rds, or .rda format, and projections. Run the following R code to run the application locally.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="4-ch-efficacy-radial-tour.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;spinifex&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-2"><a href="4-ch-efficacy-radial-tour.html#cb6-2" aria-hidden="true" tabindex="-1"></a>spinifex<span class="sc">::</span><span class="fu">run_app</span>(<span class="st">&quot;radial_tour&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="4-ch-efficacy-radial-tour.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;spinifex&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-2"><a href="4-ch-efficacy-radial-tour.html#cb5-2" aria-hidden="true" tabindex="-1"></a>spinifex<span class="sc">::</span><span class="fu">run_app</span>(<span class="st">&quot;radial_tour&quot;</span>)</span></code></pre></div>
 </div>
 <div id="acknowledgments-2" class="section level2" number="4.7">
 <h2><span class="header-section-number">4.7</span> Acknowledgments</h2>
