@@ -3,7 +3,7 @@ chapter: 1
 knit: "bookdown::render_book"
 ---
 
-# Introduction {#ch:introduction}
+# Introduction {#ch-introduction}
 
 <!-- Exploratory data analysis -->
 Exploratory data analysis (EDA) is a term that encompass the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values, finding improper data formats, and revealing insights [@tukey_exploratory_1977]. Early and frequent data visualization is key to the data analyst's workflow cycle [@wickham_r_2017]. As modern datasets grow in complexity use of multivariate data is ubiquitous. The number of variables in the data increases the difficulty of creating and portraying an accurate representation of the data which is central to the iterated workflow.
@@ -16,7 +16,7 @@ knitr::include_graphics("./figures/data_analysis_workflow.png")
 
 Early attempts at high-dimension visuals in scatterplot matrices [@chambers_graphical_1983] and parallel coordinate plots[@ocagne_coordonnees_1885]. Pricipal component analysis (PCA, @pearson_liii._1901) reorients the basis to components, linear combinations of the original variables ordered by descending amount of variation explained. These components are typically viewed as discrete orthogonal pairs.
 
-A data visualization _tour_ [@cook_grand_2008; @lee_review_2021] is a class of linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower-dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames. In the shadow analogy an object, such as a barstool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intuitive interpretation of the object. Similarly looking at a data object over the rotation of its variables yields information about its structure. In this way and aided with linked brushing and other interactions, such continuous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch:motivation} motivates why we decide to use such linear dimension reduction techniques.
+A data visualization _tour_ [@cook_grand_2008; @lee_review_2021] is a class of linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower-dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames. In the shadow analogy an object, such as a barstool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intuitive interpretation of the object. Similarly looking at a data object over the rotation of its variables yields information about its structure. In this way and aided with linked brushing and other interactions, such continuous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch-motivation} motivates why we decide to use such linear dimension reduction techniques.
 
 Component spaces, and tours optimize for the certain objectives or choose randomly, though lends itself particularly well _human-in-the-loop_ [@karwowski_international_2006] analysis. If the analyst wants to explore what what happens to the structure of one variable were removed or increase the contribution of another. This sort of variable level control is just not possible. The work in @cook_manual_1997 suggests a means for performing this manipulation though there is no compiling implementaiton of this method.
 
@@ -75,6 +75,6 @@ The research for RO #3 involves _fundamental visualization design_. We know that
 
 ## Thesis structure
 
-The remainder of the thesis is organized as follows: Chapter \ref{ch:motivation} covers the motivation for such research. The research chapters 3 through 5 will cover their respective own backgrounds and follow-up discussion. Chapter \ref{ch:efficacy_radial_tour} discusses a user study evaluating the efficacy of the radial, manual tour. Chapter \ref{ch:cheem} extends the use of manual tours to extend the interpretability of black-box models. Lastly, Chapter \ref{ch:conclusion} concludes with some takeaways and a discussion of possible extensions.
+The remainder of the thesis is organized as follows: Chapter \ref{ch-motivation} covers the motivation for such research. The research chapters 3 through 5 will cover their respective own backgrounds and follow-up discussion. Chapter \ref{ch-efficacy_radial_tour} discusses a user study evaluating the efficacy of the radial, manual tour. Chapter \ref{ch-cheem} extends the use of manual tours to extend the interpretability of black-box models. Lastly, Chapter \ref{ch-conclusion} concludes with some takeaways and a discussion of possible extensions.
 
 

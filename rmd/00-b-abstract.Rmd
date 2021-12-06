@@ -1,7 +1,3 @@
----
-knit: "bookdown::render_book"
----
-
 <!-- Short abstract for MGRO/Bridges: -->
 <!--
 Data visualization is an important aspect of Exploratory Data Analysis. As the dimensionality of data increases so does the difficulty of visualizing them. Techniques such as principal component analysis (PCA). Traditional linear dimension reduction defines new components which are viewed as discrete pairs. Tours are a class of linear projections animating over continuous changes to the basis. I create an R package facilitating the manual tour and exporting of all tours. Then I prove the radial tour out performs PCA and the grand tour with an $n=108$ within-participant user study. Local explanations of a non-linear model approximate the variable importance within the vicinity of one observation. I create another R package to explore and evaluate the explanation by exploring its variable sensitivity to changes with the radial tour.

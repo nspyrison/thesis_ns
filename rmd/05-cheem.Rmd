@@ -6,7 +6,7 @@ knit: "bookdown::render_book"
 ##NOTE: Most recent content in repo: `cheem_paper`:
 ```
 
-# Application of the radial tour to model-agnostic local explanations {#ch:cheem}
+# Application of the radial tour to model-agnostic local explanations {#ch-cheem}
 
 THIS CHAPTER IS CURRENTLY BEING EDITED IN IT's OWN REPOSITORY, THIS VERSION IS OUT OF DATE.
 
@@ -107,7 +107,7 @@ Taking a step back, it is important to remember that this visualization and anal
 Turning for a minute to real-world application, developing methods to better interpret black-box models is an important and impactful challenge. Private corporations and nation-states increasingly using complex models to classify and predict their customers and citizens from loans and insurance claims to employment and credit scores, the real-world impact of highly non-linear is here to stay. Being able to see the specifics of one observation may seem small in the context of a model, but it is crucial to that instance; if misclassificated, that  observation may receive an outcome a world apart from its actual peers.
 
 
-## Acknowledgments {#sec:acknowledgments}
+## Acknowledgments
 
 I would like to thank Professor Przemyslaw Biecek (Warsaw University of Technology) for his time and input in suggesting to look at SHAP local explanations and try applying to the FIFA dataset.
 

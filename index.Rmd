@@ -6,8 +6,17 @@ degrees: 'B.Sc. Statistics, Iowa State University'
 output: bookdown::pdf_book
 site: bookdown::bookdown_site
 link-citations: yes
-knit: "bookdown::render_book"
 ---
+
+<!-- `r if (knitr::is_latex_output()) '<!--'`  -->
+
+<!-- # Welcome {-} -->
+
+<!-- This is the __blogdown__ website for my PhD thesis at Monash University, Australia.  -->
+
+<!-- `r Sys.Date()` -->
+
+<!-- `r if (knitr::is_latex_output()) '__>' ## <-- Correct this if using welcome` -->
 
 <!-- 
 Edit these lines as appropriate.

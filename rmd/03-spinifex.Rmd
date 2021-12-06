@@ -11,7 +11,7 @@ if(F)
   file.edit("./figures_from_script/_ch3_spinifex.r")
 ```
 
-# spinifex: An R Package for Creating a Manual Tour of Low-dimensional Projections of Multivariate Data {#ch:spinifex}
+# spinifex: An R Package for Creating a Manual Tour of Low-dimensional Projections of Multivariate Data {#ch-spinifex}
 
 TODO:XXX Segue. Bring over abstract?
 
