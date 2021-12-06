@@ -6,7 +6,7 @@ I hereby declare that this thesis contains no material which has been accepted f
 
 Three publications are included in this thesis, one of which has been accepted for publication in _The R Journal_ [@spyrison_spinifex_2020]. The user study described in Chapter \ref{ch-efficacy_radial_tour} will shortly be submitted to the *Journal of Data Science, Statistics, and Visualisation*. The research covered in Chapter \ref{ch-cheem} will shortly be submitted to *IEEE Transactions on Knowledge and Data Engineering*.
 
-All of the papers in the thesis were conceptualized, developed, and written by myself, the student, while working in the Department of Human-Centred Computing under the supervision of professor Kimbal Marriott and professor Dianne Cook. When co-authors are listed, it indicates that the work was produced through active collaboration between researchers and that their contributions to team-based research have been recognized. The following table details the work, including my and my fellow co-authors' contributions.
+All of the papers in the thesis were conceptualized, developed, and written by myself, the student, while working in the Department of Human-Centered Computing under the supervision of professor Kimbal Marriott and professor Dianne Cook. When co-authors are listed, it indicates that the work was produced through active collaboration between researchers and that their contributions to team-based research have been recognized. The following table details the work, including my and my fellow co-authors' contributions.
 
 \begin{table}
 \centering\footnotesize\tabcolsep=0.12cm
