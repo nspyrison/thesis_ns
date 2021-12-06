@@ -44,9 +44,8 @@ The tension from the trade-off between accuracy and interpretability of black-bo
 
 
 ## Methodology
-<!-- HOW YOU WILL GO ABOUT EACH PROJECT -->
 
-The research corresponding with RQ #1 entails _algorithm/software design_ adapting the algorithm from @cook_manual_1997. This allows for interactive control of 2D projections and serves as a foundation for the remaining work to follow.
+The research corresponding with RQ #1 entails _algorithm/software design_ adapting the algorithm from @cook_manual_1997. This allows for interactive control of 2D projections and serves as a foundation for the remaining work.
 
 To address RQ #2, a controlled _experimental study_ has explored the efficacy of interactive radial tours as compared with 2 benchmark methods: Principal Component Analysis (PCA, @pearson_liii._1901) and the grand tour [@asimov_grand_1985]. This was a within-participant user study where each participant experienced each visual. Trials were balanced across 3 other experimental factors: location of the signal, the shape of the cluster distributions, and the dimensionality of the data. Ethics approval was obtained for this work. The approval and disclosure form are available at the project repository: https://github.com/nspyrison/spinifex_study/tree/master/ethics.
 
