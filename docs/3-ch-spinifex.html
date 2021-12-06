@@ -180,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#futher-extensions"><i class="fa fa-check"></i><b>6.1</b> Futher extensions</a></li>
+<li class="chapter" data-level="6.1" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#further-extensions"><i class="fa fa-check"></i><b>6.1</b> Further extensions</a></li>
 <li class="chapter" data-level="6.2" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#other-contributions"><i class="fa fa-check"></i><b>6.2</b> Other contributions</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a></li>
@@ -398,6 +398,7 @@ Figure 3.3: Select frames highlight the animation of a radial manual tour manipu
 <h3><span class="header-section-number">3.3.2</span> Functions</h3>
 <!-- in terms of workflow -->
 <p>Table  lists the primary functions and their purpose. These are grouped into four types: construction for building a tour path, render to make the plot objects, animation for running the animation, and specialty for providing illustrations used in the algorithm description.</p>
+<pre><code>## Warning: package &#39;kableExtra&#39; was built under R version 4.1.2</code></pre>
 </div>
 <div id="sec:usage" class="section level3" number="3.3.3">
 <h3><span class="header-section-number">3.3.3</span> Usage</h3>
@@ -409,10 +410,10 @@ Figure 3.3: Select frames highlight the animation of a radial manual tour manipu
 <p>The function <code>oblique_frame</code> can be used to show a projection of the basis, or with the data overlaid. For example, the plots in Figures  and  were made with code similar to this:</p>
 <p>An illustration of the manip space (as shown in Figure ) is made with the <code>view_manip_space</code> function, as follows:</p>
 <!-- step 2 disp code. -->
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="3-ch-spinifex.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Displays the projection plane and manipulation space for the </span></span>
-<span id="cb2-2"><a href="3-ch-spinifex.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">view_manip_space</span>(<span class="at">basis =</span> f_basis, </span>
-<span id="cb2-3"><a href="3-ch-spinifex.html#cb2-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">manip_var =</span> f_mvar, </span>
-<span id="cb2-4"><a href="3-ch-spinifex.html#cb2-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">lab =</span> <span class="fu">colnames</span>(f_data))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="3-ch-spinifex.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Displays the projection plane and manipulation space for the </span></span>
+<span id="cb3-2"><a href="3-ch-spinifex.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">view_manip_space</span>(<span class="at">basis =</span> f_basis, </span>
+<span id="cb3-3"><a href="3-ch-spinifex.html#cb3-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">manip_var =</span> f_mvar, </span>
+<span id="cb3-4"><a href="3-ch-spinifex.html#cb3-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">lab =</span> <span class="fu">colnames</span>(f_data))</span></code></pre></div>
 </div>
 </div>
 <div id="sec:application" class="section level2" number="3.4">

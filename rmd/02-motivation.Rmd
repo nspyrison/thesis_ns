@@ -64,7 +64,7 @@ A single linear projection is a resulting space from the data multiplied by the 
 knitr::include_graphics("./figures/buja05fig.PNG")
 ```
 
-There are various types of tours that are classified by the generation of their basis paths. A _guided_ tour uses simulated annealing to move progressively closer to an objective function in the embedded space[@hurley_analyzing_1990]. A more comprehensive discussion and review of tours can be found in the works of @cook_grand_2008; @lee_review_2021].
+There are various types of tours that are classified by the generation of their basis paths. A _guided_ tour uses simulated annealing to move progressively closer to an objective function in the embedded space [@hurley_analyzing_1990]. A more comprehensive discussion and review of tours can be found in the works of @cook_grand_2008 and @lee_review_2021.
 
 Tours are used for a couple of salient features: maintains transparency back to the original variable space and the persistence data points from frame to frame convey more information than looking at discrete jumps to other bases. Because of these features tours are a good method to extend the visualization of data space as dimensionality increases.
 

@@ -180,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#futher-extensions"><i class="fa fa-check"></i><b>6.1</b> Futher extensions</a></li>
+<li class="chapter" data-level="6.1" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#further-extensions"><i class="fa fa-check"></i><b>6.1</b> Further extensions</a></li>
 <li class="chapter" data-level="6.2" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#other-contributions"><i class="fa fa-check"></i><b>6.2</b> Other contributions</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a></li>
@@ -207,7 +207,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="ch-efficacy_radial_tour" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections</h1>
-<p>THIS CHAPTER IS CURRENTLY BEING EDITED IN IT’s OWN REPOSITORY, THIS VERSION IS OUT OF DATE.</p>
+<p>THIS CHAPTER IS CURRENTLY BEING EDITED IN ITs OWN REPOSITORY, THIS VERSION IS OUT OF DATE.</p>
 <!-- current draft title: -->
 <!-- # A study examining the benefit of the -->
 <!-- user-controlled radial tour for -->
@@ -421,13 +421,14 @@ Figure 4.4: Illustration of the nested latin square and how a hypothetical parti
 \end{array}
 \]</span></p>
 <pre><code>## # A tibble: 5 x 8
-##   `Fixed effects` `No. levels` `No. terms` AIC    BIC    `R2 cond. (on RE)` `R2 marg. (w/o R~ RMSE 
-##   &lt;chr&gt;                  &lt;int&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;              &lt;chr&gt;             &lt;chr&gt;
-## 1 a                          1           3 *1000* *1027* 0.18               0.022             0.462
-## 2 a+b+c+d                    4           8 1026   1075   0.187              0.03              0.46 
-## 3 a*b+c+d                    5          12 1036   1103   0.198              0.043             0.457
-## 4 a*b*c+d                    8          28 1069   1207   0.238              0.08              0.447
-## 5 a*b*c*d                   15          54 1125   1380   *0.255*            *0.115*           *0.4~</code></pre>
+##   `Fixed effects` `No. levels` `No. terms` AIC    BIC    `R2 cond. (on RE)`
+##   &lt;chr&gt;                  &lt;int&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;             
+## 1 a                          1           3 *1000* *1027* 0.18              
+## 2 a+b+c+d                    4           8 1026   1075   0.187             
+## 3 a*b+c+d                    5          12 1036   1103   0.198             
+## 4 a*b*c+d                    8          28 1069   1207   0.238             
+## 5 a*b*c*d                   15          54 1125   1380   *0.255*           
+## # ... with 2 more variables: R2 marg. (w/o RE) &lt;chr&gt;, RMSE &lt;chr&gt;</code></pre>
 <pre><code>##                      Estimate Std. Error    df t value Pr(&gt;|t|)    
 ## (Intercept)             -0.12       0.08  43.9   -1.50     0.14    
 ## fct=grand                0.15       0.09 622.4    1.74     0.08    
@@ -502,8 +503,8 @@ Figure 4.6: The subjective measures of the 84 responses of the post-study survey
 <div id="sec:spinifex" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Accompanying tool: radial tour application</h2>
 <p>To accompany this study we have produced a more general use tool to perform such exploratory analysis of high dimensional data. The R package, {spinifex}, <span class="citation">[@spyrison_spinifex_2020]</span> contains a free, open-source {shiny} <span class="citation">[@chang_shiny_2020]</span> application. The application allows users to upload, perform limited preprocessing, and interactively explore their data via interactive radial tour. The .html widget produced is a more interactive variant relative to the application in the user study. Screencaptures and more details are provided in the appendix. Data can be imported from .csv, .rds, or .rda format, and projections. Run the following R code to run the application locally.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="4-ch-efficacy-radial-tour.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;spinifex&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-2"><a href="4-ch-efficacy-radial-tour.html#cb5-2" aria-hidden="true" tabindex="-1"></a>spinifex<span class="sc">::</span><span class="fu">run_app</span>(<span class="st">&quot;radial_tour&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="4-ch-efficacy-radial-tour.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;spinifex&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-2"><a href="4-ch-efficacy-radial-tour.html#cb6-2" aria-hidden="true" tabindex="-1"></a>spinifex<span class="sc">::</span><span class="fu">run_app</span>(<span class="st">&quot;radial_tour&quot;</span>)</span></code></pre></div>
 </div>
 <div id="acknowledgments-2" class="section level2" number="4.7">
 <h2><span class="header-section-number">4.7</span> Acknowledgments</h2>

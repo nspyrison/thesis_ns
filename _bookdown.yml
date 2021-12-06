@@ -2,6 +2,6 @@ book_filename: "thesis_draft_ns"
 language:
   ui:
     chapter_name: "Chapter "
-rmd_subdir: ["rmd/"]
+rmd_subdir: ["Rmd/"]
 output_dir: docs
 delete_merged_file: TRUE

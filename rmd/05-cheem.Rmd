@@ -8,7 +8,7 @@ knit: "bookdown::render_book"
 
 # Application of the radial tour to model-agnostic local explanations {#ch-cheem}
 
-THIS CHAPTER IS CURRENTLY BEING EDITED IN IT's OWN REPOSITORY, THIS VERSION IS OUT OF DATE.
+THIS CHAPTER IS CURRENTLY BEING EDITED IN ITs OWN REPOSITORY, THIS VERSION IS OUT OF DATE.
 
 
 TODO:XXX Segue.
@@ -20,13 +20,13 @@ TODO:XXX Segue.
 This work is concerned with linear projections of multivariate data. More specifically, we focus on the class of visualizations known as _tours_ [@cook_grand_2008; @lee_review_2021]. Tours are viewed near-continuously through small changes to the projection basis. There are many variants of tours. We focus on one of the variants, _radial tours_ [@cook_manual_1997; @spyrison_spinifex_2020]. Radial tours can be used to control or steer the projection basis, while other tour variants select bases randomly or optimize an objective function. Because of this unique attribute, _user interaction_ is another key aspect of interest in this work.
 
 
-<!-- radial tour, RO#1 -->
-Radial tours change the basis by selecting one variable and specifying how to change its contribution to the current projection. By controlling the contribution of a single variable, a user can explore its sensitivity to the structure of the projection and identify which variables are ultimately most important to the structure in question. In the work addressing RO#1, we improve upon the geodesic interpolator for use in the radial tour, and apply it in an open-source `R` package, `spinifex`, this package facilitates making radial tours and extends the graphics packages interoperability for itself and the tours made from the existing package `tourr`.
+<!-- radial tour, RQ#1 -->
+Radial tours change the basis by selecting one variable and specifying how to change its contribution to the current projection. By controlling the contribution of a single variable, a user can explore its sensitivity to the structure of the projection and identify which variables are ultimately most important to the structure in question. In the work addressing RQ#1, we improve upon the geodesic interpolator for use in the radial tour, and apply it in an open-source `R` package, `spinifex`, this package facilitates making radial tours and extends the graphics packages interoperability for itself and the tours made from the existing package `tourr`.
 
-<!--user study, radial tour, RO#2 -->
+<!--user study, radial tour, RQ#2 -->
 Next, we substantiated the efficacy of radial tours as compared with user-selected, discrete combinations of principal components [@pearson_liii._1901] and continuous projections without interaction with the _grand tour_ [@asimov_grand_1985]. We conducted an $N=108$ within-participant user study, where all participants use each of these visual factors. This is performed over balanced trials across the other experimental factors: location, shape, and dimension of the data. This addresses the second research question.
 
-<!-- XAI, SHAP values, and RO#3 -->
+<!-- XAI, SHAP values, and RQ#3 -->
 In our latest work, we want to see if we can apply the radial tour to aid the interpretability of black-box models. Such models have a non-linear space making them hard to interpret or understand. One recent branch in explainable artificial intelligence [XAI, @adadi_peeking_2018, @arrieta_explainable_2020] is the use of local explanations or the attribution of the variables for one observation of a black-box model. We use such an explanation to form a 1D basis and perform radial tours to explore how the SHAP values behave differently for misclassified observations against neighboring correctly classified observations.
 
 
@@ -43,7 +43,7 @@ While static documents are the norm, there are sizable benefits of user interact
 With the emerging field of XAI, the constant tension between the interpretability of a model and its predictive power is receiving more attention. Linear models are the champions of interpretability with modest accuracy while increasing complex models improve accuracy but they can scarcely be interpreted even by experienced practitioners. One way to gain insight into a model is to focus on the local vicinity of one observation, and explain the variable weighting around that location, in an agnostic non-linear model. We call this observation level variable weights a _local explanation_. There are various such local explanations, many are tied to specific classes of models, while others are model-agnostic.
 
 <!-- summary -->
-We know that data visualization is important in EDA and assumption validation. User interaction allows us to explore widely and quickly while allowing us to explore ideas as they arise. These 2 elements were especially important to consider from the work addressing RO#1 as it forms a foundation to build on in further work. The efficacy of radial tours was supported by a user study in response to the second objective. In the latest work, we apply tours in tandem with local explanations to extend the interpretability of black-box models, to address RO#3.
+We know that data visualization is important in EDA and assumption validation. User interaction allows us to explore widely and quickly while allowing us to explore ideas as they arise. These 2 elements were especially important to consider from the work addressing RQ#1 as it forms a foundation to build on in further work. The efficacy of radial tours was supported by a user study in response to the second objective. In the latest work, we apply tours in tandem with local explanations to extend the interpretability of black-box models, to address RQ#3.
 
 ## Extending the interpretation of black-box models with the use of interactive continuous linear projections
 
@@ -96,7 +96,7 @@ knitr::include_graphics(
 
 Now that we have identified that V2 is the variable that deviated most from its true peer observation, we select it to rotate with the radial tour. In figure \@ref(fig:cheemTour) illustrates the difference in the extremes of the contribution. The tour starts at the original contributions as described by the SHAP values (left frame). As the tour gives V2 a full contribution (middle frame) the comparison lies in the middle of the purples while the target observation is in the tails of both the purple and green (true class). In the right-most frame, the contribution from variable 2 is zero and the target variable lies in the middle of its true class. That is to say, without the contribution of variable 2 the local explanation does not seem reasonable; the selected observation looks much more like that of its true class.
 
-This application is still maturing and has mostly focused on classification tasks. We have partial implementation of regression which will be demonstrated in the presentation, time permitting. This work is being written up to be submitted to the WHY-21 workshop, part of the NeurIPS 2021 Conference.
+
 
 ### Discussion
 
@@ -104,7 +104,7 @@ We have used radial tours to improve the interpretability of black-box models. W
 
 Taking a step back, it is important to remember that this visualization and analysis is sensitive to the model and local explanation; it describes them as they are, independent of their validity and quality. The insight gleaned by this is predicated on meaningful selection of model and explanation.
 
-Turning for a minute to real-world application, developing methods to better interpret black-box models is an important and impactful challenge. Private corporations and nation-states increasingly using complex models to classify and predict their customers and citizens from loans and insurance claims to employment and credit scores, the real-world impact of highly non-linear is here to stay. Being able to see the specifics of one observation may seem small in the context of a model, but it is crucial to that instance; if misclassificated, that  observation may receive an outcome a world apart from its actual peers.
+Turning for a minute to real-world application, developing methods to better interpret black-box models is an important and impactful challenge. Private corporations and nation-states increasingly using complex models to classify and predict their customers and citizens from loans and insurance claims to employment and credit scores, the real-world impact of highly non-linear is here to stay. Being able to see the specifics of one observation may seem small in the context of a model, but it is crucial to that instance; if misclassified, that  observation may receive an outcome a world apart from its actual peers.
 
 
 ## Acknowledgments

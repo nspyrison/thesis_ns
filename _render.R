@@ -3,7 +3,7 @@ library(beepr)
 library(cliapp)
 options(warn = 1)
 
-tictoc::tic("thesis compilation")
+tictoc::tic("Thesis compilation")
 start_app(theme = simple_theme())
 
 cli_h1("Preprocessing")
@@ -19,10 +19,19 @@ if (length(spell_res$word) > 0) {
 
 # convert pdf to png for html output
 cli_h2("Coverting pdf to png")
-img_pdf <- list.files("img/", pattern = "*.pdf")
-for (i in img_pdf) {
-  file_pdf <- paste0("img/", i)
-  dest_pdf <- paste0("img/", sub("pdf$", "png", i))
+fig_pdf <- list.files("figures/", pattern = "*.pdf")
+for (i in fig_pdf) {
+  file_pdf <- paste0("figures/", i)
+  dest_pdf <- paste0("figures/", sub("pdf$", "png", i))
+  magick::image_write(
+    magick::image_read(file_pdf, 300), dest_pdf, "png",
+    density = 300
+  )
+}
+ffs_pdf <- list.files("figures_from_script/", pattern = "*.pdf")
+for (i in ffs_pdf) {
+  file_pdf <- paste0("figures_from_script/", i)
+  dest_pdf <- paste0("figures_from_script/", sub("pdf$", "png", i))
   magick::image_write(
     magick::image_read(file_pdf, 300), dest_pdf, "png",
     density = 300
