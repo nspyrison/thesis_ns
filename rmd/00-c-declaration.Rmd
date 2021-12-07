@@ -35,7 +35,6 @@ knitr::include_graphics("figures/signature.jpg")
 
 \textbf{Date:} `r as.Date("2021-12-12")`
 
-`r if (knitr::is_html_output()) '-->'`
 \vspace{2em}
 \noindent
 The undersigned hereby certify that the above declaration correctly reflects the nature and extent of the student's co-authors' contribution to this work.
