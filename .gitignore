@@ -17,3 +17,6 @@ thesis.xdv
 thesis_cache/*
 _book/*.pdf
 *_cache/*
+
+cache-gitbook/*
+cache-pdfbook/*

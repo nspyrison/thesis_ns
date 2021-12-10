@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Appendix | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models</title>
   <meta name="description" content="Chapter 7 Appendix | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Appendix | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models" />
   <meta property="og:type" content="book" />
@@ -33,7 +33,8 @@
 <link rel="prev" href="6-ch-conclusion.html"/>
 <link rel="next" href="bibliography.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -162,15 +162,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html#sec:discussion"><i class="fa fa-check"></i><b>3.5</b> Discussion</a></li>
 <li class="chapter" data-level="3.6" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html#acknowledgments-1"><i class="fa fa-check"></i><b>3.6</b> Acknowledgments</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="4-ch-efficacy-radial-tour.html"><a href="4-ch-efficacy-radial-tour.html"><i class="fa fa-check"></i><b>4</b> The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections</a>
+<li class="chapter" data-level="4" data-path="4-ch-efficacy_radial_tour.html"><a href="4-ch-efficacy_radial_tour.html"><i class="fa fa-check"></i><b>4</b> The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="4-ch-efficacy-radial-tour.html"><a href="4-ch-efficacy-radial-tour.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="4-ch-efficacy-radial-tour.html"><a href="4-ch-efficacy-radial-tour.html#sec:background"><i class="fa fa-check"></i><b>4.2</b> Background</a></li>
-<li class="chapter" data-level="4.3" data-path="4-ch-efficacy-radial-tour.html"><a href="4-ch-efficacy-radial-tour.html#sec:userstudy"><i class="fa fa-check"></i><b>4.3</b> User study</a></li>
-<li class="chapter" data-level="4.4" data-path="4-ch-efficacy-radial-tour.html"><a href="4-ch-efficacy-radial-tour.html#sec:results"><i class="fa fa-check"></i><b>4.4</b> Results</a></li>
-<li class="chapter" data-level="4.5" data-path="4-ch-efficacy-radial-tour.html"><a href="4-ch-efficacy-radial-tour.html#sec:conclusion"><i class="fa fa-check"></i><b>4.5</b> Conclusion</a></li>
-<li class="chapter" data-level="4.6" data-path="4-ch-efficacy-radial-tour.html"><a href="4-ch-efficacy-radial-tour.html#sec:spinifex"><i class="fa fa-check"></i><b>4.6</b> Accompanying tool: radial tour application</a></li>
-<li class="chapter" data-level="4.7" data-path="4-ch-efficacy-radial-tour.html"><a href="4-ch-efficacy-radial-tour.html#acknowledgments-2"><i class="fa fa-check"></i><b>4.7</b> Acknowledgments</a></li>
+<li class="chapter" data-level="4.1" data-path="4-ch-efficacy_radial_tour.html"><a href="4-ch-efficacy_radial_tour.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="4-ch-efficacy_radial_tour.html"><a href="4-ch-efficacy_radial_tour.html#sec:background"><i class="fa fa-check"></i><b>4.2</b> Background</a></li>
+<li class="chapter" data-level="4.3" data-path="4-ch-efficacy_radial_tour.html"><a href="4-ch-efficacy_radial_tour.html#sec:userstudy"><i class="fa fa-check"></i><b>4.3</b> User study</a></li>
+<li class="chapter" data-level="4.4" data-path="4-ch-efficacy_radial_tour.html"><a href="4-ch-efficacy_radial_tour.html#sec:results"><i class="fa fa-check"></i><b>4.4</b> Results</a></li>
+<li class="chapter" data-level="4.5" data-path="4-ch-efficacy_radial_tour.html"><a href="4-ch-efficacy_radial_tour.html#sec:conclusion"><i class="fa fa-check"></i><b>4.5</b> Conclusion</a></li>
+<li class="chapter" data-level="4.6" data-path="4-ch-efficacy_radial_tour.html"><a href="4-ch-efficacy_radial_tour.html#sec:spinifex"><i class="fa fa-check"></i><b>4.6</b> Accompanying tool: radial tour application</a></li>
+<li class="chapter" data-level="4.7" data-path="4-ch-efficacy_radial_tour.html"><a href="4-ch-efficacy_radial_tour.html#acknowledgments-2"><i class="fa fa-check"></i><b>4.7</b> Acknowledgments</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html"><i class="fa fa-check"></i><b>5</b> Application of the radial tour to model-agnostic local explanations</a>
 <ul>
@@ -221,7 +221,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -251,6 +250,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "none"
 }
