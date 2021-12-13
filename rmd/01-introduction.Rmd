@@ -14,7 +14,7 @@ Exploratory data analysis (EDA) is a term that encompasses the initial summariza
 nsSafeIncGraphic("./figures/data_analysis_workflow.png")
 ```
 
-Early attempts at high-dimension visuals in scatterplot matrices [@chambers_graphical_1983] and parallel coordinate plots[@ocagne_coordonnees_1885]. Principal component analysis (PCA, @pearson_liii._1901) reorients the basis to components, linear combinations of the original variables ordered by descending amount of variation explained. These components are typically viewed as discrete orthogonal pairs.
+Early attempts at high-dimension visuals in scatterplot matrices [@chambers_graphical_1983] and parallel coordinate plots [@ocagne_coordonnees_1885]. Principal component analysis (PCA, @pearson_liii._1901) reorients the basis to components, linear combinations of the original variables ordered by descending amount of variation explained. These components are typically viewed as discrete orthogonal pairs.
 
 A data visualization _tour_ [@cook_grand_2008; @lee_state_2021] is a class of linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower-dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames. In the shadow analogy an object, such as a bar stool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intuitive interpretation of the object. Similarly looking at a data object over the rotation of its variables yields information about its structure. In this way and aided with linked brushing and other interactions, such continuous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch-background} walks through some of the previous alternatives and why we ultimately continue with this class of animated linear dimension reduction.
 
@@ -100,11 +100,7 @@ Viewing as many univariate histograms or density curves is one method. Similarly
 (ref:penguinsplom-cap) Scatterplot matrix of penguins data. This is a good initial step, but will not scale well at $p$ increases.
 
 ```{r penguinsplom, echo=F, out.width='100%', fig.cap = "(ref:penguinsmplom-cap)"}
-fp <- "./figures_from_script/ch2_fig1_penguin_splom.pdf"
-if(knitr::is_html_output()){
-   fp <- paste0(substr(fp, 1L,  nchar(fp) - 4L), ".png")
-}
-nsSafeIncGraphic(fp)
+nsSafeIncGraphic("./figures/ch2_fig1_penguin_splom.pdf")
 ```
 
 ### Parallel coordinate plots
@@ -115,7 +111,7 @@ Alternatively, we could consider a class of observation-based visuals. In parall
 (ref:penguinpcp-cap) Parallel coordinate plots of penguins data. Doesn't scale well with observations, suffers from asymmetry with the variable ordering, and horizontal position is used for variable rather than observation levels.
 
 ```{r penguinpcp, echo=F, out.width='100%', fig.cap = "(ref:penguinpcp-cap)"}
-nsSafeIncGraphic("./figures_from_script/ch2_fig2_penguin_pcp.pdf")
+nsSafeIncGraphic("./figures/ch2_fig2_penguin_pcp.pdf")
 ```
 
 
@@ -138,7 +134,7 @@ A single linear projection is a resulting space from the data multiplied by the 
 nsSafeIncGraphic("./figures/buja05fig.png")
 ```
 
-There are various types of tours which are classified by the generation of their basis paths. A _guided_ tour uses simulated annealing to move progressively closer to an objective function in the embedded space [@hurley_analyzing_1990]. A more comprehensive discussion and review of tours can be found in the works of @cook_grand_2008 and @lee_state---art_2021.
+There are various types of tours which are classified by the generation of their basis paths. A _guided_ tour uses simulated annealing to move progressively closer to an objective function in the embedded space [@hurley_analyzing_1990]. A more comprehensive discussion and review of tours can be found in the works of @cook_grand_2008 and @lee_state_2021.
 
 Tours are used for a couple of salient features: maintains transparency back to the original variable space and the persistence data points from frame to frame convey more information than looking at discrete jumps to other bases. Because of these features tours are a good method to extend the visualization of data space as dimensionality increases.
 
