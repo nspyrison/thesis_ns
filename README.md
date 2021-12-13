@@ -1,8 +1,8 @@
 # PhD Thesis, Monash University
 ---------
 
-[html version](nspyrison.github.io/thesis_ns/)\
-[pdf version](github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf)
+[html version](https://nspyrison.github.io/thesis_ns/)\
+[pdf version](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf)
 
 <!--
 ## Milestone deliverables:
@@ -27,7 +27,7 @@ instal.packages("nspyrison/cheem")
 Looking into `renv` for capturing exact versions.
 
 ------
-
+```
 R> xfun::session_info()
 R version 4.1.1 (2021-08-10)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
@@ -62,4 +62,5 @@ Package version:
   tinytex_0.33       tokenizers_0.2.1   tools_4.1.1        utf8_1.1.4        
   utils_4.1.1        vctrs_0.3.8        viridisLite_0.4.0  webshot_0.5.2     
   withr_2.4.2        wordcloud_2.6      xfun_0.28          xml2_1.3.2        
-  yaml_2.2.1 
+  yaml_2.2.1
+```
