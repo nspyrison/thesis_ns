@@ -21,7 +21,7 @@ TODO:XXX Segue. Bring over abstract?
 ## Introduction
 
 <!-- Multivariate spaces and EDA - black-box models-->
-Multivariate data underlies most classification problems. Yet exploratory data analysis [EDA, @tukey_exploratory_1977] of such spaces is difficult, increasingly so as dimension increases, and often leads to the consideration of models for these problems being considered to be black-boxes. There is increasing emphasis on the need to provide explainers to improve the interpretability for black-box models [@biecek_dalex_2018; @biecek_explanatory_2021; @lundberg_unified_2017; @ribeiro_why_2016; @wickham_visualizing_2015]. Visualization is an important part of providing interpretations [@anscombe_graphs_1973; @coleman_geometric_1986; @goodman_dirty_2008; @matejka_same_2017]. Tour methods [@lee_review_2021; @cook_grand_2008] provide ways to visualize linear projections of high-dimensional spaces, to obtain an overview of shape (distributions and associations) and anomalies (outliers, clusters). The recently introduced radial tour [@spyrison_spinifex_2020] provides a user-controlled manual rotation of variables into and out of a projection, which might especially be useful for studying variable importance.
+Multivariate data underlies most classification problems. Yet exploratory data analysis [EDA, @tukey_exploratory_1977] of such spaces is difficult, increasingly so as dimension increases, and often leads to the consideration of models for these problems being considered to be black-boxes. There is increasing emphasis on the need to provide explainers to improve the interpretability for black-box models [@biecek_dalex_2018; @biecek_explanatory_2021; @lundberg_unified_2017; @ribeiro_why_2016; @wickham_visualizing_2015]. Visualization is an important part of providing interpretations [@anscombe_graphs_1973; @coleman_geometric_1986; @goodman_dirty_2008; @matejka_same_2017]. Tour methods [@lee_state_2021; @cook_grand_2008] provide ways to visualize linear projections of high-dimensional spaces, to obtain an overview of shape (distributions and associations) and anomalies (outliers, clusters). The recently introduced radial tour [@spyrison_spinifex_2020] provides a user-controlled manual rotation of variables into and out of a projection, which might especially be useful for studying variable importance.
 
 
 <!-- Research gap -->
@@ -43,7 +43,7 @@ Principal component analysis is a good baseline of comparison for linear project
 
 
 ```{r ch4fig1, fig.cap = "Scatterplot matrix of the first 3 principal components for simulated data. Traditional multivariate visualization of *data*-space involes static display of the first several principal components."}
-nsSafeIncGraphic("./figures_from_script/ch4_fig1_pca_splom.pdf")
+nsSafeIncGraphic("./figures/ch4_fig1_pca_splom.pdf")
 ```
 
 
@@ -64,7 +64,7 @@ An extension to showing only a few components is to show pairs of components as 
 ### Data visualization tours
 
 <!-- tours intro -->
-A data visualization _tour_ uses time to animate local changes in the projection basis. One of the key features of the tour is the object permanence of the data points; that is to say by watching nearby frames one can track the relative changes of observations as the basis moves toward the next target basis. There are various types of tours that are distinguished by the selection or generation of their basis paths [@lee_review_2021; @cook_grand_2008]. To contrast with the discrete orientations of PCA, we compare with continuous changes of linear projection with _grand_ and _radial_ tours.
+A data visualization _tour_ uses time to animate local changes in the projection basis. One of the key features of the tour is the object permanence of the data points; that is to say by watching nearby frames one can track the relative changes of observations as the basis moves toward the next target basis. There are various types of tours that are distinguished by the selection or generation of their basis paths [@lee_state_2021; @cook_grand_2008]. To contrast with the discrete orientations of PCA, we compare with continuous changes of linear projection with _grand_ and _radial_ tours.
 
 #### Grand tours
 <!-- Grand tour -->
@@ -96,7 +96,7 @@ The three methods were examined for three different cluster shapes, using differ
 In addition to visual factor, we vary the data across 3 aspects: 1) The _location_ of the difference between clusters, by mixing a signal and a noise variable at different ratios, we vary the number of variables and their magnitude of cluster separation, 2) the _shape_ of the clusters, to reflect different distributions of the data, and 3) the _dimension_-ality of the data.
 
 ```{r ch4fig2, fig.cap = "Illustration of the experimental factors: visualization factor, the variable location of the cluster separationm, the shape of the clusters, and the dimensionality (and clusters) of the data."}
-nsSafeIncGraphic("./figures_from_script/ch4_fig2_exp_factors.pdf")
+nsSafeIncGraphic("./figures/ch4_fig2_exp_factors.pdf")
 ```
 
 <!-- Location mixing -->
@@ -156,7 +156,7 @@ where $I$ is the indicator function. Then the total marks for this task is the s
 
 
 ```{r ch4fig3, fig.cap = "(L), PCA biplot of the components showing the most cluster separation with (R) illustration of the magnitude of cluster separation is for each variable (wide bar) and the weight of the marks given if a variable is selected (red/green line). The horizontal dashed line is 1 / dimensionality, the amount of separation each variable would have if evenly distributed. The weights equal the signed square of the difference between each variable value and the dashed line."}
-nsSafeIncGraphic("./figures_from_script/ch4_fig3_accuracy_measure.pdf")
+nsSafeIncGraphic("./figures/ch4_fig3_accuracy_measure.pdf")
 ```
 
 
@@ -205,7 +205,7 @@ The order of the levels of the factor and location is randomized with a nested L
 <!-- Nested latin square assignment -->
 ```{r ch4fig4, echo = F, out.width = '100%', fig.cap = "Illustration of the nested latin square and how a hypothetical participant 63 is assigned factor and block parameterizations. Each of the 6-factor permutations is exhausted before iterating to the next permutation of location."}
 ## This is a manual .pttx screen cap, .png ok.
-nsSafeIncGraphic("./figures_from_script/ch4_fig4_randomization_MANUAL.png")
+nsSafeIncGraphic("./figures/ch4_fig4_randomization_MANUAL.png")
 ```
 
 <!-- Pilot study; 3 even evaluations of each -->
@@ -271,7 +271,7 @@ $$
 
 
 ```{r ch4tab1, fig.cap = "<TABLE FIGURES DFEFINED IN THE KABLE>"}
-mod_comp <- readRDS("./figures_from_script/ch4_tab1_model_comp_ls.rds") ## accuracy [[1]], log time [[2]]
+mod_comp <- readRDS("./figures/ch4_tab1_model_comp_ls.rds") ## accuracy [[1]], log time [[2]]
 output <- kableExtra::kbl(
   x = mod_comp[[1]], format = "latex",
   align = c("l", rep("l", 2), rep("c", 5)),
@@ -285,7 +285,7 @@ mod_comp[[1]]
 ```
 
 ```{r ch4tab2, fig.cap = "<TABLE FIGURES DFEFINED IN THE KABLE>"}
-mod_coef <- readRDS("./figures_from_script/ch4_tab2_model_coef_ls.rds") ## accuracy [[1]], log time [[2]]
+mod_coef <- readRDS("./figures/ch4_tab2_model_coef_ls.rds") ## accuracy [[1]], log time [[2]]
 output <- kableExtra::kbl(
   x = mod_coef[[1]],format = "latex", booktabs = TRUE, linesep = "",
                 caption = "The task accuracy model coefficients for $\\widehat{Y_1} = \\alpha * \\beta + \\gamma + \\delta$, with factor=pca, location=0/100, and shape=EEE held as baselines. Factor being radial is the fixed term with the strongest evidence in support of the hypothesis. When crossing factor with location radial performs worse with 33/66 percent mixing relative to the PCA with no mixing. The model fit is based on the 648 evaluations by the 108 participants.") %>%
@@ -306,7 +306,7 @@ We also want to visually explore the conditional variables in the model. Figure 
 
 <!-- Violin plots and test overlay for Y1 factors -->
 ```{r ch4fig5, fig.cap = "Violin plots of terms of the model $\\widehat{Y_1} = \\alpha * \\beta + \\gamma + \\delta$. Overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests suitable for handling discrete data. Participants are more confident and find the radial easier to use relative to the grand tour. Participants claim low familiarity as we expect from crowdsourced participants. Radial is more preferred compared with either alternative for this task."}
-nsSafeIncGraphic("./figures_from_script/ch4_fig5_ABcd_violins.pdf")
+nsSafeIncGraphic("./figures/ch4_fig5_ABcd_violins.pdf")
 ```
 
 <!-- A LITTERAL COMMENTED OUT, COPY AND PASTE OF THE Y_2 LOG TIME CONTENT. -->
@@ -350,7 +350,7 @@ nsSafeIncGraphic("./figures_from_script/ch4_fig5_ABcd_violins.pdf")
 The 84 evaluations of the post-study survey also collect 4 subjective measures for each factor. Figure \@ref(fig:ch4fig6) shows the Likert plots, or stacked percentage bar plots, alongside violin plots with the same non-parametric, ranked sum tests previously used. Participants preferred to use radial for this task. Participants were also more confident of their answers and found radial tours easier to use compared with the grand tour. All factors have reportedly low familiarity something we expect from crowdsourced participants.
 
 ```{r ch4fig6, fig.cap = "The subjective measures of the 84 responses of the post-study survey, 5 discrete Likert scale levels of aggrement. (L) Likert plots (stacked percent bar plots) with (R) violin plots of the same measures. Violin plots are overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests."}
-nsSafeIncGraphic("./figures_from_script/ch4_fig6_subjective_measures.pdf")
+nsSafeIncGraphic("./figures/ch4_fig6_subjective_measures.pdf")
 ```
 
 
