@@ -11,7 +11,7 @@ if(F)
   file.edit("./figures_from_script/_ch3_spinifex.r")
 ```
 
-# spinifex: An R Package for Creating a Manual Tour of Low-dimensional Projections of Multivariate Data {#ch-spinifex}
+# spinifex: an R package for creating user-controlled animated linear projections {#ch-spinifex}
 
 TODO:XXX Segue. Bring over abstract?
 
@@ -27,7 +27,7 @@ This work adds a manual tour to the collection. The manual tour was described in
 One way to identify "interesting" features is with the use of a guided tour [@cook_grand_1995]. Guided tours select a very specific path, which approaches a projection that optimizes an objective function. The optimization used to guide the tour is simulated annealing [@kirkpatrick_optimization_1983]. The direct optimization of a function allows guided tours to rapidly identify interesting projection features given the relatively large parameter-space. After a projection of interest is identified, an analyst can then use the "finer brush" of the manual tour to control the contributions of individual variables to explore the sensitivity they have on the structure visible in the projection.
 
 <!-- Paper outline -->
-The paper is organized as follows. Section \ref{sec:algorithm} describes the algorithm used to perform a radial manual tour as implemented in the package {spinifex}. Section \ref{sec:display} explains how to generate an animation of the manual tour using the animation frameworks offered by {plotly} [@sievert_interactive_2020] and {gganimate} [@pedersen_gganimate_2020]. Package functionality and code usage following the order applied in the algorithm follows in section \ref{sec:usage}. Section \ref{sec:application} illustrates how this can be used for sensitivity analysis applied to multivariate data collected on high energy physics experiments [@wang_mapping_2018]. Section \ref{sec:discussion} summarizes this paper and discusses potential future directions.
+The paper is organized as follows. Section \ref{sec:algorithm} describes the algorithm used to perform a radial manual tour as implemented in the package {spinifex}. Section \ref{sec:display} explains how to generate an animation of the manual tour using the animation frameworks offered by {plotly} [@sievert_interactive_2020] and {gganimate} [@pedersen_gganimate_2020]. Package functionality and code usage following the order applied in the algorithm follows in section \ref{sec:usage}. Section \ref{sec:usecases} illustrates how this can be used for sensitivity analysis applied to multivariate data collected on high energy physics experiments [@wang_mapping_2018]. Section \ref{sec:discussion} summarizes this paper and discusses potential future directions.
 
 
 <!-- Algorithm outline -->
@@ -73,7 +73,7 @@ The flea data (@lubischew_use_1962), available in the {tourr} package, is used t
 An initial 2D projection basis must be provided. A suggested way to start is to identify an interesting projection using a projection pursuit guided tour. Here the holes index is used to find a 2D projection of the flea data, which shows three separated species groups. Figure \ref{fig:ch3fig1} shows the initial projection of the data. The left panel displays the projection basis ($\textbf{B}$) and can be used as a visual guide of the magnitude and direction that each variable contributes to the projection. The right panel shows the projected data, $\textbf{Y}_{[n,~2]} ~=~ \textbf{X}_{[n,~p]} \textbf{B}_{[p,~2]}$. The color and shape of points are mapped to the flea species. This plot is made using the `view\_basis()` function in {spinifex}, which generates a {ggplot2} [@wickham_ggplot2_2016] object. 
 
 ```{r ch3fig1, fig.cap = "Biplot of the initial 2D projection: representation of the basis (left) and resulting data projection (right) of standardized flea data. The color and shape of data points are mapped to the species of flea beetle. The basis was produced by a projection pursuit guided tour, with the holes index. The contribution of the variables aede2 and tars1 approximately contrasts the other variables. The visible structure in the projection are the three clusters corresponding to the three species."}
-knitr::include_graphics("./figures_from_script/ch3_fig1_biplot.pdf")
+nsSafeIncGraphic("./figures_from_script/ch3_fig1_biplot.pdf")
 ```
 
 
@@ -98,8 +98,7 @@ Initialize the coordinate basis vector as a zero vector, $\textbf{e}$, of length
 The manip space provides a 3D projection from $p$-dimensional space, where the coefficient of the manip var can range completely between [0, 1]. This 3D space serves as the medium to rotate the projection basis relative to the selected manipulation variable. Figure \ref{fig:ch3fig2} illustrates this 3D manip space with the manip var highlighted. This representation is produced by calling the `view\_manip\_space()` function. This diagram is purely used to help explain the algorithm.
 
 ```{r ch3fig2, fig.cap = "Illustration of a 3D manip space, the projection plane is shown as blue circle extending into and out of the display. A manipulation direction is initalized, the red circle, orthogonal to the projection plane. This allows the selected variable, aede2, a means to change it's contribution back to the projection plane. The other variables contributions rotate into this space as well, preserving the orthagonal structure, but are omitted in the manipulation dimension for simplicity."}
-knitr::include_graphics(
-  "./figures_from_script/ch3_fig2_manip_sp.pdf")
+nsSafeIncGraphic("./figures_from_script/ch3_fig2_manip_sp.pdf")
 ```
 
 
@@ -175,8 +174,7 @@ The steps outlined above can be used to create any arbitrary rotation in the man
 
 
 ```{r ch3fig3, fig.cap = "Select frames highlight the animation of a radial manual tour manipulating aede2: (1) original projection, (2) full contribution, (3) zero contribution, before returning to the original original contribution."}
-knitr::include_graphics(
-  "./figures_from_script/ch3_fig3_filmstrip.pdf")
+nsSafeIncGraphic("./figures_from_script/ch3_fig3_filmstrip.pdf")
 ```
 
 
@@ -292,7 +290,7 @@ view_manip_space(basis = f_basis,
 ```
 
 
-## Application {#sec:application}
+## Use cases {#sec:usecases}
 
 <!-- Introduction of data and original paper -->
 @wang_mapping_2018 introduces a new tool, PDFSense, to visualize the sensitivity of hadronic experiments to nucleon structure. The parameter-space of these experiments lies in 56 dimensions, $\delta \in \mathbb{R}^{56}$, and are visualized as 3D subspaces of the 10 first principal components in linear (PCA) and non-linear (t-SNE) embeddings. 
@@ -314,11 +312,11 @@ When PC4 is removed from the projection (Figure \ref{fig:ch3fig4}) the differenc
 
 <!-- JetClusterGood -->
 ```{r ch3fig4, fig.cap="Select frames from a radial tour of PC4 within the jet cluster, with color indicating experiment type: ATLAS7new (green) and ATLAS7old (orange). When PC4 is removed from the projection (frame 10) there is little difference between the clusters, suggesting that PC4 is important for distinguishing the experiments."}
-knitr::include_graphics("./figures_from_script/ch3_fig4_jet_better_pc4.pdf")
+nsSafeIncGraphic("./figures_from_script/ch3_fig4_jet_better_pc4.pdf")
 ```
 <!-- JetClusterBad -->
 ```{r ch3fig5, fig.cap = "Frames from the radial tour manipulating PC3 within the jet cluster, with color indicating experiment type: ATLAS7new (green) and ATLAS7old (orange).  When the contribution from PC3 is changed there is little change in the separation of the clusters, suggesting that PC3 is not important for distinguishing the experiments."}
-knitr::include_graphics("./figures_from_script/ch3_fig5_jet_worse_pc3.pdf")
+nsSafeIncGraphic("./figures_from_script/ch3_fig5_jet_worse_pc3.pdf")
 ```
 
 
@@ -332,12 +330,12 @@ Both PC2 and PC6 contribute to the projection similarly. When PC6 is rotated int
 
 <!-- DISclusterGood -->
 ```{r ch3fig6, fig.cap = "Select frames from a radial tour exploring the sensitivity that PC6 has on the structure of the DIS cluster, with color indicating experiment type: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange). DIS HERA1+2 is distributed in a cross-shaped plane, charm SIDIS occupies the center of this cross, and dimuon SIDIS is a linear cluster crossing DIS HERA1+2. As the contribution of PC6 is increased, DIS HERA1+2 becomes almost singular in one direction (frame 5), indicating that this cluster has very little variability in the direction of PC6."}
-knitr::include_graphics("./figures_from_script/ch3_fig6_DIS_better_pc6.pdf")
+nsSafeIncGraphic("./figures_from_script/ch3_fig6_DIS_better_pc6.pdf")
 ```
 
 <!-- DISclusterBad -->
 ```{r ch3fig7, fig.cap = "Frames from the radial tour exploring the sensitivity PC2 to the structure of the DIS cluster, with color indicating experiment type: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange). As contribution from PC2 is decreased, dimuon SIDIS becomes more distinguishable from the other two clusters, indicating that in its absence PC2 is important for separating this cluster from the others."}
-knitr::include_graphics("./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf")
+nsSafeIncGraphic("./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf")
 ```
 
 ## Discussion {#sec:discussion}

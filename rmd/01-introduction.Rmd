@@ -11,12 +11,12 @@ Exploratory data analysis (EDA) is a term that encompasses the initial summariza
 (ref:dataanalysisworkflow-cap) Data analysis workflow [@wickham_r_2017]. This work focuses primary on multivariate data visualization, but also facilitates transforming data and interpretation of models.
 
 ```{r dataanalysisworkflow, echo=F, out.width='100%', fig.cap = "(ref:dataanalysisworkflow-cap)"}
-knitr::include_graphics("./figures/data_analysis_workflow.png")
+nsSafeIncGraphic("./figures/data_analysis_workflow.png")
 ```
 
 Early attempts at high-dimension visuals in scatterplot matrices [@chambers_graphical_1983] and parallel coordinate plots[@ocagne_coordonnees_1885]. Principal component analysis (PCA, @pearson_liii._1901) reorients the basis to components, linear combinations of the original variables ordered by descending amount of variation explained. These components are typically viewed as discrete orthogonal pairs.
 
-A data visualization _tour_ [@cook_grand_2008; @lee_state---art_2021] is a class of linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower-dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames. In the shadow analogy an object, such as a bar stool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intuitive interpretation of the object. Similarly looking at a data object over the rotation of its variables yields information about its structure. In this way and aided with linked brushing and other interactions, such continuous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch-background} walks through some of the previous alternatives and why we ultimately continue with this class of animated linear dimension reduction.
+A data visualization _tour_ [@cook_grand_2008; @lee_state_2021] is a class of linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower-dimensional space, in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the persistence and tractability of the points through many frames. In the shadow analogy an object, such as a bar stool may be casting a circular shadow that could come from any number of shapes. However, if the stool were rotated the legs would show in the shadow quickly giving an intuitive interpretation of the object. Similarly looking at a data object over the rotation of its variables yields information about its structure. In this way and aided with linked brushing and other interactions, such continuous tours excel at extending the interpretability of multivariate spaces. Chapter \ref{ch-background} walks through some of the previous alternatives and why we ultimately continue with this class of animated linear dimension reduction.
 
 Component spaces and tours optimize for certain objectives or selected randomly. None of the previous methods allow for an analyst to control the contributions of variables to the basis. This is crucial component for _human-in-the-loop_ analysis [@karwowski_international_2006]. If the analyst wants to explore what happens to the structure of one variable were removed or contribution of another were increased they had no way to do so.
 
@@ -35,7 +35,7 @@ Neither component spaces nor grand tour provide a means for changing the contrib
 
 <!---@cook_manual_1997 described an algorithm for manually controlling a tour, to rotate a variable into and out of a 2D projection. This algorithm provides the start to user-controlled radial tours. The work [@spyrison_spinifex_2020] was adapted so that the user has more control of the interpolation. The user can set the full range of the contribution from $[-1, 1]$, and output to a device that allows the user to reproduce motions and animate or rock the rotation backward and forwards. These fine-tuned controls provide a better tool for sensitivity analysis. --->
 
-RQ 2. **Do analysts understand the relationship between variables and structure in a 2D linear projection better when the radial tour is available?**\
+RQ 2. **Does use of the radial tour improve analysts understanding of the relationship between variables and structure in a 2D linear projections?**\
 How can we be certain that having a means control leads to a meaningfully better analysis? A comparison of alternative methods should lend insight into which methods perform well under specific tasks.
 <!-- We performed an $N=108$, within-participant user study comparing accuracy and time with the primary factor as the type of data visualization. Each participant performed 2 evaluations with either Principal Component Analysis (PCA, which is user control, but discrete), grand tour (continuous interpolated frames, but lack user control), or radial tour (user control and continuous animation). We find strong evidence that the radial tour increases accuracy. We also show the effects from the other experimental factors of location, shape data dimensionality, and the random effects from the data and that of the participants. -->
 
@@ -86,7 +86,7 @@ Visualization is much more robust than numerical summarization alone [@anscombe_
 (ref:matejka17fig-cap) Starting with the datasarus plot, observations are allowed to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the originally listed statistics [@matejka_same_2017].
 
 ```{r matejka17fig, echo=F, out.width='70%', fig.cap = "(ref:matejka17fig-cap)"}
-knitr::include_graphics("./figures/matejka17fig.png")
+nsSafeIncGraphic("./figures/matejka17fig.png")
 ```
 
 ### Scatterplot matrices
@@ -100,7 +100,11 @@ Viewing as many univariate histograms or density curves is one method. Similarly
 (ref:penguinsplom-cap) Scatterplot matrix of penguins data. This is a good initial step, but will not scale well at $p$ increases.
 
 ```{r penguinsplom, echo=F, out.width='100%', fig.cap = "(ref:penguinsmplom-cap)"}
-knitr::include_graphics("./figures_from_script/ch2_fig1_penguin_splom.pdf")
+fp <- "./figures_from_script/ch2_fig1_penguin_splom.pdf"
+if(knitr::is_html_output()){
+   fp <- paste0(substr(fp, 1L,  nchar(fp) - 4L), ".png")
+}
+nsSafeIncGraphic(fp)
 ```
 
 ### Parallel coordinate plots
@@ -111,7 +115,7 @@ Alternatively, we could consider a class of observation-based visuals. In parall
 (ref:penguinpcp-cap) Parallel coordinate plots of penguins data. Doesn't scale well with observations, suffers from asymmetry with the variable ordering, and horizontal position is used for variable rather than observation levels.
 
 ```{r penguinpcp, echo=F, out.width='100%', fig.cap = "(ref:penguinpcp-cap)"}
-knitr::include_graphics("./figures_from_script/ch2_fig2_penguin_pcp.pdf")
+nsSafeIncGraphic("./figures_from_script/ch2_fig2_penguin_pcp.pdf")
 ```
 
 
@@ -131,7 +135,7 @@ A single linear projection is a resulting space from the data multiplied by the 
 (ref:buja05fig-cap) Illustration of the grand tour selecting random target frames (grey) connected via geodesically interpolated frame (white). Figure from @buja_computational_2005.
 
 ```{r buja05fig, echo=F, out.width='100%', fig.cap = "(ref:buja05fig-cap)"}
-knitr::include_graphics("./figures/buja05fig.PNG")
+nsSafeIncGraphic("./figures/buja05fig.png")
 ```
 
 There are various types of tours which are classified by the generation of their basis paths. A _guided_ tour uses simulated annealing to move progressively closer to an objective function in the embedded space [@hurley_analyzing_1990]. A more comprehensive discussion and review of tours can be found in the works of @cook_grand_2008 and @lee_state---art_2021.

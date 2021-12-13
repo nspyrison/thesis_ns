@@ -56,7 +56,7 @@ We use FIFA soccer data [@leone_fifa_2020] to explain SHAP values. We use 5000 p
 We have trained a random forest model and wish to further explore the weightings of this non-linear model. Following the work in [@biecek_dalex_2018; @biecek_explanatory_2021] we can similarly extract SHAP values, highlighting that different skills are valued differently across player positions within the model. We also show "break down" profiles, that is additive prediction explanations, how much of each player's predicted wages is added by each of the skill evaluations. Figure \@ref(fig:ch5fig1) takes a look at the SHAP and break down profiles of a star offensive and defensive player.
 
 ```{r ch5fig1, echo=FALSE, out.width = "100%", fig.align='center', fig.cap = "SHAP values and prediction explanations of an offensive player (Messi, top) and a defensive player (van Dijk). SHAP values show a change in weights at the location of each player. Break down profiles show one order-sensitive explanation for the prediction of that observation."}
-knitr::include_graphics("./figures_from_script/ch5_fig1_shap_distr_bd.pdf")
+nsSafeIncGraphic("./figures_from_script/ch5_fig1_shap_distr_bd.pdf")
 ```
 
 <!-- Explanation of the wage, SHAP, and breakdown profiles. -->
@@ -74,8 +74,7 @@ We want to show a global view of the SHAP matrix and show how its sensitivity di
 This gives an orientation showing where selected observation lies. We facilitate exploration and observation identification by adding a hovering tooltip displaying row number and class (actual & predicted) with linked brushing highlighting selected points and displaying their data tabularly below the plot.
 
 ```{r ch5fig2, echo=FALSE, out.width = "100%", fig.align='center', fig.cap = "The first two principal conompents of the data- and SHAP-spaces (left and right respectively) of simulated data. The points are colored and shaped according to their predicted class, misclassified points are identified with a red circle. A target observation '*' is shown in contrast to a comparison point 'x', containing a nearby value in data space, but quite different SHAP space. These same 2 points are tracked in the proceeding tour."}
-knitr::include_graphics(
-  "./figures_from_script/ch5_fig2_global_space.pdf")
+nsSafeIncGraphic("./figures_from_script/ch5_fig2_global_space.pdf")
 ```
 
 Looking at the SHAP space (right) the bulk of the correctly classified points are clustered in relatively small areas. This means that the distribution of their SHAP values is quite similar; the model is selecting a very tight variable contribution to explain the predicted class of each observation. Conversely, misclassified points tend to lie in between 2 clusters of correctly classified points. Using the interactive brushing and hover tooltips we confirm that these points lie between the actual and predicted classes.
@@ -83,15 +82,13 @@ Looking at the SHAP space (right) the bulk of the correctly classified points ar
 Given the global view shown in figure \@ref(fig:ch5fig2), we want to look at the local explanation of primary and comparison points (highlighted as '*/x'). In this case, the primary observation is misclassified while the comparison point is a correctly classified nearby point. These 2 points that are classified differently, but otherwise have very similar values in the explanatory variables, lie quite far apart in SHAP space.
 
 ```{r ch5fig3, echo=FALSE, out.width="100%", fig.align='center', fig.cap="Top: 1D projection basis, the normalized SHAP values of the select observation are shown as grey/black bars. The distribution of the other observations is shown with parallel coordinate lines. The primary and comparison points ('*/x' previous) are shown as bolder dashed lines and fainter dotted lines respectively. Bottom: the 1D density and rug marks of the current projection basis."}
-knitr::include_graphics(
-  "./figures_from_script/ch5_fig3_cheem_initial_bas.pdf")
+nsSafeIncGraphic("./figures_from_script/ch5_fig3_cheem_initial_bas.pdf")
 ```
 
 Now we have the global context and a comparison of the sensitivity of the SHAP spaces let's turn more toward the target observations. Figure \@ref(fig:ch5fig3) highlights the same selected points, bolder dashed and fainter dotted lines (previously '*/x' points respectively). The top of the figure shows the selected observation's SHAP values as grey/black bars. The other values of the SHAP matrix are displayed as short vertical bars and joining parallel coordinate lines and are similarly colored with their predicted class. The majority of the easy-to-classify points form a relatively tight spread in the first 2 variables (signal) and more chaotic behavior in the two noise variables as we would expect. Our dotted comparison lies with the bulk of the purple class. The dashed primary point is actually a green point misclassified as a purple, its weight for V1 looks like a green point, but its V2 weight deviates and is much closer to that of a purple. V2 is the variable that is crucial to the explanation of the model for why this particular point is misclassified. In the absence of V2, our target observation is weighted much closer to the that of its true class. This is the variable we want to explore the structure of in the radial tour as indicated with the black contribution bar.
 
 ```{r ch5fig4, echo=FALSE, out.width = "100%", fig.align='center', fig.cap = "The first frame of the radial tour. The SHAP values of the selected observation set the initial basis, shown as the grey and black bars on top. Within class distributions of the SHAP values are shown as parallel coordinate plots next to the variable contributions. The class densities and observation positions of the 1D projection are shown on the bottom. The tour animates over small changes in the basis (top bars) as the variable with the largest contribution (weight) is rotated to have a full contribution, zero contribution, and then back to the initial contribution. Variable 2 is critical to this local explanation; In the initial contribution, both selected observations are in the middle of the purple. With a full contribution of V2 typical of most purple, our primary observation is toward the tail. When there is no contribution of variable 2, the selected observation is in the middle of the green distribution, its true class."}
-knitr::include_graphics(
-  "./figures_from_script/ch5_fig4_cheem_endpts.pdf")
+nsSafeIncGraphic("./figures_from_script/ch5_fig4_cheem_endpts.pdf")
 ```
 
 Now that we have identified that V2 is the variable that deviated most from its true peer observation, we select it to rotate with the radial tour. In figure \@ref(fig:cheemTour) illustrates the difference in the extremes of the contribution. The tour starts at the original contributions as described by the SHAP values (left frame). As the tour gives V2 a full contribution (middle frame) the comparison lies in the middle of the purples while the target observation is in the tails of both the purple and green (true class). In the right-most frame, the contribution from variable 2 is zero and the target variable lies in the middle of its true class. That is to say, without the contribution of variable 2 the local explanation does not seem reasonable; the selected observation looks much more like that of its true class.

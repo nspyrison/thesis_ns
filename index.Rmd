@@ -3,12 +3,22 @@ title: 'Interactive and dynamic visualization of high-dimensional data via anima
 degreetype: 'Doctor of Philosophy'
 author: 'Nicholas S Spyrison'
 degrees: 'B.Sc. Statistics, Iowa State University'
-output: bookdown::pdf_book
+bibliography: [bib/thesisrefs.bib]
 site: bookdown::bookdown_site
 link-citations: yes
 ---
 
 ```{r initial, echo = FALSE, cache = FALSE, results = 'hide'}
+## Ensure html gitbook always takes .png figures.
+#' @examples
+#' nsSafeIncGraphic("./figures_from_script/ch2_fig1_penguin_splom.pdf")
+nsSafeIncGraphic <- function(fp = "./dummy/figure/filepath.pdf"){
+  ## If html output and ends in .pdf, change to .png instead
+  if(knitr::is_html_output() & substr(fp, nchar(fp) - 3L,  nchar(fp)) == ".pdf")
+      fp <- paste0(substr(fp, 1L,  nchar(fp) - 4L), ".png")
+  knitr::include_graphics(fp)
+}
+
 options("knitr.graphics.auto_pdf" = TRUE)
 library(knitr)
 opts_chunk$set(
@@ -31,15 +41,18 @@ knit_hooks$set(output = function(x, options) {
 })
 ```
 
-<!-- `r if (knitr::is_latex_output()) '<!--'`  -->
+<!-- NOTE: docs/index.html will not be produced without content here -->
+`r if (knitr::is_latex_output()) '<!--'`
 
-<!-- # Welcome {-} -->
+# Welcome {-}
 
-<!-- This is the __blogdown__ website for my PhD thesis at Monash University, Australia.  -->
+This book covers is the PhD thesis during my studies at Monash University, Australia.
 
-<!-- `r Sys.Date()` -->
+A pdf version can be found [here](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf) and its code repository can be found on [github](https://github.com/nspyrison/thesis_ns).
 
-<!-- `r if (knitr::is_latex_output()) '__>' ## <-- Correct this if using welcome` -->
+`r Sys.Date()`
+
+`r if (knitr::is_latex_output()) '__>' ## <-- Correct this if using welcome`
 
 <!-- 
 Edit these lines as appropriate.

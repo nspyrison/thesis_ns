@@ -30,7 +30,7 @@ I have renumbered and updated sections of submitted or published papers to gener
 \textbf{Student signature:}
 
 ```{r, out.width = "50%", fig.align = "left"}
-knitr::include_graphics("figures/signature.jpg")
+nsSafeIncGraphic("./figures/signature.png")
 ```
 
 \textbf{Date:} `r as.Date("2021-12-12")`

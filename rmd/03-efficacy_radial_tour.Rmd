@@ -43,8 +43,7 @@ Principal component analysis is a good baseline of comparison for linear project
 
 
 ```{r ch4fig1, fig.cap = "Scatterplot matrix of the first 3 principal components for simulated data. Traditional multivariate visualization of *data*-space involes static display of the first several principal components."}
-  knitr::include_graphics(
-    "./figures_from_script/ch4_fig1_pca_splom.pdf")
+nsSafeIncGraphic("./figures_from_script/ch4_fig1_pca_splom.pdf")
 ```
 
 
@@ -97,7 +96,7 @@ The three methods were examined for three different cluster shapes, using differ
 In addition to visual factor, we vary the data across 3 aspects: 1) The _location_ of the difference between clusters, by mixing a signal and a noise variable at different ratios, we vary the number of variables and their magnitude of cluster separation, 2) the _shape_ of the clusters, to reflect different distributions of the data, and 3) the _dimension_-ality of the data.
 
 ```{r ch4fig2, fig.cap = "Illustration of the experimental factors: visualization factor, the variable location of the cluster separationm, the shape of the clusters, and the dimensionality (and clusters) of the data."}
-knitr::include_graphics("./figures_from_script/ch4_fig2_exp_factors.pdf")
+nsSafeIncGraphic("./figures_from_script/ch4_fig2_exp_factors.pdf")
 ```
 
 <!-- Location mixing -->
@@ -157,7 +156,7 @@ where $I$ is the indicator function. Then the total marks for this task is the s
 
 
 ```{r ch4fig3, fig.cap = "(L), PCA biplot of the components showing the most cluster separation with (R) illustration of the magnitude of cluster separation is for each variable (wide bar) and the weight of the marks given if a variable is selected (red/green line). The horizontal dashed line is 1 / dimensionality, the amount of separation each variable would have if evenly distributed. The weights equal the signed square of the difference between each variable value and the dashed line."}
-knitr::include_graphics("./figures_from_script/ch4_fig3_accuracy_measure.pdf")
+nsSafeIncGraphic("./figures_from_script/ch4_fig3_accuracy_measure.pdf")
 ```
 
 
@@ -206,8 +205,7 @@ The order of the levels of the factor and location is randomized with a nested L
 <!-- Nested latin square assignment -->
 ```{r ch4fig4, echo = F, out.width = '100%', fig.cap = "Illustration of the nested latin square and how a hypothetical participant 63 is assigned factor and block parameterizations. Each of the 6-factor permutations is exhausted before iterating to the next permutation of location."}
 ## This is a manual .pttx screen cap, .png ok.
-knitr::include_graphics(
-  "./figures_from_script/ch4_fig4_randomization_MANUAL.png")
+nsSafeIncGraphic("./figures_from_script/ch4_fig4_randomization_MANUAL.png")
 ```
 
 <!-- Pilot study; 3 even evaluations of each -->
@@ -308,9 +306,7 @@ We also want to visually explore the conditional variables in the model. Figure 
 
 <!-- Violin plots and test overlay for Y1 factors -->
 ```{r ch4fig5, fig.cap = "Violin plots of terms of the model $\\widehat{Y_1} = \\alpha * \\beta + \\gamma + \\delta$. Overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests suitable for handling discrete data. Participants are more confident and find the radial easier to use relative to the grand tour. Participants claim low familiarity as we expect from crowdsourced participants. Radial is more preferred compared with either alternative for this task."}
-knitr::include_graphics(
-  "./figures_from_script/ch4_fig5_ABcd_violins.pdf")
-### !!!NOTE THAT Y_2, Log time is not covered yet!!! ###
+nsSafeIncGraphic("./figures_from_script/ch4_fig5_ABcd_violins.pdf")
 ```
 
 <!-- A LITTERAL COMMENTED OUT, COPY AND PASTE OF THE Y_2 LOG TIME CONTENT. -->
@@ -354,8 +350,7 @@ knitr::include_graphics(
 The 84 evaluations of the post-study survey also collect 4 subjective measures for each factor. Figure \@ref(fig:ch4fig6) shows the Likert plots, or stacked percentage bar plots, alongside violin plots with the same non-parametric, ranked sum tests previously used. Participants preferred to use radial for this task. Participants were also more confident of their answers and found radial tours easier to use compared with the grand tour. All factors have reportedly low familiarity something we expect from crowdsourced participants.
 
 ```{r ch4fig6, fig.cap = "The subjective measures of the 84 responses of the post-study survey, 5 discrete Likert scale levels of aggrement. (L) Likert plots (stacked percent bar plots) with (R) violin plots of the same measures. Violin plots are overlaid with global significance from the Kruskal-Wallis test, and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests."}
-knitr::include_graphics(
-  "./figures_from_script/ch4_fig6_subjective_measures.pdf")
+nsSafeIncGraphic("./figures_from_script/ch4_fig6_subjective_measures.pdf")
 ```
 
 
