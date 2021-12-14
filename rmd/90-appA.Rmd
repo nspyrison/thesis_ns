@@ -8,6 +8,10 @@ ADD SPINIFEX VIGNETTE GGPROTO API HERE? after first paper?
 <!-- at the end, create bib for html version -->
 `r if (knitr::is_html_output()) '# Bibliography {-}'`
 
+
+
+
+
 <!--
 # Glossary {#ch-glossary}
 
