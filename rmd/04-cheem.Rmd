@@ -6,7 +6,7 @@ knit: "bookdown::render_book"
 # Interrogating the linear variable importance of local explanations of non-linear models with animated linear projections {#ch-cheem}
 
 <!-- WARNING, XXX:TO ADRESS -->
-_THE BODY OF THIS CHAPTER IS OUT OF DATE, MORE UP TO DATE CHANGES ARE FOUND IN ITS ORIGINAL REPOSITORY_
+_THE CHAPTER IS A RELATIVELY RECENT SNAPSHOT OF THE ORIGINAL REPOSITORY_
 
 <!-- Segue -->
 Now we can be confident that the radial tour leads to better analysis of variable-level attribution to features identified in a projection. We want to increase the interpretability of complex models. Specifically, I suggest a using the radial tour to explore variable sensitivity to the structure identified in linear local explanations of non-linear models.

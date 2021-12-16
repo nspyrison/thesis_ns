@@ -236,69 +236,62 @@ vignette("spinifex_vignette")
 
 ### Functions
 
-_TODO:XXX update functions and usage need to be updates with ggproto API_
-
 <!-- in terms of workflow -->
 Table \@ref(tab:functionsTable) lists the primary functions and their purpose. These are grouped into four types: construction for building a tour path, render to make the plot objects, animation for running the animation, and specialty for providing illustrations used in the algorithm description.
 
 ```{r functionsTable, echo=T}
 library(kableExtra)
 
-funcs <- rbind(
-  c("construction", "create_manip_space", "forms the 3D space of rotation"),
-  c("construction", "rotate_manip_space", "performs 3D rotation"),
-  c("construction", "manual_tour", "generates sequence of 2D frames"),
-  c("", "", ""),
-  c("render", "array2df", "turn the tour path array into long form, for plotting"),
-  c("render", "render_", "render long form as a ggplot2 objection for animation"),
-  c("render", "render_plotly", "render the animation as a plotly object (default)"),
-  c("render", "render_gganimate", "render the animation as a gganimate object"),
-  c("", "", ""),
-  c("animation", "play_tour_path", "composite function animating the specified tour path"),
-  c("animation", "play_manual_tour", "composite function animating the specified manual tour"),
-  c("", "", ""),
-  c("specialty", "print_manip_space", "table of the rotated basis and manip space"),
-  c("specialty", "oblique_frame", "display the reference axes of a given basis"),
-  c("specialty", "view_manip_space", "illustrative display of any manip space")
+funcs_tib <- tibble::tribble(
+  ~Family,      ~Function,                 ~`Related to`,               ~Description,
+  "processing", "scale_01/sd",             "-",                        "Scale each column to [0,1]/std dev away from the mean",
+  "processing", "basis_pca/olda/odp/onpp", "Rdimtools::do.*",          "Basis of orthogonal component spaces",
+  "processing", "basis_half_circle",       "-",                        "Basis with uniform contribution across half of a circle",
+  "processing", "basis_guided",            "tourr::guided_tour",       "Silently return the basis from a guided tour",
+  "tour path",  "manual_tour",             "-",                        "Basis and interpolation information for a manual tour",
+  "tour path",  "save_history",            "tourr::save_history",      "Silent, extended wrapper returning other tour arrays",
+  "ggtour",     "ggtour",                  "ggplot2::ggplot",          "Canvas and initalization for a tour animation",
+  "ggtour",     "proto_point/text",        "ggplot2::geom_point/text", "Adds observation points/text",
+  "ggtour",     "proto_density/2d",        "ggplot2::geom_density/2d", "Adds density curve/2d contours",
+  "ggtour",     "proto_hex",               "ggplot2::geom_hex",        "Adds hexigonal heatmap of observations",
+  "ggtour",     "proto_basis/1d",          "-",                        "Adds adding basis reference frame in a unit-circle/-rectangle",
+  "ggtour",     "proto_origin/1d",         "-",                        "Adds adding 2d basis reference frame",
+  "ggtour",     "proto_default/1d",        "-",                        "Convience wrapper for proto_* point/density + basis/1d + origin",
+  "ggtour",     "facet_wrap_tour",         "ggplot2::facet_wrap",      "Facets on the levels of variable",
+  "ggtour",     "append_fixed_y",          "-",                        "Add/overwrite a fixed vertical position of the animatation",
+  "Animating",  "animate_plotly",           "plotly::ggplotly",        "Render as an interactive hmtl widget",
+  "Animating",  "animate_gganimate",        "gganimate::animate",      "Render as a .gif, .mp4, or other video format",
+  "Animating",  "filmstrip",                "-",                       "Static gpplot faceting on the frames of the aimation"
 )
-colnames(funcs) <- c("Type", "Function", "Description")
   
-knitr::kable(funcs, "latex", caption = "Summary of available functions.", 
-             booktabs = TRUE, linesep="") 
+knitr::kable(funcs_tib, "latex", caption = "Summary of primary functions.", 
+             booktabs = TRUE, linesep = "")
 ```
 
 
 ### Usage {#sec:usage}
 
-Using the flea data from the __tourr__ package, we will illustrate generating a manual tour to explore the sensitivity of the cluster structure is to the variable aede2.
-
-\noindent The `play_manual_tour()` function is a composite function handling interaction between `manual_tour()`, `array2df()`, and `render_plotly()`. This will generate an html animation using plotly. Switching the renderer to `render_gganimate()` alternatively creates an animated gif. Each of these formats allows for the animation to be made available on a web site, or directly visible in an html formatted document.
-
-_TODO:XXX update functions and usage need to be updates with ggproto API_
-
-
-### Making illustrations
+Using the penguins data , available in the package, to illustrate a manual tour, we will illustrate generating a manual tour to explore the sensitivity of a variable separating two clusters.
 
 The function `oblique_frame` can be used to show a projection of the basis, or with the data overlaid. For example, the plots in Figures \@ref(fig:ch3fig1) and \@ref(fig:ch3fig3) were made with code similar to this:
 
-```{r eval=FALSE}
-## View a basis and projected data 
-oblique_frame(basis = f_basis, 
-              data  = f_data,
-              color = f_clas,
-              shape = f_clas)
+```{r eval=F, echo=T}
+## Process peguins data
+dat     <- penguins[1:4]
+clas    <- penguins$species
+bas     <- basis_olda(data = dat, class = clas)
+mt_path <- manual_tour(basis = bas, manip_var = 1, data = dat)
+
+## Proto API, creating a ggplot2 plot with frames
+ggt <- ggtour(mt_path, angle = .15) +
+  proto_point(aes_args = list(color = clas, shape = clas),
+              identity_args = list(alpa = .8, size = 1.5)) +
+  proto_basis("left") +
+  proto_origin()
+
+## Choose an animation type
+animate_plotly(ggt, fps = 10)
 ```
-
-\noindent An illustration of the manip space (as shown in Figure \@ref(fig:ch3fig2)) is made with the `view_manip_space` function, as follows: 
-
-<!-- step 2 disp code. -->
-```{r step2CODEEXAMPLE, eval=F, echo=T}
-## Displays the projection plane and manipulation space for the 
-view_manip_space(basis = f_basis, 
-                 manip_var = f_mvar, 
-                 lab = colnames(f_data))
-```
-
 
 ## Use cases {#sec:usecases}
 
