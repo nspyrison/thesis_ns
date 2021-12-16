@@ -48,7 +48,7 @@ knit_hooks$set(output = function(x, options) {
 
 This book covers is the PhD thesis during my studies at Monash University, Australia.
 
-A pdf version can be found [here](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf) and its code repository can be found on [github](https://github.com/nspyrison/thesis_ns).
+A pdf version can be found [here](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf) and the code repository can be found on [github](https://github.com/nspyrison/thesis_ns).
 
 `r Sys.Date()`
 
