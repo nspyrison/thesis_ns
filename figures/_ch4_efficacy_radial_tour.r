@@ -25,9 +25,9 @@ this_theme <- list(
 # fig1_pca_scatterplotmatrix -----
 ## TODO: This is already covered in the introduction/motivation
 if(F){ ## Not run!!
-  source("./figures_from_script/ch4_util_funcs.r")
+  source("./figures/ch4_util_funcs.r")
   if(F)
-    file.edit("./figures_from_script/ch4_util_funcs.r")
+    file.edit("./figures/ch4_util_funcs.r")
 
   tgt_fp <- paste0("./data/EEV_p6_0_1_rep3.rda")
   load(tgt_fp, envir = globalenv())
@@ -53,7 +53,7 @@ if(F){ ## Not run!!
           axis.text = element_blank())
 
   ggsave(
-    "./figures_from_script/ch4_fig1_pca_splom.pdf", gg_pca, device = "pdf",
+    "./figures/ch4_fig1_pca_splom.pdf", gg_pca, device = "pdf",
     width = .w / 2, height = .w / 2, units = .u)
 }
 
@@ -246,7 +246,7 @@ final <- plot_grid(tbl_col, header_matrix, nrow = 1, rel_widths = c(0.05, 1))
 .w = 6.25; .h = 9; .u = "in"; ## Save as previous
 
 ggsave(
-  "./figures_from_script/ch4_fig2_exp_factors.pdf", final, device = "pdf",
+  "./figures/ch4_fig2_exp_factors.pdf", final, device = "pdf",
   width = .w, height = .h, units = .u)
 
 ## save for project 2
@@ -262,9 +262,9 @@ tgt_fp <- paste0("./data/EEV_p6_33_66_rep2.rda")
 load(tgt_fp, envir = globalenv())
 dat <- EEV_p6_33_66_rep2
 clas <- attr(dat, "cluster")
-source("./figures_from_script/ch4_util_funcs.r") ## Redundant
+source("./figures/ch4_util_funcs.r") ## Redundant
 if(F)
-  file.edit("./figures_from_script/ch4_util_funcs.r")
+  file.edit("./figures/ch4_util_funcs.r")
 
 ## Biplot -----
 gg1 <- ggplot() + theme_bw()+
@@ -293,13 +293,13 @@ gg2 <- ggplot() + theme_bw() +
 (final <- cowplot::plot_grid(gg1, gg2 , scale = c(1, 1)))
 .w = 6.25; .h = 9; .u = "in"; ## Save as previous
 ggsave(
-  "./figures_from_script/ch4_fig3_accuracy_measure.pdf", final, "pdf",
+  "./figures/ch4_fig3_accuracy_measure.pdf", final, "pdf",
   width = .w, height = .w / 2, units = .u)
 
 # ch4_fig4_randomization_MANUAL.png -----
 # SEE: C:\Users\spyri\Documents\R\
 ### spinifex_study\paper\figures\figParmeterizationExample.png
-# c+p to ./figures_from_script/
+# c+p to ./figures/
 ### ch4_fig4_randomization_MANUAL.png
 
 # ch4_tab1_model_comparisons -----
@@ -385,7 +385,7 @@ my_ggpubr_facet <- function(..., facet = "measure"){
       cowplot::plot_grid(title, top, .FactorLocation + ggtitle("", ""),
                          ncol = 1, rel_heights = c(.1, 1, 1.4)))
 }
-ggsave("./figures_from_script/ch4_fig5_ABcd_violins.pdf",
+ggsave("./figures/ch4_fig5_ABcd_violins.pdf",
        ABcd_violins, device = cairo_pdf,
        width = .w, height = .w, unit = .u)
 # ch4_figX_demographic_heatmap -----
@@ -413,7 +413,7 @@ str(survey_wider)
     scale_fill_gradient(low = "lightpink", high = "firebrick", na.value = NA) +
     ggtitle("Participant demographics"))
 if(F)
-  ggsave(filename = "./figures_from_script/ch4_figX_demographic_heatmap.pdf",
+  ggsave(filename = "./figures/ch4_figX_demographic_heatmap.pdf",
          plot = demographic_heatmap, device = "pdf", width = .w, height = .w/2)
 
 # ch4_fig6_subjective_measures -----
@@ -515,7 +515,7 @@ figSubjectiveMeasures <-
                      subjective_violins,
                      ncol = 2)
 
-ggsave("./figures_from_script/ch4_fig6_subjective_measures.pdf",
+ggsave("./figures/ch4_fig6_subjective_measures.pdf",
        figSubjectiveMeasures, device = "pdf",
        width = .w, height = .w, units = "in")
 

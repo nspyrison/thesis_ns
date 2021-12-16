@@ -7,16 +7,14 @@ editor_options:
 
 # The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections {#ch-efficacy_radial_tour}
 
-THIS CHAPTER IS CURRENTLY BEING EDITED IN ITs OWN REPOSITORY, THIS VERSION IS OUT OF DATE.
+<!-- WARNING, XXX:TO ADRESS -->
+_THE BODY OF THIS CHAPTER IS OUT OF DATE, MORE UP TO DATE CHANGES ARE FOUND IN ITS ORIGINAL REPOSITORY_
 
-<!-- current draft title: -->
-<!-- # A study examining the benefit of the -->
-<!-- user-controlled radial tour for -->
-<!-- understanding variable contributions to -->
-<!-- structure visible in linear projections of -->
-<!-- high-dimensional data -->
+<!-- Segue -->
+Now we have a means to perform radial tours. Should we be so confident that this method with user control will lead to better analysis than traditional alternatives? This chapter discusses the user study I conduct to elucidate the efficacy of the radial tour.
 
-TODO:XXX Segue. Bring over abstract?
+<!-- Abstract -->
+Principal component analysis is a long-standing go-to method for exploring multivariate data. Data visualization _tours_ are a class of linear projections animated over small changes in the projection basis. The radial tour is one instance that rotates the contribution of a select variable. Does this variable-level control help an analyst explore multivariate data? This paper describes a user study evaluating the efficacy of the use of the radial tour in comparison to two existing methods, principal component analysis, and the grand tour. We devise a supervised classification task where participants evaluate variable attribution of the separation between two classes. Accuracy and response time are measured as response variables. Data were collected from 108 crowd-sourced participants, who perform two trials of each visual for a total of 648 trials. There is strong evidence that the radial tour increases accuracy. Participants also preferred to use the radial tour over alternatives for this task.
 
 ## Introduction
 

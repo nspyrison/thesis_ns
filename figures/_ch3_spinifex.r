@@ -24,7 +24,7 @@ biplot <- ggtour(f_bas, f_dat) +
   proto_default(list(color = f_clas, shape = f_clas))
 
 ggplot2::ggsave(
-  "./figures_from_script/ch3_fig1_biplot.pdf", biplot, "pdf",
+  "./figures/ch3_fig1_biplot.pdf", biplot, "pdf",
   height=2, scale=1, units="in")
 
 # fig2_manip_sp -----
@@ -32,7 +32,7 @@ f_mvar <- 5
 manip_sp <- spinifex::view_manip_space(basis = f_bas, manip_var = f_mvar)
 
 ggplot2::ggsave(
-  "./figures_from_script/ch3_fig2_manip_sp.pdf", manip_sp, "pdf",
+  "./figures/ch3_fig2_manip_sp.pdf", manip_sp, "pdf",
   height=2, scale=1, units="in")
 
 
@@ -44,7 +44,7 @@ ggt <- ggtour(mt, f_dat, angle = 3) +
 film <- filmstrip(ggt)
 
 ggplot2::ggsave(
-  "./figures_from_script/ch3_fig3_filmstrip.pdf", film, "pdf",
+  "./figures/ch3_fig3_filmstrip.pdf", film, "pdf",
   width=8, scale=1, units="in")
 
 
@@ -65,7 +65,7 @@ ggt <- ggtour(jet_mtour, jet_dat, angle = pi*3) +
 fig4_jet_better_pc4 <- filmstrip(ggt)
 
 ggplot2::ggsave(
-  "./figures_from_script/ch3_fig4_jet_better_pc4.pdf",
+  "./figures/ch3_fig4_jet_better_pc4.pdf",
   fig4_jet_better_pc4, "pdf",
   width=8, scale=1, units="in")
 
@@ -78,7 +78,7 @@ ggt <- ggtour(jet_mtour, jet_dat, angle = pi*3) +
 fig5_jet_worse_pc3 <- filmstrip(ggt)
 
 ggplot2::ggsave(
-  "./figures_from_script/ch3_fig5_jet_worse_pc3.pdf",
+  "./figures/ch3_fig5_jet_worse_pc3.pdf",
   fig5_jet_worse_pc3, "pdf",
   width=8, scale=1, units="in")
 
@@ -99,7 +99,7 @@ ggt <- ggtour(DIS_mtour, DIS_dat, angle = pi*3) +
                 list(alpha = .5))
 fig6_DIS_better_pc6 <- filmstrip(ggt)
 ggplot2::ggsave(
-  "./figures_from_script/ch3_fig6_DIS_better_pc6.pdf",
+  "./figures/ch3_fig6_DIS_better_pc6.pdf",
   fig6_DIS_better_pc6, "pdf",
   width=8, scale=1, units="in")
 
@@ -112,6 +112,6 @@ ggt <- ggtour(DIS_mtour, DIS_dat, angle = pi*3) +
                 list(alpha = .5))
 fig7_DIS_worse_pc2 <- filmstrip(ggt)
 ggplot2::ggsave(
-  "./figures_from_script/ch3_fig7_DIS_worse_pc2.pdf",
+  "./figures/ch3_fig7_DIS_worse_pc2.pdf",
   fig7_DIS_worse_pc2, "pdf",
   width=8, scale=1, units="in")
