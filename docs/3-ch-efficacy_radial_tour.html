@@ -52,6 +52,8 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -174,7 +176,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
 <li class="chapter" data-level="2.2" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#sec:algorithm"><i class="fa fa-check"></i><b>2.2</b> Algorithm</a></li>
-<li class="chapter" data-level="2.3" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#package-structure-and-functionality"><i class="fa fa-check"></i><b>2.3</b> Package structure and functionality</a></li>
+<li class="chapter" data-level="2.3" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#sec:pkgstructure"><i class="fa fa-check"></i><b>2.3</b> Package structure</a></li>
 <li class="chapter" data-level="2.4" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#sec:usecases"><i class="fa fa-check"></i><b>2.4</b> Use cases</a></li>
 <li class="chapter" data-level="2.5" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#sec:discussion"><i class="fa fa-check"></i><b>2.5</b> Discussion</a></li>
 <li class="chapter" data-level="2.6" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#acknowledgments-1"><i class="fa fa-check"></i><b>2.6</b> Acknowledgments</a></li>
@@ -230,7 +232,7 @@ div.csl-indent {
 <div id="ch-efficacy_radial_tour" class="section level1" number="3">
 <h1><span class="header-section-number">Chapter 3</span> The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections</h1>
 <!-- WARNING, XXX:TO ADRESS -->
-<p><em>THE BODY OF THIS CHAPTER IS OUT OF DATE, MORE UP TO DATE CHANGES ARE FOUND IN ITS ORIGINAL REPOSITORY</em></p>
+<p><em>THE CHAPTER IS A RELATIVELY RECENT SNAPSHOT OF THE ORIGINAL REPOSITORY</em></p>
 <!-- Segue -->
 <p>Now we have a means to perform radial tours. Should we be so confident that this method with user control will lead to better analysis than traditional alternatives? This chapter discusses the user study I conduct to elucidate the efficacy of the radial tour.</p>
 <!-- Abstract -->
@@ -523,8 +525,8 @@ Figure 3.6: The subjective measures of the 84 responses of the post-study survey
 <div id="sec:spinifex" class="section level2" number="3.6">
 <h2><span class="header-section-number">3.6</span> Accompanying tool: radial tour application</h2>
 <p>To accompany this study we have produced a more general use tool to perform such exploratory analysis of high dimensional data. The R package, {spinifex}, <span class="citation">(<a href="bibliography.html#ref-spyrison_spinifex_2020" role="doc-biblioref">Spyrison and Cook 2020</a>)</span> contains a free, open-source {shiny} <span class="citation">(<a href="bibliography.html#ref-chang_shiny_2020" role="doc-biblioref">Chang et al. 2020</a>)</span> application. The application allows users to upload, perform limited preprocessing, and interactively explore their data via interactive radial tour. The .html widget produced is a more interactive variant relative to the application in the user study. Screencaptures and more details are provided in the appendix. Data can be imported from .csv, .rds, or .rda format, and projections. Run the following R code to run the application locally.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="3-ch-efficacy_radial_tour.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;spinifex&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-2"><a href="3-ch-efficacy_radial_tour.html#cb7-2" aria-hidden="true" tabindex="-1"></a>spinifex<span class="sc">::</span><span class="fu">run_app</span>(<span class="st">&quot;radial_tour&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="3-ch-efficacy_radial_tour.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;spinifex&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-2"><a href="3-ch-efficacy_radial_tour.html#cb6-2" aria-hidden="true" tabindex="-1"></a>spinifex<span class="sc">::</span><span class="fu">run_app</span>(<span class="st">&quot;radial_tour&quot;</span>)</span></code></pre></div>
 </div>
 <div id="acknowledgments-2" class="section level2" number="3.7">
 <h2><span class="header-section-number">3.7</span> Acknowledgments</h2>

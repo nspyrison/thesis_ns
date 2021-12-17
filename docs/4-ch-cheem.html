@@ -52,6 +52,8 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -174,7 +176,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
 <li class="chapter" data-level="2.2" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#sec:algorithm"><i class="fa fa-check"></i><b>2.2</b> Algorithm</a></li>
-<li class="chapter" data-level="2.3" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#package-structure-and-functionality"><i class="fa fa-check"></i><b>2.3</b> Package structure and functionality</a></li>
+<li class="chapter" data-level="2.3" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#sec:pkgstructure"><i class="fa fa-check"></i><b>2.3</b> Package structure</a></li>
 <li class="chapter" data-level="2.4" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#sec:usecases"><i class="fa fa-check"></i><b>2.4</b> Use cases</a></li>
 <li class="chapter" data-level="2.5" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#sec:discussion"><i class="fa fa-check"></i><b>2.5</b> Discussion</a></li>
 <li class="chapter" data-level="2.6" data-path="2-ch-spinifex.html"><a href="2-ch-spinifex.html#acknowledgments-1"><i class="fa fa-check"></i><b>2.6</b> Acknowledgments</a></li>
@@ -369,20 +371,20 @@ Figure 4.4: Illustration of data explorations interactions in the global view. T
 <div id="installation-and-getting-started" class="section level3" number="4.4.8">
 <h3><span class="header-section-number">4.4.8</span> Installation and getting started</h3>
 <p>The following <strong>R</strong> code will help getting up and running:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="4-ch-cheem.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Download the package</span></span>
-<span id="cb8-2"><a href="4-ch-cheem.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;cheem&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-3"><a href="4-ch-cheem.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Restart the R session so the IDE has the correct directory structure</span></span>
-<span id="cb8-4"><a href="4-ch-cheem.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">restartSession</span>()</span>
-<span id="cb8-5"><a href="4-ch-cheem.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Load cheem into session</span></span>
-<span id="cb8-6"><a href="4-ch-cheem.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;cheem&quot;</span>)</span>
-<span id="cb8-7"><a href="4-ch-cheem.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Try the app</span></span>
-<span id="cb8-8"><a href="4-ch-cheem.html#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">run_app</span>()</span>
-<span id="cb8-9"><a href="4-ch-cheem.html#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="4-ch-cheem.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Processing your data</span></span>
-<span id="cb8-11"><a href="4-ch-cheem.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Install treeshap from github, to use as a local explainer</span></span>
-<span id="cb8-12"><a href="4-ch-cheem.html#cb8-12" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;ModelOriented/treeshap&#39;</span>) <span class="do">## Local </span></span>
-<span id="cb8-13"><a href="4-ch-cheem.html#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Follow the examples in cheem_ls()</span></span>
-<span id="cb8-14"><a href="4-ch-cheem.html#cb8-14" aria-hidden="true" tabindex="-1"></a>?cheem_ls</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="4-ch-cheem.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Download the package</span></span>
+<span id="cb7-2"><a href="4-ch-cheem.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;cheem&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-3"><a href="4-ch-cheem.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Restart the R session so the IDE has the correct directory structure</span></span>
+<span id="cb7-4"><a href="4-ch-cheem.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">restartSession</span>()</span>
+<span id="cb7-5"><a href="4-ch-cheem.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Load cheem into session</span></span>
+<span id="cb7-6"><a href="4-ch-cheem.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;cheem&quot;</span>)</span>
+<span id="cb7-7"><a href="4-ch-cheem.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Try the app</span></span>
+<span id="cb7-8"><a href="4-ch-cheem.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">run_app</span>()</span>
+<span id="cb7-9"><a href="4-ch-cheem.html#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="4-ch-cheem.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Processing your data</span></span>
+<span id="cb7-11"><a href="4-ch-cheem.html#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Install treeshap from github, to use as a local explainer</span></span>
+<span id="cb7-12"><a href="4-ch-cheem.html#cb7-12" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;ModelOriented/treeshap&#39;</span>) <span class="do">## Local </span></span>
+<span id="cb7-13"><a href="4-ch-cheem.html#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Follow the examples in cheem_ls()</span></span>
+<span id="cb7-14"><a href="4-ch-cheem.html#cb7-14" aria-hidden="true" tabindex="-1"></a>?cheem_ls</span></code></pre></div>
 </div>
 </div>
 <div id="sec:casestudies" class="section level2" number="4.5">
