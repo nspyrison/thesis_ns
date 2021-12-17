@@ -8,7 +8,7 @@ editor_options:
 # The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections {#ch-efficacy_radial_tour}
 
 <!-- WARNING, XXX:TO ADRESS -->
-_THE BODY OF THIS CHAPTER IS OUT OF DATE, MORE UP TO DATE CHANGES ARE FOUND IN ITS ORIGINAL REPOSITORY_
+_THE CHAPTER IS A RELATIVELY RECENT SNAPSHOT OF THE ORIGINAL REPOSITORY_
 
 <!-- Segue -->
 Now we have a means to perform radial tours. Should we be so confident that this method with user control will lead to better analysis than traditional alternatives? This chapter discusses the user study I conduct to elucidate the efficacy of the radial tour.
