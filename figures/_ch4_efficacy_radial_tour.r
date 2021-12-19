@@ -34,23 +34,23 @@ if(F){ ## Not run!!
   dat <- EEV_p6_0_1_rep3
   clas <- as.factor(attr(dat, "cluster"))
 
-  pca_obj <-
-    dat %>% scale_01() %>% prcomp()
-  pca_proj1_3 <- as.data.frame(
-    cbind(pca_obj$x[, 1:3],
-          cluster = as.factor(clas)))
+  pca_obj <- prcomp(dat)
+  pca_proj <- as.data.frame(cbind(pca_obj$x[, 1:4], as.factor(clas)))
 
   gg_pca <- GGally::ggpairs(
-    pca_proj1_3,
+    pca_proj,
     mapping = aes(color = clas, fill = clas, shape = clas),
-    columns = 1:3,
+    columns = 1:4,
     #diag = "blank",
     upper = "blank",
-    lower = list(continuous = GGally::wrap("points", alpha = 0.7, size=1)),
-    columnLabels = paste0("PC", 1:3)) +
+    lower = list(continuous = wrap("points", alpha = 0.7, size=1)),
+    columnLabels = paste0("PC", 1:4)) +
     theme_bw() +
     theme(axis.ticks = element_blank(),
-          axis.text = element_blank())
+          axis.text = element_blank()) +
+    scale_color_brewer(palette = "Dark2") +
+    scale_fill_brewer( palette = "Dark2")
+
 
   ggsave(
     "./figures/ch4_fig1_pca_splom.pdf", gg_pca, device = "pdf",
@@ -68,43 +68,51 @@ require("spinifex")
 palette(RColorBrewer::brewer.pal(8, "Dark2"))
 this_theme <- list(
   theme_bw(),
-  scale_color_manual(values = palette()[1:8]),
-  scale_fill_manual( values = palette()[1:8]),
-  theme(axis.title = element_blank(),
-        axis.text = element_blank(),
+  scale_color_brewer(palette = "Dark2"),
+  scale_fill_brewer( palette = "Dark2"),
+  labs(x="",y=""), ## clear titles
+  #coord_fixed(),
+  theme(axis.text  = element_blank(),
         axis.ticks = element_blank(),
         legend.position = "off",
         plot.title = element_text(hjust = 0.5),
         plot.subtitle = element_text(hjust = 0.5))
 )
 
+.w = 6.25
+.h = 9
+.u = "in"
+
 load("./data/EEE_p4_0_1_rep1.rda") ## In global env, obj EEE_p4_0_1_rep1
 clas <- attr(EEE_p4_0_1_rep1, "cluster")
 
-## Factors -----
+dat  <- EEE_p4_0_1_rep1
+clas <- attr(EEE_p4_0_1_rep1, "cluster")
 bas1 <- spinifex::basis_pca(EEE_p4_0_1_rep1)
 gt <- tourr::save_history(EEE_p4_0_1_rep1, tour_path = grand_tour(), max_bases = 1)
-bas2 <- matrix(gt[[1]], nrow=4, ncol=2)
+bas2 <- matrix(gt[[1]], nrow=4, ncol=2, dimnames = list(colnames(dat)))
 bas3_st <- basis_half_circle(EEE_p4_0_1_rep1)
 mt <- manual_tour(bas3_st, manip_var = 2)
 bas3 <- spinifex:::interpolate_manual_tour(mt, .05)[,,17]
-
-fct1 <- spinifex::ggtour(bas1, EEE_p4_0_1_rep1) +
-  proto_basis() +
-  this_theme +
-  labs(x = expression(paste(PC_j)), y = expression(paste(PC_k)),
-       subtitle = "PCA \n\n Discrete jump to \n selected pair")
-fct2 <- spinifex::ggtour(bas2, EEE_p4_0_1_rep1) +
-  proto_basis() +
-  this_theme +
-  labs(subtitle = "grand tour \n\n Animation through \n random bases")
 attr(bas3, "manip_var") <- 2
-fct3 <- spinifex::ggtour(bas3, EEE_p4_0_1_rep1) +
-  proto_basis() +
-  this_theme +
-  labs(subtitle = "radial tour \n\n Animation changing \n contribution of \n selected variable")
 
-## Locations ------
+## Factor ------
+.t <- c("PCA", "Grand tour", "Radial tour")
+.st <- c("Discrete jump to \n selected PC pair",
+         "Animation through \n random bases",
+         "Animation changing \n the selected variable")
+.x <- c("PC i", "", "")
+.y <- c("PC j", "", "")
+.m <- sapply(1:3, function(i){
+  .fct <- spinifex::ggtour(get(paste0("bas", i), envir = globalenv())) +
+    proto_basis("center") +
+    this_theme +
+    labs(x = .x[i], y = .y[i], title = .t[i], subtitle = .st[i])
+  assign(paste0("fct", i), .fct, envir = globalenv())
+})
+
+## Location ------
+set.seed(123)
 ##     Cluster A         Cluster B
 x <- c(rnorm(140, 0, 1), rnorm(140, 2, 1)) ## signal
 y <- c(rnorm(140, 0, 1), rnorm(140, 0, 1)) ## noise
@@ -116,14 +124,13 @@ location_df <- data.frame( ## angles are 0, 30, 45 respectively
   noise  = c(-sin(0)*x + cos(0)*y, -sin(pi/6)*x + cos(pi/6)*y, -sin(pi/4)*x + cos(pi/4)*y)
 )
 .rang <- range(location_df$signal)
-lvls <- levels(location_df$name)
-x_nms <- c("1*V1 + 0*V2 \n (signal & noise respectively)", ".866*V1 + .5*V2", ".7071*V1 + .7071*V2")
-# y_nms <- c("V2 (noise)", "-sin(30)*V1 + cos(30)*V2", "-sin(45)*V1 + cos(45)*V2")
-for(i in 1:length(lvls)){ ## Creates obj: loc1:loc3
+lvls  <- levels(location_df$name)
+x_nms <- c("1*V1 + 0*V2", ".866*V1 + .5*V2", ".7071*V1 + .7071*V2")
+for(i in 1:length(lvls)){
   g <- location_df[location_df$name==lvls[i], ] %>%
     ggplot() +
-    geom_vline(xintercept = 0, linetype=1) +
-    geom_vline(xintercept = 2, linetype=2) +
+    geom_vline(xintercept = 0, linetype = 1) +
+    geom_vline(xintercept = 2, linetype = 2) +
     geom_density(aes(signal, fill = cluster), alpha = .5) +
     this_theme +
     theme(axis.title =  element_text()) +
@@ -134,7 +141,7 @@ for(i in 1:length(lvls)){ ## Creates obj: loc1:loc3
 }
 
 
-## Shapes ------
+## Shape ------
 ## EEE, EEV, EVV*
 shape_df <- data.frame(
   name = factor(c(rep(c("EEE", "EEV"), each = 3), rep("EVV, banana transformed", 7)),
@@ -148,7 +155,7 @@ shape_df <- data.frame(
             rep(pi / 4, 2), -pi / 4,  ## EEV
             0, 0, -pi / 4, rep(0, 4)) ## EVV_banana
 )
-clust_d <- data.frame(
+ellipse_df <- data.frame(
   name = c("EEI", "EEI", "EVI"),
   cluster = rep("(d)", 3),
   x = rep(-1, 3),
@@ -158,32 +165,37 @@ clust_d <- data.frame(
   angle = rep(0, 3)
 )
 lvls <- levels(shape_df$name)
-for(i in 1:length(lvls)){ ## Creates obj; shp1:shp3
+for(i in 1:length(lvls)){
   g <- shape_df[shape_df$name == lvls[i],] %>%
     ggplot() +
     ## Clusters a:c
-    ggforce::geom_ellipse(aes(x0 = x, y0 = y, a = a, b = b,
-                              angle = angle, color = cluster), size = 1) +
+    geom_ellipse(aes(x0 = x, y0 = y, a = a, b = b,
+                     angle = angle, color = cluster), size = 1) +
     ## Cluster d
-    ggforce::geom_ellipse(aes(x0 = x, y0 = y, a = a, b = b,
-                              angle = angle, color = cluster),
-                          data = clust_d[i, ],
-                          size = .6, linetype = 2, alpha = .5) +
-    coord_fixed() +
+    geom_ellipse(aes(x0 = x, y0 = y, a = a, b = b,
+                     angle = angle, color = cluster),
+                 data = ellipse_d[i, ],
+                 size = .6, linetype = 2, alpha = .5) +
     this_theme +
+    coord_fixed() +
+    xlim(-2.2,2.2) + ylim(-2.4,2) +
     labs(subtitle = lvls[i])
-  ## Add text on first, but not the last two
-  if(i == 1)
+  if(i != length(lvls)) ## Add text on first 2, but not the last one.
     g <- g +
       ## Cluster letters a-c
       geom_text(aes(x = x, y = y, label = cluster, color = cluster), size = 7) +
       ## Cluster letter d
       geom_text(aes(x = x - .5, y = y + .5, color = cluster),
-                data = clust_d[i, ], size = 4, alpha =.7,
+                data = ellipse_df[i, ], size = 4, alpha =.7,
                 label = "(d)")
   assign(paste0("shp", i), g, envir = globalenv())
 }
-shp2
+if(F){
+  shp1
+  shp2
+  shp3
+}
+
 
 
 ## Dim ------
@@ -214,7 +226,7 @@ fct_row <- plot_grid(fct1, fct2, fct3, nrow = 1)
 loc_row <- plot_grid(loc1, loc2, loc3, nrow = 1)
 shp_row <- plot_grid(shp1, shp2, shp3, nrow = 1)
 dim_row <- plot_grid(dim4, dim6, dim_txt, nrow = 1,
-                     rel_widths=rep(1,3), rel_heights=rep(1,3))
+                     rel_widths = rep(1, 3), rel_heights = rep(1, 3))
 gc()
 gg_matrix <- plot_grid(fct_row, loc_row, shp_row, dim_row, ncol = 1, rel_heights = c(1,.8,.8,1))
 
@@ -257,44 +269,66 @@ if(F)
 
 
 # fig3_accuracy_measure -----
-tgt_fp <- paste0("./data/EEV_p6_33_66_rep2.rda")
+tgt_sim_nm <- "EEV_p6_33_66_rep2"
+tgt_fp <- paste0("./data/", tgt_sim_nm, ".rda")
 ## Make data plot
 load(tgt_fp, envir = globalenv())
 dat <- EEV_p6_33_66_rep2
+bas <- basis_pca(dat, d = 4)[, c(1, 4)]
 clas <- attr(dat, "cluster")
 source("./figures/ch4_util_funcs.r") ## Redundant
 if(F)
   file.edit("./figures/ch4_util_funcs.r")
 
-## Biplot -----
-gg1 <- ggplot() + theme_bw()+
-  ggproto_pca_biplot(dat, aes_clas = clas, x_pc_num = 1L, y_pc_num = 4L) +
-  theme(axis.title = element_text(),
-        plot.title = element_text(hjust = 0.5),
-        plot.subtitle = element_text(hjust = 0.5)) +
-  labs(subtitle = "factor=PCA, location=33/66%, \n shape=EEV, dimension=6&4 clusters",
-       x = "PC1", y = "PC4")
+### Left pane ----
+## explore existence issue in spinifex/buildignore/zexamples/geom pressence issue.r
+(gg1 <- ggtour(bas, dat) +
+   proto_point(aes_args = list(shape = clas, color = clas)) +
+   proto_basis() + ## removes cluster d when used....
+   proto_origin() +
+   theme(axis.title = element_text(),
+         plot.title = element_text(hjust = 0.5),
+         plot.subtitle = element_text(hjust = 0.5),
+         legend.position = "off",
+         axis.title.y = element_text(angle = 90)) +
+   labs(subtitle = "Factor: PCA, location: 33/66%, \n Shape: EEV, dimension: 6 & 4 clusters",
+        x = "PC1", y = "PC4", color = "color", shape = "shape") +
+   #coord_fixed(xlim = c(-8, 3), ylim = c(-1.5, 6)))
+   #ylim(-.5, 7))
+   expand_limits(x = c(-7, 3), y = c(-1.5, 5)))
 
-## Accuracy measure -----
-ans_tbl <- readRDS("./data/ans_tbl.rds") ## load obj ans_tbl
-tgt_sim_nm <- "EEV_p6_33_66_rep2"
+### Existence or not of cluster d points
+## is a function of the limits, but not 1:1 and onto with the range of cl_d or the complete data...
+## even keeping limits consistent, adding/removing labels, changes the existance of a cluster
+idx_cl_d <- which(clas == "cl d")
+range(last_ggtour()$df_data[idx_cl_d, 2])
+range(last_ggtour()$df_data[, 2])
+range(last_ggtour()$df_data[idx_cl_d, 1])
+range(last_ggtour()$df_data[, 1])
+## in consistent across packages too
+animate_plotly(gg1)
+
+
+## Make ans_plot
+ans_tbl <- readRDS("./data/ans_tbl.rds")
 sub <- ans_tbl %>% dplyr::filter(sim_nm == tgt_sim_nm)
 sub_longer <- pivot_longer_resp_ans_tbl(dat = sub)
-sub_longer$weight[c(3,5)] <- sub_longer$weight[c(3,5)] / sum(sub_longer$weight[c(3,5)])
+sub_longer$weight[c(3,5)]   <- sub_longer$weight[c(3,5)] / sum(sub_longer$weight[c(3,5)])
 sub_longer$weight[c(-3,-5)] <- -sub_longer$weight[c(-3,-5)] / sum(sub_longer$weight[c(-3,-5)])
 
 gg2 <- ggplot() + theme_bw() +
   ggproto_ans_plot(sub_longer) +
   theme(plot.title = element_text(hjust = 0.5),
         plot.subtitle = element_text(hjust = 0.5)) +
-  labs(subtitle = "Cluster separation & weights") +
+  labs(y = "Bars: observed cluster separation\nLines: accuracy weights if selected", x = "Variable") +
   theme(legend.position = "off")
 
-(final <- cowplot::plot_grid(gg1, gg2 , scale = c(1, 1)))
-.w = 6.25; .h = 9; .u = "in"; ## Save as previous
-ggsave(
-  "./figures/ch4_fig3_accuracy_measure.pdf", final, "pdf",
-  width = .w, height = .w / 2, units = .u)
+(final <- cowplot::plot_grid(gg1, gg2 + theme(aspect.ratio = 8/6), rel_widths = c(1.2, 1)))
+.w = 6.25
+.h = 9
+.u = "in"
+ggsave("./figures/ch4_fig3_accuracy_measure.pdf", final, "pdf",
+       width = .w, height = .w / 2, units = .u)
 
 # ch4_fig4_randomization_MANUAL.png -----
 # SEE: C:\Users\spyri\Documents\R\
@@ -308,6 +342,8 @@ ggsave(
 # ch4_tab2_model_coefficients -----
 ## Handled inline, see `04-efficacy_radial_tour.Rmd`
 
+
+
 # Setup2 ----
 
 require("ggpubr")
@@ -318,34 +354,27 @@ my_theme <- list(
   geom_hline(yintercept = 0L),
   theme(legend.position = "bottom",
         legend.box = "vertical",
-        legend.margin = margin(-6))
-)
-my_ggpubr <- function(
-  df, x = "factor", y = "value", title = waiver(), subtitle = waiver(),
-  lab.y_coef = "auto"){ ## Alternatively 1 + (n_levels+1)*.1
+        legend.margin = margin(-6)))
+my_ggpubr <- function(df, x = "factor", y = "value", title = waiver(), subtitle = waiver()){
   ## Find height of global significance test text.
   .x_lvls <- df %>% pull({{x}}) %>% levels()
   .y_range <- diff(range(df[y]))
   .n_lvls <- length(.x_lvls)
-  if(lab.y_coef == "auto")
-    lab.y_coef = 1 + (.n_lvls+2) *.1
-  .lab.y_global <- min(df[y]) + (lab.y_coef) * .y_range
-    #(.04 * .y_range) * (1 + .n_lvls) * .y_range + max(df[y])
+  .lab.y <- (.04 * .y_range) * (1 + .n_lvls) * .y_range + max(df[y])
   my_comparisons <- list(c("pca", "grand"), c("grand", "radial"), c("pca", "radial"))
 
   ## Plot
   ggviolin(df, x = x, y = y, fill = x, alpha = .6,
-           palette = "Dark2", shape = x,
+           palette = "Dark2", shape = x, trim = TRUE,
            add = c("mean"), ## Black circle, can change size, but not shape or alpha?
            draw_quantiles = c(.25, .5, .75)) +
     stat_compare_means(method = "wilcox.test",
                        comparisons = my_comparisons,
-                       label = "p.signif",
-                       hide.ns = TRUE) + ## pairwise test
+                       label = "p.signif", hide.ns = TRUE) + ## pairwise test
     # stat_compare_means(label = "p.signif", label.y = .lab.y - .4,
     #                    method = "wilcox.test", ref.group = .x_lvls[1]) + ## Test each lvl w.r.t. first level.
     stat_compare_means( ## Global test
-      label.y = .lab.y_global,
+      label.y = .lab.y,
       aes(label = paste0("p=", ..p.format..))
     ) + ## custom label
     my_theme +
@@ -359,62 +388,34 @@ my_ggpubr_facet <- function(..., facet = "measure"){
 # ch4_fig5_ABcd_violins TODO -----
 {
   dat_qual <- readRDS("./data/dat_qual.rds")
-  .lvls <- c("0/100%", "33/66%", "50/50%")
-  dat_qual$location <-
-    factor(.lvls[as.integer(dat_qual$location)], levels = .lvls)
-  .no_legend <- theme(legend.position = "off")
-  .factor <- my_ggpubr(dat_qual, x = "factor", y = "marks") +
-    .no_legend
-  .location <- my_ggpubr(dat_qual, x = "location", y = "marks") +
-    .no_legend
-  .shape <- my_ggpubr(dat_qual, x = "shape", y = "marks") +
-    .no_legend
-  .dim <- my_ggpubr(dat_qual, x = "dim", y = "marks") +
-    .no_legend
-  .FactorLocation <-
-    my_ggpubr_facet(dat_qual, x = "factor", y = "marks",
-                    facet = "location") + .no_legend
+  .lp <- theme(legend.position = "off")
+  .yl <- ylab("")
+  .factor   <- my_ggpubr(dat_qual, x = "Factor",    y = "Marks") + .lp + ylab("Accuracy")
+  .lvls <- c("0/100", "33/66", "50/50%")
+  dat_qual_loc <- dat_qual %>%
+    mutate(Location = factor(.lvls[as.integer(Location)], levels = .lvls))
+  levels(dat_qual_loc$Location)
+  .location <- my_ggpubr(dat_qual_loc, x = "Location", y = "Marks") + .lp + .yl
+  .shape    <- my_ggpubr(dat_qual,     x = "Shape",     y = "Marks") + .lp + .yl
+  .dim      <- my_ggpubr(dat_qual,     x = "Dim",       y = "Marks") + .lp + .yl
+  .FactorLocation <- my_ggpubr_facet(
+    dat_qual, x = "Factor", y = "Marks", facet = "Location") + ylab("Accuracy")
 
   title <- cowplot::ggdraw() +
-    cowplot::draw_label("Violin plots of the terms in marks^ = \u03b1 * \u03b2 + \u03b3 + \u03b4",
-                        x = .5, y = .75, hjust = .5, vjust = 1)
+    cowplot::draw_label(
+      "Violin plots of the terms for accuracy: Y1^ = \u03b1 * \u03b2 + \u03b3 + \u03b4",
+      x = .5, y = .75, hjust = .5, vjust = 1)
   top <- cowplot::plot_grid(
     .factor, .location, .shape, .dim, nrow = 1)
   gc()
-  (ABcd_violins <-
+  (violin_ABcd <-
       cowplot::plot_grid(title, top, .FactorLocation + ggtitle("", ""),
                          ncol = 1, rel_heights = c(.1, 1, 1.4)))
 }
 ggsave("./figures/ch4_fig5_ABcd_violins.pdf",
-       ABcd_violins, device = cairo_pdf,
+       violin_ABcd, device = cairo_pdf,
        width = .w, height = .w, unit = .u)
-# ch4_figX_demographic_heatmap -----
-require("tidyverse")
-require("dplyr")
-## Load aggregated data. filter to only surveys in the 108 instances in the analysis
-survey_wider <- readRDS("./data/survey_wider.rds")
-instance_id_whitelist <- readRDS("./data/instance_id_whitelist.rds")
-## Only Prolific participants that were in the 108 instance_ids in the analysis
-survey_wider <- survey_wider %>%
-  dplyr::filter(nchar(as.character(prolific_id)) == 24,
-         survey_wider$instance_id %in% instance_id_whitelist)
-str(survey_wider)
 
-## Change character to factor, include counts in the levels of sex?
-(demographic_heatmap <- ggplot(survey_wider, aes(education, age)) +
-    stat_bin2d(aes(fill = after_stat(count))) +
-    geom_text(aes(label = after_stat(count)), stat = "bin2d") +
-    facet_grid(cols = vars(pronoun), labeller = label_wrap_gen(width=18)) +
-    theme_bw() +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1),
-          # legend.position = "bottom",
-          # legend.direction = "horizontal",
-          legend.margin = margin(0, 0, 0, 0)) +
-    scale_fill_gradient(low = "lightpink", high = "firebrick", na.value = NA) +
-    ggtitle("Participant demographics"))
-if(F)
-  ggsave(filename = "./figures/ch4_figX_demographic_heatmap.pdf",
-         plot = demographic_heatmap, device = "pdf", width = .w, height = .w/2)
 
 # ch4_fig6_subjective_measures -----
 ## Follow the loose setup of _analysis.rmd:
@@ -426,7 +427,7 @@ if(F)
 survey_wider <- readRDS("./data/survey_wider.rds")
 str(survey_wider)
 
-{ ## Subjective violins munging
+{
   ## pivot_longer within factor
   radial_longer <- survey_wider %>%
     dplyr::select(instance_id, radial_familar:radial_like) %>%
@@ -444,20 +445,19 @@ str(survey_wider)
   subjective_longer <- rbind(radial_longer, grand_longer, pca_longer) %>%
     tidyr::separate(factor, c("factor", "measure"), sep = "_")
 }
+## Technically not continuous numeric, will show side by side with Likert plot.
+.lvls <- c("most disagree", "disagree", "neutral", "agree", "most agree")
+subjective_longer <- subjective_longer %>%
+  mutate(value = as.integer(plyr::mapvalues(value, from = .lvls, to = 1L:5L)),
+         measure = factor(plyr::mapvalues(measure,
+                                          from = c("like", "ease", "confidence", "familar"),
+                                          to = c("preference", "ease of use", "confidence", "familiarity"))),
+         factor = factor(factor, levels = c("pca", "grand", "radial"))
+  )
+
 
 { ## Subjective violins
-  .lvls <- c("most disagree", "disagree", "neutral", "agree", "most agree")
-  subjective_longer <- subjective_longer %>%
-    mutate(value = as.integer(plyr::mapvalues(value, from = .lvls, to = 1L:5L)),
-           measure = factor(plyr::mapvalues(measure,
-                                            from = c("like", "ease", "confidence", "familar"),
-                                            to = c("preference", "ease of use", "confidence", "familiarity"))),
-           factor = factor(factor, levels = c("pca", "grand", "radial"))
-    )
-  (subjective_violins <- my_ggpubr_facet(df = subjective_longer, x = "factor", y = "value"))
-}
-
-{ ## Subjective violins munging
+  .l_lvls <- c("most disagree", "disagree", "neutral", "agree", "most agree")
   col_idx <- 8:22
   col_nms <- colnames(survey_wider[, col_idx])
   survey_agg <- tibble()
@@ -489,34 +489,32 @@ str(survey_wider)
 }
 
 ## Likert plots -----
-(subjective_likert <-
-    ggplot(likert, aes(x = percent, y = factor, fill = response)) +
-    geom_bar(position = "fill", stat = "identity", width = .6) + facet_grid(vars(question)) +
-    ggtitle("Subjective measures",
-            "Likert scale [1-5]") +
-    theme_bw() +
-    scale_fill_manual(values = rev(RColorBrewer::brewer.pal(5, "PRGn"))) +
-    theme(legend.position = "bottom",
-          legend.direction = "horizontal") +
-    # Reverse order that fill is displayed in legend.
-    guides(fill = guide_legend(reverse = TRUE)) +
-    # x as % rather than rate.
-    scale_x_continuous(labels = scales::percent)
+(subjectiveMeasures <-
+   ggplot(likert, aes(x = percent, y = factor, fill = response)) +
+   geom_bar(position = "fill", stat = "identity", width = .6) + facet_grid(vars(question)) +
+   ggtitle("Subjective measures",
+           "Likert scale [1-5]") +
+   theme_bw() +
+   scale_fill_manual(values = rev(RColorBrewer::brewer.pal(5, "PRGn"))) +
+   theme(legend.position = "bottom",
+         legend.direction = "horizontal") +
+   # Reverse order that fill is displayed in legend.
+   guides(fill = guide_legend(reverse = TRUE)) +
+   # x as % rather than rate.
+   scale_x_continuous(labels = scales::percent) +
+   coord_flip() +
+   theme(legend.direction = "vertical") +
+   guides(fill = guide_legend(reverse = FALSE)) +
+   labs(x = "Factor", y = "Response rate", fill = "Response")
 )
 
-## SAVING ----
-## Cowplot and bringing it together
-require("cowplot")
-figSubjectiveMeasures <-
-  cowplot::plot_grid(subjective_likert +
-                       coord_flip() +
-                       theme(legend.direction = "vertical") +
-                       guides(fill = guide_legend(reverse = FALSE)),
-                     subjective_violins,
-                     ncol = 2)
+(measure_violins <- my_ggpubr_facet(df = subjective_longer, x = "factor", y = "value")
+  + labs(x = "Factor", y = "Response", fill = "Factor"))
+figSubjectiveMeasures_w.violin_hori <-  cowplot::plot_grid(
+  subjectiveMeasures, measure_violins, ncol = 2)
 
 ggsave("./figures/ch4_fig6_subjective_measures.pdf",
-       figSubjectiveMeasures, device = "pdf",
+       figSubjectiveMeasures_w.violin_hori, device = "pdf",
        width = .w, height = .w, units = "in")
 
 

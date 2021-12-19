@@ -187,9 +187,11 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="3-ch-efficacy_radial_tour.html"><a href="3-ch-efficacy_radial_tour.html#sec:background"><i class="fa fa-check"></i><b>3.2</b> Background</a></li>
 <li class="chapter" data-level="3.3" data-path="3-ch-efficacy_radial_tour.html"><a href="3-ch-efficacy_radial_tour.html#sec:userstudy"><i class="fa fa-check"></i><b>3.3</b> User study</a></li>
 <li class="chapter" data-level="3.4" data-path="3-ch-efficacy_radial_tour.html"><a href="3-ch-efficacy_radial_tour.html#sec:results"><i class="fa fa-check"></i><b>3.4</b> Results</a></li>
-<li class="chapter" data-level="3.5" data-path="3-ch-efficacy_radial_tour.html"><a href="3-ch-efficacy_radial_tour.html#sec:conclusion"><i class="fa fa-check"></i><b>3.5</b> Conclusion</a></li>
-<li class="chapter" data-level="3.6" data-path="3-ch-efficacy_radial_tour.html"><a href="3-ch-efficacy_radial_tour.html#sec:spinifex"><i class="fa fa-check"></i><b>3.6</b> Accompanying tool: radial tour application</a></li>
-<li class="chapter" data-level="3.7" data-path="3-ch-efficacy_radial_tour.html"><a href="3-ch-efficacy_radial_tour.html#acknowledgments-2"><i class="fa fa-check"></i><b>3.7</b> Acknowledgments</a></li>
+<li class="chapter" data-level="3.5" data-path="3-ch-efficacy_radial_tour.html"><a href="3-ch-efficacy_radial_tour.html#response-time-regression"><i class="fa fa-check"></i><b>3.5</b> Response time regression</a></li>
+<li class="chapter" data-level="3.6" data-path="3-ch-efficacy_radial_tour.html"><a href="3-ch-efficacy_radial_tour.html#sec:conclusion"><i class="fa fa-check"></i><b>3.6</b> Conclusion</a></li>
+<li class="chapter" data-level="3.7" data-path="3-ch-efficacy_radial_tour.html"><a href="3-ch-efficacy_radial_tour.html#sec:spinifex"><i class="fa fa-check"></i><b>3.7</b> Accompanying tool: radial tour application</a></li>
+<li class="chapter" data-level="3.8" data-path="3-ch-efficacy_radial_tour.html"><a href="3-ch-efficacy_radial_tour.html#sec:acknowledgments"><i class="fa fa-check"></i><b>3.8</b> Acknowledgments</a></li>
+<li class="chapter" data-level="3.9" data-path="3-ch-efficacy_radial_tour.html"><a href="3-ch-efficacy_radial_tour.html#appendix"><i class="fa fa-check"></i><b>3.9</b> Appendix</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-ch-cheem.html"><a href="4-ch-cheem.html"><i class="fa fa-check"></i><b>4</b> Interrogating the linear variable importance of local explanations of non-linear models with animated linear projections</a>
 <ul>
@@ -199,7 +201,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.4" data-path="4-ch-cheem.html"><a href="4-ch-cheem.html#sec:applicationdesign"><i class="fa fa-check"></i><b>4.4</b> Application design</a></li>
 <li class="chapter" data-level="4.5" data-path="4-ch-cheem.html"><a href="4-ch-cheem.html#sec:casestudies"><i class="fa fa-check"></i><b>4.5</b> Case studies</a></li>
 <li class="chapter" data-level="4.6" data-path="4-ch-cheem.html"><a href="4-ch-cheem.html#sec:cheemdiscussion"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
-<li class="chapter" data-level="4.7" data-path="4-ch-cheem.html"><a href="4-ch-cheem.html#acknowledgments-3"><i class="fa fa-check"></i><b>4.7</b> Acknowledgments</a></li>
+<li class="chapter" data-level="4.7" data-path="4-ch-cheem.html"><a href="4-ch-cheem.html#acknowledgments-2"><i class="fa fa-check"></i><b>4.7</b> Acknowledgments</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-ch-conclusion.html"><a href="5-ch-conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a>
 <ul>
@@ -371,20 +373,20 @@ Figure 4.4: Illustration of data explorations interactions in the global view. T
 <div id="installation-and-getting-started" class="section level3" number="4.4.8">
 <h3><span class="header-section-number">4.4.8</span> Installation and getting started</h3>
 <p>The following <strong>R</strong> code will help getting up and running:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="4-ch-cheem.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Download the package</span></span>
-<span id="cb7-2"><a href="4-ch-cheem.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;cheem&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-3"><a href="4-ch-cheem.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Restart the R session so the IDE has the correct directory structure</span></span>
-<span id="cb7-4"><a href="4-ch-cheem.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">restartSession</span>()</span>
-<span id="cb7-5"><a href="4-ch-cheem.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Load cheem into session</span></span>
-<span id="cb7-6"><a href="4-ch-cheem.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;cheem&quot;</span>)</span>
-<span id="cb7-7"><a href="4-ch-cheem.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Try the app</span></span>
-<span id="cb7-8"><a href="4-ch-cheem.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">run_app</span>()</span>
-<span id="cb7-9"><a href="4-ch-cheem.html#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="4-ch-cheem.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Processing your data</span></span>
-<span id="cb7-11"><a href="4-ch-cheem.html#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Install treeshap from github, to use as a local explainer</span></span>
-<span id="cb7-12"><a href="4-ch-cheem.html#cb7-12" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;ModelOriented/treeshap&#39;</span>) <span class="do">## Local </span></span>
-<span id="cb7-13"><a href="4-ch-cheem.html#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Follow the examples in cheem_ls()</span></span>
-<span id="cb7-14"><a href="4-ch-cheem.html#cb7-14" aria-hidden="true" tabindex="-1"></a>?cheem_ls</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="4-ch-cheem.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Download the package</span></span>
+<span id="cb5-2"><a href="4-ch-cheem.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;cheem&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-3"><a href="4-ch-cheem.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Restart the R session so the IDE has the correct directory structure</span></span>
+<span id="cb5-4"><a href="4-ch-cheem.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">restartSession</span>()</span>
+<span id="cb5-5"><a href="4-ch-cheem.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Load cheem into session</span></span>
+<span id="cb5-6"><a href="4-ch-cheem.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;cheem&quot;</span>)</span>
+<span id="cb5-7"><a href="4-ch-cheem.html#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Try the app</span></span>
+<span id="cb5-8"><a href="4-ch-cheem.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">run_app</span>()</span>
+<span id="cb5-9"><a href="4-ch-cheem.html#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="4-ch-cheem.html#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Processing your data</span></span>
+<span id="cb5-11"><a href="4-ch-cheem.html#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Install treeshap from github, to use as a local explainer</span></span>
+<span id="cb5-12"><a href="4-ch-cheem.html#cb5-12" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;ModelOriented/treeshap&#39;</span>) <span class="do">## Local </span></span>
+<span id="cb5-13"><a href="4-ch-cheem.html#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Follow the examples in cheem_ls()</span></span>
+<span id="cb5-14"><a href="4-ch-cheem.html#cb5-14" aria-hidden="true" tabindex="-1"></a>?cheem_ls</span></code></pre></div>
 </div>
 </div>
 <div id="sec:casestudies" class="section level2" number="4.5">
@@ -440,7 +442,7 @@ Figure 4.8: Ames housing 2018 regressing log sales price [2018 USD].
 <p>The need to maintain the interpretability of black-box models is evident. One aspect uses local explanations of the model in the vicinity of an observation. Local explanations approximate the linear variable importance to the model. Our contribution is to assess the explanations by examining the support of explanation, varying the contribution with a radial tour. First, a global view visualizes approximations of the data and explanation spaces side-by-side, using dynamic interaction to compare and contrast, and ultimately, identify primary and comparison observations of interest. Then normalized the linear importance from the explanation of the primary observation to use as the initial basis of a manual tour. The variable sensitivity to the structure identified in the explanation is explored with the tours varying basis.</p>
 <p>We have illustrated this method on random forest models using the tree SHAP local explanation, while it could be generally used with any compatible model-explanation pairing. We apply it to the classification and regression tasks. We have created an open-source <strong>R</strong> package <strong>cheem</strong>, available on <a href="https://CRAN.R-project.org/package=cheem">CRAN</a>, to facilitate preprocessing and exploration with the described interactive application. Toy and real data are provided, or upload your data after preprocessing.</p>
 </div>
-<div id="acknowledgments-3" class="section level2" number="4.7">
+<div id="acknowledgments-2" class="section level2" number="4.7">
 <h2><span class="header-section-number">4.7</span> Acknowledgments</h2>
 <p>We would like to thank Professor Przemyslaw Biecek for his input early in the project and to the broader <span class="math inline">\(\text{MI}^\text2\)</span> lab group for the <strong>DALEX</strong> ecosystem of <strong>R</strong> and <strong>Python</strong> packages. This research was supported by Australian Government Research Training Program (RTP) scholarships.</p>
 <p>The namesake, Cheem, refers to a fictional race of humanoid trees from Doctor Who lore. <strong>DALEX</strong> pulls on from that universe, and we initially apply tree SHAP explanations that are specific to tree-based models.</p>

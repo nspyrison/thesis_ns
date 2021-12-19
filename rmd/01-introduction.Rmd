@@ -8,10 +8,10 @@ knit: "bookdown::render_book"
 <!-- Exploratory data analysis -->
 Exploratory data analysis (EDA) is a term that encompasses the initial summarization and visualization of a data set. This is a critical first step of checking for realistic values, finding improper data formats, and revealing insights [@tukey_exploratory_1977]. Early and frequent data visualization is key to the data analyst's workflow cycle [@wickham_r_2017]. As modern datasets grow in complexity use of multivariate data is ubiquitous. The number of variables in the data increases the difficulty of creating and portraying an accurate representation of the data which is central to the iterated workflow.
 
-(ref:dataanalysisworkflow-cap) Data analysis workflow [@wickham_r_2017]. This work focuses primary on multivariate data visualization, but also facilitates transforming data and interpretation of models.
+(ref:ch1fig1-cap) Data analysis workflow [@wickham_r_2017]. This work focuses primary on multivariate data visualization, but also facilitates transforming data and interpretation of models.
 
-```{r dataanalysisworkflow, echo=F, out.width='100%', fig.cap = "(ref:dataanalysisworkflow-cap)"}
-nsSafeIncGraphic("./figures/data_analysis_workflow.png")
+```{r ch1fig1, echo=F, out.width='100%', fig.cap = "(ref:ch1fig1-cap)"}
+nsSafeIncGraphic("./figures/ch1_fig1_data_analysis_workflow.PNG")
 ```
 
 Early attempts at high-dimension visuals in scatterplot matrices [@chambers_graphical_1983] and parallel coordinate plots [@ocagne_coordonnees_1885]. Principal component analysis (PCA, @pearson_liii._1901) reorients the basis to components, linear combinations of the original variables ordered by descending amount of variation explained. These components are typically viewed as discrete orthogonal pairs.
@@ -83,10 +83,10 @@ For our purposes I will be focusing on the case where data $X_{nxp}$ contains $n
 <!-- better than numerical summarization  -->
 Visualization is much more robust than numerical summarization alone [@anscombe_graphs_1973; @matejka_same_2017]. In these studies the data have the same summary statistics, yet contains obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Data visualization is fundamental to EDA and quickly evaluating data supports ensuring that models are suitable.
 
-(ref:matejka17fig-cap) Starting with the datasarus plot, observations are allowed to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the originally listed statistics [@matejka_same_2017].
+(ref:ch1fig2-cap) Starting with the datasarus plot, observations are allowed to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the originally listed statistics [@matejka_same_2017].
 
-```{r matejka17fig, echo=F, out.width='70%', fig.cap = "(ref:matejka17fig-cap)"}
-nsSafeIncGraphic("./figures/matejka17fig.png")
+```{r ch1fig2, echo=F, out.width='70%', fig.cap = "(ref:ch1fig2-cap)"}
+nsSafeIncGraphic("./figures/ch1_fig2_matejka17fig.PNG")
 ```
 
 ### Scatterplot matrices
@@ -128,10 +128,10 @@ Unfortunately, there is no free lunch here. An increase in data space will lead 
 
 A single linear projection is a resulting space from the data multiplied by the basis where the basis is an orthonormal matrix (the orientation of the unit origin) mapping the data space to a lower dimension. A data visualization tour animates many such projections through small changes in the basis. In the bar stool shadow analogy structural information about a hidden object was gained by watching its shadow change as a result of its rotation. An analyst similarly gains information about the data object by watching continuous changes to the basis (the rotation of the data). Originally in a _grand_ tour [@asimov_grand_1985] several target frames are randomly selected and then interpolated along their geodesic path.
 
-(ref:buja05fig-cap) Illustration of the grand tour selecting random target frames (grey) connected via geodesically interpolated frame (white). Figure from @buja_computational_2005.
+(ref:ch1fig3-cap) Illustration of the grand tour selecting random target frames (grey) connected via geodesically interpolated frame (white). Figure from @buja_computational_2005.
 
-```{r buja05fig, echo=F, out.width='100%', fig.cap = "(ref:buja05fig-cap)"}
-nsSafeIncGraphic("./figures/buja05fig.png")
+```{r ch1fig3, echo=F, out.width='100%', fig.cap = "(ref:ch1fig3-cap)"}
+nsSafeIncGraphic("./figures/ch1_fig3_buja05fig.PNG")
 ```
 
 There are various types of tours which are classified by the generation of their basis paths. A _guided_ tour uses simulated annealing to move progressively closer to an objective function in the embedded space [@hurley_analyzing_1990]. A more comprehensive discussion and review of tours can be found in the works of @cook_grand_2008 and @lee_state_2021.
@@ -139,8 +139,6 @@ There are various types of tours which are classified by the generation of their
 Tours are used for a couple of salient features: maintains transparency back to the original variable space and the persistence data points from frame to frame convey more information than looking at discrete jumps to other bases. Because of these features tours are a good method to extend the visualization of data space as dimensionality increases.
 
 The work below covers manual tours [@cook_manual_1997; @spyrison_spinifex_2020] in Chapter \ref{ch-spinifex}. Radial tours are one type of manual tour that where the contribution of one variable is extended radially to a full contribution, removed completely, then restored to its original contribution. Chapter \ref{ch-efficacy_radial_tour} compares the efficacy of the radial tour as compared with PCA and the grand tour in a user study. Lastly, Chapter \ref{ch-cheem} extends the use of the radial tour to evaluate the local explanation of black-box models.
-
-
 
 
 ## Thesis structure
