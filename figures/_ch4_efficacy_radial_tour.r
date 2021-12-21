@@ -29,9 +29,11 @@ if(F){ ## Not run!!
   if(F)
     file.edit("./figures/ch4_util_funcs.r")
 
-  tgt_fp <- paste0("./data/EEV_p6_0_1_rep3.rda")
-  load(tgt_fp, envir = globalenv())
-  dat <- EEV_p6_0_1_rep3
+  .sim_nm <- "EEV_p6_33_66_rep2" #"EEV_p6_0_1_rep3"
+  .fp <- paste0("./data/", .sim_nm, ".rda")
+  ## Make data plot
+  load(.fp, envir = globalenv())
+  dat <- get(.sim_nm)
   clas <- as.factor(attr(dat, "cluster"))
 
   pca_obj <- prcomp(dat)
@@ -43,18 +45,16 @@ if(F){ ## Not run!!
     columns = 1:4,
     #diag = "blank",
     upper = "blank",
-    lower = list(continuous = wrap("points", alpha = 0.7, size=1)),
+    lower = list(continuous = wrap("points", alpha = 0.7, size = 1)),
     columnLabels = paste0("PC", 1:4)) +
     theme_bw() +
     theme(axis.ticks = element_blank(),
-          axis.text = element_blank()) +
+          axis.text  = element_blank()) +
     scale_color_brewer(palette = "Dark2") +
     scale_fill_brewer( palette = "Dark2")
 
-
-  ggsave(
-    "./figures/ch4_fig1_pca_splom.pdf", gg_pca, device = "pdf",
-    width = .w / 2, height = .w / 2, units = .u)
+  ggsave("./figures/ch4_fig1_pca_splom.pdf", gg_pca, device = "pdf",
+         width = .w / 2, height = .w / 2, units = .u)
 }
 
 

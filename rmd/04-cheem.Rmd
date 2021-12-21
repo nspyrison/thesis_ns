@@ -82,7 +82,7 @@ In summary, this highlights how local explanations bring interpretability to a m
 ## Tours and the radial tour
 
 <!-- tours intro -->
-A data visualization _tour_ animates many linear projections over small changes in the basis. One of the key features of the tour is the object permanence of the data points; one can track the relative changes of observations as the basis moves, as opposed to discretely jumping to an orthogonal view with no intermediate information. There  are various types of tours, which are distinguished by the selection of their basis paths [@lee_state_2021; @cook_grand_2008].
+A data visualization _tour_ animates many linear projections over small changes in the basis. One of the key features of the tour is the object permanence of the data points; one can track the relative changes of observations as the basis moves, as opposed to discretely jumping to an orthogonal view with no intermediate information. There are various types of tours, which are distinguished by the selection of their basis paths [@lee_state_2021; @cook_grand_2008].
 
 
 ### Manual tours and the radial subset
@@ -101,7 +101,7 @@ Below we illustrate the two primary displays of the application: the global view
 ### Global view
 
 <!-- Purpose -->
-The global view provides an essential context of all observations and allows  exploration of the separability of the data- and attribution-spaces. While ultimately, its purpose is to facilitate the selection of a primary point and comparison point.
+The global view provides an essential context of all observations and facilitates the exploration of the separability of the data- and attribution-spaces. While ultimately, its purpose is to facilitate the selection of a primary point and comparison point.
 
 <!-- Approximations of the spaces, PC1:2 -->
 An approximation of these spaces is given as the first two principal components of their respective spaces. This is shown side-by-side next to model information, the prediction, and the observed response variable. The orientation and magnitude  of the variables are inscribed on a unit circle. While a single 2D projection will rarely encompass all of the structure of higher-dimensional spaces, it is a reasonable summarization, given the real task at hand, the selection of observations to explore further.
@@ -113,7 +113,7 @@ It is insightful to explore these two approximations against a visual of the mod
 ### Radial cheem tour
 
 <!-- a function of the obs selected above -->
-The global view facilitated the selection of a primary and optional comparison observation. The variable-level attribution of primary observation is normalized and used as the initial 1D basis in a radial tour. This is an approximation of  the contributions of the linear variables that best explain the difference between the model intercept and an observations prediction, not the local shape of the model surface.
+The global view facilitated the selection of a primary and optional comparison observation. The variable-level attribution of primary observation is normalized and used as the initial 1D basis in a radial tour. This is an approximation of the contributions of the linear variables that best explain the difference between the model intercept and an observations prediction, not the local shape of the model surface.
 
 <!-- Tour start frame -->
 The initial frame is the normalized SHAP values of the primary observation. The current projection basis is depicted as the width of a bar, the variable's contribution to the horizontal axis. The normalized values of all observations are shown as vertical parallel coordinate plots.
@@ -135,7 +135,7 @@ nsSafeIncGraphic("./figures/ch5_fig2_app_classification.PNG")
 
 ### Regression task
 
-The regression case, we opt to color the global view on a statistic, the observation's residual, the log Mahalanobis distance in data space (a measure of outlyingness), and the correlation of the attribution projection with the observed response. In the radial tour, the horizontal positions are the same, the  attribution projection, then varying as the radial tour changes basis. While the vertical position is fixed to the observed response variable and residuals for the middle and right panels, respectively. This changes the display from 1D density to a scatterplot. The basis is still one component, the horizontal position, independent of the vertical position.
+The regression case, we opt to color the global view on a statistic, the observation's residual, the log Mahalanobis distance in data space (a measure of outlyingness), and the correlation of the attribution projection with the observed response. In the radial tour, the horizontal positions are the same, the attribution projection, then varying as the radial tour changes basis. While the vertical position is fixed to the observed response variable and residuals for the middle and right panels, respectively. This changes the display from 1D density to a scatterplot. The basis is still one component, the horizontal position, independent of the vertical position.
 
 ```{r ch5fig3, echo=FALSE, out.width="100%", fig.align='center', fig.cap="Display of the regression case. The global view can be colored on the correlation of the attribution projection and observed response. In the tour, the horizontal values are the same as the classification case. The vertical position is fixed to the observed response and residuals in the middle and right facets, respectively."}
 nsSafeIncGraphic("./figures/ch5_fig3_app_regression.PNG")
