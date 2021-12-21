@@ -8,5 +8,5 @@ I recognize that terminology is often overburdened by ambiguous use, with severa
 <!-- I provide terminology and notation definition upon first use and in the Glossary \ref{ch-glossary}. -->
 
 <!-- a much abreviated declaration -->
-Chapter \ref{ch-spinifex} has been published in _The R Journal_.  Chapters \ref{ch-efficacy_radial_tour} and \ref{ch-cheem} have not been submitted yet.
+Chapter \ref{ch-spinifex} has been published in _The R Journal_. Chapters \ref{ch-efficacy_radial_tour} and \ref{ch-cheem} have not been submitted yet.
 

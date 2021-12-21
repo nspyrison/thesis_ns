@@ -20,7 +20,7 @@ nsSafeIncGraphic <- function(fp = "./dummy/figures/filepath.pdf"){
 }
 
 options("knitr.graphics.auto_pdf" = TRUE)
-library(knitr)
+suppressWarnings(library(knitr))
 opts_chunk$set(
   warning = FALSE, message = FALSE, echo = FALSE,
   fig.path = 'figure/', fig.align = 'center', fig.show = 'hold',

@@ -16,10 +16,10 @@ All of the papers in the thesis were conceptualized, developed, and written by m
 \RaggedRight\textbf{Publication Title}  &
 \RaggedRight\textbf{Status (published, in press, accepted or returned for revision)}  & \RaggedRight\textbf{Nature and} {\%} \RaggedRight\textbf{of student contribution} & \RaggedRight\textbf{Co-author name(s) Nature and} {\%} \RaggedRight\textbf{of Co-author’s contribution} &
 \RaggedRight\textbf{Co-author(s), Monash student Y/N} \\ \hline
-3 & spinifex: An R Package for Creating a Manual Tour of Low-dimensional Projections of Multivariate Data & Published & 75\%. Concept, development, writing first draft and software development & (1) Dianne Cook, concept, methodology, writing 25\% & N \\ \hline
+3 & spinifex: an R package for creating
+user-controlled animated linear projections & 75\%. Concept, development, writing first draft and software development & (1) Dianne Cook, concept, methodology, writing 25\% & N \\ \hline
 4 & The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections & To be submitted & 80\%. Concept, development, writing first draft, application, and conducting user study & (1) Dianne Cook, Concept, methodology, editing 12\% (2) Kimbal Marriott, concept, methodology, editing 8\% & N \\ \hline
-5 & Interrogating the linear variable importance of local explanations of
-black-box models with animated linear projections & To be submitted & 85\%. Concept, development, writing first draft and software development & (1) Dianne Cook, methodology, editing 10\% (2) Kimbal Marriott, methodology, editing 5\% & N \\ \hline
+5 & Interrogating the linear variable importance of local explanations of non-linear models with animated linear projections & To be submitted & 85\%. Concept, development, writing first draft and software development & (1) Dianne Cook, methodology, editing 10\% (2) Kimbal Marriott, methodology, editing 5\% & N \\ \hline
 \end{tabular}
 \end{table}
 
@@ -30,7 +30,7 @@ I have renumbered and updated sections of submitted or published papers to gener
 \textbf{Student signature:}
 
 ```{r, out.width = "50%", fig.align = "left"}
-nsSafeIncGraphic("./figures/signature.png")
+nsSafeIncGraphic("./figures/ch0_signature.PNG")
 ```
 
 \textbf{Date:} `r as.Date("2021-12-12")`
