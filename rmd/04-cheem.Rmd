@@ -6,7 +6,7 @@ knit: "bookdown::render_book"
 # Scrutinizing the linear variable importance of local explanations of non-linear models with animated linear projections {#ch-cheem}
 
 <!-- WARNING, XXX:TO ADRESS -->
-_THE CHAPTER IS A RELATIVELY RECENT SNAPSHOT OF THE ORIGINAL REPOSITORY_
+_THE CHAPTER IS NOW SLIGHTLY OUTDATED, Bring content over again after Intro changes._
 
 <!-- Segue -->
 Now we can be confident that the radial tour leads to better analysis of variable-level attribution to features identified in a projection. We want to increase the interpretability of complex models. Specifically, I suggest a using the radial tour to explore variable sensitivity to the structure identified in linear local explanations of non-linear models.
@@ -91,7 +91,7 @@ The manual tour [@cook_manual_1997] defines its basis path by manipulating a sel
 <!-- Radial tour -->
 More generally, the manual tour can change the contribution of a variable to the display dimensions. We will apply a more directed interaction, namely, a _radial_ tour. In a radial tour, the selected variable is allowed to change its magnitude of contribution but not its angle; it must move along the direction of its original contribution.
 
-## cheem viewer {#sec:applicationdesign}
+## Cheem viewer {#sec:applicationdesign}
 
 Below we illustrate the two primary displays of the cheem viewer application: the global view and the tour view. Then we cover what we take away from the classification and regression tasks. Lastly, we discuss the preprocessing the data before application runtime.
 
