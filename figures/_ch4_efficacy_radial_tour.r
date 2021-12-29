@@ -1,29 +1,27 @@
 # Setup ------
-if(F)
-  remotes::install_github("nspyrison/spinifex")
-require(spinifex) ## Current dev ver, likely a small diff from CRAN spinifex v0.3.1
-require(tourr)
-require(ggplot2)
-require(GGally)
-require(dplyr)
-this_theme <- list(
-  scale_color_brewer(palette = "Dark2"),
-  theme_void(),
-  theme(axis.title = element_text(),
-        plot.title = element_text(hjust = 0.5),
-        plot.subtitle = element_text(hjust = 0.5),
-        legend.position = "off"),
-  coord_fixed(),
-  labs(x = "", y = "")
-)
-.u = "in"
-.w = 6.25
-.h = 9
-
+{
+  require(spinifex) ## Current dev ver, likely a small diff from CRAN spinifex v0.3.1
+  require(tourr)
+  require(ggplot2)
+  require(GGally)
+  require(dplyr)
+  this_theme <- list(
+    scale_color_brewer(palette = "Dark2"),
+    theme_void(),
+    theme(axis.title      = element_text(),
+          plot.title      = element_text(hjust = 0.5),
+          plot.subtitle   = element_text(hjust = 0.5),
+          legend.position = "off"),
+    coord_fixed(),
+    labs(x = "", y = "")
+  )
+  .u = "in"
+  .w = 6.25
+  .h = 9
+}
 
 
 # fig1_pca_scatterplotmatrix -----
-## TODO: This is already covered in the introduction/motivation
 if(F){ ## Not run!!
   source("./figures/ch4_util_funcs.r")
   if(F)
@@ -281,32 +279,27 @@ if(F)
   file.edit("./figures/ch4_util_funcs.r")
 
 ### Left pane ----
-## explore existence issue in spinifex/buildignore/zexamples/geom pressence issue.r
-(gg1 <- ggtour(bas, dat) +
-   proto_point(aes_args = list(shape = clas, color = clas)) +
-   proto_basis() + ## removes cluster d when used....
-   proto_origin() +
-   theme(axis.title = element_text(),
-         plot.title = element_text(hjust = 0.5),
-         plot.subtitle = element_text(hjust = 0.5),
-         legend.position = "off",
-         axis.title.y = element_text(angle = 90)) +
-   labs(subtitle = "Factor: PCA, location: 33/66%, \n Shape: EEV, dimension: 6 & 4 clusters",
-        x = "PC1", y = "PC4", color = "color", shape = "shape") +
-   #coord_fixed(xlim = c(-8, 3), ylim = c(-1.5, 6)))
-   #ylim(-.5, 7))
-   expand_limits(x = c(-7, 3), y = c(-1.5, 5)))
-
-### Existence or not of cluster d points
-## is a function of the limits, but not 1:1 and onto with the range of cl_d or the complete data...
-## even keeping limits consistent, adding/removing labels, changes the existance of a cluster
-idx_cl_d <- which(clas == "cl d")
-range(last_ggtour()$df_data[idx_cl_d, 2])
-range(last_ggtour()$df_data[, 2])
-range(last_ggtour()$df_data[idx_cl_d, 1])
-range(last_ggtour()$df_data[, 1])
-## in consistent across packages too
-animate_plotly(gg1)
+## More issues with geom_existence issue, even after change to theme_spinifex;
+#### going back to ggplot2 approach
+# ggtour(bas, dat) +
+# proto_point(aes_args = list(shape = clas, color = clas)) +
+# proto_basis() + ## removes cluster d when used....
+# proto_origin() +
+# coord_fixed(xlim = c(-8, 3), ylim = c(-1.5, 6)))
+# ylim(-.5, 7))
+# expand_limits(x = c(-7, 3), y = c(-1.5, 7)))
+proj <- as.matrix(dat) %*% bas %>% as.data.frame()
+(gg1 <- ggplot(proj, aes(PC1, PC4)) +
+    geom_point(aes(shape = clas, color = clas)) +
+    draw_basis(bas, proj) + coord_fixed() +
+    theme_void() +
+    theme(axis.title = element_text(),
+          plot.title = element_text(hjust = 0.5),
+          plot.subtitle = element_text(hjust = 0.5),
+          legend.position = "off",
+          axis.title.y = element_text(angle = 90)) +
+    labs(subtitle = "Factor: PCA, location: 33/66%, \n Shape: EEV, dimension: 6 & 4 clusters",
+         x = "PC1", y = "PC4", color = "color", shape = "shape"))
 
 
 ## Make ans_plot
@@ -345,43 +338,44 @@ ggsave("./figures/ch4_fig3_accuracy_measure.pdf", final, "pdf",
 
 
 # Setup2 ----
+{
+  require("ggpubr")
+  my_theme <- list(
+    theme_bw(),
+    scale_color_brewer(palette = "Dark2"),
+    scale_fill_brewer(palette = "Dark2"),
+    geom_hline(yintercept = 0L),
+    theme(legend.position = "bottom",
+          legend.box = "vertical",
+          legend.margin = margin(-6)))
+  my_ggpubr <- function(df, x = "factor", y = "value", title = waiver(), subtitle = waiver()){
+    ## Find height of global significance test text.
+    .x_lvls <- df %>% pull({{x}}) %>% levels()
+    .y_range <- diff(range(df[y]))
+    .n_lvls <- length(.x_lvls)
+    .lab.y <- (.04 * .y_range) * (1 + .n_lvls) * .y_range + max(df[y])
+    my_comparisons <- list(c("pca", "grand"), c("grand", "radial"), c("pca", "radial"))
 
-require("ggpubr")
-my_theme <- list(
-  theme_bw(),
-  scale_color_brewer(palette = "Dark2"),
-  scale_fill_brewer(palette = "Dark2"),
-  geom_hline(yintercept = 0L),
-  theme(legend.position = "bottom",
-        legend.box = "vertical",
-        legend.margin = margin(-6)))
-my_ggpubr <- function(df, x = "factor", y = "value", title = waiver(), subtitle = waiver()){
-  ## Find height of global significance test text.
-  .x_lvls <- df %>% pull({{x}}) %>% levels()
-  .y_range <- diff(range(df[y]))
-  .n_lvls <- length(.x_lvls)
-  .lab.y <- (.04 * .y_range) * (1 + .n_lvls) * .y_range + max(df[y])
-  my_comparisons <- list(c("pca", "grand"), c("grand", "radial"), c("pca", "radial"))
-
-  ## Plot
-  ggviolin(df, x = x, y = y, fill = x, alpha = .6,
-           palette = "Dark2", shape = x, trim = TRUE,
-           add = c("mean"), ## Black circle, can change size, but not shape or alpha?
-           draw_quantiles = c(.25, .5, .75)) +
-    stat_compare_means(method = "wilcox.test",
-                       comparisons = my_comparisons,
-                       label = "p.signif", hide.ns = TRUE) + ## pairwise test
-    # stat_compare_means(label = "p.signif", label.y = .lab.y - .4,
-    #                    method = "wilcox.test", ref.group = .x_lvls[1]) + ## Test each lvl w.r.t. first level.
-    stat_compare_means( ## Global test
-      label.y = .lab.y,
-      aes(label = paste0("p=", ..p.format..))
-    ) + ## custom label
-    my_theme +
-    ggtitle(title, subtitle)
-}
-my_ggpubr_facet <- function(..., facet = "measure"){
-  facet(my_ggpubr(...), facet.by = facet)
+    ## Plot
+    ggviolin(df, x = x, y = y, fill = x, alpha = .6,
+             palette = "Dark2", shape = x, trim = TRUE,
+             add = c("mean"), ## Black circle, can change size, but not shape or alpha?
+             draw_quantiles = c(.25, .5, .75)) +
+      stat_compare_means(method = "wilcox.test",
+                         comparisons = my_comparisons,
+                         label = "p.signif", hide.ns = TRUE) + ## pairwise test
+      # stat_compare_means(label = "p.signif", label.y = .lab.y - .4,
+      #                    method = "wilcox.test", ref.group = .x_lvls[1]) + ## Test each lvl w.r.t. first level.
+      stat_compare_means( ## Global test
+        label.y = .lab.y,
+        aes(label = paste0("p=", ..p.format..))
+      ) + ## custom label
+      my_theme +
+      ggtitle(title, subtitle)
+  }
+  my_ggpubr_facet <- function(..., facet = "measure"){
+    facet(my_ggpubr(...), facet.by = facet)
+  }
 }
 
 

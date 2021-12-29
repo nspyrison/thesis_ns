@@ -8,7 +8,7 @@ editor_options:
 # The benefit of user-controlled radial tour for understanding variable contributions to structure in linear projections {#ch-efficacy_radial_tour}
 
 <!-- WARNING, XXX:TO ADRESS -->
-_THE CHAPTER IS A RELATIVELY RECENT SNAPSHOT OF THE ORIGINAL REPOSITORY_
+_THE CHAPTER IS NOW SLIGHTLY OUTDATED, Bring content over again after Intro changes and proofreading._
 
 <!-- Segue -->
 Now we have the means to perform radial tours. Should we be confident that this method with user control will lead to better analysis than traditional alternatives? This chapter discusses the user study to elucidate the efficacy of the radial tour.
@@ -268,13 +268,21 @@ $$
 $$
 
 <!-- Y1 model comparisons -->
-```{r ch4tab1, fig.cap = "<TABLE FIGURES DFEFINED IN THE KABLE>"}
+```{r ch4tab1, fig.cap = "<TABLE CAPTION DFEFINED IN kable(caption)>"}
 ## Set format and fonts for pdf vs html:
 if(knitr::is_html_output()) fmt <- "html" else fmt <- "latex"
 if(knitr::is_html_output()) fnt <- 12L    else fnt <- 10L
+## Tried escape = FALSE, but that doesn't seem to be the way to go.
+
 
 mod_comp <- readRDS("./figures/ch4_tab1_model_comp_ls.rds") 
 ## accuracy [[1]], log time [[2]]
+if(knitr::is_html_output()){
+  mod_comp$modelComp_MarksByEval$`Fixed effects` <-
+      gsub("[*]", "\\\\*", mod_comp$modelComp_MarksByEval$`Fixed effects`)
+  mod_comp$modelComp_TimeByEval$`Fixed effects` <-
+      gsub("[*]", "\\\\*", mod_comp$modelComp_TimeByEval$`Fixed effects`)
+}
 
 ## return
 kableExtra::kbl(
@@ -285,7 +293,7 @@ kableExtra::kbl(
 ```
 
 <!-- Y1 coefficients of ABcd -->
-```{r ch4tab2, fig.cap = "<TABLE FIGURES DFEFINED IN THE KABLE>"}
+```{r ch4tab2, fig.cap = "<TABLE CAPTION DFEFINED IN kable(caption)>"}
 mod_coef <- readRDS("./figures/ch4_tab2_model_coef_ls.rds") 
 ## accuracy [[1]], log time [[2]]
 
