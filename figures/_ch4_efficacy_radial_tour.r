@@ -58,11 +58,12 @@ if(F){ ## Not run!!
 
 
 # fig2_exp_factors -----
-require("ggforce")
-require("ggplot2")
-require("ggExtra")
-require("magrittr")
-require("spinifex")
+library(ggforce)
+library(ggplot2)
+library(ggExtra)
+library(magrittr)
+library(spinifex)
+library(cowplot)
 palette(RColorBrewer::brewer.pal(8, "Dark2"))
 this_theme <- list(
   theme_bw(),
@@ -172,7 +173,7 @@ for(i in 1:length(lvls)){
     ## Cluster d
     geom_ellipse(aes(x0 = x, y0 = y, a = a, b = b,
                      angle = angle, color = cluster),
-                 data = ellipse_d[i, ],
+                 data = ellipse_df[i, ],
                  size = .6, linetype = 2, alpha = .5) +
     this_theme +
     coord_fixed() +
@@ -184,7 +185,7 @@ for(i in 1:length(lvls)){
       geom_text(aes(x = x, y = y, label = cluster, color = cluster), size = 7) +
       ## Cluster letter d
       geom_text(aes(x = x - .5, y = y + .5, color = cluster),
-                data = ellipse_df[i, ], size = 4, alpha =.7,
+                data = ellipse_df[i, ], size = 4, alpha = .7,
                 label = "(d)")
   assign(paste0("shp", i), g, envir = globalenv())
 }
@@ -194,63 +195,67 @@ if(F){
   shp3
 }
 
-
-
 ## Dim ------
 load("./data/EEE_p4_0_1_rep1.rda") ## load obj EEE_p4_0_1_rep1
 load("./data/EEE_p6_0_1_rep1.rda") ## load obj EEE_p5_0_1_rep1
+str(EEE_p4_0_1_rep1)
 bas4 <- spinifex::basis_half_circle(EEE_p4_0_1_rep1)
 bas6 <- spinifex::basis_half_circle(EEE_p6_0_1_rep1)
 clas4 <- attr(EEE_p4_0_1_rep1, "cluster")
 clas6 <- attr(EEE_p6_0_1_rep1, "cluster")
-dim4 <- spinifex::ggtour(bas4, EEE_p4_0_1_rep1) +
+dim4 <- ggtour(bas4) +
   proto_basis() +
   this_theme +
-  labs(subtitle = "3 cluster in 4 dim")
-dim6 <- spinifex::ggtour(bas6, EEE_p6_0_1_rep1) +
+  ggplot2::labs(subtitle = "3 clusters in 4 dimensions")
+dim6 <- ggtour(bas6) +
   proto_basis() +
   this_theme +
-  labs(subtitle = "4 cluster in 6 dim")
+  ggplot2::labs(subtitle = "4 clusters in 6 dimensions")
+## text block about cluster d
 dim_txt <- ggplot() +
-  geom_text(aes(0, 0), size = 3,
-            label = "Cluster 'd', above, only exists \n when there are 6 dim, is \n spherical like the noise dim, \n but has cluster separation \n behind the plane of the \n other 3 isodensities.") +
-  theme_void()+
-  theme(text = element_text(hjust = .5, vjust = .5))
+  geom_text(aes(0, 0), size = 3.3, hjust = .5, vjust = .3, label =
+"Cluster 'd', above, only exists
+when there are six dimensions,
+is spherical, and a has cluster
+separation orthogonal to the plane
+of the other three isodensities.") +
+  theme_void() +
+  theme(text = element_text(hjust = 0, vjust = .5))
 
-## Cowplot munging ------
-require("cowplot")
+### Cowplot munging ------
 .gg_empty <- ggplot() + theme_void()
 fct_row <- plot_grid(fct1, fct2, fct3, nrow = 1)
 loc_row <- plot_grid(loc1, loc2, loc3, nrow = 1)
 shp_row <- plot_grid(shp1, shp2, shp3, nrow = 1)
-dim_row <- plot_grid(dim4, dim6, dim_txt, nrow = 1,
-                     rel_widths = rep(1, 3), rel_heights = rep(1, 3))
+dim_row <- plot_grid(dim4, dim6, dim_txt, nrow = 1)
 gc()
-gg_matrix <- plot_grid(fct_row, loc_row, shp_row, dim_row, ncol = 1, rel_heights = c(1,.8,.8,1))
+gg_matrix <- plot_grid(fct_row, loc_row, shp_row,
+                       dim_row, ncol = 1, rel_heights = c(1,.8,.8,1))
 
 header_row <- ggplot() +
-  labs(title = "Levels of the block") +
-  theme_void()+
+  labs(title = "Levels of the experimental factors") +
+  theme_void() +
   theme(plot.title = element_text(hjust = 0.5))
 header_matrix <- plot_grid(header_row, gg_matrix, ncol = 1, rel_heights = c(0.03, 1))
 
 t_fct <- ggplot() +
-  labs(title = "factor") +
-  theme_void() + labs(x="", y="") +
+  labs(title = "Factor") +
+  theme_void()+
   theme(plot.title = element_text(angle = 90))
 t_loc <- ggplot() +
-  labs(title = "location") +
-  theme_void() + labs(x="", y="") +
+  labs(title = "Location") +
+  theme_void()+
   theme(plot.title = element_text(angle = 90))
 t_shp <- ggplot() +
-  labs(title = "shape") +
-  theme_void() + labs(x="", y="") +
+  labs(title = "Shape") +
+  theme_void()+
   theme(plot.title = element_text(angle = 90))
 t_dim <- ggplot() +
-  labs(title = "dimension") +
-  theme_void() + labs(x="", y="") +
+  labs(title = "Dimension") +
+  theme_void() +
   theme(plot.title = element_text(angle = 90))
-tbl_col <- plot_grid(.gg_empty, t_fct, t_loc, t_shp, t_dim, ncol = 1, rel_heights = c(.8, 1.2,1.2,1,1))
+tbl_col <- plot_grid(.gg_empty, t_fct, t_loc, t_shp, t_dim,
+                     ncol = 1, rel_heights = c(.8, 1.2,1.2,1,1))
 
 final <- plot_grid(tbl_col, header_matrix, nrow = 1, rel_widths = c(0.05, 1))
 .w = 6.25; .h = 9; .u = "in"; ## Save as previous
