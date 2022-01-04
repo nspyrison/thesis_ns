@@ -5,9 +5,6 @@ knit: "bookdown::render_book"
 
 # Scrutinizing the linear variable importance of local explanations of non-linear models with animated linear projections {#ch-cheem}
 
-<!-- WARNING, XXX:TO ADRESS -->
-_THE CHAPTER IS NOW SLIGHTLY OUTDATED, Bring content over again after Intro changes._
-
 <!-- Segue -->
 Now we can be confident that the radial tour leads to better analysis of variable-level attribution to features identified in a projection. We want to increase the interpretability of complex models. Specifically, I suggest a using the radial tour to explore variable sensitivity to the structure identified in linear local explanations of non-linear models.
 
@@ -48,7 +45,7 @@ The remainder of this paper is organized as follows. The following section, [Loc
 ## Local explanation statistics {#sec:explanations}
 
 <!-- Reminder of local explanation -->
-Consider a highly non-linear model. At face value, it is hard to say which variable(s) are sensitive to  crossing a classification boundary or identify which variables caused an observation to have a relatively extreme residual. Local explanations shed light on these cases by approximating linear variable importance in the vicinity of one observation.
+Consider a highly non-linear model. At face value, it is hard to say which variable(s) are sensitive to crossing a classification boundary or identify which variables caused an observation to have a relatively extreme residual. Local explanations shed light on these cases by approximating linear variable importance in the vicinity of one observation.
 
 <!-- Taxonomy of local explanations -->
 Figure six of @arrieta_explainable_2020 gives comprehensive summarization of the taxonomy and literature of explanation techniques. The figure includes a large number of model-specific explanations such as deepLIFT, [@shrikumar_not_2016; @shrikumar_learning_2017] a popular recursive method for estimating importance in neural networks. There are fewer model-agnostic explanations, of which LIME, [@ribeiro_why_2016] SHAP, [@lundberg_unified_2017] and their variants are popular.
@@ -121,7 +118,7 @@ The radial tour creates a basis path by varying the contribution of a selected v
 
 What information do we glean from using this method on a classification task? Typically we select a misclassified observation compared to a correctly classified point nearby in data space. The initial frame is the linear attribution of that observation's local explanation. By default, the manual tour varies the contribution of the variable with the largest difference between the primary and comparison observation; we can test the sensitivity of each variable to structure identified by the local explanation; we are exploring the support of the explanation, evaluating the support or robustness of the prediction.
 
-```{r ch5fig2, echo=F, out.width="100%", fig.align="center", fig.cap = "Display illustrating the classification case. Plots are  colored on predicted class, and red circles indicate misclassified observations. The radial tour is a 1D projection starting at the normalized tree SHAP values of the primary point. The first frame is the linear-variable importances that best describe the difference from model intercept to this observation's prediction. We probe the support of the variable contributions by selecting a variable to vary the contribution."}
+```{r ch5fig2, echo=F, out.width="100%", fig.align="center", fig.cap = "Display illustrating the classification case. Plots are colored on predicted class, and red circles indicate misclassified observations. The radial tour is a 1D projection starting at the normalized tree SHAP values of the primary point. The first frame is the linear-variable importances that best describe the difference from model intercept to this observation's prediction. We probe the support of the variable contributions by selecting a variable to vary the contribution."}
 nsSafeIncGraphic("./figures/ch5_fig2_app_classification.PNG")
 ```
 
