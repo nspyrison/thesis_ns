@@ -4,7 +4,7 @@
 
 \appendix
 
-ADD SPINIFEX VIGNETTE GGPROTO API HERE? after first paper?
+THIS IS WHERE APPENDIX CONTENT WOULD GO.
 
 
 <!-- at the end, create bib for html version ->
