@@ -23,9 +23,10 @@ fig_pdf <- list.files("figures/", pattern = "*.pdf")
 for (i in fig_pdf) {
   file_pdf <- paste0("figures/", i)
   dest_pdf <- paste0("figures/", sub("pdf$", "png", i))
-  magick::image_write(
-    magick::image_read(file_pdf, 300), dest_pdf, "png",
-    density = 300
+  if(file.exists(dest_pdf) == FALSE)
+    magick::image_write(
+      magick::image_read(file_pdf, 300), dest_pdf, "png",
+      density = 300
   )
 }
 
