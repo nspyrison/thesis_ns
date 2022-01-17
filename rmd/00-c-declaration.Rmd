@@ -6,7 +6,7 @@ I hereby declare that this thesis contains no material which has been accepted f
 
 ## Publications as part of this thesis {-}
 
-Three paper are included in this thesis, one of which has been accepted for publication in _The R Journal_ [@spyrison_spinifex_2020]. The user study described in Chapter \ref{ch-efficacy_radial_tour} will shortly be submitted to the _Journal of Data Science, Statistics, and Visualisation_. The research covered in Chapter \ref{ch-cheem} will shortly be submitted to _The Journal of Machine Learning research_.
+Three paper are included in this thesis, one of which has been accepted for publication in _The R Journal_ [@spyrison_spinifex_2020]. The user study described in Chapter \@ref(ch-userstudy) will shortly be submitted to the _Journal of Data Science, Statistics, and Visualisation_. The research covered in Chapter \@ref(ch-cheem) will shortly be submitted to _The Journal of Machine Learning research_.
 
 
 ## Publications and papers during candidature not part of this thesis {-}

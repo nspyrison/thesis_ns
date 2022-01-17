@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.13)  17 JAN 2022 15:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.13)  17 JAN 2022 18:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2071,26 +2071,26 @@ Chapter 5.
 ] [92] [93] [94] [95
 
 ] [96] [97]
-Underfull \hbox (badness 2020) in paragraph at lines 1554--1554
+Underfull \hbox (badness 2020) in paragraph at lines 1548--1548
 [][]\T1/lmr/m/n/10.95 (+20) Lee, S, D Cook, N da Silva, U Laa, N Spyri-son, E W
 ang, and HS Zhang
  []
 
 
-Underfull \hbox (badness 6675) in paragraph at lines 1554--1554
+Underfull \hbox (badness 6675) in paragraph at lines 1548--1548
 \T1/lmr/m/n/10.95 (+20) (2021). The state-of-the-art on tours for dy-namic vi-s
 u-al-iza-tion of high-
  []
 
 
-Underfull \hbox (badness 6110) in paragraph at lines 1554--1554
+Underfull \hbox (badness 6110) in paragraph at lines 1548--1548
 \T1/lmr/m/n/10.95 (+20) dimensional data. en. \T1/lmr/m/it/10.95 (+20) WIREs Co
 m-pu-ta-tional Statis-tics \T1/lmr/b/n/10.95 (+20) n/a\T1/lmr/m/n/10.95 (+20) (
 n/a). _eprint:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1554--1554
+Underfull \hbox (badness 10000) in paragraph at lines 1548--1548
 \T1/lmr/m/n/10.95 (+20) https://onlinelibrary.wiley.com/doi/pdf/10.1002/wics.15
 73, e1573. (Vis-ited on
  []
@@ -2108,7 +2108,7 @@ Package logreq Info: Writing requests to 'thesis_ns.run.xml'.
 ### bottom level 
 Here is how much of TeX's memory you used:
  25266 strings out of 480226
- 462471 string characters out of 5893492
+ 462449 string characters out of 5893492
  1205070 words of memory out of 5000000
  42008 multiletter control sequences out of 15000+600000
  601267 words of font info for 302 fonts, out of 8000000 for 9000
@@ -2144,10 +2144,10 @@ aming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtko10.pfb><c:/Users/spyri/AppD
 ata/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/spyri
 /AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/Users
 /spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on thesis_ns.pdf (112 pages, 4749719 bytes).
+Output written on thesis_ns.pdf (112 pages, 4749934 bytes).
 PDF statistics:
- 1719 PDF objects out of 1728 (max. 8388607)
- 1462 compressed objects within 15 object streams
+ 1720 PDF objects out of 1728 (max. 8388607)
+ 1463 compressed objects within 15 object streams
  430 named destinations out of 1000 (max. 500000)
  75792 words of extra memory for PDF output out of 89155 (max. 10000000)
 
