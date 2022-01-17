@@ -125,7 +125,7 @@ Tours have yet to be widely adopted, due in part, to the fact that print and sta
 * GGobi [@swayne_ggobi:_2003] -- for Linux and Windows.
 * DAVIS [@huh_davis:_2002] -- Java based, with GUI.
 * ORCA [@sutherland_orca:_2000] -- Extensible toolkit built in Java.
-* VRGobi [@nelson_xgobi_1998] -- for use with the C2, tours in stereoscopic 3D displays.
+* VRGobi [@nelson_xgobi_1999] -- for use with the C2, tours in stereoscopic 3D displays.
 * ExplorN [@carr_explorn:_1996] -- for SGI Unix.
 * ExploRe [@hardle_xplore:_1995]
 * XGobi [@swayne_xgobi:_1991] -- for Linux, Unix, and Windows (via emulation).

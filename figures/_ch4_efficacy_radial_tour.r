@@ -21,43 +21,67 @@
 }
 
 
-# fig1_pca_scatterplotmatrix -----
-if(F){ ## Not run!!
-  source("./figures/ch4_util_funcs.r")
-  if(F)
-    file.edit("./figures/ch4_util_funcs.r")
+## fig_Cl_Sep -----
+set.seed(2022)
+.n <- 100
+cl1  <- data.frame(
+  V1 = rnorm(n = .n, mean = 0, sd = 1),
+  V2 = rnorm(n = .n, mean = 0, sd = 1),
+  V3 = rnorm(n = .n, mean = 0, sd = 1)
+)
+cl2  <- data.frame(
+  V1 = rnorm(n = .n, mean = 0, sd = 1),
+  V2 = rnorm(n = .n, mean = 4, sd = 1),
+  V3 = rnorm(n = .n, mean = 0, sd = 3)
+)
+dat2  <- rbind(cl1, cl2)
+clas2 <- rep(c("A", "B"), each = .n)
+bas2  <- basis_olda(dat2, clas2, d = 3)
 
-  .sim_nm <- "EEV_p6_33_66_rep2" #"EEV_p6_0_1_rep3"
-  .fp <- paste0("./data/", .sim_nm, ".rda")
-  ## Make data plot
-  load(.fp, envir = globalenv())
-  dat <- get(.sim_nm)
-  clas <- as.factor(attr(dat, "cluster"))
-
-  pca_obj <- prcomp(dat)
-  pca_proj <- as.data.frame(cbind(pca_obj$x[, 1:4], as.factor(clas)))
-
-  gg_pca <- GGally::ggpairs(
-    pca_proj,
-    mapping = aes(color = clas, fill = clas, shape = clas),
-    columns = 1:4,
-    #diag = "blank",
-    upper = "blank",
-    lower = list(continuous = wrap("points", alpha = 0.7, size = 1)),
-    columnLabels = paste0("PC", 1:4)) +
-    theme_bw() +
-    theme(axis.ticks = element_blank(),
-          axis.text  = element_blank()) +
-    scale_color_brewer(palette = "Dark2") +
-    scale_fill_brewer( palette = "Dark2")
-
-  ggsave("./figures/ch4_fig1_pca_splom.pdf", gg_pca, device = "pdf",
-         width = .w / 2, height = .w / 2, units = .u)
-}
+##4 plot and save
+(ClSep1 <- ggtour(bas2[, c(1, 3)], dat2) +
+   proto_basis() + proto_point(aes_args = list(color = clas2, shape = clas2)))
+(ClSep2 <- ggtour(bas2[, c(1, 2)], dat2) +
+    proto_basis() + proto_point(aes_args = list(color = clas2, shape = clas2)))
+(ClSep <- cowplot::plot_grid(ClSep1, ClSep2, nrow = 1, labels = c("a", "b")))
+ggsave("./figures/ch4_fig1_cl_sep.pdf", ClSep,
+       device = "pdf", width = 6, height = 2.5, units = "in")
 
 
+# fig2_pca_scatterplotmatrix -----
+source("./figures/ch4_util_funcs.r")
+if(F)
+  file.edit("./figures/ch4_util_funcs.r")
 
-# fig2_exp_factors -----
+.sim_nm <- "EEV_p6_33_66_rep2" #"EEV_p6_0_1_rep3"
+.fp <- paste0("./data/", .sim_nm, ".rda")
+## Make data plot
+load(.fp, envir = globalenv())
+dat <- get(.sim_nm)
+clas <- as.factor(attr(dat, "cluster"))
+
+pca_obj <- prcomp(dat)
+pca_proj <- as.data.frame(cbind(pca_obj$x[, 1:4], as.factor(clas)))
+
+gg_pca <- GGally::ggpairs(
+  pca_proj,
+  mapping = aes(color = clas, fill = clas, shape = clas),
+  columns = 1:4,
+  #diag = "blank",
+  upper = "blank",
+  lower = list(continuous = wrap("points", alpha = 0.7, size = 1)),
+  columnLabels = paste0("PC", 1:4)) +
+  theme_bw() +
+  theme(axis.ticks = element_blank(),
+        axis.text  = element_blank()) +
+  scale_color_brewer(palette = "Dark2") +
+  scale_fill_brewer( palette = "Dark2")
+
+ggsave("./figures/ch4_fig2_pca_splom.pdf", gg_pca, device = "pdf",
+       width = .w / 2, height = .w / 2, units = .u)
+
+
+# fig3_exp_factors -----
 library(ggforce)
 library(ggplot2)
 library(ggExtra)
@@ -261,7 +285,7 @@ final <- plot_grid(tbl_col, header_matrix, nrow = 1, rel_widths = c(0.05, 1))
 .w = 6.25; .h = 9; .u = "in"; ## Save as previous
 
 ggsave(
-  "./figures/ch4_fig2_exp_factors.pdf", final, device = "pdf",
+  "./figures/ch4_fig3_exp_factors.pdf", final, device = "pdf",
   width = .w, height = .h, units = .u)
 
 ## save for project 2
@@ -271,7 +295,7 @@ if(F)
     width = .w, height = .h, units = .u)
 
 
-# fig3_accuracy_measure -----
+# fig4_accuracy_measure -----
 tgt_sim_nm <- "EEV_p6_33_66_rep2"
 tgt_fp <- paste0("./data/", tgt_sim_nm, ".rda")
 ## Make data plot
@@ -284,15 +308,6 @@ if(F)
   file.edit("./figures/ch4_util_funcs.r")
 
 ### Left pane ----
-## More issues with geom_existence issue, even after change to theme_spinifex;
-#### going back to ggplot2 approach
-# ggtour(bas, dat) +
-# proto_point(aes_args = list(shape = clas, color = clas)) +
-# proto_basis() + ## removes cluster d when used....
-# proto_origin() +
-# coord_fixed(xlim = c(-8, 3), ylim = c(-1.5, 6)))
-# ylim(-.5, 7))
-# expand_limits(x = c(-7, 3), y = c(-1.5, 7)))
 proj <- as.matrix(dat) %*% bas %>% as.data.frame()
 (gg1 <- ggplot(proj, aes(PC1, PC4)) +
     geom_point(aes(shape = clas, color = clas)) +
@@ -307,7 +322,7 @@ proj <- as.matrix(dat) %*% bas %>% as.data.frame()
          x = "PC1", y = "PC4", color = "color", shape = "shape"))
 
 
-## Make ans_plot
+## right pane, w and acc bars ----
 ans_tbl <- readRDS("./data/ans_tbl.rds")
 sub <- ans_tbl %>% dplyr::filter(sim_nm == tgt_sim_nm)
 sub_longer <- pivot_longer_resp_ans_tbl(dat = sub)
@@ -325,14 +340,14 @@ gg2 <- ggplot() + theme_bw() +
 .w = 6.25
 .h = 9
 .u = "in"
-ggsave("./figures/ch4_fig3_accuracy_measure.pdf", final, "pdf",
+ggsave("./figures/ch4_fig4_accuracy_measure.pdf", final, "pdf",
        width = .w, height = .w / 2, units = .u)
 
-# ch4_fig4_randomization_MANUAL.png -----
+# ch4_fig5_randomization_MANUAL.png -----
 # SEE: C:\Users\spyri\Documents\R\
 ### spinifex_study\paper\figures\figParmeterizationExample.png
 # c+p to ./figures/
-### ch4_fig4_randomization_MANUAL.png
+### ch4_fig5_randomization_MANUAL.png
 
 # ch4_tab1_model_comparisons -----
 ## Handled inline, see `04-efficacy_radial_tour.Rmd`
@@ -384,7 +399,7 @@ ggsave("./figures/ch4_fig3_accuracy_measure.pdf", final, "pdf",
 }
 
 
-# ch4_fig5_ABcd_violins TODO -----
+# ch4_fig6_ABcd_violins TODO -----
 {
   dat_qual <- readRDS("./data/dat_qual.rds")
   .lp <- theme(legend.position = "off")
@@ -411,12 +426,12 @@ ggsave("./figures/ch4_fig3_accuracy_measure.pdf", final, "pdf",
       cowplot::plot_grid(title, top, .FactorLocation + ggtitle("", ""),
                          ncol = 1, rel_heights = c(.1, 1, 1.4)))
 }
-ggsave("./figures/ch4_fig5_ABcd_violins.pdf",
+ggsave("./figures/ch4_fig6_ABcd_violins.pdf",
        violin_ABcd, device = cairo_pdf,
        width = .w, height = .w, unit = .u)
 
 
-# ch4_fig6_subjective_measures -----
+# ch4_fig7_subjective_measures -----
 ## Follow the loose setup of _analysis.rmd:
 .u = "in"
 .w = 6.25
@@ -512,12 +527,8 @@ subjective_longer <- subjective_longer %>%
 figSubjectiveMeasures_w.violin_hori <-  cowplot::plot_grid(
   subjectiveMeasures, measure_violins, ncol = 2)
 
-ggsave("./figures/ch4_fig6_subjective_measures.pdf",
+ggsave("./figures/ch4_fig7_subjective_measures.pdf",
        figSubjectiveMeasures_w.violin_hori, device = "pdf",
        width = .w, height = .w, units = "in")
-
-
-# ch4_fig7_rand_effect_size ----
-# include? I think it really supports the idea of using mixed models.
 
 
