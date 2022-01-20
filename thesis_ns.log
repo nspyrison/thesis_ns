@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.13)  19 JAN 2022 18:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.13)  20 JAN 2022 12:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1942,21 +1942,21 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [79]
-<./figures/ch5_fig4_case_penguins.png, id=1312, 325.215pt x 505.89pt>
+<./figures/ch5_fig4_case_penguins.png, id=1312, 325.215pt x 491.436pt>
 File: ./figures/ch5_fig4_case_penguins.png Graphic file (type png)
 <use ./figures/ch5_fig4_case_penguins.png>
 Package pdftex.def Info: ./figures/ch5_fig4_case_penguins.png  used on input li
 ne 1395.
-(pdftex.def)             Requested size: 426.79135pt x 663.9481pt.
+(pdftex.def)             Requested size: 426.79135pt x 644.97816pt.
 
-LaTeX Warning: Float too large for page by 94.81781pt on input line 1400.
+LaTeX Warning: Float too large for page by 75.84787pt on input line 1400.
 
 <./figures/ch5_fig5_case_penguins_BlFl.png, id=1316, 489.2679pt x 289.08pt>
 File: ./figures/ch5_fig5_case_penguins_BlFl.png Graphic file (type png)
 <use ./figures/ch5_fig5_case_penguins_BlFl.png>
 Package pdftex.def Info: ./figures/ch5_fig5_case_penguins_BlFl.png  used on inp
 ut line 1408.
-(pdftex.def)             Requested size: 256.07741pt x 151.3061pt.
+(pdftex.def)             Requested size: 426.79135pt x 252.17244pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
 (fancyhdr)                Make it at least 25.28426pt, for example:
@@ -1984,14 +1984,14 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [82 <./figures/ch5_fig5_case_penguins_BlFl.png>]
-<./figures/ch5_fig6_case_chocolates.png, id=1338, 361.35pt x 505.89pt>
+<./figures/ch5_fig6_case_chocolates.png, id=1338, 361.35pt x 491.436pt>
 File: ./figures/ch5_fig6_case_chocolates.png Graphic file (type png)
 <use ./figures/ch5_fig6_case_chocolates.png>
 Package pdftex.def Info: ./figures/ch5_fig6_case_chocolates.png  used on input 
 line 1432.
-(pdftex.def)             Requested size: 426.79135pt x 597.51624pt.
+(pdftex.def)             Requested size: 426.79135pt x 580.44437pt.
 
-LaTeX Warning: Float too large for page by 28.38594pt on input line 1437.
+LaTeX Warning: Float too large for page by 11.31407pt on input line 1437.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -2011,14 +2011,15 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [84 <./figures/ch5_fig6_case_chocolates.png>]
-<./figures/ch5_fig7_case_chocolates_inverse.png, id=1354, 361.35pt x 505.89pt>
+<./figures/ch5_fig7_case_chocolates_inverse.png, id=1354, 361.35pt x 491.436pt>
+
 File: ./figures/ch5_fig7_case_chocolates_inverse.png Graphic file (type png)
 <use ./figures/ch5_fig7_case_chocolates_inverse.png>
 Package pdftex.def Info: ./figures/ch5_fig7_case_chocolates_inverse.png  used o
 n input line 1453.
-(pdftex.def)             Requested size: 426.79135pt x 597.51624pt.
+(pdftex.def)             Requested size: 426.79135pt x 580.44437pt.
 
-LaTeX Warning: Float too large for page by 28.38594pt on input line 1458.
+LaTeX Warning: Float too large for page by 11.31407pt on input line 1458.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -2038,16 +2039,16 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [86 <./figures/ch5_fig7_case_chocolates_inverse.png>]
-<./figures/ch5_fig8_case_fifa.png, id=1374, 433.62pt x 578.16pt>
+<./figures/ch5_fig8_case_fifa.png, id=1373, 433.62pt x 570.933pt>
 File: ./figures/ch5_fig8_case_fifa.png Graphic file (type png)
 <use ./figures/ch5_fig8_case_fifa.png>
 Package pdftex.def Info: ./figures/ch5_fig8_case_fifa.png  used on input line 1
 471.
-(pdftex.def)             Requested size: 426.79135pt x 569.08073pt.
+(pdftex.def)             Requested size: 426.79135pt x 561.96722pt.
 
-LaTeX Warning: Float too large for page by 13.55045pt on input line 1476.
+LaTeX Warning: Float too large for page by 6.43694pt on input line 1476.
 
-<./figures/ch5_fig9_case_ames2018.png, id=1378, 433.62pt x 578.16pt>
+<./figures/ch5_fig9_case_ames2018.png, id=1377, 433.62pt x 578.16pt>
 File: ./figures/ch5_fig9_case_ames2018.png Graphic file (type png)
 <use ./figures/ch5_fig9_case_ames2018.png>
 Package pdftex.def Info: ./figures/ch5_fig9_case_ames2018.png  used on input li
@@ -2089,12 +2090,21 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [90]
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 25.28426pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.28426pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
+
+[91] [92
+
+]
 Chapter 5.
-[91
+[93] [94] [95] [96] [97
 
-] [92] [93] [94] [95
-
-] [96] [97] [98] [99] [100] [101] [102] (./thesis_ns.aux)
+] [98] [99] [100] [101] [102] [103] [104] (./thesis_ns.aux)
 Package rerunfilecheck Info: File `thesis_ns.out' has not changed.
 (rerunfilecheck)             Checksum: 23A3C72F048F3585961877356C5FBC17;7766.
 Package logreq Info: Writing requests to 'thesis_ns.run.xml'.
@@ -2106,9 +2116,9 @@ Package logreq Info: Writing requests to 'thesis_ns.run.xml'.
 ### semi simple group (level 1) entered at line 102 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 25256 strings out of 480226
- 462348 string characters out of 5893492
- 1204158 words of memory out of 5000000
+ 25258 strings out of 480226
+ 462364 string characters out of 5893492
+ 1204183 words of memory out of 5000000
  42009 multiletter control sequences out of 15000+600000
  600762 words of font info for 297 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -2143,10 +2153,10 @@ aming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtko10.pfb><c:/Users/spyri/AppD
 ata/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/spyri
 /AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/Users
 /spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on thesis_ns.pdf (111 pages, 4748532 bytes).
+Output written on thesis_ns.pdf (113 pages, 4742902 bytes).
 PDF statistics:
- 1714 PDF objects out of 1728 (max. 8388607)
- 1458 compressed objects within 15 object streams
- 429 named destinations out of 1000 (max. 500000)
+ 1722 PDF objects out of 1728 (max. 8388607)
+ 1464 compressed objects within 15 object streams
+ 431 named destinations out of 1000 (max. 500000)
  75792 words of extra memory for PDF output out of 89155 (max. 10000000)
 
