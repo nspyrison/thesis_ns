@@ -304,9 +304,9 @@ ggplot2::ggsave(
   ames2018_ls   <- readRDS(paste0(fp, "preprocess_ames2018.rds"))
   chocolates_ls <- readRDS(paste0(fp, "preprocess_chocolates.rds"))
 
-  .x_title      <- "        x: PC1, y: PC2          x: PC1, y: PC2  x: predicted, y: observed"
-  .x_title_reg  <- "      x: PC1, y: PC2               x: PC1, y: PC2     x: predicted, y: observed"
-  .x_title_reg2 <- "        x: PC1, y: PC2        x: PC1, y: PC2    x: predicted, y: observed"
+  .x_title_peng <- "x: PC1, y: PC2          x: PC1, y: PC2        x: pred, y: obs"
+  .x_title_choc <- "x: PC1, y: PC2                x: PC1, y: PC2             x: pred, y: obs"
+  .x_title_reg  <- "x: PC1, y: PC2                      x: PC1, y: PC2                     x: pred, y: obs"
 }
 
 ## Penguins classification ------
@@ -319,7 +319,7 @@ ggplot2::ggsave(
   ### Global view and cheem tour stills
   .glob_view <- global_view(
     penguins_ls, prim_obs, comp_obs, as_ggplot = TRUE) +
-    labs(color = "Predicted class", shape = "Predicted class", x = .x_title) +
+    labs(color = "Predicted class", shape = "Predicted class", x = .x_title_peng) +
     ggtitle("Global view") + theme(
       plot.margin      = margin(0,0,0,0),
       legend.margin    = margin(0,0,0,0),
@@ -395,7 +395,7 @@ ggplot2::ggsave(
   ### Global view
   .glob_view <- global_view(
     chocolates_ls, prim_obs, comp_obs, as_ggplot = TRUE) +
-    labs(color = "Predicted class", shape = "Predicted class", x = .x_title) +
+    labs(color = "Predicted class", shape = "Predicted class", x = .x_title_choc) +
     ggtitle("Global view") + theme(
       plot.margin      = margin(0,0,0,0),
       legend.margin    = margin(0,0,0,0),
@@ -449,7 +449,7 @@ message("NOTE: Manually capturing view from app with Screen to GIF (.mp4)")
   ### Global view
   .glob_view <- global_view(
     chocolates_ls, prim_obs, comp_obs, as_ggplot = TRUE) +
-    labs(color = "Predicted class", shape = "Predicted class", x = .x_title) +
+    labs(color = "Predicted class", shape = "Predicted class", x = .x_title_choc) +
     ggtitle("Global view") + theme(
       plot.margin      = margin(0,0,0,0),
       legend.margin    = margin(0,0,0,0),

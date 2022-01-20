@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.13)  20 JAN 2022 12:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.13)  20 JAN 2022 13:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1871,12 +1871,12 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [74]
-<./figures/ch5_fig2_app_classification.png, id=1259, 830.50275pt x 770.88pt>
+<./figures/ch5_fig2_app_classification.png, id=1259, 592.614pt x 549.85425pt>
 File: ./figures/ch5_fig2_app_classification.png Graphic file (type png)
 <use ./figures/ch5_fig2_app_classification.png>
 Package pdftex.def Info: ./figures/ch5_fig2_app_classification.png  used on inp
 ut line 1308.
-(pdftex.def)             Requested size: 426.79135pt x 396.14308pt.
+(pdftex.def)             Requested size: 426.79135pt x 396.00381pt.
 <./figures/ch5_fig3_app_regression_interactions.png, id=1260, 825.68475pt x 847
 .36575pt>
 File: ./figures/ch5_fig3_app_regression_interactions.png Graphic file (type png
@@ -2153,7 +2153,7 @@ aming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtko10.pfb><c:/Users/spyri/AppD
 ata/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/spyri
 /AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/Users
 /spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on thesis_ns.pdf (113 pages, 4742902 bytes).
+Output written on thesis_ns.pdf (113 pages, 4671010 bytes).
 PDF statistics:
  1722 PDF objects out of 1728 (max. 8388607)
  1464 compressed objects within 15 object streams
