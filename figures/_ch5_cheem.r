@@ -356,7 +356,7 @@ ggplot2::ggsave(
 ggplot2::ggsave(
   "./figures/ch5_fig4_case_penguins.png",
   plot = .cp, device = "png",
-  width = 4.5, height = 7, units = "in")
+  width = 4.5, height = 6.8, units = "in")
 .m <- gc()
 
 ### Save .mp4, add GitHub urls to paper
@@ -430,14 +430,12 @@ ggplot2::ggsave(
 ggplot2::ggsave(
   "./figures/ch5_fig6_case_chocolates.png",
   plot = .cp, device = "png",
-  width = 5, height = 7, units = "in")
+  width = 5, height = 6.8, units = "in")
 .m <- gc()
 
 ### Save .mp4, add GitHub urls to paper
 message("NOTE: Manually capturing view from app with Screen to GIF (.mp4)")
 ## https://github.com/nspyrison/cheem_paper/blob/main/figures/case_chocolates.mp4
-
-
 
 
 ## Chocolates inverse case -----
@@ -486,7 +484,7 @@ message("NOTE: Manually capturing view from app with Screen to GIF (.mp4)")
 ggplot2::ggsave(
   "./figures/ch5_fig7_case_chocolates_inverse.png",
   plot = .cp, device = "png",
-  width = 5, height = 7, units = "in")
+  width = 5, height = 6.8, units = "in")
 .m <- gc()
 
 ### Save .mp4, add GitHub urls to paper
@@ -541,7 +539,7 @@ message("NOTE: Manually capturing view from app with Screen to GIF (.mp4),
 ggplot2::ggsave(
   "./figures/ch5_fig8_case_fifa.png",
   plot = .cp, device = "png",
-  width = 6, height = 8, units = "in")
+  width = 6, height = 7.9, units = "in")
 .m <- gc()
 
 ### Save .mp4, add GitHub urls to paper
