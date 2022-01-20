@@ -2,9 +2,8 @@ require("ggplot2")
 require("GGally")
 require("spinifex")
 require("cheem")
-h <- w <- 4.2
 
-dat <- spinifex::penguins[, 1:5]
+dat <- spinifex::penguins_na.rm[, 1:5]
 colnames(dat) <- c("bill length", "bill depth", "flipper length", "body mass", "species")
 #knitr::kable(head(dat), format = 'html')
 
@@ -18,7 +17,7 @@ gg <- GGally::ggpairs(X, upper = "blank",
   theme(axis.text = element_blank(), axis.ticks = element_blank())
 
 ggsave("./figures/ch2_fig1_penguin_splom.pdf", gg, device = "pdf",
-       width = w, height = h, units = "in")
+       width = 4.2, height = 4.2, units = "in")
 
 
 gg2 <- GGally::ggparcoord(
@@ -30,4 +29,4 @@ gg2 <- GGally::ggparcoord(
         axis.text.y = element_blank(), axis.ticks.y = element_blank())
 
 ggsave("./figures/ch2_fig2_penguin_pcp.pdf", gg2, device = "pdf",
-       width = w, height = h, units = "in")
+       width = 6, height = 4, units = "in")

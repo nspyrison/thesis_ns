@@ -6,7 +6,7 @@ I hereby declare that this thesis contains no material which has been accepted f
 
 ## Publications as part of this thesis {-}
 
-Three paper are included in this thesis, one of which has been accepted for publication in _The R Journal_ [@spyrison_spinifex_2020]. The user study described in Chapter \@ref(ch-userstudy) will shortly be submitted to the _IEEE Transactions on Visualization and Computer Graphics_. The research covered in Chapter \@ref(ch-cheem) will shortly be submitted to _The Journal of Machine Learning research_.
+Three paper are included in this thesis, one of which has been accepted for publication in _The R Journal_ [@spyrison_spinifex_2020]. This paper clarifies some of the theoretical work for user control offered by the manual tour and induces an open-source __R__ package facilitating manual tours. The user study described in Chapter \@ref(ch-userstudy) will shortly be submitted to the _IEEE Transactions on Visualization and Computer Graphics_. This study finds large evidence for a sizable increase in a variable attribution task from the user control of the manual tour over principal component analysis and the grand tour. Then we extend the interpretability of complex non-linear models. I purpose exploring the support of local explanation of a model with the manual tour. This research covered in Chapter \@ref(ch-cheem) will shortly be submitted to _The Journal of Machine Learning research_.
 
 
 ## Publications and papers during candidature not part of this thesis {-}
@@ -18,14 +18,13 @@ In addition to the research discussed in the thesis, other notable contributions
 - _Intraday effect of COVID-19 restrictions on Melbourne electricity consumption_ [@barrow_changes_2020]. We corroborate that the Victorian interday effect on energy consumption did not change and novelly find that the intraday distribution of energy consumption does change. Namely, we find a statistically significant change in the height of the morning and evening peak, energy consumption that we posit is due to less strict schedules associated with working from home, absence of commute time, and other employment changes. We were awarded 1st place of hundreds of entries in the insights category of the Melbourne 2020 Datathon.
 <!-- - Student volunteering at three conferences: UseR!2021 - Online, CHI Down Under 2020 - Online, and UseR!2018 - Brisbane, Australia. -->
 
-
-I have renumbered and updated sections of submitted or published papers to generate a consistent presentation within the thesis.
-
+I have renumbered and updated sections of submitted or published papers to generate a consistent presentation within the thesis. Specifically, the code used and primary function table have been redone to highlight the new ggproto API. This approach is more flexible, allowing for a layered composition of tours that will feel familiar to __ggplot2__ users.
+ 
 \textbf{Student name:} Nicholas Spyrison
 
 \textbf{Student signature:}
 
-```{r, out.width = "50%", fig.align = "left"}
+```{r, out.width = "33%", fig.align = "left"}
 nsSafeIncGraphic("./figures/ch0_signature.PNG")
 ```
 
