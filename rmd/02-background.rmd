@@ -13,10 +13,10 @@ For our purposes I will be focusing on the case where data $X_{nxp}$ contains $n
 <!-- Better than numerical summarization alone -->
 Visualization is much more robust than numerical summarization alone [@anscombe_graphs_1973; @matejka_same_2017]. In these studies, data sets have the same summary statistics yet contain obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Data visualization is fundamental to EDA and quickly evaluating data supports ensuring that models are suitable.
 
-(ref:ch1fig2-cap) Starting from the profile of a dinosaur, observations are allowed to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the original statistics [@matejka_same_2017]. Visualization of data yields stark designs that are easy to miss in numerical summarization.
+(ref:chfig2-cap) Starting from the profile of a dinosaur, observations are allowed to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the original statistics [@matejka_same_2017]. Visualization of data yields stark designs that are easy to miss in numerical summarization.
 
-```{r ch1fig2, echo=F, out.width='70%', fig.cap = "(ref:ch1fig2-cap)"}
-nsSafeIncGraphic("./figures/ch1_fig2_matejka17fig.PNG")
+```{r ch2fig2, echo=F, out.width='70%', fig.cap = "(ref:ch2fig2-cap)"}
+nsSafeIncGraphic("./figures/ch2_fig2_matejka17fig.PNG")
 ```
 
 ## Scatterplot matrices
@@ -58,17 +58,17 @@ Unfortunately, there is no free lunch here. An increase in the original data dim
 
 A single linear projection is a resulting space from the data multiplied by the basis. The basis is an orthonormal matrix (the orientation of the unit origin) mapping the data space to a lower dimension. A data visualization tour animates many such projections through small changes in the basis. In the bar stool shadow analogy, structural information about a hidden object was gained by watching its shadow change due to its rotation. An analyst similarly gains information about the data object by watching continuous changes to the basis (the rotation of the data). Originally in a _grand_ tour [@asimov_grand_1985] several target frames are randomly selected and then interpolated along their geodesic path.
 
-(ref:ch1fig3-cap) Illustration of the grand tour selecting random target frames (grey) connected via geodesically interpolated frame (white). Figure from @buja_computational_2005.
+(ref:ch2fig3-cap) Illustration of the grand tour selecting random target frames (grey) connected via geodesically interpolated frame (white). Figure from @buja_computational_2005.
 
-```{r ch1fig3, echo=F, out.width='100%', fig.cap = "(ref:ch1fig3-cap)"}
-nsSafeIncGraphic("./figures/ch1_fig3_buja05fig.PNG")
+```{r ch2fig3, echo=F, out.width='100%', fig.cap = "(ref:ch2fig3-cap)"}
+nsSafeIncGraphic("./figures/ch2_fig3_buja05fig.PNG")
 ```
 
 There are various types of tours which are classified by the generation of their basis paths. A _guided_ tour uses simulated annealing to move progressively closer to an objective function in the embedded space [@hurley_analyzing_1990]. A more comprehensive discussion and review of tours can be found in the works of @cook_grand_2008 and @lee_state_2021.
 
 Tours are used for a couple of salient features: maintains transparency back to the original variable space, and the persistence data points from frame to frame convey more information than looking at discrete jumps to other bases. Because of these features, tours are a good method to extend the visualization of data space as dimensionality increases.
 
-The work below covers manual tours [@cook_manual_1997; @spyrison_spinifex_2020] in Chapter \@ref(ch-spinifex). Radial tours are one type of manual tour where the contribution of one variable is extended radially to a full contribution, removed completely, then restored to its original contribution. Chapter \@ref(ch-userstudy) compares the efficacy of the radial tour as compared with PCA and the grand tour in a user study. Lastly, Chapter \@ref(ch-cheem) extends the use of the radial tour to evaluate the local explanation of black-box models.
+The work below covers manual tours [@cook_manual_1997] in Chapter \@ref(ch-spinifex). Radial tours are one type of manual tour where the contribution of one variable is extended radially to a full contribution, removed completely, then restored to its original contribution. Chapter \@ref(ch-userstudy) compares the efficacy of the radial tour as compared with PCA and the grand tour in a user study. Lastly, Chapter \@ref(ch-cheem) extends the use of the radial tour to evaluate the local explanation of black-box models.
 
 
 
