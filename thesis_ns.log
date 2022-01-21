@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.13)  21 JAN 2022 14:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.13)  21 JAN 2022 19:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1216,46 +1216,53 @@ Package pdftex.def Info: ./figures/ch1_fig1_data_analysis_workflow.png  used on
  input line 166.
 (pdftex.def)             Requested size: 426.79135pt x 167.62985pt.
 [9 <./figures/ch1_fig1_data_analysis_workflow.PNG>]
-<./figures/ch1_fig2_penguin_cl_sep.pdf, id=373, 433.62pt x 158.5925pt>
-File: ./figures/ch1_fig2_penguin_cl_sep.pdf Graphic file (type pdf)
-<use ./figures/ch1_fig2_penguin_cl_sep.pdf>
-Package pdftex.def Info: ./figures/ch1_fig2_penguin_cl_sep.pdf  used on input l
+<./figures/ch1_fig2_penguin_cl_sep.png, id=369, 433.62pt x 158.994pt>
+File: ./figures/ch1_fig2_penguin_cl_sep.png Graphic file (type png)
+<use ./figures/ch1_fig2_penguin_cl_sep.png>
+Package pdftex.def Info: ./figures/ch1_fig2_penguin_cl_sep.png  used on input l
 ine 181.
-(pdftex.def)             Requested size: 426.79135pt x 156.10197pt.
-[10] [11 <./figures/ch1_fig2_penguin_cl_sep.pdf>] [12]
+(pdftex.def)             Requested size: 426.79135pt x 156.4972pt.
+[10 <./figures/ch1_fig2_penguin_cl_sep.png>]
+<./figures/ch1_fig3_penguin_gt_filmstrip.png, id=389, 433.62pt x 238.491pt>
+File: ./figures/ch1_fig3_penguin_gt_filmstrip.png Graphic file (type png)
+<use ./figures/ch1_fig3_penguin_gt_filmstrip.png>
+Package pdftex.def Info: ./figures/ch1_fig3_penguin_gt_filmstrip.png  used on i
+nput line 194.
+(pdftex.def)             Requested size: 426.79135pt x 234.74579pt.
+[11 <./figures/ch1_fig3_penguin_gt_filmstrip.png>] [12] [13]
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <12> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 226.
-[13] [14] [15] [16
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 239.
+[14] [15] [16
 
 ]
 Chapter 2.
-<./figures/ch2_fig2_matejka17fig.png, id=454, 1188.44pt x 834.11626pt>
+<./figures/ch2_fig2_matejka17fig.png, id=445, 1188.44pt x 834.11626pt>
 File: ./figures/ch2_fig2_matejka17fig.png Graphic file (type png)
 <use ./figures/ch2_fig2_matejka17fig.png>
 Package pdftex.def Info: ./figures/ch2_fig2_matejka17fig.png  used on input lin
-e 311.
+e 324.
 (pdftex.def)             Requested size: 298.75264pt x 209.68675pt.
 [17]
-<./figures/ch2_fig1_penguin_splom.pdf, id=470, 303.1325pt x 303.1325pt>
+<./figures/ch2_fig1_penguin_splom.pdf, id=460, 303.1325pt x 303.1325pt>
 File: ./figures/ch2_fig1_penguin_splom.pdf Graphic file (type pdf)
 <use ./figures/ch2_fig1_penguin_splom.pdf>
 Package pdftex.def Info: ./figures/ch2_fig1_penguin_splom.pdf  used on input li
-ne 329.
+ne 342.
 (pdftex.def)             Requested size: 426.79135pt x 426.79707pt.
 [18 <./figures/ch2_fig2_matejka17fig.PNG>] [19 <./figures/ch2_fig1_penguin_splo
 m.pdf>]
-<./figures/ch2_fig2_penguin_pcp.pdf, id=493, 433.62pt x 289.08pt>
+<./figures/ch2_fig2_penguin_pcp.pdf, id=486, 433.62pt x 289.08pt>
 File: ./figures/ch2_fig2_penguin_pcp.pdf Graphic file (type pdf)
 <use ./figures/ch2_fig2_penguin_pcp.pdf>
 Package pdftex.def Info: ./figures/ch2_fig2_penguin_pcp.pdf  used on input line
- 345.
+ 358.
 (pdftex.def)             Requested size: 426.79135pt x 284.54036pt.
 [20 <./figures/ch2_fig2_penguin_pcp.pdf>] [21]
-<./figures/ch2_fig3_buja05fig.png, id=514, 460.72125pt x 288.07625pt>
+<./figures/ch2_fig3_buja05fig.png, id=507, 460.72125pt x 288.07625pt>
 File: ./figures/ch2_fig3_buja05fig.png Graphic file (type png)
 <use ./figures/ch2_fig3_buja05fig.png>
 Package pdftex.def Info: ./figures/ch2_fig3_buja05fig.png  used on input line 3
-70.
+83.
 (pdftex.def)             Requested size: 426.79135pt x 266.85756pt.
 [22 <./figures/ch2_fig3_buja05fig.PNG>] [23] [24
 
@@ -1272,7 +1279,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [26]
 LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 
-428.
+441.
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
@@ -1285,10 +1292,10 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [27]
-<./figures/ch3_fig1_biplot.pdf, id=582, 423.5825pt x 144.54pt>
+<./figures/ch3_fig1_biplot.pdf, id=575, 423.5825pt x 144.54pt>
 File: ./figures/ch3_fig1_biplot.pdf Graphic file (type pdf)
 <use ./figures/ch3_fig1_biplot.pdf>
-Package pdftex.def Info: ./figures/ch3_fig1_biplot.pdf  used on input line 461.
+Package pdftex.def Info: ./figures/ch3_fig1_biplot.pdf  used on input line 474.
 
 (pdftex.def)             Requested size: 426.79135pt x 145.64017pt.
 
@@ -1310,7 +1317,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [29 <./figures/ch3_fig1_biplot.pdf>]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-84.
+97.
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1318,11 +1325,11 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<./figures/ch3_fig2_manip_sp.pdf, id=616, 423.5825pt x 144.54pt>
+<./figures/ch3_fig2_manip_sp.pdf, id=609, 423.5825pt x 144.54pt>
 File: ./figures/ch3_fig2_manip_sp.pdf Graphic file (type pdf)
 <use ./figures/ch3_fig2_manip_sp.pdf>
-Package pdftex.def Info: ./figures/ch3_fig2_manip_sp.pdf  used on input line 48
-8.
+Package pdftex.def Info: ./figures/ch3_fig2_manip_sp.pdf  used on input line 50
+1.
 (pdftex.def)             Requested size: 426.79135pt x 145.64017pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1342,11 +1349,11 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [31]
-<./figures/ch3_fig3_filmstrip.pdf, id=643, 578.16pt x 316.18124pt>
+<./figures/ch3_fig3_filmstrip.pdf, id=636, 578.16pt x 316.18124pt>
 File: ./figures/ch3_fig3_filmstrip.pdf Graphic file (type pdf)
 <use ./figures/ch3_fig3_filmstrip.pdf>
 Package pdftex.def Info: ./figures/ch3_fig3_filmstrip.pdf  used on input line 5
-62.
+75.
 (pdftex.def)             Requested size: 426.79135pt x 233.40115pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1358,9 +1365,9 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [32 <./figures/ch3_fig3_filmstrip.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 614.
+(Font)              <5> on input line 627.
 
-Overfull \hbox (13.59097pt too wide) in paragraph at lines 614--638
+Overfull \hbox (13.59097pt too wide) in paragraph at lines 627--651
  [][] 
  []
 
@@ -1375,7 +1382,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 [33]
 
 LaTeX Font Warning: Font shape `T1/lmtt/b/it' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 647.
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 660.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1395,17 +1402,17 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [35]
-<./figures/ch3_fig4_jet_better_pc4.pdf, id=706, 578.16pt x 316.18124pt>
+<./figures/ch3_fig4_jet_better_pc4.pdf, id=699, 578.16pt x 316.18124pt>
 File: ./figures/ch3_fig4_jet_better_pc4.pdf Graphic file (type pdf)
 <use ./figures/ch3_fig4_jet_better_pc4.pdf>
 Package pdftex.def Info: ./figures/ch3_fig4_jet_better_pc4.pdf  used on input l
-ine 706.
+ine 719.
 (pdftex.def)             Requested size: 426.79135pt x 233.40115pt.
-<./figures/ch3_fig5_jet_worse_pc3.pdf, id=707, 578.16pt x 316.18124pt>
+<./figures/ch3_fig5_jet_worse_pc3.pdf, id=700, 578.16pt x 316.18124pt>
 File: ./figures/ch3_fig5_jet_worse_pc3.pdf Graphic file (type pdf)
 <use ./figures/ch3_fig5_jet_worse_pc3.pdf>
 Package pdftex.def Info: ./figures/ch3_fig5_jet_worse_pc3.pdf  used on input li
-ne 715.
+ne 728.
 (pdftex.def)             Requested size: 426.79135pt x 233.40115pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1426,17 +1433,17 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [37 <./figures/ch3_fig4_jet_better_pc4.pdf> <./figures/ch3_fig5_jet_worse_pc3.p
 df>]
-<./figures/ch3_fig6_DIS_better_pc6.pdf, id=754, 578.16pt x 316.18124pt>
+<./figures/ch3_fig6_DIS_better_pc6.pdf, id=747, 578.16pt x 316.18124pt>
 File: ./figures/ch3_fig6_DIS_better_pc6.pdf Graphic file (type pdf)
 <use ./figures/ch3_fig6_DIS_better_pc6.pdf>
 Package pdftex.def Info: ./figures/ch3_fig6_DIS_better_pc6.pdf  used on input l
-ine 731.
+ine 744.
 (pdftex.def)             Requested size: 426.79135pt x 233.40115pt.
-<./figures/ch3_fig7_DIS_worse_pc2.pdf, id=755, 578.16pt x 316.18124pt>
+<./figures/ch3_fig7_DIS_worse_pc2.pdf, id=748, 578.16pt x 316.18124pt>
 File: ./figures/ch3_fig7_DIS_worse_pc2.pdf Graphic file (type pdf)
 <use ./figures/ch3_fig7_DIS_worse_pc2.pdf>
 Package pdftex.def Info: ./figures/ch3_fig7_DIS_worse_pc2.pdf  used on input li
-ne 740.
+ne 753.
 (pdftex.def)             Requested size: 426.79135pt x 233.40115pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1478,10 +1485,10 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [42]
-<./figures/ch4_fig1_cl_sep.pdf, id=829, 433.62pt x 180.675pt>
+<./figures/ch4_fig1_cl_sep.pdf, id=822, 433.62pt x 180.675pt>
 File: ./figures/ch4_fig1_cl_sep.pdf Graphic file (type pdf)
 <use ./figures/ch4_fig1_cl_sep.pdf>
-Package pdftex.def Info: ./figures/ch4_fig1_cl_sep.pdf  used on input line 787.
+Package pdftex.def Info: ./figures/ch4_fig1_cl_sep.pdf  used on input line 800.
 
 (pdftex.def)             Requested size: 426.79135pt x 177.8377pt.
 
@@ -1502,11 +1509,11 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [44]
-<./figures/ch4_fig2_pca_splom.pdf, id=881, 225.84375pt x 225.84375pt>
+<./figures/ch4_fig2_pca_splom.pdf, id=874, 225.84375pt x 225.84375pt>
 File: ./figures/ch4_fig2_pca_splom.pdf Graphic file (type pdf)
 <use ./figures/ch4_fig2_pca_splom.pdf>
 Package pdftex.def Info: ./figures/ch4_fig2_pca_splom.pdf  used on input line 8
-24.
+37.
 (pdftex.def)             Requested size: 426.79135pt x 426.84692pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1544,15 +1551,15 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 866--868
+Underfull \hbox (badness 10000) in paragraph at lines 879--881
 
  []
 
-<./figures/ch4_fig3_exp_factors.pdf, id=934, 451.6875pt x 650.43pt>
+<./figures/ch4_fig3_exp_factors.pdf, id=927, 451.6875pt x 650.43pt>
 File: ./figures/ch4_fig3_exp_factors.pdf Graphic file (type pdf)
 <use ./figures/ch4_fig3_exp_factors.pdf>
 Package pdftex.def Info: ./figures/ch4_fig3_exp_factors.pdf  used on input line
- 876.
+ 889.
 (pdftex.def)             Requested size: 426.79135pt x 614.6199pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1581,11 +1588,11 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [51]
-<./figures/ch4_fig4_accuracy_measure.pdf, id=963, 451.6875pt x 225.84375pt>
+<./figures/ch4_fig4_accuracy_measure.pdf, id=956, 451.6875pt x 225.84375pt>
 File: ./figures/ch4_fig4_accuracy_measure.pdf Graphic file (type pdf)
 <use ./figures/ch4_fig4_accuracy_measure.pdf>
 Package pdftex.def Info: ./figures/ch4_fig4_accuracy_measure.pdf  used on input
- line 914.
+ line 927.
 (pdftex.def)             Requested size: 426.79135pt x 213.40967pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1614,11 +1621,11 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [54]
-<./figures/ch4_fig5_randomization_MANUAL.png, id=995, 665.48625pt x 363.759pt>
+<./figures/ch4_fig5_randomization_MANUAL.png, id=988, 665.48625pt x 363.759pt>
 File: ./figures/ch4_fig5_randomization_MANUAL.png Graphic file (type png)
 <use ./figures/ch4_fig5_randomization_MANUAL.png>
 Package pdftex.def Info: ./figures/ch4_fig5_randomization_MANUAL.png  used on i
-nput line 952.
+nput line 965.
 (pdftex.def)             Requested size: 426.79135pt x 233.28786pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1647,19 +1654,19 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [57]
-Overfull \hbox (20.04227pt too wide) detected at line 1011
+Overfull \hbox (20.04227pt too wide) detected at line 1024
 []
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 1018.
+(Font)              <10> on input line 1031.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7.6> on input line 1018.
-<./figures/ch4_fig6_ABcd_violins.pdf, id=1021, 451.6875pt x 451.6875pt>
+(Font)              <7.6> on input line 1031.
+<./figures/ch4_fig6_ABcd_violins.pdf, id=1014, 451.6875pt x 451.6875pt>
 File: ./figures/ch4_fig6_ABcd_violins.pdf Graphic file (type pdf)
 <use ./figures/ch4_fig6_ABcd_violins.pdf>
 Package pdftex.def Info: ./figures/ch4_fig6_ABcd_violins.pdf  used on input lin
-e 1066.
+e 1079.
 (pdftex.def)             Requested size: 426.79135pt x 426.81937pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1670,11 +1677,11 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [58]
-<./figures/ch4_fig7_subjective_measures.pdf, id=1030, 451.6875pt x 451.6875pt>
+<./figures/ch4_fig7_subjective_measures.pdf, id=1023, 451.6875pt x 451.6875pt>
 File: ./figures/ch4_fig7_subjective_measures.pdf Graphic file (type pdf)
 <use ./figures/ch4_fig7_subjective_measures.pdf>
 Package pdftex.def Info: ./figures/ch4_fig7_subjective_measures.pdf  used on in
-put line 1080.
+put line 1093.
 (pdftex.def)             Requested size: 426.79135pt x 426.81937pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1712,12 +1719,12 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [62]
-<./figures/ch4_zapp_fig1_survey_demograpics.pdf, id=1083, 451.6875pt x 225.8437
+<./figures/ch4_zapp_fig1_survey_demograpics.pdf, id=1076, 451.6875pt x 225.8437
 5pt>
 File: ./figures/ch4_zapp_fig1_survey_demograpics.pdf Graphic file (type pdf)
 <use ./figures/ch4_zapp_fig1_survey_demograpics.pdf>
 Package pdftex.def Info: ./figures/ch4_zapp_fig1_survey_demograpics.pdf  used o
-n input line 1133.
+n input line 1146.
 (pdftex.def)             Requested size: 426.79135pt x 213.40967pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1737,23 +1744,23 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [64 <./figures/ch4_zapp_fig1_survey_demograpics.pdf>]
-<./figures/ch4_zapp_fig2_effect_range.pdf, id=1113, 451.6875pt x 451.6875pt>
+<./figures/ch4_zapp_fig2_effect_range.pdf, id=1106, 451.6875pt x 451.6875pt>
 File: ./figures/ch4_zapp_fig2_effect_range.pdf Graphic file (type pdf)
 <use ./figures/ch4_zapp_fig2_effect_range.pdf>
 Package pdftex.def Info: ./figures/ch4_zapp_fig2_effect_range.pdf  used on inpu
-t line 1202.
+t line 1215.
 (pdftex.def)             Requested size: 426.79135pt x 426.81937pt.
-<./figures/ch4_zapp_fig3_T_effect_range.pdf, id=1115, 451.6875pt x 451.6875pt>
+<./figures/ch4_zapp_fig3_T_effect_range.pdf, id=1108, 451.6875pt x 451.6875pt>
 File: ./figures/ch4_zapp_fig3_T_effect_range.pdf Graphic file (type pdf)
 <use ./figures/ch4_zapp_fig3_T_effect_range.pdf>
 Package pdftex.def Info: ./figures/ch4_zapp_fig3_T_effect_range.pdf  used on in
-put line 1213.
+put line 1226.
 (pdftex.def)             Requested size: 426.79135pt x 426.81937pt.
-<./figures/ch4_zapp_fig4_app_pg1.png, id=1116, 1116.5715pt x 457.10776pt>
+<./figures/ch4_zapp_fig4_app_pg1.png, id=1109, 1116.5715pt x 457.10776pt>
 File: ./figures/ch4_zapp_fig4_app_pg1.png Graphic file (type png)
 <use ./figures/ch4_zapp_fig4_app_pg1.png>
 Package pdftex.def Info: ./figures/ch4_zapp_fig4_app_pg1.png  used on input lin
-e 1228.
+e 1241.
 (pdftex.def)             Requested size: 426.79135pt x 174.72108pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1782,11 +1789,11 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [67 <./figures/ch4_zapp_fig3_T_effect_range.pdf>]
-<./figures/ch4_zapp_fig5_app_pg2.png, id=1163, 1110.549pt x 472.164pt>
+<./figures/ch4_zapp_fig5_app_pg2.png, id=1156, 1110.549pt x 472.164pt>
 File: ./figures/ch4_zapp_fig5_app_pg2.png Graphic file (type png)
 <use ./figures/ch4_zapp_fig5_app_pg2.png>
 Package pdftex.def Info: ./figures/ch4_zapp_fig5_app_pg2.png  used on input lin
-e 1239.
+e 1252.
 (pdftex.def)             Requested size: 426.79135pt x 181.45589pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1837,14 +1844,14 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [74]
-<./figures/ch5_fig1_shap_distr_bd.png, id=1253, 440.847pt x 578.16pt>
+<./figures/ch5_fig1_shap_distr_bd.png, id=1246, 440.847pt x 578.16pt>
 File: ./figures/ch5_fig1_shap_distr_bd.png Graphic file (type png)
 <use ./figures/ch5_fig1_shap_distr_bd.png>
 Package pdftex.def Info: ./figures/ch5_fig1_shap_distr_bd.png  used on input li
-ne 1289.
+ne 1302.
 (pdftex.def)             Requested size: 426.79135pt x 559.7206pt.
 
-LaTeX Warning: Float too large for page by 17.79031pt on input line 1294.
+LaTeX Warning: Float too large for page by 17.79031pt on input line 1307.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1882,19 +1889,19 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [78]
-<./figures/ch5_fig2_app_classification.png, id=1306, 592.614pt x 549.85425pt>
+<./figures/ch5_fig2_app_classification.png, id=1299, 592.614pt x 549.85425pt>
 File: ./figures/ch5_fig2_app_classification.png Graphic file (type png)
 <use ./figures/ch5_fig2_app_classification.png>
 Package pdftex.def Info: ./figures/ch5_fig2_app_classification.png  used on inp
-ut line 1343.
+ut line 1356.
 (pdftex.def)             Requested size: 426.79135pt x 396.00381pt.
-<./figures/ch5_fig3_app_regression_interactions.png, id=1307, 825.68475pt x 847
+<./figures/ch5_fig3_app_regression_interactions.png, id=1300, 825.68475pt x 847
 .36575pt>
 File: ./figures/ch5_fig3_app_regression_interactions.png Graphic file (type png
 )
 <use ./figures/ch5_fig3_app_regression_interactions.png>
 Package pdftex.def Info: ./figures/ch5_fig3_app_regression_interactions.png  us
-ed on input line 1357.
+ed on input line 1370.
 (pdftex.def)             Requested size: 426.79135pt x 438.008pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1933,7 +1940,7 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 
 [82]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-1410.
+1423.
 (c:/Users/spyri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1953,20 +1960,20 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [83]
-<./figures/ch5_fig4_case_penguins.png, id=1360, 325.215pt x 491.436pt>
+<./figures/ch5_fig4_case_penguins.png, id=1352, 325.215pt x 491.436pt>
 File: ./figures/ch5_fig4_case_penguins.png Graphic file (type png)
 <use ./figures/ch5_fig4_case_penguins.png>
 Package pdftex.def Info: ./figures/ch5_fig4_case_penguins.png  used on input li
-ne 1430.
+ne 1443.
 (pdftex.def)             Requested size: 426.79135pt x 644.97816pt.
 
-LaTeX Warning: Float too large for page by 75.84787pt on input line 1435.
+LaTeX Warning: Float too large for page by 75.84787pt on input line 1448.
 
-<./figures/ch5_fig5_case_penguins_BlFl.png, id=1364, 489.2679pt x 289.08pt>
+<./figures/ch5_fig5_case_penguins_BlFl.png, id=1356, 489.2679pt x 289.08pt>
 File: ./figures/ch5_fig5_case_penguins_BlFl.png Graphic file (type png)
 <use ./figures/ch5_fig5_case_penguins_BlFl.png>
 Package pdftex.def Info: ./figures/ch5_fig5_case_penguins_BlFl.png  used on inp
-ut line 1443.
+ut line 1456.
 (pdftex.def)             Requested size: 426.79135pt x 252.17244pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -1995,14 +2002,14 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [86 <./figures/ch5_fig5_case_penguins_BlFl.png>]
-<./figures/ch5_fig6_case_chocolates.png, id=1385, 361.35pt x 491.436pt>
+<./figures/ch5_fig6_case_chocolates.png, id=1378, 361.35pt x 491.436pt>
 File: ./figures/ch5_fig6_case_chocolates.png Graphic file (type png)
 <use ./figures/ch5_fig6_case_chocolates.png>
 Package pdftex.def Info: ./figures/ch5_fig6_case_chocolates.png  used on input 
-line 1467.
+line 1480.
 (pdftex.def)             Requested size: 426.79135pt x 580.44437pt.
 
-LaTeX Warning: Float too large for page by 11.31407pt on input line 1472.
+LaTeX Warning: Float too large for page by 11.31407pt on input line 1485.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -2022,15 +2029,15 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [88 <./figures/ch5_fig6_case_chocolates.png>]
-<./figures/ch5_fig7_case_chocolates_inverse.png, id=1402, 361.35pt x 491.436pt>
+<./figures/ch5_fig7_case_chocolates_inverse.png, id=1395, 361.35pt x 491.436pt>
 
 File: ./figures/ch5_fig7_case_chocolates_inverse.png Graphic file (type png)
 <use ./figures/ch5_fig7_case_chocolates_inverse.png>
 Package pdftex.def Info: ./figures/ch5_fig7_case_chocolates_inverse.png  used o
-n input line 1488.
+n input line 1501.
 (pdftex.def)             Requested size: 426.79135pt x 580.44437pt.
 
-LaTeX Warning: Float too large for page by 11.31407pt on input line 1493.
+LaTeX Warning: Float too large for page by 11.31407pt on input line 1506.
 
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -2050,20 +2057,20 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.28426pt}.
 
 [90 <./figures/ch5_fig7_case_chocolates_inverse.png>]
-<./figures/ch5_fig8_case_fifa.png, id=1420, 433.62pt x 570.933pt>
+<./figures/ch5_fig8_case_fifa.png, id=1413, 433.62pt x 570.933pt>
 File: ./figures/ch5_fig8_case_fifa.png Graphic file (type png)
 <use ./figures/ch5_fig8_case_fifa.png>
 Package pdftex.def Info: ./figures/ch5_fig8_case_fifa.png  used on input line 1
-506.
+519.
 (pdftex.def)             Requested size: 426.79135pt x 561.96722pt.
 
-LaTeX Warning: Float too large for page by 6.43694pt on input line 1511.
+LaTeX Warning: Float too large for page by 6.43694pt on input line 1524.
 
-<./figures/ch5_fig9_case_ames2018.png, id=1424, 433.62pt x 578.16pt>
+<./figures/ch5_fig9_case_ames2018.png, id=1417, 433.62pt x 578.16pt>
 File: ./figures/ch5_fig9_case_ames2018.png Graphic file (type png)
 <use ./figures/ch5_fig9_case_ames2018.png>
 Package pdftex.def Info: ./figures/ch5_fig9_case_ames2018.png  used on input li
-ne 1524.
+ne 1537.
 (pdftex.def)             Requested size: 426.79135pt x 569.08073pt.
 
 Package fancyhdr Warning: \headheight is too small (15.0pt): 
@@ -2117,7 +2124,7 @@ Chapter 6.
 
 ] [102] [103] [104] [105] [106] [107] [108] (./thesis_ns.aux)
 Package rerunfilecheck Info: File `thesis_ns.out' has not changed.
-(rerunfilecheck)             Checksum: 67F4741608547E754DF49B2C224436C3;8564.
+(rerunfilecheck)             Checksum: 54FC021C0CBE860CC396ECAC3D8440D7;8564.
 Package logreq Info: Writing requests to 'thesis_ns.run.xml'.
 \openout1 = `thesis_ns.run.xml'.
 
@@ -2127,10 +2134,10 @@ Package logreq Info: Writing requests to 'thesis_ns.run.xml'.
 ### semi simple group (level 1) entered at line 102 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 25282 strings out of 480226
- 462912 string characters out of 5893492
- 1204434 words of memory out of 5000000
- 42024 multiletter control sequences out of 15000+600000
+ 25296 strings out of 480226
+ 463501 string characters out of 5893492
+ 1205618 words of memory out of 5000000
+ 42036 multiletter control sequences out of 15000+600000
  600863 words of font info for 298 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,14n,77p,1373b,19171s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2164,10 +2171,10 @@ aming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtko10.pfb><c:/Users/spyri/AppD
 ata/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/spyri
 /AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/Users
 /spyri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on thesis_ns.pdf (117 pages, 4708317 bytes).
+Output written on thesis_ns.pdf (117 pages, 5063630 bytes).
 PDF statistics:
- 1773 PDF objects out of 2073 (max. 8388607)
- 1506 compressed objects within 16 object streams
- 437 named destinations out of 1000 (max. 500000)
- 75829 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1765 PDF objects out of 2073 (max. 8388607)
+ 1498 compressed objects within 15 object streams
+ 438 named destinations out of 1000 (max. 500000)
+ 75834 words of extra memory for PDF output out of 89155 (max. 10000000)
 
