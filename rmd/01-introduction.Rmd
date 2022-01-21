@@ -6,20 +6,30 @@ knit: "bookdown::render_book"
 # Introduction {#ch-introduction}
 
 <!-- Exploratory data analysis -->
-Exploratory Data Analysis (EDA) is the process of the initial summarization and visualization of a dataset. This is a critical first step of checking for realistic values, finding improper data formats, and revealing insights [@tukey_exploratory_1977]. Early and frequent data visualization is key to the data analyst's workflow [@wickham_r_2017]. As modern datasets grow in complexity, the use of multivariate data becomes more ubiquitous. As the number of variables in the data increases, so to does the difficulty in conveying the information they contain. This thesis hings on the visualization of multivariate data, central to this iterated workflow. 
+Exploratory Data Analysis (EDA) is the process of the initial summarization and visualization of a dataset. This is a critical first step of checking for realistic values, finding improper data formats, and revealing insights [@tukey_exploratory_1977]. Early and frequent data visualization is key to the data analyst's workflow [@wickham_r_2017]. 
 
 (ref:ch1fig1-cap) Data analysis workflow [@wickham_r_2017]. This work focuses primarily on multivariate data visualization, and also facilitates transforming data and interpretation of models.
 ```{r ch1fig1, echo=F, out.width='100%', fig.cap = "(ref:ch1fig1-cap)"}
 nsSafeIncGraphic("./figures/ch1_fig1_data_analysis_workflow.PNG")
 ```
 
-Common attempts at high-dimension visuals include exhaustive approaches such as scatterplot matrices [@chambers_graphical_1983], which look at all univariate densities and all bivariate scatterplots. Similarly, one could include all scatterplots of three variables. Another approach is observation-based visualization such as parallel coordinate plots [@ocagne_coordonnees_1885]. In this case each observation is connected by line across each variable after being scaled to a common support. Principal Component Analysis (PCA, @pearson_liii._1901) reorients a basis to components, linear combinations of the original variables ordered by descending amount of variation explained. These components are typically viewed as discrete orthogonal pairs. Where the data space is approximated in in fewer components. These visuals are static, orthogonal displays of  either the original variables or linear components of them.
+<!-- Dimensionality increases, making data viz hard -->
+As modern datasets grow in complexity, the use of multivariate data becomes more ubiquitous. As the number of variables in the data increases, so to does the difficulty in conveying the information they contain. This thesis hings on the visualization of multivariate data, central to this iterated workflow. The titanic dataset is a common starting dataset for machine leaning and contains nine variables. Sports and house sale datasets are also common and contain dozens of variables. It is important to extend the use of data visualization even with the added complexity of many variables.
 
+<!-- Linear projections -->
+Linear projections use a linear combinations of variables to define a new component. The components can contain signal from multiple variables at once, make a good step at extending the visuals as dimensionality increases. These component linear combinations  can be thought of an a reorientation of the origin basis. One example of linear projections is that of Principal Component Analysis (PCA, @pearson_liii._1901) which creates a component space ordered by descending amount of variation. It uses eigenvalue decomposition to identify the basis reorientation. These components are typically viewed as discrete orthogonal pairs. Where the data space is commonly approximated in fewer components. The basis of linear projections is common illustrated with a biplot [@gabriel_biplot_1971]. The biplot expresses the magnitude and angle each variable contributes to the resulting display dimensions.
+
+(ref:ch1fig2-cap) Palmer Penguin data [@gorman_ecological_2014; @horst_palmerpenguins_2020], three species of penguins measured across four physical variables. These are two projections of 4D variable space. The basis orientation, is illustrated with a biplot. Separation of the species clusters is the structure of interest. Some orientations of the data do not show identify cluster separation while others will.
+```{r ch1fig2, echo=F, out.width='100%', fig.cap = "(ref:ch1fig2-cap)"}
+nsSafeIncGraphic("./figures/ch1_fig2_penguin_cl_sep.png")
+```
+
+<!-- Tours, animated linear projections -->
 A data visualization _tour_ [@cook_grand_2008; @lee_state_2021] is a class of linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower-dimensional space in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the permanence and tractability of the points through many frames. In the shadow analogy, an object such as a barstool, may cast a circular shadow that could come from any number of shapes. However, if the stool was rotated, its legs would show in the shadow quickly giving an intuitive interpretation of the object. Similarly, looking at a data object over the rotation of its variables yields information about its structure. The permanence of observations between frames aided interaction such as linked brushing should plausibly convey more information than static orthogonal views. Chapter \@ref(ch-background) walks through some of the previous alternatives, and why we ultimately continue with this class of animated linear dimension reduction.
 
-(ref:ch1fig2-cap) Palmer Penguin data [@gorman_ecological_2014; @horst_palmerpenguins_2020], three species of penguins measured across four physical variables. Separation of the species clusters is the structure of interest. Some orientations of the data not show interesting structure while others will. These are two projections of 4D variable space. The orientation basis, is illustrated as a biplot [@gabriel_biplot_1971].
-```{r ch1fig2, echo=F, out.width='100%', fig.cap = "(ref:ch1fig2-cap)"}
-nsSafeIncGraphic("./figures/ch1_fig2_penguin_cl_sep.PNG")
+(ref:ch1fig3-cap) Frames of a grand tour of Palmer Penguin data. Tours animates linear projections over small changes in the basis. In a grand tour target frames are selected randomly. 
+```{r ch1fig3, echo=F, out.width='100%', fig.cap = "(ref:ch1fig3-cap)"}
+nsSafeIncGraphic("./figures/ch1_fig3_penguin_gt_filmstrip.png")
 ```
 
 <!-- Means of user control over basis -->
