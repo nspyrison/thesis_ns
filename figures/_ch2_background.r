@@ -1,7 +1,6 @@
-require("ggplot2")
-require("GGally")
-require("spinifex")
-require("cheem")
+require(ggplot2)
+require(GGally)
+require(spinifex)
 
 dat <- spinifex::penguins_na.rm[, 1:5]
 colnames(dat) <- c("bill length", "bill depth", "flipper length", "body mass", "species")
