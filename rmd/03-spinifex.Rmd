@@ -14,14 +14,16 @@ Dynamic low-dimensional linear projections of multivariate data known as _tour_ 
 
 ## Introduction
 
-<!-- Tours -->
-Exploring multivariate spaces is a challenging task, increasingly so as dimensionality increases. Traditionally, static low-dimensional projections are used to display multivariate data in two dimensions, including principal component analysis, linear discriminant spaces or projection pursuit. These are useful for finding relationships between multiple variables, but they are limited because they show only a glimpse of the high-dimensional space. An alternative approach is to use a tour [@asimov_grand_1985] of dynamic linear projections to look at many different low-dimensional projections. Tours can be considered to extend the dimensionality of visualization, which is important as data and models exist in more than three dimensions. The package __tourr__ [@wickham_tourr:_2011] provides a platform for generating tours. It can produce a variety of tours, each paired with a variety of possible displays. A user can make a grand, guided, little, local or frozen tour, and display the resulting projected data as a scatterplot, density plot, histogram, or even as Chernoff faces if the projection dimension is more than 3.
 
-<!-- Manual tour -->
-This work adds a manual tour to the collection. The manual tour was described in @cook_manual_1997 and allows a user to control the projection coefficients of a selected variable in a 2D projection. The manipulation of these coefficients enable the analyst to explore their sensitivity to the structure within the projection. As manual tours operate on only one variable, they are particularly useful once a feature of interest has been identified.
+<!-- <<KM strikethrough: This should have been covered in related work, Jan 20>> -->
+<!-- <!-- Tours --> 
+<!-- Exploring multivariate spaces is a challenging task, increasingly so as dimensionality increases. Traditionally, static low-dimensional projections are used to display multivariate data in two dimensions, including principal component analysis, linear discriminant spaces or projection pursuit. These are useful for finding relationships between multiple variables, but they are limited because they show only a glimpse of the high-dimensional space. An alternative approach is to use a tour [@asimov_grand_1985] of dynamic linear projections to look at many different low-dimensional projections. Tours can be considered to extend the dimensionality of visualization, which is important as data and models exist in more than three dimensions. The package __tourr__ [@wickham_tourr:_2011] provides a platform for generating tours. It can produce a variety of tours, each paired with a variety of possible displays. A user can make a grand, guided, little, local or frozen tour, and display the resulting projected data as a scatterplot, density plot, histogram, or even as Chernoff faces if the projection dimension is more than 3. -->
 
-<!-- interesting features and guided tours -->
-One way to identify "interesting" features is using a guided tour [@cook_grand_1995]. Guided tours select a very specific path, which approaches a projection that optimizes an objective function. The optimization used to guide the tour is simulated annealing [@kirkpatrick_optimization_1983]. The direct optimization of a function allows guided tours to rapidly identify interesting projection features given the relatively large parameter-space. After a projection of interest is identified, an analyst can then use the "finer brush" of the manual tour to control the contributions of individual variables to explore the sensitivity they have on the structure visible in the projection.
+<!-- <!-- Manual tour --> 
+<!-- This work adds a manual tour to the collection. The manual tour was described in @cook_manual_1997 and allows a user to control the projection coefficients of a selected variable in a 2D projection. The manipulation of these coefficients enable the analyst to explore their sensitivity to the structure within the projection. As manual tours operate on only one variable, they are particularly useful once a feature of interest has been identified. -->
+
+<!-- <!-- interesting features and guided tours -->
+<!-- One way to identify "interesting" features is using a guided tour [@cook_grand_1995]. Guided tours select a very specific path, which approaches a projection that optimizes an objective function. The optimization used to guide the tour is simulated annealing [@kirkpatrick_optimization_1983]. The direct optimization of a function allows guided tours to rapidly identify interesting projection features given the relatively large parameter-space. After a projection of interest is identified, an analyst can then use the "finer brush" of the manual tour to control the contributions of individual variables to explore the sensitivity they have on the structure visible in the projection. -->
 
 <!-- Paper outline -->
 The paper is organized as follows. Section \@ref(sec:algorithm) describes the algorithm used to perform a radial manual tour implemented in the package __spinifex__. Section \@ref(sec:pkgstructure) discussed the functions, their usage composing tours with __ggplot2__ [@wickham_ggplot2_2016] and their animation by __plotly__ [@sievert_interactive_2020] or __gganimate__ [@pedersen_gganimate_2020]. Package functionality and code usage following the order applied in the algorithm follows in section \@ref(sec:usage). Section \@ref(sec:usecases) illustrates how this can be used for sensitivity analysis applied to multivariate data collected on high-energy physics experiments [@wang_mapping_2018]. Section \@ref(sec:discussion) summarizes this paper and discusses potential future directions.
@@ -30,13 +32,14 @@ The paper is organized as follows. Section \@ref(sec:algorithm) describes the al
 <!-- Algorithm outline -->
 ## Algorithm {#sec:algorithm}
 
-The algorithm to conduct a manual tour interactively by recording mouse/cursor motion is described in detail in @cook_manual_1997. Movement can be in any direction and magnitude, but it can also be constrained in several ways:
+The types of manipulations of the manual tour can be thought of in several ways:
 
 - *radial*: fix the direction of contribution, and allow the magnitude to change.
 - *angular*: fix the magnitude, and allow the angle or direction of the contribution to vary.
 - *horizontal*, *vertical*: allow rotation only around the horizontal or vertical axis of the current 2D projection.
+- *oblique*: paths deviating from these movements such as being captured from the movement of a cursor.
 
-The algorithm described here produces a **radial** tour as an *animation sequence*. It takes the current contribution of the chosen variable, and using rotation brings this variable fully into the projection, completely removes it, before returning to the original position.
+Angular manipulations are homomorphic, in that they show the same information while rotating the frame. More interesting a change in the magnitude of the contribution, changing the radius along a fixed angle. For this reason we implement the radial tour as the default values for the manual tour. Below we describe the manual tour illustrated in detail. After that we also include summaries of the algorithms oblique cursor movements for in the 1D and 2D instances.
 
 
 ### Notation
@@ -66,7 +69,7 @@ The algorithm operates entirely on projection bases and incorporates the data on
 The flea data (@lubischew_use_1962), available in the __tourr__ package, is used to illustrate the algorithm. The data contains 74 observations of six variables, physical measurements of flea beetles. Each observation belongs to one of three species.
 
 <!-- Projection basis -->
-An initial 2D projection basis must be provided. A suggested way to start is to identify an interesting projection using a projection pursuit guided tour. Here the holes index is used to find a 2D projection of the flea data, which shows three separated species groups. Figure \@ref(fig:ch3fig1) shows the initial projection of the data. The left panel displays the projection basis ($\textbf{B}$) and can be used as a visual guide of the magnitude and direction that each variable contributes to the projection. The right panel shows the projected data, $\textbf{Y}_{[n,~2]} ~=~ \textbf{X}_{[n,~p]} \textbf{B}_{[p,~2]}$. The color and shape of points are mapped to the flea species.
+An initial 2D projection basis must be provided. A suggested way to start is to identify an interesting projection using a projection pursuit guided tour. Here the holes index is used to find a 2D projection of the flea data, which shows three separated species groups. Figure \@ref(fig:ch3fig1) shows the initial projection of the data. The left panel displays the projection basis ($\textbf{A}$) and can be used as a visual guide of the magnitude and direction that each variable contributes to the projection. The right panel shows the projected data, $\textbf{Y}_{[n,~2]} ~=~ \textbf{X}_{[n,~p]} \textbf{A}_{[p,~2]}$. The color and shape of points are mapped to the flea species.
 
 ```{r ch3fig1, fig.cap = "Biplot of the initial 2D projection: representation of the basis (left) and resulting data projection (right) of standardized flea data. The color and shape of data points are mapped to the species of flea beetle. The basis was produced by a projection pursuit guided tour with the holes index. The contribution of the variables aede2 and tars1 approximately contrasts the other variables. The visible structure in the projection are the three clusters corresponding to the three species."}
 nsSafeIncGraphic("./figures/ch3_fig1_biplot.pdf")
@@ -86,8 +89,8 @@ Initialize the coordinate basis vector as a zero vector, $\textbf{e}$, of length
 
 \begin{align*}
   e_k &\leftarrow 1 \\ 
-  \textbf{e}^*_{[p,~1]} &= \textbf{e} - \langle \textbf{e}, \textbf{B}_1 \rangle \textbf{B}_1 - \langle \textbf{e}, \textbf{B}_2 \rangle \textbf{B}_2 \\ 
-  \textbf{M}_{[p,~3]} &= (\textbf{B}_1,\textbf{B}_2,\textbf{e}^*)
+  \textbf{e}^*_{[p,~1]} &= \textbf{e} - \langle \textbf{e}, \textbf{A}_1 \rangle \textbf{A}_1 - \langle \textbf{e}, \textbf{A}_2 \rangle \textbf{A}_2 \\ 
+  \textbf{M}_{[p,~3]} &= (\textbf{A}_1,\textbf{A}_2,\textbf{e}^*)
 \end{align*}
 
 <!-- What the manip space provides -->
@@ -104,7 +107,7 @@ nsSafeIncGraphic("./figures/ch3_fig2_manip_sp.pdf")
 The basis vector corresponding to the manip var (red line in Figure \@ref(fig:ch3fig2)), can be operated like a lever anchored to the origin. This is the process of the manual control, that rotates the manip variable into and out of the 2D projection (Figure \@ref(fig:ch3fig3)). As the variable contribution is controlled, the manip space turns, and the projection onto the horizontal projection plane correspondingly changes. This is a manual tour. Generating a sequence of values for the rotation angles produces a path for the rotation of the manip space.
 
 <!-- describe manip var path -->
-For a radial tour, fix $\theta$, the angle describing rotation within the projection plane, and compute a sequence for $\phi$, defining movement out of the plane. This will change $\phi$ from the initial value, $\phi_1$, the angle between $\textbf{e}$ and its shadow in $\textbf{B}$, to a maximum of $0$ (manip var fully in projection), then to a minimum of $\pi/2$ (manip var out of projection), before returning to $\phi_1$.
+For a radial tour, fix $\theta$, the angle describing rotation within the projection plane, and compute a sequence for $\phi$, defining movement out of the plane. This will change $\phi$ from the initial value, $\phi_1$, the angle between $\textbf{e}$ and its shadow in $\textbf{A}$, to a maximum of $0$ (manip var fully in projection), then to a minimum of $\pi/2$ (manip var out of projection), before returning to $\phi_1$.
 
 <!-- define the rotation matrix -->
 Rotations in 3D can be defined by the axes they pivot on. Rotation within the projection, $\theta$, is rotation around the $Z$-axis. Out-of-projection rotation, $\phi$, is the rotation around an axis on the $XY$ plane, $\textbf{U}$, orthogonal to $\textbf{e}$. Given these axes, the rotation matrix, $\textbf{R}$, can be written as follows, using Rodrigues' rotation formula (originally published in @rodrigues_lois_1840):
@@ -168,20 +171,19 @@ Rotations in 3D can be defined by the axes they pivot on. Rotation within the pr
 <!-- Phi transform and animation -->
 The steps outlined above can be used to create any arbitrary rotation in the manip space. To use these for sensitivity analysis, the radial rotation is built into an animation where the manip var is rotated fully into the projection, completely out, and then back to the initial value. This involves allowing $\phi$ to vary between $0$ and $\pi/2$, call the steps $\phi_i$. 
 
-
 ```{r ch3fig3, fig.cap = "Select frames highlight the animation of a radial manual tour manipulating aede2: (1) original projection, (2) full contribution, (3) zero contribution, before returning to the original contribution."}
 nsSafeIncGraphic("./figures/ch3_fig3_filmstrip.pdf")
 ```
 
-
 <!-- Sequence of $\phi_i$ -->
-1. Set initial value of $\phi_1$ and $\theta$: $\phi_1 = \cos^{-1}{\sqrt{B_{k1}^2+B_{k2}^2}}$, $\theta = \tan^{-1}\frac{B_{k2}}{B_{k1}}$. Where $\phi_1$ is the angle between $\textbf{e}$ and its shadow in $\textbf{B}$.
+1. Set initial value of $\phi_1$ and $\theta$: $\phi_1 = \cos^{-1}{\sqrt{A_{k1}^2+A_{k2}^2}}$, $\theta = \tan^{-1}\frac{A_{k2}}{A_{k1}}$. Where $\phi_1$ is the angle between $\textbf{e}$ and its shadow in $\textbf{A}$.
 2. Set an angle increment ($\Delta_\phi$) that sets the step size for the animation, to rotate the manip var into and out of the projection. Uses of angle increment, rather than a number of steps to control the movement is consistent with the tour algorithm as implemented in the __tourr__.
 3. Step towards $0$, where the manip var is entirely in the projection plane.
 4. Step towards $\pi/2$, where the manip variable has no contribution to the projection.
 5. Step back to $\phi_1$.
 
 In each of the steps 3-5, a small step may be added to ensure that the endpoints of $\phi$ ($0$, $\pi/2$, $\phi_1$) is reached. 
+
 
 #### Step 5) Projecting the data {#sec:display}
 
@@ -196,6 +198,46 @@ The operation of a manual tour is defined on the projection bases. Only when the
 \noindent where $\textbf{R}^{(i)}_{[3,3]}$ is the incremental rotation matrix, using $\phi_i$. To make the data plot, use the first two columns of \textbf{Y}. Show the projected data for each frame in sequence to form an animation. 
 
 Tours are typically viewed as an animation. The animation of this tour can be viewed online on [GitHub](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/flea_radialtour_mvar5.gif). The page may take a moment to load.
+
+## Oblique cursor movement
+
+In a move abbreviated way we can think about the algorithm for 1D and 2D oblique manual tours as:
+
+<!-- 1D Oblique from cursor movement -->
+<!-- Best version with \usepackage{algorithm} \usepackage{algpseudocode} -->
+\begin{algorithm}
+\caption{1D oblique manual tour from cursor movement}\label{alg:cap}
+\begin{algorithmic}
+\Require \\
+\begin{itemize}
+    \item $\textbf{A}$ is a 1D basis defining the current projection;
+    \item $\textbf{e} = e_k$ is a $p$-dimensional vector of zeros with a 1 in the $k$-th position, the manipulation variable;
+    \item $\textbf{M}_{p  d+1}$, the manipulation space
+    \item $\text{dist}_x$ = horizontal distance of the cursor movement;
+    \item $\text{dist}_y$ = vertical distance of the cursor movement;
+\end{itemize}
+\Ensure $||\textbf{A} - \textbf{e}|| >$ tolerance \\
+Initialize the manipulation space, Gram-Schmidt process orthonormalizing $\textbf{e}$ on $\textbf{A}$:
+\State $\textbf{M} \gets \textbf{e} - <\textbf{e}, \textbf{A}> \textbf{A}$ \\
+Initialize change in magnitude, $\phi$, as a function of the horizontal cursor movement: \\
+\State $\phi \gets \frac{\text{dist}_x}{\text{Range of plot}_x},~~~c_\phi = cos(\phi), ~~~s_\phi = sin(\phi)$ \\
+\For{$\phi_i$ in $[0, \phi]$ by an interpolation increment step size} \\
+  ~~~Rotate the manipulation space: \\
+  ~~~\State $$ \textbf{M} \gets \textbf{M} \cdot \left(
+    \begin{array}{cc}
+        c_{\phi_i}  & s_{\phi_i} \\
+        -s_{\phi_i} & c_{\phi_i} \\
+    \end{array}
+  \right) $$
+  ~~~Append an array, $\textbf{Y}$, premultiplying the data by each interpolated basis of the manipulation space:
+  ~~~\State $\textbf{Y}_{n  p  i} \gets \textbf{X}_{n  p} \cdot \textbf{M}_{p \ 1:d}$ \\
+  ~~~(Alternatively, store the array of the interpolated bases for more compact format and premultiply data when needed)
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+
+<!-- 2D Oblique from cursor movement -->
 
 
 ## Package structure {#sec:pkgstructure}
