@@ -25,8 +25,10 @@ Dynamic low-dimensional linear projections of multivariate data known as _tour_ 
 <!-- <!-- interesting features and guided tours -->
 <!-- One way to identify "interesting" features is using a guided tour [@cook_grand_1995]. Guided tours select a very specific path, which approaches a projection that optimizes an objective function. The optimization used to guide the tour is simulated annealing [@kirkpatrick_optimization_1983]. The direct optimization of a function allows guided tours to rapidly identify interesting projection features given the relatively large parameter-space. After a projection of interest is identified, an analyst can then use the "finer brush" of the manual tour to control the contributions of individual variables to explore the sensitivity they have on the structure visible in the projection. -->
 
+In the Chapter \@ref(ch-background) we introduce linear projections and _tours_, dynamic linear projections animated over small changes to the basis. The _manual tour_ [@cook_grand_1995] novelly allows an analyst control the contribution of a variable to the basis. On the theoretical side of the contribution we fill in previously absent details to solve at the 3D rotation matrix used in 2D manual tours. This proves a scaffolding for the extension for solving for a 4D rotation matrix that could be used for a 3D manual tour. After that we turn our attention to the package and implementation before illustrating use of the manual tour with meta analysis on high energy particle physics data.
+
 <!-- Paper outline -->
-The paper is organized as follows. Section \@ref(sec:algorithm) describes the algorithm used to perform a radial manual tour implemented in the package __spinifex__. Section \@ref(sec:pkgstructure) discussed the functions, their usage composing tours with __ggplot2__ [@wickham_ggplot2_2016] and their animation by __plotly__ [@sievert_interactive_2020] or __gganimate__ [@pedersen_gganimate_2020]. Package functionality and code usage following the order applied in the algorithm follows in section \@ref(sec:usage). Section \@ref(sec:usecases) illustrates how this can be used for sensitivity analysis applied to multivariate data collected on high-energy physics experiments [@wang_mapping_2018]. Section \@ref(sec:discussion) summarizes this paper and discusses potential future directions.
+The paper is organized as follows. Section \@ref(sec:algorithm) describes the algorithm used to perform a radial manual tour implemented in the package __spinifex__. Section \@ref(sec:pkgstructure) discussed the functions. Package functionality and code usage following the order applied in the algorithm follows in section \@ref(sec:usage). Section \@ref(sec:usecases) illustrates how this can be used for sensitivity analysis applied to multivariate data collected on high-energy physics experiments [@wang_mapping_2018]. Section \@ref(sec:discussion) summarizes this paper and discusses potential future directions.
 
 
 <!-- Algorithm outline -->
@@ -50,7 +52,6 @@ The notation used to describe the algorithm for a 2D radial manual tour is as fo
 - $\textbf{A}$, any orthonormal projection basis, $p \times d$ matrix, describing the projection from $\mathbb{R}^p \Rightarrow \mathbb{R}^d$.
 - $k$, is the index of the manipulation variable or manip var for short.
 - $\textbf{e}$, a 1D basis vector of length $p$, with 1 in the $k$-th position and 0 elsewhere.
-- $\textbf{M}$ is a $p \times 3$ matrix, defining the 3D subspace where data rotation occurs and is called the manip(ulation) space.
 - $\textbf{R}$, the $d+1$-D rotation matrix, for performing unconstrained 3D rotations within the manip space, $\textbf{M}$.
 - $\theta$, the angle of in-projection rotation, for example, on the reference axes; $c_\theta, s_\theta$ are its cosine and sine.
 - $\phi$, the angle of out-of-projection rotation, into the manip space; $c_\phi, s_\phi$ are its cosine and sine. The initial value for animation purposes is $\phi_1$.
@@ -66,7 +67,7 @@ The algorithm operates entirely on projection bases and incorporates the data on
 #### Step 0) Setup
 
 <!-- describe data. -->
-The flea data (@lubischew_use_1962), available in the __tourr__ package, is used to illustrate the algorithm. The data contains 74 observations of six variables, physical measurements of flea beetles. Each observation belongs to one of three species.
+The flea data (@lubischew_use_1962), available in the __tourr__ package [@wickham_tourr:_2011], is used to illustrate the algorithm. The data contains 74 observations of six variables, physical measurements of flea beetles. Each observation belongs to one of three species.
 
 <!-- Projection basis -->
 An initial 2D projection basis must be provided. A suggested way to start is to identify an interesting projection using a projection pursuit guided tour. Here the holes index is used to find a 2D projection of the flea data, which shows three separated species groups. Figure \@ref(fig:ch3fig1) shows the initial projection of the data. The left panel displays the projection basis ($\textbf{A}$) and can be used as a visual guide of the magnitude and direction that each variable contributes to the projection. The right panel shows the projected data, $\textbf{Y}_{[n,~2]} ~=~ \textbf{X}_{[n,~p]} \textbf{A}_{[p,~2]}$. The color and shape of points are mapped to the flea species.
@@ -206,13 +207,12 @@ In a move abbreviated way we can think about the algorithm for 1D and 2D oblique
 <!-- 1D Oblique from cursor movement -->
 <!-- Best version with \usepackage{algorithm} \usepackage{algpseudocode} -->
 \begin{algorithm}
-\caption{1D oblique manual tour from cursor movement}\label{alg:cap}
+\caption{1D oblique manual tour from cursor movement}
 \begin{algorithmic}
 \Require \\
 \begin{itemize}
     \item $\textbf{A}$ is a 1D basis defining the current projection;
     \item $\textbf{e} = e_k$ is a $p$-dimensional vector of zeros with a 1 in the $k$-th position, the manipulation variable;
-    \item $\textbf{M}_{p  d+1}$, the manipulation space
     \item $\text{dist}_x$ = horizontal distance of the cursor movement;
     \item $\text{dist}_y$ = vertical distance of the cursor movement;
 \end{itemize}
@@ -220,7 +220,7 @@ In a move abbreviated way we can think about the algorithm for 1D and 2D oblique
 Initialize the manipulation space, Gram-Schmidt process orthonormalizing $\textbf{e}$ on $\textbf{A}$:
 \State $\textbf{M} \gets \textbf{e} - <\textbf{e}, \textbf{A}> \textbf{A}$ \\
 Initialize change in magnitude, $\phi$, as a function of the horizontal cursor movement: \\
-\State $\phi \gets \frac{\text{dist}_x}{\text{Range of plot}_x},~~~c_\phi = cos(\phi), ~~~s_\phi = sin(\phi)$ \\
+\State $\phi \gets \frac{\text{dist}_x}{\text{size of plot}_x},~~~c_\phi = cos(\phi), ~~~s_\phi = sin(\phi)$ \\
 \For{$\phi_i$ in $[0, \phi]$ by an interpolation increment step size} \\
   ~~~Rotate the manipulation space: \\
   ~~~\State $$ \textbf{M} \gets \textbf{M} \cdot \left(
@@ -230,20 +230,105 @@ Initialize change in magnitude, $\phi$, as a function of the horizontal cursor m
     \end{array}
   \right) $$
   ~~~Append an array, $\textbf{Y}$, premultiplying the data by each interpolated basis of the manipulation space:
-  ~~~\State $\textbf{Y}_{n  p  i} \gets \textbf{X}_{n  p} \cdot \textbf{M}_{p \ 1:d}$ \\
-  ~~~(Alternatively, store the array of the interpolated bases for more compact format and premultiply data when needed)
+  ~~~\State $\textbf{Y}_{n p i} \gets \textbf{X}_{n p} \cdot \textbf{M}_{p 1:d}$ \\
+  ~~~(Alternatively, store the array of the interpolated bases for more compact format and premultiply data when needed.)
 \EndFor
 \end{algorithmic}
 \end{algorithm}
+```{r, echo=F}
+## Work around for html not including algorithm
+if(knitr::is_html_output())
+  nsSafeIncGraphic("./figures/ch3_algo1.PNG")
+```
 
 
 <!-- 2D Oblique from cursor movement -->
+\begin{algorithm}
+\caption{2D oblique manual tour from cursor movement}
+\begin{algorithmic}
+\Require \\
+\begin{itemize}
+    \item $\textbf{A}$ is a 1D basis defining the current projection;
+    \item $\textbf{e} = e_k$ is a $p$-dimensional vector of zeros with a 1 in the $k$-th position, the manipulation variable;
+    \item $\text{dist}_x$ = horizontal distance of the cursor movement;
+    \item $\text{dist}_y$ = vertical distance of the cursor movement;
+\end{itemize}
+\Ensure $||\textbf{A} - \textbf{e}|| >$ tolerance \\
+Initialize the manipulation space, Gram-Schmidt process orthonormalizing $\textbf{e}$ on $\textbf{A}$:
+\State $\textbf{M} \gets \textbf{e} - <\textbf{e}, \textbf{A}_1> \textbf{A}_1 - <\textbf{e}, \textbf{A}_2> \textbf{A}_2$ \\
+Initialize change in magnitude, $\phi$: \\
+\State $\phi \gets \frac{\sqrt{\text{dist}_x^2 + \text{dist}_y^2}}{\text{size of plot}_x},~~~c_\phi = cos(\phi), ~~~s_\phi = sin(\phi)$ \\
+Initialize change in angle, $\theta$: \\
+\State $c_\theta = cos(\theta) \gets \frac{\text{dist}_x}{\sqrt{\text{dist}_x^2 + \text{dist}_y^2}} $
+\State $s_\theta = sin(\theta) \gets \frac{\text{dist}_y}{\sqrt{\text{dist}_x^2 + \text{dist}_y^2}} $
+\For{$\phi_i$ in $[0, \phi]$ by an interpolation increment step size} \\
+  ~~~Rotate the manipulation space: \\
+  ~~~\State $$ \textbf{M} \gets \textbf{M} \cdot \left(
+    \begin{array}{ccc}
+      c_\theta^2 c_\phi + s_\theta^2 &
+      -c_\theta s_\theta (1 - c_\phi) &
+      -c_\theta s_\phi \\
+      -c_\theta s_\theta (1 - c_\phi) &
+      s_\theta^2 c_\phi + c_\theta^2 &
+      -s_\theta s_\phi \\
+      c_\theta s_\phi &
+      s_\theta s_\phi &
+      c_\phi
+    \end{array}
+  \right) $$
+  ~~~Append an array, $\textbf{Y}$, premultiplying the data by each interpolated basis of the manipulation space:
+  ~~~\State $\textbf{Y}_{n p i} \gets \textbf{X}_{n p} \cdot \textbf{M}_{p 1:d}$ \\
+  ~~~(Alternatively, store the array of the interpolated bases for more compact format and premultiply data when needed.)
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+```{r, echo=F}
+## Work around for html not including algorithm
+if(knitr::is_html_output())
+  nsSafeIncGraphic("./figures/ch3_algo2.PNG")
+```
 
 
 ## Package structure {#sec:pkgstructure}
 
-This section describes the functions available in the package, their usage, and how to install and get up and running.
+In addition to facilitating the manual tour the other primary function is to facilitate the layered composition of tours, interoperabily with tours from __tourr__. This package tries to abstract away the complexity of dealing with a varying number of frames and replicating the length of arguments. We use a layered composition approach to tours steming from __ggplot2__ [@wickham_ggplot2_2016], which can then be animated animation by __plotly__ [@sievert_interactive_2020] or __gganimate__ [@pedersen_gganimate_2020]. This section describes the functions available in the package, their usage, and how to install and get up and running.
 
+### Usage {#sec:usage}
+
+Using the penguins data , available in the package, to illustrate a manual tour, we will illustrate generating a manual tour to explore the sensitivity of a variable separating two clusters. The composition of the tour display echos the additive layered approach of __ggplot2__, while abstracting away the complexity of dealing with changing number of frames and their animation.
+
+```{r eval=F, echo=T}
+## Process penguins data
+dat     <- scale_sd(penguins[1:4])
+clas    <- penguins$species
+bas     <- basis_olda(data = dat, class = clas)
+
+## A manual tour tour path
+mt_path <- manual_tour(basis = bas, manip_var = 1, data = dat)
+
+## Composing the display of the tour
+ggt <- ggtour(mt_path, angle = .15) +
+  proto_point(aes_args      = list(color = clas, shape = clas),
+              identity_args = list(alpa = .8, size = 1.5)) +
+  proto_basis() +
+  proto_origin()
+
+## Animating
+animate_plotly(ggt, fps = 5)
+
+
+## A 1D grand tour from tourr
+gt_path <- save_history(data = dat, tour_path = grand_tour(d = 1), max_bases = 10)
+
+## Composing the display of the tour
+ggt2 <- ggtour(gt_path, angle = .15) +
+  proto_default(aes_args      = list(color = clas, fill = clas)) +
+  proto_basis1d() +
+  proto_origin1d()
+
+## Animating
+animate_plotly(ggt2, fps = 5)
+```
 
 ### Functions
 
@@ -279,31 +364,6 @@ if(knitr::is_html_output()) fnt <- 12L else fnt <- 8L
 kableExtra::kable(funcs_tib, fmt, caption = "Summary of primary functions.", 
                   booktabs = TRUE, linesep = "") %>%
   kableExtra::kable_styling(font_size = fnt)
-```
-
-
-### Usage {#sec:usage}
-
-Using the penguins data , available in the package, to illustrate a manual tour, we will illustrate generating a manual tour to explore the sensitivity of a variable separating two clusters. The composition of the tour display echos the additive layered approach of __ggplot2__, while abstracting away the complexity of dealing with changing number of frames and their animation.
-
-```{r eval=F, echo=T}
-## Process penguins data
-dat     <- scale_sd(penguins[1:4])
-clas    <- penguins$species
-bas     <- basis_olda(data = dat, class = clas)
-
-## The tour path of the bases
-mt_path <- manual_tour(basis = bas, manip_var = 1, data = dat)
-
-## Composing the display of the tour
-ggt <- ggtour(mt_path, angle = .15) +
-  proto_point(aes_args      = list(color = clas, shape = clas),
-              identity_args = list(alpa = .8, size = 1.5)) +
-  proto_basis("left") +
-  proto_origin()
-
-## Animating
-animate_plotly(ggt, fps = 10)
 ```
 
 
@@ -386,7 +446,7 @@ This work was motivated by problems in physics, and thus the usage was illustrat
 The manual tour is constrained in the sense that the effect of one variable is dependent on the contributions of other variables in the manip space. However, this can be useful to simplify a projection by removing variables without affecting the visible structure. Defining a manual rotation in high dimensions is possible using Givens rotations and Householder reflections as outlined in @buja_computational_2005. This would provide more flexible manual rotation but more difficult for a user because they have the choice (too much choice) of which directions to move. 
 
 <!-- 3D and function vis -->
-Another future research topic could be to extend the algorithm for use on 3D projections. With the current popularity and availability of 3D virtual displays, this may benefit the detection and understanding of the higher dimensional structure or enable the examination of functions.
+Another future research topic could be to extend the algorithm for use on 3D tours. This would require applying another angle of rotation with Rodrigues' rotation formula on the current 3D rotation matrix. The addition of another display dimension may benefit the detection and understanding of the higher dimensional structure though the input of three angles may prove less natural and harder to capture.
 
 <!-- Dynamic interaction/gui -->
 Having a graphical user interface would be useful for making it easier and more accessible to a general audience. This is possible to implement using __shiny__ [@chang_shiny_2020]. The primary purposes of the interface would be to allow the user to interactively change the manip variable easily and the interpolation step for more or less detailed views.
