@@ -92,21 +92,11 @@ This SHAP value will also serve as the 1D basis for the radial tour. While using
 The contributions resulting from the research to address these research questions can be split into software and knowledge contributions: 
 
 
-### Software
-
-- __spinifex__, an __R__ package offering a consistent framework for performing radial tours and the rendering of any tours to various formats:
-    - Perform radial tours to explore the variable sensitivity to structure
-    - Transform of numeric variable in the data
-    - Extract various bases exposing features of the data
-    - Interoperable with tours generated with __tour__ [@wickham_tourr:_2011]
-    - Layered interface for producing tours that mirror the layered approach of __ggplot2__ [@wickham_ggplot2_2016]
-- __cheem__, an __R__ package applying the radial tour to local explanations of black-box models, including:
-    - Preprocessing; creation of a random forest model, the extraction of all observation's tree SHAP local explanation, and extraction of other statistics for display
-    - Visualization of approximations of the data- and attribution-space side-by-side with linked brushing, hover tooltips, and tabular display of selected points
-
-
 ### Knowledge
 
+- Manual tour theory
+    - Use of the Rodrigues' rotation formula to derive the rotation matrix; this was absent from the original paper and points to the means to extend the manual tour in a 3D embedding
+    - Use cases for the manual tour giving plausible support to its application
 - A user study comparing the efficacy of the radial tour against the alternatives of PCA the grand tour includes:
     - Creation of supervised classification task to assess the variable attribution to the separation of clusters performed under various levels of experimental factors: location, shape, and dimensionality
     - Definition of an accuracy measure to evaluate this task
@@ -117,6 +107,23 @@ The contributions resulting from the research to address these research question
     - Using a global view with approximation of variable space, attribution space, and model information side-by-side with linked brushing identify a primary observation of interest and optional comparison observation
     - Normalize the variable attribution from the selected observation and use this as a projection basis
     - Explore and evaluate the local explanation; by use of the radial tour we can explore the sensitivity to the structure identified checking the support the explanation holds realistic or completely unreliable
+
+
+### Software
+
+- __spinifex__, an __R__ package offering a consistent framework for performing radial tours and the rendering of any tours to various formats:
+    - Perform radial tours to explore the variable sensitivity to structure
+    - Transform of numeric variable in the data
+    - Extract various bases exposing features of the data
+    - Interoperable with tours generated with __tour__ [@wickham_tourr:_2011]
+    - Layered interface for producing tours that mirror the layered approach of __ggplot2__ [@wickham_ggplot2_2016]
+    - Interactive application and vignette help users get up to speed
+- __cheem__, an __R__ package that facilitates the exploration of local explanations of non-linear models:
+    - Preprocessing; creation of a random forest model, the extraction of all observation's tree SHAP local explanation, and extraction of other statistics for display
+    - Visualization of approximations of the data- and attribution-space side-by-side with linked brushing, hover tooltips, and tabular display of selected points
+    - Use of the radial tour explores the support of the variable contribution in agreement with the explanation
+    - Interactive application and vignette help users get up to speed
+
 
 ## Thesis structure
 

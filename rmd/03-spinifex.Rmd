@@ -445,3 +445,9 @@ This work was motivated by problems in physics, and thus the usage was illustrat
 <!-- Constraints -->
 The manual tour is constrained in the sense that the effect of one variable is dependent on the contributions of other variables in the manip space. However, this can be useful to simplify a projection by removing variables without affecting the visible structure. Defining a manual rotation in high dimensions is possible using Givens rotations and Householder reflections as outlined in @buja_computational_2005. This would provide more flexible manual rotation but more difficult for a user because they have the choice (too much choice) of which directions to move. 
 
+
+<!-- ## References -->
+
+<!-- <div id="refs"></div> -->
+
+<!-- Adds a bib section at the end of every chapter -->

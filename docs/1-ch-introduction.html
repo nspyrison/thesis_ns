@@ -198,8 +198,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.4" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:results"><i class="fa fa-check"></i><b>4.4</b> Results</a></li>
 <li class="chapter" data-level="4.5" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:conclusion"><i class="fa fa-check"></i><b>4.5</b> Conclusion</a></li>
 <li class="chapter" data-level="4.6" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:spinifex"><i class="fa fa-check"></i><b>4.6</b> Accompanying tool: radial tour application</a></li>
-<li class="chapter" data-level="4.7" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#references"><i class="fa fa-check"></i><b>4.7</b> References</a></li>
-<li class="chapter" data-level="4.8" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:appendix"><i class="fa fa-check"></i><b>4.8</b> Appendix</a></li>
+<li class="chapter" data-level="4.7" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:appendix"><i class="fa fa-check"></i><b>4.7</b> Extended analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html"><i class="fa fa-check"></i><b>5</b> Exploring Local Explanations of Non-linear Models Using Animated Linear Projections</a>
 <ul>
@@ -209,13 +208,11 @@ div.csl-indent {
 <li class="chapter" data-level="5.4" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:cheemviwer"><i class="fa fa-check"></i><b>5.4</b> The cheem viewer</a></li>
 <li class="chapter" data-level="5.5" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:casestudies"><i class="fa fa-check"></i><b>5.5</b> Case studies</a></li>
 <li class="chapter" data-level="5.6" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:cheemdiscussion"><i class="fa fa-check"></i><b>5.6</b> Discussion</a></li>
-<li class="chapter" data-level="5.7" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#references-1"><i class="fa fa-check"></i><b>5.7</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#contributions-1"><i class="fa fa-check"></i><b>6.1</b> Contributions</a></li>
-<li class="chapter" data-level="6.2" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#summary-statement"><i class="fa fa-check"></i><b>6.2</b> Summary statement</a></li>
-<li class="chapter" data-level="6.3" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#future-work"><i class="fa fa-check"></i><b>6.3</b> Future work</a></li>
+<li class="chapter" data-level="6.2" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#limitations-and-future-work"><i class="fa fa-check"></i><b>6.2</b> Limitations and future work</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><strong><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></strong></li>
@@ -240,8 +237,8 @@ div.csl-indent {
 <div id="ch-introduction" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
 <!-- Exploratory data analysis -->
-<p>Exploratory Data Analysis (EDA) is the process of the initial summarization and visualization of a dataset. This is a critical first step of checking for realistic values, finding improper data formats, and revealing insights <span class="citation">(<a href="4-ch-userstudy.html#ref-tukey_exploratory_1977" role="doc-biblioref">Tukey 1977</a>)</span>. Early and frequent data visualization is key to the data analyst’s workflow <span class="citation">(<a href="4-ch-userstudy.html#ref-wickham_r_2017" role="doc-biblioref">Hadlet Wickham and Grolemund 2017</a>)</span>.</p>
-(ref:ch1fig1-cap) Data analysis workflow <span class="citation">(<a href="4-ch-userstudy.html#ref-wickham_r_2017" role="doc-biblioref">Hadlet Wickham and Grolemund 2017</a>)</span>. This work focuses primarily on multivariate data visualization, and also facilitates transforming data and interpretation of models.
+<p>Exploratory Data Analysis (EDA) is the process of the initial summarization and visualization of a dataset. This is a critical first step of checking for realistic values, finding improper data formats, and revealing insights <span class="citation">(<a href="6-ch-conclusion.html#ref-tukey_exploratory_1977" role="doc-biblioref">Tukey 1977</a>)</span>. Early and frequent data visualization is key to the data analyst’s workflow <span class="citation">(<a href="6-ch-conclusion.html#ref-wickham_r_2017" role="doc-biblioref">Hadlet Wickham and Grolemund 2017</a>)</span>.</p>
+(ref:ch1fig1-cap) Data analysis workflow <span class="citation">(<a href="6-ch-conclusion.html#ref-wickham_r_2017" role="doc-biblioref">Hadlet Wickham and Grolemund 2017</a>)</span>. This work focuses primarily on multivariate data visualization, and also facilitates transforming data and interpretation of models.
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch1fig1"></span>
 <img src="figures/ch1_fig1_data_analysis_workflow.PNG" alt="(ref:ch1fig1-cap)" width="100%"  />
 <p class="caption">
@@ -251,8 +248,8 @@ Figure 1.1: (ref:ch1fig1-cap)
 <!-- Dimensionality increases, making data viz hard -->
 <p>As modern datasets grow in complexity, the use of multivariate data becomes more ubiquitous. As the number of variables in the data increases, so to does the difficulty in conveying the information they contain. The number of observations in the data matters though overly dense points can alleviated by decreasing opacity of points or changing the geometric display to an aggregated heatmap or 2D density contours. This thesis hings on the visualization of multivariate data, central to this iterated workflow. The titanic dataset is a common starting dataset for machine leaning and contains nine variables. Sports and house sale datasets are also common and contain dozens of variables. It is important to extend the use of data visualization even with the added complexity of many variables.</p>
 <!-- Linear projections -->
-<p>Linear projections use a linear combinations of variables to define a new component. The components can contain signal from multiple variables at once, make a good step at extending the visuals as dimensionality increases. These component linear combinations can be thought of an a reorientation of the origin basis. One example of linear projections is that of Principal Component Analysis <span class="citation">(PCA, <a href="4-ch-userstudy.html#ref-pearson_liii._1901" role="doc-biblioref">Pearson 1901</a>)</span> which creates a component space ordered by descending amount of variation. It uses eigenvalue decomposition to identify the basis reorientation. These components are typically viewed as discrete orthogonal pairs. Where the data space is commonly approximated in fewer components. The basis of linear projections is common illustrated with a biplot <span class="citation">(<a href="4-ch-userstudy.html#ref-gabriel_biplot_1971" role="doc-biblioref">Gabriel 1971</a>)</span>. The biplot expresses the magnitude and angle each variable contributes to the resulting display dimensions.</p>
-(ref:ch1fig2-cap) Palmer Penguin data <span class="citation">(<a href="4-ch-userstudy.html#ref-gorman_ecological_2014" role="doc-biblioref">Gorman, Williams, and Fraser 2014</a>; <a href="4-ch-userstudy.html#ref-horst_palmerpenguins_2020" role="doc-biblioref">Horst, Hill, and Gorman 2020</a>)</span>, three species of penguins measured across four physical variables. These are two projections of 4D variable space. The basis orientation, is illustrated with a biplot. Separation of the species clusters is the structure of interest. Some orientations of the data do not show identify cluster separation while others will.
+<p>Linear projections use a linear combinations of variables to define a new component. The components can contain signal from multiple variables at once, make a good step at extending the visuals as dimensionality increases. These component linear combinations can be thought of an a reorientation of the origin basis. One example of linear projections is that of Principal Component Analysis <span class="citation">(PCA, <a href="6-ch-conclusion.html#ref-pearson_liii._1901" role="doc-biblioref">Pearson 1901</a>)</span> which creates a component space ordered by descending amount of variation. It uses eigenvalue decomposition to identify the basis reorientation. These components are typically viewed as discrete orthogonal pairs. Where the data space is commonly approximated in fewer components. The basis of linear projections is common illustrated with a biplot <span class="citation">(<a href="6-ch-conclusion.html#ref-gabriel_biplot_1971" role="doc-biblioref">Gabriel 1971</a>)</span>. The biplot expresses the magnitude and angle each variable contributes to the resulting display dimensions.</p>
+(ref:ch1fig2-cap) Palmer Penguin data <span class="citation">(<a href="6-ch-conclusion.html#ref-gorman_ecological_2014" role="doc-biblioref">Gorman, Williams, and Fraser 2014</a>; <a href="6-ch-conclusion.html#ref-horst_palmerpenguins_2020" role="doc-biblioref">Horst, Hill, and Gorman 2020</a>)</span>, three species of penguins measured across four physical variables. These are two projections of 4D variable space. The basis orientation, is illustrated with a biplot. Separation of the species clusters is the structure of interest. Some orientations of the data do not show identify cluster separation while others will.
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch1fig2"></span>
 <img src="figures/ch1_fig2_penguin_cl_sep.png" alt="(ref:ch1fig2-cap)" width="100%"  />
 <p class="caption">
@@ -260,7 +257,7 @@ Figure 1.2: (ref:ch1fig2-cap)
 </p>
 </div>
 <!-- Tours, animated linear projections -->
-<p>A data visualization <em>tour</em> <span class="citation">(<a href="4-ch-userstudy.html#ref-cook_grand_2008" role="doc-biblioref">Cook et al. 2008</a>; <a href="4-ch-userstudy.html#ref-lee_state_2021" role="doc-biblioref">S. Lee et al. 2021</a>)</span> is a class of linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower-dimensional space in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the permanence and tractability of the points through many frames. In the shadow analogy, an object such as a barstool, may cast a circular shadow that could come from any number of shapes. However, if the stool was rotated, its legs would show in the shadow quickly giving an intuitive interpretation of the object. Similarly, looking at a data object over the rotation of its variables yields information about its structure. The permanence of observations between frames aided interaction such as linked brushing should plausibly convey more information than static orthogonal views. Chapter <a href="2-ch-background.html#ch-background">2</a> walks through some of the previous alternatives, and why we ultimately continue with this class of animated linear dimension reduction.</p>
+<p>A data visualization <em>tour</em> <span class="citation">(<a href="6-ch-conclusion.html#ref-cook_grand_2008" role="doc-biblioref">Cook et al. 2008</a>; <a href="6-ch-conclusion.html#ref-lee_state_2021" role="doc-biblioref">S. Lee et al. 2021</a>)</span> is a class of linear projections that animate small changes to the projection basis. Intuitively, they show a projection of the data object down to lower-dimensional space in the same way that a 3D object casts a 2D shadow. A key feature of the tour is the permanence and tractability of the points through many frames. In the shadow analogy, an object such as a barstool, may cast a circular shadow that could come from any number of shapes. However, if the stool was rotated, its legs would show in the shadow quickly giving an intuitive interpretation of the object. Similarly, looking at a data object over the rotation of its variables yields information about its structure. The permanence of observations between frames aided interaction such as linked brushing should plausibly convey more information than static orthogonal views. Chapter <a href="2-ch-background.html#ch-background">2</a> walks through some of the previous alternatives, and why we ultimately continue with this class of animated linear dimension reduction.</p>
 (ref:ch1fig3-cap) Frames of a grand tour of Palmer Penguin data. Tours animates linear projections over small changes in the basis. In a grand tour target frames are selected randomly.
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch1fig3"></span>
 <img src="figures/ch1_fig3_penguin_grandtour.png" alt="(ref:ch1fig3-cap)" width="100%"  />
@@ -269,7 +266,7 @@ Figure 1.3: (ref:ch1fig3-cap)
 </p>
 </div>
 <!-- Manual tour -->
-<p>Component spaces and the grand tour optimize for specific objectives and selected randomly. None of the previous methods allow an analyst to control the contributions of variables to the basis. This is a crucial component for <em>human-in-the-loop</em> analysis <span class="citation">(<a href="4-ch-userstudy.html#ref-karwowski_international_2006" role="doc-biblioref">Karwowski 2006</a>)</span>. If the analyst wants to explore what would happen to the structure if one variable were removed or the contribution of another was increased, they had no way to do so. <span class="citation"><a href="4-ch-userstudy.html#ref-cook_manual_1997" role="doc-biblioref">Cook and Buja</a> (<a href="4-ch-userstudy.html#ref-cook_manual_1997" role="doc-biblioref">1997</a>)</span> introduces the <em>manual tour</em> offering means for user control over a basis. By selecting a variable and initializing an additional manipulation dimension to an embedding the contribution of the variable can be controlled. The manual tour can control the angle and magnitude that the variable contributes though the latter is generally more meaningful angular manipulations are effectively rotating the projection which changes the relative position but the not fundamentally what information is shown. Because of this distinction this work mostly focuses on the a specific manual tour, the <em>radial tour</em> where the angle of the manipulation variable is fixed and the magnitude is varies the radius in the original direction.</p>
+<p>Component spaces and the grand tour optimize for specific objectives and selected randomly. None of the previous methods allow an analyst to control the contributions of variables to the basis. This is a crucial component for <em>human-in-the-loop</em> analysis <span class="citation">(<a href="6-ch-conclusion.html#ref-karwowski_international_2006" role="doc-biblioref">Karwowski 2006</a>)</span>. If the analyst wants to explore what would happen to the structure if one variable were removed or the contribution of another was increased, they had no way to do so. <span class="citation"><a href="6-ch-conclusion.html#ref-cook_manual_1997" role="doc-biblioref">Cook and Buja</a> (<a href="6-ch-conclusion.html#ref-cook_manual_1997" role="doc-biblioref">1997</a>)</span> introduces the <em>manual tour</em> offering means for user control over a basis. By selecting a variable and initializing an additional manipulation dimension to an embedding the contribution of the variable can be controlled. The manual tour can control the angle and magnitude that the variable contributes though the latter is generally more meaningful angular manipulations are effectively rotating the projection which changes the relative position but the not fundamentally what information is shown. Because of this distinction this work mostly focuses on the a specific manual tour, the <em>radial tour</em> where the angle of the manipulation variable is fixed and the magnitude is varies the radius in the original direction.</p>
 (ref:ch1fig4-cap) Frames of a radial, manual tour of Palmer Penguin data manipulating the contribution of bill length (<code>b_l</code>). When bill length has a large contribution to the frame the orange and green species clusters are separated. When its contribution is small the clusters overlap. Because of this we say that bill length is sensitive to the separation of these two variables.
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch1fig4"></span>
 <img src="figures/ch1_fig4_penguin_manualtour.png" alt="(ref:ch1fig4-cap)" width="100%"  />
@@ -301,8 +298,8 @@ The tension from the trade-off between accuracy and interpretability of black-bo
 </div>
 <div id="methodology" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Methodology</h2>
-<p>The research corresponding with RQ 1 entails <em>algorithm/software design</em> adapting the algorithm from <span class="citation"><a href="4-ch-userstudy.html#ref-cook_manual_1997" role="doc-biblioref">Cook and Buja</a> (<a href="4-ch-userstudy.html#ref-cook_manual_1997" role="doc-biblioref">1997</a>)</span>. This allows for interactive control of 2D projections and serves as a foundation for the remaining work.</p>
-<p>To address RQ 2, a controlled <em>experimental study</em> has explored the efficacy of interactive radial tours as compared with two benchmark methods: PCA and the grand tour <span class="citation">(<a href="4-ch-userstudy.html#ref-asimov_grand_1985" role="doc-biblioref">Asimov 1985</a>)</span>.
+<p>The research corresponding with RQ 1 entails <em>algorithm/software design</em> adapting the algorithm from <span class="citation"><a href="6-ch-conclusion.html#ref-cook_manual_1997" role="doc-biblioref">Cook and Buja</a> (<a href="6-ch-conclusion.html#ref-cook_manual_1997" role="doc-biblioref">1997</a>)</span>. This allows for interactive control of 2D projections and serves as a foundation for the remaining work.</p>
+<p>To address RQ 2, a controlled <em>experimental study</em> has explored the efficacy of interactive radial tours as compared with two benchmark methods: PCA and the grand tour <span class="citation">(<a href="6-ch-conclusion.html#ref-asimov_grand_1985" role="doc-biblioref">Asimov 1985</a>)</span>.
 <!--<<KM strikthrough, Jan 20>> This was a within-participant user study where each participant experienced each visual. Trials were balanced across three other experimental factors: the location of the signal, the shape of the cluster distributions, and the dimensionality of the data. Ethics approval was obtained for this work. The approval and disclosure forms are available at the project repository: https://github.com/nspyrison/spinifex_study/tree/master/ethics. --></p>
 <p>The research for RQ #3 involves <em>design science</em>. A local explanation is an approximation of the linear variable importance in the vicinity of one observation. Our design must accommodate the selection of observations to explore and the then performing radial tours on the</p>
 <p>This SHAP value will also serve as the 1D basis for the radial tour. While using SHAP as a projection basis is novel, it is not particularly insightful, we use the radial tour to change variable contributions. We also provide linkage information, the within-class distributions of the SHAP components as parallel coordinate marks on the basis. We also offer a global view and related statistics to map to color to aid in exploring the sensitivity of the SHAP-space relative to the sensitivity of the original data space.</p>
@@ -310,27 +307,14 @@ The tension from the trade-off between accuracy and interpretability of black-bo
 <div id="contributions" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Contributions</h2>
 <p>The contributions resulting from the research to address these research questions can be split into software and knowledge contributions:</p>
-<div id="software" class="section level3" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> Software</h3>
+<div id="knowledge" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Knowledge</h3>
 <ul>
-<li><strong>spinifex</strong>, an <strong>R</strong> package offering a consistent framework for performing radial tours and the rendering of any tours to various formats:
+<li>Manual tour theory
 <ul>
-<li>Perform radial tours to explore the variable sensitivity to structure</li>
-<li>Transform of numeric variable in the data</li>
-<li>Extract various bases exposing features of the data</li>
-<li>Interoperable with tours generated with <strong>tour</strong> <span class="citation">(<a href="4-ch-userstudy.html#ref-wickham_tourr:_2011" role="doc-biblioref">Hadley Wickham et al. 2011</a>)</span></li>
-<li>Layered interface for producing tours that mirror the layered approach of <strong>ggplot2</strong> <span class="citation">(<a href="4-ch-userstudy.html#ref-wickham_ggplot2_2016" role="doc-biblioref">Hadley Wickham 2016</a>)</span></li>
+<li>Use of the Rodrigues’ rotation formula to derive the rotation matrix; this was absent from the original paper and points to the means to extend the manual tour in a 3D embedding</li>
+<li>Use cases for the manual tour giving plausible support to its application</li>
 </ul></li>
-<li><strong>cheem</strong>, an <strong>R</strong> package applying the radial tour to local explanations of black-box models, including:
-<ul>
-<li>Preprocessing; creation of a random forest model, the extraction of all observation’s tree SHAP local explanation, and extraction of other statistics for display</li>
-<li>Visualization of approximations of the data- and attribution-space side-by-side with linked brushing, hover tooltips, and tabular display of selected points</li>
-</ul></li>
-</ul>
-</div>
-<div id="knowledge" class="section level3" number="1.3.2">
-<h3><span class="header-section-number">1.3.2</span> Knowledge</h3>
-<ul>
 <li>A user study comparing the efficacy of the radial tour against the alternatives of PCA the grand tour includes:
 <ul>
 <li>Creation of supervised classification task to assess the variable attribution to the separation of clusters performed under various levels of experimental factors: location, shape, and dimensionality</li>
@@ -344,6 +328,27 @@ The tension from the trade-off between accuracy and interpretability of black-bo
 <li>Using a global view with approximation of variable space, attribution space, and model information side-by-side with linked brushing identify a primary observation of interest and optional comparison observation</li>
 <li>Normalize the variable attribution from the selected observation and use this as a projection basis</li>
 <li>Explore and evaluate the local explanation; by use of the radial tour we can explore the sensitivity to the structure identified checking the support the explanation holds realistic or completely unreliable</li>
+</ul></li>
+</ul>
+</div>
+<div id="software" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Software</h3>
+<ul>
+<li><strong>spinifex</strong>, an <strong>R</strong> package offering a consistent framework for performing radial tours and the rendering of any tours to various formats:
+<ul>
+<li>Perform radial tours to explore the variable sensitivity to structure</li>
+<li>Transform of numeric variable in the data</li>
+<li>Extract various bases exposing features of the data</li>
+<li>Interoperable with tours generated with <strong>tour</strong> <span class="citation">(<a href="6-ch-conclusion.html#ref-wickham_tourr:_2011" role="doc-biblioref">Hadley Wickham et al. 2011</a>)</span></li>
+<li>Layered interface for producing tours that mirror the layered approach of <strong>ggplot2</strong> <span class="citation">(<a href="6-ch-conclusion.html#ref-wickham_ggplot2_2016" role="doc-biblioref">Hadley Wickham 2016</a>)</span></li>
+<li>Interactive application and vignette help users get up to speed</li>
+</ul></li>
+<li><strong>cheem</strong>, an <strong>R</strong> package that facilitates the exploration of local explanations of non-linear models:
+<ul>
+<li>Preprocessing; creation of a random forest model, the extraction of all observation’s tree SHAP local explanation, and extraction of other statistics for display</li>
+<li>Visualization of approximations of the data- and attribution-space side-by-side with linked brushing, hover tooltips, and tabular display of selected points</li>
+<li>Use of the radial tour explores the support of the variable contribution in agreement with the explanation</li>
+<li>Interactive application and vignette help users get up to speed</li>
 </ul></li>
 </ul>
 </div>

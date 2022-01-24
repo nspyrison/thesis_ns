@@ -339,9 +339,6 @@ Data visualization is an integral part of EDA. Yet through exploration of data i
 <!-- Recap study -->
 This chapter discussed a with-in participant user study ($n=108$) comparing the efficacy of three linear projection techniques. The participants performed a supervised cluster task, explicitly identifying which variables contribute to separating two target clusters. This was evaluated evenly over four experimental factors. In summary, we find strong evidence that using the radial tour leads to a sizable accuracy increase. In the appendix we find evidence for a small change in response time, with PCA being fastest, then the grand tour followed by the radial tour. The effect sizes on accuracy are large relative to the change from the other experimental factors, though smaller than the random effect of the participant. The radial tour was subjectively preferred, leading to more confidence in answers, and increased ease of use than the alternatives.
 
-<!-- Discussion and going further -->
-There are several ways that this study could be extended. In addition to expanding the support of the experimental factors, more exciting directions include: changing the type of the task, visualizations used, and experience level of the target population. It is difficult to achieve good coverage given the number of possible permutations. Keep in mind the traffic volume and low effort of responses from participants when crowdsourcing.
-
 
 ## Accompanying tool: radial tour application {#sec:spinifex}
 
@@ -354,16 +351,24 @@ install.packages("spinifex", dependencies = TRUE)
 spinifex::run_app()
 ```
 
+```{r ch4zappfig4, out.width="100%", fig.show="asis", fig.cap = "Process data tab, interactively loads or select data, check which variables to project, and optionally scale columns by standard deviation."}
+nsSafeIncGraphic("./figures/ch4_zapp_fig4_app_pg1.PNG")
+```
 
-## References
+In the initial tab, users upload their own (.csv, .rds, or .rda) data or select from predefined data sets. The numeric columns appear as a list of variables to include in the projection. Below that, a line displays whether or not missing rows were removed. Scaling by standard deviation is included by default, as this is a common transformation used to explore linear projections of spaces. Summaries of the raw data and processed numeric data are displayed to illustrate how the data was read and its transformation.
 
-<div id="refs"></div>
-<!-- XXX: TODO: this is not working; returns 00, no citations here or after appendix. -->
+```{r ch4zappfig5, out.width="100%", fig.show="asis", fig.cap = "Radial tour tab, interactively create radial tours, changing the manipulation variable, and color or shape of the resulting manual tour. Here, the palmer penguins data is being explored, bill length was selected to manipulate as it is the only variable separating the green cluster from the orange. By mapping shape to island of observation, we also notice that the species in green live on all three islands, while the other species live only on one of the islands."}
+nsSafeIncGraphic("./figures/ch4_zapp_fig5_app_pg2.PNG")
+```
+
+The second tab contains interaction for selecting the manipulation variable and non-numeric columns can be used to change the color and shape of the data points in the projection. The radial tour is created in real-time, animated as an interactive __plotly__ .html widget. The application offers users a fast, intuitive introduction elucidating what the radial tour does and some of the features offered.
 
 
-<!-- XXX: TODO, Turn into thesis appedix or change to extended analysis -->
 
-## Appendix {#sec:appendix}
+## Extended analysis {#sec:appendix}
+
+This section covers peripheral and extended analysis. First we explore the demographics of the participants. Then we extend a parallel modeling analysis on log response time. Lastly, we look at the effect ranges and marginal effects of the random effect of the participants and data simulation. 
+
 
 ### Survey participant demographics {-}
 
@@ -403,8 +408,11 @@ kableExtra::kbl(
 
 ### Random effect ranges {-}
 
+<!-- Random effect terms specify source of the error -->
+The random effect terms further clarify the source of the error. Below we compare the effect ranges that can be attributed to the participant and to the simulations next to their marginal effect on the response, a sort of upper bound for the error they could explain. We look at the original accuracy model and then the model regressing log response time.
+
 <!-- Random effects vs Mean Mark CI by participant and sim -->
-Residual plots have no noticeable non-linear trends and contain striped patterns as an artifact from regressing on discrete variables. Figure \@ref(fig:ch4zappfig2) illustrates (T) the effect size of the random terms participant and simulation, or more accurately, the 95\% CI from Gelman simulation of their posterior distribution. The effect size of the participant is much larger than simulation. The most extreme participants are statistically significant at $\alpha = .95$, while none of the simulation effects significantly deviate from the null of having no effect size on the marks. In comparison, (B) 95\% confidence intervals participation and simulation mean accuracy, respectively.
+The residual plots have no noticeable non-linear trends and contain striped patterns as an artifact from regressing on discrete variables. Figure \@ref(fig:ch4zappfig2) illustrates (T) the effect size of the random terms participant and simulation, or more accurately, the 95\% CI from Gelman simulation of their posterior distribution. The effect size of the participant is much larger than simulation. The most extreme participants are statistically significant at $\alpha = .95$, while none of the simulation effects significantly deviate from the null of having no effect size on the marks. In comparison, (B) 95\% confidence intervals participation and simulation mean accuracy, respectively.
 
 ```{r ch4zappfig2, out.width="100%", fig.show="asis", fig.cap="Accuracy model: (T) Estimated effect ranges of the random effect terms participant and data simulation of the accuracy model, $\\widehat{Y_1} = \\alpha \\cdot \\beta + \\gamma + \\delta$. Confidence intervals are created with Gelman simulation on the effect posterior distributions. The effect size of the participant is relatively large, with several significant extrema. None of the simulations deviate significantly. (B) The ordered distributions of the CI of mean marks follow the same general pattern and give the additional context of how much variation is in the data, an upper limit to the effect range. The effect ranges capture about two-thirds of the range of the data without the model. All intervals for $\\alpha = .95$ confidence."}
 nsSafeIncGraphic("./figures/ch4_zapp_fig2_effect_range.pdf")
@@ -416,21 +424,9 @@ Similarly, figure \@ref(fig:ch4zappfig3) shows the Gelman simulations and margin
 nsSafeIncGraphic("./figures/ch4_zapp_fig3_T_effect_range.pdf")
 ```
 
-### Radial tour application details {-}
 
-Below we describe the __shiny__ app available in the __spinifex__ package which runs locally. It streamlines creating and interacting with radial tours more interactive than the application used in the user study.
+<!-- ## References -->
 
-```{r ch4zappfig4, out.width="100%", fig.show="asis", fig.cap = "Process data tab, interactively loads or select data, check which variables to project, and optionally scale columns by standard deviation."}
-nsSafeIncGraphic("./figures/ch4_zapp_fig4_app_pg1.PNG")
-```
+<!-- <div id="refs"></div> -->
 
-In the initial tab, users upload their own (.csv, .rds, or .rda) data or select from predefined data sets. The numeric columns appear as a list of variables to include in the projection. Below that, a line displays whether or not missing rows were removed. Scaling by standard deviation is included by default, as this is a common transformation used to explore linear projections of spaces. Summaries of the raw data and processed numeric data are displayed to illustrate how the data was read and its transformation.
-
-```{r ch4zappfig5, out.width="100%", fig.show="asis", fig.cap = "Radial tour tab, interactively create radial tours, changing the manipulation variable, and color or shape of the resulting manual tour. Here, the palmer penguins data is being explored, bill length was selected to manipulate as it is the only variable separating the green cluster from the orange. By mapping shape to island of observation, we also notice that the species in green live on all three islands, while the other species live only on one of the islands."}
-nsSafeIncGraphic("./figures/ch4_zapp_fig5_app_pg2.PNG")
-```
-
-The second tab contains interaction for selecting the manipulation variable and non-numeric columns can be used to change the color and shape of the data points in the projection. The radial tour is created in real-time, animated as an interactive __plotly__ .html widget. The application offers users a fast, intuitive introduction elucidating what the radial tour does and some of the features offered.
-
-
-<!-- References were included above and not here -->
+<!-- Adds a bib section at the end of every chapter -->

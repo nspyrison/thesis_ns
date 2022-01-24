@@ -6,7 +6,7 @@ knit: "bookdown::render_book"
 # Exploring Local Explanations of Non-linear Models Using Animated Linear Projections {#ch-cheem}
 
 <!-- Segue -->
-In the previous chapter I perform a within-participants user study. Now we can be more confident that the radial tour leads to better analysis of variable-level attribution to features identified in a projection. We want to increase the interpretability of complex models. Specifically, I suggest a using the radial tour to explore variable sensitivity to the structure identified in linear local explanations of non-linear models.
+In the previous chapter I perform a within-participants user study. Now we can be more confident that the radial tour leads to better analysis of variable-level attribution to features identified in a projection. We want to increase the interpretability of complex models. Specifically, I investigate using the radial tour to explore variable sensitivity to the structure identified in linear local explanations of non-linear models. That is under what support of variable importance does an explanation make sense, and when does it fail to be supported by the data. This can provide insight into why an observation is misclassified or otherwise has an extreme residual. We can also test how susceptible a variable's contribution is to discerning the predictions of two observations.
 
 <!-- Abstract -->
 The increased predictive power comes at the cost of interpretability, which has led to the emergence of eXplainable AI (XAI). XAI attempts to shed light on how models use predictors to arrive at a prediction with a point estimate of the linear feature importance in the vicinity of each instance. These can be considered linear projections and can be further explored interactively to understand better the interaction between features used to make predictions across the predictive model surface. Here we describe interactive linear interpolation used for exploration at any instance and illustrate with examples with categorical (penguin species, chocolate types) and quantitative (football salaries, house prices) response features. The methods are implemented in the __R__ package __cheem__, available on CRAN.
@@ -270,6 +270,8 @@ The need to maintain the interpretability of black-box models is evident. One as
 We have illustrated this method on random forest models using the tree SHAP local explanation, while it could be generally used with any compatible model-explanation pairing. We apply it to the classification and regression tasks. We have created an open-source __R__ package __cheem__, available on [CRAN](https://CRAN.R-project.org/package=cheem), to facilitate preprocessing and exploration with the described interactive application. Toy and real data are provided, or upload your data after preprocessing.
 
 
-## References
+<!-- ## References -->
+
+<!-- <div id="refs"></div> -->
 
 <!-- Adds a bib section at the end of every chapter -->

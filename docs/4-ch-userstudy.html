@@ -198,8 +198,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.4" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:results"><i class="fa fa-check"></i><b>4.4</b> Results</a></li>
 <li class="chapter" data-level="4.5" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:conclusion"><i class="fa fa-check"></i><b>4.5</b> Conclusion</a></li>
 <li class="chapter" data-level="4.6" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:spinifex"><i class="fa fa-check"></i><b>4.6</b> Accompanying tool: radial tour application</a></li>
-<li class="chapter" data-level="4.7" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#references"><i class="fa fa-check"></i><b>4.7</b> References</a></li>
-<li class="chapter" data-level="4.8" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:appendix"><i class="fa fa-check"></i><b>4.8</b> Appendix</a></li>
+<li class="chapter" data-level="4.7" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:appendix"><i class="fa fa-check"></i><b>4.7</b> Extended analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html"><i class="fa fa-check"></i><b>5</b> Exploring Local Explanations of Non-linear Models Using Animated Linear Projections</a>
 <ul>
@@ -209,13 +208,11 @@ div.csl-indent {
 <li class="chapter" data-level="5.4" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:cheemviwer"><i class="fa fa-check"></i><b>5.4</b> The cheem viewer</a></li>
 <li class="chapter" data-level="5.5" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:casestudies"><i class="fa fa-check"></i><b>5.5</b> Case studies</a></li>
 <li class="chapter" data-level="5.6" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:cheemdiscussion"><i class="fa fa-check"></i><b>5.6</b> Discussion</a></li>
-<li class="chapter" data-level="5.7" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#references-1"><i class="fa fa-check"></i><b>5.7</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#contributions-1"><i class="fa fa-check"></i><b>6.1</b> Contributions</a></li>
-<li class="chapter" data-level="6.2" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#summary-statement"><i class="fa fa-check"></i><b>6.2</b> Summary statement</a></li>
-<li class="chapter" data-level="6.3" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#future-work"><i class="fa fa-check"></i><b>6.3</b> Future work</a></li>
+<li class="chapter" data-level="6.2" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#limitations-and-future-work"><i class="fa fa-check"></i><b>6.2</b> Limitations and future work</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><strong><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></strong></li>
@@ -246,12 +243,12 @@ div.csl-indent {
 <div id="introduction-1" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Introduction</h2>
 <!-- Context and motivation; multivariate spaces and EDA -->
-<p>Despite decades of research multivariate data continues to provide fascinating challenges for visualization. It is important because data visualization is an key element of exploratory data analysis, <span class="citation">(EDA, <a href="4-ch-userstudy.html#ref-tukey_exploratory_1977" role="doc-biblioref">Tukey 1977</a>)</span>, assessing model assumptions and diagnosing the fit, and as a cross-check on numerical summarization <span class="citation">(<a href="4-ch-userstudy.html#ref-anscombe_graphs_1973" role="doc-biblioref">Anscombe 1973</a>; <a href="4-ch-userstudy.html#ref-matejka_same_2017" role="doc-biblioref">Matejka and Fitzmaurice 2017</a>; <a href="4-ch-userstudy.html#ref-yanai_hypothesis_2020" role="doc-biblioref">Yanai and Lercher 2020</a>)</span>. One of the challenges is determining whether a new technique yields better perception of information than current practices, for multivariate data.</p>
+<p>Despite decades of research multivariate data continues to provide fascinating challenges for visualization. It is important because data visualization is an key element of exploratory data analysis, <span class="citation">(EDA, <a href="6-ch-conclusion.html#ref-tukey_exploratory_1977" role="doc-biblioref">Tukey 1977</a>)</span>, assessing model assumptions and diagnosing the fit, and as a cross-check on numerical summarization <span class="citation">(<a href="6-ch-conclusion.html#ref-anscombe_graphs_1973" role="doc-biblioref">Anscombe 1973</a>; <a href="6-ch-conclusion.html#ref-matejka_same_2017" role="doc-biblioref">Matejka and Fitzmaurice 2017</a>; <a href="6-ch-conclusion.html#ref-yanai_hypothesis_2020" role="doc-biblioref">Yanai and Lercher 2020</a>)</span>. One of the challenges is determining whether a new technique yields better perception of information than current practices, for multivariate data.</p>
 <!-- Common options; few principal components -->
-<p>Dimension reduction is commonly used with visualization to provide informative low-dimensional summaries of multivariate data. (Note that this is usually only appropriate when all variables are quantitative.) Principal component analysis <span class="citation">(PCA, <a href="4-ch-userstudy.html#ref-pearson_liii._1901" role="doc-biblioref">Pearson 1901</a>)</span> is one of the first methods developed and it remains very popular. Visualization of PCA is typically in the form static scatterplots of a few of the leading components. This is usually accompanied by a representation of the original variables contribution to to the principal components, using a biplot <span class="citation">(<a href="4-ch-userstudy.html#ref-gabriel_biplot_1971" role="doc-biblioref">Gabriel 1971</a>)</span>.</p>
-<p>The class of dynamic linear projections known as <em>tours</em> <span class="citation">(<a href="4-ch-userstudy.html#ref-asimov_grand_1985" role="doc-biblioref">Asimov 1985</a>)</span>, shown as scatterplots or biplots, can be used to animate multiple principal components. Instead of a static view of two orthogonal components, interpolations between multiple components can be viewed. Asimov originally animated between randomly selected bases (which could be considered combinations of components) in the <em>grand</em> tour. The <em>manual</em> tour <span class="citation">(<a href="4-ch-userstudy.html#ref-cook_manual_1997" role="doc-biblioref">Cook and Buja 1997</a>)</span> uniquely allows for user-control over the basis changes. A selected variable (or component) can be rotated to the desired contribution. A radial tour <span class="citation">(<a href="4-ch-userstudy.html#ref-spyrison_spinifex_2020" role="doc-biblioref">Spyrison and Cook 2020</a>)</span> is a special version of the manual tour, available in the R package <code>spinifex</code>. The permanence of the data points from frame to frame and information held in intermediate interpolated frames or user-control of the basis could plausibly lead to more information perception than a static display. This is a hypothesis that could be assessed by a user study.</p>
+<p>Dimension reduction is commonly used with visualization to provide informative low-dimensional summaries of multivariate data. (Note that this is usually only appropriate when all variables are quantitative.) Principal component analysis <span class="citation">(PCA, <a href="6-ch-conclusion.html#ref-pearson_liii._1901" role="doc-biblioref">Pearson 1901</a>)</span> is one of the first methods developed and it remains very popular. Visualization of PCA is typically in the form static scatterplots of a few of the leading components. This is usually accompanied by a representation of the original variables contribution to to the principal components, using a biplot <span class="citation">(<a href="6-ch-conclusion.html#ref-gabriel_biplot_1971" role="doc-biblioref">Gabriel 1971</a>)</span>.</p>
+<p>The class of dynamic linear projections known as <em>tours</em> <span class="citation">(<a href="6-ch-conclusion.html#ref-asimov_grand_1985" role="doc-biblioref">Asimov 1985</a>)</span>, shown as scatterplots or biplots, can be used to animate multiple principal components. Instead of a static view of two orthogonal components, interpolations between multiple components can be viewed. Asimov originally animated between randomly selected bases (which could be considered combinations of components) in the <em>grand</em> tour. The <em>manual</em> tour <span class="citation">(<a href="6-ch-conclusion.html#ref-cook_manual_1997" role="doc-biblioref">Cook and Buja 1997</a>)</span> uniquely allows for user-control over the basis changes. A selected variable (or component) can be rotated to the desired contribution. A radial tour <span class="citation">(<a href="6-ch-conclusion.html#ref-spyrison_spinifex_2020" role="doc-biblioref">Spyrison and Cook 2020</a>)</span> is a special version of the manual tour, available in the R package <code>spinifex</code>. The permanence of the data points from frame to frame and information held in intermediate interpolated frames or user-control of the basis could plausibly lead to more information perception than a static display. This is a hypothesis that could be assessed by a user study.</p>
 <!-- Related studies & research gap -->
-<p>There have been several user studies comparing scatterplots of dimension-reduced spaces across 2D and 3D scatterplots on traditional 2D monitors <span class="citation">(<a href="4-ch-userstudy.html#ref-gracia_new_2016" role="doc-biblioref">Gracia et al. 2016</a>; <a href="4-ch-userstudy.html#ref-wagner_filho_immersive_2018" role="doc-biblioref">Wagner Filho et al. 2018</a>)</span>. There are also empirical statistics used to describe non-linear reduction and how well and faithfully they embed the data in a lower space <span class="citation">(<a href="4-ch-userstudy.html#ref-bertini_quality_2011" role="doc-biblioref">Bertini, Tatu, and Keim 2011</a>; <a href="4-ch-userstudy.html#ref-liu_visualizing_2017" role="doc-biblioref">Liu et al. 2017</a>; <a href="4-ch-userstudy.html#ref-sedlmair_empirical_2013" role="doc-biblioref">Sedlmair, Munzner, and Tory 2013</a>; <a href="4-ch-userstudy.html#ref-van_der_maaten_visualizing_2008" role="doc-biblioref">Maaten and Hinton 2008</a>)</span>. <span class="citation"><a href="4-ch-userstudy.html#ref-nelson_xgobi_1999" role="doc-biblioref">Nelson, Cook, and Cruz-Neira</a> (<a href="4-ch-userstudy.html#ref-nelson_xgobi_1999" role="doc-biblioref">1998</a>)</span> even compared 2D with 3D scatterplots for detecting clusters, and dependence, in multivariate data. However, there is an absence of studies comparing different visual techniques.</p>
+<p>There have been several user studies comparing scatterplots of dimension-reduced spaces across 2D and 3D scatterplots on traditional 2D monitors <span class="citation">(<a href="6-ch-conclusion.html#ref-gracia_new_2016" role="doc-biblioref">Gracia et al. 2016</a>; <a href="6-ch-conclusion.html#ref-wagner_filho_immersive_2018" role="doc-biblioref">Wagner Filho et al. 2018</a>)</span>. There are also empirical statistics used to describe non-linear reduction and how well and faithfully they embed the data in a lower space <span class="citation">(<a href="6-ch-conclusion.html#ref-bertini_quality_2011" role="doc-biblioref">Bertini, Tatu, and Keim 2011</a>; <a href="6-ch-conclusion.html#ref-liu_visualizing_2017" role="doc-biblioref">Liu et al. 2017</a>; <a href="6-ch-conclusion.html#ref-sedlmair_empirical_2013" role="doc-biblioref">Sedlmair, Munzner, and Tory 2013</a>; <a href="6-ch-conclusion.html#ref-van_der_maaten_visualizing_2008" role="doc-biblioref">Maaten and Hinton 2008</a>)</span>. <span class="citation"><a href="6-ch-conclusion.html#ref-nelson_xgobi_1999" role="doc-biblioref">Nelson, Cook, and Cruz-Neira</a> (<a href="6-ch-conclusion.html#ref-nelson_xgobi_1999" role="doc-biblioref">1998</a>)</span> even compared 2D with 3D scatterplots for detecting clusters, and dependence, in multivariate data. However, there is an absence of studies comparing different visual techniques.</p>
 <!-- Overview of the study -->
 <p>We are particularly interested in assessing the effectiveness of the new radial tour relative to common practice with PCA, and relative to a grand tour. The radial tour is particularly useful for understanding variable importance relative to structure visible in a scatterplot. If the contribution of a variable is reduced and the structure disappears, then that variable makes an important role in the presence of that structure in the data. For example, if in the scatterplot cluster can be seen, but them gap between them is reduced when a variable is removed it means that the clustering is due, at least partially, to that variable. Understanding which variables are important is a key aspect of interpretability of models. <!-- TOO EARLY TO GO INTO THIS DETAIL Cluster data is simulated under several additional experimental factors: location, shape, and dimensionality. We task participants with identifying the variables attributing to the separation between two clusters. We define an accuracy measure for this task. Mixed model regression on this measure finds strong evidence supporting the radial tour has a considerable improvement in accuracy over alternatives.--></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch4fig1"></span>
@@ -261,7 +258,7 @@ Figure 4.1: Illustrastion of cluster separation. Panel (a) shows clear separatio
 </p>
 </div>
 <!--- black-box models-->
-<p>Knowing which variables to use is also important for statistical modeling and their interpretations. Models are becoming increasingly complex involving many interacting, or otherwise non-linear terms cause an opaqueness to their interpretability. Exploratory Artificial Intelligence <span class="citation">(XAI, <a href="4-ch-userstudy.html#ref-adadi_peeking_2018" role="doc-biblioref">Adadi and Berrada 2018</a>; <a href="4-ch-userstudy.html#ref-arrieta_explainable_2020" role="doc-biblioref">Arrieta et al. 2020</a>)</span> is an emerging field that attempts to extend the interpretability of such black-box models by offering techniques to increase their interpretability. Multivariate data visualization is essential for exploring features spaces and communicating interpretations of models <span class="citation">(<a href="4-ch-userstudy.html#ref-biecek_dalex_2018" role="doc-biblioref">Biecek 2018</a>; <a href="4-ch-userstudy.html#ref-biecek_explanatory_2021" role="doc-biblioref">Biecek and Burzykowski 2021</a>; <a href="4-ch-userstudy.html#ref-wickham_visualizing_2015" role="doc-biblioref">Hadley Wickham, Cook, and Hofmann 2015</a>)</span>.</p>
+<p>Knowing which variables to use is also important for statistical modeling and their interpretations. Models are becoming increasingly complex involving many interacting, or otherwise non-linear terms cause an opaqueness to their interpretability. Exploratory Artificial Intelligence <span class="citation">(XAI, <a href="6-ch-conclusion.html#ref-adadi_peeking_2018" role="doc-biblioref">Adadi and Berrada 2018</a>; <a href="6-ch-conclusion.html#ref-arrieta_explainable_2020" role="doc-biblioref">Arrieta et al. 2020</a>)</span> is an emerging field that attempts to extend the interpretability of such black-box models by offering techniques to increase their interpretability. Multivariate data visualization is essential for exploring features spaces and communicating interpretations of models <span class="citation">(<a href="6-ch-conclusion.html#ref-biecek_dalex_2018" role="doc-biblioref">Biecek 2018</a>; <a href="6-ch-conclusion.html#ref-biecek_explanatory_2021" role="doc-biblioref">Biecek and Burzykowski 2021</a>; <a href="6-ch-conclusion.html#ref-wickham_visualizing_2015" role="doc-biblioref">Hadley Wickham, Cook, and Hofmann 2015</a>)</span>.</p>
 <!-- Structure of the chapter -->
 <p>The chapter is structured as follows. Section <a href="4-ch-userstudy.html#sec:background">4.2</a> discusses several visualization methods and orthogonal and observation-based visuals before arriving at the three linear dimension reduction techniques compared in the study. Section <a href="4-ch-userstudy.html#sec:userstudy">4.3</a> describes the experimental factors, task, and accuracy measure used. The results of the study are discussed in Section <a href="4-ch-userstudy.html#sec:results">4.4</a>. Conclusions and potential future directions are discussed in Section <a href="4-ch-userstudy.html#sec:conclusion">4.5</a>. The software used for the study is described in Section <a href="4-ch-userstudy.html#sec:spinifex">4.6</a>.</p>
 </div>
@@ -270,19 +267,19 @@ Figure 4.1: Illustrastion of cluster separation. Panel (a) shows clear separatio
 <p>Before discussing PCA, the grand tour, and the radial tour, this section covers orthogonal views and observation-based visuals of the full variable space. Consider data to be a complete matrix of <span class="math inline">\(n\)</span> observations across <span class="math inline">\(p\)</span> variables, <span class="math inline">\(X_{n \times p}\)</span>.</p>
 <div id="scatterplot-matrix" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Scatterplot matrix</h3>
-<p>One could consider looking at <span class="math inline">\(p\)</span> histograms or univariate densities. Doing so will miss features in two or more dimensions. A scatterplot matrix <span class="citation">(<a href="4-ch-userstudy.html#ref-chambers_graphical_1983" role="doc-biblioref">Chambers et al. 1983</a>)</span> is a <span class="math inline">\(p \times p\)</span> matrix with univariate densities on the diagonal and all combinations of pairs of variables in off-diagonal elements. Figure <a href="4-ch-userstudy.html#fig:ch4fig2">4.2</a> shows a scatterplot matrix of the first four components of simulated data. Such displays do not scale well with dimension, quickly becoming dense. Scatterplot matrices also display information in two orthogonal dimensions; features in three dimensions will never be fully resolved.</p>
+<p>One could consider looking at <span class="math inline">\(p\)</span> histograms or univariate densities. Doing so will miss features in two or more dimensions. A scatterplot matrix <span class="citation">(<a href="6-ch-conclusion.html#ref-chambers_graphical_1983" role="doc-biblioref">Chambers et al. 1983</a>)</span> is a <span class="math inline">\(p \times p\)</span> matrix with univariate densities on the diagonal and all combinations of pairs of variables in off-diagonal elements. Figure <a href="4-ch-userstudy.html#fig:ch4fig2">4.2</a> shows a scatterplot matrix of the first four components of simulated data. Such displays do not scale well with dimension, quickly becoming dense. Scatterplot matrices also display information in two orthogonal dimensions; features in three dimensions will never be fully resolved.</p>
 </div>
 <div id="parallel-coordinates-plot" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Parallel coordinates plot</h3>
 <!-- PCP -->
-<p>Another common way to display multivariate data is with a parallel coordinates plot <span class="citation">(<a href="4-ch-userstudy.html#ref-ocagne_coordonnees_1885" role="doc-biblioref">Ocagne 1885</a>)</span>, which shows observations by quantile or normalized values for each variable connected by lines to the quantile value in subsequent variables. Parallel coordinates plot and other observations-based visuals, such as pixel plots or Chernoff faces scale well with dimensions but poorly with observations. These are perhaps best used when there are more variables than observations.</p>
-<p>Observations-based visuals have a couple of issues. They are asymmetric across variable ordering, leading to different conclusions or features being focused on due to variable order. Another notable observation-based visual is the graphical channel used to convey information. Munzner suggests that position is the visual channel that is most perceptible to humans <span class="citation">(<a href="4-ch-userstudy.html#ref-munzner_visualization_2014" role="doc-biblioref">Munzner 2014</a>)</span>. In the case of parallel coordinates plots, the horizontal axes span variables rather than the values of one variable; the loss of a display dimension to be used by most discerning visual channel.</p>
+<p>Another common way to display multivariate data is with a parallel coordinates plot <span class="citation">(<a href="6-ch-conclusion.html#ref-ocagne_coordonnees_1885" role="doc-biblioref">Ocagne 1885</a>)</span>, which shows observations by quantile or normalized values for each variable connected by lines to the quantile value in subsequent variables. Parallel coordinates plot and other observations-based visuals, such as pixel plots or Chernoff faces scale well with dimensions but poorly with observations. These are perhaps best used when there are more variables than observations.</p>
+<p>Observations-based visuals have a couple of issues. They are asymmetric across variable ordering, leading to different conclusions or features being focused on due to variable order. Another notable observation-based visual is the graphical channel used to convey information. Munzner suggests that position is the visual channel that is most perceptible to humans <span class="citation">(<a href="6-ch-conclusion.html#ref-munzner_visualization_2014" role="doc-biblioref">Munzner 2014</a>)</span>. In the case of parallel coordinates plots, the horizontal axes span variables rather than the values of one variable; the loss of a display dimension to be used by most discerning visual channel.</p>
 <!-- Turning to Linear DR -->
 <p>At some point, we will be forced to turn to dimension reduction to scale well. Non-linear transformations bend and distort spaces are not entirely accurate or faithful to the original variable space. In light of this, we preclude non-linear techniques and instead decide on PCA, the grand tour, and the radial tour.</p>
 </div>
 <div id="principal-component-analysis" class="section level3" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> Principal component analysis</h3>
-<p>PCA is a good baseline of comparison for linear projections because of its frequent and broad use across disciplines. Principal component analysis <span class="citation">(<a href="4-ch-userstudy.html#ref-pearson_liii._1901" role="doc-biblioref">Pearson 1901</a>)</span> defines new components, linear combinations of the original variables, ordered by decreasing variation through the help of eigenvalue matrix decomposition. While the resulting dimensionality is the same size, the benefit comes from the ordered nature of the components. The data can be said to be approximated by the first several components. The exact number is subjectively selected given the variance contained by each component, typically guided using a scree plot <span class="citation">(<a href="4-ch-userstudy.html#ref-cattell_scree_1966" role="doc-biblioref">Cattell 1966</a>)</span>. Features with sizable signal regularly appear in the leading components that commonly approximate data. However, this is not always the case, and component spaces should be fully explored to look for signal in components that hold less variation.</p>
+<p>PCA is a good baseline of comparison for linear projections because of its frequent and broad use across disciplines. Principal component analysis <span class="citation">(<a href="6-ch-conclusion.html#ref-pearson_liii._1901" role="doc-biblioref">Pearson 1901</a>)</span> defines new components, linear combinations of the original variables, ordered by decreasing variation through the help of eigenvalue matrix decomposition. While the resulting dimensionality is the same size, the benefit comes from the ordered nature of the components. The data can be said to be approximated by the first several components. The exact number is subjectively selected given the variance contained by each component, typically guided using a scree plot <span class="citation">(<a href="6-ch-conclusion.html#ref-cattell_scree_1966" role="doc-biblioref">Cattell 1966</a>)</span>. Features with sizable signal regularly appear in the leading components that commonly approximate data. However, this is not always the case, and component spaces should be fully explored to look for signal in components that hold less variation.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch4fig2"></span>
 <img src="figures/ch4_fig2_pca_splom.png" alt="Scatterplot matrix of the first four principal components simulated data in six dimensions. An analyst would have to view both PC1 by PC2 and PC1 by PC4 to have a thorough take on which variables attribute to the separation between clusters." width="100%"  />
 <p class="caption">
@@ -293,35 +290,35 @@ Figure 4.2: Scatterplot matrix of the first four principal components simulated 
 <div id="animated-linear-projections-tours" class="section level3" number="4.2.4">
 <h3><span class="header-section-number">4.2.4</span> Animated linear projections, tours</h3>
 <!-- tours intro -->
-<p>A data visualization <em>tour</em> animates many linear projections over small changes in the projection basis. One of the insightful features of the tour is the object permanence of the data points; one can track the relative changes of observations as the basis moves, as opposed to discretely jumping to an orthogonal view with no intermediate information. Types of tours are distinguished by the selection of their basis paths <span class="citation">(<a href="4-ch-userstudy.html#ref-lee_state_2021" role="doc-biblioref">S. Lee et al. 2021</a>; <a href="4-ch-userstudy.html#ref-cook_grand_2008" role="doc-biblioref">Cook et al. 2008</a>)</span>. To contrast with the discrete orientations of PCA, we compare continuous linear projection changes with grand and radial tours.</p>
+<p>A data visualization <em>tour</em> animates many linear projections over small changes in the projection basis. One of the insightful features of the tour is the object permanence of the data points; one can track the relative changes of observations as the basis moves, as opposed to discretely jumping to an orthogonal view with no intermediate information. Types of tours are distinguished by the selection of their basis paths <span class="citation">(<a href="6-ch-conclusion.html#ref-lee_state_2021" role="doc-biblioref">S. Lee et al. 2021</a>; <a href="6-ch-conclusion.html#ref-cook_grand_2008" role="doc-biblioref">Cook et al. 2008</a>)</span>. To contrast with the discrete orientations of PCA, we compare continuous linear projection changes with grand and radial tours.</p>
 <div id="grand-tours" class="section level4" number="4.2.4.1">
 <h4><span class="header-section-number">4.2.4.1</span> Grand tours</h4>
 <!-- Grand tour -->
-<p>Target bases are selected randomly in a grand tour <span class="citation">(<a href="4-ch-userstudy.html#ref-asimov_grand_1985" role="doc-biblioref">Asimov 1985</a>)</span>. These target bases are then geodesically interpolated for a smooth, continuous path. The grand tour is the first and most widely known tour. The random selection of target bases makes it a general unguided exploratory tool. The grand tour will make a good comparison that has continuity of data points similar to the radial tour but lacks the user control enjoyed by PCA and radial tours.</p>
+<p>Target bases are selected randomly in a grand tour <span class="citation">(<a href="6-ch-conclusion.html#ref-asimov_grand_1985" role="doc-biblioref">Asimov 1985</a>)</span>. These target bases are then geodesically interpolated for a smooth, continuous path. The grand tour is the first and most widely known tour. The random selection of target bases makes it a general unguided exploratory tool. The grand tour will make a good comparison that has continuity of data points similar to the radial tour but lacks the user control enjoyed by PCA and radial tours.</p>
 </div>
 <div id="manual-and-radial-tours" class="section level4" number="4.2.4.2">
 <h4><span class="header-section-number">4.2.4.2</span> Manual and radial tours</h4>
 <!-- Segue, highlighting lack of control -->
 <p>Whether an analyst uses PCA or the grand tour, they cannot influence the basis. They cannot explore the structure identified or change the contribution of the variables. This user-control-steering is a key aspect of <em>manual</em> tours that should facilitate testing variable attribution.</p>
 <!-- Manual tour -->
-<p>The manual tour <span class="citation">(<a href="4-ch-userstudy.html#ref-cook_manual_1997" role="doc-biblioref">Cook and Buja 1997</a>)</span> defines its basis path by manipulating the basis contribution of a selected variable. A manipulation dimension is appended onto the projection plane, giving a full contribution to the selected variable. The target bases are then chosen to rotate this newly created manipulation space. This manipulation space similarly orthogonally restrained, the data is projected through its interpolated frames and rendered into an animation. When the contribution of one variable changes, the contributions of the other variables must also change, maintaining the orthonormality of the basis and space. A key feature of the manual tour is that it allows users to control the variable contributions to the basis. Such manipulations can be queued in advance or selected in real-time for human-in-the-loop analysis <span class="citation">(<a href="4-ch-userstudy.html#ref-karwowski_international_2006" role="doc-biblioref">Karwowski 2006</a>)</span>. Manual navigation is relatively time-consuming due to the vast volume of resulting view space and the abstract method of steering the projection basis. It is advisable first to identify a basis of particular interest and then use the manual tour as a more directed, local exploration tool to explore the sensitivity of a variable’s contribution to the feature of interest.</p>
+<p>The manual tour <span class="citation">(<a href="6-ch-conclusion.html#ref-cook_manual_1997" role="doc-biblioref">Cook and Buja 1997</a>)</span> defines its basis path by manipulating the basis contribution of a selected variable. A manipulation dimension is appended onto the projection plane, giving a full contribution to the selected variable. The target bases are then chosen to rotate this newly created manipulation space. This manipulation space similarly orthogonally restrained, the data is projected through its interpolated frames and rendered into an animation. When the contribution of one variable changes, the contributions of the other variables must also change, maintaining the orthonormality of the basis and space. A key feature of the manual tour is that it allows users to control the variable contributions to the basis. Such manipulations can be queued in advance or selected in real-time for human-in-the-loop analysis <span class="citation">(<a href="6-ch-conclusion.html#ref-karwowski_international_2006" role="doc-biblioref">Karwowski 2006</a>)</span>. Manual navigation is relatively time-consuming due to the vast volume of resulting view space and the abstract method of steering the projection basis. It is advisable first to identify a basis of particular interest and then use the manual tour as a more directed, local exploration tool to explore the sensitivity of a variable’s contribution to the feature of interest.</p>
 <!-- Radial tour variant -->
 <p>To simplify the task and keep its duration realistic, we consider a variant of the manual tour called a <em>radial</em> tour. In a radial tour, the selected variable can change its magnitude of contribution but not its angle; it must move along the direction of its original contribution radius. The radial tour benefits from both continuity of the data alongside grand tours and allows the user to steer via choosing the variable to rotate.</p>
 <!-- spinifex -->
-<p>Manual tours have been recently made available in the <strong>R</strong> package <strong>spinifex</strong> <span class="citation">(<a href="4-ch-userstudy.html#ref-spyrison_spinifex_2020" role="doc-biblioref">Spyrison and Cook 2020</a>)</span>, which facilitates manual tours (and radial variant). It also provides an interface for a layered composition of tours and exporting to .gif and .mp4 with <strong>gganimate</strong> <span class="citation">(<a href="4-ch-userstudy.html#ref-pedersen_gganimate_2020" role="doc-biblioref">Pedersen and Robinson 2020</a>)</span> or .html widget with <strong>plotly</strong> <span class="citation">(<a href="4-ch-userstudy.html#ref-sievert_interactive_2020" role="doc-biblioref">Sievert 2020</a>)</span>. It is also compatible with tours made by <strong>tourr</strong> <span class="citation">(<a href="4-ch-userstudy.html#ref-wickham_tourr:_2011" role="doc-biblioref">Hadley Wickham et al. 2011</a>)</span>. Now that we have a readily available means to produce various tours, we want to see how they fare against traditional discrete displays commonly used with PCA.</p>
+<p>Manual tours have been recently made available in the <strong>R</strong> package <strong>spinifex</strong> <span class="citation">(<a href="6-ch-conclusion.html#ref-spyrison_spinifex_2020" role="doc-biblioref">Spyrison and Cook 2020</a>)</span>, which facilitates manual tours (and radial variant). It also provides an interface for a layered composition of tours and exporting to .gif and .mp4 with <strong>gganimate</strong> <span class="citation">(<a href="6-ch-conclusion.html#ref-pedersen_gganimate_2020" role="doc-biblioref">Pedersen and Robinson 2020</a>)</span> or .html widget with <strong>plotly</strong> <span class="citation">(<a href="6-ch-conclusion.html#ref-sievert_interactive_2020" role="doc-biblioref">Sievert 2020</a>)</span>. It is also compatible with tours made by <strong>tourr</strong> <span class="citation">(<a href="6-ch-conclusion.html#ref-wickham_tourr:_2011" role="doc-biblioref">Hadley Wickham et al. 2011</a>)</span>. Now that we have a readily available means to produce various tours, we want to see how they fare against traditional discrete displays commonly used with PCA.</p>
 </div>
 </div>
 </div>
 <div id="sec:userstudy" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> User study</h2>
 <!-- Overview of visual -->
-<p>An experiment was constructed to assess the performance of the radial tour relative to the grand tour and PCA for interpreting the variable attribution contributing to separation between two clusters. <!-- Introduce experimental factors --> Data were simulated across three experimental factors: cluster shape, location of the cluster separation, and data dimensionality. Participant responses were collected using a web application and crowdsourced through prolific.co, <span class="citation">(<a href="4-ch-userstudy.html#ref-palan_prolific_2018" role="doc-biblioref">Palan and Schitter 2018</a>)</span> an alternative to MTurk.</p>
+<p>An experiment was constructed to assess the performance of the radial tour relative to the grand tour and PCA for interpreting the variable attribution contributing to separation between two clusters. <!-- Introduce experimental factors --> Data were simulated across three experimental factors: cluster shape, location of the cluster separation, and data dimensionality. Participant responses were collected using a web application and crowdsourced through prolific.co, <span class="citation">(<a href="6-ch-conclusion.html#ref-palan_prolific_2018" role="doc-biblioref">Palan and Schitter 2018</a>)</span> an alternative to MTurk.</p>
 <div id="sec:objective" class="section level3" number="4.3.1">
 <h3><span class="header-section-number">4.3.1</span> Objective</h3>
 <!-- Rational for factor levels -->
 <p>PCA will be used as a baseline for comparison as it is the most common linear embedding. The grand tour will act as a secondary control that will help evaluate the benefit of animation without influencing its path. Lastly, the radial tour should perform best as it benefits both from animation and user-control.</p>
 <!-- Prior expectations -->
-<p>Then for some subset of tasks, we expect to find that the radial tour performs most accurately. In the appendix, section <a href="4-ch-userstudy.html#sec:appendix">4.8</a>, we also regress on the last response time. Due to the absence of inputs, we expect the grand tour to perform faster than the alternatives since users can focus all of their attention on interpreting the fixed path. Conversely, we are less sure about the accuracy of such limited grand tours as there is no objective function in selecting the bases; it is possible that the random selection of the target bases altogether avoid bases showing cluster separation. However, given that the data dimensionality was modest, it seems plausible that the grand tour coincidentally regularly crossed frames with the correct information for the task.</p>
+<p>Then for some subset of tasks, we expect to find that the radial tour performs most accurately. In the appendix, section <a href="4-ch-userstudy.html#sec:appendix">4.7</a>, we also regress on the last response time. Due to the absence of inputs, we expect the grand tour to perform faster than the alternatives since users can focus all of their attention on interpreting the fixed path. Conversely, we are less sure about the accuracy of such limited grand tours as there is no objective function in selecting the bases; it is possible that the random selection of the target bases altogether avoid bases showing cluster separation. However, given that the data dimensionality was modest, it seems plausible that the grand tour coincidentally regularly crossed frames with the correct information for the task.</p>
 <!-- Explicit hypothesis tests -->
 <p>We measure the accuracy and response time over the support of the discussed experimental factors. The null hypothesis can be stated as:</p>
 <p><span class="math inline">\(~~~~H_0: \text{task accuracy does not change across visualization method} \\\)</span>
@@ -340,7 +337,7 @@ Figure 4.3: Illustration of the experimental factors, the parameter space of the
 <!-- Location mixing -->
 <p>The <em>location</em> of the separation of the clusters is at the heart of the measure. It would be good to test a few varying levels. To test the sensitivity to this, we mix a noise variable with the signal-containing variable. The difference in the clusters is mixed at the following percentages: 0/100% (not mixed), 33/66%, 50/50% (evenly mixed).</p>
 <!-- Shape, vc matrix -->
-<p>In selecting the <em>shape</em> of the clusters, we follow the convention given by <span class="citation"><a href="4-ch-userstudy.html#ref-scrucca_mclust_2016" role="doc-biblioref">Scrucca et al.</a> (<a href="4-ch-userstudy.html#ref-scrucca_mclust_2016" role="doc-biblioref">2016</a>)</span>, where 14 variants of model families containing three clusters are defined. The name of the model family is the abbreviation of its respective volume, shape, and orientation of the clusters, the levels of which are either _E_qual or _V_ary. We use the models EEE, EEV, and EVV. For Instance, in the EEV model, the volume and shape of clusters are constant, while the shape’s orientation varies. The latter model is further modified by moving four-fifths of the data out in a “V” or banana-like shape.</p>
+<p>In selecting the <em>shape</em> of the clusters, we follow the convention given by <span class="citation"><a href="6-ch-conclusion.html#ref-scrucca_mclust_2016" role="doc-biblioref">Scrucca et al.</a> (<a href="6-ch-conclusion.html#ref-scrucca_mclust_2016" role="doc-biblioref">2016</a>)</span>, where 14 variants of model families containing three clusters are defined. The name of the model family is the abbreviation of its respective volume, shape, and orientation of the clusters, the levels of which are either _E_qual or _V_ary. We use the models EEE, EEV, and EVV. For Instance, in the EEV model, the volume and shape of clusters are constant, while the shape’s orientation varies. The latter model is further modified by moving four-fifths of the data out in a “V” or banana-like shape.</p>
 <!-- Dimensionality -->
 <p><em>Dimension</em>-ality is tested at two modest levels, namely, in four dimensions containing three clusters and six dimensions with four clusters. Such modest dimensionality is required to bound the difficulty and search space to keep the task realistic for crowdsourcing.</p>
 </div>
@@ -377,7 +374,7 @@ Figure 4.4: (L), PCA biplot of the components showing the most cluster separatio
 <!-- Background for methodology, application here -->
 <p>The factors are tested within-participant, with each visual being evaluated twice by each participant. The order that experimental factors are experienced is controlled with the assignment, as illustrated in Figure <a href="4-ch-userstudy.html#fig:ch4fig5">4.5</a>. Below we cover the visual design standardization and the input and display within each factor.</p>
 <!-- Aesthetic standardization -->
-<p>The visualization methods were standardized wherever possible. Data were displayed as 2D scatterplots with biplots <span class="citation">(<a href="4-ch-userstudy.html#ref-gabriel_biplot_1971" role="doc-biblioref">Gabriel 1971</a>)</span>, a visual with variable contributions inscribed on a unit circle. All aesthetic values (colors, shapes, sizes, absence of legend, and axis titles) were constant. Variable contributions were always shown left of the scatterplot embeddings with their aesthetic values consistent. What did vary between factors were their inputs.</p>
+<p>The visualization methods were standardized wherever possible. Data were displayed as 2D scatterplots with biplots <span class="citation">(<a href="6-ch-conclusion.html#ref-gabriel_biplot_1971" role="doc-biblioref">Gabriel 1971</a>)</span>, a visual with variable contributions inscribed on a unit circle. All aesthetic values (colors, shapes, sizes, absence of legend, and axis titles) were constant. Variable contributions were always shown left of the scatterplot embeddings with their aesthetic values consistent. What did vary between factors were their inputs.</p>
 <!-- PCA -->
 <p>PCA inputs allowed users to select between the top four principal components for both the x- and y-axis regardless of the data dimensionality (four or six). Data was simulated to have cluster separation within the 2nd to 4th components, ideally not simple enough to be entire observed in PC1 by PC2. But not burying signal in 5th and 6th components (not selectable in PCA input) in the interest of simplicity and time. <!-- Grand tours -->There was no user input for the grand tour; users were instead shown a 15-second animation of the same randomly selected path. Participants could view the same clip up to four times within the time limit. <!-- Radial tours -->Radial tours were also displayed at five frames per second with a step size of 0.1 radians between interpolated frames. Users were able to swap between variables. The display would change the start of radially increasing the contribution of the selected variable until it was full, zeroed, and then back to its initial contribution. The complete animation of any variable takes about 20 seconds and is almost entirely in the projection frame at around six seconds. The starting basis was initialized to a half-clock design, where the variables were evenly distributed in half of the circle. This design was created to be variable agnostic while maximizing the independence of the variables.</p>
 </div>
@@ -412,7 +409,7 @@ Figure 4.5: Illustration of how a hypothetical participant 63 is assigned experi
 </div>
 <div id="sec:articipants" class="section level3" number="4.3.7">
 <h3><span class="header-section-number">4.3.7</span> Participants</h3>
-<p>We recruited <span class="math inline">\(N = 108\)</span> participants via prolific.co <span class="citation">(<a href="4-ch-userstudy.html#ref-palan_prolific_2018" role="doc-biblioref">Palan and Schitter 2018</a>)</span>. We filtered participants based on their claimed education requiring that they have completed at least an undergraduate degree (some 58,700 of the 150,400 users at the time); we apply this filter under the premise that linear projections and biplot displays will not be regularly used for consumption by general audiences. There is also the implicit filter that Prolific participants must be at least 18 years of age and implicit biases of timezone, location, and language. Participants were compensated for their time at 7.50 per hour, whereas the mean duration of the survey was about 16 minutes. We cannot preclude previous knowledge or experience with the factors but validate this assumption in the follow-up survey asking about familiarity with the factors. The appendix contains a heatmap distribution of age and education paneled across preferred pronouns of the participants that completed the survey, who are relatively young, well educated, and slightly more likely to identify as males.</p>
+<p>We recruited <span class="math inline">\(N = 108\)</span> participants via prolific.co <span class="citation">(<a href="6-ch-conclusion.html#ref-palan_prolific_2018" role="doc-biblioref">Palan and Schitter 2018</a>)</span>. We filtered participants based on their claimed education requiring that they have completed at least an undergraduate degree (some 58,700 of the 150,400 users at the time); we apply this filter under the premise that linear projections and biplot displays will not be regularly used for consumption by general audiences. There is also the implicit filter that Prolific participants must be at least 18 years of age and implicit biases of timezone, location, and language. Participants were compensated for their time at 7.50 per hour, whereas the mean duration of the survey was about 16 minutes. We cannot preclude previous knowledge or experience with the factors but validate this assumption in the follow-up survey asking about familiarity with the factors. The appendix contains a heatmap distribution of age and education paneled across preferred pronouns of the participants that completed the survey, who are relatively young, well educated, and slightly more likely to identify as males.</p>
 </div>
 <div id="data-collection" class="section level3" number="4.3.8">
 <h3><span class="header-section-number">4.3.8</span> Data collection</h3>
@@ -965,290 +962,44 @@ Figure 4.7: The subjective measures of the 84 responses of the post-study survey
 <p>Data visualization is an integral part of EDA. Yet through exploration of data in high dimensions become difficult. Previous methods offer no means for an analyst to impact the projection basis. The manual tour provides a mechanism for changing the contribution of a selected variable to the basis. Giving analysts such control should facilitate the exploration of variable-level sensitivity to the identified structure. We find strong evidence that using the radial tour improves the accuracy relative to PCA or the grand tour on the supervised cluster task assigning variable attribution to the separation of the two clusters.</p>
 <!-- Recap study -->
 <p>This chapter discussed a with-in participant user study (<span class="math inline">\(n=108\)</span>) comparing the efficacy of three linear projection techniques. The participants performed a supervised cluster task, explicitly identifying which variables contribute to separating two target clusters. This was evaluated evenly over four experimental factors. In summary, we find strong evidence that using the radial tour leads to a sizable accuracy increase. In the appendix we find evidence for a small change in response time, with PCA being fastest, then the grand tour followed by the radial tour. The effect sizes on accuracy are large relative to the change from the other experimental factors, though smaller than the random effect of the participant. The radial tour was subjectively preferred, leading to more confidence in answers, and increased ease of use than the alternatives.</p>
-<!-- Discussion and going further -->
-<p>There are several ways that this study could be extended. In addition to expanding the support of the experimental factors, more exciting directions include: changing the type of the task, visualizations used, and experience level of the target population. It is difficult to achieve good coverage given the number of possible permutations. Keep in mind the traffic volume and low effort of responses from participants when crowdsourcing.</p>
 </div>
 <div id="sec:spinifex" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Accompanying tool: radial tour application</h2>
-<p>We have produced an application to illustrate the radial tour to accompany this study. The <strong>R</strong> package, <strong>spinifex</strong>, <span class="citation">(<a href="4-ch-userstudy.html#ref-spyrison_spinifex_2020" role="doc-biblioref">Spyrison and Cook 2020</a>)</span> is free, open-source and now contains a <strong>shiny</strong> <span class="citation">(<a href="4-ch-userstudy.html#ref-chang_shiny_2020" role="doc-biblioref">Chang et al. 2020</a>)</span> application that allows users to apply various preprocessing tasks and interactively explore their data via interactive radial tour. Example datasets are provided with the ability to upload data. The .html widget produced is a more interactive variant relative to the one used in the user study. Screen captures and more details are provided in the appendix. Run the following <strong>R</strong> code will run the application locally.</p>
+<p>We have produced an application to illustrate the radial tour to accompany this study. The <strong>R</strong> package, <strong>spinifex</strong>, <span class="citation">(<a href="6-ch-conclusion.html#ref-spyrison_spinifex_2020" role="doc-biblioref">Spyrison and Cook 2020</a>)</span> is free, open-source and now contains a <strong>shiny</strong> <span class="citation">(<a href="6-ch-conclusion.html#ref-chang_shiny_2020" role="doc-biblioref">Chang et al. 2020</a>)</span> application that allows users to apply various preprocessing tasks and interactively explore their data via interactive radial tour. Example datasets are provided with the ability to upload data. The .html widget produced is a more interactive variant relative to the one used in the user study. Screen captures and more details are provided in the appendix. Run the following <strong>R</strong> code will run the application locally.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="4-ch-userstudy.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Download:</span></span>
 <span id="cb3-2"><a href="4-ch-userstudy.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;spinifex&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb3-3"><a href="4-ch-userstudy.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Run interactive app demonstrating the radial tour:</span></span>
 <span id="cb3-4"><a href="4-ch-userstudy.html#cb3-4" aria-hidden="true" tabindex="-1"></a>spinifex<span class="sc">::</span><span class="fu">run_app</span>()</span></code></pre></div>
-</div>
-<div id="references" class="section level2" number="4.7">
-<h2><span class="header-section-number">4.7</span> References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-adadi_peeking_2018" class="csl-entry">
-Adadi, Amina, and Mohammed Berrada. 2018. <span>“Peeking Inside the Black-Box: A Survey on Explainable Artificial Intelligence (<span>XAI</span>).”</span> <em>IEEE Access</em> 6: 52138–60.
-</div>
-<div id="ref-anscombe_graphs_1973" class="csl-entry">
-Anscombe, F. J. 1973. <span>“Graphs in <span>Statistical</span> <span>Analysis</span>.”</span> <em>The American Statistician</em> 27 (1): 17–21. <a href="https://doi.org/10.2307/2682899">https://doi.org/10.2307/2682899</a>.
-</div>
-<div id="ref-arrieta_explainable_2020" class="csl-entry">
-Arrieta, Alejandro Barredo, Natalia Díaz-Rodríguez, Javier Del Ser, Adrien Bennetot, Siham Tabik, Alberto Barbado, Salvador García, Sergio Gil-López, Daniel Molina, and Richard Benjamins. 2020. <span>“Explainable <span>Artificial</span> <span>Intelligence</span> (<span>XAI</span>): <span>Concepts</span>, Taxonomies, Opportunities and Challenges Toward Responsible <span>AI</span>.”</span> <em>Information Fusion</em> 58: 82–115.
-</div>
-<div id="ref-asimov_grand_1985" class="csl-entry">
-Asimov, Daniel. 1985. <span>“The <span>Grand</span> <span>Tour</span>: A <span>Tool</span> for <span>Viewing</span> <span>Multidimensional</span> <span>Data</span>.”</span> <em>SIAM Journal on Scientific and Statistical Computing</em> 6 (1): 128–43. https://doi.org/<a href="https://doi.org/10.1137/0906011">https://doi.org/10.1137/0906011</a>.
-</div>
-<div id="ref-barrow_changes_2020" class="csl-entry">
-Barrow, Madeleine, Jieyang Chong, and Nicholas Spyrison. 2020. <span>“Changes to <span>Victorian</span> <span>Intraday</span> <span>Electricity</span> <span>Demand</span> <span>Following</span> <span>COVID</span>-19 <span>Restrictions</span>.”</span> In <em>Melbourne <span>Datathon</span> 2020, <span>Insights</span> Category</em>, 4. <a href="https://www.overleaf.com/project/5f614799515ac0000119daf7">https://www.overleaf.com/project/5f614799515ac0000119daf7</a>.
-</div>
-<div id="ref-bertini_quality_2011" class="csl-entry">
-Bertini, Enrico, Andrada Tatu, and Daniel Keim. 2011. <span>“Quality Metrics in High-Dimensional Data Visualization: <span>An</span> Overview and Systematization.”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em> 17 (12): 2203–12.
-</div>
-<div id="ref-biecek_dalex_2018" class="csl-entry">
-Biecek, Przemyslaw. 2018. <span>“<span>DALEX</span>: Explainers for Complex Predictive Models in <span>R</span>.”</span> <em>The Journal of Machine Learning Research</em> 19 (1): 3245–49.
-</div>
-<div id="ref-biecek_ceterisparibus_2020" class="csl-entry">
-———. 2020. <em><span class="nocase">ceterisParibus</span>: <span>Ceteris</span> <span>Paribus</span> <span>Profiles</span></em>. <a href="https://CRAN.R-project.org/package=ceterisParibus">https://CRAN.R-project.org/package=ceterisParibus</a>.
-</div>
-<div id="ref-biecek_explanatory_2021" class="csl-entry">
-Biecek, Przemyslaw, and Tomasz Burzykowski. 2021. <em>Explanatory <span>Model</span> <span>Analysis</span>: <span>Explore</span>, <span>Explain</span>, and <span>Examine</span> <span>Predictive</span> <span>Models</span></em>. CRC Press.
-</div>
-<div id="ref-breiman_statistical_2001" class="csl-entry">
-Breiman, Leo. 2001. <span>“Statistical Modeling: <span>The</span> Two Cultures (with Comments and a Rejoinder by the Author).”</span> <em>Statistical Science</em> 16 (3): 199–231.
-</div>
-<div id="ref-buja_grand_1986" class="csl-entry">
-Buja, Andreas, and Daniel Asimov. 1986. <span>“Grand <span>Tour</span> <span>Methods</span>: <span>An</span> <span>Outline</span>.”</span> In <em>Proceedings of the <span>Seventeenth</span> <span>Symposium</span> on the <span>Interface</span> of <span>Computer</span> <span>Sciences</span> and <span>Statistics</span> on <span>Computer</span> <span>Science</span> and <span>Statistics</span></em>, 63–67. New York, NY, USA: Elsevier North-Holland, Inc. <a href="http://dl.acm.org/citation.cfm?id=26036.26046">http://dl.acm.org/citation.cfm?id=26036.26046</a>.
-</div>
-<div id="ref-buja_computational_2005" class="csl-entry">
-Buja, Andreas, Dianne Cook, Daniel Asimov, and Catherine Hurley. 2005. <span>“Computational <span>Methods</span> for <span>High</span>-<span>Dimensional</span> <span>Rotations</span> in <span>Data</span> <span>Visualization</span>.”</span> In <em>Handbook of <span>Statistics</span></em>, 24:391–413. Elsevier. <a href="https://doi.org/10.1016/S0169-7161(04)24014-7">https://doi.org/10.1016/S0169-7161(04)24014-7</a>.
-</div>
-<div id="ref-cattell_scree_1966" class="csl-entry">
-Cattell, Raymond B. 1966. <span>“The Scree Test for the Number of Factors.”</span> <em>Multivariate Behavioral Research</em> 1 (2): 245–76.
-</div>
-<div id="ref-chambers_graphical_1983" class="csl-entry">
-Chambers, J. M., W. S. Cleveland, B. Kleiner, and P. A. Tukey. 1983. <span>“Graphical <span>Methods</span> for <span>Data</span> <span>Analysis</span>.”</span>
-</div>
-<div id="ref-chang_shiny_2020" class="csl-entry">
-Chang, Winston, Joe Cheng, J. J. Allaire, Yihui Xie, and Jonathan McPherson. 2020. <span>“Shiny: Web Application Framework for r.”</span> <a href="https://CRAN.R-project.org/package=shiny">https://CRAN.R-project.org/package=shiny</a>.
-</div>
-<div id="ref-chang_shiny_2021" class="csl-entry">
-Chang, Winston, Joe Cheng, JJ Allaire, Carson Sievert, Barret Schloerke, Yihui Xie, Jeff Allen, Jonathan McPherson, Alan Dipert, and Barbara Borges. 2021. <em>Shiny: Web Application Framework for r</em>. <a href="https://CRAN.R-project.org/package=shiny">https://CRAN.R-project.org/package=shiny</a>.
-</div>
-<div id="ref-chernoff_use_1973" class="csl-entry">
-Chernoff, Herman. 1973. <span>“The <span>Use</span> of <span>Faces</span> to <span>Represent</span> <span>Points</span> in <span>K</span>-<span>Dimensional</span> <span>Space</span> <span>Graphically</span>.”</span> <em>Journal of the American Statistical Association</em> 68 (342): 361–68. <a href="https://doi.org/10.2307/2284077">https://doi.org/10.2307/2284077</a>.
-</div>
-<div id="ref-cook_manual_1997" class="csl-entry">
-Cook, Dianne, and Andreas Buja. 1997. <span>“Manual <span>Controls</span> for <span>High</span>-<span>Dimensional</span> <span>Data</span> <span>Projections</span>.”</span> <em>Journal of Computational and Graphical Statistics</em> 6 (4): 464–80. <a href="https://doi.org/10.2307/1390747">https://doi.org/10.2307/1390747</a>.
-</div>
-<div id="ref-cook_grand_1995" class="csl-entry">
-Cook, Dianne, Andreas Buja, Javier Cabrera, and Catherine Hurley. 1995. <span>“Grand <span>Tour</span> and <span>Projection</span> <span>Pursuit</span>.”</span> <em>Journal of Computational and Graphical Statistics</em> 4 (3): 155. <a href="https://doi.org/10.2307/1390844">https://doi.org/10.2307/1390844</a>.
-</div>
-<div id="ref-cook_grand_2008" class="csl-entry">
-Cook, Dianne, Andreas Buja, Eun-Kyung Lee, and Hadley Wickham. 2008. <span>“Grand <span>Tours</span>, <span>Projection</span> <span>Pursuit</span> <span>Guided</span> <span>Tours</span>, and <span>Manual</span> <span>Controls</span>.”</span> In <em>Handbook of <span>Data</span> <span>Visualization</span></em>, 295–314. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-540-33037-0_13">https://doi.org/10.1007/978-3-540-33037-0_13</a>.
-</div>
-<div id="ref-cook_dynamical_2018" class="csl-entry">
-Cook, Dianne, Ursula Laa, and German Valencia. 2018. <span>“Dynamical Projections for the Visualization of <span>PDFSense</span> Data.”</span> <em>Eur. Phys. J. C</em> 78 (9): 742. <a href="https://doi.org/10.1140/epjc/s10052-018-6205-2">https://doi.org/10.1140/epjc/s10052-018-6205-2</a>.
-</div>
-<div id="ref-da_silva_projection_2021" class="csl-entry">
-da Silva, Natalia, Dianne Cook, and Eun-Kyung Lee. 2021. <span>“A <span>Projection</span> <span>Pursuit</span> <span>Forest</span> <span>Algorithm</span> for <span>Supervised</span> <span>Classification</span>.”</span> <em>Journal of Computational and Graphical Statistics</em>, 1–21.
-</div>
-<div id="ref-dastin_amazon_2018" class="csl-entry">
-Dastin, Jeffrey. 2018. <span>“Amazon Scraps Secret <span>AI</span> Recruiting Tool That Showed Bias Against Women.”</span> <em>Reuters</em>, October. <a href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G">https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G</a>.
-</div>
-<div id="ref-diaz_addressing_2018" class="csl-entry">
-Díaz, Mark, Isaac Johnson, Amanda Lazar, Anne Marie Piper, and Darren Gergle. 2018. <span>“Addressing Age-Related Bias in Sentiment Analysis.”</span> In <em>Proceedings of the 2018 Chi Conference on Human Factors in Computing Systems</em>, 1–14.
-</div>
-<div id="ref-duffy_apple_2019" class="csl-entry">
-Duffy, Claire. 2019. <span>“Apple Co-Founder <span>Steve</span> <span>Wozniak</span> Says <span>Apple</span> <span>Card</span> Discriminated Against His Wife.”</span> <em>CNN</em>, November. <a href="https://www.cnn.com/2019/11/10/business/goldman-sachs-apple-card-discrimination/index.html">https://www.cnn.com/2019/11/10/business/goldman-sachs-apple-card-discrimination/index.html</a>.
-</div>
-<div id="ref-gabriel_biplot_1971" class="csl-entry">
-Gabriel, Karl Ruben. 1971. <span>“The Biplot Graphic Display of Matrices with Application to Principal Component Analysis.”</span> <em>Biometrika</em> 58 (3): 453–67.
-</div>
-<div id="ref-gorman_ecological_2014" class="csl-entry">
-Gorman, Kristen B., Tony D. Williams, and William R. Fraser. 2014. <span>“Ecological Sexual Dimorphism and Environmental Variability Within a Community of <span>Antarctic</span> Penguins (Genus <span>Pygoscelis</span>).”</span> <em>PloS One</em> 9 (3): e90081.
-</div>
-<div id="ref-gosiewska_ibreakdown_2019" class="csl-entry">
-Gosiewska, Alicja, and Przemyslaw Biecek. 2019. <span>“<span>IBreakDown</span>: <span>Uncertainty</span> of Model Explanations for Non-Additive Predictive Models.”</span> <em>arXiv Preprint arXiv:1903.11420</em>.
-</div>
-<div id="ref-gracia_new_2016" class="csl-entry">
-Gracia, Antonio, Santiago González, Víctor Robles, Ernestina Menasalvas, and Tatiana von Landesberger. 2016. <span>“New <span>Insights</span> into the <span>Suitability</span> of the <span>Third</span> <span>Dimension</span> for <span>Visualizing</span> <span>Multivariate</span>/<span>Multidimensional</span> <span>Data</span>: <span>A</span> <span>Study</span> <span>Based</span> on <span>Loss</span> of <span>Quality</span> <span>Quantification</span>.”</span> <em>Information Visualization</em> 15 (1): 3–30. <a href="https://doi.org/10.1177/1473871614556393">https://doi.org/10.1177/1473871614556393</a>.
-</div>
-<div id="ref-greenwell_fastshap_2020" class="csl-entry">
-Greenwell, Brandon. 2020. <em>Fastshap: <span>Fast</span> <span>Approximate</span> <span>Shapley</span> <span>Values</span></em>. <a href="https://CRAN.R-project.org/package=fastshap">https://CRAN.R-project.org/package=fastshap</a>.
-</div>
-<div id="ref-grinstein_high-dimensional_2002" class="csl-entry">
-Grinstein, Georges, Marjan Trutschl, and Urška Cvek. 2002. <span>“High-<span>Dimensional</span> <span>Visualizations</span>,”</span> 14.
-</div>
-<div id="ref-horst_palmerpenguins_2020" class="csl-entry">
-Horst, Allison Marie, Alison Presmanes Hill, and Kristen B. Gorman. 2020. <span>“Palmerpenguins: <span>Palmer</span> <span>Archipelago</span> (<span>Antarctica</span>) Penguin Data.”</span> <a href="https://allisonhorst.github.io/palmerpenguins/">https://allisonhorst.github.io/palmerpenguins/</a>.
-</div>
-<div id="ref-hurley_analyzing_1990" class="csl-entry">
-Hurley, C., and A. Buja. 1990. <span>“Analyzing <span>High</span>-<span>Dimensional</span> <span>Data</span> with <span>Motion</span> <span>Graphics</span>.”</span> <em>SIAM Journal on Scientific and Statistical Computing</em> 11 (6): 1193–1211. <a href="https://doi.org/10.1137/0911068">https://doi.org/10.1137/0911068</a>.
-</div>
-<div id="ref-hyndman_computing_1996" class="csl-entry">
-Hyndman, Rob J. 1996. <span>“Computing and Graphing Highest Density Regions.”</span> <em>The American Statistician</em> 50 (2): 120–26.
-</div>
-<div id="ref-karwowski_international_2006" class="csl-entry">
-Karwowski, Waldemar. 2006. <em>International <span>Encyclopedia</span> of <span>Ergonomics</span> and <span>Human</span> <span>Factors</span>, -3 <span>Volume</span> <span>Set</span></em>. CRC Press.
-</div>
-<div id="ref-keim_designing_2000" class="csl-entry">
-Keim, Daniel A. 2000. <span>“Designing Pixel-Oriented Visualization Techniques: <span>Theory</span> and Applications.”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em> 6 (1): 59–78.
-</div>
-<div id="ref-kodiyan_overview_2019" class="csl-entry">
-Kodiyan, Akhil Alfons. 2019. <span>“An Overview of Ethical Issues in Using <span>AI</span> Systems in Hiring with a Case Study of <span>Amazon</span>’s <span>AI</span> Based Hiring Tool.”</span> <em>Researchgate Preprint</em>.
-</div>
-<div id="ref-kominsarczyk_treeshap_2021" class="csl-entry">
-Kominsarczyk, Konrad, Pawel Kozminski, Szymon Maksymiuk, and Przemyslaw Biecek. 2021. <span>“Treeshap.”</span> Model Oriented. <a href="https://github.com/ModelOriented/treeshap">https://github.com/ModelOriented/treeshap</a>.
-</div>
-<div id="ref-larson_how_2016" class="csl-entry">
-Larson, Jeff, Surya Mattu, Lauren Kirchner, and Julia Angwin. 2016. <span>“How <span>We</span> <span>Analyzed</span> the <span>COMPAS</span> <span>Recidivism</span> <span>Algorithm</span>.”</span> <em>ProPublica</em>, May. <a href="https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm?token=RPR1E2qtzJltfJ0tS-gB_41kmfoWZAu4">https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm?token=RPR1E2qtzJltfJ0tS-gB_41kmfoWZAu4</a>.
-</div>
-<div id="ref-lee_state_2021" class="csl-entry">
-Lee, Stuart, Dianne Cook, Natalia da Silva, Ursula Laa, Nicholas Spyrison, Earo Wang, and H. Sherry Zhang. 2021. <span>“The State-of-the-Art on Tours for Dynamic Visualization of High-Dimensional Data.”</span> <em>WIREs Computational Statistics</em>, December, e1573. <a href="https://doi.org/10.1002/wics.1573">https://doi.org/10.1002/wics.1573</a>.
-</div>
-<div id="ref-lee_pptree_2013" class="csl-entry">
-Lee, Yoon Dong, Dianne Cook, Ji-won Park, and Eun-Kyung Lee. 2013. <span>“<span>PPtree</span>: <span>Projection</span> Pursuit Classification Tree.”</span> <em>Electronic Journal of Statistics</em> 7: 1369–86.
-</div>
-<div id="ref-leone_fifa_2020" class="csl-entry">
-Leone, Stefano. 2020. <span>“<span>FIFA</span> 20 Complete Player Dataset.”</span> <a href="https://kaggle.com/stefanoleone992/fifa-20-complete-player-dataset">https://kaggle.com/stefanoleone992/fifa-20-complete-player-dataset</a>.
-</div>
-<div id="ref-liaw_classification_2002" class="csl-entry">
-Liaw, Andy, and Matthew Wiener. 2002. <span>“Classification and Regression by <span class="nocase">randomForest</span>.”</span> <em>R News</em> 2 (3): 18–22.
-</div>
-<div id="ref-liu_visualizing_2017" class="csl-entry">
-Liu, Shusen, Dan Maljovec, Bei Wang, Peer-Timo Bremer, and Valerio Pascucci. 2017. <span>“Visualizing <span>High</span>-<span>Dimensional</span> <span>Data</span>: <span>Advances</span> in the <span>Past</span> <span>Decade</span>.”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em> 23 (3): 1249–68. <a href="https://doi.org/10.1109/TVCG.2016.2640960">https://doi.org/10.1109/TVCG.2016.2640960</a>.
-</div>
-<div id="ref-lubischew_use_1962" class="csl-entry">
-Lubischew, Alexander A. 1962. <span>“On the Use of Discriminant Functions in Taxonomy.”</span> <em>Biometrics</em>, 455–77. <a href="https://doi.org/10.2307/2527894">https://doi.org/10.2307/2527894</a>.
-</div>
-<div id="ref-lundberg_consistent_2018" class="csl-entry">
-Lundberg, Scott M., Gabriel G. Erion, and Su-In Lee. 2018. <span>“Consistent Individualized Feature Attribution for Tree Ensembles.”</span> <em>arXiv Preprint arXiv:1802.03888</em>.
-</div>
-<div id="ref-lundberg_unified_2017" class="csl-entry">
-Lundberg, Scott M., and Su-In Lee. 2017. <span>“A Unified Approach to Interpreting Model Predictions.”</span> In <em>Proceedings of the 31st International Conference on Neural Information Processing Systems</em>, 4768–77.
-</div>
-<div id="ref-van_der_maaten_visualizing_2008" class="csl-entry">
-Maaten, Laurens van der, and Geoffrey Hinton. 2008. <span>“Visualizing <span>Data</span> <span>Using</span> t-<span>SNE</span>.”</span> <em>Journal of Machine Learning Research</em> 9 (Nov): 2579–2605.
-</div>
-<div id="ref-matejka_same_2017" class="csl-entry">
-Matejka, Justin, and George Fitzmaurice. 2017. <span>“Same <span>Stats</span>, <span>Different</span> <span>Graphs</span>: <span>Generating</span> <span>Datasets</span> with <span>Varied</span> <span>Appearance</span> and <span>Identical</span> <span>Statistics</span> Through <span>Simulated</span> <span>Annealing</span>.”</span> In <em>Proceedings of the 2017 <span>CHI</span> <span>Conference</span> on <span>Human</span> <span>Factors</span> in <span>Computing</span> <span>Systems</span> - <span>CHI</span> ’17</em>, 1290–94. Denver, Colorado, USA: ACM Press. <a href="https://doi.org/10.1145/3025453.3025912">https://doi.org/10.1145/3025453.3025912</a>.
-</div>
-<div id="ref-molnar_interpretable_2020" class="csl-entry">
-Molnar, Christoph. 2020. <em>Interpretable Machine Learning</em>. Lulu. com. <a href="https://christophm.github.io/interpretable-ml-book/">christophm.github.io/interpretable-ml-book/</a>.
-</div>
-<div id="ref-munzner_visualization_2014" class="csl-entry">
-Munzner, Tamara. 2014. <em>Visualization Analysis and Design</em>. AK Peters/CRC Press.
-</div>
-<div id="ref-nelson_xgobi_1999" class="csl-entry">
-Nelson, Laura, Dianne Cook, and Carolina Cruz-Neira. 1998. <span>“<span>XGobi</span> Vs the <span>C</span>2: <span>Results</span> of an <span>Experiment</span> <span>Comparing</span> <span>Data</span> <span>Visualization</span> in a 3-<span>D</span> <span>Immer</span>- Sive <span>Virtual</span> <span>Reality</span> <span>Environment</span> with a 2-<span>D</span> <span>Workstation</span> <span>Display</span>.”</span> <em>Computational Statistics</em> 14 (1): 39–52.
-</div>
-<div id="ref-oneil_weapons_2016" class="csl-entry">
-O’Neil, Cathy. 2016. <em>Weapons of Math Destruction: <span>How</span> Big Data Increases Inequality and Threatens Democracy</em>. Crown.
-</div>
-<div id="ref-ocagne_coordonnees_1885" class="csl-entry">
-Ocagne, Maurice d’. 1885. <em>Coordonne’es Paralle’les Et Axiales. <span>Me</span>’thode de Transformation Ge’ome’trique Et Proce’de’ Nouveau de Calcul Graphique de’duits de La Conside’ration Des Coordonne’es Paralle’les</em>. Paris: Gauthier-Villars.
-</div>
-<div id="ref-palan_prolific_2018" class="csl-entry">
-Palan, Stefan, and Christian Schitter. 2018. <span>“Prolific. A Subject Pool for Online Experiments.”</span> <em>Journal of Behavioral and Experimental Finance</em> 17: 22–27.
-</div>
-<div id="ref-pearson_liii._1901" class="csl-entry">
-Pearson, Karl. 1901. <span>“<span>LIII</span>. <span>On</span> Lines and Planes of Closest Fit to Systems of Points in Space.”</span> <em>The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science</em> 2 (11): 559–72.
-</div>
-<div id="ref-pedersen_gganimate_2020" class="csl-entry">
-Pedersen, Thomas Lin, and David Robinson. 2020. <span>“Gganimate: A Grammar of Animated Graphics.”</span> <a href="https://CRAN.R-project.org/package=gganimate">https://CRAN.R-project.org/package=gganimate</a>.
-</div>
-<div id="ref-ribeiro_why_2016" class="csl-entry">
-Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. 2016. <span>“"<span>Why</span> <span>Should</span> <span>I</span> <span>Trust</span> <span>You</span>?": <span>Explaining</span> the <span>Predictions</span> of <span>Any</span> <span>Classifier</span>.”</span> In <em>Proceedings of the 22nd <span>ACM</span> <span>SIGKDD</span> <span>International</span> <span>Conference</span> on <span>Knowledge</span> <span>Discovery</span> and <span>Data</span> <span>Mining</span></em>, 1135–44. <span>KDD</span> ’16. New York, NY, USA: Association for Computing Machinery. <a href="https://doi.org/10.1145/2939672.2939778">https://doi.org/10.1145/2939672.2939778</a>.
-</div>
-<div id="ref-rodrigues_lois_1840" class="csl-entry">
-Rodrigues, Olinde. 1840. <span>“Des Lois géométriques Qui régissent Les déplacements d’un Système Solide Dans l’espace: Et de La Variation Des Cordonnées Provenant de Ces déplacements Considérés Indépendamment Des Causes Qui Peuvent Les Produire.”</span> <em>Journal de Mathématiques Pures Et Appliquées</em> 5: 380–440.
-</div>
-<div id="ref-scrucca_mclust_2016" class="csl-entry">
-Scrucca, Luca, Michael Fop, T. Brendan Murphy, and Adrian E. Raftery. 2016. <span>“Mclust 5: <span>Clustering</span>, <span>Classification</span> and <span>Density</span> <span>Estimation</span> <span>Using</span> <span>Gaussian</span> <span>Finite</span> <span>Mixture</span> <span>Models</span>.”</span> <em>The R Journal</em> 8 (1): 289–317. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5096736/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5096736/</a>.
-</div>
-<div id="ref-sedlmair_empirical_2013" class="csl-entry">
-Sedlmair, Michael, Tamara Munzner, and Melanie Tory. 2013. <span>“Empirical <span>Guidance</span> on <span>Scatterplot</span> and <span>Dimension</span> <span>Reduction</span> <span>Technique</span> <span>Choices</span>.”</span> <em>IEEE Transactions on Visualization &amp; Computer Graphics</em>, no. 12: 2634–43.
-</div>
-<div id="ref-shapley_value_1953" class="csl-entry">
-Shapley, Lloyd S. 1953. <em>A Value for n-Person Games</em>. Princeton University Press.
-</div>
-<div id="ref-shmueli_explain_2010" class="csl-entry">
-Shmueli, Galit. 2010. <span>“To Explain or to Predict?”</span> <em>Statistical Science</em> 25 (3): 289–310.
-</div>
-<div id="ref-shrikumar_learning_2017" class="csl-entry">
-Shrikumar, Avanti, Peyton Greenside, and Anshul Kundaje. 2017. <span>“Learning Important Features Through Propagating Activation Differences.”</span> In <em>International <span>Conference</span> on <span>Machine</span> <span>Learning</span></em>, 3145–53. PMLR.
-</div>
-<div id="ref-shrikumar_not_2016" class="csl-entry">
-Shrikumar, Avanti, Peyton Greenside, Anna Shcherbina, and Anshul Kundaje. 2016. <span>“Not Just a Black Box: <span>Learning</span> Important Features Through Propagating Activation Differences.”</span> <em>arXiv Preprint arXiv:1605.01713</em>.
-</div>
-<div id="ref-sievert_interactive_2020" class="csl-entry">
-Sievert, Carson. 2020. <em>Interactive Web-Based Data Visualization with r, Plotly, and Shiny</em>. Chapman; Hall/<span>CRC</span>. <a href="https://plotly-r.com">https://plotly-r.com</a>.
-</div>
-<div id="ref-simonyan_deep_2014" class="csl-entry">
-Simonyan, Karen, Andrea Vedaldi, and Andrew Zisserman. 2014. <span>“Deep Inside Convolutional Networks: <span>Visualising</span> Image Classification Models and Saliency Maps.”</span> In <em>In <span>Workshop</span> at <span>International</span> <span>Conference</span> on <span>Learning</span> <span>Representations</span></em>. Citeseer.
-</div>
-<div id="ref-spyrison_spinifex_2020" class="csl-entry">
-Spyrison, Nicholas, and Dianne Cook. 2020. <span>“Spinifex: An <span>R</span> <span>Package</span> for <span>Creating</span> a <span>Manual</span> <span>Tour</span> of <span>Low</span>-Dimensional <span>Projections</span> of <span>Multivariate</span> <span>Data</span>.”</span> <em>The R Journal</em> 12 (1): 243. <a href="https://doi.org/10.32614/RJ-2020-027">https://doi.org/10.32614/RJ-2020-027</a>.
-</div>
-<div id="ref-spyrison_is_2021" class="csl-entry">
-Spyrison, Nicholas, Benjamin Lee, and Lonni Besançon. 2021. <span>“"<span>Is</span> <span>IEEE</span> <span>VIS</span> *That* Good?" <span>On</span> Key Factors in the Initial Assessment of Manuscript and Venue Quality.”</span> <em>OSF Preprints</em>, July. <a href="https://doi.org/10.31219/osf.io/65wm7">https://doi.org/10.31219/osf.io/65wm7</a>.
-</div>
-<div id="ref-strumbelj_efficient_2010" class="csl-entry">
-Strumbelj, Erik, and Igor Kononenko. 2010. <span>“An Efficient Explanation of Individual Classifications Using Game Theory.”</span> <em>The Journal of Machine Learning Research</em> 11: 1–18.
-</div>
-<div id="ref-swayne_ggobi:_2003" class="csl-entry">
-Swayne, Deborah F, Duncan Temple Lang, Andreas Buja, and Dianne Cook. 2003. <span>“<span>GGobi</span>: Evolving from <span>XGobi</span> into an Extensible Framework for Interactive Data Visualization.”</span> <em>Computational Statistics &amp; Data Analysis</em>, Data <span>Visualization</span>, 43 (4): 423–44. <a href="https://doi.org/10.1016/S0167-9473(02)00286-4">https://doi.org/10.1016/S0167-9473(02)00286-4</a>.
-</div>
-<div id="ref-tukey_exploratory_1977" class="csl-entry">
-Tukey, John W. 1977. <em>Exploratory Data Analysis</em>. Vol. 32. Pearson.
-</div>
-<div id="ref-unwin_ensemble_2018" class="csl-entry">
-Unwin, Antony, and Pedro Valero-Mora. 2018. <span>“Ensemble <span>Graphics</span>.”</span> <em>Journal of Computational and Graphical Statistics</em> 27 (1): 157–65. <a href="https://doi.org/10.1080/10618600.2017.1383264">https://doi.org/10.1080/10618600.2017.1383264</a>.
-</div>
-<div id="ref-vanni_textual_2018" class="csl-entry">
-Vanni, Laurent, Mélanie Ducoffe, Carlos Aguilar, Frédéric Precioso, and Damon Mayaffre. 2018. <span>“Textual <span>Deconvolution</span> <span>Saliency</span> (<span>TDS</span>): A Deep Tool Box for Linguistic Analysis.”</span> In <em>Proceedings of the 56th <span>Annual</span> <span>Meeting</span> of the <span>Association</span> for <span>Computational</span> <span>Linguistics</span> (<span>Volume</span> 1: <span>Long</span> <span>Papers</span>)</em>, 548–57.
-</div>
-<div id="ref-wagner_filho_immersive_2018" class="csl-entry">
-Wagner Filho, Jorge, Marina Rey, Carla Freitas, and Luciana Nedel. 2018. <span>“Immersive <span>Visualization</span> of <span>Abstract</span> <span>Information</span>: <span>An</span> <span>Evaluation</span> on <span>Dimensionally</span>-<span>Reduced</span> <span>Data</span> <span>Scatterplots</span>.”</span> In.
-</div>
-<div id="ref-wang_mapping_2018" class="csl-entry">
-Wang, Bo-Ting, T. J. Hobbs, Sean Doyle, Jun Gao, Tie-Jiun Hou, Pavel M. Nadolsky, and Fredrick I. Olness. 2018. <span>“Mapping the Sensitivity of Hadronic Experiments to Nucleon Structure.”</span> <em>Physical Review D</em> 98 (9): 094030. <a href="https://doi.org/10.1103/PhysRevD.98.094030">https://doi.org/10.1103/PhysRevD.98.094030</a>.
-</div>
-<div id="ref-wickham_r_2017" class="csl-entry">
-Wickham, Hadlet, and Garrett Grolemund. 2017. <em>R for <span>Data</span> <span>Science</span></em>. O’Reily Media. <a href="https://r4ds.had.co.nz/index.html">https://r4ds.had.co.nz/index.html</a>.
-</div>
-<div id="ref-wickham_ggplot2_2016" class="csl-entry">
-Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
-</div>
-<div id="ref-wickham_visualizing_2015" class="csl-entry">
-Wickham, Hadley, Dianne Cook, and Heike Hofmann. 2015. <span>“Visualizing Statistical Models: <span>Removing</span> the Blindfold: <span>Visualizing</span> <span>Statistical</span> <span>Models</span>.”</span> <em>Statistical Analysis and Data Mining: The ASA Data Science Journal</em> 8 (4): 203–25. <a href="https://doi.org/10.1002/sam.11271">https://doi.org/10.1002/sam.11271</a>.
-</div>
-<div id="ref-wickham_tourr:_2011" class="csl-entry">
-Wickham, Hadley, Dianne Cook, Heike Hofmann, and Andreas Buja. 2011. <span>“Tourr: An r Package for Exploring Multivariate Data with Projections.”</span> <em>Journal of Statistical Software</em> 40 (2). <a href="https://doi.org/10.18637/jss.v040.i02">https://doi.org/10.18637/jss.v040.i02</a>.
-</div>
-<div id="ref-xie_bookdown:_2016" class="csl-entry">
-Xie, Yihui. 2016. <em>Bookdown: <span>Authoring</span> <span>Books</span> and <span>Technical</span> <span>Documents</span> with <span>R</span> <span>Markdown</span></em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.
-</div>
-<div id="ref-yanai_hypothesis_2020" class="csl-entry">
-Yanai, Itai, and Martin Lercher. 2020. <span>“A Hypothesis Is a Liability.”</span> <em>Genome Biology</em> 21 (1): 231. <a href="https://doi.org/10.1186/s13059-020-02133-w">https://doi.org/10.1186/s13059-020-02133-w</a>.
-</div>
-<div id="ref-yang_3d_1999" class="csl-entry">
-Yang, Li. 1999. <span>“<span>3d</span> <span>Grand</span> <span>Tour</span> for <span>Multidimensional</span> <span>Data</span> and <span>Clusters</span>.”</span> In <em>Advances in <span>Intelligent</span> <span>Data</span> <span>Analysis</span></em>, edited by David J. Hand, Joost N. Kok, and Michael R. Berthold, 173–84. Lecture <span>Notes</span> in <span>Computer</span> <span>Science</span>. Berlin, Heidelberg: Springer. <a href="https://doi.org/10.1007/3-540-48412-4_15">https://doi.org/10.1007/3-540-48412-4_15</a>.
-</div>
-<div id="ref-yang_interactive_2000" class="csl-entry">
-———. 2000. <span>“Interactive Exploration of Very Large Relational Datasets Through <span>3d</span> Dynamic Projections.”</span> In <em>Proceedings of the Sixth <span>ACM</span> <span>SIGKDD</span> International Conference on <span>Knowledge</span> Discovery and Data Mining - <span>KDD</span> ’00</em>, 236–43. Boston, Massachusetts, United States: ACM Press. <a href="https://doi.org/10.1145/347090.347134">https://doi.org/10.1145/347090.347134</a>.
-</div>
-</div>
-<!-- XXX: TODO: this is not working; returns 00, no citations here or after appendix. -->
-<!-- XXX: TODO, Turn into thesis appedix or change to extended analysis -->
-</div>
-<div id="sec:appendix" class="section level2" number="4.8">
-<h2><span class="header-section-number">4.8</span> Appendix</h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch4zappfig4"></span>
+<img src="figures/ch4_zapp_fig4_app_pg1.PNG" alt="Process data tab, interactively loads or select data, check which variables to project, and optionally scale columns by standard deviation." width="100%"  />
+<p class="caption">
+Figure 4.8: Process data tab, interactively loads or select data, check which variables to project, and optionally scale columns by standard deviation.
+</p>
+</div>
+<p>In the initial tab, users upload their own (.csv, .rds, or .rda) data or select from predefined data sets. The numeric columns appear as a list of variables to include in the projection. Below that, a line displays whether or not missing rows were removed. Scaling by standard deviation is included by default, as this is a common transformation used to explore linear projections of spaces. Summaries of the raw data and processed numeric data are displayed to illustrate how the data was read and its transformation.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch4zappfig5"></span>
+<img src="figures/ch4_zapp_fig5_app_pg2.PNG" alt="Radial tour tab, interactively create radial tours, changing the manipulation variable, and color or shape of the resulting manual tour. Here, the palmer penguins data is being explored, bill length was selected to manipulate as it is the only variable separating the green cluster from the orange. By mapping shape to island of observation, we also notice that the species in green live on all three islands, while the other species live only on one of the islands." width="100%"  />
+<p class="caption">
+Figure 4.9: Radial tour tab, interactively create radial tours, changing the manipulation variable, and color or shape of the resulting manual tour. Here, the palmer penguins data is being explored, bill length was selected to manipulate as it is the only variable separating the green cluster from the orange. By mapping shape to island of observation, we also notice that the species in green live on all three islands, while the other species live only on one of the islands.
+</p>
+</div>
+<p>The second tab contains interaction for selecting the manipulation variable and non-numeric columns can be used to change the color and shape of the data points in the projection. The radial tour is created in real-time, animated as an interactive <strong>plotly</strong> .html widget. The application offers users a fast, intuitive introduction elucidating what the radial tour does and some of the features offered.</p>
+</div>
+<div id="sec:appendix" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Extended analysis</h2>
+<p>This section covers peripheral and extended analysis. First we explore the demographics of the participants. Then we extend a parallel modeling analysis on log response time. Lastly, we look at the effect ranges and marginal effects of the random effect of the participants and data simulation.</p>
 <div id="survey-participant-demographics" class="section level3 unnumbered">
 <h3>Survey participant demographics</h3>
 <p>The target population is relatively well-educated people, as linear projections may prove difficult for generalized consumption. Hence we restrict Prolific.co participants to those with an undergraduate degree (58,700 of the 150,400 users at the study time). From this cohort, 108 performed a complete study. Of these participants, 84 submitted the post-study survey, represented in the following heatmap. All participants were compensated for their time at 7.50 per hour, with a mean time of about 16 minutes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch4zappfig1"></span>
 <img src="figures/ch4_zapp_fig1_survey_demograpics.png" alt="Heatmaps of survey participant demographics; counts of age group by completed education as faceted across preferred pronoun. Our sample tended to be between 18 and 35 years of age with an undergraduate or graduate degree." width="100%"  />
 <p class="caption">
-Figure 4.8: Heatmaps of survey participant demographics; counts of age group by completed education as faceted across preferred pronoun. Our sample tended to be between 18 and 35 years of age with an undergraduate or graduate degree.
+Figure 4.10: Heatmaps of survey participant demographics; counts of age group by completed education as faceted across preferred pronoun. Our sample tended to be between 18 and 35 years of age with an undergraduate or graduate degree.
 </p>
 </div>
 </div>
-<div id="response-time-regression" class="section level3" number="4.8.1">
-<h3><span class="header-section-number">4.8.1</span> Response time regression</h3>
+<div id="response-time-regression" class="section level3" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> Response time regression</h3>
 <!-- Time as secondary interest, Y2 -->
 <p>As a secondary explanatory variable, we also want to look at time. First, we take the log transformation of time as it is right-skewed. We repeat the same modeling procedure: 1) Compare the performance of a battery of all additive and multiplicative models. 2) Select the model with the same effect terms, <span class="math inline">\(\alpha \cdot \beta + \gamma + \delta\)</span>, and examine its coefficients.</p>
 <!-- Y2 model comparisons, continue to use ABcd -->
@@ -1737,40 +1488,26 @@ Factorradial:Location50/50%
 </div>
 <div id="random-effect-ranges" class="section level3 unnumbered">
 <h3>Random effect ranges</h3>
+<!-- Random effect terms specify source of the error -->
+<p>The random effect terms further clarify the source of the error. Below we compare the effect ranges that can be attributed to the participant and to the simulations next to their marginal effect on the response, a sort of upper bound for the error they could explain. We look at the original accuracy model and then the model regressing log response time.</p>
 <!-- Random effects vs Mean Mark CI by participant and sim -->
-<p>Residual plots have no noticeable non-linear trends and contain striped patterns as an artifact from regressing on discrete variables. Figure <a href="4-ch-userstudy.html#fig:ch4zappfig2">4.9</a> illustrates (T) the effect size of the random terms participant and simulation, or more accurately, the 95% CI from Gelman simulation of their posterior distribution. The effect size of the participant is much larger than simulation. The most extreme participants are statistically significant at <span class="math inline">\(\alpha = .95\)</span>, while none of the simulation effects significantly deviate from the null of having no effect size on the marks. In comparison, (B) 95% confidence intervals participation and simulation mean accuracy, respectively.</p>
+<p>The residual plots have no noticeable non-linear trends and contain striped patterns as an artifact from regressing on discrete variables. Figure <a href="4-ch-userstudy.html#fig:ch4zappfig2">4.11</a> illustrates (T) the effect size of the random terms participant and simulation, or more accurately, the 95% CI from Gelman simulation of their posterior distribution. The effect size of the participant is much larger than simulation. The most extreme participants are statistically significant at <span class="math inline">\(\alpha = .95\)</span>, while none of the simulation effects significantly deviate from the null of having no effect size on the marks. In comparison, (B) 95% confidence intervals participation and simulation mean accuracy, respectively.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch4zappfig2"></span>
 <img src="figures/ch4_zapp_fig2_effect_range.png" alt="Accuracy model: (T) Estimated effect ranges of the random effect terms participant and data simulation of the accuracy model, $\widehat{Y_1} = \alpha \cdot \beta + \gamma + \delta$. Confidence intervals are created with Gelman simulation on the effect posterior distributions. The effect size of the participant is relatively large, with several significant extrema. None of the simulations deviate significantly. (B) The ordered distributions of the CI of mean marks follow the same general pattern and give the additional context of how much variation is in the data, an upper limit to the effect range. The effect ranges capture about two-thirds of the range of the data without the model. All intervals for $\alpha = .95$ confidence." width="100%"  />
 <p class="caption">
-Figure 4.9: Accuracy model: (T) Estimated effect ranges of the random effect terms participant and data simulation of the accuracy model, <span class="math inline">\(\widehat{Y_1} = \alpha \cdot \beta + \gamma + \delta\)</span>. Confidence intervals are created with Gelman simulation on the effect posterior distributions. The effect size of the participant is relatively large, with several significant extrema. None of the simulations deviate significantly. (B) The ordered distributions of the CI of mean marks follow the same general pattern and give the additional context of how much variation is in the data, an upper limit to the effect range. The effect ranges capture about two-thirds of the range of the data without the model. All intervals for <span class="math inline">\(\alpha = .95\)</span> confidence.
+Figure 4.11: Accuracy model: (T) Estimated effect ranges of the random effect terms participant and data simulation of the accuracy model, <span class="math inline">\(\widehat{Y_1} = \alpha \cdot \beta + \gamma + \delta\)</span>. Confidence intervals are created with Gelman simulation on the effect posterior distributions. The effect size of the participant is relatively large, with several significant extrema. None of the simulations deviate significantly. (B) The ordered distributions of the CI of mean marks follow the same general pattern and give the additional context of how much variation is in the data, an upper limit to the effect range. The effect ranges capture about two-thirds of the range of the data without the model. All intervals for <span class="math inline">\(\alpha = .95\)</span> confidence.
 </p>
 </div>
-<p>Similarly, figure <a href="4-ch-userstudy.html#fig:ch4zappfig3">4.10</a> shows the Gelman simulations and marginal effects of the simulation and participants for <span class="math inline">\(Y_2\)</span>, the same model regressing on log response time.</p>
+<p>Similarly, figure <a href="4-ch-userstudy.html#fig:ch4zappfig3">4.12</a> shows the Gelman simulations and marginal effects of the simulation and participants for <span class="math inline">\(Y_2\)</span>, the same model regressing on log response time.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch4zappfig3"></span>
 <img src="figures/ch4_zapp_fig3_T_effect_range.png" alt="Log response time model: (T) The effect ranges of Gelman resimulation on posterior distributions for the time model, $\widehat{Y_2} = \alpha \cdot \beta + \gamma + \delta$. These show the magnitude and distributions of particular participants and simulations. Simulation has a relatively small effect on response time. (B) Confidence intervals for mean log time by participant and simulation. The marginal density shows that the response times are left-skewed after log transformation. Interpreting back to linear time there is quite the spread of response times: $e^{1} = 2.7$, $e^{2.75} = 15.6$, $e^{3.75} = 42.5$ seconds. Of the simulations on the right, the bottom has a large variation in response time, relative to the effect ranges which means that the variation is explained in the terms of the model and not by the simulation itself." width="100%"  />
 <p class="caption">
-Figure 4.10: Log response time model: (T) The effect ranges of Gelman resimulation on posterior distributions for the time model, <span class="math inline">\(\widehat{Y_2} = \alpha \cdot \beta + \gamma + \delta\)</span>. These show the magnitude and distributions of particular participants and simulations. Simulation has a relatively small effect on response time. (B) Confidence intervals for mean log time by participant and simulation. The marginal density shows that the response times are left-skewed after log transformation. Interpreting back to linear time there is quite the spread of response times: <span class="math inline">\(e^{1} = 2.7\)</span>, <span class="math inline">\(e^{2.75} = 15.6\)</span>, <span class="math inline">\(e^{3.75} = 42.5\)</span> seconds. Of the simulations on the right, the bottom has a large variation in response time, relative to the effect ranges which means that the variation is explained in the terms of the model and not by the simulation itself.
+Figure 4.12: Log response time model: (T) The effect ranges of Gelman resimulation on posterior distributions for the time model, <span class="math inline">\(\widehat{Y_2} = \alpha \cdot \beta + \gamma + \delta\)</span>. These show the magnitude and distributions of particular participants and simulations. Simulation has a relatively small effect on response time. (B) Confidence intervals for mean log time by participant and simulation. The marginal density shows that the response times are left-skewed after log transformation. Interpreting back to linear time there is quite the spread of response times: <span class="math inline">\(e^{1} = 2.7\)</span>, <span class="math inline">\(e^{2.75} = 15.6\)</span>, <span class="math inline">\(e^{3.75} = 42.5\)</span> seconds. Of the simulations on the right, the bottom has a large variation in response time, relative to the effect ranges which means that the variation is explained in the terms of the model and not by the simulation itself.
 </p>
 </div>
-</div>
-<div id="radial-tour-application-details" class="section level3 unnumbered">
-<h3>Radial tour application details</h3>
-<p>Below we describe the <strong>shiny</strong> app available in the <strong>spinifex</strong> package which runs locally. It streamlines creating and interacting with radial tours more interactive than the application used in the user study.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch4zappfig4"></span>
-<img src="figures/ch4_zapp_fig4_app_pg1.PNG" alt="Process data tab, interactively loads or select data, check which variables to project, and optionally scale columns by standard deviation." width="100%"  />
-<p class="caption">
-Figure 4.11: Process data tab, interactively loads or select data, check which variables to project, and optionally scale columns by standard deviation.
-</p>
-</div>
-<p>In the initial tab, users upload their own (.csv, .rds, or .rda) data or select from predefined data sets. The numeric columns appear as a list of variables to include in the projection. Below that, a line displays whether or not missing rows were removed. Scaling by standard deviation is included by default, as this is a common transformation used to explore linear projections of spaces. Summaries of the raw data and processed numeric data are displayed to illustrate how the data was read and its transformation.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch4zappfig5"></span>
-<img src="figures/ch4_zapp_fig5_app_pg2.PNG" alt="Radial tour tab, interactively create radial tours, changing the manipulation variable, and color or shape of the resulting manual tour. Here, the palmer penguins data is being explored, bill length was selected to manipulate as it is the only variable separating the green cluster from the orange. By mapping shape to island of observation, we also notice that the species in green live on all three islands, while the other species live only on one of the islands." width="100%"  />
-<p class="caption">
-Figure 4.12: Radial tour tab, interactively create radial tours, changing the manipulation variable, and color or shape of the resulting manual tour. Here, the palmer penguins data is being explored, bill length was selected to manipulate as it is the only variable separating the green cluster from the orange. By mapping shape to island of observation, we also notice that the species in green live on all three islands, while the other species live only on one of the islands.
-</p>
-</div>
-<p>The second tab contains interaction for selecting the manipulation variable and non-numeric columns can be used to change the color and shape of the data points in the projection. The radial tour is created in real-time, animated as an interactive <strong>plotly</strong> .html widget. The application offers users a fast, intuitive introduction elucidating what the radial tour does and some of the features offered.</p>
-<!-- References were included above and not here -->
+<!-- ## References -->
+<!-- <div id="refs"></div> -->
+<!-- Adds a bib section at the end of every chapter -->
 
 </div>
 </div>
