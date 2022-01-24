@@ -3,8 +3,8 @@
 <!-- Supervisors -->
 I would like to express my sincere gratitude to my supervisors, Professor Dianne Cook and Professor Kimbal Marriott, for their support of my Ph.D studies and research, their subject expertise, and their careers of supervising and teaching in addition to performing research. Thank you for continuously pushing me and my research to new levels. I have enjoyed teaching data visualization, which has been strongly shaped by Di's practical, data-first, visualization-often pragmatic approach.  I will continue to hear Kim’s persistent question, “what do we learn from this?” as a reminder not to get lost in the details of implementation and regularly step back and analyze if this is the correct object to change.
 
-<!-- Biecek & Julie Holden-->
-A special thanks to Professor Przemyslaw Biecek for giving his input in the formulation stages of my project and his easy-to-understand explanations of complex modeling aspects. Thank you for responding to cold emails and being available for collaboration. Thank you to Julie Holden for helping proofread and tighten up my writing.
+<!-- Biecek, Jieyang Chong, Julie Holden-->
+A special thanks to Professor Przemyslaw Biecek for giving his input in the formulation stages of my project and his easy-to-understand explanations of complex modeling aspects. Thank you for responding to cold emails and being available for collaboration. Thank you to Jieyang Chong and Julie Holden for their help proofreading and tighten up my writing.
 
 <!-- PhD students, promodo, Ying -->
 I thank my fellow Ph.D students, lab members, and Pomodoro partners, especially on the occasional stimulating discussions and the positive peer pressure of knowing others are around and working. Thanks immensely to those who empathized with me and others, especially through the hardships of studies and COVID-19. Gratitude to Ying Zhou for her enduring support through the thick of my studies and wavering mental health.

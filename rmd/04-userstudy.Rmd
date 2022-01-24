@@ -9,7 +9,7 @@ knit: "bookdown::render_book"
 The previous chapter introduced the package __spinifex__ which gave us the means to perform radial tours. Now we have the means to perform radial tours. We now investigate whether we should be confident that this method with user control will lead to better analysis than traditional alternatives. Therefore, this chapter discusses the user study to elucidate the efficacy of the radial tour.
 
 <!-- Abstract -->
-Principal component analysis is a long-standing go-to method for exploring multivariate data. Data visualization _tours_ are a class of linear projections animated over small changes in the projection basis. The grand tour original selects target bases at random to animate between. Alternatively, the manual tour rotates the contribution of a selected variable novelly offering analysts a means to control the basis. This paper describes a within-participants user study evaluating the radial tour's efficacy compared with principal component analysis and the grand tour. We devise a supervised classification task where participants evaluate variable attribution of the separation between two classes. We define an accuracy measure as the response variable. Data were collected from 108 crowdsourced participants, who performed two trials of each visual for 648 trials in total.
+Principal component analysis is a long-standing go-to method for exploring multivariate data. Data visualization _tours_ are a class of linear projections animated over small changes in the projection basis. The grand tour original selects target bases at random to animate between. Alternatively, the manual tour rotates the contribution of a selected variable novelly offering analysts a means to control the basis. This chapter describes a within-participants user study evaluating the radial tour's efficacy compared with principal component analysis and the grand tour. We devise a supervised classification task where participants evaluate variable attribution of the separation between two classes. We define an accuracy measure as the response variable. Data were collected from 108 crowdsourced participants, who performed two trials of each visual for 648 trials in total.
 
 
 ## Introduction
@@ -36,8 +36,8 @@ knitr::include_graphics("./figures/ch4_fig1_cl_sep.pdf")
 <!--- black-box models-->
 Knowing which variables to use is also important for statistical modeling and their interpretations. Models are becoming increasingly complex involving many interacting, or otherwise non-linear terms cause an opaqueness to their interpretability. Exploratory Artificial Intelligence [XAI, @adadi_peeking_2018; @arrieta_explainable_2020] is an emerging field that attempts to extend the interpretability of such black-box models by offering techniques to increase their interpretability. Multivariate data visualization is essential for exploring features spaces and communicating interpretations of models [@biecek_dalex_2018; @biecek_explanatory_2021; @wickham_visualizing_2015].
 
-<!-- Structure of the paper -->
-The paper is structured as follows. Section \@ref(sec:background) discusses several visualization methods and orthogonal and observation-based visuals before arriving at the three linear dimension reduction techniques compared in the study. Section \@ref(sec:userstudy) describes the experimental factors, task, and accuracy measure used. The results of the study are discussed in Section \@ref(sec:results). Conclusions and potential future directions are discussed in Section \@ref(sec:conclusion). The software used for the study is described in Section \@ref(sec:spinifex).
+<!-- Structure of the chapter -->
+The chapter is structured as follows. Section \@ref(sec:background) discusses several visualization methods and orthogonal and observation-based visuals before arriving at the three linear dimension reduction techniques compared in the study. Section \@ref(sec:userstudy) describes the experimental factors, task, and accuracy measure used. The results of the study are discussed in Section \@ref(sec:results). Conclusions and potential future directions are discussed in Section \@ref(sec:conclusion). The software used for the study is described in Section \@ref(sec:spinifex).
 
 
 ## Background {#sec:background}
@@ -228,7 +228,7 @@ We recruited $N = 108$ participants via prolific.co [@palan_prolific_2018]. We f
 Data were recorded by a __shiny__ application and written to a Google Sheet after each third of the study. Especially at the start of the study, participants experienced adverse network conditions due to the volume of participants hitting the application with modest allocated resources. In addition to this, API read/write limitations further hindered data collection. To mitigate this, we throttled the number of participants and over-collect survey trials until we received our target three evaluations of all permutation levels.
 
 <!-- Preprocessing steps -->
-The processing steps were minimal. First, we format to an analysis-ready form, decoding values to a more human-readable state, and add a flag indicating whether the survey had complete data. We filter to only the latest three complete studies of each experimental factor, which should have experienced the most minor adverse network conditions. The bulk of the studies removed were partial data and a few over-sampled permutations. This brings us to the 108 studies described in the paper, from which models and aggregation tables were built. The post-study surveys were similarly decoded to human-readable format and then filtered to include only those 84 associated with the final 108 studies.
+The processing steps were minimal. First, we format to an analysis-ready form, decoding values to a more human-readable state, and add a flag indicating whether the survey had complete data. We filter to only the latest three complete studies of each experimental factor, which should have experienced the most minor adverse network conditions. The bulk of the studies removed were partial data and a few over-sampled permutations. This brings us to the 108 studies described in the chapter, from which models and aggregation tables were built. The post-study surveys were similarly decoded to human-readable format and then filtered to include only those 84 associated with the final 108 studies.
 
 The code, response files, their analyses, and the study application are publicly available at on GitHub; \url{https://github.com/nspyrison/spinifex_study}.
 
@@ -337,7 +337,7 @@ nsSafeIncGraphic("./figures/ch4_fig7_subjective_measures.pdf")
 Data visualization is an integral part of EDA. Yet through exploration of data in high dimensions become difficult. Previous methods offer no means for an analyst to impact the projection basis. The manual tour provides a mechanism for changing the contribution of a selected variable to the basis. Giving analysts such control should facilitate the exploration of variable-level sensitivity to the identified structure. We find strong evidence that using the radial tour improves the accuracy relative to PCA or the grand tour on the supervised cluster task assigning variable attribution to the separation of the two clusters.
 
 <!-- Recap study -->
-This paper discussed a with-in participant user study ($n=108$) comparing the efficacy of three linear projection techniques. The participants performed a supervised cluster task, explicitly identifying which variables contribute to separating two target clusters. This was evaluated evenly over four experimental factors. In summary, we find strong evidence that using the radial tour leads to a sizable accuracy increase. In the appendix we find evidence for a small change in response time, with PCA being fastest, then the grand tour followed by the radial tour. The effect sizes on accuracy are large relative to the change from the other experimental factors, though smaller than the random effect of the participant. The radial tour was subjectively preferred, leading to more confidence in answers, and increased ease of use than the alternatives.
+This chapter discussed a with-in participant user study ($n=108$) comparing the efficacy of three linear projection techniques. The participants performed a supervised cluster task, explicitly identifying which variables contribute to separating two target clusters. This was evaluated evenly over four experimental factors. In summary, we find strong evidence that using the radial tour leads to a sizable accuracy increase. In the appendix we find evidence for a small change in response time, with PCA being fastest, then the grand tour followed by the radial tour. The effect sizes on accuracy are large relative to the change from the other experimental factors, though smaller than the random effect of the participant. The radial tour was subjectively preferred, leading to more confidence in answers, and increased ease of use than the alternatives.
 
 <!-- Discussion and going further -->
 There are several ways that this study could be extended. In addition to expanding the support of the experimental factors, more exciting directions include: changing the type of the task, visualizations used, and experience level of the target population. It is difficult to achieve good coverage given the number of possible permutations. Keep in mind the traffic volume and low effort of responses from participants when crowdsourcing.
@@ -355,15 +355,13 @@ spinifex::run_app()
 ```
 
 
-## Acknowledgments {#sec:acknowledgments}
-
-This research was supported by an Australian Government Research Training Program (RTP) scholarship. This article was created in __R__ [@r_core_team_r:_2020] and __rmarkdown__ [@xie_r_2018]. Visuals were prepared with __spinifex__. All packages used are available from the Comprehensive R Archive Network [CRAN](https://CRAN.R-project.org/). The source files for this article, application, data, and analysis can be found on [GitHub](https://github.com/nspyrison/spinifex_study/). The source code for the __spinifex__ package and accompanying shiny application can be found [here](https://github.com/nspyrison/spinifex/). We thank Jieyang Chong for his help in proofreading this article.
-
-
 ## References
 
 <div id="refs"></div>
+<!-- XXX: TODO: this is not working; returns 00, no citations here or after appendix. -->
 
+
+<!-- XXX: TODO, Turn into thesis appedix or change to extended analysis -->
 
 ## Appendix {#sec:appendix}
 

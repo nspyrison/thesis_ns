@@ -13,8 +13,7 @@ For our purposes I will be focusing on the case where data $X_{nxp}$ contains $n
 <!-- Better than numerical summarization alone -->
 Visualization is much more robust than numerical summarization alone [@anscombe_graphs_1973; @matejka_same_2017]. In these studies, data sets have the same summary statistics yet contain obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Data visualization is fundamental to EDA and quickly evaluating data supports ensuring that models are suitable.
 
-(ref:chfig2-cap) Starting from the profile of a dinosaur, observations are allowed to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the original statistics [@matejka_same_2017]. Visualization of data yields stark designs that are easy to miss in numerical summarization.
-
+(ref:ch2fig2-cap) Starting from the profile of a dinosaur, observations are allowed to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the original statistics [@matejka_same_2017]. Visualization of data yields stark designs that are easy to miss in numerical summarization.
 ```{r ch2fig2, echo=F, out.width='70%', fig.cap = "(ref:ch2fig2-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig2_matejka17fig.PNG")
 ```
@@ -28,7 +27,6 @@ The work in @grinstein_high-dimensional_2002 gives a good taxonomy of high-dimen
 Viewing as many univariate histograms or density curves is one method. Similarly, one could look at all variable pairing as scatter plots. This forms the crux of the scatterplot matrices, also known as SPLOM [@chambers_graphical_1983]. In a scatterplot matrix, variables are displayed across the columns and rows. The diagonal elements show the univariate densities while off-diagonal positions show scatterplot pairs. This is useful for getting a handle on the support of the variables but is not going to scale well with dimension and is not a suitable audience-ready display. It is very busy and doesn't draw attention to any one spot. @munzner_visualization_2014 reminds us to abstract all of the cognitive work out of the visual, allowing the audience to focus on seeing the evidence supporting the claim.
 
 (ref:penguinsplom-cap) Scatterplot matrix of penguins data. This is a good initial step, but will not scale well at $p$ increases.
-
 ```{r penguinsplom, echo=F, out.width='100%', fig.cap = "(ref:penguinsplom-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig1_penguin_splom.pdf")
 ```

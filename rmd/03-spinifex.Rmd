@@ -27,8 +27,8 @@ Dynamic low-dimensional linear projections of multivariate data known as _tour_ 
 
 In the Chapter \@ref(ch-background) we introduce linear projections and _tours_, dynamic linear projections animated over small changes to the basis. The _manual tour_ [@cook_grand_1995] novelly allows an analyst control the contribution of a variable to the basis. On the theoretical side of the contribution we fill in previously absent details to solve at the 3D rotation matrix used in 2D manual tours. This proves a scaffolding for the extension for solving for a 4D rotation matrix that could be used for a 3D manual tour. After that we turn our attention to the package and implementation before illustrating use of the manual tour with meta analysis on high energy particle physics data.
 
-<!-- Paper outline -->
-The paper is organized as follows. Section \@ref(sec:algorithm) describes the algorithm used to perform a radial manual tour implemented in the package __spinifex__. Section \@ref(sec:pkgstructure) discussed the functions. Package functionality and code usage following the order applied in the algorithm follows in section \@ref(sec:usage). Section \@ref(sec:usecases) illustrates how this can be used for sensitivity analysis applied to multivariate data collected on high-energy physics experiments [@wang_mapping_2018]. Section \@ref(sec:discussion) summarizes this paper and discusses potential future directions.
+<!-- chapter outline -->
+The chapter is organized as follows. Section \@ref(sec:algorithm) describes the algorithm used to perform a radial manual tour implemented in the package __spinifex__. Section \@ref(sec:pkgstructure) discussed the functions. Package functionality and code usage following the order applied in the algorithm follows in section \@ref(sec:usage). Section \@ref(sec:usecases) illustrates how this can be used for sensitivity analysis applied to multivariate data collected on high-energy physics experiments [@wang_mapping_2018]. Section \@ref(sec:discussion) summarizes this chapter.
 
 
 <!-- Algorithm outline -->
@@ -388,7 +388,7 @@ vignette("ggproto_api")
 
 ## Use cases {#sec:usecases}
 
-<!-- Introduction of data and original paper -->
+<!-- Introduction of data and original chapter -->
 @wang_mapping_2018 introduce a new tool, PDFSense, to visualize the sensitivity of hadronic experiments to nucleon structure. The parameter-space of these experiments lies in 56 dimensions, and are approximated as the ten first principal components. 
 
 <!-- grand tours on the same data -->
@@ -444,17 +444,4 @@ This work was motivated by problems in physics, and thus the usage was illustrat
 
 <!-- Constraints -->
 The manual tour is constrained in the sense that the effect of one variable is dependent on the contributions of other variables in the manip space. However, this can be useful to simplify a projection by removing variables without affecting the visible structure. Defining a manual rotation in high dimensions is possible using Givens rotations and Householder reflections as outlined in @buja_computational_2005. This would provide more flexible manual rotation but more difficult for a user because they have the choice (too much choice) of which directions to move. 
-
-<!-- 3D and function vis -->
-Another future research topic could be to extend the algorithm for use on 3D tours. This would require applying another angle of rotation with Rodrigues' rotation formula on the current 3D rotation matrix. The addition of another display dimension may benefit the detection and understanding of the higher dimensional structure though the input of three angles may prove less natural and harder to capture.
-
-<!-- Dynamic interaction/gui -->
-Having a graphical user interface would be useful for making it easier and more accessible to a general audience. This is possible to implement using __shiny__ [@chang_shiny_2020]. The primary purposes of the interface would be to allow the user to interactively change the manip variable easily and the interpolation step for more or less detailed views.
-
-
-## Acknowledgments
-
-This article was created in R, using __knitr__ [@xie_knitr_2020] and __rmarkdown__ [@allaire_rmarkdown_2020], with code generating the examples inline. The source files for this article be found at [github.com/nspyrison/spinifex_paper/](https://github.com/nspyrison/spinifex_paper/). The animated gifs can also be viewed at this site. The source code for the __spinifex__ package can be found at [github.com/nspyrison/spinifex/](https://github.com/nspyrison/spinifex/).
-
-<!-- Adds a bib section at the end of every chapter -->
 

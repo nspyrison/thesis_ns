@@ -37,8 +37,8 @@ We use the radial manual tour to scrutinize a local explanation in our proposed 
 <!-- What-if & counterfactual analysis -->
 Using a radial tour can be considered similar to counterfactual, what-if analysis, such as _ceteris paribus_ [@biecek_ceterisparibus_2020]. This phrase, Latin for "other things held constant" or "all else unchanged", shows how an instance's prediction would change from a marginal change in one explanatory feature given that other features are held constant. It ignores correlations of the features and imagines a case that was not observed. In contrast, our approach is a geometric explanation of the factual; it varies contributions of the features by rotating the basis, a reorientation of the data object. A constraint in our approach is that the basis must remain orthonormal. When the contribution of one feature decreases, the contributions of others necessarily increase such that there is a complete component in that direction. This also ensures that what is seen is strictly a low-dimensional projection from high-dimensions and is thus an interpretable visualization.
 
-<!-- Paper structure -->
-The remainder of this paper is organized as follows. The following Section, \@ref(sec:explanations), covers the background of the local explanation and the traditional visuals produced. Section \@ref(sec:tour) explains the animations of continuous linear projections. Section \@ref(sec:cheemviwer) discusses the visual layout in the interactive interface, how they facilitate analysis, data preprocessing, and package infrastructure. Then Section \@ref(sec:casestudies) illustrates the application to supervised learning with categorical and quantitative response features. We conclude with Section \@ref(sec:cheemdiscussion) of the insights gained and directions that might be explored in the future.
+<!-- chapter structure -->
+The remainder of this chapter is organized as follows. The following Section, \@ref(sec:explanations), covers the background of the local explanation and the traditional visuals produced. Section \@ref(sec:tour) explains the animations of continuous linear projections. Section \@ref(sec:cheemviwer) discusses the visual layout in the interactive interface, how they facilitate analysis, data preprocessing, and package infrastructure. Then Section \@ref(sec:casestudies) illustrates the application to supervised learning with categorical and quantitative response features. We conclude with Section \@ref(sec:cheemdiscussion) of the insights gained and directions that might be explored in the future.
 
 
 ## Local explanation statistics {#sec:explanations}
@@ -268,13 +268,6 @@ Figure \@ref(fig:caseames) selects the house sale 74, a sizable under prediction
 The need to maintain the interpretability of black-box models is evident. One aspect uses local explanations of the model in the vicinity of an instance. Local explanations approximate the linear feature importance to the model. Our contribution is to assess explanations by examining the support by varying the contributions with a radial tour. First, a global view visualizes approximations of the data space, explanation space, model predictions side-by-side, using dynamic interaction to compare and contrast and identify instances of interest. The normalized linear importance from the explanation of the PI becomes the feature of interest to further explore with the radial tour. The tours explore the feature sensitivity to the structure identified in the explanation.
 
 We have illustrated this method on random forest models using the tree SHAP local explanation, while it could be generally used with any compatible model-explanation pairing. We apply it to the classification and regression tasks. We have created an open-source __R__ package __cheem__, available on [CRAN](https://CRAN.R-project.org/package=cheem), to facilitate preprocessing and exploration with the described interactive application. Toy and real data are provided, or upload your data after preprocessing.
-
-
-## Acknowledgments
-
-We would like to thank Professor Przemyslaw Biecek for his input early in the project and to the broader $\text{MI}^\text2$ lab group for the __DALEX__ ecosystem of __R__ and __Python__ packages. This research was supported by Australian Government Research Training Program (RTP) scholarships. Thanks to Jieyang Chong for helping proofread this article.
-
-The namesake, Cheem, refers to a fictional race of humanoid trees from Doctor Who lore. __DALEX__ pulls on from that universe, and we initially apply tree SHAP explanations specific to tree-based models.
 
 
 ## References
