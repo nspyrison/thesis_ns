@@ -11,20 +11,9 @@ This chapter introduces manual tours that allows analysts to influence the contr
 <!-- Abstract -->
 Dynamic low-dimensional linear projections of multivariate data known as _tour_ provide an essential tool for exploring multivariate data and models. The __R__ package __tourr__ provides functions for several types of tours: grand, guided, little, local, and frozen. Each of these can be viewed in a development environment, or their basis array can be saved for later consumption. This chapter describes a new package, __spinifex__, which provides a manual tour of multivariate data. In a manual tour an analyst controls the contribution of a variable to the projection. Controlled manipulation is important to explore a variables sensitivity to structure of an identified feature. The use of the manual tour is applied to particle physics data to illustrate the sensitivity of structure in a projection to specific variable contributions. Additionally, we create a ggproto API for composing any tour that mirrors the layered additive approach of __ggplot2__. Tours can then be animated and exported to various formats with __plotly__ or __gganimate__.
 
+<!-- ## Introduction -->
 
-## Introduction
-
-
-<!-- <<KM strikethrough: This should have been covered in related work, Jan 20>> -->
-<!-- <!-- Tours --> 
-<!-- Exploring multivariate spaces is a challenging task, increasingly so as dimensionality increases. Traditionally, static low-dimensional projections are used to display multivariate data in two dimensions, including principal component analysis, linear discriminant spaces or projection pursuit. These are useful for finding relationships between multiple variables, but they are limited because they show only a glimpse of the high-dimensional space. An alternative approach is to use a tour [@asimov_grand_1985] of dynamic linear projections to look at many different low-dimensional projections. Tours can be considered to extend the dimensionality of visualization, which is important as data and models exist in more than three dimensions. The package __tourr__ [@wickham_tourr:_2011] provides a platform for generating tours. It can produce a variety of tours, each paired with a variety of possible displays. A user can make a grand, guided, little, local or frozen tour, and display the resulting projected data as a scatterplot, density plot, histogram, or even as Chernoff faces if the projection dimension is more than 3. -->
-
-<!-- <!-- Manual tour --> 
-<!-- This work adds a manual tour to the collection. The manual tour was described in @cook_manual_1997 and allows a user to control the projection coefficients of a selected variable in a 2D projection. The manipulation of these coefficients enable the analyst to explore their sensitivity to the structure within the projection. As manual tours operate on only one variable, they are particularly useful once a feature of interest has been identified. -->
-
-<!-- <!-- interesting features and guided tours -->
-<!-- One way to identify "interesting" features is using a guided tour [@cook_grand_1995]. Guided tours select a very specific path, which approaches a projection that optimizes an objective function. The optimization used to guide the tour is simulated annealing [@kirkpatrick_optimization_1983]. The direct optimization of a function allows guided tours to rapidly identify interesting projection features given the relatively large parameter-space. After a projection of interest is identified, an analyst can then use the "finer brush" of the manual tour to control the contributions of individual variables to explore the sensitivity they have on the structure visible in the projection. -->
-
+<!-- Segue -->
 In the Chapter \@ref(ch-background) we introduce linear projections and _tours_, dynamic linear projections animated over small changes to the basis. The _manual tour_ [@cook_grand_1995] novelly allows an analyst control the contribution of a variable to the basis. On the theoretical side of the contribution we fill in previously absent details to solve at the 3D rotation matrix used in 2D manual tours. This proves a scaffolding for the extension for solving for a 4D rotation matrix that could be used for a 3D manual tour. After that we turn our attention to the package and implementation before illustrating use of the manual tour with meta analysis on high energy particle physics data.
 
 <!-- chapter outline -->

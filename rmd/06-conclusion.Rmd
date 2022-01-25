@@ -19,20 +19,11 @@ This study makes two major contributions to extending knowledge in the domain of
 
 ### Knowledge
 
-<!-- XXX TODO write the knowledge contribution, pasted below is an except from the introduction -->
-- Manual tour theory
-    - Use of the Rodrigues' rotation formula to derive the rotation matrix; this was absent from the original paper and points to the means to extend the manual tour in a 3D embedding
-    - Use cases for the manual tour giving plausible support to its application
-- A user study comparing the efficacy of the radial tour against the alternatives of PCA the grand tour includes:
-    - Creation of supervised classification task to assess the variable attribution to the separation of clusters performed under various levels of experimental factors: location, shape, and dimensionality
-    - Definition of an accuracy measure to evaluate this task
-    - Results: strong evidence that the radial tour increases the accuracy of this task by a sizable amount while the task is performed fastest with the grand tour
-    - Attribution of the error by performing a mixed model regression helps to explain the source of the error term into the variability of participants skill aptitude for this task and variability of the difficultly of a simulation by random chance
-    - Introduces an interactive application to preprocess data and explore. Users can choose from six supplied datasets or upload their own
-- Cheem analysis, given a non-linear model and local explanations of all observations I purpose the exploring the support of local explanation by varying the contributions with the radial, manual tour.
-    - Using a global view with approximation of variable space, attribution space, and model information side-by-side with linked brushing identify a primary observation of interest and optional comparison observation
-    - Normalize the variable attribution from the selected observation and use this as a projection basis
-    - Explore and evaluate the local explanation; by use of the radial tour we can explore the sensitivity to the structure identified checking the support the explanation holds realistic or completely unreliable
+First, I clarify the use of Rodrigues' rotation formula to solve the rotation matrix with the definition of two manipulation angles. This sets up a scaffolding to extend the manual tour to three dimensions with the addition of another angle of rotation. We also lend support to the use of the manual tours by illustrating use cases on high energy physics data.
+
+Then I define a task and accuracy measure for a variable attribution of the separation of two clusters. We conducted a crowdsourced user study comparing the performance from PCA, the grand tour, and the radial tour. We find large evidence for a sizable improvement in accuracy with the use of radial tour, which is subjectively most preferred by participants.
+
+Lastly, I purpose the cheem analysis to explore the variable support of local explanations from black-box models. After calculating the local explanations of all observations, compare data space, attribution space, and model information side-by-side as an ensemble  graphic. From this, identify a primary and comparison observation explore the explanations in detail. The normalized attribution of the primary point become the starting basis for a radial tour. Then vary the contributions of variables testing the sensitivity of their contribution to the predictive discernment identified in the explanation.
 
 
 ### Software

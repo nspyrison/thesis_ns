@@ -69,4 +69,38 @@ Tours are used for a couple of salient features: maintains transparency back to 
 The work below covers manual tours [@cook_manual_1997] in Chapter \@ref(ch-spinifex). Radial tours are one type of manual tour where the contribution of one variable is extended radially to a full contribution, removed completely, then restored to its original contribution. Chapter \@ref(ch-userstudy) compares the efficacy of the radial tour as compared with PCA and the grand tour in a user study. Lastly, Chapter \@ref(ch-cheem) extends the use of the radial tour to evaluate the local explanation of black-box models.
 
 
+## Evaluating multivariate data visualization
 
+We have discussed a number of different multivariate visualizations. The analyst is left  to determine which visualization to use. In Chapter \@ref(ch-userstudy) conduct a user study comparing competing visualizations.
+
+<!-- Related studies & research gap -->
+There have been several user studies comparing scatterplots of dimension-reduced spaces across 2D and 3D scatterplots on traditional 2D monitors [@gracia_new_2016; @wagner_filho_immersive_2018]. There are also empirical statistics used to describe non-linear reduction and how well and faithfully they embed the data in a lower space [@bertini_quality_2011; @liu_visualizing_2017; @sedlmair_empirical_2013; @van_der_maaten_visualizing_2008]. @nelson_xgobi_1999 even compared 2D with 3D scatterplot tours for detecting clusters, and dependence, in multivariate data. However, there is an absence of studies comparing competing visual techniques.
+
+
+## Non-linear models
+
+In Chapter \@ref(ch-cheem) we turn our attention to predictive modeling, the lost of variable-level interpretablilty of the non-linear models, and an attempt to maintain model transparence with local eplaination.
+
+<!-- Introduce explanatory vs predictive modeling -->
+There are different reasons and emphases to fit a model. @breiman_statistical_2001, reiterated by @shmueli_explain_2010, taxonomize modeling based on its purpose; _explanatory_ modeling is done for some inferential purpose, while _predictive_ modeling focuses more on the predictions of out-of-sample instances. The intended use has important implications for model selection and development. In explanatory modeling, interpretability is vital for drawing inferential conclusions. While predictive modeling may opt for more accurate non-linear models. The use of black-box models is becoming increasingly common, but not without their share of controversy [@oneil_weapons_2016; @kodiyan_overview_2019]. However, the loss of interpretation presents a challenge.
+
+<!-- Interpretability & baises -->
+Interpretability is vital for exploring and protecting against potential biases (e.g., sex [@dastin_amazon_2018; @duffy_apple_2019], race [@larson_how_2016], and age [@diaz_addressing_2018]) in any model. For instance, models regularly pick up on biases in the training data that have observed influence on the response (output) feature, which is then built into the model. Feature-level (variable-level) interpretability of models is essential in evaluating such biases. It is also generally important for many problems, where it is not enough to predict accurately. Still, one must be able to explain which predictors are most responsible for generating a response value.
+
+<!-- Interpretability & data drift -->
+Another concern is data drift, a shift in support or domain of the explanatory features (variable or predictors). Non-linear models are typically more sensitive and do not extrapolate well outside the training data domain. Better interpretability of the model means more transparency where models' predictions may be plausible or completely unreliable.
+
+<!-- Local explanations -->
+Explainable Artificial Intelligence (XAI) is an emerging field of research that tries to increase the interpretability of black-box models. A common approach is to use _local explanations_, which attempt to approximate linear feature importance at the location of each instance (observation), or the predictions at a specific point in the data domain. Because these are point-specific, it is challenging to visualize them to comprehensively understand a model.
+
+
+## Local explanations
+
+<!-- Reminder of local explanation -->
+Consider a highly non-linear model. It can be hard to determine whether small changes in a feature's value will make a class prediction change group or identify which features contribute to an extreme residual. Local explanations shed light on these situations by approximating linear feature importance in the vicinity of a single instance.
+
+<!-- Taxonomy of local explanations -->
+A comprehensive summary of the taxonomy and literature of explanation techniques is provided in Figure 6 of @arrieta_explainable_2020. It includes a large number of model-specific explanations such as deepLIFT [@shrikumar_not_2016; @shrikumar_learning_2017], a popular recursive method for estimating importance in neural networks. There are fewer model-agnostic explanations, of which LIME, [@ribeiro_why_2016] SHAP, [@lundberg_unified_2017], and their variants are popular.
+
+<!-- Uses of local explanations -->
+These instance-level explanations are used in various ways depending on the data. In image classification, where pixels correspond to predictors, saliency maps overlay or offset a heatmap indicating important pixels [@simonyan_deep_2014]. For instance, pixels corresponding to snow may be highlighted when distinguishing if a picture contains a wolf or husky. In text analysis, word-level contextual sentiment analysis can be used to highlight the sentiment and magnitude of influential words [@vanni_textual_2018]. In the case of numeric regression, they are used to explain feature additive contributions from the model intercept to the instance's prediction [@ribeiro_why_2016].
