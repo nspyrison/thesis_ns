@@ -69,4 +69,24 @@ Tours are used for a couple of salient features: maintains transparency back to 
 The work below covers manual tours [@cook_manual_1997] in Chapter \@ref(ch-spinifex). Radial tours are one type of manual tour where the contribution of one variable is extended radially to a full contribution, removed completely, then restored to its original contribution. Chapter \@ref(ch-userstudy) compares the efficacy of the radial tour as compared with PCA and the grand tour in a user study. Lastly, Chapter \@ref(ch-cheem) extends the use of the radial tour to evaluate the local explanation of black-box models.
 
 
+## USER STUDY INTRO & BACKGROUND
 
+XXX NEEDS TO explainations and space to breathe 
+<!-- Related studies & research gap -->
+There have been several user studies comparing scatterplots of dimension-reduced spaces across 2D and 3D scatterplots on traditional 2D monitors [@gracia_new_2016; @wagner_filho_immersive_2018]. There are also empirical statistics used to describe non-linear reduction and how well and faithfully they embed the data in a lower space [@bertini_quality_2011; @liu_visualizing_2017; @sedlmair_empirical_2013; @van_der_maaten_visualizing_2008]. @nelson_xgobi_1999 even compared 2D with 3D scatterplot tours for detecting clusters, and dependence, in multivariate data. However, there is an absence of studies comparing different visual techniques.
+
+
+## CHEEM INTRO & BACKGROUND
+
+XXX WORKING INTO INTRO AND BACKGROUND CHAPTERS:
+<!-- Introduce explanatory vs predictive modeling -->
+There are different reasons and emphases to fit a model. @breiman_statistical_2001, reiterated by @shmueli_explain_2010, taxonomize modeling based on its purpose; _explanatory_ modeling is done for some inferential purpose, while _predictive_ modeling focuses more on the predictions of out-of-sample instances. The intended use has important implications for model selection and development. In explanatory modeling, interpretability is vital for drawing inferential conclusions. While predictive modeling may opt for more accurate non-linear models. The use of black-box models is becoming increasingly common, but not without their share of controversy [@oneil_weapons_2016; @kodiyan_overview_2019]. However, the loss of interpretation presents a challenge.
+
+<!-- Interpretability & baises -->
+Interpretability is vital for exploring and protecting against potential biases (e.g., sex [@dastin_amazon_2018; @duffy_apple_2019], race [@larson_how_2016], and age [@diaz_addressing_2018]) in any model. For instance, models regularly pick up on biases in the training data that have observed influence on the response (output) feature, which is then built into the model. Feature-level (variable-level) interpretability of models is essential in evaluating such biases. It is also generally important for many problems, where it is not enough to predict accurately. Still, one must be able to explain which predictors are most responsible for generating a response value.
+
+<!-- Interpretability & data drift -->
+Another concern is data drift, a shift in support or domain of the explanatory features (variable or predictors). Non-linear models are typically more sensitive and do not extrapolate well outside the training data domain. Better interpretability of the model means more transparency where models' predictions may be plausible or completely unreliable.
+
+<!-- Local explanations -->
+Explainable Artificial Intelligence (XAI) is an emerging field of research that tries to increase the interpretability of black-box models. A common approach is to use _local explanations_, which attempt to approximate linear feature importance at the location of each instance (observation), or the predictions at a specific point in the data domain. Because these are point-specific, it is challenging to visualize them to comprehensively understand a model.
