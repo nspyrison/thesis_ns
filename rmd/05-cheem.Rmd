@@ -16,6 +16,7 @@ The increased predictive power comes at the cost of interpretability, which has 
 <!-- Segue -->
 In Chapter \@ref(ch-background) we introduced predictive modeling, the interpretability crisis of non-linear models, and local explanations --- approximations of linear variable importance in the vicinity of one observation.<!-- chapter structure --> The remainder of this chapter is organized as follows. The following Section, \@ref(sec:explanations), covers the background of the local explanation and the traditional visuals produced. Section \@ref(sec:tour) explains the animations of continuous linear projections. Section \@ref(sec:cheemviwer) discusses the visual layout in the interactive interface, how they facilitate analysis, data preprocessing, and package infrastructure. Then Section \@ref(sec:casestudies) illustrates the application to supervised learning with categorical and quantitative response features. We conclude with Section \@ref(sec:cheemdiscussion) of the insights gained and directions that might be explored in the future.
 
+
 ## SHAP and tree SHAP local explanations
 
 <!-- SHAP -->

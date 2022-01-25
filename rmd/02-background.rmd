@@ -104,3 +104,4 @@ A comprehensive summary of the taxonomy and literature of explanation techniques
 
 <!-- Uses of local explanations -->
 These instance-level explanations are used in various ways depending on the data. In image classification, where pixels correspond to predictors, saliency maps overlay or offset a heatmap indicating important pixels [@simonyan_deep_2014]. For instance, pixels corresponding to snow may be highlighted when distinguishing if a picture contains a wolf or husky. In text analysis, word-level contextual sentiment analysis can be used to highlight the sentiment and magnitude of influential words [@vanni_textual_2018]. In the case of numeric regression, they are used to explain feature additive contributions from the model intercept to the instance's prediction [@ribeiro_why_2016].
+
