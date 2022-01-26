@@ -94,7 +94,7 @@ Another concern is data drift, a shift in support or domain of the explanatory f
 Explainable Artificial Intelligence (XAI) is an emerging field of research that tries to increase the interpretability of black-box models. A common approach is to use _local explanations_, which attempt to approximate linear feature importance at the location of each instance (observation), or the predictions at a specific point in the data domain. Because these are point-specific, it is challenging to visualize them to comprehensively understand a model.
 
 
-## Local explanations
+## Local explanations {#sec:explanations}
 
 <!-- Reminder of local explanation -->
 Consider a highly non-linear model. It can be hard to determine whether small changes in a feature's value will make a class prediction change group or identify which features contribute to an extreme residual. Local explanations shed light on these situations by approximating linear feature importance in the vicinity of a single instance.

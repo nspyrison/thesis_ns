@@ -52,5 +52,6 @@ for (fmt in formats)
   bookdown::render_book("index.Rmd", fmt, quiet = FALSE)
 
 cli_alert_success(praise::praise())
+cli_alert_info(paste0("Compiled at ", Sys.time()))
 options(warn = prev_warn)
 tictoc::toc()

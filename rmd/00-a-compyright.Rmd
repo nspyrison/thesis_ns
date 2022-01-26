@@ -8,8 +8,8 @@ knitr::opts_chunk$set(
   echo  = FALSE, 
   cache = FALSE,
   cache.lazy = FALSE,
-  out.width = "100%",
-  out.extra = '',fig.show='hold',fig.align='center'
+  #out.width = "100%", ## this is % of page width, not % of figure size.
+  out.extra = '', fig.show='hold', fig.align='center'
 )
 ```
 

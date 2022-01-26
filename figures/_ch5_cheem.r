@@ -292,7 +292,7 @@ ggplot2::ggsave(
   require("patchwork")
 
   wd <- getwd()
-  if(substr(wd, nchar(wd) - 10, nchar(wd)) != "thesis_ns")
+  if(substr(wd, nchar(wd) - 8, nchar(wd)) != "thesis_ns")
     warning("Expected work directory to be thesis_ns")
   fp <- "../cheem/inst/shiny_apps/cheem_initial/data/"
   if(F)
@@ -303,10 +303,11 @@ ggplot2::ggsave(
   fifa_ls       <- readRDS(paste0(fp, "preprocess_fifa.rds"))
   ames2018_ls   <- readRDS(paste0(fp, "preprocess_ames2018.rds"))
   chocolates_ls <- readRDS(paste0(fp, "preprocess_chocolates.rds"))
-
-  .x_title_peng <- "x: PC1, y: PC2          x: PC1, y: PC2        x: pred, y: obs"
-  .x_title_choc <- "x: PC1, y: PC2                x: PC1, y: PC2             x: pred, y: obs"
-  .x_title_reg  <- "x: PC1, y: PC2                      x: PC1, y: PC2                     x: pred, y: obs"
+  .t <- theme(plot.margin = unit(c(0, 0, 0, 0), "cm"),
+              axis.text   = element_blank(),
+              axis.title  = element_blank(),
+              axis.ticks  = element_blank(),
+              legend.position = "off", aspect.ratio = 1)
 }
 
 ## Penguins classification ------
@@ -318,13 +319,10 @@ ggplot2::ggsave(
 
   ### Global view and cheem tour stills
   .glob_view <- global_view(
-    penguins_ls, prim_obs, comp_obs, as_ggplot = TRUE) +
-    labs(color = "Predicted class", shape = "Predicted class", x = .x_title_peng) +
-    ggtitle("Global view") + theme(
-      plot.margin      = margin(0,0,0,0),
-      legend.margin    = margin(0,0,0,0),
-      legend.position  = "bottom",
-      legend.direction = "horizontal")
+    penguins_ls, prim_obs, comp_obs, as_ggplot = TRUE) + .t +
+    labs(color = "Predicted class", shape = "Predicted class", x = element_blank()) +
+    ggtitle("Global view") + theme(legend.position  = "bottom",
+                                   legend.direction = "horizontal")
   .bas <- basis_attr_df(penguins_ls$attr_df, prim_obs)
   .mv  <- which(colnames(penguins_ls$attr_df) == "f_l")
   ## Cheem tour for stills
@@ -335,28 +333,26 @@ ggplot2::ggsave(
     penguins_ls, basis = mt_interp[,,1, drop=FALSE], manip_var = .mv,
     primary_obs = prim_obs, comparison_obs = comp_obs,
     do_add_pcp_segments = FALSE,
-    pcp_shape = 124, angle = 0) +
-    theme(legend.position = "off", aspect.ratio = 1.4) +
+    pcp_shape = 124, angle = 0) + .t +
+    theme(plot.title = element_text(hjust = 0.22)) +
     ggtitle("Radial tour, select frames")
   .ggt2 <- radial_cheem_tour(
     penguins_ls, basis = mt_interp[,,8, drop=FALSE], manip_var = .mv,
     primary_obs = prim_obs, comparison_obs = comp_obs,
     do_add_pcp_segments = FALSE,
-    pcp_shape = 124, angle = 0) +
-    theme(legend.position = "off", aspect.ratio = 1.4)
+    pcp_shape = 124, angle = 0) + .t
   ## Using patchwork:
   .pw <- .ggt1 + .ggt2
   .cp <- cowplot::plot_grid(
     .glob_view, .pw, labels = c("a", "b"),
-    ncol = 1, rel_heights = c(1, 1.6),
-    align = "v", axis = "l")
+    ncol = 1, align = "v", axis = "l", rel_heights = c(1, 1.1))
 }
 
 ### Save still shots
 ggplot2::ggsave(
   "./figures/ch5_fig4_case_penguins.png",
   plot = .cp, device = "png",
-  width = 4.5, height = 6.8, units = "in")
+  width = 6, height = 6, units = "in")
 .m <- gc()
 
 ### Save .mp4, add GitHub urls to paper
@@ -374,7 +370,6 @@ message("NOTE: Manually capturing view from app with Screen to GIF (.mp4),
     #geom_point(data=penguins_na.rm[169,], shape=4, size=3, alpha=0.6) +
     theme_bw() +
     theme(aspect.ratio = 1) +
-
     scale_color_brewer(palette = "Dark2") +
     labs(y = "Flipper length [mm]", x = "Bill length [mm]", color = "Observed species"))
 ## Save
@@ -395,8 +390,8 @@ ggplot2::ggsave(
   ### Global view
   .glob_view <- global_view(
     chocolates_ls, prim_obs, comp_obs, as_ggplot = TRUE) +
-    labs(color = "Predicted class", shape = "Predicted class", x = .x_title_choc) +
-    ggtitle("Global view") + theme(
+    labs(color = "Predicted class", shape = "Predicted class", x = element_blank()) +
+    ggtitle("Global view") + .t + theme(
       plot.margin      = margin(0,0,0,0),
       legend.margin    = margin(0,0,0,0),
       legend.position  = "bottom",
@@ -413,24 +408,25 @@ ggplot2::ggsave(
     chocolates_ls, basis = mt_interp[,,1], manip_var = .mv,
     primary_obs = prim_obs, comparison_obs = comp_obs,
     do_add_pcp_segments = FALSE, inc_var_nms = .inc_var_nms,
-    pcp_shape = 124, angle = 0) + theme(legend.position = "off", aspect.ratio = 1.4) +
+    pcp_shape = 124, angle = 0) + .t +
+    theme(plot.title = element_text(hjust = 0.18)) +
     ggtitle("Radial tour, select frames")
   .ggt2 <- radial_cheem_tour(
     chocolates_ls, basis = mt_interp[,,20], manip_var = .mv,
     primary_obs = prim_obs, comparison_obs = comp_obs,
     do_add_pcp_segments = FALSE, inc_var_nms = .inc_var_nms,
-    pcp_shape = 124, angle = 0) + theme(legend.position = "off", aspect.ratio = 1.4)
-  pw <- .ggt1 + .ggt2
+    pcp_shape = 124, angle = 0) + .t
+  .pw <- .ggt1 + .ggt2
   .cp <- cowplot::plot_grid(
-    .glob_view, pw, labels = c("a", "b"),
-    ncol = 1, rel_heights = c(1, 1.6))
+    .glob_view, .pw, labels = c("a", "b"),
+    ncol = 1, align = "v", axis = "l", rel_heights = c(1, 1.2))
 }
 
 ### Save Stills
 ggplot2::ggsave(
   "./figures/ch5_fig6_case_chocolates.png",
   plot = .cp, device = "png",
-  width = 5, height = 6.8, units = "in")
+  width = 6, height = 6, units = "in")
 .m <- gc()
 
 ### Save .mp4, add GitHub urls to paper
@@ -449,8 +445,8 @@ message("NOTE: Manually capturing view from app with Screen to GIF (.mp4)")
   ### Global view
   .glob_view <- global_view(
     chocolates_ls, prim_obs, comp_obs, as_ggplot = TRUE) +
-    labs(color = "Predicted class", shape = "Predicted class", x = .x_title_choc) +
-    ggtitle("Global view") + theme(
+    labs(color = "Predicted class", shape = "Predicted class", x = element_blank()) +
+    ggtitle("Global view") + .t + theme(
       plot.margin      = margin(0,0,0,0),
       legend.margin    = margin(0,0,0,0),
       legend.position  = "bottom",
@@ -467,24 +463,26 @@ message("NOTE: Manually capturing view from app with Screen to GIF (.mp4)")
     chocolates_ls, basis = mt_interp[,,1], manip_var = .mv,
     primary_obs = prim_obs, comparison_obs = comp_obs,
     do_add_pcp_segments = FALSE, inc_var_nms = .inc_var_nms,
-    pcp_shape = 124, angle = 0) + theme(legend.position = "off", aspect.ratio = 1.4) +
+    pcp_shape = 124, angle = 0) + .t +
+    theme(plot.title = element_text(hjust = 0.18)) +
     ggtitle("Radial tour, select frames")
   .ggt2 <- radial_cheem_tour(
     chocolates_ls, basis = mt_interp[,,19], manip_var = .mv,
     primary_obs = prim_obs, comparison_obs = comp_obs,
     do_add_pcp_segments = FALSE, inc_var_nms = .inc_var_nms,
-    pcp_shape = 124, angle = 0) + theme(legend.position = "off", aspect.ratio = 1.4)
-  pw <- .ggt1 + .ggt2
+    pcp_shape = 124, angle = 0) + .t
+  .pw <- .ggt1 + .ggt2
   .cp <- cowplot::plot_grid(
-    .glob_view, pw, labels = c("a", "b"),
-    ncol = 1, rel_heights = c(1, 1.6))
+    .glob_view, .pw, labels = c("a", "b"),
+    rel_heights = c(1, 1.2),
+    ncol = 1, align = "v", axis = "l")
 }
 
 ### Save Stills
 ggplot2::ggsave(
   "./figures/ch5_fig7_case_chocolates_inverse.png",
   plot = .cp, device = "png",
-  width = 5, height = 6.8, units = "in")
+  width = 6, height = 6, units = "in")
 .m <- gc()
 
 ### Save .mp4, add GitHub urls to paper
@@ -504,8 +502,8 @@ message("NOTE: Manually capturing view from app with Screen to GIF (.mp4),
   ### global view and tours
   .glob_view <- global_view(
     fifa_ls, prim_obs, comp_obs, as_ggplot = TRUE) +
-    labs(color = "Predicted class", shape = "Predicted class", x = .x_title_reg) +
-    ggtitle("Global view") + theme(
+    labs(color = "Predicted class", shape = "Predicted class", x = element_blank()) +
+    ggtitle("Global view") + .t + theme(
       plot.margin      = margin(0,0,0,0),
       legend.margin    = margin(0,0,0,0),
       legend.position  = "off",
@@ -521,25 +519,24 @@ message("NOTE: Manually capturing view from app with Screen to GIF (.mp4),
     fifa_ls, basis = mt_interp[,,1], manip_var = .mv,
     primary_obs = prim_obs, comparison_obs = comp_obs,
     do_add_pcp_segments = FALSE, inc_var_nms = .inc_var_nms,
-    pcp_shape = 124, angle = 0) + theme(
-      legend.position = "off", aspect.ratio = 1, strip.text = element_blank()) +
+    pcp_shape = 124, angle = 0) + .t +
+    theme(plot.title = element_text(hjust = 0.18)) +
     ggtitle("Radial tour, select frames")
   .ggt2 <- radial_cheem_tour(
     fifa_ls, basis = mt_interp[,,9], manip_var = .mv,
     primary_obs = prim_obs, comparison_obs = comp_obs,
     do_add_pcp_segments = FALSE, inc_var_nms = .inc_var_nms,
-    pcp_shape = 124, angle = 0) + theme(
-      legend.position = "off", aspect.ratio = 1, strip.text = element_blank())
-  pw <- .ggt1 / .ggt2
+    pcp_shape = 124, angle = 0) + .t
+  .pw <- .ggt1 / .ggt2
   .cp <- cowplot::plot_grid(
-    .glob_view, pw, labels = c("a", "b"),
-    ncol = 1, rel_heights = c(1, 2.1))
+    .glob_view, .pw, labels = c("a", "b"),
+    rel_heights = c(1, 2.4), ncol = 1)
 }
 ### Save
 ggplot2::ggsave(
   "./figures/ch5_fig8_case_fifa.png",
   plot = .cp, device = "png",
-  width = 6, height = 7.9, units = "in")
+  width = 5, height = 6, units = "in")
 .m <- gc()
 
 ### Save .mp4, add GitHub urls to paper
@@ -561,8 +558,8 @@ message("NOTE: Manually capturing view from app with Screen to GIF (.mp4),
 
   .glob_view <- global_view(
     ames2018_ls, prim_obs, comp_obs, as_ggplot = TRUE) +
-    labs(color = "Predicted class", shape = "Predicted class", x = .x_title_reg) +
-    ggtitle("Global view") + theme(
+    labs(color = "Predicted class", shape = "Predicted class", x = element_blank()) +
+    ggtitle("Global view") + .t + theme(
       plot.margin      = margin(0,0,0,0),
       legend.margin    = margin(0,0,0,0),
       legend.position  = "off",
@@ -578,23 +575,24 @@ message("NOTE: Manually capturing view from app with Screen to GIF (.mp4),
     ames2018_ls, basis = mt_interp[,,1], manip_var = .mv,
     primary_obs = prim_obs, comparison_obs = comp_obs,
     do_add_pcp_segments = FALSE, inc_var_nms = .inc_var_nms,
-    pcp_shape = 124, angle = 0) + theme(legend.position = "off", aspect.ratio = 1) +
+    pcp_shape = 124, angle = 0) + .t +
+    theme(plot.title = element_text(hjust = 0.18)) +
     ggtitle("Radial tour, select frames")
-  .ggt3 <- radial_cheem_tour(
+  .ggt2 <- radial_cheem_tour(
     ames2018_ls, basis = mt_interp[,,17], manip_var = .mv,
     primary_obs = prim_obs, comparison_obs = comp_obs,
     do_add_pcp_segments = FALSE, inc_var_nms = .inc_var_nms,
-    pcp_shape = 124, angle = 0) + theme(legend.position = "off", aspect.ratio = 1)
-  pw <- .ggt1 / .ggt3
+    pcp_shape = 124, angle = 0) + .t
+  .pw <- .ggt1 / .ggt2
   .cp <- cowplot::plot_grid(
-    .glob_view, pw, labels = c("a", "b"),
-    ncol = 1, rel_heights = c(1, 2.1))
+    .glob_view, .pw, labels = c("a", "b"),
+    rel_heights = c(1, 2.4), ncol = 1)
 }
 ### Save
 ggplot2::ggsave(
   "./figures/ch5_fig9_case_ames2018.png",
   plot = .cp, device = "png",
-  width = 6, height = 8, units = "in")
+  width = 5, height = 6, units = "in")
 .m <- gc()
 
 ### Save .mp4, add GitHub urls to paper
