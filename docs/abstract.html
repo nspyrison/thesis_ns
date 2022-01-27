@@ -236,11 +236,11 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="abstract" class="section level1 unnumbered">
 <h1>Abstract</h1>
-<p>Visualizing data space is crucial to exploratory data analysis, checking model assumptions, and validating model performance. Yet visualization quickly becomes difficult as the dimensionality of the data or features increases. Traditionally, static, low-dimensional linear embeddings are used to mitigate this complexity. Such embedded space is a lossy approximation of the full space. However, viewing many embeddings with interactive supporting views improves the information conveyed. Data visualization <em>tours</em> are a class of dynamic linear projections that animate many linear projections over small changes to the projection basis.</p>
+<p>Visualizing data space is crucial to exploratory data analysis, checking model assumptions, and validating model performance. Yet visualization quickly becomes complex as the dimensionality of the data or features increases. Traditionally, static, low-dimensional linear embeddings are used to mitigate this complexity. Such embedded space is a lossy approximation of the full space. However, viewing many embeddings with interactive supporting views improves the information conveyed. Data visualization <em>tours</em> are a class of dynamic linear projections that animate many linear projections over small changes to the projection basis.</p>
 <p>Tours are categorized by the path of their bases. <em>Manual tours</em> allow for User-Controlled Steering (UCS) of bases path, where the contributions of individual variables can be controlled. I create a free, open-source <strong>R</strong> package, <strong>spinifex</strong>, that facilitates creating such tours. These manipulations of the variables can be precomputed or made in real-time. Display composition and exportable formats are interoperable with the existing package <strong>tourr</strong> and can be rendered with recent graphics interfaces <strong>plotly</strong> and <strong>gganimate</strong>. The former offers interactive use with HTML widgets, while the latter can render to static formats such as .gif or .mp4 files. An interactive application is included to illustrate the use of the manual tour.</p>
 <p>Theoretically, the UCS of the manual tour should enable an analyst to better explore the variable attribution to the structure identified in an embedding. I find strong evidence to support that radial tour leads to a significant and large increase in accuracy as compared with Principal Component Analysis (PCA) and an alternative tour variant, the grand tour. I conduct a within-participant, crowdsourced user study comparing these visualization methods. Each of the <span class="math inline">\(n=108\)</span> participants performs two trials with each visual for 648 total trials. The task is a supervised classification problem asking participants which variables attribute to the separation of 2 clusters.</p>
 <p>Modern modeling techniques are sometimes referred to as black-box models due to the uninterpretable nature of model terms which are often many and non-linear. Recent research in Explainable Artificial Intelligence (XAI) tries to bring these
-models interpretability through <em>local explanations</em>. Local explanations are a class of techniques that approximate the linear-variable importance at one point in the data. I build an <strong>cheem</strong>, an <strong>R</strong> package to streamline model and local explanation preprocessing, and two novel visuals. First the global view pits the data- and explanation-spaces side-by-side with a residual plot. Interactive features such as linked bushing and tooltips aid in identifying observations to compare. The local explanation from the selected observation becomes a basis used in creating the radial tour. This allows an analyst to evaluate the explanation and explore the sensitivity of the explanation to changes in the variable contribution.</p>
+models interpretability through <em>local explanations</em>. Local explanations are a class of techniques that approximate the linear-variable importance at one point in the data. I build an <strong>cheem</strong>, an <strong>R</strong> package to streamline model and local explanation preprocessing, and two novel visuals. First the global view pits the data- and explanation-spaces side-by-side with a residual plot. Interactive features such as linked bushing and tooltips aid in identifying observations to compare. The local explanation from the selected observation becomes a basis used in creating the radial tour. This allows an analyst to evaluate the explanation by sensitivity of its variable contribution to the structure it has identified.</p>
 <!-- 
 The following line is required to re-set page numbering after preliminary material. Do not remove
 -->
@@ -252,11 +252,11 @@ The following line is required to re-set page numbering after preliminary materi
 I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
 
 
-## Publications as part of this thesis {-}
+## Publication as part of this thesis {-}
 
-The three work chapter of this correspond to papers. The work corresponding to Chapter \@ref(ch-spinifex) has been accepted for publication in _The R Journal_ [@spyrison_spinifex_2020]. While respective studies discussed in Chapters \@ref(ch-userstudy) and \@ref(ch-cheem) have not yet been submitted.
+The work corresponding to Chapter \@ref(ch-spinifex) has been accepted for publication in _The R Journal_ [@spyrison_spinifex_2020]. While respective studies discussed in Chapters \@ref(ch-userstudy) and \@ref(ch-cheem) have not yet been submitted.
 <!-- <<KM strikethrough, 20 Jan>>This paper clarifies some of the theoretical work for user control offered by the manual tour and induces an open-source __R__ package facilitating manual tours. The user study described in Chapter \@ref(ch-userstudy) compares the performance of three linear projections and will shortly be submitted to the _IEEE Transactions on Visualization and Computer Graphics_. This study finds large evidence for a sizable increase in a variable attribution task from the user control of the manual tour over principal component analysis and the grand tour. Then we extend the interpretability of complex non-linear models. I purpose exploring the support of local explanation of a model with the manual tour. This research covered in Chapter \@ref(ch-cheem) will shortly be submitted to _The Journal of Machine Learning research_. -->
-<p>I have renumbered and updated sections of the published papers to generate a consistent presentation within the thesis. The code illustrated has been adjusted to highlight the new ggproto API. Introductory, background, and conclusion content has been moved to their respective thesis chapters.</p>
+<p>I have renumbered and updated sections of the published paper to generate a consistent presentation within the thesis. The code illustrated has been adjusted to highlight the new ggproto API. Introductory, background, and conclusion content has been moved to their respective thesis chapters.</p>
 <div id="publications-and-papers-during-candidature-not-part-of-this-thesis" class="section level2 unnumbered">
 <h2>Publications and papers during candidature not part of this thesis</h2>
 <p>In addition to the research discussed in the thesis, other notable contributions during my candidature include:</p>
@@ -270,14 +270,15 @@ The three work chapter of this correspond to papers. The work corresponding to C
 <p></p>
 <p><img src="figures/ch0_signature.PNG" width="33%"  style="display: block; margin: auto auto auto 0;" /></p>
 <p> 2021-12-12</p>
-<p>
-The undersigned hereby certify that the above declaration correctly reflects the nature and extent of the student’s co-authors’ contribution to this work.
-In instances where I am not the responsible author I have consulted with the responsible author to agree on the respective contributions of the authors.</p>
-<p> Kimbal Marriott</p>
-<p></p>
-<p> 2021-12-12</p>
 <p>–&gt;</p>
 <!-- TRADITIONAL THESIS (NOT BY RESEARCH) DOES NOT INCLUDE THE BELOW IN DECLARATION -->
+<!-- \vspace{2em} -->
+<!-- \noindent -->
+<!-- The undersigned hereby certify that the above declaration correctly reflects the nature and extent of the student's co-authors' contribution to this work. -->
+<!-- \textbf{Main Supervisor name:} Kimbal Marriott -->
+<!-- \textbf{Main Supervisor signature:} -->
+<!-- \vspace*{2cm} -->
+<!-- \textbf{Date:} 2021-12-12 -->
 <!--
 All of the papers in the thesis were conceptualized, developed, and written by myself, the student, while working in the Department of Human-Centered Computing under the supervision of Professor Kimbal Marriott and Professor Dianne Cook. When co-authors are listed, it indicates that the work was produced through active collaboration between researchers and that their contributions to team-based research have been recognized. The following table details the work, including my and my fellow co-authors' contributions.
 

@@ -5,12 +5,12 @@
 I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
 
 
-## Publications as part of this thesis {-}
+## Publication as part of this thesis {-}
 
-The three work chapter of this correspond to papers. The work corresponding to Chapter \@ref(ch-spinifex) has been accepted for publication in _The R Journal_ [@spyrison_spinifex_2020]. While respective studies discussed in Chapters \@ref(ch-userstudy) and \@ref(ch-cheem) have not yet been submitted.
+The work corresponding to Chapter \@ref(ch-spinifex) has been accepted for publication in _The R Journal_ [@spyrison_spinifex_2020]. While respective studies discussed in Chapters \@ref(ch-userstudy) and \@ref(ch-cheem) have not yet been submitted.
 <!-- <<KM strikethrough, 20 Jan>>This paper clarifies some of the theoretical work for user control offered by the manual tour and induces an open-source __R__ package facilitating manual tours. The user study described in Chapter \@ref(ch-userstudy) compares the performance of three linear projections and will shortly be submitted to the _IEEE Transactions on Visualization and Computer Graphics_. This study finds large evidence for a sizable increase in a variable attribution task from the user control of the manual tour over principal component analysis and the grand tour. Then we extend the interpretability of complex non-linear models. I purpose exploring the support of local explanation of a model with the manual tour. This research covered in Chapter \@ref(ch-cheem) will shortly be submitted to _The Journal of Machine Learning research_. -->
 
-I have renumbered and updated sections of the published papers to generate a consistent presentation within the thesis. The code illustrated has been adjusted to highlight the new ggproto API. Introductory, background, and conclusion content has been moved to their respective thesis chapters. 
+I have renumbered and updated sections of the published paper to generate a consistent presentation within the thesis. The code illustrated has been adjusted to highlight the new ggproto API. Introductory, background, and conclusion content has been moved to their respective thesis chapters.
  
 
 ## Publications and papers during candidature not part of this thesis {-}
@@ -33,23 +33,21 @@ nsSafeIncGraphic("./figures/ch0_signature.PNG")
 
 \textbf{Date:} `r as.Date("2021-12-12")`
 
-\vspace{2em}
-\noindent
-The undersigned hereby certify that the above declaration correctly reflects the nature and extent of the student's co-authors' contribution to this work.
-In instances where I am not the responsible author I have consulted with the responsible author to agree on the respective contributions of the authors.
-
-\textbf{Main Supervisor name:} Kimbal Marriott
-
-\textbf{Main Supervisor signature:}
-
-\vspace*{2cm}
-
-\textbf{Date:} `r as.Date("2021-12-12")`
-
-
 `r if (knitr::is_html_output()) '-->'`
 
 <!-- TRADITIONAL THESIS (NOT BY RESEARCH) DOES NOT INCLUDE THE BELOW IN DECLARATION -->
+<!-- \vspace{2em} -->
+<!-- \noindent -->
+<!-- The undersigned hereby certify that the above declaration correctly reflects the nature and extent of the student's co-authors' contribution to this work. -->
+
+<!-- \textbf{Main Supervisor name:} Kimbal Marriott -->
+
+<!-- \textbf{Main Supervisor signature:} -->
+
+<!-- \vspace*{2cm} -->
+
+<!-- \textbf{Date:} `r as.Date("2021-12-12")` -->
+
 
 <!--
 All of the papers in the thesis were conceptualized, developed, and written by myself, the student, while working in the Department of Human-Centered Computing under the supervision of Professor Kimbal Marriott and Professor Dianne Cook. When co-authors are listed, it indicates that the work was produced through active collaboration between researchers and that their contributions to team-based research have been recognized. The following table details the work, including my and my fellow co-authors' contributions.
