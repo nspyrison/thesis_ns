@@ -1,13 +1,16 @@
-require(ggplot2)
-require(spinifex)
+## Setup -----
+{
+  require(ggplot2)
+  require(spinifex)
+
+  dat <- spinifex::penguins_na.rm[, 1:5]
+  colnames(dat) <- c("b_l", "b_d", "f_l", "b_m", "species")
+  X <- dat[, 1:4] %>% scale_sd
+  Y <- dat$species
+  bas <- basis_olda(X, Y, 4)
+}
 
 ## penguin_cl_sep -----
-dat <- spinifex::penguins_na.rm[, 1:5]
-colnames(dat) <- c("b_l", "b_d", "f_l", "b_m", "species")
-X <- dat[, 1:4] %>% scale_sd
-Y <- dat$species
-bas <- basis_olda(X, Y, 4)
-
 left <- ggtour(bas[, c(3,4)], X, 0) +
   proto_point(list(color = Y, shape = Y)) +
   proto_basis(line_size = .6) + theme(legend.position = "off")

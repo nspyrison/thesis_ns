@@ -14,7 +14,7 @@ For our purposes, I will be focusing on the case where data $X_{nxp}$ contains $
 Visualization is much more robust than numerical summarization alone [@anscombe_graphs_1973; @matejka_same_2017]. In these studies, data sets have the same summary statistics yet contain obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Data visualization is fundamental to EDA, quickly evaluating the support of the data, and ensuring that models are suitable.
 
 (ref:ch2fig2-cap) Starting from the profile of a dinosaur, observations are allowed to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the original statistics [@matejka_same_2017]. Visualization of data yields stark designs that are easy to miss in numerical summarization.
-```{r ch2fig2, echo=F, out.width='70%', fig.cap = "(ref:ch2fig2-cap)"}
+```{r ch2fig2, echo=F, out.width="100%", fig.cap = "(ref:ch2fig2-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig2_matejka17fig.PNG")
 ```
 
@@ -27,7 +27,7 @@ The work in @grinstein_high-dimensional_2002 gives a good taxonomy of high-dimen
 Viewing as many univariate histograms or density curves is one method. Similarly, one could look at all variable pairing as scatter plots. This forms the crux of the scatterplot matrices, also known as SPLOM [@chambers_graphical_1983]. In a scatterplot matrix, variables are displayed across the columns and rows. The diagonal elements show the univariate densities, while off-diagonal positions show scatterplot pairs. This is useful for getting a handle on the support of the variables but is not going to scale well with dimension and is not a suitable audience-ready display. It is hectic and doesn't draw attention to any one spot. @munzner_visualization_2014 reminds us to abstract all of the cognitive work out of the visual, allowing the audience to focus on seeing the evidence supporting the claim.
 
 (ref:penguinsplom-cap) Scatterplot matrix of penguins data. This is a good exploratory step, but will not scale well at $p$ increases and doesn't direct the .
-```{r penguinsplom, echo=F, out.width='100%', fig.cap = "(ref:penguinsplom-cap)"}
+```{r penguinsplom, echo=F, out.width="100%", fig.cap = "(ref:penguinsplom-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig1_penguin_splom.pdf")
 ```
 
@@ -38,7 +38,7 @@ Alternatively, we could consider a class of observation-based visuals. In parall
 
 (ref:penguinpcp-cap) Parallel coordinate plots of penguins data. This does not scale well with observations, suffers from asymmetry with the variable ordering, and horizontal position is used for variables rather than observation levels.
 
-```{r penguinpcp, echo=F, out.width='100%', fig.cap = "(ref:penguinpcp-cap)"}
+```{r penguinpcp, echo=F, out.width="100%", fig.cap = "(ref:penguinpcp-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig2_penguin_pcp.pdf")
 ```
 
@@ -57,8 +57,7 @@ Unfortunately, there is no free lunch here. An increase in the original data dim
 A single linear projection is a resulting space from the data multiplied by the basis. The basis is an orthonormal matrix (the orientation of the unit origin) mapping the data space to a lower dimension. A data visualization tour animates many such projections through small changes in the basis. In the bar stool shadow analogy, structural information about a hidden object was gained by watching its shadow change due to its rotation. An analyst similarly gains information about the data object by watching continuous changes to the basis (the rotation of the data). Originally in a _grand_ tour [@asimov_grand_1985] several target frames are randomly selected and then interpolated along their geodesic path.
 
 (ref:ch2fig3-cap) Illustration of the grand tour selecting random target frames (grey) connected via geodesically interpolated frame (white). Figure from @buja_computational_2005.
-
-```{r ch2fig3, echo=F, out.width='100%', fig.cap = "(ref:ch2fig3-cap)"}
+```{r ch2fig3, echo=F, out.width="100%", fig.cap = "(ref:ch2fig3-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig3_buja05fig.PNG")
 ```
 
@@ -79,7 +78,7 @@ There have been several user studies comparing scatterplots of dimension-reduced
 
 ## Non-linear models
 
-In Chapter \@ref(ch-cheem), we turn our attention to predictive modeling, the loss of variable-level interpretablility of the non-linear models, and an attempt to maintain model transparence with local explanation.
+In Chapter \@ref(ch-cheem), we turn our attention to predictive modeling, the loss of variable-level interpretablility of the non-linear models, and an attempt to maintain model transparency with local explanation.
 
 <!-- Introduce explanatory vs predictive modeling -->
 There are different reasons and emphases to fit a model. @breiman_statistical_2001, reiterated by @shmueli_explain_2010, taxonomize modeling based on its purpose; _explanatory_ modeling is done for some inferential purpose, while _predictive_ modeling focuses more narrowly on the performance of the objective function. The intended use has important implications for model selection and development. In explanatory modeling, interpretability is vital for drawing inferential conclusions. The use of black-box models are almost exclusively used in predictive modeling, but not without their share of controversy [@oneil_weapons_2016; @kodiyan_overview_2019]. However, the loss of interpretation presents a challenge.
@@ -98,6 +97,11 @@ Explainable Artificial Intelligence (XAI) is an emerging field of research that 
 
 <!-- Reminder of local explanation -->
 Consider a highly non-linear model. It can be hard to determine whether small changes in a feature's value will make a class prediction change group or identify which features contribute to an extreme residual. Local explanations shed light on these situations by approximating linear feature importance in the vicinity of a single instance.
+
+(ref:ch2fig4-cap) Illustration of a non-linear classification model. An analyst may want to know the variable importance at the vicinity of the highlighted red cross. Knowing this attribution elucidates how the variable are influence this point which is precariously close to the classification boundary. Local explaination approximate this linear attribution in the vicinity of one observation. Figure from @ribeiro_why_2016.
+```{r ch2fig4, echo=F, out.width="50%", fig.cap = "(ref:ch2fig4-cap)"}
+nsSafeIncGraphic("./figures/ch2_fig4_ribeiro16fig.PNG")
+```
 
 <!-- Taxonomy of local explanations -->
 A comprehensive summary of the taxonomy and literature of explanation techniques is provided in Figure 6 of @arrieta_explainable_2020. It includes a large number of model-specific explanations such as deepLIFT [@shrikumar_not_2016; @shrikumar_learning_2017], a popular recursive method for estimating importance in neural networks. There are fewer model-agnostic explanations, of which LIME, [@ribeiro_why_2016] SHAP, [@lundberg_unified_2017], and their variants are popular.

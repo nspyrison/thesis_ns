@@ -348,7 +348,7 @@ spinifex::run_app()
 nsSafeIncGraphic("./figures/ch4_zapp_fig4_app_pg1.PNG")
 ```
 
-In the initial tab, Figure \@ref(ref:ch4zappfig4), users upload their own (.csv, .rds, or .rda) data or select from predefined data sets. The numeric columns appear as a list of variables to include in the projection. Below that, a line displays whether or not missing rows were removed. Scaling by standard deviation is included by default, as this is a common transformation used to explore linear projections of spaces. Summaries of the raw data and processed numeric data are displayed to illustrate how the data was read and its transformation.
+In the initial tab, Figure \@ref(fig:ch4zappfig4), users upload their own (.csv, .rds, or .rda) data or select from predefined data sets. The numeric columns appear as a list of variables to include in the projection. Below that, a line displays whether or not missing rows were removed. Scaling by standard deviation is included by default, as this is a common transformation used to explore linear projections of spaces. Summaries of the raw data and processed numeric data are displayed to illustrate how the data was read and its transformation.
 
 ```{r ch4zappfig5, out.width="100%", fig.show="asis", fig.cap = "Radial tour tab, interactively create radial tours, changing the manipulation variable, and color or shape of the resulting manual tour. Here, the palmer penguins data is being explored, bill length was selected to manipulate as it is the only variable separating the green cluster from the orange. By mapping shape to island of observation, we also notice that the species in green live on all three islands, while the other species live only on one of the islands."}
 nsSafeIncGraphic("./figures/ch4_zapp_fig5_app_pg2.PNG")
