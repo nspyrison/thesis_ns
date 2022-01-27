@@ -387,7 +387,7 @@ ggsave("./figures/ch4_fig4_accuracy_measure.pdf", final, "pdf",
 }
 
 
-# ch4_fig6_ABcd_violins TODO -----
+# ch4_fig6_ABcd_violins -----
 {
   dat_qual <- readRDS("./data/dat_qual.rds")
   .lp <- theme(legend.position = "off")
