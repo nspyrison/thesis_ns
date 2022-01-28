@@ -30,7 +30,7 @@ The types of manipulations of the manual tour can be thought of in several ways:
 - *horizontal*, *vertical*: allow rotation only around the horizontal or vertical axis of the current 2D projection.
 - *oblique*: paths deviating from these movements such as being captured from the movement of a cursor.
 
-Angular manipulations are homomorphic, in that they show the same information while rotating the frame. More interesting a change in the magnitude of the contribution, changing the radius along a fixed angle. For this reason we implement the radial tour as the default values for the manual tour. Below we describe the manual tour illustrated in detail. After that we also include summaries of the algorithms oblique cursor movements for in the 1D and 2D instances.
+Angular manipulations are homomorphic, in that they show the same information while rotating the frame. More interesting a change in the magnitude of the contribution, changing the radius along the original angle of contribution. For this reason we implement the radial tour as the default values for the manual tour. Below we describe the manual tour illustrated in detail. After that we also include summaries of the algorithms oblique cursor movements for in the 1D and 2D instances.
 
 
 ### Notation

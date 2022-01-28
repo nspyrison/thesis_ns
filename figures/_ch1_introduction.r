@@ -18,23 +18,31 @@ right <- ggtour(bas[, c(1,2)], X, 0) +
     proto_point(list(color = Y, shape = Y)) +
     proto_basis(line_size = .6) + theme(legend.position = "off")
 (cp <- cowplot::plot_grid(left, right))
-
 ggsave("./figures/ch1_fig2_penguin_cl_sep.png", cp, device = "png",
        width = 6, height = 2, units = "in")
 
 
 ## penguin_gt_filmstrip -----
 set.seed(2022) ## doesnt seem to impact tourr::interpolate, but wishful thinking
-gt_path <- save_history(X, max_bases = 3)
+gt_path <- save_history(X, max_bases = 10)
 dim(interpolate(gt_path, angle = .6))
 ## Stochastic!?? this is supposed to be geodesic interpolation should not vary...
 
-ggt <- ggtour(gt_path, X, .75) +
+ggt <- ggtour(gt_path[,,1:3], X, .75) +
   proto_point(list(color = Y, shape = Y)) +
   proto_basis(line_size = .6) + theme(legend.position = "off")
 (fs <- filmstrip(ggt, ncol = 3))
 ggsave("./figures/ch1_fig3_penguin_grandtour.png", fs, device = "png",
        width = 6, height = 3, units = "in")
+
+## Save a video
+animate_gganimate(
+  ggtour(gt_path, X, .15) +
+    proto_point(list(color = Y, shape = Y)) +
+    proto_basis(line_size = .6) + theme(legend.position = "off"),
+  height = 4, width = 6 , units = "in",
+  res = 200, ## resolution, pixels per dimension unit I think
+  renderer = gganimate::av_renderer("./figures/ch1_fig3_penguin_grandtour.mp4")) ## Alternative render
 
 
 
@@ -49,3 +57,11 @@ ggt <- ggtour(mt_path, X, 99) +
 ggsave("./figures/ch1_fig4_penguin_manualtour.png", fs, device = "png",
        width = 6, height = 2, units = "in")
 
+## Save a video
+animate_gganimate(
+  ggtour(mt_path, X, .15) +
+    proto_point(list(color = Y, shape = Y)) +
+    proto_basis(line_size = .6) + theme(legend.position = "off"),
+  height = 4, width = 6 , units = "in",
+  res = 200, ## resolution, pixels per dimension unit I think
+  render = gganimate::av_renderer("./figures/ch1_fig4_penguin_manualtour.mp4")) ## Alternative render
