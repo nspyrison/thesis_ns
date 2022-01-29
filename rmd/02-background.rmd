@@ -7,29 +7,34 @@ knit: "bookdown::render_book"
 
 This section starts with setting the scope for the type of data we are focusing on, gives a brief motivation then works through previous multivariate visualizations and their scalability. By the end, the focus narrows to linear projections, and in particular, the class of animated linear projections known as the tour.
 
-<!-- note on data and context -->
+<!-- Data scope and context -->
 For our purposes, I will be focusing on the case where data $X_{nxp}$ contains $n$ observations of $p$ variables is complete with no missing values, variables are numeric (ideally not ordinal levels), and $n>p$ typically many more observations than variables. While I write as though always operating on the original variable space, these methods could similarly be applied to component spaces or feature decompositions of data not fitting this format. In the case of the linear projection let, $Y_{nxd} = X_{nxp} \cdot A_{pxd}$ be the embedding of the data mapped by the basis $A$, where $d<p$. When $p$ is large, say over 10 or 20 variables, the viewing space is quite large. A PCA initialization step is commonly used in these cases where the variables are approximated as fewer principal components. This reduced space can be viewed, albeit with the disadvantage of having another linear mapping back to the original space. @wickham_visualizing_2015 also view model spaces and features while urging to prefer visualizing data-space directly.
 
 <!-- Better than numerical summarization alone -->
 Visualization is much more robust than numerical summarization alone [@anscombe_graphs_1973; @matejka_same_2017]. In these studies, data sets have the same summary statistics yet contain obvious visual trends and shapes that could go completely unheeded if plotting is foregone. Data visualization is fundamental to EDA, quickly evaluating the support of the data, and ensuring that models are suitable.
 
-(ref:ch2fig2-cap) Starting from the profile of a dinosaur, observations are allowed to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the original statistics [@matejka_same_2017]. Visualization of data yields stark designs that are easy to miss in numerical summarization.
-```{r ch2fig2, echo=F, out.width="100%", fig.cap = "(ref:ch2fig2-cap)"}
-nsSafeIncGraphic("./figures/ch2_fig2_matejka17fig.PNG")
+(ref:ch2fig1-cap) Starting from the profile of a dinosaur, observations are allowed to drift (by iterated simulated annealing) toward 12 patterns provided that they stay close to the original statistics [@matejka_same_2017]. Visualization of data yields stark designs that are easy to miss in numerical summarization.
+```{r ch2fig1, echo=F, out.width="100%", fig.cap = "(ref:ch2fig1-cap)"}
+nsSafeIncGraphic("./figures/ch2_fig1_matejka17fig.PNG")
 ```
 
-## Scatterplot matrices
-
 <!-- Penguins data -->
-The work in @grinstein_high-dimensional_2002 gives a good taxonomy of high-dimensional visualization. We will follow a few examples conclude with tour methods. We are concerned with the question "How can an analyst visualize arbitrary $p-$ dimensions?". To illustrate some of the options for data, I use the penguins dataset [@gorman_ecological_2014; @horst_palmerpenguins_2020]. It contains 333 observations of four physical measurements across three species of penguins observed near Palm Station, Antarctica.
+The work in @grinstein_high-dimensional_2002 gives a good taxonomy of high-dimensional visualization. Below we will consider views of othortogonal views, observation based visuals and discuss with tour methods in more detail. We are concerned with the question "How can an analyst visualize arbitrary $p-$dimensions?". We continue to use the Palmer penguins data in illustrations. there are 333 observation of four physical measurements of bill length, bill depth, flipper length, and body mass. It measured three species of penguins between 2007 and 2009 near Palmer Station, Antarctica.
+
+
+## Scatterplot matrices
 
 <!-- SPLOM -->
 Viewing as many univariate histograms or density curves is one method. Similarly, one could look at all variable pairing as scatter plots. This forms the crux of the scatterplot matrices, also known as SPLOM [@chambers_graphical_1983]. In a scatterplot matrix, variables are displayed across the columns and rows. The diagonal elements show the univariate densities, while off-diagonal positions show scatterplot pairs. This is useful for getting a handle on the support of the variables but is not going to scale well with dimension and is not a suitable audience-ready display. It is hectic and doesn't draw attention to any one spot. @munzner_visualization_2014 reminds us to abstract all of the cognitive work out of the visual, allowing the audience to focus on seeing the evidence supporting the claim.
 
-(ref:penguinsplom-cap) Scatterplot matrix of penguins data. This is a good exploratory step, but will not scale well at $p$ increases and doesn't direct the .
+(ref:penguinsplom-cap) Scatterplot matrix of penguins data. This is a good exploratory step, but does not direct the audience attention and will not scale well at $p$ increases.
 ```{r penguinsplom, echo=F, out.width="100%", fig.cap = "(ref:penguinsplom-cap)"}
-nsSafeIncGraphic("./figures/ch2_fig1_penguin_splom.pdf")
+nsSafeIncGraphic("./figures/ch2_fig2_penguin_splom.pdf")
 ```
+
+XXX: TODO move PCA and Grand tour to background (out of intro and RQ)
+<!-- PCA -->
+<!-- One example of linear projections is that of Principal Component Analysis [PCA, @pearson_liii._1901], which creates a component space ordered by descending variation. It uses eigenvalue decomposition to identify the basis reorientation. These components are typically viewed as discrete orthogonal pairs, commonly approximated in fewer components. -->
 
 ## Parallel coordinate plots
 
@@ -37,35 +42,49 @@ nsSafeIncGraphic("./figures/ch2_fig1_penguin_splom.pdf")
 Alternatively, we could consider a class of observation-based visuals. In parallel coordinate plots [@ocagne_coordonnees_1885], variables are arranged horizontally, and lines connect observations with the height mapping to the quantile or z-value for each variable.  This scales much better with dimensions but poorly with observations. It also suffers from an asymmetry with the variable order. That is, changing the order of the variable will lead people to very different conclusions. The x-axis is also used to display variables rather than the values of the observations. This restricts the amount of information that can be interpreted between variables. Munzner asserts that position is the more human-perceptible channel for encoding information; we should like to reserve it for the values of the observations. The same issues persist across other observation-based displays such as radial variants, pixel-oriented visuals, and Chernoff faces [@keim_designing_2000; @chernoff_use_1973]. These visuals are better suited for the $n<p$ case with more variables than observations.
 
 (ref:penguinpcp-cap) Parallel coordinate plots of penguins data. This does not scale well with observations, suffers from asymmetry with the variable ordering, and horizontal position is used for variables rather than observation levels.
-
 ```{r penguinpcp, echo=F, out.width="100%", fig.cap = "(ref:penguinpcp-cap)"}
-nsSafeIncGraphic("./figures/ch2_fig2_penguin_pcp.pdf")
+nsSafeIncGraphic("./figures/ch2_fig3_penguin_pcp.pdf")
 ```
 
 
 ## Dimension reduction
 
-Ultimately, we will need to turn to dimension reduction to create a compelling visual allowing audiences to focus on features with contributions from multiple variables. Dimension reduction is separated into two categories, linear and non-linear. The linear case spans all affine mathematical transformations, essentially any mapping where parallel lines stay parallel. Non-linear transformations are the complement of the linear case, think transformations containing exponents or interacting terms. Examples in low dimensions are relatable. For instance, shadows are examples of linear projections where a 3-dimensional object casts a 2D projection, the shadow. Our vision at any one instance of time, or a picture, is also a 2D projection. An example of a non-linear transformation is that of 2D representation of the globe. There are many different ways (and features to optimize) to distort the surface to display as a map. The most common may be rectangular displays where the area is distorted propotional with the distance away from the equator. Other distortions are created when the surface is unwrapped as a long ellipse. Yet others create non-continuous gaps in oceans to minimize the distortion of countries.
+<!-- Dimension reduction -->
+Ultimately, we will need to turn to dimension reduction to create a compelling visual allowing audiences to focus on features with contributions from multiple variables. Dimension reduction is separated into two categories, linear and non-linear. The linear case spans all affine mathematical transformations, essentially any mapping where parallel lines stay parallel. Non-linear transformations are the complement of the linear case, think transformations containing exponents or interacting terms. Examples in low dimensions are relatable. For instance, shadows are examples of linear projections where a 3-dimensional object casts a 2D projection, the shadow. Our vision at any one instance of time, or a picture, is also a 2D projection. An example of a non-linear transformation is that of 2D representation of the globe. There are many different ways (and features to optimize) to distort the surface to display as a map. The most common may be rectangular displays where the area is distorted proportional with the distance away from the equator. Other distortions are created when the surface is unwrapped as a long ellipse. Yet others create non-continuous gaps in oceans to minimize the distortion of countries.
 
+<!-- Non-linear -->
 Non-linear techniques often have hyperparameters that affect how the spaces are distorted to fit into fewer dimensions. To quote Anastasios Panagiotelis, "All non-linear projections are wrong, but some are useful", a play on George Box's quote about models. Non-linear techniques distort the space in unclear ways, and what is more, they can introduce features not in the data depending on the selection of hyperparameters. The presence of structure in a non-linear model is necessary but not sufficient to conclude the existence of a structure in the data.
 
+<!-- No free lunch trade off -->
 Unfortunately, there is no free lunch here. An increase in the original data dimensions will lead to a $p-d$-dimensional viewing space in the linear case and an increasingly perturbed and distorted space in non-linear techniques. The intrinsic dimensionality of data is the number of variables needed to minimally represent the data [@grinstein_high-dimensional_2002]. Intrinsic data dimensionality is an important aspect of dimension reduction that does not have to end in visual but is also a standard part of factor analysis and preprocessing data. Consider a Psychology survey consisting of 100 questions about the Big Five personality traits. The data consists of 100 variables, while the theory would suggest the intrinsic dimensionality is five. The data likely picks up on other aspects and may be better summarized with eight or ten dimensions. If this were the case, reducing the data to this space would be necessary to gate the exponentially increasing view time.
 
+XXX: TODO Work in PCA and Grand tour to background (out of intro and RQ)
+<!-- PCA -->
+One example of linear projections is that of Principal Component Analysis [PCA, @pearson_liii._1901], which creates a component space ordered by descending variation. It uses eigenvalue decomposition to identify the basis reorientation. These components are typically viewed as discrete orthogonal pairs, commonly approximated in fewer components.
 
 ## Tours, animated linear projections
 
-A single linear projection is a resulting space from the data multiplied by the basis. The basis is an orthonormal matrix (the orientation of the unit origin) mapping the data space to a lower dimension. A data visualization tour animates many such projections through small changes in the basis. In the bar stool shadow analogy, structural information about a hidden object was gained by watching its shadow change due to its rotation. An analyst similarly gains information about the data object by watching continuous changes to the basis (the rotation of the data). Originally in a _grand_ tour [@asimov_grand_1985] several target frames are randomly selected and then interpolated along their geodesic path.
+<!-- Segue from barstool -->
+A single linear projection is a resulting space from the data multiplied by the basis. In contrast to one such projection, a data visualization tour animates many such projections through small changes in the basis. In the barstool shadow analogy, structural information about a hidden object was gained by watching its shadow change from its rotation. An analyst similarly gains information about the data object by watching continuous changes to the basis (the orientation of the data). There are various types of tours that are classified by the generation of their basis paths. We enumerate a few related to this work. A more comprehensive discussion and review of tours can be found in the works of @cook_grand_2008 and @lee_state_2021.
 
-(ref:ch2fig3-cap) Illustration of the grand tour selecting random target frames (grey) connected via geodesically interpolated frame (white). Figure from @buja_computational_2005.
-```{r ch2fig3, echo=F, out.width="100%", fig.cap = "(ref:ch2fig3-cap)"}
-nsSafeIncGraphic("./figures/ch2_fig3_buja05fig.PNG")
+<!-- Grand tour -->
+Originally in a _grand_ tour [@asimov_grand_1985] several target frames are randomly selected.
+Figure \@ref(fig:ch2fig4) shows six frames of a grand tour. The grand tour is good for EDA in that it will show frames with widely varying contributions, but without either an destination nor a means steer.
+
+(ref:ch2fig4-cap) Frames of a grand tour of Palmer Penguin data. Tours animate linear projections over small changes in the basis. The observation permanence between frames is an essential distinction in tours. Target frames are selected randomly in the grand tour. An animation can be viewed at [vimeo.com/670936494](https://vimeo.com/670936494).
+```{r ch2fig4, echo=F, out.width="100%", fig.cap = "(ref:ch2fig4-cap)"}
+nsSafeIncGraphic("./figures/ch2_fig4_penguin_grandtour.png")
 ```
 
-There are various types of tours classified by the generation of their basis paths. A _guided_ tour uses simulated annealing to move progressively closer to an objective function in the embedded space [@hurley_analyzing_1990]. A more comprehensive discussion and review of tours can be found in the works of @cook_grand_2008 and @lee_state_2021.
+<!-- Guided tour -->
+<!--  A _guided_ tour uses simulated annealing to move progressively closer to an objective function in the resulting projection [@hurley_analyzing_1990]. Starting from a supplied basis, the guided tour searchs for nearby bases that locally optimize an objective function. -->
 
-Tours are used for a couple of salient features: maintains transparency back to the original variable space, and the persistence data points from frame to frame convey more information than looking at discrete jumps to other bases. Because of these features, tours are a good method to extend the visualization of data space as dimensionality increases.
+(ref:ch2fig5-cap) Illustration of geodesic interpolation between a tours target frames (grey) and the resulting intermediate frame (white). Figure from @buja_computational_2005.
+```{r ch2fig5, echo=F, out.width="100%", fig.cap = "(ref:ch2fig5-cap)"}
+nsSafeIncGraphic("./figures/ch2_fig5_buja05fig.PNG")
+```
 
-The work below covers manual tours [@cook_manual_1997] in Chapter \@ref(ch-spinifex). Radial tours are one type of manual tour where the contribution of one variable is extended radially to a full contribution, removed completely, then restored to its original contribution. Chapter \@ref(ch-userstudy) compares the efficacy of the radial tour as compared with PCA and the grand tour in a user study. Lastly, Chapter \@ref(ch-cheem) extends the use of the radial tour to evaluate the local explanation of black-box models.
+Regardless the type of tour target basis identified, tours must interpolate frames between distant target bases. Figure \@ref(fig:ch2fig5) illustrates the geodesic interpolation between distant target frames. Animating though small enough changes between these interpolated frame is important for the trackability of observations as the basis changes, a improvement over static linear projections.
 
 
 ## Evaluating multivariate data visualization
@@ -98,9 +117,9 @@ Explainable Artificial Intelligence (XAI) is an emerging field of research that 
 <!-- Reminder of local explanation -->
 Consider a highly non-linear model. It can be hard to determine whether small changes in a feature's value will make a class prediction change group or identify which features contribute to an extreme residual. Local explanations shed light on these situations by approximating linear feature importance in the vicinity of a single instance.
 
-(ref:ch2fig4-cap) Illustration of a non-linear classification model. An analyst may want to know the variable importance at the vicinity of the highlighted red cross. Knowing this attribution elucidates how the variable are influence this point which is precariously close to the classification boundary. Local explaination approximate this linear attribution in the vicinity of one observation. Figure from @ribeiro_why_2016.
-```{r ch2fig4, echo=F, out.width="50%", fig.cap = "(ref:ch2fig4-cap)"}
-nsSafeIncGraphic("./figures/ch2_fig4_ribeiro16fig.PNG")
+(ref:ch2fig6-cap) Illustration of a non-linear classification model. An analyst may want to know the variable importance at the vicinity of the highlighted red cross. Knowing this attribution elucidates how the variable are influence this point which is precariously close to the classification boundary. Local explaination approximate this linear attribution in the vicinity of one observation. Figure from @ribeiro_why_2016.
+```{r ch2fig6, echo=F, out.width="50%", fig.cap = "(ref:ch2fig6-cap)"}
+nsSafeIncGraphic("./figures/ch2_fig6_ribeiro16fig.PNG")
 ```
 
 <!-- Taxonomy of local explanations -->
@@ -108,4 +127,7 @@ A comprehensive summary of the taxonomy and literature of explanation techniques
 
 <!-- Uses of local explanations -->
 These instance-level explanations are used in various ways depending on the data. In image classification, where pixels correspond to predictors, saliency maps overlay or offset a heatmap indicating important pixels [@simonyan_deep_2014]. For instance, pixels corresponding to snow may be highlighted when distinguishing if a picture contains a wolf or husky. In text analysis, word-level contextual sentiment analysis can be used to highlight the sentiment and magnitude of influential words [@vanni_textual_2018]. In the case of numeric regression, they are used to explain feature additive contributions from the model intercept to the instance's prediction [@ribeiro_why_2016].
+
+<!-- Segue out -->
+The work below covers manual tours [@cook_manual_1997] in Chapter \@ref(ch-spinifex). Radial tours are one type of manual tour where the contribution of one variable is extended radially to a full contribution, removed completely, then restored to its original contribution. Chapter \@ref(ch-userstudy) compares the efficacy of the radial tour as compared with PCA and the grand tour in a user study. Lastly, Chapter \@ref(ch-cheem) extends the use of the radial tour to evaluate the local explanation of black-box models.
 

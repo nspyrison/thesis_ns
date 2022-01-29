@@ -108,7 +108,7 @@ $~~~~~H_\alpha: \text{task accuracy does change across visualization method} \\$
 <!-- Introduction to experimental factors -->
 In addition to visual factor, we simulate the data across three aspects. First the _location_ of the difference between clusters by mixing a signal and a noise variable at different ratios, we vary the number of variables and their magnitude of cluster separation. Secondly the _shape_ of the clusters, to reflect varying distributions of the data. And third, the _dimension_-ality of the data. Below we describe the levels within each factor, while Figure \@ref(fig:ch4fig3) gives a visual representation of the levels.
 
-```{r ch4fig3, out.width='100%', fig.cap = "Illustration of the experimental factors, the parameter space of the independent variables, the support of our study."}
+```{r ch4fig3, out.width="100%", fig.cap = "Illustration of the experimental factors, the parameter space of the independent variables, the support of our study."}
 nsSafeIncGraphic("./figures/ch4_fig3_exp_factors.pdf")
 ```
 
@@ -150,7 +150,7 @@ We define weights, $w$ as a vector explaining the variable-wise difference betwe
 
 Where $I(j)$ is the indicator function, the binary response for variable $j$. Figure \@ref(fig:ch4fig4) shows one frame of a simulation with its observed variable separation (wide bars), expected uniform separation (dashed line), and accuracy if selected (thin lines).
 
-```{r ch4fig4, out.width='100%', fig.cap = "(L), PCA biplot of the components showing the most cluster separation with (R) illustration of the magnitude of cluster separation is for each variable (bars) and the weight of the variable accuracy if selected (red/green lines). The horizontal dashed line is $1 / p$, the amount of separation each variable would have if evenly distributed. The weights equal the signed square of the difference between each variable value and the dashed line."}
+```{r ch4fig4, out.width="100%", fig.cap = "(L), PCA biplot of the components showing the most cluster separation with (R) illustration of the magnitude of cluster separation is for each variable (bars) and the weight of the variable accuracy if selected (red/green lines). The horizontal dashed line is $1 / p$, the amount of separation each variable would have if evenly distributed. The weights equal the signed square of the difference between each variable value and the dashed line."}
 nsSafeIncGraphic("./figures/ch4_fig4_accuracy_measure.pdf")
 ```
 
