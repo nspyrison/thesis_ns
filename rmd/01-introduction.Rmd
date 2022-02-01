@@ -35,59 +35,59 @@ There are many features that an analyst may be interested in when analyzing mult
 It therefore makes sense for an analyst to explore different linear projections. However, it can be difficult to understand the affect of the projection and to keep track of data points if the analyst is shown several projections with no relationship to one another.  The _tour_ is a dynamic visualization that overcomes this difficulty [@cook_grand_2008; @lee_state_2021]. It is a class of linear projections that animate small changes to the projection basis. A key feature of the tour is the visual permanence and trackability of the points through the frames. In the shadow analogy, an object such as a barstool will cast a circular shadow if the light is directly above the seat. However, such a shadow does not give the observer sufficient information as it could arise from any number of shapes that contain profiles of spheres, cylinders, or circles. However, if the stool was rotated, its legs would show in the shadow quickly giving an intuitive interpretation of the object. Similarly, the rotation of a data object yields information about its structure.
 
 <!-- Manual tour -->
-A crucial component for _human-in-the-loop_ analysis [@karwowski_international_2006] is the ability for the analyst to manually steer the tour. This allows, for example, the analyst  to explore what happens to the structure when one variable is removed or the contribution of another is increased. @cook_manual_1997 introduced the _manual tour_, offering user control over the basis. By selecting a variable and initializing an additional manipulation dimension to an embedding, the contribution of the variable can be controlled. The manual tour allowed the analyst to control both the angle and magnitude that a variable contributes to the projection. However, controlling the magnitude is generally more meaningful as angular manipulations effectively rotate the projection, changing the relative position, but not the contribution of a variable. Because of this, this work focuses on a specific manual tour, the _radial tour_, where the angle of the manipulated variable is fixed, but the analyst can vary its magnitude, changing its radius. Figure \@ref(fig:ch1fig4) performs a radial tour on penguins data varying the contribution from bill length. In frames 1 and 2. There is a large contribution from bill length, and all species are distinguished. Yet in frame 3, bill length is removed, and the separation between orange and green clusters has collapsed; we say this variable is sensitive to the separation of these two clusters.
+A crucial component for _human-in-the-loop_ analysis [@karwowski_international_2006] is the ability for the analyst to manually steer the tour. This allows, for example, the analyst  to explore what happens to the structure when one variable is removed or the contribution of another is increased. @cook_manual_1997 introduced the _manual tour_, offering user control over the basis. By selecting a variable and initializing an additional manipulation dimension to an embedding, the contribution of the variable can be controlled.
 
-(ref:ch1fig4-cap) Frames of a radial, manual tour of Palmer Penguin data manipulating the contribution of bill length (`b_l`). When bill length has a considerable contribution to the frame, the clusters of orange and green species are separated (frames 1 and 2). When its contribution is removed, the clusters overlap (frame 3). Because of this, bill length is sensitive to the separation of these two species. An animated version can viewed at [vimeo.com/670936513](https://vimeo.com/670936513).
-```{r ch1fig4, echo=F, out.width="100%", fig.cap = "(ref:ch1fig4-cap)"}
-nsSafeIncGraphic("./figures/ch1_fig4_penguin_manualtour.png")
+<!-- Radial tour -->
+The manual tour allowed the analyst to control both the angle and magnitude that a variable contributes to the projection. However, controlling the magnitude is generally more meaningful as angular manipulations effectively rotate the projection, changing the relative position, but not the contribution of a variable. Because of this, this work focuses on a specific manual tour, the _radial tour_, where the angle of the manipulated variable is fixed, but the analyst can vary its magnitude, changing its radius. Figure \@ref(fig:ch1fig3) shows a radial tour on the penguins data varying the contribution of bill length. In frames 1 and 2 there is a large contribution from bill length, and all species are distinguished. In frame 3, however, bill length is removed, and the separation between orange and green clusters has collapsed; we say this variable is sensitive to the separation of these two clusters.
+
+(ref:ch1fig3-cap) Frames of a radial, manual tour of Palmer Penguin data manipulating the contribution of bill length (`b_l`). When bill length has a considerable contribution to the frame, the clusters of orange and green species are separated (frames 1 and 2). When its contribution is removed, the clusters overlap (frame 3). Because of this, bill length is sensitive to the separation of these two species. An animated version can viewed at [vimeo.com/670936513](https://vimeo.com/670936513).
+```{r ch1fig3, echo=F, out.width="100%", fig.cap = "(ref:ch1fig3-cap)"}
+nsSafeIncGraphic("./figures/ch1_fig3_penguin_manualtour.png")
 ```
 
 
 ## Research questions
 <!-- Hypothesis statement -->
 
-The over-arching question of interest can be stated as:
+Discerning variable sensitivity to the structure is a crucial step in understanding a variables contribution to features or differences of interest to the analyst. We conjecture that the user interaction afforded by the radial tour should allow for a more precise exploration of this structure by testing the variable sensitivity to that structure. The over-arching question of interest can, therefore, be stated as:
 
-**Can the radial tour, with user control of the basis, help analysts understand linear projections, and explore the variable sensitivity of structure in the projection?**\
-Understanding variable sensitivity to the structure in a projection frame is a crucial factor analysis; it elucidates the variable contributions resulting structure. The user interaction afforded by the radial tour should allow for a more precise exploration of this structure by testing the variable sensitivity to that structure.
+__Can the radial tour, with user control of the basis, help analysts understand the variable sensitivity of structure in the projection?__
 
-We have the theoretical work for the manual tour. However, we lack a publicly available implementation, implementation notes, and have no evaluation of its performance over alternatives.
+While @cook_manual_1997 sketched the theoretical basis for the manual (and hence radial) tour, some details are missing. Furthermore, we lack a publicly available implementation, fully featured interface design, implementation notes, and have no evaluation of its performance over alternatives.
 
-RQ 1. **How do we define user interaction for the radial tours to add and remove variables smoothly from a 2D linear projection of data?**\
-Neither component spaces nor the grand tour provides a means for changing a desired variable's contributions. To facilitate variable interaction, we need to have a means of manipulating the basis. This is crucial to explore the sensitivity of the variable contributions to the structure in a frame.
+RQ 1. __How do we define and implement a user interface and interactions for the radial tours to add and remove variables smoothly from a 2D linear projection of data?__
 
 <!-- Most perceptible way to visualize multivariate spaces -->
-Static linear projections and previous tours do not allow an analyst to influence the basis. The manual tour gives an analyst the means to steer the basis to test the sensitivity of variables. However, it remains unclear which methods lead to the most perceptible way to visualize multivariate spaces.
+At present the radial tour is not used by analysts. Instead they would use a single projection to understand the structure, almost always the principal components analysis (PCA) which chooses the basis that shows the most variation. Another approach is to use a _grand tour_. This randomly selects target bases and then generates an animation that interpolates between these target bases. Neither PCA nor the grand tour provide a means for manually manipulating a desired variable's contribution to the basis. We wish to investigate if the ability for the analyst to steer the basis in the radial tour facilitates better understand variable sensitivity to the structure. 
 
-RQ 2. **Does the use of the interactive radial tour improve analysts understanding of the relationship between variables and structure in 2D linear projections?**\
-We want to evaluate if, and if so, how much this steering leads to a better understanding of variable contributions to structure. Comparing alternative methods should lend insight into which methods perform well under specific tasks.
+RQ 2. __Does the use of the interactive radial tour improve analysts understanding of the relationship between variables and structure in 2D linear projections compared to existing approaches?__
 
 <!-- Interpretability crisis of the non-linear models -->
-Complex non-linear models are also being applied more frequently to predict or classify from many predictors. While these models lead to increased accuracy over linear models, they suffer from a loss of the interpretability of their variables. One aspect of eXplainable Artificial Intelligence (XAI) tries to preserve the interpretability of such models through local explanations. These explanations are essentially linear variable importance in the vicinity of one observation of a model. That is, the extent that variables help the model explain the difference between the observed means and this observation's prediction. The user control from the radial tour may allow an analyst to understand better the model and the support of these local explanations.
+Complex non-linear models are also being applied more frequently to predict or classify from many predictors. While these models lead to increased accuracy over linear models, they suffer from a loss of the interpretability of their variables. One aspect of eXplainable Artificial Intelligence [XAI, @adadi_peeking_2018;  @arrieta_explainable_2020] tries to preserve the interpretability of such models through local explanations. These explanations are essentially linear variable importance in the vicinity of one observation of a model. That is, the extent that variables help the model explain the difference between the observed means and this observation's prediction. The user control from the radial tour potentially allows an analyst to understand better the model and the support of these local explanations.
 
-RQ 3. **Can the radial tours be used in conjunction with local explanations to improve the interpretability of black-box models?**\
+RQ 3. __Can the radial tours be used in conjunction with local explanations to improve the interpretability of black-box models?__
 
 
 ## Methodology
 
 The research corresponding with RQ 1 entails _algorithm & software design_ [@kleinberg_algorithm_2006] adapting the algorithm from @cook_manual_1997.
 
-To address RQ 2, we use  _experimental design_ [@winer_statistical_1962]. We must define a task and measure suitable to evaluate the radial tour against alternatives. The experimental factors and their levels must be selected and randomly assigned  has explored the efficacy of user-controlled radial tours as compared with two benchmark methods.
+To address RQ 2, we use  _experimental design_ [@winer_statistical_1962]. We must define a task and measure suitable to evaluate the radial tour against alternatives. The experimental factors and their levels must be selected and randomly assigned to explore the efficacy of user-controlled radial tours compared with two benchmark methods.
 
-The research responding to RQ 3 involves _design science_ [@hevner_design_2004]. A local explanation approximates the linear variable importance in the vicinity of one observation. Our design must accommodate two aspects for this novel analysis. First, it should visually facilitate the selection of observations to explore. Secondly, the design of visualization to further examine the variable sensitivity to the structure identified in local explanations.
+The research responding to RQ 3 involves _design science_ [@hevner_design_2004]. It is not obvious how to combine a radial tour with a non-linear model. A local explanation approximates the linear variable importance in the vicinity of one observation. We must develop a novel interactive visualization that accommodate two aspects. First, it should visually facilitate the selection of observations to explore. Secondly, extend the biplot to show the distribution of the local explanations and examine the variable sensitivity to the structure identified in local explanation with the radial tour.
 
 
 ## Contributions
 
-The contributions resulting from the research to address these research questions can be split into scientific and software contributions: 
+The contributions resulting from the research to address these research questions can be split into scientific knowledge and software contributions: 
 
 
-### Scientific contributions
+### Scientific knowledge
 
 - Manual tour theory
     - Use of the Rodrigues' rotation formula to derive the rotation matrix; this was absent from the original paper and points to the means to extend the manual tour in a 3D embedding
     - Use cases for the manual tour giving support to its application
-- A user study comparing the radial tour's efficacy against the alternatives, the first empirical evaluation of the radial tour
+- A user study comparing the radial tour's efficacy against two alternatives--PCA and the grand tour, the first empirical evaluation of the radial tour
     - Creation of supervised classification task to assess the variable attribution to the separation of two cluster
     - As tested over experimental factors: location, shape, and dimensionality
     - Definition of an accuracy measure to evaluate this task
@@ -95,7 +95,7 @@ The contributions resulting from the research to address these research question
     - Mixed model regression helps to attribution the source of the error accounting for the variability of participants skill and the difficulty from random simulation
 - Cheem analysis, a novel method exploring the variable sensitivity of local explanations from non-linear models
     - A global view approximates the variable space, attribution space, and model information side-by-side serves to identify a primary observation of interest
-    - This observation's normalized variable attribution is use as a projection basis
+    - This observation's normalized variable attribution is used as a projection basis
     - Explore the support of the local explanation; using the radial tour, the variable sensitivity to the structure identified test the support of the explanation
 
 
@@ -104,14 +104,14 @@ The contributions resulting from the research to address these research question
 - __spinifex__, an __R__ package for transforming data, performing radial tours, and the layered composition of any tours
     - Transform of numeric variable in the data
     - Extract various bases exposing features of the data
-    - Manual tours allowing analyst steering of the basis to explore the variable sensitivity to structure
+    - Manual tours allow analyst steering of the basis to explore the variable sensitivity to structure
     - Layered composition of tour displays that mirrors the approach in __ggplot2__ [@wickham_ggplot2_2016], Interoperable with tours made from __tourr__ [@wickham_tourr:_2011]
     - Interactive application to preprocess data and explore. Users can choose from six supplied datasets or upload their own
-    - Vignettes and code example help users get up to speed
+    - Vignettes and code examples help users get up to speed
     - Introduces an interactive application to preprocess data and explore. Users can choose from six supplied datasets or upload their own
 - __cheem__, an __R__ package that facilitates the exploration of local explanations of non-linear models:
     - Preprocessing; given a tree-based model, calculate the tree SHAP local explanation of all observations, and find statistics to accent the separability of this space
-    - Visualization of approximations of the data space, attribution space, and model residual information side-by-side with linked brushing, hover tooltips, and tabular display facilitate the selection of observations to explore
+    - Visualization of approximations of the data space, attribution space, and model residual information side-by-side with linked brushing, hover tooltips, and tabular display facilitates the selection of observations to explore
     - Use of the radial tour varies the contribution of variable test the support of the variable contribution in agreement with the explanation
     - Interactive application facilitates this analysis for several prepared datasets or user preprocessed data
     - A vignette and code examples help users get up to speed
