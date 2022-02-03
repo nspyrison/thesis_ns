@@ -14,7 +14,7 @@ In Chapters \@ref(ch-introduction) and \@ref(ch-background) have introduced PCA,
 <!-- ## Introduction -->
 The user influence over a basis, unique available in the radial tour, is crucial to testing variable sensitive to the structure visible in linear frame. If the contribution of a variable is reduced and the feature disappears, then we say that the variable was sensitive to that structure. For example, in Figure \@ref(fig:ch4fig1) shows 2 frames of simulated data. Panel (a) has identified separation between the two clusters. The contributions in panel (b) show no such cluster separation. The former has a large contribution to V2 in the direction of separation, while it is negligible in the later frame. Because of this we say that V2 is sensitive to the separation of the clusters.
 
-```{r ch4fig1, echo = F, out.width = "100%", fig.cap = "Illustrastion of cluster separation. Panel (a) shows clear separation in V2, no separation in V1, V3 has negligable contribution to the frame. The contributions of V2 is then swapped with V3 in panel (b). There is no separation between the cluster means in V3, and the separation contained in V2 no longer influences the frame."}
+```{r ch4fig1, echo = F, out.width = "100%", fig.cap = "Illustrastion of cluster separation. Panel (a) shows clear separation in V2 and no separation in the direction of V3. While V1 and and v4 have relatively small contributions to the frame. Panel (b) has a random basis with a minmal contirbution from V2 and no separation between the cluster means is resolved."}
 knitr::include_graphics("./figures/ch4_fig1_cl_sep.pdf")
 ```
 
@@ -23,63 +23,6 @@ Knowing which variables to use is also important for statistical modeling and th
 
 <!-- Structure of the chapter -->
 The chapter is structured as follows. Chapter \@ref(ch-background) discusses several visualization methods and orthogonal and observation-based visuals before arriving at the three linear dimension reduction techniques compared in the study. Section \@ref(sec:userstudy) describes the experimental factors, task, and accuracy measure used. The results of the study are discussed in Section \@ref(sec:results). Conclusions and potential future directions are discussed in Section \@ref(sec:conclusion). The software used for the study is described in Section \@ref(sec:spinifex).
-
-
-<!-- ## Background {#sec:background} -->
-
-<!-- Before discussing PCA, the grand tour, and the radial tour, this section covers orthogonal views and observation-based visuals of the full variable space. Consider data to be a complete matrix of $n$ observations across $p$ variables, $X_{n \times p}$. -->
-
-
-<!-- ### Scatterplot matrix -->
-
-<!-- One could consider looking at $p$ histograms or univariate densities. Doing so will miss features in two or more dimensions. A scatterplot matrix [@chambers_graphical_1983] is a $p \times p$ matrix with univariate densities on the diagonal and all combinations of pairs of variables in off-diagonal elements. Figure \@ref(fig:ch4fig2) shows a scatterplot matrix of the first four components of simulated data. Such displays do not scale well with dimension, quickly becoming dense. Scatterplot matrices also display information in two orthogonal dimensions; features in three dimensions will never be fully resolved. -->
-
-
-<!-- ### Parallel coordinates plot -->
-
-<!-- PCP -->
-<!-- Another common way to display multivariate data is with a parallel coordinates plot [@ocagne_coordonnees_1885], which shows observations by quantile or normalized values for each variable connected by lines to the quantile value in subsequent variables. Parallel coordinates plots and other observations-based visuals, such as pixel plots or Chernoff faces scale well with dimensions but poorly with observations. These are perhaps best used when there are more variables than observations. -->
-
-<!-- Observations-based visuals have a couple of issues. They are asymmetric across variable ordering, leading to different conclusions or features being focused on due to variable order. Another notable observation-based visual is the graphical channel used to convey information. Munzner suggests that position is the visual channel that is most perceptible to humans [@munzner_visualization_2014]. In the case of parallel coordinates plots, the horizontal axes span variables rather than the values of one variable; the loss of a display dimension to be used by most discerning visual channel should not be taken lightly. -->
-
-<!-- Turning to Linear DR -->
-<!-- At some point, we will be forced to turn to dimension reduction to scale well. Non-linear transformations bend and distort spaces are not entirely accurate or faithful to the original variable space. In light of this, we preclude non-linear techniques and instead decide on PCA, the grand tour, and the radial tour. -->
-
-
-<!-- ### Principal component analysis -->
-
-<!-- PCA is a good baseline of comparison for linear projections because of its frequent and broad use across disciplines. PCA defines new components, linear combinations of the original variables, ordered by decreasing variation through the help of eigenvalue matrix decomposition. While the resulting dimensionality is the same size, the benefit comes from the ordered nature of the components. The data can be said to be approximated by the first several components. The exact number is subjectively selected given the variance contained by each component, typically guided using a scree plot [@cattell_scree_1966]. Features with sizable signal regularly appear in the leading components that commonly approximate data. However, this is not always the case, and component spaces should be fully explored to look for signal in components that hold less variation. -->
-
-<!-- ```{r ch4fig2, fig.cap = "Scatterplot matrix of the first four principal components simulated data in six dimensions. An analyst would have to view both PC1 by PC2 and PC1 by PC4 to have a thorough take on which variables attribute to the separation between clusters."} -->
-<!-- nsSafeIncGraphic("./figures/ch4_fig2_pca_splom.pdf") -->
-<!-- ``` -->
-
-
-<!-- ### Animated linear projections, tours -->
-
-<!-- tours intro -->
-<!-- A data visualization _tour_ animates many linear projections over small changes in the projection basis. One of the insightful features of the tour is the object permanence of the data points; one can track the relative changes of observations as the basis moves, as opposed to discretely jumping to an orthogonal view with no intermediate information. Types of tours are distinguished by the selection of their basis paths [@lee_state_2021; @cook_grand_2008]. To contrast with the discrete orientations of PCA, we compare continuous linear projection changes with grand and radial tours. -->
-
-
-<!-- #### Grand tours -->
-
-<!-- Grand tour -->
-<!-- Target bases are selected randomly in a grand tour [@asimov_grand_1985]. These target bases are then geodesically interpolated for a smooth, continuous path. The grand tour is the first and most widely known tour. The random selection of target bases makes it a general unguided exploratory tool. The grand tour will make a good comparison that has continuity of data points similar to the radial tour but lacks the user control enjoyed by PCA and radial tours. -->
-
-
-<!-- #### Manual and radial tours -->
-
-<!-- Segue, highlighting lack of control -->
-<!-- Whether an analyst uses PCA or the grand tour, they cannot influence the basis. They cannot explore the structure identified or change the contribution of the variables. This user-control-steering is a key aspect of _manual_ tours that should facilitate testing variable attribution. -->
-
-<!-- Manual tour -->
-<!-- The manual tour [@cook_manual_1997] defines its basis path by manipulating the basis contribution of a selected variable.  A manipulation dimension is appended onto the projection plane, giving a full contribution to the selected variable. The target bases are then chosen to rotate this newly created manipulation space. This manipulation space similarly orthogonally restrained, the data is projected through its interpolated frames and rendered into an animation. When the contribution of one variable changes, the contributions of the other variables must also change, maintaining the orthonormality of the basis and space. A key feature of the manual tour is that it allows users to control the variable contributions to the basis. Such manipulations can be queued in advance or selected in real-time for human-in-the-loop analysis [@karwowski_international_2006]. Manual navigation is relatively time-consuming due to the vast volume of resulting view space and the abstract method of steering the projection basis. It is advisable first to identify a basis of particular interest and then use the manual tour as a more directed, local exploration tool to explore the sensitivity of a variable's contribution to the feature of interest. -->
-
-<!-- Radial tour variant -->
-<!-- To simplify the task and keep its duration realistic, we consider a variant of the manual tour called a _radial_ tour. In a radial tour, the selected variable can change its magnitude but not the angle of contribution; it must move along the direction of its original contribution radius. The radial tour benefits from both continuity of the data alongside grand tours and allows the user to steer via choosing the variable to rotate. -->
-
-<!-- spinifex -->
-<!-- Manual tours have been recently made available in the __R__ package __spinifex__ [@spyrison_spinifex_2020], which facilitates manual tours (and radial variant). It also provides an interface for a layered composition of tours and exporting to .gif and .mp4 with __gganimate__ [@pedersen_gganimate_2020] or .html widget with __plotly__ [@sievert_interactive_2020]. It is also compatible with tours made by __tourr__ [@wickham_tourr:_2011]. Now that we have a readily available means to produce various tours, we want to see how they fare against traditional discrete displays commonly used with PCA. -->
 
 
 ## User study {#sec:userstudy}
@@ -137,6 +80,7 @@ The instructions iterated several times in the video was: 1) use the input contr
 The evaluation measure of this task was designed with a few of features in mind: 1) the sum of squares of the individual variable weights should be one, 2) symmetric about zero, that is, without preference to under- or over-guessing 3) heavier than linear weight with increasing distance from a uniform height. With these in mind, we define the following measure for evaluating the task.
 
 Let a data $\textbf{X}_{n,~p,~k}$ be a simulation containing clusters of observations of different distributions. Where $n$ is the number of observations, $p$ is the number of variables, and $k$ indicates the number of the cluster an observation belongs. Cluster membership is exclusive; an observation cannot belong to more than one cluster.
+
 <!-- W, weights -->
 We define weights, $w$ as a vector explaining the variable-wise difference between two clusters. Namely, the difference of each variable between clusters, as a proportion of the total difference, less $1/p$, the amount of difference each variable would hold if it were uniformly distributed. <!-- R, participant responses -->Participant responses are a logical value for each variable - whether or not the participant thinks each variable separates the two clusters more than uniformly distributed separation.
 
@@ -164,7 +108,7 @@ The factors are tested within-participant, with each visual being evaluated twic
 The visualization methods were standardized wherever possible. Data were displayed as 2D scatterplots with biplots [@gabriel_biplot_1971], a visual with variable contributions inscribed on a unit circle. All aesthetic values (colors, shapes, sizes, absence of legend, and axis titles) were constant. Variable contributions were always shown left of the scatterplot embeddings with their aesthetic values consistent. What did vary between factors were their inputs.
 
 <!-- PCA -->
-PCA inputs allowed users to select between the top four principal components for both the $x$- and $y$-axes regardless of the data dimensionality (four or six). Data was simulated to have cluster separation within the 2nd to 4th components. Cluster separation was sampled to not burying signal in 5th and 6th components (not selectable in PCA input), in the interest of simplicity and time. <!-- Grand tours -->There was no user input for the grand tour; users were instead shown a 15-second animation of the same randomly selected path. Participants could view the same clip up to four times within the time limit. <!-- Radial tours -->Radial tours were also displayed at five frames per second with a step size of 0.1 radians between interpolated frames. Users were able to swap between variables. Selecting a new variable resets the animation where the new variable is manipulated to a full, zero, and then back to its initial contribution. The complete animation of any variable takes about 20 seconds and is almost entirely in the projection frame at around six seconds. The starting basis was initialized to a half-clock design, where the variables were evenly distributed in half of the circle. This design was created to be variable agnostic while maximizing the independence of the variables.
+PCA inputs allowed users to select between the top four principal components for both axes regardless of the data dimensionality (four or six). Data was simulated to have cluster separation within the 2nd to 4th components. Cluster separation was sampled to not burying signal in 5th and 6th components (not selectable in PCA input), in the interest of simplicity and time. <!-- Grand tours -->There was no user input for the grand tour; users were instead shown a 15-second animation of the same randomly selected path. Participants could view the same clip up to four times within the time limit. <!-- Radial tours -->Radial tours were also displayed at five frames per second with a step size of 0.1 radians between interpolated frames. Users were able to swap between variables. Selecting a new variable resets the animation where the new variable is manipulated to a full, zero, and then back to its initial contribution. The complete animation of any variable takes about 20 seconds and is almost entirely in the projection frame at around six seconds. The starting basis was initialized to a half-clock design, where the variables were evenly distributed in half of the circle. This design was created to be variable agnostic while maximizing the independence of the variables.
 
 
 ### Data simulation
@@ -355,9 +299,9 @@ nsSafeIncGraphic("./figures/ch4_zapp_fig5_app_pg2.PNG")
 The second tab, Figure \@ref(fig:ch4zappfig5) contains interaction for selecting the manipulation variable and non-numeric columns can be used to change the color and shape of the data points in the projection. The radial tour is created in real-time, animated as an interactive __plotly__ .html widget. The application offers users a fast, intuitive introduction elucidating what the radial tour does and some of the features offered.
 
 
-
 ## Extended analysis {#sec:appendix}
 
+<!-- segue to extended analysis -->
 This section covers peripheral and extended analysis. First we explore the demographics of the participants. Then we extend a parallel modeling analysis on log response time. Lastly, we look at the effect ranges and marginal effects of the random effect of the participants and data simulation. 
 
 
