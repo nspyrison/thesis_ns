@@ -653,7 +653,7 @@ THIS_REG_radial_cheem_tour  <- function(
     primary_obs = prim_obs, comparison_obs = comp_obs,
     do_add_pcp_segments = FALSE, inc_var_nms = .inc_var_nms,
     pcp_shape = 124, angle = 0) + .t
-  .pw <- .ggt1 / .ggt2
+  .pw <- .ggt1 + .ggt2
   .cp <- cowplot::plot_grid(
     .glob_view, .pw, labels = c("a", "b"),
     rel_heights = c(1, 1.2), ncol = 1)
@@ -709,7 +709,7 @@ message("NOTE: Manually capturing view from app with Screen to GIF (.mp4),
     primary_obs = prim_obs, comparison_obs = comp_obs,
     do_add_pcp_segments = FALSE, inc_var_nms = .inc_var_nms,
     pcp_shape = 124, angle = 0) + .t
-  .pw <- .ggt1 / .ggt2
+  .pw <- .ggt1 + .ggt2
   .cp <- cowplot::plot_grid(
     .glob_view, .pw, labels = c("a", "b"),
     rel_heights = c(1, 1.2), ncol = 1)
