@@ -1,7 +1,7 @@
 # Build Book -----
 
 ## Do use more verbose .log info?
-if(TRUE) options(tinytex.verbose = TRUE)
+if(FALSE) options(tinytex.verbose = TRUE)
 ## If you are getting ! LaTeX Error: Missing \begin{document}
 # it is likely a rogue .aux file. try to delete them and rebuild.
 # - Thanks to Dan Simpson on the NUMBAT slack.
