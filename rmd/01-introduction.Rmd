@@ -62,8 +62,8 @@ At present the radial tour is not used by analysts. Instead they would use a sin
 
 RQ 2. __Does the use of the interactive radial tour improve analysts understanding of the relationship between variables and structure in 2D linear projections compared to existing approaches?__
 
-<!-- Interpretability crisis of the non-linear models -->
-Complex non-linear models are also being applied more frequently to predict or classify from many predictors. While these models lead to increased accuracy over linear models, they suffer from a loss of the interpretability of their variables. One aspect of eXplainable Artificial Intelligence [XAI, @adadi_peeking_2018;  @arrieta_explainable_2020] tries to preserve the interpretability of such models through local explanations. These explanations are essentially linear variable importance in the vicinity of one observation of a model. That is, the extent that variables help the model explain the difference between the observed means and this observation's prediction. The user control from the radial tour potentially allows an analyst to understand better the model and the support of these local explanations.
+<!-- Interpretability crisis of the nonlinear models -->
+Complex nonlinear models are also being applied more frequently to predict or classify from many predictors. While these models lead to increased accuracy over linear models, they suffer from a loss of the interpretability of their variables. One aspect of eXplainable Artificial Intelligence [XAI, @adadi_peeking_2018;  @arrieta_explainable_2020] tries to preserve the interpretability of such models through local explanations. These explanations are essentially linear variable importance in the vicinity of one observation of a model. That is, the extent that variables help the model explain the difference between the observed means and this observation's prediction. The user control from the radial tour potentially allows an analyst to understand better the model and the support of these local explanations.
 
 RQ 3. __Can the radial tours be used in conjunction with local explanations to improve the interpretability of black-box models?__
 
@@ -74,7 +74,7 @@ The research corresponding with RQ 1 entails _algorithm & software design_ [@kle
 
 To address RQ 2, we use  _experimental design_ [@winer_statistical_1962]. We must define a task and measure suitable to evaluate the radial tour against alternatives. The experimental factors and their levels must be selected and randomly assigned to explore the efficacy of user-controlled radial tours compared with two benchmark methods.
 
-The research responding to RQ 3 involves _design science_ [@hevner_design_2004]. It is not obvious how to combine a radial tour with a non-linear model. A local explanation approximates the linear variable importance in the vicinity of one observation. We must develop a novel interactive visualization that accommodate two aspects. First, it should visually facilitate the selection of observations to explore. Secondly, extend the biplot to show the distribution of the local explanations and examine the variable sensitivity to the structure identified in local explanation with the radial tour.
+The research responding to RQ 3 involves _design science_ [@hevner_design_2004]. It is not obvious how to combine a radial tour with a nonlinear model. A local explanation approximates the linear variable importance in the vicinity of one observation. We must develop a novel interactive visualization that accommodate two aspects. First, it should visually facilitate the selection of observations to explore. Secondly, extend the biplot to show the distribution of the local explanations and examine the variable sensitivity to the structure identified in local explanation with the radial tour.
 
 
 ## Contributions
@@ -93,7 +93,7 @@ The contributions resulting from the research to address these research question
     - Definition of an accuracy measure to evaluate this task
     - Results: strong evidence that the radial tour increases the accuracy of this task by a sizable amount and minor evidence to suggest a moderate increase in accuracy of the grand tour over Principal Component Analysis (PCA)
     - Mixed model regression helps to attribution the source of the error accounting for the variability of participants skill and the difficulty from random simulation
-- Cheem analysis, a novel method exploring the variable sensitivity of local explanations from non-linear models
+- Cheem analysis, a novel method exploring the variable sensitivity of local explanations from nonlinear models
     - A global view approximates the variable space, attribution space, and model information side-by-side serves to identify a primary observation of interest
     - This observation's normalized variable attribution is used as a projection basis
     - Explore the support of the local explanation; using the radial tour, the variable sensitivity to the structure identified test the support of the explanation
@@ -109,7 +109,7 @@ The contributions resulting from the research to address these research question
     - Interactive application to preprocess data and explore. Users can choose from six supplied datasets or upload their own
     - Vignettes and code examples help users get up to speed
     - Introduces an interactive application to preprocess data and explore. Users can choose from six supplied datasets or upload their own
-- __cheem__, an __R__ package that facilitates the exploration of local explanations of non-linear models:
+- __cheem__, an __R__ package that facilitates the exploration of local explanations of nonlinear models:
     - Preprocessing; given a tree-based model, calculate the tree SHAP local explanation of all observations, and find statistics to accent the separability of this space
     - Visualization of approximations of the data space, attribution space, and model residual information side-by-side with linked brushing, hover tooltips, and tabular display facilitates the selection of observations to explore
     - Use of the radial tour varies the contribution of variable test the support of the variable contribution in agreement with the explanation
@@ -119,4 +119,4 @@ The contributions resulting from the research to address these research question
 
 ## Thesis structure
 
-The remainder of the thesis is organized as follows: Chapter \@ref(ch-background) covers various visualizing techniques before introducing related studies and then non-linear models and their interpretability issues. Chapter \@ref(ch-spinifex) discusses the theory and implementation of the manual tour in the package __spinifex__. Chapter \@ref(ch-userstudy) discusses a user study evaluating the radial, manual tour's efficacy compared with PCA and the grand tour. Chapter \@ref(ch-cheem) extends the use of radial tours to improve the interpretability of non-linear models. Lastly, Chapter \@ref(ch-conclusion) concludes with some takeaways and a discussion of possible extensions.
+The remainder of the thesis is organized as follows: Chapter \@ref(ch-background) covers various visualizing techniques before introducing related studies and then nonlinear models and their interpretability issues. Chapter \@ref(ch-spinifex) discusses the theory and implementation of the manual tour in the package __spinifex__. Chapter \@ref(ch-userstudy) discusses a user study evaluating the radial, manual tour's efficacy compared with PCA and the grand tour. Chapter \@ref(ch-cheem) extends the use of radial tours to improve the interpretability of nonlinear models. Lastly, Chapter \@ref(ch-conclusion) concludes with some takeaways and a discussion of possible extensions.

@@ -1,5 +1,11 @@
 # Build Book -----
 
+## Do use more verbose .log info?
+if(TRUE) options(tinytex.verbose = TRUE)
+## If you are getting ! LaTeX Error: Missing \begin{document}
+# it is likely a rogue .aux file. try to delete them and rebuild.
+# - Thanks to Dan Simpson on the NUMBAT slack.
+
 ## Setup ----
 library(tictoc)
 library(beepr)
@@ -32,9 +38,9 @@ for (i in fig_pdf) {
   ## If a .png of the same name does not exist make it from .pdf.
   if(file.exists(dest_pdf) == FALSE)
     magick::image_write(
-      magick::image_read(file_pdf, 300), dest_pdf, "png",
-      density = 300
-  )
+      magick::image_read(file_pdf, 300),
+      dest_pdf, "png", density = 300
+    )
 }
 
 
@@ -55,3 +61,4 @@ cli_alert_success(praise::praise())
 cli_alert_info(paste0("Compiled at ", Sys.time()))
 options(warn = prev_warn)
 tictoc::toc()
+beepr::beep()

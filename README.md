@@ -5,7 +5,7 @@
 [pdf version](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf)
 
 <!--
-## Milestone deliverables:
+## Milestone deliverable:
 
 Confirmation report: https://github.com/nspyrison/thesis_monash_phd/blob/master/_book/_confirmation_report_ns.pdf \
 Confirmation presentation: https://github.com/nspyrison/confirmation_talk \

@@ -8,7 +8,7 @@ knit: "bookdown::render_book"
 <!-- Context -->
 Multivariate data is widely used in many fields. We know that visualizing data is more robust than numerical summarization alone. It allows the analyst to get a feel for the data rapidly, check for erroneous values, and confirm model assumptions. But visualizing data spaces becomes increasingly complex as dimensionality increases. Static linear dimension reduction has been widely used to extend the dimensionality of spaces viewed. Dynamic animations of linear projections, tours, further increase the perceptible information of linearly reduced spaces. Manual tours novelly allow the analyst to steer contributions of the basis. The work outlined in this thesis makes several contributions to multivariate data visualization focusing on manual tours.
 
-<!-- Chapter \@ref(ch-spinifex) introduced the __spinifex__ package, which facilitates user-controlled manual tours and layered composition and exporting animations of any tour, interoperable with __tourr__. The radial, manual tour sizably improves the accuracy on a variable attribution in a cluster separation task compared with PCA and the grand tour. Chapter \@ref(ch-userstudy) covers the within-participants user study that led to this conclusion. Finally, I apply the radial tour to increase the interpretability of non-linear models by using it to explore the support of local explanations in the package __cheem__ is discussed in Chapter \@ref(ch-cheem). -->
+<!-- Chapter \@ref(ch-spinifex) introduced the __spinifex__ package, which facilitates user-controlled manual tours and layered composition and exporting animations of any tour, interoperable with __tourr__. The radial, manual tour sizably improves the accuracy on a variable attribution in a cluster separation task compared with PCA and the grand tour. Chapter \@ref(ch-userstudy) covers the within-participants user study that led to this conclusion. Finally, I apply the radial tour to increase the interpretability of nonlinear models by using it to explore the support of local explanations in the package __cheem__ is discussed in Chapter \@ref(ch-cheem). -->
 
 
 ## Contributions
@@ -23,7 +23,7 @@ First, I clarify the use of Rodrigues' rotation formula to solve the rotation ma
 
 Then I define a task and accuracy measure for a variable attribution of the separation of two clusters. A crowdsourced user study is conducted comparing the performance from PCA, the grand tour, and the radial tour. There is considerable evidence for a sizable improvement in accuracy with the use of the radial tour, which participants also subjectively prefer.
 
-Lastly, I purpose the cheem analysis to explore the variable support of local explanations from black-box models. From a non-linear model, the local explanations of all observations are calculated. Then compare data space, attribution space, and model information side-by-side as an ensemble  graphic. From this, identify a primary observation to explore the explanation in detail. The normalized attribution this point becomes the starting basis for a radial tour. Then vary the contributions of variables, testing their contribution's sensitivity to the predictive discernment identified in the explanation.
+Lastly, I purpose the cheem analysis to explore the variable support of local explanations from black-box models. From a nonlinear model, the local explanations of all observations are calculated. Then compare data space, attribution space, and model information side-by-side as an ensemble  graphic. From this, identify a primary observation to explore the explanation in detail. The normalized attribution this point becomes the starting basis for a radial tour. Then vary the contributions of variables, testing their contribution's sensitivity to the predictive discernment identified in the explanation.
 
 
 ### Software
@@ -61,14 +61,11 @@ It may be interesting to experience tours as 3D scatterplots in extended reality
 Besides changing the support of the experimental factors to the user study, it would be more interesting to try different tasks or compare other visualization techniques. The discussed user study crowdsourced participants with little exposure to linear projections. It would be interesting to compare the results from more familiar and experienced participants.
 
 <!-- cheem, and model/explantion types -->
-The outlined cheem analysis can be generally applied models and local explanations. The package __cheem__ currently calculates tree SHAP for tree-based models supported by __treeshap__. This could be generalized more broadly to other models and local explanations. Those facilitated by `DALEX::explain()` seems to be an excellent direction to extend [@biecek_dalex_2018; @biecek_explanatory_2021]. However, processioning runtime would quickly become a formidable obstacle. Alternatively, other statistics may better show the structure identified by explanations.
+The outlined cheem analysis can be generally applied models and local explanations. The package __cheem__ currently calculates tree SHAP for tree-based models supported by __treeshap__. This could be generalized more broadly to other models and local explanations. Those facilitated by `DALEX::explain()` seems to be an excellent direction to extend [@biecek_dalex_2018; @biecek_explanatory_2021]. However, processing runtime would quickly become a formidable obstacle. Alternatively, other statistics may better show the structure identified by explanations.
 
 <!-- cheem, scope/context of data -->
 In __cheem__, we had focused primarily on continuous numeric predictors. Perhaps this analysis could be extended to image, text, or time series analysis. The presence of covariates in these cases may prove essential to having meaningful variable importance to test variable sensitivity of the structure of the explanation.
 
 
-
-<!-- Reminders from 13 Jan meeting with Julie and 20 Jna meeting with KM: -->
-<!-- XXX TODO: Esp in the abstract blurb of the content chapters: make sure not to list outcomes -->
-<!-- XXX TODO: keep doing grep for broken links and references '??', '-cap', '00', 'ref' -->
+<!-- XXX TODO: keep doing grep searches for broken links and references '??', '-cap', '00', 'ref' -->
 

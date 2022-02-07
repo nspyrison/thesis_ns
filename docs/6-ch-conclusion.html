@@ -181,7 +181,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.3" data-path="2-ch-background.html"><a href="2-ch-background.html#dimension-reduction"><i class="fa fa-check"></i><b>2.3</b> Dimension reduction</a></li>
 <li class="chapter" data-level="2.4" data-path="2-ch-background.html"><a href="2-ch-background.html#sec:tour"><i class="fa fa-check"></i><b>2.4</b> Tours, animated linear projections</a></li>
 <li class="chapter" data-level="2.5" data-path="2-ch-background.html"><a href="2-ch-background.html#evaluating-multivariate-data-visualization"><i class="fa fa-check"></i><b>2.5</b> Evaluating multivariate data visualization</a></li>
-<li class="chapter" data-level="2.6" data-path="2-ch-background.html"><a href="2-ch-background.html#non-linear-models"><i class="fa fa-check"></i><b>2.6</b> Non-linear models</a></li>
+<li class="chapter" data-level="2.6" data-path="2-ch-background.html"><a href="2-ch-background.html#nonlinear-models"><i class="fa fa-check"></i><b>2.6</b> Nonlinear models</a></li>
 <li class="chapter" data-level="2.7" data-path="2-ch-background.html"><a href="2-ch-background.html#sec:explanations"><i class="fa fa-check"></i><b>2.7</b> Local explanations</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html"><i class="fa fa-check"></i><b>3</b> spinifex: an R package for creating user-controlled animated linear projections</a>
@@ -200,7 +200,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.4" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:spinifex"><i class="fa fa-check"></i><b>4.4</b> Accompanying tool: radial tour application</a></li>
 <li class="chapter" data-level="4.5" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:appendix"><i class="fa fa-check"></i><b>4.5</b> Extended analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html"><i class="fa fa-check"></i><b>5</b> Exploring Local Explanations of Non-linear Models Using Animated Linear Projections</a>
+<li class="chapter" data-level="5" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html"><i class="fa fa-check"></i><b>5</b> Exploring Local Explanations of Nonlinear Models Using Animated Linear Projections</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:shap"><i class="fa fa-check"></i><b>5.1</b> SHAP and tree SHAP local explanations</a></li>
 <li class="chapter" data-level="5.2" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:cheemviwer"><i class="fa fa-check"></i><b>5.2</b> The cheem viewer</a></li>
@@ -236,7 +236,7 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 6</span> Conclusion</h1>
 <!-- Context -->
 <p>Multivariate data is widely used in many fields. We know that visualizing data is more robust than numerical summarization alone. It allows the analyst to get a feel for the data rapidly, check for erroneous values, and confirm model assumptions. But visualizing data spaces becomes increasingly complex as dimensionality increases. Static linear dimension reduction has been widely used to extend the dimensionality of spaces viewed. Dynamic animations of linear projections, tours, further increase the perceptible information of linearly reduced spaces. Manual tours novelly allow the analyst to steer contributions of the basis. The work outlined in this thesis makes several contributions to multivariate data visualization focusing on manual tours.</p>
-<!-- Chapter \@ref(ch-spinifex) introduced the __spinifex__ package, which facilitates user-controlled manual tours and layered composition and exporting animations of any tour, interoperable with __tourr__. The radial, manual tour sizably improves the accuracy on a variable attribution in a cluster separation task compared with PCA and the grand tour. Chapter \@ref(ch-userstudy) covers the within-participants user study that led to this conclusion. Finally, I apply the radial tour to increase the interpretability of non-linear models by using it to explore the support of local explanations in the package __cheem__ is discussed in Chapter \@ref(ch-cheem). -->
+<!-- Chapter \@ref(ch-spinifex) introduced the __spinifex__ package, which facilitates user-controlled manual tours and layered composition and exporting animations of any tour, interoperable with __tourr__. The radial, manual tour sizably improves the accuracy on a variable attribution in a cluster separation task compared with PCA and the grand tour. Chapter \@ref(ch-userstudy) covers the within-participants user study that led to this conclusion. Finally, I apply the radial tour to increase the interpretability of nonlinear models by using it to explore the support of local explanations in the package __cheem__ is discussed in Chapter \@ref(ch-cheem). -->
 <div id="contributions-1" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Contributions</h2>
 <!-- ## Software development -->
@@ -245,7 +245,7 @@ div.csl-indent {
 <h3><span class="header-section-number">6.1.1</span> Scientific knowledge</h3>
 <p>First, I clarify the use of Rodrigues’ rotation formula to solve the rotation matrix with the definition of two manipulation angles. This sets up a scaffolding to extend the manual tour to three dimensions with another rotation angle to span the manipulation space. This work also supports the use of manual tours by illustrating use cases on high-energy physics data.</p>
 <p>Then I define a task and accuracy measure for a variable attribution of the separation of two clusters. A crowdsourced user study is conducted comparing the performance from PCA, the grand tour, and the radial tour. There is considerable evidence for a sizable improvement in accuracy with the use of the radial tour, which participants also subjectively prefer.</p>
-<p>Lastly, I purpose the cheem analysis to explore the variable support of local explanations from black-box models. From a non-linear model, the local explanations of all observations are calculated. Then compare data space, attribution space, and model information side-by-side as an ensemble graphic. From this, identify a primary observation to explore the explanation in detail. The normalized attribution this point becomes the starting basis for a radial tour. Then vary the contributions of variables, testing their contribution’s sensitivity to the predictive discernment identified in the explanation.</p>
+<p>Lastly, I purpose the cheem analysis to explore the variable support of local explanations from black-box models. From a nonlinear model, the local explanations of all observations are calculated. Then compare data space, attribution space, and model information side-by-side as an ensemble graphic. From this, identify a primary observation to explore the explanation in detail. The normalized attribution this point becomes the starting basis for a radial tour. Then vary the contributions of variables, testing their contribution’s sensitivity to the predictive discernment identified in the explanation.</p>
 </div>
 <div id="software-1" class="section level3" number="6.1.2">
 <h3><span class="header-section-number">6.1.2</span> Software</h3>
@@ -273,12 +273,10 @@ div.csl-indent {
 <!-- User study -->
 <p>Besides changing the support of the experimental factors to the user study, it would be more interesting to try different tasks or compare other visualization techniques. The discussed user study crowdsourced participants with little exposure to linear projections. It would be interesting to compare the results from more familiar and experienced participants.</p>
 <!-- cheem, and model/explantion types -->
-<p>The outlined cheem analysis can be generally applied models and local explanations. The package <strong>cheem</strong> currently calculates tree SHAP for tree-based models supported by <strong>treeshap</strong>. This could be generalized more broadly to other models and local explanations. Those facilitated by <code>DALEX::explain()</code> seems to be an excellent direction to extend <span class="citation">(<a href="6-ch-conclusion.html#ref-biecek_dalex_2018" role="doc-biblioref">Biecek 2018</a>; <a href="6-ch-conclusion.html#ref-biecek_explanatory_2021" role="doc-biblioref">Biecek and Burzykowski 2021</a>)</span>. However, processioning runtime would quickly become a formidable obstacle. Alternatively, other statistics may better show the structure identified by explanations.</p>
+<p>The outlined cheem analysis can be generally applied models and local explanations. The package <strong>cheem</strong> currently calculates tree SHAP for tree-based models supported by <strong>treeshap</strong>. This could be generalized more broadly to other models and local explanations. Those facilitated by <code>DALEX::explain()</code> seems to be an excellent direction to extend <span class="citation">(<a href="6-ch-conclusion.html#ref-biecek_dalex_2018" role="doc-biblioref">Biecek 2018</a>; <a href="6-ch-conclusion.html#ref-biecek_explanatory_2021" role="doc-biblioref">Biecek and Burzykowski 2021</a>)</span>. However, processing runtime would quickly become a formidable obstacle. Alternatively, other statistics may better show the structure identified by explanations.</p>
 <!-- cheem, scope/context of data -->
 <p>In <strong>cheem</strong>, we had focused primarily on continuous numeric predictors. Perhaps this analysis could be extended to image, text, or time series analysis. The presence of covariates in these cases may prove essential to having meaningful variable importance to test variable sensitivity of the structure of the explanation.</p>
-<!-- Reminders from 13 Jan meeting with Julie and 20 Jna meeting with KM: -->
-<!-- XXX TODO: Esp in the abstract blurb of the content chapters: make sure not to list outcomes -->
-<!-- XXX TODO: keep doing grep for broken links and references '??', '-cap', '00', 'ref' -->
+<!-- XXX TODO: keep doing grep searches for broken links and references '??', '-cap', '00', 'ref' -->
 
 <!---
 
@@ -364,8 +362,8 @@ A fundamental aspect of tours is the path of rotation. There are four primary di
     + convex [@laa_using_2019] - the ratio of the area of convex and alpha hulls.
     + skinny [@laa_using_2019] - the ratio of the perimeter distance to the area of the alpha hull.
     + stringy [@laa_using_2019] - based on the minimum spanning tree (MST), the diameter of the MST over the length of the MST.
-    + dcor2D [@grimm_mbgraphic:_2017; @laa_using_2019] - distance correlation that finds linear and non-linear dependencies between variables.
-    + splines2D [@grimm_mbgraphic:_2017; @laa_using_2019] - measure of non-linear dependence by fitting spline models.
+    + dcor2D [@grimm_mbgraphic:_2017; @laa_using_2019] - distance correlation that finds linear and nonlinear dependencies between variables.
+    + splines2D [@grimm_mbgraphic:_2017; @laa_using_2019] - measure of nonlinear dependence by fitting spline models.
     + other user-defined objective indices can be applied to the framework provided in the *tourr* package @wickham_tourr_2011.
     + Another data-drive tour is the *dependence tour*, a combination of $n$ independent 1D tours. A vector describes the axis each variable will be displayed on. for example $c(1, 1, 2, 2)$ is a 4- to 2D tour with the first 2 variables on the first axis, and the remaining on the second.
         - *correlation tour* [@buja_data_1987], a special case of the dependence tour, analogous to canonical correlation analysis.
@@ -692,12 +690,6 @@ Yang, Li. 1999. <span>“<span>3d</span> <span>Grand</span> <span>Tour</span> fo
 </div>
 </div>
 </div>
-
-
-
-
-
-
             </section>
 
           </div>

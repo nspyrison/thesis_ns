@@ -86,8 +86,8 @@ A fundamental aspect of tours is the path of rotation. There are four primary di
     + convex [@laa_using_2019] - the ratio of the area of convex and alpha hulls.
     + skinny [@laa_using_2019] - the ratio of the perimeter distance to the area of the alpha hull.
     + stringy [@laa_using_2019] - based on the minimum spanning tree (MST), the diameter of the MST over the length of the MST.
-    + dcor2D [@grimm_mbgraphic:_2017; @laa_using_2019] - distance correlation that finds linear and non-linear dependencies between variables.
-    + splines2D [@grimm_mbgraphic:_2017; @laa_using_2019] - measure of non-linear dependence by fitting spline models.
+    + dcor2D [@grimm_mbgraphic:_2017; @laa_using_2019] - distance correlation that finds linear and nonlinear dependencies between variables.
+    + splines2D [@grimm_mbgraphic:_2017; @laa_using_2019] - measure of nonlinear dependence by fitting spline models.
     + other user-defined objective indices can be applied to the framework provided in the *tourr* package @wickham_tourr_2011.
     + Another data-drive tour is the *dependence tour*, a combination of $n$ independent 1D tours. A vector describes the axis each variable will be displayed on. for example $c(1, 1, 2, 2)$ is a 4- to 2D tour with the first 2 variables on the first axis, and the remaining on the second.
         - *correlation tour* [@buja_data_1987], a special case of the dependence tour, analogous to canonical correlation analysis.

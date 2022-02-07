@@ -181,7 +181,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.3" data-path="2-ch-background.html"><a href="2-ch-background.html#dimension-reduction"><i class="fa fa-check"></i><b>2.3</b> Dimension reduction</a></li>
 <li class="chapter" data-level="2.4" data-path="2-ch-background.html"><a href="2-ch-background.html#sec:tour"><i class="fa fa-check"></i><b>2.4</b> Tours, animated linear projections</a></li>
 <li class="chapter" data-level="2.5" data-path="2-ch-background.html"><a href="2-ch-background.html#evaluating-multivariate-data-visualization"><i class="fa fa-check"></i><b>2.5</b> Evaluating multivariate data visualization</a></li>
-<li class="chapter" data-level="2.6" data-path="2-ch-background.html"><a href="2-ch-background.html#non-linear-models"><i class="fa fa-check"></i><b>2.6</b> Non-linear models</a></li>
+<li class="chapter" data-level="2.6" data-path="2-ch-background.html"><a href="2-ch-background.html#nonlinear-models"><i class="fa fa-check"></i><b>2.6</b> Nonlinear models</a></li>
 <li class="chapter" data-level="2.7" data-path="2-ch-background.html"><a href="2-ch-background.html#sec:explanations"><i class="fa fa-check"></i><b>2.7</b> Local explanations</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html"><i class="fa fa-check"></i><b>3</b> spinifex: an R package for creating user-controlled animated linear projections</a>
@@ -200,7 +200,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.4" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:spinifex"><i class="fa fa-check"></i><b>4.4</b> Accompanying tool: radial tour application</a></li>
 <li class="chapter" data-level="4.5" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:appendix"><i class="fa fa-check"></i><b>4.5</b> Extended analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html"><i class="fa fa-check"></i><b>5</b> Exploring Local Explanations of Non-linear Models Using Animated Linear Projections</a>
+<li class="chapter" data-level="5" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html"><i class="fa fa-check"></i><b>5</b> Exploring Local Explanations of Nonlinear Models Using Animated Linear Projections</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:shap"><i class="fa fa-check"></i><b>5.1</b> SHAP and tree SHAP local explanations</a></li>
 <li class="chapter" data-level="5.2" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:cheemviwer"><i class="fa fa-check"></i><b>5.2</b> The cheem viewer</a></li>
@@ -282,15 +282,15 @@ Figure 1.3: (ref:ch1fig3-cap)
 <!-- Most perceptible way to visualize multivariate spaces -->
 <p>At present the radial tour is not used by analysts. Instead they would use a single projection to understand the structure, almost always the principal components analysis (PCA) which chooses the basis that shows the most variation. Another approach is to use a <em>grand tour</em>. This randomly selects target bases and then generates an animation that interpolates between these target bases. Neither PCA nor the grand tour provide a means for manually manipulating a desired variable’s contribution to the basis. We wish to investigate if the ability for the analyst to steer the basis in the radial tour facilitates better understand variable sensitivity to the structure.</p>
 <p>RQ 2. <strong>Does the use of the interactive radial tour improve analysts understanding of the relationship between variables and structure in 2D linear projections compared to existing approaches?</strong></p>
-<!-- Interpretability crisis of the non-linear models -->
-<p>Complex non-linear models are also being applied more frequently to predict or classify from many predictors. While these models lead to increased accuracy over linear models, they suffer from a loss of the interpretability of their variables. One aspect of eXplainable Artificial Intelligence <span class="citation">(XAI, <a href="6-ch-conclusion.html#ref-adadi_peeking_2018" role="doc-biblioref">Adadi and Berrada 2018</a>; <a href="6-ch-conclusion.html#ref-arrieta_explainable_2020" role="doc-biblioref">Arrieta et al. 2020</a>)</span> tries to preserve the interpretability of such models through local explanations. These explanations are essentially linear variable importance in the vicinity of one observation of a model. That is, the extent that variables help the model explain the difference between the observed means and this observation’s prediction. The user control from the radial tour potentially allows an analyst to understand better the model and the support of these local explanations.</p>
+<!-- Interpretability crisis of the nonlinear models -->
+<p>Complex nonlinear models are also being applied more frequently to predict or classify from many predictors. While these models lead to increased accuracy over linear models, they suffer from a loss of the interpretability of their variables. One aspect of eXplainable Artificial Intelligence <span class="citation">(XAI, <a href="6-ch-conclusion.html#ref-adadi_peeking_2018" role="doc-biblioref">Adadi and Berrada 2018</a>; <a href="6-ch-conclusion.html#ref-arrieta_explainable_2020" role="doc-biblioref">Arrieta et al. 2020</a>)</span> tries to preserve the interpretability of such models through local explanations. These explanations are essentially linear variable importance in the vicinity of one observation of a model. That is, the extent that variables help the model explain the difference between the observed means and this observation’s prediction. The user control from the radial tour potentially allows an analyst to understand better the model and the support of these local explanations.</p>
 <p>RQ 3. <strong>Can the radial tours be used in conjunction with local explanations to improve the interpretability of black-box models?</strong></p>
 </div>
 <div id="methodology" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Methodology</h2>
 <p>The research corresponding with RQ 1 entails <em>algorithm &amp; software design</em> <span class="citation">(<a href="6-ch-conclusion.html#ref-kleinberg_algorithm_2006" role="doc-biblioref">Kleinberg and Tardos 2006</a>)</span> adapting the algorithm from <span class="citation"><a href="6-ch-conclusion.html#ref-cook_manual_1997" role="doc-biblioref">Cook and Buja</a> (<a href="6-ch-conclusion.html#ref-cook_manual_1997" role="doc-biblioref">1997</a>)</span>.</p>
 <p>To address RQ 2, we use <em>experimental design</em> <span class="citation">(<a href="6-ch-conclusion.html#ref-winer_statistical_1962" role="doc-biblioref">Winer 1962</a>)</span>. We must define a task and measure suitable to evaluate the radial tour against alternatives. The experimental factors and their levels must be selected and randomly assigned to explore the efficacy of user-controlled radial tours compared with two benchmark methods.</p>
-<p>The research responding to RQ 3 involves <em>design science</em> <span class="citation">(<a href="6-ch-conclusion.html#ref-hevner_design_2004" role="doc-biblioref">Hevner et al. 2004</a>)</span>. It is not obvious how to combine a radial tour with a non-linear model. A local explanation approximates the linear variable importance in the vicinity of one observation. We must develop a novel interactive visualization that accommodate two aspects. First, it should visually facilitate the selection of observations to explore. Secondly, extend the biplot to show the distribution of the local explanations and examine the variable sensitivity to the structure identified in local explanation with the radial tour.</p>
+<p>The research responding to RQ 3 involves <em>design science</em> <span class="citation">(<a href="6-ch-conclusion.html#ref-hevner_design_2004" role="doc-biblioref">Hevner et al. 2004</a>)</span>. It is not obvious how to combine a radial tour with a nonlinear model. A local explanation approximates the linear variable importance in the vicinity of one observation. We must develop a novel interactive visualization that accommodate two aspects. First, it should visually facilitate the selection of observations to explore. Secondly, extend the biplot to show the distribution of the local explanations and examine the variable sensitivity to the structure identified in local explanation with the radial tour.</p>
 </div>
 <div id="contributions" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Contributions</h2>
@@ -311,7 +311,7 @@ Figure 1.3: (ref:ch1fig3-cap)
 <li>Results: strong evidence that the radial tour increases the accuracy of this task by a sizable amount and minor evidence to suggest a moderate increase in accuracy of the grand tour over Principal Component Analysis (PCA)</li>
 <li>Mixed model regression helps to attribution the source of the error accounting for the variability of participants skill and the difficulty from random simulation</li>
 </ul></li>
-<li>Cheem analysis, a novel method exploring the variable sensitivity of local explanations from non-linear models
+<li>Cheem analysis, a novel method exploring the variable sensitivity of local explanations from nonlinear models
 <ul>
 <li>A global view approximates the variable space, attribution space, and model information side-by-side serves to identify a primary observation of interest</li>
 <li>This observation’s normalized variable attribution is used as a projection basis</li>
@@ -332,7 +332,7 @@ Figure 1.3: (ref:ch1fig3-cap)
 <li>Vignettes and code examples help users get up to speed</li>
 <li>Introduces an interactive application to preprocess data and explore. Users can choose from six supplied datasets or upload their own</li>
 </ul></li>
-<li><strong>cheem</strong>, an <strong>R</strong> package that facilitates the exploration of local explanations of non-linear models:
+<li><strong>cheem</strong>, an <strong>R</strong> package that facilitates the exploration of local explanations of nonlinear models:
 <ul>
 <li>Preprocessing; given a tree-based model, calculate the tree SHAP local explanation of all observations, and find statistics to accent the separability of this space</li>
 <li>Visualization of approximations of the data space, attribution space, and model residual information side-by-side with linked brushing, hover tooltips, and tabular display facilitates the selection of observations to explore</li>
@@ -345,7 +345,7 @@ Figure 1.3: (ref:ch1fig3-cap)
 </div>
 <div id="thesis-structure" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Thesis structure</h2>
-<p>The remainder of the thesis is organized as follows: Chapter <a href="2-ch-background.html#ch-background">2</a> covers various visualizing techniques before introducing related studies and then non-linear models and their interpretability issues. Chapter <a href="3-ch-spinifex.html#ch-spinifex">3</a> discusses the theory and implementation of the manual tour in the package <strong>spinifex</strong>. Chapter <a href="4-ch-userstudy.html#ch-userstudy">4</a> discusses a user study evaluating the radial, manual tour’s efficacy compared with PCA and the grand tour. Chapter <a href="5-ch-cheem.html#ch-cheem">5</a> extends the use of radial tours to improve the interpretability of non-linear models. Lastly, Chapter <a href="6-ch-conclusion.html#ch-conclusion">6</a> concludes with some takeaways and a discussion of possible extensions.</p>
+<p>The remainder of the thesis is organized as follows: Chapter <a href="2-ch-background.html#ch-background">2</a> covers various visualizing techniques before introducing related studies and then nonlinear models and their interpretability issues. Chapter <a href="3-ch-spinifex.html#ch-spinifex">3</a> discusses the theory and implementation of the manual tour in the package <strong>spinifex</strong>. Chapter <a href="4-ch-userstudy.html#ch-userstudy">4</a> discusses a user study evaluating the radial, manual tour’s efficacy compared with PCA and the grand tour. Chapter <a href="5-ch-cheem.html#ch-cheem">5</a> extends the use of radial tours to improve the interpretability of nonlinear models. Lastly, Chapter <a href="6-ch-conclusion.html#ch-conclusion">6</a> concludes with some takeaways and a discussion of possible extensions.</p>
 
 </div>
 </div>
