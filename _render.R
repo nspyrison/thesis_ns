@@ -1,6 +1,6 @@
 # Build Book -----
 
-## Do use more verbose .log info?
+## Do use print verbose .log info?
 if(FALSE) options(tinytex.verbose = TRUE)
 ## If you are getting ! LaTeX Error: Missing \begin{document}
 # it is likely a rogue .aux file. try to delete them and rebuild.

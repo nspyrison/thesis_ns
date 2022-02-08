@@ -244,14 +244,10 @@ dim6  <- ggtour(bas6) +
   ggplot2::labs(subtitle = "4 clusters in 6 dimensions")
 ## text block about cluster d
 dim_txt <- ggplot() +
-  geom_text(aes(0, 0), size = 3.3, hjust = .5, vjust = .3, label =
-              "Cluster 'd', above, only exists
-when there are six dimensions,
-is spherical, and a has cluster
-separation orthogonal to the plane
-of the other three isodensities.") +
+  geom_text(aes(0, 0), size = 3.3, hjust = .5, vjust = .3,
+              label = "Cluster 'd', above, only exists \n when there are 6 dimensions, is \n spherical, and a has cluster  \n separation orthogonal to the plane of \n the other 3 isodensities.") +
   theme_void() +
-  theme(text = element_text(hjust = 0, vjust = .5))
+  theme(text = element_text(hjust = .5, vjust = .5))
 
 ### Cowplot munging ------
 .gg_empty <- ggplot() + theme_void()
@@ -261,13 +257,14 @@ shp_row   <- plot_grid(shp1, shp2, shp3,    nrow = 1)
 dim_row   <- plot_grid(dim4, dim6, dim_txt, nrow = 1)
 .m        <- gc()
 gg_matrix <- plot_grid(fct_row, loc_row, shp_row,
-                       dim_row, ncol = 1, rel_heights = c(1,.8,.8,.8))
+                       dim_row, ncol = 1, rel_heights = c(1,.8,.8,1))
 
 header_row <- ggplot() +
   labs(title = "Levels of the experimental factors") +
   theme_void() +
   theme(plot.title = element_text(hjust = 0.5, size = 18))
-header_matrix <- plot_grid(header_row, gg_matrix, ncol = 1, rel_heights = c(0.06, 1))
+header_matrix <- plot_grid(header_row, gg_matrix,
+                           ncol = 1, rel_heights = c(0.03, 1))
 
 t_fct   <- ggplot() +
   labs(title = "Factor") +
@@ -286,7 +283,7 @@ t_dim   <- ggplot() +
   theme_void() +
   theme(plot.title = element_text(angle = 90))
 tbl_col <- plot_grid(.gg_empty, t_fct, t_loc, t_shp, t_dim,
-                     ncol = 1, rel_heights = c(1.1,1.2,1.2,1.2,1))
+                     ncol = 1, rel_heights = c(.8,1.2,1.2,1,1))
 final   <- plot_grid(tbl_col, header_matrix, nrow = 1, rel_widths = c(0.05, 1))
 
 
@@ -358,42 +355,49 @@ ggsave("./figures/ch4_fig4_accuracy_measure.pdf", final, "pdf",
 
 # Setup2 ----
 {
-  require("ggpubr")
-  my_theme <- list(
-    theme_bw(),
-    scale_color_brewer(palette = "Dark2"),
-    scale_fill_brewer(palette = "Dark2"),
-    geom_hline(yintercept = 0L),
-    theme(legend.position = "bottom",
-          legend.box = "vertical",
-          legend.margin = margin(-6)))
-  my_ggpubr <- function(df, x = "factor", y = "value", title = waiver(), subtitle = waiver()){
+  my_ggpubr <- function(
+    df, x = "Factor", y = "Marks",
+    title = waiver(), subtitle = waiver(), facet = NULL,
+    y_pval_coef = .08,  ## Subjective wants .032
+    ylim_max_coef = .5 ## Subjective wants .6
+  ){
     ## Find height of global significance test text.
     .x_lvls <- df %>% pull({{x}}) %>% levels()
-    .y_range <- diff(range(df[y]))
-    .n_lvls <- length(.x_lvls)
-    .lab.y <- (.04 * .y_range) * (1 + .n_lvls) * .y_range + max(df[y])
-    my_comparisons <- list(c("pca", "grand"), c("grand", "radial"), c("pca", "radial"))
+    .y <- df %>% pull({{y}})
+    if(is.factor(.y)) .y <- as.integer(.y)
+    .y_range <- diff(range(.y))
+    .no_x_lvls <- length(.x_lvls)
+    if(is.null(facet) == FALSE){
+      .facet_lvls <- df %>% pull({{facet}}) %>% levels() %>% length()
+    } else .facet_lvls <- 1 ## Init
+    .lab.y <- (y_pval_coef * .y_range) * (1 + .no_x_lvls) * .y_range + max(.y)
+    my_comparisons <- NULL
+    if(.no_x_lvls == 2)
+      my_comparisons <- list(c(.x_lvls[1], .x_lvls[2]))
+    if(.no_x_lvls == 3)
+      my_comparisons <- list(c(.x_lvls[1], .x_lvls[2]),
+                             c(.x_lvls[2], .x_lvls[3]),
+                             c(.x_lvls[1], .x_lvls[3]))
 
     ## Plot
     ggviolin(df, x = x, y = y, fill = x, alpha = .6,
              palette = "Dark2", shape = x, trim = TRUE,
              add = c("mean"), ## Black circle, can change size, but not shape or alpha?
              draw_quantiles = c(.25, .5, .75)) +
-      stat_compare_means(method = "wilcox.test",
+      stat_compare_means(label.y = .lab.y,
+                         aes(label = paste0("p = ", ..p.format..)), ## Global test
+                         hide.ns = TRUE) + ## custom label
+      stat_compare_means(method = "wilcox.test", ## pairwise test
                          comparisons = my_comparisons,
-                         label = "p.signif", hide.ns = TRUE) + ## pairwise test
-      # stat_compare_means(label = "p.signif", label.y = .lab.y - .4,
-      #                    method = "wilcox.test", ref.group = .x_lvls[1]) + ## Test each lvl w.r.t. first level.
-      stat_compare_means( ## Global test
-        label.y = .lab.y,
-        aes(label = paste0("p=", ..p.format..))
-      ) + ## custom label
+                         label = "p.signif", hide.ns = TRUE) +
       my_theme +
-      ggtitle(title, subtitle)
+      coord_cartesian(ylim = c(min(.y), max(.y) + ylim_max_coef * .y_range)) +
+      ggtitle(title, subtitle) +
+      ggplot2::xlab(paste0(
+        x, "\n(n=", nrow(df)/(.no_x_lvls * .facet_lvls), " each)"))
   }
-  my_ggpubr_facet <- function(..., facet = "measure"){
-    facet(my_ggpubr(...), facet.by = facet)
+  my_ggpubr_facet <- function(..., facet = "Location"){
+    facet(my_ggpubr(..., facet = facet), facet.by = facet)
   }
 }
 
@@ -436,7 +440,6 @@ ggsave("./figures/ch4_fig6_ABcd_violins.pdf",
 .w = 6.25
 .h = 9
 .l_lvls <- c("most disagree", "disagree", "neutral", "agree", "most agree")
-
 survey_wider <- readRDS("./data/survey_wider.rds")
 str(survey_wider)
 
@@ -462,9 +465,10 @@ str(survey_wider)
 .lvls <- c("most disagree", "disagree", "neutral", "agree", "most agree")
 subjective_longer <- subjective_longer %>%
   mutate(value = as.integer(plyr::mapvalues(value, from = .lvls, to = 1L:5L)),
-         measure = factor(plyr::mapvalues(measure,
-                                          from = c("like", "ease", "confidence", "familar"),
-                                          to = c("preference", "ease of use", "confidence", "familiarity"))),
+         measure = factor(plyr::mapvalues(
+           measure,
+           from = c("like", "ease", "confidence", "familar"),
+           to = c("preference", "ease of use", "confidence", "familiarity"))),
          factor = factor(factor, levels = c("pca", "grand", "radial"))
   )
 
@@ -505,8 +509,7 @@ subjective_longer <- subjective_longer %>%
 (subjectiveMeasures <-
    ggplot(likert, aes(x = percent, y = factor, fill = response)) +
    geom_bar(position = "fill", stat = "identity", width = .6) + facet_grid(vars(question)) +
-   ggtitle("Subjective measures",
-           "Likert scale [1-5]") +
+   ggtitle("Subjective measures", "Likert scale [1-5]") +
    theme_bw() +
    scale_fill_manual(values = rev(RColorBrewer::brewer.pal(5, "PRGn"))) +
    theme(legend.position = "bottom",
@@ -521,8 +524,11 @@ subjective_longer <- subjective_longer %>%
    labs(x = "Factor", y = "Response rate", fill = "Response")
 )
 
-(measure_violins <- my_ggpubr_facet(df = subjective_longer, x = "factor", y = "value")
-  + labs(x = "Factor", y = "Response", fill = "Factor"))
+(measure_violins <- my_ggpubr_facet(
+  df = subjective_longer, x = "factor", y = "value", facet = "measure",
+  y_pval_coef = .032,  ## Subjective wants .032
+  ylim_max_coef = .6) +  ## Subjective wants .6
+  labs(x = "Factor", y = "Response", fill = "Factor"))
 figSubjectiveMeasures_w.violin_hori <-  cowplot::plot_grid(
   subjectiveMeasures, measure_violins, ncol = 2)
 
