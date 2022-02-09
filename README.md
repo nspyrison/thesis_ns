@@ -15,12 +15,12 @@ Mid canidature presentation: https://github.com/nspyrison/mid_candidature/tree/m
 
 ## Directory
 
-* `docs/`: Output folder, compiled content ends up here as .pdf and .html (open with index.html).
-* `Rmd/`: R Markdown source documents for thesis document.
-* `figures/`: Images made with other tools to illustrate ideas. 
-* `data/`: Cleaned data from other repositories.
+* `docs/`: Output folder, compiled content ends up here as .pdf and .html (open with index.html)
+* `Rmd/`: R Markdown source documents for thesis document
+* `figures/`: Images made with other tools to illustrate ideas.
+* `data/`: Cleaned data from other repositories
 * `template/`: Monash thesis template from [robjhydman/MonashThesis](https://github.com/robjhyndman/MonashThesis).
-* `renv/`: Automated information of packages versions and such for reproducing this work.
+* `renv/`: Automated information of packages versions and such for reproducing this work
 
 ## Reproducibility
 
@@ -42,7 +42,18 @@ Rscript --quiet _render.R "bookdown::gitbook"
 
 ------
 
-### Endpoint info
+## Dev notes
+
+* `LaTeX Error: Missing \begin{document}` is caused by a rouge .aux file; delete root level .aux file & rebuild. Thanks to Dan Simpson via NUMBAT slack
+* `_bookdown.yml`: Higher level bookdown YAML settings (& specifies where/which rmd files)
+* `_render.R`: Code ran at build; spell check, convert .pdf to .png, `bookdown::render_book`
+    * _nb_: .png only created if it doesn't exist in `docs/figures`; delete/clean when updating figures.
+* `./index.Rmd`: Knitr setup and local functions. MUST print a splash page content for HTML version to work
+* `template/monashthesis.cls`: Styling template and title page
+* `template/monashthesis.tex`: LaTeX packages and preamble
+
+## Endpoint info
+
 ```
 R> xfun::session_info()
 R version 4.1.1 (2021-08-10)
