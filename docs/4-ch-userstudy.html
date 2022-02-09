@@ -412,7 +412,7 @@ Figure 4.4: Illustration of how a hypothetical participant 63 is assigned experi
 \end{array}
 \]</span></p>
 <!-- Y1 model comparisons -->
-<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-size: 12px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:marksCompTbl">Table 4.1: </span>Model performance of random effect models regressing accuracy. Each model includes a random effect term of the participant explaining the individual’s influence on accuracy. Complex models perform better in terms of <span class="math inline">\(R^2\)</span> and RMSE, yet AIC and BIC penalize their large number of fixed effects in favor of the much simpler model containing only the visual factor. Conditional <span class="math inline">\(R^2\)</span> includes the random effects, while marginal does not.
 </caption>
@@ -456,10 +456,10 @@ a
 3
 </td>
 <td style="text-align:center;">
--71
+<span style=" font-weight: bold;    ">-71</span>
 </td>
 <td style="text-align:center;">
--44
+<span style=" font-weight: bold;    ">-44</span>
 </td>
 <td style="text-align:center;">
 0.303
@@ -540,13 +540,13 @@ a*b*c+d
 167
 </td>
 <td style="text-align:center;">
-0.383
+<span style=" font-weight: bold;    ">0.383</span>
 </td>
 <td style="text-align:center;">
 0.108
 </td>
 <td style="text-align:center;">
-0.190
+0.19
 </td>
 </tr>
 <tr>
@@ -566,19 +566,19 @@ a*b*c*d
 360
 </td>
 <td style="text-align:center;">
-0.370
+0.37
 </td>
 <td style="text-align:center;">
-0.222
+<span style=" font-weight: bold;    ">0.222</span>
 </td>
 <td style="text-align:center;">
-0.185
+<span style=" font-weight: bold;    ">0.185</span>
 </td>
 </tr>
 </tbody>
 </table>
 <!-- Y1 coefficients of ABcd -->
-<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style='font-size: 12px; font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
 <caption style="font-size: initial !important;">
 <span id="tab:marksCoefTbl">Table 4.2: </span>The task accuracy model coefficients for <span class="math inline">\(\widehat{Y} = \alpha \cdot \beta + \gamma + \delta\)</span>, with factor = pca, location = 0/100%, shape = EEE, and dim = 4 held as baselines. Factor being radial is the fixed term with the strongest evidence supporting the hypothesis. Interacting with the location term there is evidence suggesting radial performs worse with 33/66% mixing.
 </caption>
@@ -964,7 +964,7 @@ Figure 4.9: Heatmaps of survey participant demographics; counts of age group by 
 <!-- Time as secondary interest, Y2 -->
 <p>As a secondary explanatory variable, we also want to look at time. First, we take the log transformation of time as it is right-skewed. We repeat the same modeling procedure: 1) Compare the performance of a battery of all additive and multiplicative models. Table <a href="4-ch-userstudy.html#tab:timeCompTbl">4.3</a> shows the higher level performance of these models over increasing model complexity. 2) Select the model with the same effect terms, <span class="math inline">\(\alpha \cdot \beta + \gamma + \delta\)</span>, and examine its coefficients, displayed in Table <a href="4-ch-userstudy.html#tab:timeCoefTbl">4.4</a>.</p>
 <!-- Y2 model comparisons, continue to use ABcd -->
-<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-size: 12px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:timeCompTbl">Table 4.3: </span>Model performance regressing on log response time [seconds], <span class="math inline">\(\widehat{Y_2}\)</span> random effect models, where each includes random effect terms for participants and simulations. We see the same trade-off where AIC/BIC prefer the simplest factor model, while <span class="math inline">\(R^2\)</span> and RMSE are the largest in the full multiplicative model. We again select the model <span class="math inline">\(\alpha \cdot \beta + \gamma + \delta\)</span> to explore further as it has relatively high marginal <span class="math inline">\(R^2\)</span> while having much less complexity than the complete interaction model. Conditional <span class="math inline">\(R^2\)</span> includes the random effects, while marginal does not.
 </caption>
@@ -1008,19 +1008,19 @@ a
 3
 </td>
 <td style="text-align:center;">
--71
+<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;1448&lt;/span&gt;</span>
 </td>
 <td style="text-align:center;">
--44
+<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;1475&lt;/span&gt;</span>
 </td>
 <td style="text-align:center;">
-0.303
+0.645
 </td>
 <td style="text-align:center;">
-0.018
+0.007
 </td>
 <td style="text-align:center;">
-0.194
+0.553
 </td>
 </tr>
 <tr>
@@ -1034,19 +1034,19 @@ a+b+c+d
 8
 </td>
 <td style="text-align:center;">
--45
+1467
 </td>
 <td style="text-align:center;">
-4
+1516
 </td>
 <td style="text-align:center;">
-0.334
+0.647
 </td>
 <td style="text-align:center;">
-0.056
+0.017
 </td>
 <td style="text-align:center;">
-0.194
+0.552
 </td>
 </tr>
 <tr>
@@ -1060,19 +1060,19 @@ a*b+c+d
 12
 </td>
 <td style="text-align:center;">
--26
+1474
 </td>
 <td style="text-align:center;">
-41
+1541
 </td>
 <td style="text-align:center;">
-0.338
+0.656
 </td>
 <td style="text-align:center;">
-0.064
+0.024
 </td>
 <td style="text-align:center;">
-0.193
+0.548
 </td>
 </tr>
 <tr>
@@ -1086,19 +1086,19 @@ a*b*c+d
 28
 </td>
 <td style="text-align:center;">
-28
+1488
 </td>
 <td style="text-align:center;">
-167
+1627
 </td>
 <td style="text-align:center;">
-0.383
+0.673
 </td>
 <td style="text-align:center;">
-0.108
+0.054
 </td>
 <td style="text-align:center;">
-0.190
+0.536
 </td>
 </tr>
 <tr>
@@ -1112,25 +1112,25 @@ a*b*c*d
 54
 </td>
 <td style="text-align:center;">
-105
+1537
 </td>
 <td style="text-align:center;">
-360
+1792
 </td>
 <td style="text-align:center;">
-0.370
+<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;0.7&lt;/span&gt;</span>
 </td>
 <td style="text-align:center;">
-0.222
+<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;0.062&lt;/span&gt;</span>
 </td>
 <td style="text-align:center;">
-0.185
+<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;0.523&lt;/span&gt;</span>
 </td>
 </tr>
 </tbody>
 </table>
 <!-- Y2 coeffiecients -->
-<table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style='font-size: 12px; font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
 <caption style="font-size: initial !important;">
 <span id="tab:timeCoefTbl">Table 4.4: </span>Model coefficients for log response time [seconds] <span class="math inline">\(\widehat{Y_2} = \alpha \cdot \beta + \gamma + \delta\)</span>, with factor = pca, location = 0/100%, shape = EEE, and dim = 4 held as baselines. Location = 50/50% is the fixed term with the strongest evidence and takes less time. In contrast, the interaction term location = 50/50%:shape = EEV has the most evidence and takes much longer on average.
 </caption>
