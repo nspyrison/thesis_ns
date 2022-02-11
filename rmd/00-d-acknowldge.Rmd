@@ -1,13 +1,13 @@
 # Acknowledgments {-}
 
 <!-- Supervisors -->
-I would like to express my sincere gratitude to my supervisors, Professor Dianne Cook and Professor Kimbal Marriott, for their support of my Ph.D studies and research, their subject expertise, and their careers of supervising and teaching in addition to performing research. Thank you for continuously pushing me and my research to new levels. I have enjoyed teaching data visualization, which has been strongly shaped by Di's practical, data-first, visualization-often pragmatic approach.  I will continue to hear Kim’s persistent question, “what do we learn from this?” as a reminder not to get lost in the details of implementation and regularly step back and analyze if this is the correct object to change.
-
-<!-- Biecek, Jieyang Chong, Julie Holden-->
-A special thanks to Professor Przemyslaw Biecek for giving his input in the formulation stages of my project and his easy-to-understand explanations of complex modeling aspects. Thank you for responding to cold emails and being available for collaboration. Thank you to Jieyang Chong and Julie Holden for their help proofreading and tightening up my writing.
+I would like to express my sincere gratitude to my supervisors, Professor Dianne Cook and Professor Kimbal Marriott, for their support of my Ph.D studies and research, their subject expertise, and their careers of supervising and teaching in addition to performing research. Thank you for continuously pushing me and my research to new levels. I have enjoyed teaching data visualization, which has been strongly shaped by Di's practical, data-first, visualization-often approach. I will continue to hear Kim’s persistent question, “what do we learn from this?” as a reminder not to get lost in the details of implementation and regularly step back and analyze if this is the correct object to change.
 
 <!-- PhD students, promodo, Ying -->
-I thank my fellow Ph.D students, lab members, and Pomodoro partners, primarily on the occasional stimulating discussions and the positive peer pressure of knowing others are around and working. Thanks immensely to those who empathized with me and others, especially through the hardships of studies and COVID-19. Gratitude to Ying Zhou for her enduring support through the thick of my studies and wavering mental health.
+Special thanks to Jieyang Chong and Julie Holden for their proofreading and suggested language clarifications. I thank my fellow Ph.D students, lab members, and Pomodoro partners, primarily on the occasion of stimulating discussions and the positive peer pressure of knowing others are around and working. Thanks immensely to those who empathized with me and others, especially through the hardships of studies and COVID-19. Gratitude to Ying Zhou for her enduring support through the thick of my studies and wavering mental health. 
 
 <!-- Family -->
 Last but not least, I would like to thank my parents, Doug and Terry, for their support and concerns at odd hours of the day. Thanks to Alan and Claire for their companionship and support now and in our more formative years. I am looking forward to seeing you all in person shortly.
+
+<!-- Scholarship required shoutout -->
+This research was supported in part by an Australian Government Research Training Program (RTP) Scholarship.
