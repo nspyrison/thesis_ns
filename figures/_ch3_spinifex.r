@@ -10,11 +10,11 @@
 
 # fig1_biplot -----
 ## Flea holes tour
-f_dat <- tourr::rescale(flea[, 1:6])
+f_dat  <- tourr::rescale(flea[, 1:6])
 f_clas <- factor(flea$species)
 ## Hard code a basis. tourr doesn't fit results with set.seed().
-f_bas <- c(.693, -.022, .082, -.119, .706, .023,
-           -.070, .438, .405, .515, .103, .604) %>%
+f_bas  <- c(.693, -.022, .082, -.119, .706, .023,
+            -.070, .438, .405, .515, .103, .604) %>%
   matrix( ncol=2) %>%
   tourr::orthonormalise()
 rownames(f_bas) <- colnames(f_dat)
@@ -36,7 +36,7 @@ ggplot2::ggsave(
 
 # fig3_filmstrip -----
 ## All arguments
-mt <- manual_tour(basis = f_bas, manip_var = f_mvar)
+mt  <- manual_tour(basis = f_bas, manip_var = f_mvar)
 ggt <- ggtour(mt, f_dat, angle = 3) +
   proto_point(aes_args = list(color = f_clas, shape = f_clas)) +
   proto_basis("left", line_size = .6) +

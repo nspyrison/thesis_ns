@@ -1,22 +1,45 @@
-<!---
+<!-- HTML version:  Print bibliography-->
+`r if (knitr::is_html_output()) '# Bibliography {-}'`
+
 
 # Appendix {#ch-appendix}
 
 \appendix
 
-THIS IS WHERE APPENDIX CONTENT WOULD GO.
 
 
-<!-- at the end, create bib for html version ->
-`r if (knitr::is_html_output()) '# Bibliography {-}'`
+## Glossary {#sec-glossary}
 
---->
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+        Term  & Notation & Alias & Meaning \\ \hline
+        observation & n & instance, item, row (of data) & A unit being measured across the variables. \\ \hline
+        variable & p & feature, column (of data) & A measure taken across all observations. \\ \hline
+    \end{tabular}
+\end{table}
+
+
+## Supplementary material 
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+        Context & Type & Content & Link \\ \hline
+        spinifex  & vignette & Getting started with spinifex & https://nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html \\ \hline
+        spinifex  & vignette & Ggproto API & https://nspyrison.github.io/spinifex/articles/ggproto-api.html \\ \hline
+        cheem & vignette & Getting started with cheem & https://nspyrison.github.io/cheem/articles/getting-started-with-cheem.html \\ \hline
+        thesis & html version & html version & https://nspyrison.github.io/thesis\_ns/ \\ \hline
+        thesis  & repository & Reproducibility and source code & https://github.com/nspyrison/thesis\_ns/blob/master/docs/thesis\_ns.pdf \\ \hline
+    \end{tabular}
+\end{table}
 
 
 
-<!--
-# Glossary {#ch-glossary}
 
+<!---
 ## Notation {#sec:notation}
 
 Tour notation varies across articles and authors. In my work, I use the following:
@@ -30,6 +53,7 @@ Tour notation varies across articles and authors. In my work, I use the followin
     * In chapter 
 * Reference axes, a display showing how each variables coefficient(s) contribute to a projection. Either on its own axis (1D) or relative to a unit circle (2D).
 * Geometric objects are referred to in generalized dimensions; the use of the term plane is not necessarily a 2D surface, but a hyperplane in the arbitrary dimensions of the projection space.
+-->
 
 <!-- 
 ## Data visualization terminology {#sec:terminology}
@@ -50,26 +74,11 @@ Tour notation varies across articles and authors. In my work, I use the followin
 * Mixed reality (MR) - a mix of physical and virtual realities with objects from both interacting in real time. This differs from AR by the flow of interaction; AR augments physical reality while MR has reciprocating interactions.
 * Extended reality (XR) - any degree of virtual, augmented, or mixed reality.
 * Scatterplot matrices (SPLOMs) - matrix display of pair-wise 2D scatterplots, sometimes with 1D density on the diagonal.
-* Human-in-the-loop - any model that requires human interaction [@karwowski_international_2006]. -->
+* Human-in-the-loop - any model that requires human interaction [@karwowski_international_2006]. 
+-->
 
 <!--
-### Notation {#sec:terminology_tours}
-Notation moved to appendix A in 90-appA.Rmd.
-
-### History
-
-The first tour was introduced was the *grand tour* in @asimov_grand_1985 at the Stanford Linear Accelerator, Stanford University. Asimov suggested three types of grand tours: torus, at-random, and random-walk. The original application of tours was performed on high energy physics on the PRIM-9 system.
-
-Before choosing projection paths randomly, an exhaustive search of $p-$space was suggested by @mcdonald_interactive_1982, also at the Stanford Linear Accelerator. This was later coined *little tour*.
-<!-- Buja and Asimov were in the acknowledgments.
-
-@friedman_projection_1974 and later @huber_projection_1985 recommended projection pursuit (also referred to as PP). Projection pursuit optimizes an objective function before it removes a single component/variable and then iterates in this newly embedded subspace. Within each subspace, the projection seeks for a local extremum via a hill climbing algorithm on an objective function. This formed the basis for *guided tours* suggested by @hurley_analyzing_1990.
-
-The grand and little tours have no input from the user aside from the starting basis. Guided tours allow for an index to be selected. The bulk of tour development since has largely been around the dynamic display, user interaction, geometric representation, and application.
-<!--Note c2 paper, pointing to: Buja & Asimov 1986, Hurley & Buja 1990, Wegman 1991, Cook, Buja, Cabrera, & Hurley 1995, Buja, Cook Asimov & Hurley 1997,Cook & Buja 1997.
-
-
-### Path generation {#sec:path_generation}
+### Tour taxonomy; path generation {#sec:path_generation}
 
 A fundamental aspect of tours is the path of rotation. There are four primary distinctions of tour path generation [@buja_computational_2005]: random choice, data-driven, precomputed choice, and manual control.
 
@@ -95,6 +104,9 @@ A fundamental aspect of tours is the path of rotation. There are four primary di
     + *little tour* [@mcdonald_interactive_1982], where every permutation of variables is stepped through in order, analogous to brute-force or exhaustive search.
     + a saved path of any other tour, typically an array of basis targets to interpolate between.
 * Manual control, *manual tour*, a constrained rotation on selected manipulation variable and magnitude [@cook_manual_1997]. Typically used to explore the local area after identifying an interesting feature, perhaps via guided tour.
+    + radial, fix angle of contribution, change magnetude radially.
+    + oblique, along an oblique path of a draged cursor
+    + 
 
 
 ### Interpolation
@@ -105,14 +117,7 @@ After target bases are identified, the frames in-between need to be filled in. T
 * Geodesic - via Gram-Schmidt process
 * Givens rotations
 * Householder reflections
-
-### Path evaluation
-
-Consider projection down to 2D, then each projection is called a 2-frame (each spanning a 2-plane). Mathematically, a Grassmannian is the set of all possible unoriented 2-frames in $p$-space, $\textbf{Gr}(2,~p)$. @asimov_grand_1985 pointed out that the unique 2-frames of the grand tour approaches $\textbf{Gr}(2,~p)$ as time goes to infinity. The *density* of a tour is defined as the fraction of the Grassmannian explored. Ideally, an exploring tour will be dense, but the time taken to become dense vastly increases as variable space increases dimensionality. *Rapidity* is then defined as how quickly a tour encompasses the Grassmannian. Due to the random selection of a grand tour, it will end up visiting homomorphisms of previous 2-frames before all unique values are visited, leading sub-optimal rapidity.
-
-The little tour introduced in @mcdonald_interactive_1982, on the other hand, is necessarily both dense and rapid, performing essentially an exhaustive search on the Grassmannian. However, this path uninteresting and with long periods of similar projections strung together. The Grassmannian is necessarily large and increases exponentially at the rate of $p$. Viewing of the whole Grassmannian is time-consuming, and interesting projections are sparse, there was a clear space for computers to narrow the search space.
-
-Guided tours [@hurley_analyzing_1990] optimize an objective function generating path will be a relatively small subset of the Grassmannian. As they are not used for exploration, density and rapidity are poor measures. On the other hand, they excel at finding interesting projections quickly. Recently, @laa_using_2019, compared projection pursuit indices with the metrics: *smoothness, squintability, flexibility, rotation invariance* and *speed*.
+.
 
 ### Tour software
 
@@ -132,5 +137,7 @@ Tours have yet to be widely adopted, due in part, to the fact that print and sta
 * XLispStat [@tierney_lisp-stat:_1990] -- for Unix and Windows.
 * Explor4 [@carr_explor4:_1988] -- Four-dimensional data using stereo-ray glyphs.
 * Prim-9 [@asimov_grand_1985;@fisherkeller_prim-9:_1974] -- on an internal operating system.
+* liminal
+* cheem
 -->
 

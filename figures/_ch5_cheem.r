@@ -284,12 +284,12 @@ ggplot2::ggsave(
 # CASE STUDIES FOR CHEEM ----
 ## Setup ----
 {
-  require("cheem")
-  require("spinifex")
-  require("dplyr")
-  require("ggplot2")
-  require("cowplot")
-  require("patchwork")
+  require(cheem)
+  require(spinifex)
+  require(dplyr)
+  require(ggplot2)
+  require(cowplot)
+  require(patchwork)
 
   wd <- getwd()
   if(substr(wd, nchar(wd) - 8, nchar(wd)) != "thesis_ns")

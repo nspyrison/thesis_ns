@@ -6,13 +6,12 @@ knit: "bookdown::render_book"
 # Introduction {#ch-introduction}
 
 <!-- Exploratory data analysis -->
-Exploratory Data Analysis (EDA) is the process of the initial summarization and visualization of a dataset. This is a critical first step of checking for realistic values, finding improper data formats, and revealing insights [@tukey_exploratory_1977]. Early and frequent data visualization is key to the data analyst's workflow [@wickham_r_2017] illustrated in Figure \@ref(fig:ch1fig1).
-The analyst cleans and tidies the data then intertwines visualization with model fitting, repeating this until the analyst is happy with the result.
+Exploratory Data Analysis (EDA) is the process of the initial summarization and visualization of a dataset. This is a critical first step of checking for realistic values, finding improper data formats, and revealing insights [@tukey_exploratory_1977]. @wickham_r_2017 describes the analyst workflow into discrete steps. First the data must be imported and cleaned which then entered into a iterated cycle of transformations, visualization, and modeling. This work aids the visualization step, focusing specifically on quantitative multivariate data. In implementation of packages also facilitates the transformations and modeling though that is not the primary contributions.
 
-(ref:ch1fig1-cap) Data analysis workflow [@wickham_r_2017]. This work focuses primarily on visualization of multivariate data.
-```{r ch1fig1, echo=F, out.width="100%", fig.cap = "(ref:ch1fig1-cap)"}
-nsSafeIncGraphic("./figures/ch1_fig1_data_analysis_workflow.PNG")
-```
+<!-- (ref:ch1fig1-cap) Data analysis workflow [@wickham_r_2017]. This work focuses primarily on visualization of multivariate data. -->
+<!-- ```{r ch1fig1, echo=F, out.width="100%", fig.cap = "(ref:ch1fig1-cap)"} -->
+<!-- nsSafeIncGraphic("./figures/ch1_fig1_data_analysis_workflow.PNG") -->
+<!-- ``` -->
 
 <!-- Dimensionality increases, making data viz hard -->
 As modern datasets have grown in complexity, multivariate data has become ubiquitous. Multivariate data is found in physics, biology, social sciences, and manufacturing  [@wang_mapping_2018; @huber_orchestrating_2015; @brown_confirmatory_2015; @evans_multivariate_2017]. As the number of variables in the data increases, however, it becomes increasingly difficult to visualize the relationships between the variables and discern the structure of the data set. This thesis addresses the visualization of multivariate data and the analysis of multivariate data using the above iterated workflow.
@@ -23,7 +22,7 @@ One of the most common and successful approaches to visualize multivariate data 
 <!-- Linear projections -->
 Our starting point are linear projections. These use a linear combination of variables, called a basis, to define each dimension of the projected space. Each dimension combines multiple variables. This is in contrast to looking at say, each pair of variables in isolation. The basis of linear projections is frequently illustrated with a biplot [@gabriel_biplot_1971]. The biplot shows the magnitude and angle each variable contributes to the resulting display dimensions inscribed in a unit circle such as in Figure \@ref(fig:ch1fig2).
 
-(ref:ch1fig2-cap) Palmer Penguin data [@gorman_ecological_2014; @horst_palmerpenguins_2020], three species of penguins were measured across four physical variables: bill length (`b_l`), bill depth (`b_d`), flipper length (`f_l`), and body mass (`b_m`). These are two projections of the 4D variable space with biplot display of the basis orientation. The separation of the species clusters is the feature of interest. Some orientations of the data do not identify cluster separation (left) while others do (right).
+(ref:ch1fig2-cap) Two linear projections of penguins data. Biplot circles depict the basis; the direction and magnitudes of the contributions of the variables. For instance, on the left frame the direction of separation of the orange cluster is mostly in the direction that `bl` contributes meaning that variable is sensitive to the separation of this cluster. The separation of the purple cluster is attributed to `bd` primarily and `fl` and `bm` to a smaller extent. There are also many other linear orientations that do not resolve structures of interest such as cluster separation (right frame). This is illustrated on Palmer Penguin data [@gorman_ecological_2014; @horst_palmerpenguins_2020] where three species of penguins were measured across four physical variables: bill length (`bl`), bill depth (`bd`), flipper length (`fl`), and body mass (`bm`).
 ```{r ch1fig2, echo=F, out.width="100%", fig.cap = "(ref:ch1fig2-cap)"}
 nsSafeIncGraphic("./figures/ch1_fig2_penguin_cl_sep.png")
 ```
@@ -40,7 +39,7 @@ A crucial component for _human-in-the-loop_ analysis [@karwowski_international_2
 <!-- Radial tour -->
 The manual tour allowed the analyst to control both the angle and magnitude that a variable contributes to the projection. However, controlling the magnitude is generally more meaningful as angular manipulations effectively rotate the projection, changing the relative position, but not the contribution of a variable. Because of this, this work focuses on a specific manual tour, the _radial tour_, where the angle of the manipulated variable is fixed, but the analyst can vary its magnitude, changing its radius. Figure \@ref(fig:ch1fig3) shows a radial tour on the penguins data varying the contribution of bill length. In frames 1 and 2 there is a large contribution from bill length, and all species are distinguished. In frame 3, however, bill length is removed, and the separation between orange and green clusters has collapsed; we say this variable is sensitive to the separation of these two clusters.
 
-(ref:ch1fig3-cap) Frames of a radial, manual tour of Palmer Penguin data manipulating the contribution of bill length (`b_l`). When bill length has a considerable contribution to the frame, the clusters of orange and green species are separated (frames 1 and 2). When its contribution is removed, the clusters overlap (frame 3). Because of this, bill length is sensitive to the separation of these two species. An animated version can viewed at [vimeo.com/670936513](https://vimeo.com/670936513).
+(ref:ch1fig3-cap) Frames of a radial tour of Palmer Penguin data manipulating the contribution of bill length (`bl`). When bill length has a considerable contribution to the frame, the clusters of orange and green species are separated (frames 1 and 2). When its contribution is removed, the clusters overlap (frame 3). Because of this, bill length is sensitive to the separation of these two species. An animated version can viewed at [vimeo.com/670936513](https://vimeo.com/670936513).
 ```{r ch1fig3, echo=F, out.width="100%", fig.cap = "(ref:ch1fig3-cap)"}
 nsSafeIncGraphic("./figures/ch1_fig3_penguin_manualtour.png")
 ```
@@ -63,7 +62,7 @@ At present the radial tour is not used by analysts. Instead they would use a sin
 RQ 2. __Does the use of the interactive radial tour improve analysts understanding of the relationship between variables and structure in 2D linear projections compared to existing approaches?__
 
 <!-- Interpretability crisis of the nonlinear models -->
-Complex nonlinear models are also being applied more frequently to predict or classify from many predictors. While these models lead to increased accuracy over linear models, they suffer from a loss of the interpretability of their variables. One aspect of eXplainable Artificial Intelligence [XAI, @adadi_peeking_2018;  @arrieta_explainable_2020] tries to preserve the interpretability of such models through local explanations. These explanations are essentially linear variable importance in the vicinity of one observation of a model. That is, the extent that variables help the model explain the difference between the observed means and this observation's prediction. The user control from the radial tour potentially allows an analyst to understand better the model and the support of these local explanations.
+Complex nonlinear models are also being applied more frequently to predict or classify from many predictors. While these models lead to increased accuracy over linear models, they suffer from a loss of the interpretability of their variables. One aspect of eXplainable Artificial Intelligence [XAI, @adadi_peeking_2018; @arrieta_explainable_2020] tries to preserve the interpretability of such models through local explanations. These explanations are essentially linear variable importance in the vicinity of one observation of a model. That is, the extent that variables help the model explain the difference between the observed means and this observation's prediction. The user control from the radial tour potentially allows an analyst to understand better the model and the support of these local explanations.
 
 RQ 3. __Can the radial tours be used in conjunction with local explanations to improve the interpretability of black-box models?__
 
@@ -84,37 +83,38 @@ The contributions resulting from the research to address these research question
 
 ### Scientific knowledge
 
-- Manual tour theory
-    - Use of the Rodrigues' rotation formula to derive the rotation matrix; this was absent from the original paper and points to the means to extend the manual tour in a 3D embedding
-    - Use cases for the manual tour giving support to its application
-- A user study comparing the radial tour's efficacy against two alternatives--PCA and the grand tour, the first empirical evaluation of the radial tour
-    - Creation of supervised classification task to assess the variable attribution to the separation of two cluster
-    - As tested over experimental factors: location, shape, and dimensionality
-    - Definition of an accuracy measure to evaluate this task
-    - Results: strong evidence that the radial tour increases the accuracy of this task by a sizable amount and minor evidence to suggest a moderate increase in accuracy of the grand tour over Principal Component Analysis (PCA)
-    - Mixed model regression helps to attribution the source of the error accounting for the variability of participants skill and the difficulty from random simulation
-- Cheem analysis, a novel method exploring the variable sensitivity of local explanations from nonlinear models
-    - A global view approximates the variable space, attribution space, and model information side-by-side serves to identify a primary observation of interest
-    - This observation's normalized variable attribution is used as a projection basis
-    - Explore the support of the local explanation; using the radial tour, the variable sensitivity to the structure identified test the support of the explanation
+- Radial tour algorithm
+    - Refined and clarified the steps to producing a radial tour based on the use of the Rodrigues' rotation formula extending the approach from @rodrigues_lois_1840.
+    - The algorithm makes embedding the radial tour in animation system as well as interactive system simpler.
+    - Provides new examples of usage.
+- A user study comparing the radial tour's efficacy against two alternatives--PCA and the grand tour, the first empirical evaluation of the radial tour.
+    - Creation of supervised classification task to assess the variable attribution to the separation of two cluster.
+    - As tested over experimental factors: location, shape, and dimensionality.
+    - Definition of an accuracy measure to evaluate this task.
+    - Results: strong evidence that the radial tour increases the accuracy of this task by a sizable amount and minor evidence to suggest a moderate increase in accuracy of the grand tour over Principal Component Analysis (PCA).
+    - Mixed model regression helps to attribution the source of the error accounting for the variability of participants skill and the difficulty from random simulation.
+- A novel interactive visualization using the radial tour to explore the variable sensitivity of local explanations from nonlinear models, part of XAI.
+    - A global view approximates the variable space, attribution space, and model information side-by-side serves to identify a primary observation of interest.
+    - This observation's normalized variable attribution is used as a projection basis.
+    - Explore the support of the local explanation; using the radial tour, the variable sensitivity to the structure identified test the support of the explanation.
 
 
 ### Software
 
-- __spinifex__, an __R__ package for transforming data, performing radial tours, and the layered composition of any tours
-    - Transform of numeric variable in the data
-    - Extract various bases exposing features of the data
-    - Manual tours allow analyst steering of the basis to explore the variable sensitivity to structure
-    - Layered composition of tour displays that mirrors the approach in __ggplot2__ [@wickham_ggplot2_2016], Interoperable with tours made from __tourr__ [@wickham_tourr:_2011]
-    - Interactive application to preprocess data and explore. Users can choose from six supplied datasets or upload their own
-    - Vignettes and code examples help users get up to speed
-    - Introduces an interactive application to preprocess data and explore. Users can choose from six supplied datasets or upload their own
+- __spinifex__, an __R__ package for transforming data, performing radial tours, and the layered composition of any tours.
+    - Facilitates the transformation of numeric variable in the data.
+    - Identify various bases finding various features of the data.
+    - Creation of manual tours allow analyst steering of the basis to explore the variable sensitivity to structure.
+    - Layered composition of tour displays that mirrors the approach in __ggplot2__ [@wickham_ggplot2_2016], interoperable with tours made from __tourr__ [@wickham_tourr:_2011].
+    - Interactive __shiny__ [@chang_shiny_2021] application to preprocess data and explore. Users can choose from six supplied datasets or upload their own.
+    - Vignettes and code examples help users get up to speed.
+    - Introduces an interactive application to preprocess data and explore. Users can choose from six supplied datasets or upload their own.
 - __cheem__, an __R__ package that facilitates the exploration of local explanations of nonlinear models:
-    - Preprocessing; given a tree-based model, calculate the tree SHAP local explanation of all observations, and find statistics to accent the separability of this space
-    - Visualization of approximations of the data space, attribution space, and model residual information side-by-side with linked brushing, hover tooltips, and tabular display facilitates the selection of observations to explore
-    - Use of the radial tour varies the contribution of variable test the support of the variable contribution in agreement with the explanation
-    - Interactive application facilitates this analysis for several prepared datasets or user preprocessed data
-    - A vignette and code examples help users get up to speed
+    - Preprocessing; given a tree-based model, calculate the tree SHAP local explanation (via __treeshap__ [@kominsarczyk_treeshap_2021]) of all observations, and find statistics to accent the separability of this space.
+    - Visualization of approximations of the data space, attribution space, and model residual information side-by-side with linked brushing, hover tooltips, and tabular display facilitates the selection of observations to explore.
+    - Use of the radial tour varies the contribution of variable test the support of the variable contribution in agreement with the explanation.
+    - Interactive application facilitates this analysis for several prepared datasets or user preprocessed data.
+    - A vignette and code examples help users get up to speed.
 
 
 ## Thesis structure

@@ -3,7 +3,7 @@ chapter: 3
 knit: "bookdown::render_book"
 ---
 
-# spinifex: an R package for creating user-controlled animated linear projections {#ch-spinifex}
+# A User-Controlled Radial Tour for Animated Linear Projections {#ch-spinifex}
 
 <!-- Segue and disclose change -->
 This chapter introduces manual tours that allows analysts to influence the contributions to a projection. This feature is unique from previous linear embeddings and not facilitated by compiling software.

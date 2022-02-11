@@ -2,36 +2,68 @@
 {
   require(ggplot2)
   require(spinifex)
+  require(patchwork)
+  require(ggplot2)
 
   dat <- spinifex::penguins_na.rm[, 1:5]
-  colnames(dat) <- c("b_l", "b_d", "f_l", "b_m", "species")
+  colnames(dat) <- c("bl", "bd", "fl", "bm", "species")
   X <- scale_sd(dat[, 1:4])
   Y <- dat$species
   bas <- basis_olda(X, Y, 4)
+  .t <- theme(panel.border = element_rect(color = "grey60", fill =NA))
 }
 
 ## penguin_cl_sep -----
-left <- ggtour(bas[, c(3,4)], X, 0) +
+left <- ggtour(bas[, c(1,2)], X, 0) +
   proto_point(list(color = Y, shape = Y)) +
-  proto_basis(line_size = .6) + theme(legend.position = "off")
-right <- ggtour(bas[, c(1,2)], X, 0) +
-    proto_point(list(color = Y, shape = Y)) +
-    proto_basis(line_size = .6) + theme(legend.position = "off")
-(cp <- cowplot::plot_grid(left, right))
-ggsave("./figures/ch1_fig2_penguin_cl_sep.png", cp, device = "png",
-       width = 6, height = 2, units = "in")
+  proto_basis(line_size = .6) +
+  proto_origin() + .t# + labs(color = "species", shape = "species")
+right <- ggtour(bas[, c(3,4)], X, 0) +
+  proto_point(list(color = Y, shape = Y)) +
+  proto_basis(line_size = .6)  +
+  proto_origin() + .t + theme(legend.position = "off")
+(pw <- left + right)
+## difficult to get the legend centered, not worth the roi
+ggsave("./figures/ch1_fig2_penguin_cl_sep.png", pw,
+       device = "png", width = 6, height = 2.45, units = "in")
 
 
 ## penguin_mt_filmstrip -----
 bas     <- basis_olda(X, Y)
 mt_path <- manual_tour(bas, 1, data = X)
 
-ggt <- ggtour(mt_path, X, 99) +
+ggt <- ggtour(mt_path, X, .3) +
   proto_point(list(color = Y, shape = Y)) +
   proto_basis(line_size = .6) + theme(legend.position = "off")
+## Use this to pick frame 2 (full), 8 (half), 10 (0)
 (fs <- filmstrip(ggt, ncol = 3))
-ggsave("./figures/ch1_fig3_penguin_manualtour.png", fs, device = "png",
-       width = 6, height = 2, units = "in")
+
+interp <- spinifex:::interpolate_manual_tour(mt_path, angle = .3)
+bas_full <- interp[,,2]
+bas_half <- interp[,,8]
+bas_zero <- interp[,,10]
+attr(bas_full, "manip_var") <-
+  attr(bas_half, "manip_var") <-
+  attr(bas_full, "manip_var") <- attributes(mt_path)$manip_var
+
+
+full <- ggtour(bas_full, X, .3) +
+  proto_point(list(color = Y, shape = Y)) +
+  proto_basis(line_size = .6) +
+  proto_origin() + .t +
+  theme(legend.position = "off")
+half <- ggtour(bas_half, X, .3) +
+  proto_point(list(color = Y, shape = Y)) +
+  proto_basis(line_size = .6) + .t +
+  proto_origin()
+zero <- ggtour(bas_zero, X, .3) +
+  proto_point(list(color = Y, shape = Y)) +
+  proto_basis(line_size = .6) +
+  proto_origin() + .t +
+  theme(legend.position = "off")
+(pw <- full + half + zero)
+ggsave("./figures/ch1_fig3_penguin_manualtour.png", pw, device = "png",
+       width = 6, height = 1.85, units = "in")
 
 ## Save a video
 animate_gganimate(

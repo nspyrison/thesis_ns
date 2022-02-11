@@ -44,7 +44,9 @@ Rscript --quiet _render.R "bookdown::gitbook"
 
 ## Dev notes
 
-* `LaTeX Error: Missing \begin{document}` is caused by a rouge .aux file; delete root level .aux file & rebuild. Thanks to Dan Simpson via NUMBAT slack
+* `! LaTeX Error: Missing \begin{document}` is caused by a rouge .aux file; delete root level .aux file & rebuild. Thanks to Dan Simpson via NUMBAT slack.
+* `! Package biblatex Error: Nested citation command.` is caused by reference citations.
+[@ref1, @ref2] needs to change to [@ref1; @ref2] to work; find and replace, rebuild.
 * `_bookdown.yml`: Higher level bookdown YAML settings (& specifies where/which rmd files)
 * `_render.R`: Code ran at build; spell check, convert .pdf to .png, `bookdown::render_book`
     * _nb_: .png only created if it doesn't exist in `docs/figures`; delete/clean when updating figures.

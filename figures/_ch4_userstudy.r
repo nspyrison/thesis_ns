@@ -5,7 +5,7 @@
   require(ggplot2)
   require(GGally)
   require(dplyr)
-  this_theme <- list(
+  my_theme <- list(
     scale_color_brewer(palette = "Dark2"),
     theme_void(),
     theme(axis.title      = element_text(),
@@ -65,13 +65,13 @@ if(F)
   file.edit("./figures/ch4_util_funcs.r")
 
 .sim_nm <- "EEV_p6_33_66_rep2" #"EEV_p6_0_1_rep3"
-.fp <- paste0("./data/", .sim_nm, ".rda")
+.fp  <- paste0("./data/", .sim_nm, ".rda")
 ## Make data plot
 load(.fp, envir = globalenv())
-dat <- get(.sim_nm)
+dat  <- get(.sim_nm)
 clas <- as.factor(attr(dat, "cluster"))
 
-pca_obj <- prcomp(dat)
+pca_obj  <- prcomp(dat)
 pca_proj <- as.data.frame(cbind(pca_obj$x[, 1:4], as.factor(clas)))
 
 gg_pca <- GGally::ggpairs(
@@ -101,7 +101,7 @@ ggsave("./figures/ch4_fig2_pca_splom.pdf", gg_pca, device = "pdf",
   library(spinifex)
   library(cowplot)
   palette(RColorBrewer::brewer.pal(8, "Dark2"))
-  this_theme <- list(
+  my_theme <- list(
     theme_bw(),
     scale_color_brewer(palette = "Dark2"),
     scale_fill_brewer( palette = "Dark2"),
@@ -128,7 +128,7 @@ ggsave("./figures/ch4_fig2_pca_splom.pdf", gg_pca, device = "pdf",
 }
 
 ## Factor ------
-.t <- c("PCA", "Grand tour", "Radial tour")
+.t  <- c("PCA", "Grand tour", "Radial tour")
 .st <- c("Discrete jump to \n selected PC pair",
          "Animation through \n random bases",
          "Animation changing \n the selected variable")
@@ -137,7 +137,7 @@ ggsave("./figures/ch4_fig2_pca_splom.pdf", gg_pca, device = "pdf",
 .m <- sapply(1:3, function(i){
   .fct <- spinifex::ggtour(get(paste0("bas", i), envir = globalenv())) +
     proto_basis("center") +
-    this_theme +
+    my_theme +
     labs(x = .x[i], y = .y[i], title = .t[i], subtitle = .st[i])
   assign(paste0("fct", i), .fct, envir = globalenv())
 })
@@ -166,7 +166,7 @@ for(i in 1:length(lvls)){
     geom_vline(xintercept = 0, linetype = 1) +
     geom_vline(xintercept = 2, linetype = 2) +
     geom_density(aes(x=signal, y=..ndensity.., fill = cluster), alpha = .5) +
-    this_theme +
+    my_theme +
     theme(axis.title =  element_text(), aspect.ratio = 1) +
     ggplot2::labs(x = x_nms[i], y = "") +
     labs(subtitle = lvls[i]) +
@@ -211,7 +211,7 @@ for(i in 1:length(lvls)){
                      angle = angle, color = cluster),
                  data = ellipse_df[i, ],
                  size = .6, linetype = 2, alpha = .5) +
-    this_theme +
+    my_theme +
     coord_fixed() +
     xlim(-2.2,2.2) + ylim(-2.4,2) +
     labs(subtitle = lvls[i])
@@ -236,11 +236,11 @@ clas4 <- attr(EEE_p4_0_1_rep1, "cluster")
 clas6 <- attr(EEE_p6_0_1_rep1, "cluster")
 dim4  <- ggtour(bas4) +
   proto_basis() +
-  this_theme +
+  my_theme +
   ggplot2::labs(subtitle = "3 clusters in 4 dimensions")
 dim6  <- ggtour(bas6) +
   proto_basis() +
-  this_theme +
+  my_theme +
   ggplot2::labs(subtitle = "4 clusters in 6 dimensions")
 ## text block about cluster d
 dim_txt <- ggplot() +
@@ -355,6 +355,7 @@ ggsave("./figures/ch4_fig4_accuracy_measure.pdf", final, "pdf",
 
 # Setup2 ----
 {
+  require(ggpubr)
   my_ggpubr <- function(
     df, x = "Factor", y = "Marks",
     title = waiver(), subtitle = waiver(), facet = NULL,

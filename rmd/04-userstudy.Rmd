@@ -302,7 +302,7 @@ There are several ways that this study could be extended. In addition to expandi
 
 ## Accompanying tool: radial tour application {#sec:spinifex}
 
-We have produced an application to illustrate the radial tour to accompany this study. The __R__ package, __spinifex__, [@spyrison_spinifex_2020] is free, open-source and now contains a __shiny__ [@chang_shiny_2020] application allowing users to apply various preprocessing tasks and interactively explore their data via interactive radial tour. Example datasets are provided with the ability to upload data. The .html widget produced is a more interactive variant relative to the one used in the user study. Screen captures and more details are provided in the appendix. Run the following __R__ code will run the application locally.
+We have produced an application to illustrate the radial tour to accompany this study. The __R__ package, __spinifex__, [@spyrison_spinifex_2020] is free, open-source and now contains a __shiny__ [@chang_shiny_2021] application allowing users to apply various preprocessing tasks and interactively explore their data via interactive radial tour. Example datasets are provided with the ability to upload data. The .html widget produced is a more interactive variant relative to the one used in the user study. Screen captures and more details are provided in the appendix. Run the following __R__ code will run the application locally.
 
 ```{r getting_started, eval=FALSE, echo=TRUE}
 ## Download:
