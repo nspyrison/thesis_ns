@@ -1,42 +1,110 @@
-<!-- HTML version:  Print bibliography-->
-`r if (knitr::is_html_output()) '# Bibliography {-}'`
-
-
 # Appendix {#ch-appendix}
 
 \appendix
 
+<!-- !!!LATEX TABLES WILL NOT WORK IN HTML, need conditional kbl formating... -->
+```{r}
+glossary_df <- data.frame(
+  Term = c("observation", "variable", "data", "basis", "projection", "tour",
+           "Intrinsic data dimensionality", "Non-linear model"),
+  Notation = c(
+    "$n$", "$p$", "$X_{n \\times p}$", "$A_{p \\times d}$",
+    "$Y_{n \\times d} = X_{n \\times p} \\cdot A_{p \\times d}$", "", "$iid$", ""),
+  Alias = c(
+    "instance, item, row (of data)", "feature, column (of data)",
+    "", "", "embedding", "", "", "black-box model"),
+  Description = c(
+    "A unit being measured across the variables",
+    "A measure taken across all observations",
+    "We dicuss complete quantitative matrices",
+    "Of linear projections, linear component mapping of $p$ down to $d$ dimensions",
+    "The resulting space the data multiplied by the basis",
+    "A dynamic linear projection animated over small changes in the projection basis",
+    "The minimal dimensionality data can be represented with",
+    "A model with numerous or interactive terms that cause an interpretabilty issue")
+)
 
+vimeo_link_df <- data.frame(
+  Reference = c(
+    "Figure \\@ref(fig:ch1fig3)", "Figure \\@ref(fig:ch2fig4)", 
+    "Figure \\@ref(fig:casepenguins)", "Figure \\@ref(fig:casechocolates)", 
+    "Figure \\@ref(fig:casechocolatesinverse)", "Figure \\@ref(fig:casefifa)", 
+    "Figure \\@ref(fig:caseames)"),
+  Description = c(
+    "radial tour, penguins", "grand tour, penguins", "cheem,  penguins", 
+    "cheem,  chocolates", "cheem,  chocolates (inverse)", "cheem, fifa", 
+    "cheem, ames housing 2018"),
+  Link = c("[vimeo.com/676723431](https://vimeo.com/676723431)",
+           "[vimeo.com/676723441](https://vimeo.com/676723441)",
+           "[vimeo.com/666431172](https://vimeo.com/666431172)",
+           "[vimeo.com/666431143](https://vimeo.com/666431143)",
+           "[vimeo.com/666431148](https://vimeo.com/666431148)",
+           "[vimeo.com/666431163](https://vimeo.com/666431163)",
+           "[vimeo.com/666431134](https://vimeo.com/666431134)")
+)
+
+supp_mats_df <- data.frame(
+  Context = c("spinifex", "spinifex", "spinifex", "cheem", 
+              "cheem", "thesis", "thesis", "thesis"),
+  Description = c(
+    "CRAN Link", "vignette, Getting started with spinifex", 
+    "vignette, Ggproto api", "CRAN Link", "vignette, Getting started with cheem", 
+    "repository", "thesis, pdf format", "thesis, html format"),
+  Link = c(
+    "[CRAN.R-project.org/package=spinifex](https://CRAN.R-project.org/package=spinifex)",
+    "[nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html](https://nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html)",
+    "[nspyrison.github.io/spinifex/articles/ggproto-api.html](https://nspyrison.github.io/spinifex/articles/ggproto-api.html)",
+    "[CRAN.R-project.org/package=cheem](https://CRAN.R-project.org/package=cheem)",
+    "[nspyrison.github.io/cheem/articles/getting-started-with-cheem.html](https://nspyrison.github.io/cheem/articles/getting-started-with-cheem.html)",
+    "[github.com/nspyrison/thesis_ns](https://github.com/nspyrison/thesis_ns)",
+    "[github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf)",
+    "[https://nspyrison.github.io/thesis_ns/](https://nspyrison.github.io/thesis_ns/)")
+)
+
+## Set format and fonts for pdf vs html:
+if(knitr::is_html_output()){
+  fmt <- "html"
+  fnt <- 12L
+  esc <- FALSE ## HTML likes FALSE in vimeolinks
+}else{
+  fmt <- "latex"
+  fnt <- 10L
+  esc <- TRUE #FALSE ## latex needs \ escaping on urls to use false.
+  #supp_mats_df$Link <- gsub("_", "\_", supp_mats_df$Link) 
+}
+```
 
 ## Glossary {#sec-glossary}
 
-\begin{table}[!ht]
-    \centering
-    \begin{tabular}{|l|l|l|l|}
-    \hline
-        Term  & Notation & Alias & Meaning \\ \hline
-        observation & n & instance, item, row (of data) & A unit being measured across the variables. \\ \hline
-        variable & p & feature, column (of data) & A measure taken across all observations. \\ \hline
-    \end{tabular}
-\end{table}
+```{r glossary, fig.cap = "Use the caption arg in kable(), not this."}
+kableExtra::kbl(
+    glossary_df, format = fmt, align = rep("l", 4),
+    booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc,
+    caption = "Glossary of terms") %>%
+  kableExtra::kable_classic(font_size = fnt)
+```
 
 
-## Supplementary material 
+## Animated tour links
 
-\begin{table}[!ht]
-    \centering
-    \begin{tabular}{|l|l|l|l|}
-    \hline
-        Context & Type & Content & Link \\ \hline
-        spinifex  & vignette & Getting started with spinifex & https://nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html \\ \hline
-        spinifex  & vignette & Ggproto API & https://nspyrison.github.io/spinifex/articles/ggproto-api.html \\ \hline
-        cheem & vignette & Getting started with cheem & https://nspyrison.github.io/cheem/articles/getting-started-with-cheem.html \\ \hline
-        thesis & html version & html version & https://nspyrison.github.io/thesis\_ns/ \\ \hline
-        thesis  & repository & Reproducibility and source code & https://github.com/nspyrison/thesis\_ns/blob/master/docs/thesis\_ns.pdf \\ \hline
-    \end{tabular}
-\end{table}
+```{r vimeolinks, fig.cap = "Use the caption arg in kable(), not this."}
+kableExtra::kbl(
+    vimeo_link_df, format = fmt, align = rep("l", 3),
+    booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc,
+    caption = "Animated tour links in this thesis") %>%
+  kableExtra::kable_classic(font_size = fnt)
+```
 
 
+## Supplementary material
+
+```{r suppmats, fig.cap = "Use the caption arg in kable(), not this."}
+kableExtra::kbl(
+    supp_mats_df, format = fmt, align = rep("l", 3),
+    booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc,
+    caption = "Supplementary material") %>%
+  kableExtra::kable_classic(font_size = fnt)
+```
 
 
 <!---

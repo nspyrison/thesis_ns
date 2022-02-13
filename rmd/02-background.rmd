@@ -46,7 +46,7 @@ The work in @grinstein_high-dimensional_2002 and @liu_visualizing_2017 give a go
 <!-- SPLOM -->
 Following the thought from coordinated view an analyst could look at $p$-univariate histograms or density curves. Extending this, exhaustive pairs of variable could be viewed. Using all of these together brings us to scatterplot matrices, also known as SPLOM [@chambers_graphical_1983]. In a scatterplot matrix, variables are arranged across the columns and rows. The diagonal elements show univariate densities, while off-diagonal positions show scatterplot pairs, as Figure \@ref(fig:penguinsplom). This is useful for getting a handle on the range of the variables but is not going to scale well with dimension and is not a suitable audience-ready display.
 
-(ref:penguinsplom-cap) Scatterplot matrix of penguins data. This is a good exploratory step but does not direct the audience's attention and will not scale well as $p$ increases.
+(ref:penguinsplom-cap) Scatterplot matrix views univariate densities and all pairs of bivariate scatterplots. The panels show partial cluster separation indicating these variables contain some cluster discerning information. This approach is good for quickly exploring the range of the data, but will not resolve features in more than two dimension. This is a good exploratory visual but does not scale well with the number of variables.
 ```{r penguinsplom, echo=F, out.width="100%", fig.cap = "(ref:penguinsplom-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig2_penguin_splom.pdf")
 ```
@@ -60,7 +60,7 @@ Alternatively, as $n$ increases, scatterplots displays suffer from dense points 
 <!-- PCP -->
 Alternatively, we could consider a class of observation-based visuals. In parallel coordinate plots [@ocagne_coordonnees_1885], variables are arranged horizontally, and lines connect observations after being transformed to a common scale quantile or z-value (standard deviations away from the mean). Figure \@ref(fig:penguinpcp) illustrates this method. This scales much better with dimensions but poorly with observations. It also suffers from an asymmetry with the variable order. That is, changing the order of the variables will lead people to very different conclusions. The x-axis is also used to display variables rather than the values of the observations. This restricts the amount of information that can be interpreted between variables. Munzner asserts that position is the more human-perceptible channel for encoding information; we should prefer to reserve it for the values of the observations rather distinguishing variables.
 
-(ref:penguinpcp-cap) Parallel coordinate plots of penguins data. This does not scale well with observations, suffers from asymmetry with the variable ordering, and horizontal position is used for distinguishing between variables rather than values within the variable.
+(ref:penguinpcp-cap) Parallel coordinate plots put variables on a common scale and position them side-by-side with lines connecting observations. Some variation between the clusters can be seen. This approach scales relatively well with the number of variables, but poorly with the number of observations. It is more difficult to perceive summary statistics (correlation for example) and suffers from asymmetry with the order of variable. That is, changing the order of the variables can result in different interpretation. Further, the perception channel of position is used for distinguishing between variables rather than values within the variable.
 ```{r penguinpcp, echo=F, out.width="100%", fig.cap = "(ref:penguinpcp-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig3_penguin_pcp.pdf")
 ```
@@ -109,18 +109,17 @@ In one static linear projection let, $Y_{nxd} = X_{nxp} \cdot A_{pxd}$ be the em
 <!-- Grand tour -->
 Originally in a _grand_ tour [@asimov_grand_1985], several target frames are randomly selected. Figure \@ref(fig:ch2fig4) illustrates six frames from a grand tour. The grand tour is good for EDA in that it will show frames with widely varying contributions but lacks a destination, objective function, or means of steering.
 
-(ref:ch2fig4-cap) Frames from a grand tour of Palmer Penguin data. Tours animate linear projections over small changes in the basis. The observation permanence between frames is an essential distinction in tours. Target frames are selected randomly in the grand tour. An animation can be viewed at [vimeo.com/670936494](https://vimeo.com/670936494).
+(ref:ch2fig4-cap) Frames from a grand tour. Biplots (grey circles) illustrate the direction and magnitude that variables contribute. Target bases are selected randomly in the grand tour. Tours animate linear projections over small changes in the basis. The observation permanence between frames is an essential distinction in tours. An animation can be viewed at [vimeo.com/676723441](https://vimeo.com/676723441).
 ```{r ch2fig4, echo=F, out.width="100%", fig.cap = "(ref:ch2fig4-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig4_penguin_grandtour.png")
 ```
 
 <!-- Interpolation frames -->
-Regardless of the type of tour target basis identified, tours must interpolate frames between distant randomly generated target bases. Figure \@ref(fig:ch2fig5) illustrates the geodesic interpolation between distant target frames. Animating through small distances between these interpolated frames is important for the trackability of observations.
+Regardless of the type of tour target basis identified, tours must interpolate frames between distant generated target bases. This interpolation is performed on the geodesic path of the bases. Geodesic refers to the shortest path (on a $p$-sphere of possible bases). This ends up being slightly curved in 2D representation in the same way that flight paths appear curved on 2D representations of the globe. The interpolated frames at small enough angles is essential for the trackability of observations between frames.
 
+>>> XXX: need to add section about radial tour here
 
->>> Will want to add radial tour
-
-(ref:ch2fig5-cap) Radial tour of the penguins data across three geometric displays. The contribution of `bl` is being removed from the frame and with it the separation between the orange and green groups are also removed. Changing to density contours or hexagonal heatmap display are common ways to mitigate occlusion caused by dense observations. 
+(ref:ch2fig5-cap) Radial tour across three geometric displays. The contribution of `bl` is being removed from the frame and with it the separation between the orange and green clusters is also removed. Changing to density contours or hexagonal heatmap display are common ways to mitigate occlusion caused by dense observations. Heatmap display does not perform well with supervised cluster separation, but can useful to see other structure in dense data.
 ```{r ch2fig5, echo=F, out.width="100%", fig.cap = "(ref:ch2fig5-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig5_penguin_manualtour_geoms.pdf")
 ```
@@ -171,6 +170,8 @@ These observation-level explanations are used in various ways depending on the c
 
 
 ## Conlusion
+
+>>> XXX: Need to write background conclusion
 
 <!-- Circle back around to higher level -->
 

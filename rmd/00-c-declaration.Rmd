@@ -8,9 +8,8 @@ I hereby declare that this thesis contains no material which has been accepted f
 ## Publication as part of this thesis {-}
 
 The work corresponding to Chapter \@ref(ch-spinifex) has been accepted for publication in _The R Journal_ [@spyrison_spinifex_2020]. While respective studies discussed in Chapters \@ref(ch-userstudy) and \@ref(ch-cheem) have not yet been submitted.
-<!-- <<KM strikethrough, 20 Jan>>This paper clarifies some of the theoretical work for user control offered by the manual tour and induces an open-source __R__ package facilitating manual tours. The user study described in Chapter \@ref(ch-userstudy) compares the performance of three linear projections and will shortly be submitted to the _IEEE Transactions on Visualization and Computer Graphics_. This study finds large evidence for a sizable increase in a variable attribution task from the user control of the manual tour over principal component analysis and the grand tour. Then we extend the interpretability of complex nonlinear models. I purpose exploring the support of local explanation of a model with the manual tour. This research covered in Chapter \@ref(ch-cheem) will shortly be submitted to _The Journal of Machine Learning research_. -->
 
-I have renumbered and updated sections of the published paper to generate a consistent presentation within the thesis. The code illustrated has been adjusted to highlight the new ggproto API. Introductory, background, and conclusion content has been moved to their respective thesis chapters.
+I have renumbered and updated sections of the published paper to generate a consistent presentation within the thesis. The code illustrated has been adjusted to highlight the new ggproto API. Introductory and background content has been moved to their respective thesis chapters.
  
 
 ## Publications and papers during candidature not part of this thesis {-}

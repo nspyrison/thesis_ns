@@ -17,7 +17,6 @@ Most data are multivariate. This thesis make important contributions to to the i
 
 
 ## Contributions
-<!-- ## Software development -->
 
 The contributions of this thesis can be split into scientific knowledge and software.
 
@@ -82,4 +81,7 @@ In __cheem__, we had focused primarily on continuous numeric predictors. Perhaps
 
 
 <!-- XXX TODO: keep doing grep searches for broken links and references '??', '-cap', '00', 'ref' -->
+<!-- XXX TODO: keep doing astrogrep paper, convert to chapter or equiv -->
+<!-- XXX TODO: Does Cheem chapter still use intance/feature over observation/variable? -->
+
 
