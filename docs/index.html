@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models</title>
-  <meta name="description" content="Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models" />
+  <title>Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models</title>
+  <meta name="description" content="Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models" />
+  <meta property="og:title" content="Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models" />
+  <meta name="twitter:title" content="Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models" />
   
   
   
@@ -175,10 +175,11 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1" data-path="2-ch-background.html"><a href="2-ch-background.html#motivation"><i class="fa fa-check"></i><b>2.1</b> Motivation</a></li>
 <li class="chapter" data-level="2.2" data-path="2-ch-background.html"><a href="2-ch-background.html#multivariate-vizualization"><i class="fa fa-check"></i><b>2.2</b> Multivariate vizualization</a></li>
-<li class="chapter" data-level="2.3" data-path="2-ch-background.html"><a href="2-ch-background.html#evaluating-multivariate-data-visualization"><i class="fa fa-check"></i><b>2.3</b> Evaluating multivariate data visualization</a></li>
-<li class="chapter" data-level="2.4" data-path="2-ch-background.html"><a href="2-ch-background.html#black-box-models"><i class="fa fa-check"></i><b>2.4</b> Black-box models</a></li>
-<li class="chapter" data-level="2.5" data-path="2-ch-background.html"><a href="2-ch-background.html#sec:explanations"><i class="fa fa-check"></i><b>2.5</b> Local explanations</a></li>
-<li class="chapter" data-level="2.6" data-path="2-ch-background.html"><a href="2-ch-background.html#conlusion"><i class="fa fa-check"></i><b>2.6</b> Conlusion</a></li>
+<li class="chapter" data-level="2.3" data-path="2-ch-background.html"><a href="2-ch-background.html#linear-projections"><i class="fa fa-check"></i><b>2.3</b> Linear projections</a></li>
+<li class="chapter" data-level="2.4" data-path="2-ch-background.html"><a href="2-ch-background.html#evaluating-multivariate-data-visualization"><i class="fa fa-check"></i><b>2.4</b> Evaluating multivariate data visualization</a></li>
+<li class="chapter" data-level="2.5" data-path="2-ch-background.html"><a href="2-ch-background.html#black-box-models"><i class="fa fa-check"></i><b>2.5</b> Black-box models</a></li>
+<li class="chapter" data-level="2.6" data-path="2-ch-background.html"><a href="2-ch-background.html#sec:explanations"><i class="fa fa-check"></i><b>2.6</b> Local explanations</a></li>
+<li class="chapter" data-level="2.7" data-path="2-ch-background.html"><a href="2-ch-background.html#conclusion"><i class="fa fa-check"></i><b>2.7</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html"><i class="fa fa-check"></i><b>3</b> A User-Controlled Radial Tour for Animated Linear Projections</a>
 <ul>
@@ -227,7 +228,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models</a>
           </h1>
         </div>
 
@@ -236,14 +237,14 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models</h1>
+<h1 class="title">Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models</h1>
 <p class="author"><em>Nicholas S Spyrison</em></p>
 </div>
 <div id="welcome" class="section level1 unnumbered">
 <h1>Welcome</h1>
 <p>This book covers is the PhD thesis during my studies at Monash University, Australia.</p>
 <p>A pdf version can be found <a href="https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf">here</a> and the code repository can be found on <a href="https://github.com/nspyrison/thesis_ns">github</a>.</p>
-<p>2022-02-13</p>
+<p>2022-02-14</p>
 <!-- 
 Edit these lines as appropriate.
 The actual thesis content is in several Rmd files.
@@ -272,7 +273,7 @@ I certify that I have made all reasonable efforts to secure copyright permission
 <!-- Short abstract for MGRO/Bridges: -->
 <!-- currently 117 words, may need to be cut to 100 -->
 <!--
-As the dimensionality of data increases, so does the difficulty in their visualization. Traditional linear projections view discrete pairs of linear components. _Tours_ are a class of linear projections that animate over small changes to the projection. The _manual tour_ uniquely enables an analyst to steer a path of bases. This thesis discusses an __R__ package that facilitates their creation. A user study finds the manual tour outperforms traditional visualizations on a variable attribution task. Local explanations increase the interpretability of nonlinear models by approximating the variable importance at the vicinity of one observation. This work introduces a novel approach to explore the support of explanations with the radial tour. An accompanying __R__ package facilitates this analysis.
+As the dimensionality of data increases, so does the difficulty in their visualization. Traditional linear projections view discrete pairs of linear components. _Tours_ are a class of linear projections that animate over small changes to the projection. The _manual tour_ uniquely enables an analyst to steer a path of bases. This thesis discusses an __R__ package that facilitates their creation. A user study finds the manual tour outperforms traditional visualizations on a variable attribution task. Local explanations increase the interpretability of nonlinear models by approximating the variable importance at the vicinity of one observation. This work introduces a novel approach to explore the support of explanations with the radial tour. An accompanying package facilitates this analysis.
 -->
 </div>
             </section>

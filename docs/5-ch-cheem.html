@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Exploring Local Explanations of Nonlinear Models Using the Radial tour | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models</title>
-  <meta name="description" content="Chapter 5 Exploring Local Explanations of Nonlinear Models Using the Radial tour | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models" />
+  <title>Chapter 5 Exploring Local Explanations of Nonlinear Models Using the Radial tour | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models</title>
+  <meta name="description" content="Chapter 5 Exploring Local Explanations of Nonlinear Models Using the Radial tour | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Exploring Local Explanations of Nonlinear Models Using the Radial tour | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models" />
+  <meta property="og:title" content="Chapter 5 Exploring Local Explanations of Nonlinear Models Using the Radial tour | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Exploring Local Explanations of Nonlinear Models Using the Radial tour | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models" />
+  <meta name="twitter:title" content="Chapter 5 Exploring Local Explanations of Nonlinear Models Using the Radial tour | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models" />
   
   
   
@@ -175,10 +175,11 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1" data-path="2-ch-background.html"><a href="2-ch-background.html#motivation"><i class="fa fa-check"></i><b>2.1</b> Motivation</a></li>
 <li class="chapter" data-level="2.2" data-path="2-ch-background.html"><a href="2-ch-background.html#multivariate-vizualization"><i class="fa fa-check"></i><b>2.2</b> Multivariate vizualization</a></li>
-<li class="chapter" data-level="2.3" data-path="2-ch-background.html"><a href="2-ch-background.html#evaluating-multivariate-data-visualization"><i class="fa fa-check"></i><b>2.3</b> Evaluating multivariate data visualization</a></li>
-<li class="chapter" data-level="2.4" data-path="2-ch-background.html"><a href="2-ch-background.html#black-box-models"><i class="fa fa-check"></i><b>2.4</b> Black-box models</a></li>
-<li class="chapter" data-level="2.5" data-path="2-ch-background.html"><a href="2-ch-background.html#sec:explanations"><i class="fa fa-check"></i><b>2.5</b> Local explanations</a></li>
-<li class="chapter" data-level="2.6" data-path="2-ch-background.html"><a href="2-ch-background.html#conlusion"><i class="fa fa-check"></i><b>2.6</b> Conlusion</a></li>
+<li class="chapter" data-level="2.3" data-path="2-ch-background.html"><a href="2-ch-background.html#linear-projections"><i class="fa fa-check"></i><b>2.3</b> Linear projections</a></li>
+<li class="chapter" data-level="2.4" data-path="2-ch-background.html"><a href="2-ch-background.html#evaluating-multivariate-data-visualization"><i class="fa fa-check"></i><b>2.4</b> Evaluating multivariate data visualization</a></li>
+<li class="chapter" data-level="2.5" data-path="2-ch-background.html"><a href="2-ch-background.html#black-box-models"><i class="fa fa-check"></i><b>2.5</b> Black-box models</a></li>
+<li class="chapter" data-level="2.6" data-path="2-ch-background.html"><a href="2-ch-background.html#sec:explanations"><i class="fa fa-check"></i><b>2.6</b> Local explanations</a></li>
+<li class="chapter" data-level="2.7" data-path="2-ch-background.html"><a href="2-ch-background.html#conclusion"><i class="fa fa-check"></i><b>2.7</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html"><i class="fa fa-check"></i><b>3</b> A User-Controlled Radial Tour for Animated Linear Projections</a>
 <ul>
@@ -227,7 +228,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models</a>
           </h1>
         </div>
 
@@ -239,12 +240,12 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 5</span> Exploring Local Explanations of Nonlinear Models Using the Radial tour</h1>
 <!-- Segue -->
 <p>In the previous chapter discussed the within-participants user study comparing PCA, the grand tour, and the radial tour in a supervised variable attribution task. We found strong evidence that the radial tour leads to large increase in accuracy. Now we can be more confident that the radial tour leads to better analysis of variable-level attribution to features identified in a projection.</p>
-<p>Given the interpretability crisis of nonlinear models, it would be interesting to see if the radial tour can help. Specifically, we will investigate using the radial tour to explore variable sensitivity to the structure identified in linear local explanations of nonlinear models. That is under what support of variable importance does an explanation make sense, and when does it fail to be supported by the data. This can provide insight into why an observation is misclassified or otherwise has an extreme residual. We can also test how susceptible a variable’s contribution is to discerning the predictions of two observations.</p>
+<p>Given the interpretability crisis of nonlinear models, it would be interesting to see if the radial tour can help. Specifically, we will investigate using the radial tour to explore variable sensitivity to the structure identified in linear local explanations of nonlinear models. That is under what range of variable importance does an explanation make sense, and when does it fail to be supported by the data. This can provide insight into why an observation is misclassified or otherwise has an extreme residual. We can also test how susceptible a variable’s contribution is to discerning the predictions of two observations.</p>
 <!-- Abstract -->
 <p>The increased predictive power comes at the cost of interpretability, which has led to the emergence of eXplainable AI (XAI). XAI attempts to shed light on how models use predictors to arrive at a prediction with a point estimate of the linear feature importance in the vicinity of each instance. These can be considered linear projections and can be further explored interactively to understand better the interaction between features used to make predictions across the predictive model surface. Here we describe interactive linear interpolation used for exploration at any instance and illustrate with examples with categorical (penguin species, chocolate types) and quantitative (football salaries, house prices) output. The methods are implemented in the <strong>R</strong> package <strong>cheem</strong>, available on CRAN.</p>
 <!-- ## Introduction {#sec:intro} -->
 <!-- Segue -->
-<p>In Chapter <a href="2-ch-background.html#ch-background">2</a> we introduced predictive modeling, the interpretability crisis of nonlinear models, and local explanations — approximations of linear variable importance in the vicinity of one observation.<!-- chapter structure --> The remainder of this chapter is organized as follows. The following Section, <a href="5-ch-cheem.html#sec:shap">5.1</a>, induces the SHAP and tree SHAP local explanation. Section <a href="2-ch-background.html#sec:tour">2.2.5</a> explains the animations of continuous linear projections. Section <a href="5-ch-cheem.html#sec:cheemviwer">5.2</a> discusses the visual layout in the interactive interface, how they facilitate analysis, data preprocessing, and package infrastructure. Then Section <a href="5-ch-cheem.html#sec:casestudies">5.3</a> illustrates the application to supervised learning with categorical and quantitative output. We conclude with Section <a href="5-ch-cheem.html#sec:cheemdiscussion">5.4</a> of the insights gained and directions that might be explored in the future.</p>
+<p>In Chapter <a href="2-ch-background.html#ch-background">2</a> we introduced predictive modeling, the interpretability crisis of nonlinear models, and local explanations — approximations of linear variable importance in the vicinity of one observation.<!-- chapter structure --> The remainder of this chapter is organized as follows. The following Section, <a href="5-ch-cheem.html#sec:shap">5.1</a>, induces the SHAP and tree SHAP local explanation. Section <a href="2-ch-background.html#sec:tour">2.3.1</a> explains the animations of continuous linear projections. Section <a href="5-ch-cheem.html#sec:cheemviwer">5.2</a> discusses the visual layout in the interactive interface, how they facilitate analysis, data preprocessing, and package infrastructure. Then Section <a href="5-ch-cheem.html#sec:casestudies">5.3</a> illustrates the application to supervised learning with categorical and quantitative output. We conclude with Section <a href="5-ch-cheem.html#sec:cheemdiscussion">5.4</a> of the insights gained and directions that might be explored in the future.</p>
 <div id="sec:shap" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> SHAP and tree SHAP local explanations</h2>
 <!-- SHAP -->
@@ -393,7 +394,7 @@ Figure 5.7: (ref:casechocolatesinverse)
 </div>
 <div id="fifa-wage-regression" class="section level3" number="5.3.3">
 <h3><span class="header-section-number">5.3.3</span> FIFA, wage regression</h3>
-<p>The 2020 season FIFA data <span class="citation">(<a href="bibliography.html#ref-leone_fifa_2020" role="doc-biblioref">Leone 2020</a>; <a href="bibliography.html#ref-biecek_dalex_2018" role="doc-biblioref">Biecek 2018</a>)</span> contains many skill measurements of soccer/football players and wage information. From a correlation matrix plot, nine higher-level skill groupings were identified and aggregated. A random forest model if fit from these aggregations and regress player wages [2020 euros]. The model was fit from 5000 instances before being thinned to 500 players to mitigate occlusion and render time. Continuing from the exploration in section <a href="2-ch-background.html#sec:explanations">2.5</a>, we are interested to see the difference in attribution based on the exogenous player position. That is, the model should be able to use multiple linear profiles to better predict the wages from different field positions of players. We compare a leading offensive fielder (L. Messi) with that of a top defensive fielder (V. van Dijk). The same instances were used in figure <a href="5-ch-cheem.html#fig:shapdistrbd">5.1</a>.</p>
+<p>The 2020 season FIFA data <span class="citation">(<a href="bibliography.html#ref-leone_fifa_2020" role="doc-biblioref">Leone 2020</a>; <a href="bibliography.html#ref-biecek_dalex_2018" role="doc-biblioref">Biecek 2018</a>)</span> contains many skill measurements of soccer/football players and wage information. From a correlation matrix plot, nine higher-level skill groupings were identified and aggregated. A random forest model if fit from these aggregations and regress player wages [2020 euros]. The model was fit from 5000 instances before being thinned to 500 players to mitigate occlusion and render time. Continuing from the exploration in section <a href="2-ch-background.html#sec:explanations">2.6</a>, we are interested to see the difference in attribution based on the exogenous player position. That is, the model should be able to use multiple linear profiles to better predict the wages from different field positions of players. We compare a leading offensive fielder (L. Messi) with that of a top defensive fielder (V. van Dijk). The same instances were used in figure <a href="5-ch-cheem.html#fig:shapdistrbd">5.1</a>.</p>
 (ref:casefifa) FIFA 2020 data, a random forest model, regresses wages [2020 Euros] from nine aggregated skill measurements. The PI is a star offensive player (L. Messi) compared with a top defensive player (V. van Dijk). We remove three features with low attribution from both players. The attribution projection starts with the selected instance on the right. We vary the contribution from defense (<code>def</code>). The star offensive player is not distinguished in the horizontal direction. At this point, defensive players have been rotated to the highest horizontal value. (A video of the animated radial tour can be found at <a href="https://vimeo.com/666431163">vimeo.com/666431163</a>.)
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:casefifa"></span>
 <img src="figures/ch5_fig8_case_fifa.png" alt="(ref:casefifa)" width="100%"  />

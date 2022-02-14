@@ -6,7 +6,7 @@
 ```{r}
 glossary_df <- data.frame(
   Term = c("observation", "variable", "data", "basis", "projection", "tour",
-           "Intrinsic data dimensionality", "Non-linear model"),
+           "Intrinsic data dimensionality", "Nonlinear model"),
   Notation = c(
     "$n$", "$p$", "$X_{n \\times p}$", "$A_{p \\times d}$",
     "$Y_{n \\times d} = X_{n \\times p} \\cdot A_{p \\times d}$", "", "$iid$", ""),
@@ -189,7 +189,7 @@ After target bases are identified, the frames in-between need to be filled in. T
 
 ### Tour software
 
-Tours have yet to be widely adopted, due in part, to the fact that print and static .pdf output does not accommodate dynamic viewing. Conceptual abstraction and technically density have also hampered user growth. Due to low levels of adoption and the rapid advancement of technology support and maintenance of such implementations give them a particularly short life span. Despite the small user base, there have been a fair number of tour implementations, including:
+Tours have yet to be widely adopted, due in part, to the fact that print and static pdf output does not accommodate dynamic viewing. Conceptual abstraction and technically density have also hampered user growth. Due to low levels of adoption and the rapid advancement of technology support and maintenance of such implementations give them a particularly short life span. Despite the small user base, there have been a fair number of tour implementations, including:
 <!-- See Wickham’s thesis and C2 paper for partial lists. 
 
 * spinifex [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex) -- R package, all platforms.

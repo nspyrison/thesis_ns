@@ -7,26 +7,27 @@ knit: "bookdown::render_book"
 # Background {#ch-background}
 
 <!-- Structure -->
-This chapter first motivates data visualization in general and the importance of interaction. Then we cover orthogonal and observation-based visuals before turning to dimension reduction, including a further discussion of tours. Then we turn to empirical evaluations of multivariate visuals. Lastly, it concludes with nonlinear models and extending their interpretation with local explanations.
+In the last chapter, we discussed the importance of data visualization despite the complexity of viewing high-dimensional data and outlined the questions we wish to address with the user-control of the radial tour. This chapter first motivates data visualization in general and the importance of interaction. Then we cover orthogonal and observation-liken visuals before turning to dimension reduction. We eventually turn to linear dimension reduction, including further discussion of tours. Then we discuss empirical evaluations of multivariate visuals. Lastly, it concludes with nonlinear models and extends their interpretation with local explanations.
+
 
 ## Motivation
 
 <!-- Better than numerical summarization alone -->
 Visualization is much more robust than numerical summarization alone [@anscombe_graphs_1973; @matejka_same_2017]. Several datasets have the same summary statistics in these studies yet contain obvious visual shapes that could go utterly unheeded if plotting is foregone. Figure \@ref(fig:ch2fig1) illustrates this, where data is allowed to drift toward different patterns provided that the mean and standard deviations stay within some tolerance of the original data.
 
-(ref:ch2fig1-cap) The datasaurus dozen is a modern data set illustrating Anscombe's point that summary statistics cannot always adequately summarize the content of data. Here different data patterns seen in the scatterplots shown have exactly the same summary statistics, which means that unless the data is plotted, one would never know that there were such radical differences.
+(ref:ch2fig1-cap) The datasaurus dozen is a modern data set illustrating Anscombe's point that summary statistics cannot always adequately summarize the content of data. The data patterns shown in the scatterplots have the same summary statistics. Unless the data is plotted, one would never know that there were such radical differences.
 ```{r ch2fig1, echo=F, out.width="100%", fig.cap = "(ref:ch2fig1-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig1_datasaurus.png")
 ```
 
 <!-- User interaction -->
-Human-Computer Interaction is the field of study that focuses on the interface between people and computing technology. It encompasses not only the computing resources and hardware input, but also, crucially, the human perception and conception. The term interaction covered a broad range of uses, purposes, and contexts making it overburdened and potentially ambiguous [@dimara_what_2019]. Interaction facilitates accessing increasing amounts of data and amplifies cognition through control and input. Interaction is known to be an essential aspect of modern data visualization [@batch_there_2019; @card_psychology_1983; @marriott_immersive_2018].
+Human-Computer Interaction is the field of study that focuses on the interface between people and computing technology. It encompasses not only the computing resources and hardware input, but also, crucially, the human perception and conception. The term interaction covered a broad range of uses, purposes, and contexts, making it overburdened and potentially ambiguous [@dimara_what_2019]. Interaction facilitates accessing increasing amounts of data and amplifies cognition through control and input. Interaction is known to be an essential aspect of modern data visualization [@batch_there_2019; @card_psychology_1983; @marriott_immersive_2018].
 
 <!-- Multivariate data vis interaction -->
 More narrowly, we focus on interactions common to quantitative multivariate data visualization. Linked brushing [@becker_brushing_1987] colors selected observations in one view or frame of an animation allowing selections to be tracked and correlated across other views and frames. Linked brushing has proved to be helpful in animated tours [@arms_benefits_1999; @laa_slice_2020; @lee_casting_2020]. Tooltip displays upon the cursor hovering over observations can also aid in point identification and displaying associated values.
 
 <!-- Coordinated and multiple views & ensemble graphics -->
-Any of the above interactions will help a single visual, but can result in increased effect when combined with coordinated and multiple views [@roberts_state_2007] (also known as ensemble graphics @unwin_ensemble_2018). These views use several types of visuals to connect observations giving a more comprehensive understanding than any one visual portrays.
+Any of the above interactions will help a single visual, but can result in an increased effect when combined with coordinated and multiple views [@roberts_state_2007] (also known as ensemble graphics @unwin_ensemble_2018). These views use several types of visuals to connect observations giving a more comprehensive understanding than anyone visual portrays.
 
 
 ## Multivariate vizualization
@@ -38,88 +39,91 @@ Before jumping into visualization, we cover the context of the data in mind. Con
 <!-- It is very busy and doesn't draw attention to any one spot. @munzner_visualization_2014 reminds us to abstract the cognitive work out of the visual, allowing the audience to focus on the evidence supporting the claim. -->
 
 <!-- Penguins data -->
-The work in @grinstein_high-dimensional_2002 and @liu_visualizing_2017 give a good overviews of multivariate visualization. Below covers a more guided discussion while we generally consider the question, "How can an analyst visualize arbitrary $p-$dimensions?". We continue to use the Palmer penguins data in illustrations. This data contains 333 observations of three penguin species across four physical measurements: bill length, bill depth, flipper length, and body mass. Observations were collected between 2007 and 2009 near Palmer Station, Antarctica. This is a good substitute for the over-used iris data.
+ @grinstein_high-dimensional_2002 illustrate many visualization methods in one piece, while @liu_visualizing_2017 give a good classification of subfield groupings. Below covers a more guided discussion while we generally consider the question, "How can an analyst visualize arbitrary $p-$dimensions?". We continue to use the Palmer penguins data in illustrations. This data contains 333 observations of three penguin species across four physical measurements: bill length, bill depth, flipper length, and body mass. Observations were collected between 2007 and 2009 near Palmer Station, Antarctica. This is a good substitute for the over-used iris data.
 
 
 ### Scatterplot matrices
 
 <!-- SPLOM -->
-Following the thought from coordinated view an analyst could look at $p$-univariate histograms or density curves. Extending this, exhaustive pairs of variable could be viewed. Using all of these together brings us to scatterplot matrices, also known as SPLOM [@chambers_graphical_1983]. In a scatterplot matrix, variables are arranged across the columns and rows. The diagonal elements show univariate densities, while off-diagonal positions show scatterplot pairs, as Figure \@ref(fig:penguinsplom). This is useful for getting a handle on the range of the variables but is not going to scale well with dimension and is not a suitable audience-ready display.
+Following the thread of coordinated views, an analyst could look at $p$-univariate histograms or density curves. Extending this idea, exhaustive pairs of variable could be viewed. Using all of these together brings us to scatterplot matrices, also known as SPLOM [@chambers_graphical_1983]. In a scatterplot matrix, variables are arranged across the columns and rows. The diagonal elements show univariate densities, while off-diagonal positions show scatterplot pairs, as Figure \@ref(fig:penguinsplom). This is useful for getting a handle on the range of the variables but is not going to scale well with dimension and is not a suitable audience-ready display.
 
-(ref:penguinsplom-cap) Scatterplot matrix views univariate densities and all pairs of bivariate scatterplots. The panels show partial cluster separation indicating these variables contain some cluster discerning information. This approach is good for quickly exploring the range of the data, but will not resolve features in more than two dimension. This is a good exploratory visual but does not scale well with the number of variables.
+(ref:penguinsplom-cap) Scatterplot matrix views univariate densities and all pairs of bivariate scatterplots. The panels show partial cluster separation indicating these variables contain some cluster discerning information. This approach is good for quickly exploring the range of the data but will not resolve features in more than two dimensions. This is a good exploratory visual but does not scale well with the number of variables.
 ```{r penguinsplom, echo=F, out.width="100%", fig.cap = "(ref:penguinsplom-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig2_penguin_splom.pdf")
 ```
 
 <!-- scaling with n -->
-Alternatively, as $n$ increases, scatterplots displays suffer from dense points start to occlude each other. This is typically addressed in a few ways. One method would decrease points' opacity, allowing more layers to be seen. Less interestingly, visualization can be performed on a representative subset of the data. Another would change the geometric display to an aggregated heatmap or 2D density contours. These aggregations typically render faster and scale better with increasing observations. Moreover, these methods to alleviate observation density work more generally on any scatterplot display.
+Alternatively, as $n$ increases, scatterplots displays suffer from dense points that start to occlude each other. This is typically addressed in a few ways. One method would decrease points' opacity, allowing more layers to be seen. Less interestingly, visualization can be performed on a representative subset of the data. Another would change the geometric display to an aggregated heatmap or 2D density contours. These aggregations typically render faster and scale better with increasing observations. Moreover, these methods to alleviate observation density generally work on any scatterplot display (illustrated in Figure \@ref(fig:ch2fig5)).
 
 
 ### Parallel coordinate plots
 
 <!-- PCP -->
-Alternatively, we could consider a class of observation-based visuals. In parallel coordinate plots [@ocagne_coordonnees_1885], variables are arranged horizontally, and lines connect observations after being transformed to a common scale quantile or z-value (standard deviations away from the mean). Figure \@ref(fig:penguinpcp) illustrates this method. This scales much better with dimensions but poorly with observations. It also suffers from an asymmetry with the variable order. That is, changing the order of the variables will lead people to very different conclusions. The x-axis is also used to display variables rather than the values of the observations. This restricts the amount of information that can be interpreted between variables. Munzner asserts that position is the more human-perceptible channel for encoding information; we should prefer to reserve it for the values of the observations rather distinguishing variables.
+Alternatively, we could consider a class of observation-based visuals. In parallel coordinate plots [@ocagne_coordonnees_1885], variables are arranged horizontally, and lines connect observations after being transformed to a common scale quantile or z-value (standard deviations away from the mean). Figure \@ref(fig:penguinpcp) illustrates this method. This scales much better with dimensions but poorly with observations. It also suffers from an asymmetry with the variable order. That is, changing the order of the variables will lead people to very different conclusions. The x-axis is also used to display variables rather than the values of the observations. This restricts the amount of information that can be interpreted between variables. Munzner asserts that position is the more human-perceptible channel for encoding information; we should prefer to reserve it for the values of the observations rather than distinguishing variables.
 
-(ref:penguinpcp-cap) Parallel coordinate plots put variables on a common scale and position them side-by-side with lines connecting observations. Some variation between the clusters can be seen. This approach scales relatively well with the number of variables, but poorly with the number of observations. It is more difficult to perceive summary statistics (correlation for example) and suffers from asymmetry with the order of variable. That is, changing the order of the variables can result in different interpretation. Further, the perception channel of position is used for distinguishing between variables rather than values within the variable.
+(ref:penguinpcp-cap) Parallel coordinate plots put variables on a common scale and position them side-by-side with lines connecting observations. Some variation between the clusters can be seen. This approach scales relatively well with the number of variables but poorly with the number of observations. It is more difficult to perceive summary statistics (correlation, for example) and suffers from asymmetry with the order of variables. Changing the order of the variables can result in
+different interpretations. Further, the perception channel of position is used for distinguishing between variables rather than values within the variable.
 ```{r penguinpcp, echo=F, out.width="100%", fig.cap = "(ref:penguinpcp-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig3_penguin_pcp.pdf")
 ```
 
 <!-- Observation based visuals and scaling -->
-The same issues persist across other displays that separate observations by position creating $n$ glyph visuals. Examples of these include star plots [@chambers_graphical_1983], pixel-based visuals [@keim_designing_2000], and Chernoff faces [@chernoff_use_1973]. Parallel coordinate plots and these other visuals scale quite poorly observations, though they do scale well with variables. They mat be candidate visualizations for low $n$, high $p$ data.
+The same issues persist across other displays that separate observations by position, creating $n$ glyph visuals. Examples of these include star plots [@chambers_graphical_1983], pixel-based visuals [@keim_designing_2000], and Chernoff faces [@chernoff_use_1973]. Parallel coordinate plots and these other visuals scale quite poorly observations, though they scale well with variables. They maybe candidate visualizations for low $n$, high $p$ data.
 
 
 ### Dimension reduction
 
 <!-- Dimension reduction, linear and nonlinear -->
-Ultimately, we will need to turn to dimension reduction to visualize multivariate spaces. This uses a function to map $p$-spaces onto a lower $d$-dimensional space. Dimension reduction is separated into two categories, linear and nonlinear. The linear case spans all affine mathematical transformations, essentially mappings where parallel lines stay parallel. Nonlinear transformations complement the linear case, think transformations containing exponents or interacting terms. Examples in low dimensions are relatable. For instance, shadows are an example of linear projections where a 3-dimensional object casts a 2D projection, the shadow. Linear perspective drawings are an example. An example of a nonlinear transformation is that of 2D maps of the globe. The most common may be Mercator projection, a rectangular display where the area is proportionally distorted with the distance away from the equator [@snyder_map_1987]. Other distortions are created when the surface is unwrapped into an elongated ellipse. Yet others create non-continuous gaps on land or oceans to minimize the distortion of targeted areas. @wikipedia_list_2021 lists over 75 different projections to distort the surface to display as a map, each with their unique properties distorting the 3D surface.
+Ultimately, we will need to turn to dimension reduction to visualize multivariate spaces. This uses a function to map $p$-spaces onto a lower $d$-dimensional space. Dimension reduction is separated into two categories, linear and nonlinear. The linear case spans all affine mathematical transformations, essentially mappings where parallel lines stay parallel. Nonlinear transformations complement the linear case, think transformations containing exponents or interacting terms. Examples in low dimensions are relatable. For instance, shadows are an example of linear projections where a 3-dimensional object casts a 2D projection, the shadow. Linear perspective drawings are an example. An example of a nonlinear transformation is that of 2D maps of the globe. The most common maybe the Mercator projection, a rectangular display where the area is proportionally distorted with the distance away from the equator [@snyder_map_1987]. Other distortions are created when the surface is unwrapped into an elongated ellipse. Yet others create non-continuous gaps on land or oceans to minimize the distortion of targeted areas. @wikipedia_list_2021 lists over 75 different projections to distort the surface to display as a map, each with their unique properties distorting the 3D surface.
 
 <!-- Nonlinear hyperparameters -->
-Nonlinear techniques often have hyperparameters, which are inputs that affect how the spaces are distorted to fit into fewer dimensions. Various computational quality metrics, such as Trustworthiness, Continuity, Normalized stress, and Average local error, describe the distortion of the space [@espadoto_toward_2021; @gracia_new_2016; @van_der_maaten_dimensionality_2009; @venna_visualizing_2006]. To quote @panagiotelis_manifold_2020, "All nonlinear projections are wrong, but some are useful", a play on George Box's quote about models ("All _models_ are wrong, but some are useful", @box_science_1976). The distortions are hard to interpret and, thus, hard to communicate.
+Nonlinear techniques often have hyperparameters (absent from linear methods). Hyperparameters are inputs that affect how the spaces are distorted to fit into fewer dimensions. Various computational quality metrics, such as Trustworthiness, Continuity, Normalized stress, and Average local error, describe the distortion of the space [@espadoto_toward_2021; @gracia_new_2016; @van_der_maaten_dimensionality_2009; @venna_visualizing_2006]. To quote @panagiotelis_manifold_2020, "All nonlinear projections are wrong, but some are useful", a play on George Box's quote about models ("All _models_ are wrong, but some are useful", @box_science_1976). The distortions are hard to interpret and, thus, hard to communicate.
 
 <!-- Dealing with hyper parameters & Sticking with linear approaches -->
-Opinions differ on how to best deal with hyperparameters. @probst_hyperparameters_2019 discusses tuning strategies. Others compare implementation defaults [@gijsbers_meta_2021; @pfisterer_learning_2021]. @probst_tunability_2019 looks at the sensitivity of hyperparmeters to the performance of a model. Automated machine learning takes a programatic approach to hyperparameter tuning [@feurer_efficient_2015; @hutter_automated_2019; @yao_taking_2019]. Due to the difficulty to interpret and communicate nonlinear mappings and the added subjectivity of the hyperparameter selection this thesis continues with linear techniques.
+Opinions differ on how to best deal with hyperparameters. @probst_hyperparameters_2019 discusses tuning strategies. Others compare implementation defaults [@gijsbers_meta_2021; @pfisterer_learning_2021]. @probst_tunability_2019 look at the sensitivity of hyperparmeters to the performance of a model. Automated machine learning takes a programmatic approach to hyperparameter tuning [@feurer_efficient_2015; @hutter_automated_2019; @yao_taking_2019]. Due to the difficulty of interpreting and communicating nonlinear mappings and the added subjectivity of hyperparameter selection, this thesis continues with linear techniques.
 <!-- Moreover, nonlinear dimension reduction can introduce features not in the data depending on the selection of hyperparameters. Then plausibly, the presence of structure in a nonlinear model is necessary but not sufficient to conclude the existence of a structure in the data. -->
 
->>> Is this the best spot for free lunch comment? IDD builds off of this, but feels like it belongs at the end of this supersection.
+
+<!-- >>> _XXX: Is this the best spot for free lunch comment? IDD builds off of this but feels like it belongs at the end of this supersection._ -->
 
 <!-- No free lunch trade off -->
-Unfortunately, there is no free lunch here. An increase in the original data dimensions will lead to a $p-d$-dimensional viewing space in the linear case or an increasingly perturbed and distorted space in nonlinear techniques. Neither is a panacea for visualizing multivariate spaces. However, we will continue with only linear projections due to the opaque distortions of nonlinear methods.
+Unfortunately, there is no free lunch here. An increase in the original data dimensions will lead to exponentially larger viewing space in the linear case or an exponentially perturbed and distorted space in nonlinear techniques. Neither is a panacea for visualizing multivariate spaces. However, we will continue with only linear projections due to the opaque distortions of nonlinear methods.
 
 
-### Intrinic data dimensionality
+### Intrinsic data dimensionality
 
 <!-- Intrinsic data dimensionality -->
 The intrinsic dimensionality of data is the number of variables needed to minimally represent the data [@grinstein_high-dimensional_2002]. Intrinsic data dimensionality is an essential aspect of dimension reduction that does not have to end in visual but is also a standard part of factor analysis and preprocessing data. Consider a Psychology survey consisting of 100 questions about the Big Five personality traits. The data consists of 100 response variables, while the theory would suggest the intrinsic dimensionality is five. Regardless, reducing the disparity of these volumes would be necessary to gate the exponentially increasing space to view.
 
 
-<!-- ### Linear projections <<??>>  -->
+## Linear projections
 
->> Segue to PCA better; section on linear projections? common processing embedding.
+Linear projections map or embed a higher $p$-dimensional space onto a smaller $d$-space with an affine mapping (essentially parallel lines stay parallel). A projection is determined by the data multiplied by a basis $Y_{n \times d} = X_{n \times p} \cdot A_{p \times d}$. This basis is an orthonormal matrix that explains the orientation and size of the variable that contribute to the resulting space. This basis is often illustrated as a biplot [@gabriel_biplot_1971], where variable contributions are inscribed in a unit circle showing the direction and the magnitude that they contribution to the resulting space.
 
 <!-- PCA -->
-One example of linear projections is that of principal component analysis [PCA, @pearson_liii._1901], which creates a component space ordered by descending variation. It uses eigenvalue decomposition to identify the basis reorientation. These components are typically viewed as discrete orthogonal pairs, commonly approximated in fewer components than the original dimensionality. <!--The exact number of components to keep is subjective, but typically guided by use of a screeplot [@cattell_scree_1966]. Scree plots which illustrate the decreasing variation contained in subseqanty components. The analyst then identifies an elbow in this plot;--> This is commonly used in preprocessing and model initialization step when there are many more variables than the intrinsic data dimensionality, such as the Big Five personality example. These reduced spaces can be interpreted as the original variables, albeit with the added abstraction of another linear mapping.
+A common linear projection is principal component analysis [PCA, @pearson_liii._1901], which creates a component space ordered by descending variation. It uses eigenvalue decomposition to identify the basis reorientation. These components are typically viewed as discrete orthogonal pairs, commonly approximated in fewer components than the original dimensionality. The exact number of components to keep is subjective but typically guided by the use of a screeplot [@cattell_scree_1966]. Scree plots illustrate the decreasing variation contained in subsequent components. The analyst then identifies an elbow in this plot. This is also commonly used in preprocessing and model initialization when there are many more variables than the intrinsic data dimensionality, such as the Big Five personality example. These reduced spaces can be interpreted as the original variables, albeit with the added abstraction of another linear mapping.
 
 
 ### Tours, animated linear projections {#sec:tour}
 
 <!-- Segue from barstool -->
-In one static linear projection let, $Y_{nxd} = X_{nxp} \cdot A_{pxd}$ be the embedding of the data mapped by the basis $A$, where $d<p$. In contrast to one such projection, a data visualization tour animates many such projections through small changes in the basis. In the shadow analogy, structural features of an object are gained by watching its shadow change due to its rotation. An analyst similarly gains information about the data object by watching continuous changes to the basis (the orientation of the data). There are various types of tours that are classified by the generation of their basis paths. We enumerate a few related to this work. A more comprehensive discussion and review of tours can be found in the works of @cook_grand_2008 and @lee_state_2021.
-
-<!-- Grand tour -->
-Originally in a _grand_ tour [@asimov_grand_1985], several target frames are randomly selected. Figure \@ref(fig:ch2fig4) illustrates six frames from a grand tour. The grand tour is good for EDA in that it will show frames with widely varying contributions but lacks a destination, objective function, or means of steering.
-
-(ref:ch2fig4-cap) Frames from a grand tour. Biplots (grey circles) illustrate the direction and magnitude that variables contribute. Target bases are selected randomly in the grand tour. Tours animate linear projections over small changes in the basis. The observation permanence between frames is an essential distinction in tours. An animation can be viewed at [vimeo.com/676723441](https://vimeo.com/676723441).
-```{r ch2fig4, echo=F, out.width="100%", fig.cap = "(ref:ch2fig4-cap)"}
-nsSafeIncGraphic("./figures/ch2_fig4_penguin_grandtour.png")
-```
+In one static linear projection, the resulting projection is defined by one basis. In contrast to one such projection, a data visualization tour animates many such projections through small changes in the basis. In the shadow analogy, structural features of an object is gained by watching its shadow change due to its rotation. An analyst similarly gains information about the data object by watching continuous changes to the basis (the orientation of the data). There are various types of tours that are classified by the generation of their basis paths. We enumerate a few related to this work. A more comprehensive discussion and review of tours can be found in the works of @cook_grand_2008 and @lee_state_2021.
 
 <!-- Interpolation frames -->
 Regardless of the type of tour target basis identified, tours must interpolate frames between distant generated target bases. This interpolation is performed on the geodesic path of the bases. Geodesic refers to the shortest path (on a $p$-sphere of possible bases). This ends up being slightly curved in 2D representation in the same way that flight paths appear curved on 2D representations of the globe. The interpolated frames at small enough angles is essential for the trackability of observations between frames.
 
->>> XXX: need to add section about radial tour here
+<!-- Grand tour -->
+Originally in a _grand_ tour [@asimov_grand_1985], several target frames are randomly selected. Figure \@ref(fig:ch2fig4) illustrates six frames from a grand tour. The grand tour is good for EDA in that it will show frames with widely varying contributions but lacks a destination, objective function, or means of steering.
 
-(ref:ch2fig5-cap) Radial tour across three geometric displays. The contribution of `bl` is being removed from the frame and with it the separation between the orange and green clusters is also removed. Changing to density contours or hexagonal heatmap display are common ways to mitigate occlusion caused by dense observations. Heatmap display does not perform well with supervised cluster separation, but can useful to see other structure in dense data.
+(ref:ch2fig4-cap) Frames from a grand tour. Biplots (grey circles) illustrate the direction and magnitude that variables contribute. In the grand tour, target bases are selected randomly. Tours animate linear projections over small changes in the basis. The observation permanence between frames is an essential distinction in tours. An animation can be viewed at [vimeo.com/676723441](https://vimeo.com/676723441).
+```{r ch2fig4, echo=F, out.width="100%", fig.cap = "(ref:ch2fig4-cap)"}
+nsSafeIncGraphic("./figures/ch2_fig4_penguin_grandtour.png")
+```
+
+<!-- manual tour -->
+The grand tour has no input or control over the bases selected. In contrast, the _manual tour_ [@cook_manual_1997] allows the analyst to change the contribution of a selected variable. It does so by initializing a manipulation dimension on a 1- or 2D projection which can then be rotated to alter the contributions of that projection. This work focuses on the _radial tour_ sub-variant, where the angle of contribution is fixed and the magnitude of contribution along the radius it controlled. Figure \@ref(fig:ch2fig5) illustrates the same radial tour shown in the previous chapter across three geometric displays. The use of density contours and aggregated heatmap displays is useful to mitigate the occlusion of dense observations and is compatible with any bivariate scatterplot display.
+
+(ref:ch2fig5-cap) Radial tour across three geometric displays. The contribution of `bl` is being removed from the frame and with it the separation between the orange and green clusters is also removed. Changing to density contours or hexagonal heatmap display are common ways to mitigate occlusion caused by dense observations. Heatmap display does not perform well with supervised cluster separation, but can be useful to see structure in dense data.
 ```{r ch2fig5, echo=F, out.width="100%", fig.cap = "(ref:ch2fig5-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig5_penguin_manualtour_geoms.pdf")
 ```
@@ -127,26 +131,26 @@ nsSafeIncGraphic("./figures/ch2_fig5_penguin_manualtour_geoms.pdf")
 
 ## Evaluating multivariate data visualization
 
+<!-- Examples, surveys, and evaluations -->
+@grinstein_high-dimensional_2002 provide collected illustrations from many visualization methods. While @liu_visualizing_2017 provide a good classification of visualization techniques. Definitions and survey of quality metrics is given in @bertini_quality_2011. The latest, most comprehensive empirical evaluations are given in [@espadoto_toward_2021; @nonato_multidimensional_2018]. While the former studies include discussion of tours, they are absent from empirical evaluations.
+
 <!-- 2D vs D3, mostly PCA reduced -->
-@gracia_new_2016 conducted an $n=40$ user study comparing between 2D and 3D scatterplots on traditional 2D monitors. Participants perform point classification, distance perception, and outlier identification tasks. The results are mixed and mostly small differences. There is some evidence to suggest a lower error in distance perception from 3D scatterplot. @wagner_filho_immersive_2018 performed an $n=30$ within participants using scatterplot display between 2D, 3D displays on monitors and 3D display with a head-mounted display on PCA reduced spaces. None of the tasks on any dataset lead to a significant difference in accuracy. However, the immersive display reduced effort and navigation while resulting in higher perceived accuracy and engagement. @sedlmair_empirical_2013 instead uses two expert coders to evaluate 75 datasets and four dimension reduction techniques for 2D scatterplots, interactive 3D scatterplots, and 2D scatterplot matrices. They suggest a tiered guidance approach finding that 2D scatterplots are often 'good enough'. If not, try 2D scatterplots on a different dimension reduction technique before going to scatterplot matrix display or concluding a true negative. They find that interactive 3D scatterplots help in very few cases.
+@gracia_new_2016 conducted an $n=40$ user study comparing between 2D and 3D scatterplots on traditional 2D monitors. Participants perform point classification, distance perception, and outlier identification tasks. The results are mixed and primarily have small differences. There is some evidence to suggest a lower error in distance perception from 3D scatterplot. @wagner_filho_immersive_2018 performed an $n=30$ within participants using scatterplot display between 2D, 3D displays on monitors and 3D display with a head-mounted display on PCA reduced spaces. None of the tasks on any dataset lead to a significant difference in accuracy. However, the immersive display reduced effort and navigation while resulting in higher perceived accuracy and engagement. @sedlmair_empirical_2013 instead uses two expert coders to evaluate 75 datasets and four dimension reduction techniques for 2D scatterplots, interactive 3D scatterplots, and 2D scatterplot matrices. They suggest a tiered guidance approach finding that 2D scatterplots are often 'good enough' to resolve a feature. If not, try 2D scatterplots on a different dimension reduction technique before going to scatterplot matrix display or concluding a true negative. They find that interactive 3D scatterplots help in very few cases.
 
 <!-- Nonlinear DR quality review -->
-Empirical studies scarcely compare tours. However, @nelson_xgobi_1999 compare scatterplots of grand tours on 2D monitor with 3D (stereoscopic, not head-mounted) over $n=15$ participants. Participants perform clusters detection, dimensionality and radial sparseness tasks on six dimensional data. They find that stereoscopic 3D leads to more accuracy in the cluster identification, though interaction time was much increased in the in 3D case. In chapter Chapter \@ref(ch-userstudy), we extend the evaluation of tours which novelly compares the radial tour as benchmarked against the grand tour and discrete pairs of principal components.
+Empirical studies scarcely compare tours. However, @nelson_xgobi_1999 compare scatterplots of grand tours on a 2D monitor with 3D (stereoscopic, not head-mounted) over $n=15$ participants. Participants perform clusters detection, dimensionality, and radial sparseness tasks on six-dimensional data. They find that stereoscopic 3D leads to more accuracy in the cluster identification, though interaction time much increased in the 3D case. In chapter Chapter \@ref(ch-userstudy), we extend the evaluation of tours which novelly compares the radial tour as benchmarked against the grand tour and discrete pairs of principal components.
 
 
 ## Black-box models 
 
-
-
 <!-- Introduce explanatory vs predictive modeling -->
-There are different reasons and emphases to fit a model. @breiman_statistical_2001, reiterated by @shmueli_explain_2010, taxonomize modeling based on its purpose; _explanatory_ modeling is done for some inferential purpose, while _predictive_ modeling focuses more narrowly on the performance of some objective function. The intended use has important implications for model selection and development. In explanatory modeling, interpretability is vital for drawing inferential conclusions. While the use of black-box models is almost exclusively used in predictive modeling. However, the prevalence of nonlinear models is not without controversy [@oneil_weapons_2016; @kodiyan_overview_2019], and the loss of interpretation presents a challenge.
+There are different reasons and emphases to fit a model. @breiman_statistical_2001, reiterated by @shmueli_explain_2010, taxonomize modeling based on its purpose; _explanatory_ modeling is done for some inferential purpose, while _predictive_ modeling focuses more narrowly on the performance of some objective function. The intended use has important implications for model selection and development. In explanatory modeling, interpretability is vital for drawing inferential conclusions. While use of black-box models is almost exclusively used in predictive modeling. However, the prevalence of nonlinear models is not without controversy [@oneil_weapons_2016; @kodiyan_overview_2019], and the loss of interpretation presents a challenge.
 
 <!-- Interpretability & baises -->
-Interpretability is vital for exploring and protecting against potential biases (e.g., sex  -- @dastin_amazon_2018; @duffy_apple_2019, race -- @larson_how_2016, and age  -- @diaz_addressing_2018) in any model. For instance, models regularly pick up on biases in the training data that have observed influence on the response (output) feature, which is then built into the model. Variable-level (feature-level) interpretability of models is essential in evaluating such biases.
-<!-- Even if the optimization of an objective function is the primary concern, stakeholders, litigators, and opponents would rightly ask for the variable interpretability. -->
+Interpretability is vital for exploring and protecting against potential biases (e.g., sex  -- @dastin_amazon_2018; @duffy_apple_2019, race -- @larson_how_2016, and age  -- @diaz_addressing_2018) in any model. For instance, models regularly pick up on biases in the training data that have observed influence on the response (output) feature, which is then built into the model. Variable-level (feature-level) interpretability of models is essential in evaluating such biases.<!-- Even if the optimization of an objective function is the primary concern, stakeholders, litigators, and opponents would rightly ask for the variable interpretability. -->
 
 <!-- Interpretability & data drift -->
-Another concern is data drift, where a shift in support or domain of the explanatory variables (features or predictors). Nonlinear models are typically more sensitive and do not extrapolate well outside the support of the training data. Maintaining variable  interpretability is similarly essential to address issues arising from data drift.
+Another concern is data drift, where a shift in the range of the explanatory variables (features or predictors). Nonlinear models are typically more sensitive and do not extrapolate well outside the support of the training data. Maintaining variable  interpretability is similarly essential to address issues arising from data drift.
 
 
 ## Local explanations {#sec:explanations}
@@ -157,7 +161,7 @@ Explainable Artificial Intelligence (XAI) is an emerging field of research that 
 <!-- Reminder of local explanation -->
 Consider a highly nonlinear model. It can be hard to determine whether small changes in a variable's value will make a class prediction change group or identify which variables contribute to an extreme residual. Local explanations shed light on these situations by approximating linear variable's importance in the vicinity of a single observation. Figure \@ref(fig:ch2fig6) motivates local explanations where the analyst wants to know the variable attribution for a particular observation close to the classification boundary in a nonlinear model.
 
-(ref:ch2fig6-cap) Illustration of a nonlinear classification model. An analyst may want to know the variable importance at the vicinity of the highlighted red cross. Knowing this attribution elucidates how the variable influence this point that is precariously close to the classification boundary. Local explanations approximate this linear attribution in the vicinity of one observation. Figure from @ribeiro_why_2016.
+(ref:ch2fig6-cap) Illustration of a nonlinear classification model. An analyst may want to know the variable importance at the vicinity of the highlighted red cross. Understanding this attribution elucidates how the variable influence this point that is precariously close to the classification boundary. Local explanations approximate this linear attribution in the vicinity of one observation. Figure from @ribeiro_why_2016.
 ```{r ch2fig6, echo=F, out.width="50%", fig.cap = "(ref:ch2fig6-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig6_ribeiro16fig.PNG")
 ```
@@ -166,23 +170,17 @@ nsSafeIncGraphic("./figures/ch2_fig6_ribeiro16fig.PNG")
 A comprehensive summary of the taxonomy and literature of explanation techniques is provided in Figure 6 of @arrieta_explainable_2020. It includes a large number of model-specific explanations such as deepLIFT [@shrikumar_not_2016; @shrikumar_learning_2017], a popular recursive method for estimating importance in neural networks. There are fewer model-agnostic explanations, of which LIME, [@ribeiro_why_2016] SHAP, [@lundberg_unified_2017], and their variants are popular.
 
 <!-- Uses of local explanations -->
-These observation-level explanations are used in various ways depending on the context. In image classification, a saliency map  indicate important pixels for the resulting classification [@simonyan_deep_2014]. For example, snow is regularly highlighted when distinguishing if a picture contains a wolf or husky [@besse_can_2019]. In text analysis, word-level contextual sentiment analysis can be used to highlight the sentiment and magnitude of influential words [@vanni_textual_2018]. In the case of numeric regression, they are used to explain variable additive contributions from the observed mean to the observation's prediction [@ribeiro_why_2016].
+These observation-level explanations are used in various ways depending on the context. In image classification, a saliency map indicate important pixels for the resulting classification [@simonyan_deep_2014]. For example, snow is regularly highlighted when distinguishing if a picture contains a wolf or husky [@besse_can_2019]. In text analysis, word-level contextual sentiment analysis can be used to highlight the sentiment and magnitude of influential words [@vanni_textual_2018]. In the case of numeric regression, they are used to explain variable additive contributions from the observed mean to the observation's prediction [@ribeiro_why_2016].
 
 
-## Conlusion
-
->>> XXX: Need to write background conclusion
+## Conclusion
 
 <!-- Circle back around to higher level -->
-
 <!-- Research gap; absence of tours, linear projection comparisons,  -->
-
 <!-- Reference to further chapters -->
 
+<!-- Motivation -->
+We have discussed the motivation to extend data visualization as dimensionality increases and the importance of user interaction. We discussed several visuals before turning to linear dimension reduction. Empirical evaluations, black-box models, and their local explanations were discussed. There is an absence of studies comparing animated tours with alternative visualization. XAI and extending the interpretability of black-box models are sought-after.
 
->>> XXX Move these kinds of comments (whats upcoming) to end of background
+In the following chapters, we address the three stated research questions, respectively. Chapter \@ref(ch-spinifex) discusses the implementation of a package that facilitates the creation radial tours and extends the display and exporting of tours in general. Chapter \@ref(ch-userstudy) covers the first user-study evaluating the radial tour compared with two common alternatives. Chapter \@ref(ch-cheem), introduces a novel analysis that explores local explanations of nonlinear models with the radial tour.
 
-The novel user-steering of the projection basis in the radial tour is the primary feature of interest to discern in the user study conducted in Chapter \@ref(ch-userstudy).
-
-<!-- reason for discussing nonlinear models -->
-In Chapter \@ref(ch-cheem), we turn our attention to predictive modeling, the loss of variable-level interpretability  of the nonlinear models, and a method to maintain model transparency, local explanations.

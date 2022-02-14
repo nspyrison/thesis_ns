@@ -1,5 +1,5 @@
 ---
-title: 'Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of non-linear models'
+title: 'Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models'
 degreetype: 'Doctor of Philosophy'
 author: 'Nicholas S Spyrison'
 degrees: 'B.Sc. Statistics, Iowa State University'
