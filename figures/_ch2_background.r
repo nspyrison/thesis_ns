@@ -21,8 +21,8 @@ dino <- datasauRus::datasaurus_dozen %>%
   geom_point(size = .8) +
   facet_wrap(~dataset, nrow = 2) +
   labs(x=element_blank(), y=element_blank()) + theme_bw() +
-    theme(axis.ticks = element_blank(),
-          axis.text = element_blank(),
+    theme(axis.ticks    = element_blank(),
+          axis.text     = element_blank(),
           panel.border  = element_rect(size = .4, color = "grey60", fill = NA),
           legend.margin = margin(0,0,0,0),
           plot.margin   = margin(0,0,0,0)
@@ -43,7 +43,7 @@ gg <- GGally::ggpairs(X, upper = "blank",
   scale_fill_brewer(palette = "Dark2") +
   theme(axis.text = element_blank(), axis.ticks = element_blank())
 ggsave("./figures/ch2_fig2_penguin_splom.pdf", gg, device = "pdf",
-       width = 4.2, height = 4.2, units = "in")
+       width = 6, height = 6, units = "in")
 
 ## Penguins PCP -----
 gg2 <- GGally::ggparcoord(
@@ -120,15 +120,15 @@ attr(bas_full, "manip_var") <-
 
 ## proto_point
 full_pt <- ggtour(bas_full, X, .3) +
-  proto_point(list(color = Y, shape = Y), list(size = .6)) +
+  proto_point(list(color = Y, shape = Y), list(size = 1, alpha = .45)) +
   proto_basis(line_size = .6) + proto_origin() + .t +
-  theme(legend.position = "off") + ylab("Points")
+  theme(legend.position = "off") + ylab("Points,\nreduced oppacity")
 half_pt <- ggtour(bas_half, X, .3) +
-  proto_point(list(color = Y, shape = Y), list(size = .6)) +
+  proto_point(list(color = Y, shape = Y), list(size = 1, alpha = .45)) +
   proto_basis(line_size = .6) + proto_origin() + .t +
   theme(legend.position = "off")
 zero_pt <- ggtour(bas_zero, X, .3) +
-  proto_point(list(color = Y, shape = Y), list(size = .6)) +
+  proto_point(list(color = Y, shape = Y), list(size = 1, alpha = .45)) +
   proto_basis(line_size = .6) + proto_origin() + .t +
   theme(legend.position = "off")
 

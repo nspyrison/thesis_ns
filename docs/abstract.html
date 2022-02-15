@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Abstract | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models</title>
-  <meta name="description" content="Abstract | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models" />
+  <title>Abstract | Interactive and dynamic visualization of high-dimensional data via animated linear projections</title>
+  <meta name="description" content="Abstract | Interactive and dynamic visualization of high-dimensional data via animated linear projections" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Abstract | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models" />
+  <meta property="og:title" content="Abstract | Interactive and dynamic visualization of high-dimensional data via animated linear projections" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Abstract | Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models" />
+  <meta name="twitter:title" content="Abstract | Interactive and dynamic visualization of high-dimensional data via animated linear projections" />
   
   
   
@@ -174,7 +174,7 @@ div.csl-indent {
 <li class="chapter" data-level="2" data-path="2-ch-background.html"><a href="2-ch-background.html"><i class="fa fa-check"></i><b>2</b> Background</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="2-ch-background.html"><a href="2-ch-background.html#motivation"><i class="fa fa-check"></i><b>2.1</b> Motivation</a></li>
-<li class="chapter" data-level="2.2" data-path="2-ch-background.html"><a href="2-ch-background.html#multivariate-vizualization"><i class="fa fa-check"></i><b>2.2</b> Multivariate vizualization</a></li>
+<li class="chapter" data-level="2.2" data-path="2-ch-background.html"><a href="2-ch-background.html#multivariate-visualization"><i class="fa fa-check"></i><b>2.2</b> Multivariate visualization</a></li>
 <li class="chapter" data-level="2.3" data-path="2-ch-background.html"><a href="2-ch-background.html#linear-projections"><i class="fa fa-check"></i><b>2.3</b> Linear projections</a></li>
 <li class="chapter" data-level="2.4" data-path="2-ch-background.html"><a href="2-ch-background.html#evaluating-multivariate-data-visualization"><i class="fa fa-check"></i><b>2.4</b> Evaluating multivariate data visualization</a></li>
 <li class="chapter" data-level="2.5" data-path="2-ch-background.html"><a href="2-ch-background.html#black-box-models"><i class="fa fa-check"></i><b>2.5</b> Black-box models</a></li>
@@ -207,7 +207,8 @@ div.csl-indent {
 <li class="chapter" data-level="6" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#contributions-1"><i class="fa fa-check"></i><b>6.1</b> Contributions</a></li>
-<li class="chapter" data-level="6.2" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#limitations-and-future-work"><i class="fa fa-check"></i><b>6.2</b> Limitations and future work</a></li>
+<li class="chapter" data-level="6.2" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#limitations"><i class="fa fa-check"></i><b>6.2</b> Limitations</a></li>
+<li class="chapter" data-level="6.3" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#future-work"><i class="fa fa-check"></i><b>6.3</b> Future work</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a>
 <ul>
@@ -228,7 +229,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Interactive and dynamic visualization of high-dimensional data via animated linear projections, their efficacy, and their application to local explanations of nonlinear models</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Interactive and dynamic visualization of high-dimensional data via animated linear projections</a>
           </h1>
         </div>
 
@@ -241,11 +242,11 @@ div.csl-indent {
 <!-- EDA, motivation, linear projections, tours -->
 <p>Visualizing data space is a crucial aspect of exploratory data analysis, checking assumptions, and validating model performance. However, visualization quickly becomes complex as the dimensionality of the data or features increases. Traditionally, linear projections have viewed discrete pairs of components to mitigate this complexity. Data visualization <em>tours</em> are a class of dynamic linear projections that animate many linear projections over small changes to the projection basis. The permanence of observations between nearby frames potentially conveys more information than discrete orthogonal frames alone.</p>
 <!-- manual tours and spinifex -->
-<p>Tours are categorized by the path of their bases. <em>Manual tours</em> uniquely allow for user-controlled steering of a path of bases, where the contributions of individual variables can be changed. The <em>radial tour</em> is a specific case of the manual tour, that freezes the angle of movement but allows the magnitude to be varied. This is used in the work reported here. Chapter <a href="3-ch-spinifex.html#ch-spinifex">3</a> defines and clarifies the theoretical basis of the radial tour. The details of implementation and illustration of its use are provided. It introduces an open-source <strong>R</strong> package, that facilitates creating these tours with a variety of display choices and user controls. <!--An interactive application, vignettes, and example code illustrate the use of the radial tour.--></p>
+<p>Tours are categorized by the path of their bases. <em>Manual tours</em> uniquely allow for user-controlled steering of a path of bases, where the contributions of individual variables can be changed. The <em>radial tour</em> is a specific case of the manual tour, that freezes the angle of movement but allows the magnitude to be varied. This is used in the work reported here. Chapter <a href="3-ch-spinifex.html#ch-spinifex">3</a> clarifies the theoretical basis of the radial tour. The details of implementation and illustration of its use are provided. It introduces an open-source <strong>R</strong> package, that facilitates creating these tours with a variety of display choices and user controls. <!--An interactive application, vignettes, and example code illustrate the use of the radial tour.--></p>
 <!-- user study -->
 <p>Allowing the analyst to steer a path in the radial tour should enable a better understanding of the variable importance to any structure revealed in a projection. Chapter <a href="4-ch-userstudy.html#ch-userstudy">4</a> discusses a within-participant user study comparing the radial tour with current practices: principal component analysis (PCA) and the original type of tour that has no steering. The <span class="math inline">\(n=108\)</span> crowdsourced participants performed a variable attribution task describing the separation between clusters. The results find that the radial tour lead to more accurate variable attribution. Participants also reported that the radial tour was their preferred visualization method.</p>
 <!-- cheem -->
-<p>Nonlinear modeling techniques are sometimes referred to as black-box models due to the uninterpretable nature of model terms. Recent research in Explainable Artificial Intelligence (XAI) tries to bring these models interpretability through <em>local explanations</em>. Local explanations are a class of techniques that approximate the linear-variable importance for prediction at one point in the data. Chapter <a href="5-ch-cheem.html#ch-cheem">5</a> provides a new approach for exploring the variable sensitivity of local explanations using radial tour. Local explanations can be considered projection bases. The radial tour is used to vary the contribution of an feature to assess the importance that feature for any particular prediction. This is illustrated using four contemporary data examples covering classification and regression. An accompanying <strong>R</strong> package provides a graphical user interface (GUI) for conducting this analysis.</p>
+<p>Nonlinear modeling techniques are sometimes referred to as black-box models due to the uninterpretable nature of the model terms. Recent research in Explainable Artificial Intelligence (XAI) tries to bring these models interpretability through <em>local explanations</em>. Local explanations are a class of techniques that approximate the linear-variable importance for prediction at one point in the data. Chapter <a href="5-ch-cheem.html#ch-cheem">5</a> provides a new approach for exploring the variable sensitivity of local explanations using radial tour. Local explanations can be considered projection bases. The radial tour is used to vary the contribution of an feature to assess the importance that feature for any particular prediction. This is illustrated using four contemporary data examples covering classification and regression. An accompanying <strong>R</strong> package provides a graphical user interface (GUI) for conducting this analysis.</p>
 <!-- The following line is required to re-set page numbering after preliminary material. Do not remove -->
 
 <!-- 
@@ -267,8 +268,8 @@ I have renumbered and updated sections of the published paper to generate a cons
 In addition to the research discussed in the thesis, other notable contributions during my candidature include:
 
 - _The state-of-the-art on tours for dynamic visualization of high-dimensional data_ [@lee_state_2021]. A WIREs Computational Statistics Review of current tour methods. I contributed writing and visuals  discussing manual tours.
-- _"Is IEEE VIS that good?" On key factors in the initial assessment of manuscript and venue quality_ [@spyrison_is_2021]. A survey IEEE VIS authors, how they source articles, decide which to read, and evaluate venue quality. We find low evidence that sentiment changes across academic positions for these topics and provide commentary and discussion on the effects of "publish or perish" environment, standard author and journal metrics, and the need to publish "null" findings and replication studies.
-- _Intraday effect of COVID-19 restrictions on Melbourne electricity consumption_ [@barrow_changes_2020]. We corroborate that the Victorian interday effect on energy consumption did not change and novelly find that the intraday distribution of energy consumption does change. Namely, we find a statistically significant change in the height of the morning and evening peak, energy consumption that we posit is due to less strict schedules associated with working from home, absence of commute time, and other employment changes. We were awarded 1st place of hundreds of entries in the insights category of the Melbourne 2020 Datathon.
+- _"Is IEEE VIS that good?" On key factors in the initial assessment of manuscript and venue quality_ [@spyrison_is_2021]. A survey IEEE VIS authors, how they source articles, decide which to read, and evaluate venue quality. We find low evidence that sentiment changes across academic positions for these topics and provide discussion on the effects of "publish or perish" environment, standard author and journal metrics, and difficulty in publishing "null" findings and replication studies.
+- _Intraday effect of COVID-19 restrictions on Melbourne electricity consumption_ [@barrow_changes_2020]. We corroborate that the Victorian interday effect on energy consumption did not change but novelly find that the _intraday_ distribution of energy consumption does change. Namely, we find a statistically significant change in the height of the morning and evening peak energy consumption. We posit this is due to less strict schedules associated with working from home, absence of commute time, and other employment changes. We were awarded 1st place of hundreds of entries in the insights category of the Melbourne 2020 Datathon.
 <!-- - Student volunteering at three conferences: UseR!2021 - Online, CHI Down Under 2020 - Online, and UseR!2018 - Brisbane, Australia. -->
 <p> Nicholas Spyrison</p>
 <p></p>
