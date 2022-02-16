@@ -94,7 +94,7 @@ interactive systems simpler.
     - Creation of supervised classification task to assess the variable attribution to the separation of two clusters.
     - As tested over experimental factors: location, shape, and dimensionality.
     - Definition of an accuracy measure to evaluate this task.
-    - Results: strong evidence that the radial tour increases the accuracy of this task by a sizable amount and minor evidence to suggest a moderate increase in accuracy of the grand tour over Principal Component Analysis (PCA).
+    - Results: strong evidence that the radial tour increases the accuracy of this task by a sizable amount and minor evidence to suggest a moderate increase in accuracy of the grand tour over PCA.
     - Mixed model regression helps to attribution the source of the error accounting for the variability of participant's skills and the difficulty of the simulation by chance. 
 - A novel interactive visualization using the radial tour to explore the variable sensitivity of local explanations from nonlinear models, part of XAI.
     - A global view approximates the variable space, attribution space, and model information side-by-side serves to identify a primary observation of interest.
@@ -123,4 +123,4 @@ interactive systems simpler.
 
 ## Thesis structure
 
-The remainder of the thesis is organized as follows: Chapter \@ref(ch-background) covers various visualizing techniques before introducing related studies and nonlinear models and their interpretability issues. Chapter \@ref(ch-spinifex) discusses the theory and implementation of the manual tour and radial tours in the package __spinifex__. Chapter \@ref(ch-userstudy) discusses a user study evaluating the radial tour's efficacy compared with PCA and the grand tour. Chapter \@ref(ch-cheem) discusses the __cheem__ package which extends the use of radial tours to improve the interpretability of nonlinear models. Lastly, Chapter \@ref(ch-conclusion) concludes with some takeaways and a discussion of limitations and possible extensions.
+The remainder of the thesis is organized as follows: Chapter \@ref(ch-background) covers various visualizing techniques before introducing related studies and nonlinear models and their interpretability issues. Chapter \@ref(ch-spinifex) discusses the theory and implementation of the radial tours in the package __spinifex__. Chapter \@ref(ch-userstudy) discusses a user study evaluating the radial tour's efficacy compared with PCA and the grand tour. Chapter \@ref(ch-cheem) discusses the __cheem__ package which extends the use of radial tours to improve the interpretability of nonlinear models. Lastly, Chapter \@ref(ch-conclusion) concludes with some takeaways and a discussion of limitations and possible extensions.

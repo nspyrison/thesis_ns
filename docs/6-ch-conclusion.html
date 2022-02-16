@@ -177,7 +177,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.2" data-path="2-ch-background.html"><a href="2-ch-background.html#multivariate-visualization"><i class="fa fa-check"></i><b>2.2</b> Multivariate visualization</a></li>
 <li class="chapter" data-level="2.3" data-path="2-ch-background.html"><a href="2-ch-background.html#linear-projections"><i class="fa fa-check"></i><b>2.3</b> Linear projections</a></li>
 <li class="chapter" data-level="2.4" data-path="2-ch-background.html"><a href="2-ch-background.html#evaluating-multivariate-data-visualization"><i class="fa fa-check"></i><b>2.4</b> Evaluating multivariate data visualization</a></li>
-<li class="chapter" data-level="2.5" data-path="2-ch-background.html"><a href="2-ch-background.html#black-box-models"><i class="fa fa-check"></i><b>2.5</b> Black-box models</a></li>
+<li class="chapter" data-level="2.5" data-path="2-ch-background.html"><a href="2-ch-background.html#nonlinear-models"><i class="fa fa-check"></i><b>2.5</b> Nonlinear models</a></li>
 <li class="chapter" data-level="2.6" data-path="2-ch-background.html"><a href="2-ch-background.html#sec:explanations"><i class="fa fa-check"></i><b>2.6</b> Local explanations</a></li>
 <li class="chapter" data-level="2.7" data-path="2-ch-background.html"><a href="2-ch-background.html#conclusion"><i class="fa fa-check"></i><b>2.7</b> Conclusion</a></li>
 </ul></li>
@@ -277,56 +277,61 @@ div.csl-indent {
 </div>
 <div id="limitations" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Limitations</h2>
-<!-- d>2 case under supported -->
-<p>The <strong>spinifex</strong> package is built around one and two-dimensional manual tours. The layered composition of tours is interoperable with <span class="math inline">\(d \in [1, 2]\)</span> tours produced with <strong>tourr</strong>. However, non-manual tours can easily increase the embedded dimensionality. As such, <span class="math inline">\(d&gt;2\)</span> tours are under-supported in the layered composition.</p>
-<!-- Manual tours -->
-<p>In contrast, extending the projection space of the manual tour to 3D would require an additional manipulation angle. This would be rotated in a 4D manipulation space.</p>
-</div>
-<div id="future-work" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Future work</h2>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>Break apart into two sections: limitations and future work
-scope: mostly scatterplot display, modest dimensionality</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<!-- geom/protos for d>2 -->
-<p>Additional functions could be added to facilitate geometric display of parallel coordinate plots, glyph-based, and pixel-based visuals. These displays are potentially best used with data with relatively few observations and many variables.</p>
-<!-- 3D manual tour -->
-<p>Chapter <a href="3-ch-spinifex.html#ch-spinifex">3</a> included the scaffolding for this task. Namely, this would require applying another angle of rotation with Rodrigues’ rotation formula on the current 3D rotation matrix. Another display dimension may benefit the detection and understanding of the higher dimensional structure though the input of three angles may prove less natural and harder to capture.</p>
-<!-- Manipulating multiple variable -->
-<p>The manual tour only controls the contribution to one variable at a time. This can become cumbersome and time-consuming as dimensionality increases. In addition to the manual tour controlling the contribution of a single variable, it may be insightful to change the contributions of several variables at once (manipulating a linear combination). Alternatively, a sort of dimension reduction tour, appending several manual tours that sequentially zero the contributions of variables contributing less than some threshold, may prove to expedite analysis, especially for approaching a feature’s intrinsic dimensionality.</p>
-<!-- Layered tour composition -->
-<p>Setting aside the manual tour, there are several extensions to the layered composition of tours in <strong>spinifex</strong>, such as extending the type of geometric display functions available, such as adding a text table of the basis, convex hulls, alpha hulls, and a ‘high-density region’ display where the bulk of the data is shown as density contour, while the outermost observations are displayed as points <span class="citation">(<a href="bibliography.html#ref-hyndman_computing_1996" role="doc-biblioref">Hyndman 1996</a>)</span>.</p>
-<!-- Ink tank display -->
-<p>The radial tour’s current three segments (increase-decrease-increase of magnitude) takes a bit to unpack. It may be more approachable to directly relate the position of the slider to the magnitude of the manipulation variable. The display order of the manual tour could be changed to more of an “ink tank” display, where the first frame would contain zero variable contribution, and the last would have a complete contribution. The starting frame would be the original contribution that would also be exaggerated or annotated to reference against.</p>
-<!-- Sterescopic 3D & XR -->
-<p>It may be interesting to experience tours as 3D scatterplots in extended reality with stereoscopically true head tracking may be fruitful. <span class="citation"><a href="bibliography.html#ref-nelson_xgobi_1999" role="doc-biblioref">Nelson, Cook, and Cruz-Neira</a> (<a href="bibliography.html#ref-nelson_xgobi_1999" role="doc-biblioref">1998</a>)</span> explore 2D tour is in virtual reality. Other works view 3D scatterplot tours on 2D displays <span class="citation">(<a href="bibliography.html#ref-yang_3d_1999" role="doc-biblioref">Yang 1999</a>, <a href="bibliography.html#ref-yang_interactive_2000" role="doc-biblioref">2000</a>)</span>. It would be interesting to see modern implementations using WebGL, Mozilla A-frame, or Unity. One concern would be keeping hardware and software as generalized as possible.</p>
-<!-- User study -->
-<p>Besides changing the support of the experimental factors to the user study, it would be more interesting to try different tasks or compare other visualization techniques. The discussed user study crowdsourced participants with little exposure to linear projections. It would be interesting to compare the results from more familiar and experienced participants.</p>
-<blockquote>
-<blockquote>
-<ul>
-<li>Pedagogical side of manual tours for newcomers.</li>
-</ul>
-</blockquote>
-</blockquote>
-<!-- cheem, and model/explantion types -->
+<p>Below a number of limitations with this work are covered in chapter order. The following section will echo with possible directions to address these limitations.</p>
+<!-- Manual tours in 1- & 2D -->
+<p>Manual tours (and radial tour) are limited in a number of ways. For instance, the work currently lists rotation matrices for 1 and 2D manual tours.<!-- only 1var at a time--> Another limitation is that they only change one variable at a time. This can be cumbersome and timely if many variable need to be zeroed changed in order.<!-- Ink tank display --> The radial tour’s plays in three segments (full contribution-no contribution-initial contribution) takes a bit to unpack. It may be more approachable to directly relate the fraction of the slider to the magnitude of the variables contributions.</p>
+<!-- >> 8_Pedagogical side of manual tours for newcomers; not on limitation side, mention more on the future work side. -->
+<!-- __spinifex, layered composition -->
+<!-- 4_Layered tour composition -->
+<p>Setting aside the manual tour, there are several extensions to the layered composition of tours in <strong>spinifex</strong>, such as extending the type of geometric display. Because the manual tour is currently defined for <span class="math inline">\(d \in [1,2]\)</span> projections the geometric display for <span class="math inline">\(d&gt;2\)</span> <strong>tourr</strong>-made tours is under-supported.<!-- 5_Sterescopic 3D & XR --> Most tour implementations are made with 2D monitors in mind.</p>
+<!-- 6_User study -->
+<p>The user sturdy evaluating the radial tour has a number of intrinsic limitations. It only considered discrete 2d PCA, grand tour, and the manual tour for supervised cluster separation for various levels of experimental factors effecting the data.</p>
+<!-- 9_cheem, and model/explantion types -->
 <p>The outlined cheem analysis can be generally applied models and local explanations. The package <strong>cheem</strong> currently calculates tree SHAP for tree-based models supported by <strong>treeshap</strong>. This could be generalized more broadly to other models and local explanations. Those facilitated by <code>DALEX::explain()</code> seems to be an excellent direction to extend <span class="citation">(<a href="bibliography.html#ref-biecek_dalex_2018" role="doc-biblioref">Biecek 2018</a>; <a href="bibliography.html#ref-biecek_explanatory_2021" role="doc-biblioref">Biecek and Burzykowski 2021</a>)</span>. However, processing runtime would quickly become a formidable obstacle. Alternatively, other statistics may better show the structure identified by explanations.</p>
 <blockquote>
 <blockquote>
-<p>Extending explanations and a user study</p>
+<p>10_Extending explanations and a user study</p>
 </blockquote>
 </blockquote>
-<!-- cheem, scope/context of data -->
+<!-- 11_cheem, scope/context of data -->
 <p>In <strong>cheem</strong>, we had focused primarily on continuous numeric predictors. Perhaps this analysis could be extended to image, text, or time series analysis. The presence of covariates in these cases may prove essential to having meaningful variable importance to test variable sensitivity of the structure of the explanation.</p>
-<!-- XXX TODO: keep doing grep searches for broken links and references '??', '-cap', '00', 'ref' -->
-<!-- XXX TODO: keep doing astrogrep paper, convert to chapter or equiv -->
-<!-- XXX TODO: Does Cheem chapter still use intance/feature over observation/variable? -->
+</div>
+<div id="future-work" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Future work</h2>
+<p>This section purposes possible directions to address or mitigate the limitations outlined above.</p>
+<!-- __Manual tours -->
+<!-- 1_3D manual tour -->
+<p>Chapter <a href="3-ch-spinifex.html#ch-spinifex">3</a> included the scaffolding for this task. Namely, this would require applying another angle of rotation with Rodrigues’ rotation formula on the current 3D rotation matrix. Another display dimension may benefit the detection and understanding of the higher dimensional structure though the input of three angles may prove less natural and harder to capture.</p>
+<!-- 2_Manipulating multiple variables -->
+<p>In addition to the manual tour controlling the contribution of a single variable, it may be insightful to change the contributions of several variables at once (manipulating a linear combination). Alternatively, a sort of dimension reduction tour, appending several manual tours that sequentially zero the contributions of variables contributing less than some threshold, may prove to expedite analysis, especially for approaching a feature’s intrinsic dimensionality.</p>
+<!-- 3_Ink tank display -->
+<p>The radial tour’s current three segments (increase-decrease-increase of magnitude) takes a bit to unpack. It may be more approachable to directly relate the position of the slider to the magnitude of the manipulation variable. The display order of the manual tour could be changed to more of an “ink tank” display, where the first frame would contain zero variable contribution, and the last would have a complete contribution. The starting frame would be the original contribution that would also be exaggerated or annotated to reference against.</p>
+<!-- __spinifex, layered composisition -->
+<!-- 4_geom/protos for d>2 -->
+<p>Additional functions could be added to facilitate geometric display of parallel coordinate plots, glyph-based, and pixel-based visuals. These displays are potentially best used with data with relatively few observations and many variables.</p>
+<!-- 5_Layered tour composition -->
+<p>Setting aside the manual tour, there are several extensions to the layered composition of tours in <strong>spinifex</strong>, such as extending the type of geometric display functions available, such as adding a text table of the basis, convex hulls, alpha hulls, and a ‘high-density region’ display where the bulk of the data is shown as density contour, while the outermost observations are displayed as points <span class="citation">(<a href="bibliography.html#ref-hyndman_computing_1996" role="doc-biblioref">Hyndman 1996</a>)</span>.</p>
+<blockquote>
+<blockquote>
+<p>6_Pedagogical side of manual tours for newcomers.</p>
+</blockquote>
+</blockquote>
+<p><!-- 7_Sterescopic 3D & XR -->
+It may be interesting to experience tours as 3D scatterplots in extended reality with stereoscopically true head tracking may be fruitful. <span class="citation"><a href="bibliography.html#ref-nelson_xgobi_1999" role="doc-biblioref">Nelson, Cook, and Cruz-Neira</a> (<a href="bibliography.html#ref-nelson_xgobi_1999" role="doc-biblioref">1998</a>)</span> explore 2D tours in virtual reality. Other works view 3D scatterplot tours on 2D displays <span class="citation">(<a href="bibliography.html#ref-yang_3d_1999" role="doc-biblioref">Yang 1999</a>, <a href="bibliography.html#ref-yang_interactive_2000" role="doc-biblioref">2000</a>)</span>. It would be interesting to see modern implementations using WebGL, Mozilla A-frame, or Unity. One concern would be keeping hardware and software as generalized as possible.</p>
+<!-- 8_User study -->
+<p>Besides changing the support of the experimental factors to the user study, it would be more interesting to try different tasks or compare other visualization techniques. The discussed user study crowdsourced participants with little exposure to linear projections. It would be interesting to compare the results from more familiar and experienced participants.</p>
+<!-- 9_cheem, and model/explantion types -->
+<p>The outlined cheem analysis can be generally applied models and local explanations. The package <strong>cheem</strong> currently calculates tree SHAP for tree-based models supported by <strong>treeshap</strong>. This could be generalized more broadly to other models and local explanations. Those facilitated by <code>DALEX::explain()</code> seems to be an excellent direction to extend <span class="citation">(<a href="bibliography.html#ref-biecek_dalex_2018" role="doc-biblioref">Biecek 2018</a>; <a href="bibliography.html#ref-biecek_explanatory_2021" role="doc-biblioref">Biecek and Burzykowski 2021</a>)</span>. However, processing runtime would quickly become a formidable obstacle. Alternatively, other statistics may better show the structure identified by explanations.</p>
+<blockquote>
+<blockquote>
+<p>10_Extending explanations and a user study</p>
+</blockquote>
+</blockquote>
+<!-- 11_cheem, scope/context of data -->
+<p>In <strong>cheem</strong>, we had focused primarily on continuous numeric predictors. Perhaps this analysis could be extended to image, text, or time series analysis. The presence of covariates in these cases may prove essential to having meaningful variable importance to test variable sensitivity of the structure of the explanation.</p>
+<!-- XXX TODO: more grep searches for broken stuff '??', '-cap', '00', 'ref' -->
+<!-- XXX TODO: more astrogrep 'paper', convert to chapter or equiv -->
+<!-- XXX TODO: Does Cheem chapter still use instance/feature over observation/variable? -->
 
 </div>
 </div>
