@@ -114,9 +114,9 @@ interactive systems simpler.
     - Vignettes and code examples help users get up to speed.
     - Introduces an interactive application to preprocess data and explore. Users can choose from six supplied datasets or upload their own.
 - __cheem__, an __R__ package that facilitates the exploration of local explanations of nonlinear models through the use of the radial tour.
-    - Preprocessing: given a tree-based model, calculate the tree SHAP local explanation [via __treeshap__ @kominsarczyk_treeshap_2021] of all observations, and find statistics to accent the separability of this space.
+    - Preprocessing: given a tree-based model, calculate the tree SHAP local explanation [via __treeshap__, @kominsarczyk_treeshap_2021] of all observations, and find statistics to accent the separability of this space.
     - Visualization of approximations of the data space, attribution space, and model residual information side-by-side with linked brushing, hover tooltips, and tabular display facilitates the selection of observations to explore.
-    - Use of the radial tour varies variable contribution to test the support of the variable contribution in agreement with the explanation.
+    - Use of the radial tour changes variable contribution to test the support of the variable contribution in agreement with the explanation.
     - Interactive application facilitates this analysis for several prepared datasets or user preprocessed data.
     - A vignette and code examples help users get up to speed.
 

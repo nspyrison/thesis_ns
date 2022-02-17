@@ -194,8 +194,6 @@ div.csl-indent {
 <li class="chapter" data-level="4.1" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:userstudy"><i class="fa fa-check"></i><b>4.1</b> User study</a></li>
 <li class="chapter" data-level="4.2" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:results"><i class="fa fa-check"></i><b>4.2</b> Results</a></li>
 <li class="chapter" data-level="4.3" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:conclusion"><i class="fa fa-check"></i><b>4.3</b> Conclusion</a></li>
-<li class="chapter" data-level="4.4" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:spinifex"><i class="fa fa-check"></i><b>4.4</b> Accompanying tool: radial tour application</a></li>
-<li class="chapter" data-level="4.5" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:appendix"><i class="fa fa-check"></i><b>4.5</b> Extended analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html"><i class="fa fa-check"></i><b>5</b> Exploring Local Explanations of Nonlinear Models Using the Radial tour</a>
 <ul>
@@ -212,9 +210,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#sec-glossary"><i class="fa fa-check"></i><b>7.1</b> Glossary</a></li>
-<li class="chapter" data-level="7.2" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#animated-tour-links"><i class="fa fa-check"></i><b>7.2</b> Animated tour links</a></li>
-<li class="chapter" data-level="7.3" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#supplementary-material"><i class="fa fa-check"></i><b>7.3</b> Supplementary material</a></li>
+<li class="chapter" data-level="7.1" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#sec:spinifex"><i class="fa fa-check"></i><b>7.1</b> Accompanying tool: radial tour application</a></li>
+<li class="chapter" data-level="7.2" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#sec:appendix"><i class="fa fa-check"></i><b>7.2</b> User study extended analysis</a></li>
+<li class="chapter" data-level="7.3" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#sec-glossary"><i class="fa fa-check"></i><b>7.3</b> Glossary</a></li>
+<li class="chapter" data-level="7.4" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#animated-tour-links"><i class="fa fa-check"></i><b>7.4</b> Animated tour links</a></li>
+<li class="chapter" data-level="7.5" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#supplementary-material"><i class="fa fa-check"></i><b>7.5</b> Supplementary material</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 <li class="divider"></li>
@@ -239,12 +239,555 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="ch-appendix" class="section level1" number="7">
 <h1><span class="header-section-number">Chapter 7</span> Appendix</h1>
-<!-- !!!LATEX TABLES WILL NOT WORK IN HTML, need conditional kbl formating... -->
-<div id="sec-glossary" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Glossary</h2>
+<!-- Does something for LaTeX output -->
+<div id="sec:spinifex" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Accompanying tool: radial tour application</h2>
+<p>An accompanying application illustrates the radial tour. The <strong>R</strong> package, <strong>spinifex</strong>, <span class="citation">(<a href="bibliography.html#ref-spyrison_spinifex_2020" role="doc-biblioref">Spyrison and Cook 2020</a>)</span> is an open-source and now contains a <strong>shiny</strong> <span class="citation">(<a href="bibliography.html#ref-chang_shiny_2021" role="doc-biblioref">Chang et al. 2021</a>)</span> application allowing users to apply various preprocessing tasks and interactively explore their data via interactive radial tour. Example datasets are provided with the ability to upload data. The <code>html</code> widget produced is a more interactive variant relative to the one used in the user study. Screen captures and more details are provided in the appendix. Run the following <strong>R</strong> code will run the application locally.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="7-ch-appendix.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Download:</span></span>
+<span id="cb5-2"><a href="7-ch-appendix.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;spinifex&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-3"><a href="7-ch-appendix.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Run interactive app demonstrating the radial tour:</span></span>
+<span id="cb5-4"><a href="7-ch-appendix.html#cb5-4" aria-hidden="true" tabindex="-1"></a>spinifex<span class="sc">::</span><span class="fu">run_app</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:radialTourAppPg1"></span>
+<img src="figures/ch4_zapp_fig4_app_pg1.PNG" alt="Process data tab, interactively loads or select data, check which variables to project, and optionally scale columns by standard deviation." width="100%"  />
+<p class="caption">
+Figure 7.1: Process data tab, interactively loads or select data, check which variables to project, and optionally scale columns by standard deviation.
+</p>
+</div>
+<p>In the initial tab, Figure <a href="7-ch-appendix.html#fig:radialTourAppPg1">7.1</a>, users upload their own (.csv, .rds, or .rda) data or select from predefined data sets. The numeric columns appear as a list of variables to include in the projection. Below that, a line displays whether or not missing rows were removed. Scaling by standard deviation is included by default, as this is a common transformation used to explore linear projections of spaces. Summaries of the raw data and processed numeric data are displayed to illustrate how the data was read and its transformation.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:radialTourAppPg2"></span>
+<img src="figures/ch4_zapp_fig5_app_pg2.PNG" alt="Radial tour tab, interactively create radial tours, changing the manipulation variable, color, or shape of the resulting manual tour. Here, the palmer penguins data is being explored, bill length was selected to manipulate as it is the only variable separating the green cluster from the orange. By mapping shape to island of observation, the green species can be noted to live on all three islands, while the other species live on only one island." width="100%"  />
+<p class="caption">
+Figure 7.2: Radial tour tab, interactively create radial tours, changing the manipulation variable, color, or shape of the resulting manual tour. Here, the palmer penguins data is being explored, bill length was selected to manipulate as it is the only variable separating the green cluster from the orange. By mapping shape to island of observation, the green species can be noted to live on all three islands, while the other species live on only one island.
+</p>
+</div>
+<p>The second tab, Figure <a href="7-ch-appendix.html#fig:radialTourAppPg2">7.2</a> contains interaction for selecting the manipulation variable, and non-numeric columns can be used to change the color and shape of the data points in the projection. The radial tour is created in real-time, animated as an interactive <strong>plotly</strong> <code>html</code> widget. The application offers users a fast, intuitive introduction elucidating what the radial tour does and some of the features offered.</p>
+</div>
+<div id="sec:appendix" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> User study extended analysis</h2>
+<!-- segue to extended analysis -->
+<p>This section covers peripheral and extended analysis. First, the demographics of the participants is covered. Then a parallel modeling analysis on log response time is conducted. Lastly, the effect ranges and marginal effects of the random effect of the participants and data simulation are examined.</p>
+<div id="survey-participant-demographics" class="section level3 unnumbered">
+<h3>Survey participant demographics</h3>
+<p>The target population is relatively well-educated people, as linear projections may prove difficult for generalized consumption. Hence Prolific.co participants are restricted to those with an undergraduate degree (58,700 of the 150,400 users at the study time). From this cohort, 108 performed a complete study. Of these participants, 84 submitted the post-study survey, represented in the following heatmap. All participants were compensated for their time at 7.50 per hour, with a mean time of about 16 minutes. Figure <a href="7-ch-appendix.html#fig:figSurveyDemographics">7.3</a> shows a heat map of the demographics for these 84 participants.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figSurveyDemographics"></span>
+<img src="figures/ch4_zapp_fig1_survey_demograpics.png" alt="Heatmaps of survey participant demographics; counts of age group by completed education as faceted across preferred pronoun. Our sample tended to be between 18 and 35 years of age with an undergraduate or graduate degree." width="100%"  />
+<p class="caption">
+Figure 7.3: Heatmaps of survey participant demographics; counts of age group by completed education as faceted across preferred pronoun. Our sample tended to be between 18 and 35 years of age with an undergraduate or graduate degree.
+</p>
+</div>
+</div>
+<div id="response-time-regression" class="section level3" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Response time regression</h3>
+<!-- Time as secondary interest, Y2 -->
+<p>As a secondary explanatory variable response time is considered. Response time is first log transformed to remove its right skew. The same modeling procedure is repeated for this response. 1) Compare the performance of a battery of all additive and multiplicative models. Table <a href="7-ch-appendix.html#tab:timeCompTbl">7.1</a> shows the higher level performance of these models over increasing model complexity. 2) Select the model with the same effect terms, <span class="math inline">\(\alpha \cdot \beta + \gamma + \delta\)</span>, and examine its coefficients, displayed in Table <a href="7-ch-appendix.html#tab:timeCoefTbl">7.2</a>.</p>
+<!-- Y2 model comparisons, continue to use ABcd -->
 <table class=" lightable-classic" style="font-size: 12px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:glossary">Table 7.1: </span>Glossary of terms
+<span id="tab:timeCompTbl">Table 7.1: </span>Model performance regressing on log response time [seconds], <span class="math inline">\(\widehat{Y_2}\)</span> random effect models, where each includes random effect terms for participants and simulations. There is a simplar trade-off where AIC/BIC prefer the simplest factor model, while <span class="math inline">\(R^2\)</span> and RMSE are the largest in the full multiplicative model. The model <span class="math inline">\(\alpha \cdot \beta + \gamma + \delta\)</span> model is selected to examine further as it has relatively high marginal <span class="math inline">\(R^2\)</span> while having much less complexity than the complete interaction model. Conditional <span class="math inline">\(R^2\)</span> includes the random effects, while marginal does not.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Fixed effects
+</th>
+<th style="text-align:left;">
+No. levels
+</th>
+<th style="text-align:left;">
+No. terms
+</th>
+<th style="text-align:center;">
+AIC
+</th>
+<th style="text-align:center;">
+BIC
+</th>
+<th style="text-align:center;">
+R2 cond.
+</th>
+<th style="text-align:center;">
+R2 marg.
+</th>
+<th style="text-align:center;">
+RMSE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+a
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;1448&lt;/span&gt;</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;1475&lt;/span&gt;</span>
+</td>
+<td style="text-align:center;">
+0.645
+</td>
+<td style="text-align:center;">
+0.007
+</td>
+<td style="text-align:center;">
+0.553
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+a+b+c+d
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:center;">
+1467
+</td>
+<td style="text-align:center;">
+1516
+</td>
+<td style="text-align:center;">
+0.647
+</td>
+<td style="text-align:center;">
+0.017
+</td>
+<td style="text-align:center;">
+0.552
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+a*b+c+d
+</td>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:center;">
+1474
+</td>
+<td style="text-align:center;">
+1541
+</td>
+<td style="text-align:center;">
+0.656
+</td>
+<td style="text-align:center;">
+0.024
+</td>
+<td style="text-align:center;">
+0.548
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+a*b*c+d
+</td>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+28
+</td>
+<td style="text-align:center;">
+1488
+</td>
+<td style="text-align:center;">
+1627
+</td>
+<td style="text-align:center;">
+0.673
+</td>
+<td style="text-align:center;">
+0.054
+</td>
+<td style="text-align:center;">
+0.536
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+a*b*c*d
+</td>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+54
+</td>
+<td style="text-align:center;">
+1537
+</td>
+<td style="text-align:center;">
+1792
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;0.7&lt;/span&gt;</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;0.062&lt;/span&gt;</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;0.523&lt;/span&gt;</span>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Y2 coeffiecients -->
+<table class=" lightable-classic" style='font-size: 12px; font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<caption style="font-size: initial !important;">
+<span id="tab:timeCoefTbl">Table 7.2: </span>Model coefficients for log response time [seconds] <span class="math inline">\(\widehat{Y_2} = \alpha \cdot \beta + \gamma + \delta\)</span>, with factor = pca, location = 0/100%, shape = EEE, and dim = 4 held as baselines. Location = 50/50% is the fixed term with the strongest evidence and takes less time. In contrast, the interaction term location = 50/50%:shape = EEV has the most evidence and takes much longer on average.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+df
+</th>
+<th style="text-align:right;">
+t value
+</th>
+<th style="text-align:right;">
+Pr(&gt;|t|)
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+2.71
+</td>
+<td style="text-align:right;">
+0.14
+</td>
+<td style="text-align:right;">
+42.6
+</td>
+<td style="text-align:right;">
+19.06
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+<tr grouplength="2">
+<td colspan="7" style="border-bottom: 1px solid;">
+<strong>Factor</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Factorgrand
+</td>
+<td style="text-align:right;">
+-0.23
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:right;">
+567.6
+</td>
+<td style="text-align:right;">
+-1.97
+</td>
+<td style="text-align:right;">
+0.049
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Factorradial
+</td>
+<td style="text-align:right;">
+0.16
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:right;">
+573.5
+</td>
+<td style="text-align:right;">
+1.34
+</td>
+<td style="text-align:right;">
+0.181
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr grouplength="5">
+<td colspan="7" style="border-bottom: 1px solid;">
+<strong>Fixed effects</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Location33/66%
+</td>
+<td style="text-align:right;">
+0.05
+</td>
+<td style="text-align:right;">
+0.14
+</td>
+<td style="text-align:right;">
+40.9
+</td>
+<td style="text-align:right;">
+0.34
+</td>
+<td style="text-align:right;">
+0.737
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Location50/50%
+</td>
+<td style="text-align:right;">
+-0.05
+</td>
+<td style="text-align:right;">
+0.14
+</td>
+<td style="text-align:right;">
+42.1
+</td>
+<td style="text-align:right;">
+-0.35
+</td>
+<td style="text-align:right;">
+0.729
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+ShapeEEV
+</td>
+<td style="text-align:right;">
+-0.15
+</td>
+<td style="text-align:right;">
+0.09
+</td>
+<td style="text-align:right;">
+8.3
+</td>
+<td style="text-align:right;">
+-1.61
+</td>
+<td style="text-align:right;">
+0.145
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Shapebanana
+</td>
+<td style="text-align:right;">
+-0.13
+</td>
+<td style="text-align:right;">
+0.09
+</td>
+<td style="text-align:right;">
+8.3
+</td>
+<td style="text-align:right;">
+-1.42
+</td>
+<td style="text-align:right;">
+0.192
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Dim6
+</td>
+<td style="text-align:right;">
+0.14
+</td>
+<td style="text-align:right;">
+0.08
+</td>
+<td style="text-align:right;">
+8.3
+</td>
+<td style="text-align:right;">
+1.90
+</td>
+<td style="text-align:right;">
+0.093
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="7" style="border-bottom: 1px solid;">
+<strong>Interactions</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Factorgrand:Location33/66%
+</td>
+<td style="text-align:right;">
+0.24
+</td>
+<td style="text-align:right;">
+0.18
+</td>
+<td style="text-align:right;">
+580.9
+</td>
+<td style="text-align:right;">
+1.34
+</td>
+<td style="text-align:right;">
+0.181
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Factorradial:Location33/66%
+</td>
+<td style="text-align:right;">
+-0.24
+</td>
+<td style="text-align:right;">
+0.18
+</td>
+<td style="text-align:right;">
+582.4
+</td>
+<td style="text-align:right;">
+-1.32
+</td>
+<td style="text-align:right;">
+0.188
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Factorgrand:Location50/50%
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:right;">
+0.18
+</td>
+<td style="text-align:right;">
+578.6
+</td>
+<td style="text-align:right;">
+0.69
+</td>
+<td style="text-align:right;">
+0.491
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Factorradial:Location50/50%
+</td>
+<td style="text-align:right;">
+0.05
+</td>
+<td style="text-align:right;">
+0.18
+</td>
+<td style="text-align:right;">
+584.4
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+<td style="text-align:right;">
+0.800
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+<div id="random-effect-ranges" class="section level3 unnumbered">
+<h3>Random effect ranges</h3>
+<!-- Random effect terms specify source of the error -->
+<p>The random effect terms further clarify the source of the error. Below is a comparison the effect ranges attributed to the participant and to the simulations next to their marginal effect on the response, a sort of upper bound of the error they could explain. This was performed for the models regressing accuracy and then log response time.</p>
+<!-- Random effects vs Mean Mark CI by participant and sim -->
+<p>The residual plots have no noticeable nonlinear trends and contain striped patterns as an artifact from regressing on discrete variables. Figure <a href="7-ch-appendix.html#fig:figEffectRange">7.4</a> illustrates (T) the effect size of the random terms participant and simulation, or more accurately, the 95% CI from Gelman simulation of their posterior distribution. The effect size of the participant is much larger than simulation. The most extreme participants are statistically significant at <span class="math inline">\(\alpha = .95\)</span>, while none of the simulation effects significantly deviate from the null of having no effect size on the marks. In comparison, (B) 95% confidence intervals participation and simulation mean accuracy, respectively.</p>
+<p>Residual plots have no noticeable nonlinear trends and contain striped patterns as an artifact from regressing on discrete variables. Figure <a href="7-ch-appendix.html#fig:figEffectRange">7.4</a> illustrates (T) the effect size of the random terms participant and simulation, or more accurately, the 95% CI from Gelman simulation of their posterior distribution. The effect size of the participant is much larger than simulation. The most extreme participants are statistically significant at <span class="math inline">\(\alpha = .95\)</span>, while none of the simulation effects significantly deviate from the null of having no effect size on the marks. In comparison, (B) 95% confidence intervals participation and simulation mean accuracy, respectively.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figEffectRange"></span>
+<img src="figures/ch4_zapp_fig2_effect_range.png" alt="Accuracy model: (T) Estimated effect ranges of the random effect terms participant and data simulation of the accuracy model, $\widehat{Y_1} = \alpha \cdot \beta + \gamma + \delta$. Confidence intervals are created with Gelman simulation on the effect posterior distributions. The effect size of the participant is relatively large, with several significant extrema. None of the simulations deviate significantly. (B) The ordered distributions of the CI of mean marks follow the same general pattern and give the additional context of how much variation is in the data, an upper limit to the effect range. The effect ranges capture about two-thirds of the range of the data without the model. All intervals for $\alpha = .95$ confidence." width="100%"  />
+<p class="caption">
+Figure 7.4: Accuracy model: (T) Estimated effect ranges of the random effect terms participant and data simulation of the accuracy model, <span class="math inline">\(\widehat{Y_1} = \alpha \cdot \beta + \gamma + \delta\)</span>. Confidence intervals are created with Gelman simulation on the effect posterior distributions. The effect size of the participant is relatively large, with several significant extrema. None of the simulations deviate significantly. (B) The ordered distributions of the CI of mean marks follow the same general pattern and give the additional context of how much variation is in the data, an upper limit to the effect range. The effect ranges capture about two-thirds of the range of the data without the model. All intervals for <span class="math inline">\(\alpha = .95\)</span> confidence.
+</p>
+</div>
+<p>Similarly, figure <a href="7-ch-appendix.html#fig:figTeffectRange">7.5</a> shows the Gelman simulations and marginal effects of the simulation and participants for the model with the same terms regressing on log response time.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figTeffectRange"></span>
+<img src="figures/ch4_zapp_fig3_T_effect_range.png" alt="Log response time model: (T) The effect ranges of Gelman resimulation on posterior distributions for the time model, $\widehat{Y_2} = \alpha \cdot \beta + \gamma + \delta$. These show the magnitude and distributions of particular participants and simulations. Simulation has a relatively small effect on response time. (B) Confidence intervals for mean log time by participant and simulation. The marginal density shows that the response times are left-skewed after log transformation. Interpreting back to linear time there is quite the spread of response times: $e^{1} = 2.7$, $e^{2.75} = 15.6$, $e^{3.75} = 42.5$ seconds. Of the simulations on the right, the bottom has a large variation in response time, relative to the effect ranges which means that the variation is explained in the terms of the model and not by the simulation itself." width="100%"  />
+<p class="caption">
+Figure 7.5: Log response time model: (T) The effect ranges of Gelman resimulation on posterior distributions for the time model, <span class="math inline">\(\widehat{Y_2} = \alpha \cdot \beta + \gamma + \delta\)</span>. These show the magnitude and distributions of particular participants and simulations. Simulation has a relatively small effect on response time. (B) Confidence intervals for mean log time by participant and simulation. The marginal density shows that the response times are left-skewed after log transformation. Interpreting back to linear time there is quite the spread of response times: <span class="math inline">\(e^{1} = 2.7\)</span>, <span class="math inline">\(e^{2.75} = 15.6\)</span>, <span class="math inline">\(e^{3.75} = 42.5\)</span> seconds. Of the simulations on the right, the bottom has a large variation in response time, relative to the effect ranges which means that the variation is explained in the terms of the model and not by the simulation itself.
+</p>
+</div>
+<!-- !!!LATEX TABLES WILL NOT WORK IN HTML, need conditional kbl formating... -->
+</div>
+</div>
+<div id="sec-glossary" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Glossary</h2>
+<table class=" lightable-classic" style="font-size: 12px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:glossary">Table 7.3: </span>Glossary of terms
 </caption>
 <thead>
 <tr>
@@ -372,11 +915,11 @@ A model with numerous or interactive terms that cause an interpretabilty issue
 </tbody>
 </table>
 </div>
-<div id="animated-tour-links" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Animated tour links</h2>
+<div id="animated-tour-links" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Animated tour links</h2>
 <table class=" lightable-classic" style="font-size: 12px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:vimeolinks">Table 7.2: </span>Animated tour links in this thesis
+<span id="tab:vimeolinks">Table 7.4: </span>Animated tour links in this thesis
 </caption>
 <thead>
 <tr>
@@ -472,11 +1015,11 @@ cheem, ames housing 2018
 </tbody>
 </table>
 </div>
-<div id="supplementary-material" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Supplementary material</h2>
+<div id="supplementary-material" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Supplementary material</h2>
 <table class=" lightable-classic" style="font-size: 12px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:suppmats">Table 7.3: </span>Supplementary material
+<span id="tab:suppmats">Table 7.5: </span>Supplementary material
 </caption>
 <thead>
 <tr>

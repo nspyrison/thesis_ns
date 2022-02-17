@@ -194,8 +194,6 @@ div.csl-indent {
 <li class="chapter" data-level="4.1" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:userstudy"><i class="fa fa-check"></i><b>4.1</b> User study</a></li>
 <li class="chapter" data-level="4.2" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:results"><i class="fa fa-check"></i><b>4.2</b> Results</a></li>
 <li class="chapter" data-level="4.3" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:conclusion"><i class="fa fa-check"></i><b>4.3</b> Conclusion</a></li>
-<li class="chapter" data-level="4.4" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:spinifex"><i class="fa fa-check"></i><b>4.4</b> Accompanying tool: radial tour application</a></li>
-<li class="chapter" data-level="4.5" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:appendix"><i class="fa fa-check"></i><b>4.5</b> Extended analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html"><i class="fa fa-check"></i><b>5</b> Exploring Local Explanations of Nonlinear Models Using the Radial tour</a>
 <ul>
@@ -212,9 +210,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#sec-glossary"><i class="fa fa-check"></i><b>7.1</b> Glossary</a></li>
-<li class="chapter" data-level="7.2" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#animated-tour-links"><i class="fa fa-check"></i><b>7.2</b> Animated tour links</a></li>
-<li class="chapter" data-level="7.3" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#supplementary-material"><i class="fa fa-check"></i><b>7.3</b> Supplementary material</a></li>
+<li class="chapter" data-level="7.1" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#sec:spinifex"><i class="fa fa-check"></i><b>7.1</b> Accompanying tool: radial tour application</a></li>
+<li class="chapter" data-level="7.2" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#sec:appendix"><i class="fa fa-check"></i><b>7.2</b> User study extended analysis</a></li>
+<li class="chapter" data-level="7.3" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#sec-glossary"><i class="fa fa-check"></i><b>7.3</b> Glossary</a></li>
+<li class="chapter" data-level="7.4" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#animated-tour-links"><i class="fa fa-check"></i><b>7.4</b> Animated tour links</a></li>
+<li class="chapter" data-level="7.5" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#supplementary-material"><i class="fa fa-check"></i><b>7.5</b> Supplementary material</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 <li class="divider"></li>
@@ -240,11 +240,11 @@ div.csl-indent {
 <div id="ch-userstudy" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> A Study on the Benefit of a User-Controlled Radial Tour for Variable Importance for Structure in High-Dimensional Data</h1>
 <!-- Segue -->
-<p>The previous chapter introduced the package <strong>spinifex</strong> which gave us the means to perform radial tours. Now we have the means to perform radial tours, we want now investigate whether we should be confident that this method with user control will lead to better analysis than traditional alternatives. Therefore, this chapter discusses the user study to elucidate the efficacy of the radial tour.</p>
+<p>The previous chapter introduced the package <strong>spinifex</strong> which gave us the means to perform radial tours. There is no evidence to support that the user-controlled steering of the radial tour leads to better perception than traditional methods. Therefore, this chapter discusses the user study to elucidate the efficacy of the radial tour.</p>
 <!-- Abstract -->
-<p>In Chapters <a href="1-ch-introduction.html#ch-introduction">1</a> and <a href="2-ch-background.html#ch-background">2</a> have introduced PCA, the grand tour, and radial tour. This chapter describes a within-participants user study evaluating efficacy of these techniques. We devise a supervised classification task where participants evaluate variable attribution of the separation between two classes. We define an accuracy measure as the response variable. Data were collected from 108 crowdsourced participants, who performed two trials of each visual for 648 trials in total.</p>
+<p>In Chapters <a href="1-ch-introduction.html#ch-introduction">1</a> and <a href="2-ch-background.html#ch-background">2</a> have introduced PCA, the grand tour, and radial tour. This chapter describes a within-participants user study evaluating efficacy of these techniques. A supervised classification task is devised where participants evaluate variable attribution of the separation between two classes. An accuracy measure is defined to use as the response variable. Data were collected from 108 crowdsourced participants, who performed two trials of each visual for 648 trials in total.</p>
 <!-- thesis_ns introduction -->
-<p>The user influence over a basis, uniquely available in the radial tour, is crucial to testing variable sensitivity to the structure visible in projection. If the contribution of a variable is reduced and the feature disappears, then we say that the variable was sensitive to that structure. For example, Figure <a href="4-ch-userstudy.html#fig:figClSep">4.1</a> shows two frames of simulated data. Panel (a) has identified separation between the two clusters. The contributions in panel (b) show no such cluster separation. The former has a large contribution to V2 in the direction of separation, while it is negligible in the right frame. Because of this we say that V2 is sensitive to the separation of the clusters.</p>
+<p>The user influence over a basis, uniquely available in the radial tour, is crucial to testing variable sensitivity to the structure visible in projection. If the contribution of a variable is reduced and the feature disappears, then it is said that the variable is sensitive to that structure. For example, Figure <a href="4-ch-userstudy.html#fig:figClSep">4.1</a> shows two frames of simulated data. Panel (a) has identified separation between the two clusters. The contributions in panel (b) show no such cluster separation. The former has a large contribution to V2 in the direction of separation, while it is negligible in the right frame. Because of this it is said that V2 is sensitive to the separation of the clusters.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figClSep"></span>
 <img src="figures/ch4_fig1_cl_sep.pdf" alt="Illustration of cluster separation. Panel (a) shows clear separation in V2 and no separation in the direction of V3. While V1 and v4 have relatively small contributions to the frame. Panel (b) has a random basis with a minimal contribution from V2, and no separation between the cluster means is resolved." width="100%"  />
 <p class="caption">
@@ -254,7 +254,7 @@ Figure 4.1: Illustration of cluster separation. Panel (a) shows clear separation
 <!--- black-box models-->
 <p>Knowing which variables to use is also important for statistical modeling and their interpretations. Models are becoming increasingly complex, and the nonlinear interactions of the terms cause an opaqueness to model interpretability. Exploratory Artificial Intelligence <span class="citation">(XAI, <a href="bibliography.html#ref-adadi_peeking_2018" role="doc-biblioref">Adadi and Berrada 2018</a>; <a href="bibliography.html#ref-arrieta_explainable_2020" role="doc-biblioref">Arrieta et al. 2020</a>)</span> is an emerging field that extends the interpretability of such black-box models. Multivariate data visualization is essential for exploring features spaces and communicating interpretations of models <span class="citation">(<a href="bibliography.html#ref-biecek_dalex_2018" role="doc-biblioref">Biecek 2018</a>; <a href="bibliography.html#ref-biecek_explanatory_2021" role="doc-biblioref">Biecek and Burzykowski 2021</a>; <a href="bibliography.html#ref-wickham_visualizing_2015" role="doc-biblioref">Hadley Wickham, Cook, and Hofmann 2015</a>)</span>.</p>
 <!-- Structure of the paper -->
-<p>The chapter is structured as follows. Section <a href="4-ch-userstudy.html#sec:userstudy">4.1</a> describes the experimental factors, task, and accuracy measure used. The results of the study are discussed in Section <a href="4-ch-userstudy.html#sec:results">4.2</a>. Conclusions and potential future directions are discussed in Section <a href="4-ch-userstudy.html#sec:conclusion">4.3</a>. The software used for the study is described in Section <a href="4-ch-userstudy.html#sec:spinifex">4.4</a>.</p>
+<p>The chapter is structured as follows. Section <a href="4-ch-userstudy.html#sec:userstudy">4.1</a> describes the experimental factors, task, and accuracy measure used. The results of the study are discussed in Section <a href="4-ch-userstudy.html#sec:results">4.2</a>. Conclusions and potential future directions are discussed in Section <a href="4-ch-userstudy.html#sec:conclusion">4.3</a>. The software used for the study is described in Section <a href="7-ch-appendix.html#sec:spinifex">7.1</a>.</p>
 <div id="sec:userstudy" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> User study</h2>
 <!-- Overview of visual -->
@@ -262,18 +262,18 @@ Figure 4.1: Illustration of cluster separation. Panel (a) shows clear separation
 <div id="sec:objective" class="section level3" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> Objective</h3>
 <!-- Rational for factor levels -->
-<p>PCA will be used as a baseline for comparison as it is the most common linear embedding. The grand tour will act as a secondary control that will help evaluate the benefit of animation without influencing its path. Lastly, the radial tour should perform best as it benefits from animation and user control.</p>
+<p>PCA will be used as a baseline for comparison as it is the most commonly used linear embedding. The grand tour will act as a secondary control that will help evaluate the benefit of animation without influencing its path. Lastly, the radial tour should perform best as it benefits from animation and user control.</p>
 <!-- Prior expectations -->
-<p>Then for some subset of tasks, we expect to find that the radial tour performs most accurately. In the appendix, section <a href="4-ch-userstudy.html#sec:appendix">4.5</a>, we also regress on the last response time. Due to the absence of inputs, we expect the grand tour to perform faster than the alternatives since users can focus all of their attention on interpreting the fixed path. Conversely, we are less sure about the accuracy of such limited grand tours as there is no objective function in selecting the bases; it is possible that the random selection of the target bases altogether avoids bases showing cluster separation. However, given that the data dimensionality was modest, it seems plausible that the grand tour coincidentally regularly crossed frames with the correct information for the task.</p>
+<p>Then for some subset of tasks, we expect to find that the radial tour performs most accurately. In the appendix, section <a href="7-ch-appendix.html#sec:appendix">7.2</a>, regresses on the log response time. Due to the absence of inputs, the grand tour may lead to faster response time than the alternatives since users can focus all of their attention on interpreting the fixed path. Conversely, we are less sure about the accuracy of such limited grand tours as there is no objective function in selecting the bases; it is possible that the random selection of the target bases altogether avoids bases showing cluster separation. However, given that the data dimensionality was modest, it seems plausible that the grand tour coincidentally regularly crossed frames with the correct information for the task.</p>
 <!-- Explicit hypothesis tests -->
-<p>We measure the accuracy and response time over the support of the discussed experimental factors. The null hypothesis can be stated as:</p>
-<p><span class="math inline">\(~~~~H_0: \text{task accuracy does not change across visualization method} \\\)</span>
-<span class="math inline">\(~~~~~H_\alpha: \text{task accuracy does change across visualization method} \\\)</span></p>
+<p>An experimental factors and definition of an accuracy measure are given below. The null hypothesis can be stated as:</p>
+<p><span class="math inline">\(~~~~H_0: \text{accuracy does not change across visualization method} \\\)</span>
+<span class="math inline">\(~~~~~H_\alpha: \text{accuracy does change across visualization method} \\\)</span></p>
 </div>
 <div id="sec:expfactors" class="section level3" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Experimental factors</h3>
 <!-- Introduction to experimental factors -->
-<p>In addition to visual factor, we simulate the data across three aspects. First, the <em>location</em> of the difference between clusters by mixing a signal and a noise variable at different ratios, we vary the number of variables and their magnitude of cluster separation. Secondly, the <em>shape</em> of the clusters reflects varying distributions of the data. And third, the <em>dimension</em>-ality of the data. Below we describe the levels within each factor, while Figure <a href="4-ch-userstudy.html#fig:figExpFactors">4.2</a> gives a visual representation of the levels.</p>
+<p>In addition to visual factor, data are simulated across three aspects. First, the <em>location</em> of the separation between clusters by mixing a signal and a noise variable at different ratios. Secondly, the <em>shape</em> of the clusters reflects varying distributions of the data. And third, the <em>dimension</em>-ality of the data. The levels within each factors are described below and Figure <a href="4-ch-userstudy.html#fig:figExpFactors">4.2</a> gives a visual representation.</p>
 <!-- Illustration of experimental factors -->
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figExpFactors"></span>
 <img src="figures/ch4_fig3_exp_factors.png" alt="Illustration of the experimental factors, the parameter space of the independent variables, the support of our study." width="100%"  />
@@ -282,9 +282,9 @@ Figure 4.2: Illustration of the experimental factors, the parameter space of the
 </p>
 </div>
 <!-- Location mixing -->
-<p>The <em>location</em> of the separation of the clusters is at the heart of the measure. It would be good to test a few varying levels. To test the sensitivity, we mix a noise variable with the signal-containing variable. The difference in the clusters is mixed at the following percentages: 0/100% (not mixed), 33/66%, 50/50% (evenly mixed).</p>
+<p>The <em>location</em> of the separation of the clusters is at the heart of the measure. It would be good to test a few varying levels. To test the sensitivity, noise and signal-containing variables are mixed. The separation between clusters are mixed at the following percentages: 0/100% (not mixed), 33/66%, 50/50% (evenly mixed).</p>
 <!-- Shape, vc matrix -->
-<p>In selecting the <em>shape</em> of the clusters, we follow the convention given by <span class="citation"><a href="bibliography.html#ref-scrucca_mclust_2016" role="doc-biblioref">Scrucca et al.</a> (<a href="bibliography.html#ref-scrucca_mclust_2016" role="doc-biblioref">2016</a>)</span>, where 14 variants of model families containing three clusters are defined. The name of the model family is the abbreviation of its respective volume, shape, and orientation of the clusters, the levels of which are either _E_qual or _V_ary. We use the models EEE, EEV, and EVV. For Instance, in the EEV model, the volume and shape of clusters are constant, while the shape’s orientation varies. The latter model is further modified by moving four-fifths of the data out in a “V” or banana-like shape.</p>
+<p>In selecting the <em>shape</em> of the clusters, the convention given by <span class="citation"><a href="bibliography.html#ref-scrucca_mclust_2016" role="doc-biblioref">Scrucca et al.</a> (<a href="bibliography.html#ref-scrucca_mclust_2016" role="doc-biblioref">2016</a>)</span> is followed. They describe 14 variants of model families containing three clusters. The name of the model family is the abbreviation of its respective volume, shape, and orientation of the clusters, the levels of which are either _E_qual or _V_ary. The models EEE, EEV, and EVV are used. For Instance, in the EEV model, the volume and shape of clusters are constant, while the shape’s orientation varies. The EVV model is further modified by moving four-fifths of the data out in a “V” or banana-like shape.</p>
 <!-- Dimensionality -->
 <p><em>Dimension</em>-ality is tested at two modest levels, namely, in four dimensions containing three clusters and six dimensions with four clusters. Such modest dimensionality is required to bound the difficulty and search space to keep the task realistic for crowdsourcing.</p>
 </div>
@@ -297,10 +297,10 @@ Figure 4.2: Illustration of the experimental factors, the parameter space of the
 <!-- Instruction and video -->
 <p>The instructions iterated several times in the video was: 1) use the input controls to find a frame that contains separation between the clusters of green circles and orange triangles, 2) look at the orientation of the variable contributions in the gray circle (biplot axes orientation), and 3) select all variables that contribute more than uniformed distributed cluster separation in the scatterplot. Independent with experimental level, participants were limited to 60 seconds for each evaluation of this task. This restriction did not impact many participants as the 25th, 50th, 75th quantiles of the response time were about 7, 21, and 30 seconds respectively.</p>
 <!-- Evaluating measure -->
-<p>The evaluation measure of this task was designed with a few features in mind: 1) the sum of squares of the individual variable weights should be one, 2) symmetric about zero, that is, without preference to under- or over-guessing 3) heavier than linear weight with increasing distance from a uniform height. We define the following measure for evaluating the task with these in mind.</p>
+<p>The evaluation measure of this task was designed with a few features in mind: 1) the sum of squares of the individual variable weights should be one, 2) symmetric about zero, that is, without preference to under- or over-guessing 3) heavier than linear weight with increasing distance from a uniform height. The following measure is defined for evaluating the task with these in mind.</p>
 <p>Let a data <span class="math inline">\(\textbf{X}_{n,~p,~k}\)</span> be a simulation containing clusters of observations of different distributions. Where <span class="math inline">\(n\)</span> is the number of observations, <span class="math inline">\(p\)</span> is the number of variables, and <span class="math inline">\(k\)</span> indicates the cluster an observation belongs. Cluster membership is exclusive; an observation cannot belong to more than one cluster.</p>
 <!-- W, weights -->
-<p>We define weights, <span class="math inline">\(w\)</span> as a vector explaining the variable-wise difference between two clusters. Namely, the difference of each variable between clusters, as a proportion of the total difference, less <span class="math inline">\(1/p\)</span>, the expected cluster separation if it were uniformly distributed. <!-- R, participant responses -->Participant responses are a logical value for each variable - whether or not the participant thinks each variable separates the two clusters more than uniformly distributed separation.</p>
+<p>The weights, <span class="math inline">\(w\)</span> as a vector explaining the variable-wise difference between two clusters. Namely, the difference of each variable between clusters, as a proportion of the total difference, less <span class="math inline">\(1/p\)</span>, the expected cluster separation if it were uniformly distributed. <!-- R, participant responses -->Participant responses are a logical value for each variable - whether or not the participant thinks each variable separates the two clusters more than uniformly distributed separation.</p>
 <!-- __v1 measure sqrt__ -->
 <!-- \begin{align*} -->
 <!-- W_{j} &=\frac -->
@@ -324,16 +324,16 @@ Figure 4.2: Illustration of the experimental factors, the parameter space of the
 \end{align*}\]</span></p>
 <p>Where <span class="math inline">\(I(j)\)</span> is the indicator function, the binary response for variable <span class="math inline">\(j\)</span>. Figure <a href="4-ch-userstudy.html#fig:figBiplotScoring">4.3</a> shows one frame of a simulation with its observed variable separation (wide bars), expected uniform separation (dashed line), and accuracy if selected (thin lines).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figBiplotScoring"></span>
-<img src="figures/ch4_fig4_accuracy_measure.png" alt="(L), PCA biplot of the components showing the most cluster separation with (R) illustration of the magnitude of cluster separation is for each variable (bars) and the weight of the variable accuracy if selected (red/green lines). The horizontal dashed line is $1 / p$, the amount of separation each variable would have if evenly distributed. The weights equal the signed square of the difference between each variable value and the dashed line." width="100%"  />
+<img src="figures/ch4_fig4_accuracy_measure.png" alt="A pair of principal components of simulated data and the cluster separtion contained in the variables. (L), Scatterplot and biplot of PC1 by PC4 of a simulated data set (R) illustration of cluster separation between the means of the green circles and orange triangles. Bars indicate observed cluster separation and (red/green) lines show the accuracy weight of the variable if selected. The horizontal dashed line is $1 / p$, the expected value. The weights equal the signed square of the difference between each variable value and the dashed line." width="100%"  />
 <p class="caption">
-Figure 4.3: (L), PCA biplot of the components showing the most cluster separation with (R) illustration of the magnitude of cluster separation is for each variable (bars) and the weight of the variable accuracy if selected (red/green lines). The horizontal dashed line is <span class="math inline">\(1 / p\)</span>, the amount of separation each variable would have if evenly distributed. The weights equal the signed square of the difference between each variable value and the dashed line.
+Figure 4.3: A pair of principal components of simulated data and the cluster separtion contained in the variables. (L), Scatterplot and biplot of PC1 by PC4 of a simulated data set (R) illustration of cluster separation between the means of the green circles and orange triangles. Bars indicate observed cluster separation and (red/green) lines show the accuracy weight of the variable if selected. The horizontal dashed line is <span class="math inline">\(1 / p\)</span>, the expected value. The weights equal the signed square of the difference between each variable value and the dashed line.
 </p>
 </div>
 </div>
 <div id="sec:standardization" class="section level3" number="4.1.4">
 <h3><span class="header-section-number">4.1.4</span> Visual design standardization</h3>
 <!-- Background for methodology, application here -->
-<p>The factors are tested within-participant, with each visual being evaluated twice by each participant. The order that experimental factors are experienced is controlled with the assignment, as illustrated in Figure <a href="4-ch-userstudy.html#fig:figParmeterizationExample">4.4</a>. Below we cover the visual design standardization and the input and display within each factor.</p>
+<p>The factors are tested within-participant, with each visual being evaluated twice by each participant. The order that experimental factors are experienced is controlled with the assignment, as illustrated in Figure <a href="4-ch-userstudy.html#fig:figParmeterizationExample">4.4</a>. Below discussed the visual design standardization and the input and display within each factor.</p>
 <!-- Aesthetic standardization -->
 <p>The visualization methods were standardized wherever possible. Data were displayed as 2D scatterplots with biplots <span class="citation">(<a href="bibliography.html#ref-gabriel_biplot_1971" role="doc-biblioref">Gabriel 1971</a>)</span>, a visual with variable contributions inscribed on a unit circle. All aesthetic values (colors, shapes, sizes, absence of legend, and axis titles) were constant. Variable contributions were always shown left of the scatterplot embeddings with their aesthetic values consistent. What did vary between factors were their inputs.</p>
 <!-- PCA -->
@@ -346,18 +346,18 @@ Figure 4.3: (L), PCA biplot of the components showing the most cluster separatio
 <!-- Apply shape and location transformations -->
 <p>Clusters of the EVV shape are transformed to the banana-chevron shape (illustrated in figure <a href="4-ch-userstudy.html#fig:figExpFactors">4.2</a>, shape row). Then location mixing is applied by post-multiplying a (2x2) rotation matrix to the signal variable and a noise variable for the clusters in question.<!-- Preprocess and replicate and save --> All variables are then standardized by standard deviation. The rows and columns are then shuffled randomly. The observation’s cluster and order of shuffling are attached to the data and saved.</p>
 <!-- Iterating over factor -->
-<p>Each of these replications is then iterated with each level of the factor. For PCA, projections were saved for each of the 12 pairs of the top four principal components. We first save two basis paths of differing dimensions for the grand tour before each replication is projected through the common basis path. Each simulation’s variable order was previously shuffled, effectually randomizing cluster separation shown. The resulting animations were saved as .gif files. The radial tour starts at either the four or six variable “half-clock” basis, where each variable has a uniform contribution in the right half with no variable contributing in the opposite direction. This acts to minimize the dependence between variable contributions. A radial tour is then produced for each variable and saved as a .gif.</p>
+<p>Each of these replications is then iterated with each level of the factor. For PCA, projections were saved for each of the 12 pairs of the top four principal components. A basis path is saved for a 4- and 6D grand tour. The data from each simulation is then projected through its corresponding bases path. Each simulation’s variable order was previously shuffled, effectually randomizing cluster separation shown. The resulting animations were saved as <code>gif</code> files. The radial tour starts at either the four or six variable “half-clock” basis, where each variable has a uniform contribution in the right half with no variable contributing in the opposite direction. This acts to minimize the dependence between variable contributions. A radial tour is then produced for each variable and saved as a <code>gif</code>.</p>
 </div>
 <div id="randomized-factor-assignment" class="section level3" number="4.1.6">
 <h3><span class="header-section-number">4.1.6</span> Randomized factor assignment</h3>
 <!-- Introduction -->
 <p>Now, with simulation and their artifacts in hand, we explain how the experimental factors are assigned and illustrate how this is experienced from a participant’s perspective.</p>
 <!-- Periods, exp factor assignment -->
-<p>We section the study into three periods. Each period is linked to a randomized level of factor visualization and the location. The order of dimension and shape are of secondary interest and are held constant in increasing order of difficulty; four then six dimensions and EEE, EEV, then EVV-banana, respectively.</p>
+<p>The study is sectioned into three periods. Each period is linked to a randomized level of factor visualization and the location. The order of dimension and shape are of secondary interest and are held constant in increasing order of difficulty; four then six dimensions and EEE, EEV, then EVV-banana, respectively.</p>
 <!-- Training and evaluation -->
 <p>Each period starts with an untimed training task at the simplest remaining experimental levels; location = 0/100%, shape = EEE, and four dimensions with three clusters. This serves to introduce and familiarize participants with input and visual differences. After the training, the participant performs on two trials with the same factor and location level across the increasing difficulty of dimension and shape. The plot was removed after 60 seconds, though participants rarely reached this limit.</p>
 <!-- Factor*location nested latin square -->
-<p>The order of the factor and location levels is randomized with a nested Latin square where all levels of the visual factor are exhausted before advancing to the next level of location. That means we need <span class="math inline">\(3!^2 = 36\)</span> participants to evaluate all permutations of the experimental factors once. This randomization controls for potential learning effects the participant may receive. Figure <a href="4-ch-userstudy.html#fig:figParmeterizationExample">4.4</a> illustrates how an arbitrary participant experiences the experimental factors.</p>
+<p>The order of the factor and location levels is randomized with a nested Latin square where all levels of the visual factor are exhausted before advancing to the next level of location. That requires <span class="math inline">\(3!^2 = 36\)</span> participants to evaluate all permutations of the experimental factors once. This randomization controls for potential learning effects the participant may receive. Figure <a href="4-ch-userstudy.html#fig:figParmeterizationExample">4.4</a> illustrates how an arbitrary participant experiences the experimental factors.</p>
 <!-- Nested latin square assignment -->
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figParmeterizationExample"></span>
 <img src="figures/ch4_fig5_randomization_MANUAL.PNG" alt="Illustration of how a hypothetical participant 63 is assigned experimental factors. Each of the six factor order permutations is exhausted before iterating to the next permutation of location order." width="100%"  />
@@ -366,31 +366,31 @@ Figure 4.4: Illustration of how a hypothetical participant 63 is assigned experi
 </p>
 </div>
 <!-- Pilot study; 3 even evaluations of each -->
-<p>Through pilot studies sampled by convenience (information technology and statistics Ph.D. students attending Monash University), we predict that we need three full evaluations to properly power our study; we set out to crowdsource <span class="math inline">\(N = 3 \cdot 3!^2 = 108\)</span> participants.</p>
+<p>Through pilot studies sampled by convenience (information technology and statistics Ph.D. students attending Monash University), it is estimated that three full evaluations are needed to properly power the study, for a total of <span class="math inline">\(N = 3 \cdot 3!^2 = 108\)</span> participants.</p>
 </div>
 <div id="sec:articipants" class="section level3" number="4.1.7">
 <h3><span class="header-section-number">4.1.7</span> Participants</h3>
-<p>We recruited <span class="math inline">\(N = 108\)</span> participants via prolific.co <span class="citation">(<a href="bibliography.html#ref-palan_prolific_2018" role="doc-biblioref">Palan and Schitter 2018</a>)</span>. We filtered participants based on their claimed education requiring that they have completed at least an undergraduate degree (some 58,700 of the 150,400 users at the time); we apply this filter under the premise that linear projections and biplot displays will not be regularly used for consumption by general audiences. There is also the implicit filter that Prolific participants must be at least 18 years of age and implicit biases of timezone, location, and language. Participants were compensated for their time at 7.50 per hour, whereas the mean duration of the survey was about 16 minutes. We cannot preclude previous knowledge or experience with the factors but validate this assumption in the follow-up survey asking about familiarity with the methods. The appendix contains a heatmap distribution of age and education paneled across preferred pronouns of the participants that completed the survey, who are relatively young, well educated, and slightly more likely to identify as males.</p>
+<p><span class="math inline">\(N = 108\)</span> participants were recruited via prolific.co <span class="citation">(<a href="bibliography.html#ref-palan_prolific_2018" role="doc-biblioref">Palan and Schitter 2018</a>)</span>. Participants are restricted based on their claimed education requiring that they have completed at least an undergraduate degree (some 58,700 of the 150,400 users at the time). This restriction is used on the premise that linear projections and biplot displays will not be regularly used for consumption by general audiences. There is also the implicit filter that Prolific participants must be at least 18 years of age and implicit biases of timezone, location, and language. Participants were compensated for their time at 7.50 per hour, whereas the mean duration of the survey was about 16 minutes. Previous knowledge or familiarity was minimal as validated in the follow-up survey. The appendix contains a heatmap distribution of age and education paneled across preferred pronouns of the participants that completed the survey, who are relatively young, well educated, and slightly more likely to identify as males.</p>
 </div>
 <div id="data-collection" class="section level3" number="4.1.8">
 <h3><span class="header-section-number">4.1.8</span> Data collection</h3>
 <!-- App, data collection, network issues -->
-<p>Data were recorded in <strong>shiny</strong> application and written to a Google Sheet after each third of the study. Especially at the start of the study, participants experienced adverse network conditions due to the volume of participants hitting the application with modest allocated resources. In addition to this, API read/write limitations further hindered data collection. To mitigate this, we throttled the number of participants and over-collect survey trials until we received our target three evaluations of all permutation levels.</p>
+<p>Data were recorded in <strong>shiny</strong> application and written to a Google Sheet after each third of the study. Especially at the start of the study, participants experienced adverse network conditions due to the volume of participants hitting the application with modest allocated resources. In addition to this, API read/write limitations further hindered data collection. To mitigate this, the number of participants were throttled and over-collect survey trials until three evaluations are collected for all permutation levels.</p>
 <!-- Preprocessing steps -->
-<p>The processing steps were minimal. First, we format to an analysis-ready form, decoding values to a more human-readable state, and add a flag indicating whether the survey had complete data. We filter to only the latest three complete studies of each experimental factor, which should have experienced the least adverse network conditions. The bulk of the studies removed were partial data and a few over-sampled permutations. This brings us to the 108 studies described in the paper, from which models and aggregation tables were built. The post-study surveys were similarly decoded to human-readable format and then filtered to include only those 84 associated with the final 108 studies.</p>
-<p>The code, response files, their analyses, and the study application are publicly available at on GitHub; .</p>
+<p>The processing steps were minimal. The data were formatted and then filtered to only the latest three complete studies of each experimental factor, which should have experienced the least adverse network conditions. The bulk of the studies removed were partial data and a few over-sampled permutations. This brings us to the 108 studies described in the paper, from which models and aggregation tables were built. The post-study surveys were similarly decoded to human-readable format and then filtered to include only those 84 associated with the final 108 studies.</p>
+<p>The code, response files, their analyses, and the study application are publicly available at; .</p>
 </div>
 </div>
 <div id="sec:results" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Results</h2>
-<p>To recap, the primary response variable is task accuracy, as defined in section <a href="4-ch-userstudy.html#sec:task">4.1.3</a>. The parallel analysis of the log response time is provided in the appendix. We have two primary data sets; the user study evaluations and the post-study survey. The former is the 108 participants with the explanatory variables: visual factor, location of the cluster separation signal, the shape of variance-covariance matrix, and the dimensionality of the data. Experimental factors and randomization were discussed in section <a href="4-ch-userstudy.html#sec:expfactors">4.1.2</a>. The survey was completed by 84 of these 108 people. It collected demographic information (preferred pronoun, age, and education), and subjective measures for each factor (preference, familiarity, ease of use, and confidence).</p>
-<p>Below we build a battery of mixed regression models to explore the degree of the evidence and the size of the effects from the experimental factors. Then, we use Likert plots and rank-sum tests to compare the subjective measures between the visual factors.</p>
+<p>To recap, the primary response variable is task accuracy, as defined in section <a href="4-ch-userstudy.html#sec:task">4.1.3</a>. The parallel analysis of the log response time is provided in the appendix. Two primary data sets were collected; the user study evaluations and the post-study survey. The former is the 108 participants with the explanatory variables: visual factor, location of the cluster separation signal, the shape of variance-covariance matrix, and the dimensionality of the data. Experimental factors and randomization were discussed in section <a href="4-ch-userstudy.html#sec:expfactors">4.1.2</a>. The survey was completed by 84 of these 108 people. It collected demographic information (preferred pronoun, age, and education), and subjective measures for each factor (preference, familiarity, ease of use, and confidence).</p>
+<p>Below a battery of mixed regression models is built to examine the degree of the evidence and the size of the effects from the experimental factors. Then, Likert plots and rank-sum tests to compare the subjective measures between the visual factors.</p>
 <div id="accuracy-regression" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Accuracy regression</h3>
 <!-- Introduce regression model, explaining accuracy, and random effect term -->
-<p>To more thoroughly examine explanatory variables, we regress against accuracy. All models have a random effect term on the participant and the simulation. These terms explain the error attributed to the individual participant’s effect and variation due to the random sampling data.</p>
+<p>To more thoroughly examine explanatory variables a mixed models regress accuracy. All models have a random effect term on the participant and the simulation. These terms explain the error attributed to the individual participant’s effect and variation due to the random sampling data.</p>
 <!-- Building a battery of models -->
-<p>In building a set of models to test, we include all single term models with all independent terms. We also include an interaction term for factor and location, allowing for the slope of each location to change across each level of the factor. For comparison, an overly complex model with all interaction terms is included. The matrices for models with more than two terms is rank deficient; there is not enough varying information in the data to explain all interacting terms.</p>
+<p>In building a set of models to test, a base model with only visual factor is compared with the full linear model and several models progressively crossing an additional term. The models with three and four interacting variables are rank deficient; there is not enough varying information in the data to explain all interacting terms.</p>
 <!-- Y1 accuracy regression -->
 <p><span class="math display">\[
 \begin{array}{ll}
@@ -895,14 +895,14 @@ Factorradial:Location50/50%
 </table></li>
 </ul>
 <!-- Model selection and coefficients -->
-<p>Table <a href="4-ch-userstudy.html#tab:marksCompTbl">4.1</a> compares the model summaries across increasing complexity. We select the <span class="math inline">\(\alpha \cdot \beta + \gamma + \delta\)</span> model to explore in more detail. Table <a href="4-ch-userstudy.html#tab:marksCoefTbl">4.2</a> looks at the coefficients for this model.</p>
+<p>Table <a href="4-ch-userstudy.html#tab:marksCompTbl">4.1</a> compares the model summaries across increasing complexity. The <span class="math inline">\(\alpha \cdot \beta + \gamma + \delta\)</span> model to is selected to examine in more detail. Table <a href="4-ch-userstudy.html#tab:marksCoefTbl">4.2</a> looks at the coefficients for this model.</p>
 <!-- Conditional effects of variables -->
-<p>We also want to visually explore the conditional variables in the model. Figure <a href="4-ch-userstudy.html#fig:figMarksABcd">4.5</a> explores violin plots of accuracy by factor while faceting on the location (vertical) and shape (horizontal). Use of the radial visual, on average, increases the accuracy, and especially so when the location of signal mixing is not 33/66%.</p>
+<p>We also want to visually examine the conditional variables in the model. Figure <a href="4-ch-userstudy.html#fig:figMarksABcd">4.5</a> examines violin plots of accuracy by factor while faceting on the location (vertical) and shape (horizontal). Use of the radial visual, on average, increases the accuracy, and especially so when the location of signal mixing is not 33/66%.</p>
 <!-- Violin plots and test overlay for Y1 factors -->
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figMarksABcd"></span>
-<img src="figures/ch4_fig6_ABcd_violins.png" alt="Violin plots of terms of the model $\widehat{Y} = \alpha \cdot \beta + \gamma + \delta$. Overlaid with global significance from the Kruskal-Wallis test and pairwise significance from the Wilcoxon test, both are non-parametric, ranked-sum tests suitable for handling discrete data. Participants are more confident and find the radial tour easier to use than the grand tour. Participants claim low familiarity, as we expect from crowdsourced participants. Radial is more preferred compared with either alternative for this task." width="100%"  />
+<img src="figures/ch4_fig6_ABcd_violins.png" alt="Violin plots of terms of the model $\widehat{Y} = \alpha \cdot \beta + \gamma + \delta$. Overlaid with global significance from the Kruskal-Wallis test and pairwise significance from the Wilcoxon test, both are non-parametric, ranked-sum tests suitable for handling discrete data. Participants are more confident and find the radial tour easier to use than the grand tour. Participants claim low familiarity, as expect from crowdsourced participants. Radial is more preferred compared with either alternative for this task." width="100%"  />
 <p class="caption">
-Figure 4.5: Violin plots of terms of the model <span class="math inline">\(\widehat{Y} = \alpha \cdot \beta + \gamma + \delta\)</span>. Overlaid with global significance from the Kruskal-Wallis test and pairwise significance from the Wilcoxon test, both are non-parametric, ranked-sum tests suitable for handling discrete data. Participants are more confident and find the radial tour easier to use than the grand tour. Participants claim low familiarity, as we expect from crowdsourced participants. Radial is more preferred compared with either alternative for this task.
+Figure 4.5: Violin plots of terms of the model <span class="math inline">\(\widehat{Y} = \alpha \cdot \beta + \gamma + \delta\)</span>. Overlaid with global significance from the Kruskal-Wallis test and pairwise significance from the Wilcoxon test, both are non-parametric, ranked-sum tests suitable for handling discrete data. Participants are more confident and find the radial tour easier to use than the grand tour. Participants claim low familiarity, as expect from crowdsourced participants. Radial is more preferred compared with either alternative for this task.
 </p>
 </div>
 </div>
@@ -921,557 +921,15 @@ Figure 4.6: The subjective measures of the 84 responses of the post-study survey
 <div id="sec:conclusion" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Conclusion</h2>
 <!-- Context -->
-<p>Data visualization is an integral part of EDA. However, thorough exploration of data in high dimensions becomes difficult. Previous methods offer no means for an analyst to impact the projection basis. The manual tour provides a mechanism for changing the contribution of a selected variable to the basis. Giving analysts such control should facilitate the exploration of variable-level sensitivity to the identified structure. We find strong evidence that using the radial tour improves the accuracy relative to PCA or the grand tour on the supervised cluster task assigning variable attribution to the separation of the two clusters.</p>
+<p>Data visualization is an integral part understanding relationships in data, and how models are fitted. However, thorough exploration of data in high dimensions becomes difficult. Previous methods offer no means for an analyst to impact the projection basis. The manual tour provides a mechanism for changing the contribution of a selected variable to the basis. Giving analysts such control should facilitate the exploration of variable-level sensitivity to the identified structure.</p>
 <!-- Recap study -->
-<p>This paper discussed a with-in participant user study (<span class="math inline">\(n=108\)</span>) comparing the efficacy of three linear projection techniques. The participants performed a supervised cluster task, explicitly identifying which variables contribute to separating two target clusters. This was evaluated evenly over four experimental factors. In summary, we find strong evidence that using the radial tour leads to a sizable accuracy increase. In the appendix, we find evidence for a small change in response time, with PCA being fastest, then the grand tour followed by the radial tour. The effect sizes on accuracy are large relative to the change from the other experimental factors, though smaller than the random effect of the participant. The radial tour was subjectively preferred, leading to more confidence in answers, and increased ease of use than the alternatives.</p>
+<p>This paper discussed a with-in participant user study (<span class="math inline">\(n=108\)</span>) comparing the efficacy of three linear projection techniques. The participants performed a supervised cluster task, explicitly identifying which variables contribute to separating two target clusters. This was evaluated evenly over four experimental factors. In summary, mixed model regression finds strong evidence that using the radial tour leads to a sizable accuracy increase. In the extended analysis, there is significant evidence for a change in response time, with PCA being fastest, then the grand tour, followed by the radial tour. The effect sizes on accuracy are large relative to the change from the other experimental factors, though smaller than the random effect of the participant. The radial tour was subjectively preferred, leading to more confidence in answers, and increased ease of use than the alternatives.</p>
 <!-- Discussion and going further -->
 <p>There are several ways that this study could be extended. In addition to expanding the support of the experimental factors, more exciting directions include: changing the task, visualizations used, and experience level of the target population. It is difficult to achieve good coverage given the number of possible permutations. Keep in mind the traffic volume and low effort of responses from participants when crowdsourcing.</p>
-</div>
-<div id="sec:spinifex" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Accompanying tool: radial tour application</h2>
-<p>We have produced an application to illustrate the radial tour to accompany this study. The <strong>R</strong> package, <strong>spinifex</strong>, <span class="citation">(<a href="bibliography.html#ref-spyrison_spinifex_2020" role="doc-biblioref">Spyrison and Cook 2020</a>)</span> is free, open-source and now contains a <strong>shiny</strong> <span class="citation">(<a href="bibliography.html#ref-chang_shiny_2021" role="doc-biblioref">Chang et al. 2021</a>)</span> application allowing users to apply various preprocessing tasks and interactively explore their data via interactive radial tour. Example datasets are provided with the ability to upload data. The .html widget produced is a more interactive variant relative to the one used in the user study. Screen captures and more details are provided in the appendix. Run the following <strong>R</strong> code will run the application locally.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="4-ch-userstudy.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Download:</span></span>
-<span id="cb3-2"><a href="4-ch-userstudy.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;spinifex&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-3"><a href="4-ch-userstudy.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Run interactive app demonstrating the radial tour:</span></span>
-<span id="cb3-4"><a href="4-ch-userstudy.html#cb3-4" aria-hidden="true" tabindex="-1"></a>spinifex<span class="sc">::</span><span class="fu">run_app</span>()</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:radialTourAppPg1"></span>
-<img src="figures/ch4_zapp_fig4_app_pg1.PNG" alt="Process data tab, interactively loads or select data, check which variables to project, and optionally scale columns by standard deviation." width="100%"  />
-<p class="caption">
-Figure 4.7: Process data tab, interactively loads or select data, check which variables to project, and optionally scale columns by standard deviation.
-</p>
-</div>
-<p>In the initial tab, Figure <a href="4-ch-userstudy.html#fig:radialTourAppPg1">4.7</a>, users upload their own (.csv, .rds, or .rda) data or select from predefined data sets. The numeric columns appear as a list of variables to include in the projection. Below that, a line displays whether or not missing rows were removed. Scaling by standard deviation is included by default, as this is a common transformation used to explore linear projections of spaces. Summaries of the raw data and processed numeric data are displayed to illustrate how the data was read and its transformation.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:radialTourAppPg2"></span>
-<img src="figures/ch4_zapp_fig5_app_pg2.PNG" alt="Radial tour tab, interactively create radial tours, changing the manipulation variable, color, or shape of the resulting manual tour. Here, the palmer penguins data is being explored, bill length was selected to manipulate as it is the only variable separating the green cluster from the orange. By mapping shape to island of observation, we also notice that the species in green live on all three islands, while the other species live only on one of the islands." width="100%"  />
-<p class="caption">
-Figure 4.8: Radial tour tab, interactively create radial tours, changing the manipulation variable, color, or shape of the resulting manual tour. Here, the palmer penguins data is being explored, bill length was selected to manipulate as it is the only variable separating the green cluster from the orange. By mapping shape to island of observation, we also notice that the species in green live on all three islands, while the other species live only on one of the islands.
-</p>
-</div>
-<p>The second tab, Figure <a href="4-ch-userstudy.html#fig:radialTourAppPg2">4.8</a> contains interaction for selecting the manipulation variable, and non-numeric columns can be used to change the color and shape of the data points in the projection. The radial tour is created in real-time, animated as an interactive <strong>plotly</strong> .html widget. The application offers users a fast, intuitive introduction elucidating what the radial tour does and some of the features offered.</p>
-</div>
-<div id="sec:appendix" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Extended analysis</h2>
-<!-- segue to extended analysis -->
-<p>This section covers peripheral and extended analysis. First, we explore the demographics of the participants. Then we extend a parallel modeling analysis on log response time. Lastly, we look at the effect ranges and marginal effects of the random effect of the participants and data simulation.</p>
-<div id="survey-participant-demographics" class="section level3 unnumbered">
-<h3>Survey participant demographics</h3>
-<p>The target population is relatively well-educated people, as linear projections may prove difficult for generalized consumption. Hence we restrict Prolific.co participants to those with an undergraduate degree (58,700 of the 150,400 users at the study time). From this cohort, 108 performed a complete study. Of these participants, 84 submitted the post-study survey, represented in the following heatmap. All participants were compensated for their time at 7.50 per hour, with a mean time of about 16 minutes. Figure <a href="4-ch-userstudy.html#fig:figSurveyDemographics">4.9</a> shows a heat map of the demographics for these 84 participants.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figSurveyDemographics"></span>
-<img src="figures/ch4_zapp_fig1_survey_demograpics.png" alt="Heatmaps of survey participant demographics; counts of age group by completed education as faceted across preferred pronoun. Our sample tended to be between 18 and 35 years of age with an undergraduate or graduate degree." width="100%"  />
-<p class="caption">
-Figure 4.9: Heatmaps of survey participant demographics; counts of age group by completed education as faceted across preferred pronoun. Our sample tended to be between 18 and 35 years of age with an undergraduate or graduate degree.
-</p>
-</div>
-</div>
-<div id="response-time-regression" class="section level3" number="4.5.1">
-<h3><span class="header-section-number">4.5.1</span> Response time regression</h3>
-<!-- Time as secondary interest, Y2 -->
-<p>As a secondary explanatory variable, we also want to look at time. First, we take the log transformation of time as it is right-skewed. We repeat the same modeling procedure: 1) Compare the performance of a battery of all additive and multiplicative models. Table <a href="4-ch-userstudy.html#tab:timeCompTbl">4.3</a> shows the higher level performance of these models over increasing model complexity. 2) Select the model with the same effect terms, <span class="math inline">\(\alpha \cdot \beta + \gamma + \delta\)</span>, and examine its coefficients, displayed in Table <a href="4-ch-userstudy.html#tab:timeCoefTbl">4.4</a>.</p>
-<!-- Y2 model comparisons, continue to use ABcd -->
-<table class=" lightable-classic" style="font-size: 12px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
-<caption style="font-size: initial !important;">
-<span id="tab:timeCompTbl">Table 4.3: </span>Model performance regressing on log response time [seconds], <span class="math inline">\(\widehat{Y_2}\)</span> random effect models, where each includes random effect terms for participants and simulations. We see the same trade-off where AIC/BIC prefer the simplest factor model, while <span class="math inline">\(R^2\)</span> and RMSE are the largest in the full multiplicative model. We again select the model <span class="math inline">\(\alpha \cdot \beta + \gamma + \delta\)</span> to explore further as it has relatively high marginal <span class="math inline">\(R^2\)</span> while having much less complexity than the complete interaction model. Conditional <span class="math inline">\(R^2\)</span> includes the random effects, while marginal does not.
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-Fixed effects
-</th>
-<th style="text-align:left;">
-No. levels
-</th>
-<th style="text-align:left;">
-No. terms
-</th>
-<th style="text-align:center;">
-AIC
-</th>
-<th style="text-align:center;">
-BIC
-</th>
-<th style="text-align:center;">
-R2 cond.
-</th>
-<th style="text-align:center;">
-R2 marg.
-</th>
-<th style="text-align:center;">
-RMSE
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-a
-</td>
-<td style="text-align:left;">
-1
-</td>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:center;">
-<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;1448&lt;/span&gt;</span>
-</td>
-<td style="text-align:center;">
-<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;1475&lt;/span&gt;</span>
-</td>
-<td style="text-align:center;">
-0.645
-</td>
-<td style="text-align:center;">
-0.007
-</td>
-<td style="text-align:center;">
-0.553
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-a+b+c+d
-</td>
-<td style="text-align:left;">
-4
-</td>
-<td style="text-align:left;">
-8
-</td>
-<td style="text-align:center;">
-1467
-</td>
-<td style="text-align:center;">
-1516
-</td>
-<td style="text-align:center;">
-0.647
-</td>
-<td style="text-align:center;">
-0.017
-</td>
-<td style="text-align:center;">
-0.552
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-a*b+c+d
-</td>
-<td style="text-align:left;">
-5
-</td>
-<td style="text-align:left;">
-12
-</td>
-<td style="text-align:center;">
-1474
-</td>
-<td style="text-align:center;">
-1541
-</td>
-<td style="text-align:center;">
-0.656
-</td>
-<td style="text-align:center;">
-0.024
-</td>
-<td style="text-align:center;">
-0.548
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-a*b*c+d
-</td>
-<td style="text-align:left;">
-8
-</td>
-<td style="text-align:left;">
-28
-</td>
-<td style="text-align:center;">
-1488
-</td>
-<td style="text-align:center;">
-1627
-</td>
-<td style="text-align:center;">
-0.673
-</td>
-<td style="text-align:center;">
-0.054
-</td>
-<td style="text-align:center;">
-0.536
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-a*b*c*d
-</td>
-<td style="text-align:left;">
-15
-</td>
-<td style="text-align:left;">
-54
-</td>
-<td style="text-align:center;">
-1537
-</td>
-<td style="text-align:center;">
-1792
-</td>
-<td style="text-align:center;">
-<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;0.7&lt;/span&gt;</span>
-</td>
-<td style="text-align:center;">
-<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;0.062&lt;/span&gt;</span>
-</td>
-<td style="text-align:center;">
-<span style=" font-weight: bold;    ">&lt;span style=" font-weight: bold; " &gt;0.523&lt;/span&gt;</span>
-</td>
-</tr>
-</tbody>
-</table>
-<!-- Y2 coeffiecients -->
-<table class=" lightable-classic" style='font-size: 12px; font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
-<caption style="font-size: initial !important;">
-<span id="tab:timeCoefTbl">Table 4.4: </span>Model coefficients for log response time [seconds] <span class="math inline">\(\widehat{Y_2} = \alpha \cdot \beta + \gamma + \delta\)</span>, with factor = pca, location = 0/100%, shape = EEE, and dim = 4 held as baselines. Location = 50/50% is the fixed term with the strongest evidence and takes less time. In contrast, the interaction term location = 50/50%:shape = EEV has the most evidence and takes much longer on average.
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-Estimate
-</th>
-<th style="text-align:right;">
-Std. Error
-</th>
-<th style="text-align:right;">
-df
-</th>
-<th style="text-align:right;">
-t value
-</th>
-<th style="text-align:right;">
-Pr(&gt;|t|)
-</th>
-<th style="text-align:left;">
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-(Intercept)
-</td>
-<td style="text-align:right;">
-2.71
-</td>
-<td style="text-align:right;">
-0.14
-</td>
-<td style="text-align:right;">
-42.6
-</td>
-<td style="text-align:right;">
-19.06
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:left;">
-***
-</td>
-</tr>
-<tr grouplength="2">
-<td colspan="7" style="border-bottom: 1px solid;">
-<strong>Factor</strong>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Factorgrand
-</td>
-<td style="text-align:right;">
--0.23
-</td>
-<td style="text-align:right;">
-0.12
-</td>
-<td style="text-align:right;">
-567.6
-</td>
-<td style="text-align:right;">
--1.97
-</td>
-<td style="text-align:right;">
-0.049
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Factorradial
-</td>
-<td style="text-align:right;">
-0.16
-</td>
-<td style="text-align:right;">
-0.12
-</td>
-<td style="text-align:right;">
-573.5
-</td>
-<td style="text-align:right;">
-1.34
-</td>
-<td style="text-align:right;">
-0.181
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr grouplength="5">
-<td colspan="7" style="border-bottom: 1px solid;">
-<strong>Fixed effects</strong>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Location33/66%
-</td>
-<td style="text-align:right;">
-0.05
-</td>
-<td style="text-align:right;">
-0.14
-</td>
-<td style="text-align:right;">
-40.9
-</td>
-<td style="text-align:right;">
-0.34
-</td>
-<td style="text-align:right;">
-0.737
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Location50/50%
-</td>
-<td style="text-align:right;">
--0.05
-</td>
-<td style="text-align:right;">
-0.14
-</td>
-<td style="text-align:right;">
-42.1
-</td>
-<td style="text-align:right;">
--0.35
-</td>
-<td style="text-align:right;">
-0.729
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-ShapeEEV
-</td>
-<td style="text-align:right;">
--0.15
-</td>
-<td style="text-align:right;">
-0.09
-</td>
-<td style="text-align:right;">
-8.3
-</td>
-<td style="text-align:right;">
--1.61
-</td>
-<td style="text-align:right;">
-0.145
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Shapebanana
-</td>
-<td style="text-align:right;">
--0.13
-</td>
-<td style="text-align:right;">
-0.09
-</td>
-<td style="text-align:right;">
-8.3
-</td>
-<td style="text-align:right;">
--1.42
-</td>
-<td style="text-align:right;">
-0.192
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Dim6
-</td>
-<td style="text-align:right;">
-0.14
-</td>
-<td style="text-align:right;">
-0.08
-</td>
-<td style="text-align:right;">
-8.3
-</td>
-<td style="text-align:right;">
-1.90
-</td>
-<td style="text-align:right;">
-0.093
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr grouplength="4">
-<td colspan="7" style="border-bottom: 1px solid;">
-<strong>Interactions</strong>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Factorgrand:Location33/66%
-</td>
-<td style="text-align:right;">
-0.24
-</td>
-<td style="text-align:right;">
-0.18
-</td>
-<td style="text-align:right;">
-580.9
-</td>
-<td style="text-align:right;">
-1.34
-</td>
-<td style="text-align:right;">
-0.181
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Factorradial:Location33/66%
-</td>
-<td style="text-align:right;">
--0.24
-</td>
-<td style="text-align:right;">
-0.18
-</td>
-<td style="text-align:right;">
-582.4
-</td>
-<td style="text-align:right;">
--1.32
-</td>
-<td style="text-align:right;">
-0.188
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Factorgrand:Location50/50%
-</td>
-<td style="text-align:right;">
-0.12
-</td>
-<td style="text-align:right;">
-0.18
-</td>
-<td style="text-align:right;">
-578.6
-</td>
-<td style="text-align:right;">
-0.69
-</td>
-<td style="text-align:right;">
-0.491
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Factorradial:Location50/50%
-</td>
-<td style="text-align:right;">
-0.05
-</td>
-<td style="text-align:right;">
-0.18
-</td>
-<td style="text-align:right;">
-584.4
-</td>
-<td style="text-align:right;">
-0.25
-</td>
-<td style="text-align:right;">
-0.800
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-</tbody>
-</table></li>
-</ul>
-</div>
-<div id="random-effect-ranges" class="section level3 unnumbered">
-<h3>Random effect ranges</h3>
-<!-- Random effect terms specify source of the error -->
-<p>The random effect terms further clarify the source of the error. Below we compare the effect ranges attributed to the participant and to the simulations next to their marginal effect on the response, a sort of upper bound of the error they could explain. We look at models regressing accuracy and then log response time.</p>
-<!-- Random effects vs Mean Mark CI by participant and sim -->
-<p>The residual plots have no noticeable nonlinear trends and contain striped patterns as an artifact from regressing on discrete variables. Figure <a href="4-ch-userstudy.html#fig:figEffectRange">4.10</a> illustrates (T) the effect size of the random terms participant and simulation, or more accurately, the 95% CI from Gelman simulation of their posterior distribution. The effect size of the participant is much larger than simulation. The most extreme participants are statistically significant at <span class="math inline">\(\alpha = .95\)</span>, while none of the simulation effects significantly deviate from the null of having no effect size on the marks. In comparison, (B) 95% confidence intervals participation and simulation mean accuracy, respectively.</p>
-<p>Residual plots have no noticeable nonlinear trends and contain striped patterns as an artifact from regressing on discrete variables. Figure <a href="4-ch-userstudy.html#fig:figEffectRange">4.10</a> illustrates (T) the effect size of the random terms participant and simulation, or more accurately, the 95% CI from Gelman simulation of their posterior distribution. The effect size of the participant is much larger than simulation. The most extreme participants are statistically significant at <span class="math inline">\(\alpha = .95\)</span>, while none of the simulation effects significantly deviate from the null of having no effect size on the marks. In comparison, (B) 95% confidence intervals participation and simulation mean accuracy, respectively.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figEffectRange"></span>
-<img src="figures/ch4_zapp_fig2_effect_range.png" alt="Accuracy model: (T) Estimated effect ranges of the random effect terms participant and data simulation of the accuracy model, $\widehat{Y_1} = \alpha \cdot \beta + \gamma + \delta$. Confidence intervals are created with Gelman simulation on the effect posterior distributions. The effect size of the participant is relatively large, with several significant extrema. None of the simulations deviate significantly. (B) The ordered distributions of the CI of mean marks follow the same general pattern and give the additional context of how much variation is in the data, an upper limit to the effect range. The effect ranges capture about two-thirds of the range of the data without the model. All intervals for $\alpha = .95$ confidence." width="100%"  />
-<p class="caption">
-Figure 4.10: Accuracy model: (T) Estimated effect ranges of the random effect terms participant and data simulation of the accuracy model, <span class="math inline">\(\widehat{Y_1} = \alpha \cdot \beta + \gamma + \delta\)</span>. Confidence intervals are created with Gelman simulation on the effect posterior distributions. The effect size of the participant is relatively large, with several significant extrema. None of the simulations deviate significantly. (B) The ordered distributions of the CI of mean marks follow the same general pattern and give the additional context of how much variation is in the data, an upper limit to the effect range. The effect ranges capture about two-thirds of the range of the data without the model. All intervals for <span class="math inline">\(\alpha = .95\)</span> confidence.
-</p>
-</div>
-<p>Similarly, figure <a href="4-ch-userstudy.html#fig:figTeffectRange">4.11</a> shows the Gelman simulations and marginal effects of the simulation and participants for the model with the same terms regressing on log response time.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figTeffectRange"></span>
-<img src="figures/ch4_zapp_fig3_T_effect_range.png" alt="Log response time model: (T) The effect ranges of Gelman resimulation on posterior distributions for the time model, $\widehat{Y_2} = \alpha \cdot \beta + \gamma + \delta$. These show the magnitude and distributions of particular participants and simulations. Simulation has a relatively small effect on response time. (B) Confidence intervals for mean log time by participant and simulation. The marginal density shows that the response times are left-skewed after log transformation. Interpreting back to linear time there is quite the spread of response times: $e^{1} = 2.7$, $e^{2.75} = 15.6$, $e^{3.75} = 42.5$ seconds. Of the simulations on the right, the bottom has a large variation in response time, relative to the effect ranges which means that the variation is explained in the terms of the model and not by the simulation itself." width="100%"  />
-<p class="caption">
-Figure 4.11: Log response time model: (T) The effect ranges of Gelman resimulation on posterior distributions for the time model, <span class="math inline">\(\widehat{Y_2} = \alpha \cdot \beta + \gamma + \delta\)</span>. These show the magnitude and distributions of particular participants and simulations. Simulation has a relatively small effect on response time. (B) Confidence intervals for mean log time by participant and simulation. The marginal density shows that the response times are left-skewed after log transformation. Interpreting back to linear time there is quite the spread of response times: <span class="math inline">\(e^{1} = 2.7\)</span>, <span class="math inline">\(e^{2.75} = 15.6\)</span>, <span class="math inline">\(e^{3.75} = 42.5\)</span> seconds. Of the simulations on the right, the bottom has a large variation in response time, relative to the effect ranges which means that the variation is explained in the terms of the model and not by the simulation itself.
-</p>
-</div>
 <!-- ## References -->
 <!-- <div id="refs"></div> -->
 <!-- Adds a bib section at the end of every chapter -->
 
-</div>
 </div>
 </div>
             </section>

@@ -116,7 +116,7 @@ The time to preprocess the data will vary significantly with the model and local
 
 ### Package infrastructure {#sec:infrastructure}
 
-The above-described method and application are implemented as an open-source __R__ package, __cheem__ available on [CRAN](https://CRAN.R-project.org/package=cheem). Preprocessing was facilitated with models created via __randomForest__ [@liaw_classification_2002] and explanations calculated with __treeshap__ [@kominsarczyk_treeshap_2021]. The application was made with __shiny__ [@chang_shiny_2021]. The tour visual is built with __spinifex__ [@spyrison_spinifex_2020]. Both views are created first with first with __ggplot2__ [@wickham_ggplot2_2016] and then rendered as interactive HTML widgets with __plotly__ [@sievert_interactive_2020]. __DALEX__ [@biecek_dalex_2018] and the free ebook, _Explanatory Model Analysis_ [@biecek_explanatory_2021] were a huge boon to understanding local explanations and how to apply them.
+The above-described method and application are implemented as an open-source __R__ package, __cheem__ available on [CRAN](https://CRAN.R-project.org/package=cheem). Preprocessing was facilitated with models created via __randomForest__ [@liaw_classification_2002] and explanations calculated with __treeshap__ [@kominsarczyk_treeshap_2021]. The application was made with __shiny__ [@chang_shiny_2021]. The tour visual is built with __spinifex__ [@spyrison_spinifex_2020]. Both views are created first with first with __ggplot2__ [@wickham_ggplot2_2016] and then rendered as interactive `html` widgets with __plotly__ [@sievert_interactive_2020]. __DALEX__ [@biecek_dalex_2018] and the free ebook, _Explanatory Model Analysis_ [@biecek_explanatory_2021] were a huge boon to understanding local explanations and how to apply them.
 
 
 ### Installation and getting started
@@ -142,7 +142,7 @@ Follow the examples provided with the package to compute the local explainers, (
 
 ## Case studies {#sec:casestudies}
 
-To illustrate the use of the cheem method, we apply it to modern datasets, two classification examples and then two of regression.
+To illustrate the use of the cheem method, it is applied to modern datasets, two classification examples and then two of regression.
 
 
 ### Palmer penguin, species classification
