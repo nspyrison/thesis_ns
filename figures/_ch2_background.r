@@ -169,3 +169,32 @@ zero_hex <- ggtour(bas_zero, X, .3) +
 ggsave("./figures/ch2_fig5_penguin_manualtour_geoms.pdf", pw, device = "pdf",
        width = 6, height = 3.6, units = "in")
 
+
+
+## setup 3 -----
+if(FALSE){
+  # install.packages("ggChernoff")
+  remotes::install_github("aravind-j/gglyph")
+}
+# Actually quite hard to work with.
+
+# require(ggChernoff)
+# ggplot(df) + ggChernoff::geom_chernoff() ## Only 2 aes(), smile and brow
+require(gglyph)
+require(ggplot2)
+
+
+dat  <- as.data.frame(spinifex::scale_01(mtcars))[1:4, ]
+cn   <- colnames(df)
+grid <- expand.grid(x = 1:2, y = 1:2)
+
+# gglyph::geom_starglyph
+# gglyph::geom_tileglyph
+
+ggplot(data = dat) +
+  geom_starglyph(aes(x = grid$x, y = grid$y, fill = cyl),
+                 cols = cn, whisker = TRUE, contour = TRUE,
+                 size = 10, alpha =  0.5) #+
+  # theme_bw() +
+  # lims(x=c(.5,2.5), y=c(.5,2.5))
+#+ ylim(c(-0, 550))
