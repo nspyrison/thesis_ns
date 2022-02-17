@@ -44,17 +44,23 @@ vimeo_link_df <- data.frame(
 )
 
 supp_mats_df <- data.frame(
-  Context = c("spinifex", "spinifex", "spinifex", "cheem", 
-              "cheem", "thesis", "thesis", "thesis"),
+  Context = c(
+    #"spinifex", 
+    "spinifex", "spinifex", 
+    #"cheem", 
+    "cheem", "thesis", "thesis", "thesis"),
   Description = c(
-    "CRAN Link", "vignette, Getting started with spinifex", 
-    "vignette, Ggproto api", "CRAN Link", "vignette, Getting started with cheem", 
+    #"CRAN Link", 
+    "vignette, Getting started with spinifex", 
+    "vignette, Ggproto api", 
+    #"CRAN Link", 
+    "vignette, Getting started with cheem", 
     "repository", "thesis, pdf format", "thesis, html format"),
   Link = c(
-    "[CRAN.R-project.org/package=spinifex](https://CRAN.R-project.org/package=spinifex)",
+    #"[CRAN.R-project.org/package=spinifex](https://CRAN.R-project.org/package=spinifex)",
     "[nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html](https://nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html)",
     "[nspyrison.github.io/spinifex/articles/ggproto-api.html](https://nspyrison.github.io/spinifex/articles/ggproto-api.html)",
-    "[CRAN.R-project.org/package=cheem](https://CRAN.R-project.org/package=cheem)",
+    #"[CRAN.R-project.org/package=cheem](https://CRAN.R-project.org/package=cheem)",
     "[nspyrison.github.io/cheem/articles/getting-started-with-cheem.html](https://nspyrison.github.io/cheem/articles/getting-started-with-cheem.html)",
     "[github.com/nspyrison/thesis_ns](https://github.com/nspyrison/thesis_ns)",
     "[github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf)",

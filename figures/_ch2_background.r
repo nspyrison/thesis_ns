@@ -122,7 +122,7 @@ attr(bas_full, "manip_var") <-
 full_pt <- ggtour(bas_full, X, .3) +
   proto_point(list(color = Y, shape = Y), list(size = 1, alpha = .45)) +
   proto_basis(line_size = .6) + proto_origin() + .t +
-  theme(legend.position = "off") + ylab("Points,\nreduced oppacity")
+  theme(legend.position = "off") + ylab("Points,\nreduced opacity")
 half_pt <- ggtour(bas_half, X, .3) +
   proto_point(list(color = Y, shape = Y), list(size = 1, alpha = .45)) +
   proto_basis(line_size = .6) + proto_origin() + .t +
