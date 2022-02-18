@@ -46,13 +46,13 @@ knit_hooks$set(output = function(x, options) {
 
 # Welcome {-}
 
-This book is the PhD thesis covering my studies at Monash University, Australia.
+This is the website for my PhD thesis at Monash University, Australia.
 
 A `pdf` version can be found [here](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf), and the code creating it can be found on [github](https://github.com/nspyrison/thesis_ns).
 
 `r Sys.Date()`
 
-`r if (knitr::is_latex_output()) '__>' ## <-- Correct this if using welcome`
+`r if (knitr::is_latex_output()) '-->' ## <-- Correct this if using welcome`
 
 <!-- 
 Edit these lines as appropriate.

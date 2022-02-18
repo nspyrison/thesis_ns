@@ -42,8 +42,10 @@ Then for some subset of tasks, we expect to find that the radial tour performs m
 <!-- Explicit hypothesis tests -->
 An experimental factors and definition of an accuracy measure are given below. The null hypothesis can be stated as:
 
-$~~~~H_0: \text{accuracy does not change across visual method} \\$
-$~~~~~H_\alpha: \text{accuracy does change across visual method} \\$
+\begin{align*}
+  &H_0: \text{accuracy does not change across visual method} \\
+  &H_\alpha: \text{accuracy does change across visual method}
+\end{align*}
 
 
 ### Experimental factors {#sec:expfactors}
@@ -85,29 +87,19 @@ Let a data $\textbf{X}_{n,~p,~k}$ be a simulation containing clusters of observa
 <!-- W, weights -->
 The weights, $w$ as a vector explaining the variable-wise difference between two clusters. Namely, the difference of each variable between clusters, as a proportion of the total difference, less $1/p$, the expected cluster separation if it were uniformly distributed. <!-- R, participant responses -->Participant responses are a logical value for each variable - whether or not the participant thinks each variable separates the two clusters more than uniformly distributed separation.
 
-<!-- __v1 measure sqrt__ -->
-<!-- \begin{align*} -->
-<!-- W_{j} &=\frac -->
-<!-- {(\overline{X_{j=1, k=1}} - \overline{X_{1, 2}}, ~...~ -->
-<!-- (\overline{X_{p, 1}} - \overline{X_{p, 2}})} -->
-<!-- {\sum_{j=1}^{p}(|\overline{X_{j, k=1}} - \overline{X_{j, k=2}}|)} -->
-<!-- - \frac{1}{p} \\ -->
-<!-- \\ -->
-<!-- \text{Accuracy}, Y &= \sum_{j=1}^{p}I(r_j) \cdot sign(w_j) \cdot \sqrt{|w_j|} \\ -->
-<!-- \end{align*} -->
-
-<!-- __v2 measure 01 scaled__ -->
-<!--\left\{ \begin{aligned}
-    \frac{w_+^2}{\sum w_+^2}  &&\Bigg\vert w_+ \text{ the positive elements of } w \\
-    \frac{w_-^2}{\sum w_-^2}  &&\Bigg\vert w_- \text{ the negative elements of } w \\ \end{aligned} \right. -->
-
 <!-- __v2 measure sq__ -->
-\begin{align*}
-  w_{j} &=\frac{(\overline{X}_{\cdot, j=1, k=1} - \overline{X}_{\cdot, 1, 2}, ~...~ 
+\begin{equation*}
+  w_{j} = \frac{(\overline{X}_{\cdot, j=1, k=1} - \overline{X}_{\cdot, 1, 2}, ~...~ 
     (\overline{X}_{\cdot, p, 1} - \overline{X}_{\cdot, p, 2})}
-    {\sum_{j=1}^{p}(|\overline{X}_{\cdot, j, k=1} - \overline{X}_{\cdot, j, 2}|)} - \frac{1}{p} \shortintertext{Where accuracy, A, is defined as:}
-  A &= \sum_{j=1}^{p}I(j) \cdot sign(w_j) \cdot w^2
-\end{align*}
+    {\sum_{j=1}^{p}(|\overline{X}_{\cdot, j, k=1} - \overline{X}_{\cdot, j, 2}|)} - \frac{1}{p} \\
+\end{equation*}
+
+Where accuracy, $A$, is defined as:
+
+\begin{equation*}
+  A = \sum_{j=1}^{p}I(j) \cdot sign(w_j) \cdot w^2
+\end{equation*}
+
 
 Where $I(j)$ is the indicator function, the binary response for variable $j$. Figure \@ref(fig:figBiplotScoring) shows one frame of a simulation with its observed variable separation (wide bars), expected uniform separation (dashed line), and accuracy if selected (thin lines).
 
@@ -125,7 +117,7 @@ The visuals are tested within-participant, with each visual being evaluated twic
 The visualization methods were standardized wherever possible. Data were displayed as 2D scatterplots with biplots [@gabriel_biplot_1971], a visual with variable contributions inscribed on a unit circle. All aesthetic values (colors, shapes, sizes, absence of legend, and axis titles) were constant. Variable contributions were always shown left of the scatterplot embeddings with their aesthetic values consistent. What did vary between visuals were their inputs.
 
 <!-- PCA -->
-PCA inputs allowed users to select between the top four principal components for both axes regardless of the data dimensionality (four or six). Data were simulated to have cluster separation within the 2nd to 4th components. Cluster separation was sampled to not bury signal in 5th and 6th components (not selectable in PCA input) in the interest of simplicity and time. <!-- Grand tours -->There was no user input for the grand tour; users were instead shown a 15-second animation of the same randomly selected path. Participants could view the same clip up to four times within the time limit. <!-- Radial tours -->Radial tours were also displayed at five frames per second with a step size of 0.1 radians between interpolated frames. Users were able to swap between variables. Selecting a new variable resets the animation where the new variable is manipulated to a full, zero, and then back to its initial contribution. The complete animation of any variable takes about 20 seconds and is almost entirely in the projection frame at around six seconds. The starting basis was initialized to a half-clock design, where the variables were evenly distributed in half of the circle. This design was created to be variable agnostic while maximizing the independence of the variables.
+PCA inputs allowed users to select between the top four principal components for both axes regardless of the data dimensionality (four or six). Data were simulated to have cluster separation within the 2nd to 4th components. Cluster separation was sampled to not bury signal in 5th and 6th components (not selectable in PCA input) in the interest of simplicity and time.<!-- Grand tours --> There was no user input for the grand tour; users were instead shown a 15-second animation of the same randomly selected path. Participants could view the same clip up to four times within the time limit.<!-- Radial tours --> Radial tours were also displayed at five frames per second with a step size of 0.1 radians between interpolated frames. Users were able to swap between variables. Selecting a new variable resets the animation where the new variable is manipulated to a full, zero, and then back to its initial contribution. The complete animation of any variable takes about 20 seconds and is almost entirely in the projection frame at around six seconds. The starting basis was initialized to a half-clock design, where the variables were evenly distributed in half of the circle. This design was created to be variable agnostic while maximizing the independence of the variables.
 
 
 ### Data simulation
@@ -137,7 +129,7 @@ Each dimension is originally distributed as $\mathcal{N}(0, 1)$, given the covar
 Clusters of the EVV shape are transformed to the banana-chevron shape (illustrated in figure \@ref(fig:figExpFactors), shape row). Then location mixing is applied by post-multiplying a (2x2) rotation matrix to the signal variable and a noise variable for the clusters in question.<!-- Preprocess and replicate and save --> All variables are then standardized by standard deviation. The rows and columns are then shuffled randomly. The observation's cluster and order of shuffling are attached to the data and saved.
 
 <!-- Iterating over visual -->
-Each of these replications is then iterated with each level of the visual. For PCA, projections were saved for each of the 12 pairs of the top four principal components. A basis path is saved for a 4- and 6D grand tour. The data from each simulation is then projected through its corresponding bases path. Each simulation's variable order was previously shuffled, effectually randomizing cluster separation shown. The resulting animations were saved as `gif` files. The radial tour starts at either the four or six variable "half-clock" basis, where each variable has a uniform contribution in the right half with no variable contributing in the opposite direction. This acts to minimize the dependence between variable contributions. A radial tour is then produced for each variable and saved as a `gif`.
+Each of these replications is then iterated with each level of the visual. For PCA, projections were saved for each of the 12 pairs of the top four principal components. A grand tour basis path is saved for each dimensionality level. The data from each simulation is then projected through its corresponding bases path. Each simulation's variable order was previously shuffled to randomize variables containing cluster separation. The radial tour starts at either the four or six variable "half-clock" basis, where each variable has a uniform contribution in the right half with no variable contributing in the opposite direction. This acts to minimize the dependence between variable contributions. A radial tour is then produced for each variable and saved as a `gif`.
 
 
 ### Randomized assignment

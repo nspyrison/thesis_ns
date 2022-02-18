@@ -12,7 +12,7 @@ glossary_df <- data.frame(
     "", "", "$iid$", "", ""),
   Alias = c(
     "instance, item, row (of data)", "feature, column (of data)",
-    "", "", "", "embedding", "", "", "", "black-box model", ""),
+    "", "", "", "embedding", "", "", "", "", ""),
   Description = c(
     "A unit being measured across the variables.",
     "A measure taken across all observations.",
@@ -22,8 +22,8 @@ glossary_df <- data.frame(
     "The resulting space the data multiplied by the basis.",
     "A dynamic linear projection animated over small changes to the projection basis.",
     "Creating intermediate basis frames along the shortest path of possible bases.",
-    "The minimal dimensionality data can be represented with.",
-    "A model with numerous or interactive terms that makes the term difficult to interpret.",
+    "The minimal dimensionality data can be represented by.",
+    "A model with numerous, polynomial, or interacting terms that can be difficult to interpret.",
     "Approximation of the linear variable importance of a model in the vicinity of one observation.")
 )
 

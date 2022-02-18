@@ -53,7 +53,7 @@ As $n$ increases, scatterplot displays also suffer from occlusion as the points 
 ### Parallel coordinate plots
 
 <!-- PCP -->
-In scatterplot matrices, each observation is spread across all panels. In contrast, observation-linked visuals have a single line or glyph for each observation. In parallel coordinate plots [@ocagne_coordonnees_1885], variables are arranged horizontally, and lines connect observations after being transformed to a common scale such as quantiles or z-value (standard deviations away from the mean). Figure \@ref(fig:penguinpcp) illustrates this method. Parallel coordinate plots scale much better with dimensions than scatterplot matrices but more poorly with observations. They  also suffer from an asymmetry with the variable order. That is, changing the order of the variables may lead to very different conclusions. The x-axis is also used to display variables rather than the values of the observations. This restricts the amount of information that can be interpreted between variables. @munzner_visualization_2014 asserts that position is the more human-perceptible channel for encoding information; we should prefer to reserve it for the values of the observations rather than distinguishing variables.
+In scatterplot matrices, each observation is spread across all panels. In contrast, observation-linked visuals have a single line or glyph for each observation. In parallel coordinate plots [@ocagne_coordonnees_1885], variables are arranged horizontally, and lines connect observations after being transformed to a common scale such as quantiles or z-value (standard deviations away from the mean). Figure \@ref(fig:penguinpcp) illustrates this method. Parallel coordinate plots scale much better with dimensions than scatterplot matrices but more poorly with observations. They  also suffer from an asymmetry with the variable order. That is, changing the order of the variables may lead to very different conclusions. The $x$-axis is also used to display variables rather than the values of the observations. This restricts the amount of information that can be interpreted between variables. @munzner_visualization_2014 asserts that position is the more human-perceptible channel for encoding information; we should prefer to reserve it for the values of the observations rather than distinguishing variables.
 
 (ref:penguinpcp-cap) Parallel coordinate plots put variables on a common scale and position them side-by-side with lines connecting observations. Some variation between the clusters can be seen corroborating their importance to explaining cluster separation. This approach scales relatively well with the number of variables but poorly with the number of observations.
 ```{r penguinpcp, echo=F, out.width="100%", fig.cap = "(ref:penguinpcp-cap)"}
@@ -63,7 +63,6 @@ nsSafeIncGraphic("./figures/ch2_fig3_penguin_pcp.pdf")
 <!-- Observation based visuals and scaling -->
 The same issues persist across other displays that map observations into $n$ glyph or heatmaps. Examples of these include star plots [@chambers_graphical_1983], pixel-based visuals [@keim_designing_2000], and Chernoff faces [@chernoff_use_1973]. Like parallel coordinate plots, these other visuals scale quite poorly with increasing observations. However, because these visuals scale well with the number of variables they maybe candidate visualizations for low $n$, high $p$ data.
 
-<!-- >> Low priority to illustrations of other visuals here -->
 
 ### Dimension reduction
 
@@ -78,11 +77,6 @@ As illustrated by map projections, nonlinear projections can be difficult to und
 
 <!-- Dealing with hyper parameters & Sticking with linear approaches -->
 Furthermore, nonlinear projections have hyperparameters (these are absent from linear methods) that control how the spaces are distorted to fit into fewer dimensions. These introduce a degree of subjectivity into the resulting projection. Opinions differ on how to best deal with hyperparameters. @probst_hyperparameters_2019 discusses tuning strategies. Others compare implementation defaults [@gijsbers_meta_2021; @pfisterer_learning_2021]. @probst_tunability_2019 look at the sensitivity of hyperparameters to the performance of a model. Automated machine learning takes a programmatic approach to hyperparameter tuning [@feurer_efficient_2015; @hutter_automated_2019; @yao_taking_2019]. Due to the difficulty of interpreting nonlinear mappings and the added subjectivity of hyperparameter selection, this thesis focuses on linear visualization techniques.
-<!-- Moreover, nonlinear dimension reduction can introduce features not in the data depending on the selection of hyperparameters. Then plausibly, the presence of structure in a nonlinear model is necessary but not sufficient to conclude the existence of a structure in the data. -->
-
-<!-- >> _XXX: Is this the best spot for free lunch comment? IDD builds off of this but feels like it belongs at the end of this supersection._ -->
-<!-- No free lunch trade off -->
-<!--Unfortunately, there is no free lunch here. An increase in the original data dimensions will lead to exponentially larger viewing space in the linear case or an exponentially perturbed and distorted space in nonlinear techniques. Neither is a panacea for visualizing multivariate spaces.-->
 
 
 ### Intrinsic data dimensionality
@@ -147,7 +141,7 @@ Nonlinear models have many or complex interactive terms, which cause an opacity 
 There are different reasons and emphases when considering to fit a model. @breiman_statistical_2001, reiterated by @shmueli_explain_2010, taxonomize models based on their purpose; _explanatory_ modeling is done for some inferential purpose, while _predictive_ modeling focuses more narrowly on the performance of some objective function. The intended use has important implications for model selection and development. In explanatory modeling, interpretability is vital for drawing inferential conclusions. While black-box models are preferred in predictive modeling. However, the use and prevalence of nonlinear models is not without controversy [@oneil_weapons_2016; @kodiyan_overview_2019]. And the loss of interpretation presents a challenge.
 
 <!-- Interpretability & baises -->
-Interpretability is vital for exploring and protecting against potential biases (e.g., sex  -- @dastin_amazon_2018; @duffy_apple_2019, race -- @larson_how_2016, and age  -- @diaz_addressing_2018) in any model. For instance, models regularly pick up on biases in the training data where protected classes correlate with the response feature. This bias is then built into the model. Variable-level (feature-level) interpretability of models is essential in evaluating such biases.<!-- Even if the optimization of an objective function is the primary concern, stakeholders, litigators, and opponents would rightly ask for the variable interpretability. -->
+Interpretability is vital for exploring and protecting against potential biases (e.g., sex  -- @dastin_amazon_2018; @duffy_apple_2019, race -- @larson_how_2016, and age  -- @diaz_addressing_2018) in any model. For instance, models regularly pick up on biases in the training data where protected classes correlate with the response feature. This bias is then built into the model. Variable-level (feature-level) interpretability of models is essential in evaluating such biases.
 
 <!-- Interpretability & data drift -->
 Another concern is data drift, where a shift in the range of the explanatory variables (features or predictors). Some nonlinear models are sensitive to this and do not extrapolate well outside the support of the training data. Maintaining variable interpretability is also essential to address issues arising from data drift.
@@ -174,10 +168,6 @@ These observation-level explanations are used in various ways depending on the c
 
 
 ## Conclusion
-
-<!-- Circle back around to higher level -->
-<!-- Research gap; absence of tours, linear projection comparisons,  -->
-<!-- Reference to further chapters -->
 
 <!-- Motivation -->
 We have discussed the motivation for data visualization and the importance of user interaction. We discussed several visuals before turning to linear dimension reduction. Empirical evaluations, black-box models, and their local explanations were discussed. There is an absence of studies comparing animated tours with alternative visualization. XAI and extending the interpretability of black-box models are sought-after.

@@ -1,3 +1,8 @@
+# Bibliography {-}
+
+<div id="refs"></div>
+
+
 # (APPENDIX) Appendix {-#ch-appendix}
 <!-- # Appendix {#ch-appendix} -->
 

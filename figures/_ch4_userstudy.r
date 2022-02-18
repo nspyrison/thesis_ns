@@ -369,7 +369,7 @@ ggsave("./figures/ch4_fig4_accuracy_measure.pdf", final, "pdf",
   my_ggpubr <- function(
     df, x = "Visual", y = "Marks",
     title = waiver(), subtitle = waiver(), facet = NULL,
-    y_pval_coef = .08,  ## Subjective wants .032
+    y_pval_coef = .08, ## Subjective wants .032
     ylim_max_coef = .5 ## Subjective wants .6
   ){
     ## Find height of global significance test text.

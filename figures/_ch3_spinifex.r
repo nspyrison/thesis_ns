@@ -27,7 +27,7 @@ ggplot2::ggsave(
   height = 4, width = 6, units = "in")
 
 # fig2_manip_sp -----
-f_mvar <- 5
+f_mvar   <- 5
 manip_sp <- spinifex::view_manip_space(basis = f_bas, manip_var = f_mvar, line_size = .6)
 ggplot2::ggsave(
   "./figures/ch3_fig2_manip_sp.pdf", manip_sp, "pdf",

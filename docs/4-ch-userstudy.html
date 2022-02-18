@@ -208,6 +208,7 @@ div.csl-indent {
 <li class="chapter" data-level="6.2" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#limitations"><i class="fa fa-check"></i><b>6.2</b> Limitations</a></li>
 <li class="chapter" data-level="6.3" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#future-work"><i class="fa fa-check"></i><b>6.3</b> Future work</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="A-supplementary-material-for-radial-tour-user-study.html"><a href="A-supplementary-material-for-radial-tour-user-study.html"><i class="fa fa-check"></i><b>A</b> Supplementary material for radial tour user study</a>
 <ul>
@@ -220,7 +221,6 @@ div.csl-indent {
 <li class="chapter" data-level="B.2" data-path="B-overall-appendix.html"><a href="B-overall-appendix.html#animated-tour-links"><i class="fa fa-check"></i><b>B.2</b> Animated tour links</a></li>
 <li class="chapter" data-level="B.3" data-path="B-overall-appendix.html"><a href="B-overall-appendix.html#supplementary-material"><i class="fa fa-check"></i><b>B.3</b> Supplementary material</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 <li class="divider"></li>
 <li><strong><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></strong></li>
 
@@ -271,8 +271,10 @@ Figure 4.1: Illustration of cluster separation. Panel (a) shows clear separation
 <p>Then for some subset of tasks, we expect to find that the radial tour performs most accurately. In the appendix, section <a href="A-supplementary-material-for-radial-tour-user-study.html#sec:appendix">A.2</a>, regresses on the log response time. Due to the absence of inputs, the grand tour may lead to faster response time than the alternatives since users can focus all of their attention on interpreting the fixed path. Conversely, we are less sure about the accuracy of such limited grand tours as there is no objective function in selecting the bases; it is possible that the random selection of the target bases altogether avoids bases showing cluster separation. However, given that the data dimensionality was modest, it seems plausible that the grand tour coincidentally regularly crossed frames with the correct information for the task.</p>
 <!-- Explicit hypothesis tests -->
 <p>An experimental factors and definition of an accuracy measure are given below. The null hypothesis can be stated as:</p>
-<p><span class="math inline">\(~~~~H_0: \text{accuracy does not change across visual method} \\\)</span>
-<span class="math inline">\(~~~~~H_\alpha: \text{accuracy does change across visual method} \\\)</span></p>
+<p><span class="math display">\[\begin{align*}
+  &amp;H_0: \text{accuracy does not change across visual method} \\
+  &amp;H_\alpha: \text{accuracy does change across visual method}
+\end{align*}\]</span></p>
 </div>
 <div id="sec:expfactors" class="section level3" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Experimental factors</h3>
@@ -305,27 +307,16 @@ Figure 4.2: Illustration of the experimental factors, the parameter space of the
 <p>Let a data <span class="math inline">\(\textbf{X}_{n,~p,~k}\)</span> be a simulation containing clusters of observations of different distributions. Where <span class="math inline">\(n\)</span> is the number of observations, <span class="math inline">\(p\)</span> is the number of variables, and <span class="math inline">\(k\)</span> indicates the cluster an observation belongs. Cluster membership is exclusive; an observation cannot belong to more than one cluster.</p>
 <!-- W, weights -->
 <p>The weights, <span class="math inline">\(w\)</span> as a vector explaining the variable-wise difference between two clusters. Namely, the difference of each variable between clusters, as a proportion of the total difference, less <span class="math inline">\(1/p\)</span>, the expected cluster separation if it were uniformly distributed. <!-- R, participant responses -->Participant responses are a logical value for each variable - whether or not the participant thinks each variable separates the two clusters more than uniformly distributed separation.</p>
-<!-- __v1 measure sqrt__ -->
-<!-- \begin{align*} -->
-<!-- W_{j} &=\frac -->
-<!-- {(\overline{X_{j=1, k=1}} - \overline{X_{1, 2}}, ~...~ -->
-<!-- (\overline{X_{p, 1}} - \overline{X_{p, 2}})} -->
-<!-- {\sum_{j=1}^{p}(|\overline{X_{j, k=1}} - \overline{X_{j, k=2}}|)} -->
-<!-- - \frac{1}{p} \\ -->
-<!-- \\ -->
-<!-- \text{Accuracy}, Y &= \sum_{j=1}^{p}I(r_j) \cdot sign(w_j) \cdot \sqrt{|w_j|} \\ -->
-<!-- \end{align*} -->
-<!-- __v2 measure 01 scaled__ -->
-<!--\left\{ \begin{aligned}
-    \frac{w_+^2}{\sum w_+^2}  &&\Bigg\vert w_+ \text{ the positive elements of } w \\
-    \frac{w_-^2}{\sum w_-^2}  &&\Bigg\vert w_- \text{ the negative elements of } w \\ \end{aligned} \right. -->
 <!-- __v2 measure sq__ -->
-<p><span class="math display">\[\begin{align*}
-  w_{j} &amp;=\frac{(\overline{X}_{\cdot, j=1, k=1} - \overline{X}_{\cdot, 1, 2}, ~...~ 
+<p><span class="math display">\[\begin{equation*}
+  w_{j} = \frac{(\overline{X}_{\cdot, j=1, k=1} - \overline{X}_{\cdot, 1, 2}, ~...~ 
     (\overline{X}_{\cdot, p, 1} - \overline{X}_{\cdot, p, 2})}
-    {\sum_{j=1}^{p}(|\overline{X}_{\cdot, j, k=1} - \overline{X}_{\cdot, j, 2}|)} - \frac{1}{p} \shortintertext{Where accuracy, A, is defined as:}
-  A &amp;= \sum_{j=1}^{p}I(j) \cdot sign(w_j) \cdot w^2
-\end{align*}\]</span></p>
+    {\sum_{j=1}^{p}(|\overline{X}_{\cdot, j, k=1} - \overline{X}_{\cdot, j, 2}|)} - \frac{1}{p} \\
+\end{equation*}\]</span></p>
+<p>Where accuracy, <span class="math inline">\(A\)</span>, is defined as:</p>
+<p><span class="math display">\[\begin{equation*}
+  A = \sum_{j=1}^{p}I(j) \cdot sign(w_j) \cdot w^2
+\end{equation*}\]</span></p>
 <p>Where <span class="math inline">\(I(j)\)</span> is the indicator function, the binary response for variable <span class="math inline">\(j\)</span>. Figure <a href="4-ch-userstudy.html#fig:figBiplotScoring">4.3</a> shows one frame of a simulation with its observed variable separation (wide bars), expected uniform separation (dashed line), and accuracy if selected (thin lines).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figBiplotScoring"></span>
 <img src="figures/ch4_fig4_accuracy_measure.png" alt="Illustration of how accuracy is measured. (L), Scatterplot and biplot of PC1 by PC4 of a simulated data set (R) illustration of cluster separation between the means of the green circles and orange triangles. Bars indicate observed cluster separation and (red/green) lines show the accuracy weight of the variable if selected. The horizontal dashed line is $1 / p$, the expected value. The weights equal the signed square of the difference between each variable value and the dashed line." width="100%"  />
@@ -341,7 +332,7 @@ Figure 4.3: Illustration of how accuracy is measured. (L), Scatterplot and biplo
 <!-- Aesthetic standardization -->
 <p>The visualization methods were standardized wherever possible. Data were displayed as 2D scatterplots with biplots <span class="citation">(<a href="bibliography.html#ref-gabriel_biplot_1971" role="doc-biblioref">Gabriel 1971</a>)</span>, a visual with variable contributions inscribed on a unit circle. All aesthetic values (colors, shapes, sizes, absence of legend, and axis titles) were constant. Variable contributions were always shown left of the scatterplot embeddings with their aesthetic values consistent. What did vary between visuals were their inputs.</p>
 <!-- PCA -->
-<p>PCA inputs allowed users to select between the top four principal components for both axes regardless of the data dimensionality (four or six). Data were simulated to have cluster separation within the 2nd to 4th components. Cluster separation was sampled to not bury signal in 5th and 6th components (not selectable in PCA input) in the interest of simplicity and time. <!-- Grand tours -->There was no user input for the grand tour; users were instead shown a 15-second animation of the same randomly selected path. Participants could view the same clip up to four times within the time limit. <!-- Radial tours -->Radial tours were also displayed at five frames per second with a step size of 0.1 radians between interpolated frames. Users were able to swap between variables. Selecting a new variable resets the animation where the new variable is manipulated to a full, zero, and then back to its initial contribution. The complete animation of any variable takes about 20 seconds and is almost entirely in the projection frame at around six seconds. The starting basis was initialized to a half-clock design, where the variables were evenly distributed in half of the circle. This design was created to be variable agnostic while maximizing the independence of the variables.</p>
+<p>PCA inputs allowed users to select between the top four principal components for both axes regardless of the data dimensionality (four or six). Data were simulated to have cluster separation within the 2nd to 4th components. Cluster separation was sampled to not bury signal in 5th and 6th components (not selectable in PCA input) in the interest of simplicity and time.<!-- Grand tours --> There was no user input for the grand tour; users were instead shown a 15-second animation of the same randomly selected path. Participants could view the same clip up to four times within the time limit.<!-- Radial tours --> Radial tours were also displayed at five frames per second with a step size of 0.1 radians between interpolated frames. Users were able to swap between variables. Selecting a new variable resets the animation where the new variable is manipulated to a full, zero, and then back to its initial contribution. The complete animation of any variable takes about 20 seconds and is almost entirely in the projection frame at around six seconds. The starting basis was initialized to a half-clock design, where the variables were evenly distributed in half of the circle. This design was created to be variable agnostic while maximizing the independence of the variables.</p>
 </div>
 <div id="data-simulation" class="section level3" number="4.1.5">
 <h3><span class="header-section-number">4.1.5</span> Data simulation</h3>
@@ -350,7 +341,7 @@ Figure 4.3: Illustration of how accuracy is measured. (L), Scatterplot and biplo
 <!-- Apply shape and location transformations -->
 <p>Clusters of the EVV shape are transformed to the banana-chevron shape (illustrated in figure <a href="4-ch-userstudy.html#fig:figExpFactors">4.2</a>, shape row). Then location mixing is applied by post-multiplying a (2x2) rotation matrix to the signal variable and a noise variable for the clusters in question.<!-- Preprocess and replicate and save --> All variables are then standardized by standard deviation. The rows and columns are then shuffled randomly. The observation’s cluster and order of shuffling are attached to the data and saved.</p>
 <!-- Iterating over visual -->
-<p>Each of these replications is then iterated with each level of the visual. For PCA, projections were saved for each of the 12 pairs of the top four principal components. A basis path is saved for a 4- and 6D grand tour. The data from each simulation is then projected through its corresponding bases path. Each simulation’s variable order was previously shuffled, effectually randomizing cluster separation shown. The resulting animations were saved as <code>gif</code> files. The radial tour starts at either the four or six variable “half-clock” basis, where each variable has a uniform contribution in the right half with no variable contributing in the opposite direction. This acts to minimize the dependence between variable contributions. A radial tour is then produced for each variable and saved as a <code>gif</code>.</p>
+<p>Each of these replications is then iterated with each level of the visual. For PCA, projections were saved for each of the 12 pairs of the top four principal components. A grand tour basis path is saved for each dimensionality level. The data from each simulation is then projected through its corresponding bases path. Each simulation’s variable order was previously shuffled to randomize variables containing cluster separation. The radial tour starts at either the four or six variable “half-clock” basis, where each variable has a uniform contribution in the right half with no variable contributing in the opposite direction. This acts to minimize the dependence between variable contributions. A radial tour is then produced for each variable and saved as a <code>gif</code>.</p>
 </div>
 <div id="randomized-assignment" class="section level3" number="4.1.6">
 <h3><span class="header-section-number">4.1.6</span> Randomized assignment</h3>
