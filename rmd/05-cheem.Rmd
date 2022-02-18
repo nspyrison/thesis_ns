@@ -157,7 +157,7 @@ nsSafeIncGraphic("./figures/ch5_fig4_case_penguins.png")
 Figure \@ref(fig:casepenguins) shows plots from the cheem viewer for exploring the random forest model on the penguins data. Panel (a) shows the global view, and panel (b) shows several 1D projections generated with the radial tour. Penguin 243, a Gentoo (purple), is the PI because it has been misclassified as a Chinstrap (orange).
 
 (ref:casepenguinsblfl) Checking what is learned from the cheem viewer. This is a plot of flipper length (`fl`) and bill length (`bl`), where an asterisk highlights the PI. A Gentoo (purple) misclassified as a Chinstrap (orange). The PI has an unusually small `f_l` length which is why it is confused with a Chinstrap.
-```{r casepenguinsblfl, echo=F, out.width="60%", fig.cap = "(ref:casepenguinsblfl)"}
+```{r casepenguinsblfl, echo=F, out.width="100%", fig.cap = "(ref:casepenguinsblfl)"}
 nsSafeIncGraphic("./figures/ch5_fig5_case_penguins_BlFl.png")
 ```
 

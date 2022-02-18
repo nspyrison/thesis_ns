@@ -63,7 +63,7 @@ nsSafeIncGraphic("./figures/ch2_fig3_penguin_pcp.pdf")
 <!-- Observation based visuals and scaling -->
 The same issues persist across other displays that map observations into $n$ glyph or heatmaps. Examples of these include star plots [@chambers_graphical_1983], pixel-based visuals [@keim_designing_2000], and Chernoff faces [@chernoff_use_1973]. Like parallel coordinate plots, these other visuals scale quite poorly with increasing observations. However, because these visuals scale well with the number of variables they maybe candidate visualizations for low $n$, high $p$ data.
 
->> Low priority to illustrations of other visuals here
+<!-- >> Low priority to illustrations of other visuals here -->
 
 ### Dimension reduction
 

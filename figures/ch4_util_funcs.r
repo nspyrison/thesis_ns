@@ -34,7 +34,7 @@ pivot_longer_resp_ans_tbl <- function(dat){
                     participant_num = 0L,
                     full_perm_num = 0L,
                     bar         = bar,
-                    factor      = NA,
+                    visual      = NA,
                     p_dim       = NA,
                     prolific_id = NA,
                     period      = NA,
@@ -63,7 +63,7 @@ pivot_longer_resp_ans_tbl <- function(dat){
   resp_longer <- dat %>%
     dplyr::select(
       key, participant_num, full_perm_num, prolific_id, sim_nm,
-      period, eval, factor, vc, p_dim, location, input_inter,
+      period, eval, visual, vc, p_dim, location, input_inter,
       resp_inter, sec_to_resp, sec_on_pg, bar, v1_resp:v6_resp) %>%
     tidyr::pivot_longer(cols = v1_resp:v6_resp,
                         names_to = "var_num",
@@ -112,7 +112,7 @@ pivot_longer_resp_ans_tbl <- function(dat){
                                            levels = 1L:max(full_perm_num)),
                   prolific_id = as.factor(prolific_id),
                   sim_nm      = as.factor(sim_nm),
-                  factor      = as.factor(factor),
+                  visual      = as.factor(visual),
                   period      = as.factor(period),
                   eval        = factor(eval, levels = c("t1", 1L:2L, "t2", 3L:4L, "t3", 5L:6L)),
                   is_training = ifelse(substr(eval, 1L, 1L) == "t", TRUE, FALSE),
@@ -121,7 +121,7 @@ pivot_longer_resp_ans_tbl <- function(dat){
                                        levels = c(4L, 6L)),
                   location    = as.factor(location),
                   var_num     = as.factor(substr(var_num, 2L, 2L)),
-    ) %>% tibble::as.tibble()
+    ) %>% tibble::as_tibble()
   return(ret)
 }
 
@@ -135,7 +135,7 @@ pivot_longer_resp_ans_tbl <- function(dat){
 aggregate_task_vars <- function(df_long){
   df_long %>%
     dplyr::group_by(key, participant_num, full_perm_num, prolific_id, sim_nm,
-                    factor, period, eval, is_training, vc, p_dim, location) %>%
+                    visual, period, eval, is_training, vc, p_dim, location) %>%
     dplyr::summarise(task_input_inter = mean(input_inter),
                      task_resp_inter = mean(resp_inter),
                      max_sec_to_resp = max(sec_to_resp),
@@ -263,13 +263,13 @@ ggproto_ans_plot <- function(
                                                 y = 0, yend = weight),
                                    resp_ans_longer, colour = mark_col, size = 1.5),
              ## 0 line
-             ggplot2::geom_hline(yintercept = 0L, size = 1L),
+             ggplot2::geom_hline(yintercept = 0L, size = .8),
              ## Uniform bar
              ggplot2::geom_hline(ggplot2::aes(yintercept = bar),
                                  resp_ans_longer,
-                                 size = 1L, linetype = 2L),
+                                 size = .8, linetype = 2L),
              ## Uniform bar text
-             ggplot2::geom_text(ggplot2::aes(x = p + 1L, y = bar + .07,
+             ggplot2::geom_text(ggplot2::aes(x = p, y = bar + .07,
                                              label = paste0("1/p = ", round(bar, 2))),
                                 resp_ans_longer,
                                 size = 4L, hjust = 1L)

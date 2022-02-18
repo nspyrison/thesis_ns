@@ -5,6 +5,7 @@
   require(ggplot2)
   require(GGally)
   require(dplyr)
+  require(patchwork)
   my_theme <- list(
     scale_color_brewer(palette = "Dark2"),
     theme_void(),
@@ -21,7 +22,7 @@
 }
 
 
-## fig_Cl_Sep -----
+# fig_Cl_Sep -----
 {
   set.seed(2022)
   .n <- 100
@@ -49,12 +50,22 @@
 
 ##4 plot and save
 (ClSep1 <- ggtour(bas2[, c(3, 4)], dat2) +
-    proto_basis() + proto_point(aes_args = list(color = clas2, shape = clas2)) +
-    labs(color = "Cluster", shape = "Cluster"))
+    proto_basis() +
+    proto_point(aes_args = list(color = clas2, shape = clas2)) +
+    theme(plot.title    = element_text(face = "bold"),
+          panel.border  = element_rect(size = .4, color = "grey20", fill = NA),
+          panel.spacing = unit(0L, "points")) +
+    labs(title = "a", color = "Cluster", shape = "Cluster"))
 (ClSep2 <- ggtour(rand, dat2) +
-    proto_basis() + proto_point(aes_args = list(color = clas2, shape = clas2)) +
-    labs(color = "Cluster", shape = "Cluster"))
-(ClSep <- cowplot::plot_grid(ClSep1, ClSep2, nrow = 1, labels = c("a", "b")))
+    proto_basis() +
+    proto_point(aes_args = list(color = clas2, shape = clas2)) +
+    theme(legend.position = "off",
+          plot.title    = element_text(face = "bold"),
+          panel.border  = element_rect(size = .4, color = "grey20", fill = NA),
+          panel.spacing = unit(0L, "points")) +
+    labs(title = "b")
+)
+(ClSep <- ClSep1 + ClSep2)
 ggsave("./figures/ch4_fig1_cl_sep.pdf", ClSep,
        device = "pdf", width = 6, height = 2.5, units = "in")
 
@@ -127,14 +138,14 @@ ggsave("./figures/ch4_fig2_pca_splom.pdf", gg_pca, device = "pdf",
   attr(bas3, "manip_var") <- 2
 }
 
-## Factor ------
+## Visual ------
 .t  <- c("PCA", "Grand tour", "Radial tour")
 .st <- c("Discrete jump to \n selected PC pair",
          "Animation through \n random bases",
          "Animation changing \n the selected variable")
-.x <- c("PC i", "", "")
-.y <- c("PC j", "", "")
-.m <- sapply(1:3, function(i){
+.x  <- c("PC i", "", "")
+.y  <- c("PC j", "", "")
+.m  <- sapply(1:3, function(i){
   .fct <- spinifex::ggtour(get(paste0("bas", i), envir = globalenv())) +
     proto_basis("center") +
     my_theme +
@@ -237,11 +248,11 @@ clas6 <- attr(EEE_p6_0_1_rep1, "cluster")
 dim4  <- ggtour(bas4) +
   proto_basis() +
   my_theme +
-  ggplot2::labs(subtitle = "3 clusters in 4 dimensions")
+  ggplot2::labs(subtitle = "4 dimensions, 3 clusters")
 dim6  <- ggtour(bas6) +
   proto_basis() +
   my_theme +
-  ggplot2::labs(subtitle = "4 clusters in 6 dimensions")
+  ggplot2::labs(subtitle = "6 dimensions, 4 clusters")
 ## text block about cluster d
 dim_txt <- ggplot() +
   geom_text(aes(0, 0), size = 3.3, hjust = .5, vjust = .3,
@@ -264,10 +275,10 @@ header_row <- ggplot() +
   theme_void() +
   theme(plot.title = element_text(hjust = 0.5, size = 18))
 header_matrix <- plot_grid(header_row, gg_matrix,
-                           ncol = 1, rel_heights = c(0.03, 1))
+                           ncol = 1, rel_heights = c(0.05, 1))
 
 t_fct   <- ggplot() +
-  labs(title = "Factor") +
+  labs(title = "Visual") +
   theme_void()+
   theme(plot.title = element_text(angle = 90))
 t_loc   <- ggplot() +
@@ -286,7 +297,6 @@ tbl_col <- plot_grid(.gg_empty, t_fct, t_loc, t_shp, t_dim,
                      ncol = 1, rel_heights = c(.8,1.2,1.2,1,1))
 final   <- plot_grid(tbl_col, header_matrix, nrow = 1, rel_widths = c(0.05, 1))
 
-
 ggsave("./figures/ch4_fig3_exp_factors.pdf", final,
        device = "pdf", width = 6.25, height = 9, units = "in")
 
@@ -296,8 +306,8 @@ tgt_sim_nm <- "EEV_p6_33_66_rep2"
 tgt_fp <- paste0("./data/", tgt_sim_nm, ".rda")
 ## Make data plot
 load(tgt_fp, envir = globalenv())
-dat <- EEV_p6_33_66_rep2
-bas <- basis_pca(dat, d = 4)[, c(1, 4)]
+dat  <- EEV_p6_33_66_rep2
+bas  <- basis_pca(dat, d = 4)[, c(1, 4)]
 clas <- attr(dat, "cluster")
 source("./figures/ch4_util_funcs.r") ## Redundant
 if(F)
@@ -314,7 +324,7 @@ proj <- as.matrix(dat) %*% bas %>% as.data.frame()
           plot.subtitle = element_text(hjust = 0.5),
           legend.position = "off",
           axis.title.y = element_text(angle = 90)) +
-    labs(subtitle = "Factor: PCA, location: 33/66%, \n Shape: EEV, dimension: 6 & 4 clusters",
+    labs(subtitle = "Visual: PCA, location: 33/66%, \n Shape: EEV, dimension: 6 & 4 clusters",
          x = "PC1", y = "PC4", color = "color", shape = "shape"))
 
 
@@ -357,7 +367,7 @@ ggsave("./figures/ch4_fig4_accuracy_measure.pdf", final, "pdf",
 {
   require(ggpubr)
   my_ggpubr <- function(
-    df, x = "Factor", y = "Marks",
+    df, x = "Visual", y = "Marks",
     title = waiver(), subtitle = waiver(), facet = NULL,
     y_pval_coef = .08,  ## Subjective wants .032
     ylim_max_coef = .5 ## Subjective wants .6
@@ -406,28 +416,28 @@ ggsave("./figures/ch4_fig4_accuracy_measure.pdf", final, "pdf",
 # ch4_fig6_ABcd_violins -----
 {
   dat_qual <- readRDS("./data/dat_qual.rds")
-  .lp <- theme(legend.position = "off")
-  .yl <- ylab("")
-  .factor   <- my_ggpubr(dat_qual, x = "Factor",    y = "Marks") + .lp + ylab("Accuracy")
-  .lvls <- c("0/100", "33/66", "50/50%")
+  .lp      <- theme(legend.position = "off")
+  .yl      <- ylab("")
+  .visual  <- my_ggpubr(dat_qual, x = "Visual", y = "Marks") + .lp + ylab("Accuracy")
+  .lvls    <- c("0/100", "33/66", "50/50%")
   dat_qual_loc <- dat_qual %>%
     mutate(Location = factor(.lvls[as.integer(Location)], levels = .lvls))
   levels(dat_qual_loc$Location)
   .location <- my_ggpubr(dat_qual_loc, x = "Location", y = "Marks") + .lp + .yl
-  .shape    <- my_ggpubr(dat_qual,     x = "Shape",     y = "Marks") + .lp + .yl
-  .dim      <- my_ggpubr(dat_qual,     x = "Dim",       y = "Marks") + .lp + .yl
-  .FactorLocation <- my_ggpubr_facet(
-    dat_qual, x = "Factor", y = "Marks", facet = "Location") + ylab("Accuracy")
+  .shape    <- my_ggpubr(dat_qual,     x = "Shape",    y = "Marks") + .lp + .yl
+  .dim      <- my_ggpubr(dat_qual,     x = "Dim",      y = "Marks") + .lp + .yl
+  .VisualLocation <- my_ggpubr_facet(
+    dat_qual, x = "Visual", y = "Marks", facet = "Location") + ylab("Accuracy")
 
   title <- cowplot::ggdraw() +
     cowplot::draw_label(
       "Violin plots of the terms for accuracy: Y1^ = \u03b1 * \u03b2 + \u03b3 + \u03b4",
       x = .5, y = .75, hjust = .5, vjust = 1)
   top <- cowplot::plot_grid(
-    .factor, .location, .shape, .dim, nrow = 1)
+    .visual, .location, .shape, .dim, nrow = 1)
   gc()
   (violin_ABcd <-
-      cowplot::plot_grid(title, top, .FactorLocation + ggtitle("", ""),
+      cowplot::plot_grid(title, top, .VisualLocation + ggtitle("", ""),
                          ncol = 1, rel_heights = c(.1, 1, 1.4)))
 }
 ggsave("./figures/ch4_fig6_ABcd_violins.pdf",
@@ -445,22 +455,22 @@ survey_wider <- readRDS("./data/survey_wider.rds")
 str(survey_wider)
 
 {
-  ## pivot_longer within factor
+  ## pivot_longer within visual
   radial_longer <- survey_wider %>%
     dplyr::select(instance_id, radial_familar:radial_like) %>%
     tidyr::pivot_longer(radial_familar:radial_like,
-                        names_to = "factor", values_to = "value")
+                        names_to = "visual", values_to = "value")
   grand_longer <- survey_wider %>%
     dplyr::select(instance_id, grand_familar:grand_like) %>%
     tidyr::pivot_longer(grand_familar:grand_like,
-                        names_to = "factor", values_to = "value")
+                        names_to = "visual", values_to = "value")
   pca_longer <- survey_wider %>%
     dplyr::select(instance_id, pca_familar:pca_like) %>%
     tidyr::pivot_longer(pca_familar:pca_like,
-                        names_to = "factor", values_to = "value")
-  ## Combine and split measure from factor
+                        names_to = "visual", values_to = "value")
+  ## Combine and split measure from visual
   subjective_longer <- rbind(radial_longer, grand_longer, pca_longer) %>%
-    tidyr::separate(factor, c("factor", "measure"), sep = "_")
+    tidyr::separate(visual, c("visual", "measure"), sep = "_")
 }
 ## Technically not continuous numeric, will show side by side with Likert plot.
 .lvls <- c("most disagree", "disagree", "neutral", "agree", "most agree")
@@ -470,7 +480,7 @@ subjective_longer <- subjective_longer %>%
            measure,
            from = c("like", "ease", "confidence", "familar"),
            to = c("preference", "ease of use", "confidence", "familiarity"))),
-         factor = factor(factor, levels = c("pca", "grand", "radial"))
+         visual = factor(visual, levels = c("pca", "grand", "radial"))
   )
 
 
@@ -495,8 +505,8 @@ subjective_longer <- subjective_longer %>%
   ## Format likert questions
   likert_q_nms <- colnames(survey_wider[, 11:22])
   likert <<- survey_agg %>% filter(question %in% likert_q_nms) %>%
-    tidyr::separate(question, c("factor", "question"), sep = "_") %>%
-    mutate(factor = factor(factor, levels = rev(c("pca", "grand", "radial"))),
+    tidyr::separate(question, c("visual", "question"), sep = "_") %>%
+    mutate(visual = factor(visual, levels = rev(c("pca", "grand", "radial"))),
            response = factor(response, levels = rev(.l_lvls)))
   likert$question <-
     plyr::mapvalues(likert$question,
@@ -508,7 +518,7 @@ subjective_longer <- subjective_longer %>%
 
 ## Likert plots -----
 (subjectiveMeasures <-
-   ggplot(likert, aes(x = percent, y = factor, fill = response)) +
+   ggplot(likert, aes(x = percent, y = visual, fill = response)) +
    geom_bar(position = "fill", stat = "identity", width = .6) + facet_grid(vars(question)) +
    ggtitle("Subjective measures", "Likert scale [1-5]") +
    theme_bw() +
@@ -522,14 +532,14 @@ subjective_longer <- subjective_longer %>%
    coord_flip() +
    theme(legend.direction = "vertical") +
    guides(fill = guide_legend(reverse = FALSE)) +
-   labs(x = "Factor", y = "Response rate", fill = "Response")
+   labs(x = "Visual", y = "Response rate", fill = "Response")
 )
 
 (measure_violins <- my_ggpubr_facet(
-  df = subjective_longer, x = "factor", y = "value", facet = "measure",
+  df = subjective_longer, x = "visual", y = "value", facet = "measure",
   y_pval_coef = .032,  ## Subjective wants .032
   ylim_max_coef = .6) +  ## Subjective wants .6
-  labs(x = "Factor", y = "Response", fill = "Factor"))
+  labs(x = "Visual", y = "Response", fill = "Visual"))
 figSubjectiveMeasures_w.violin_hori <-  cowplot::plot_grid(
   subjectiveMeasures, measure_violins, ncol = 2)
 

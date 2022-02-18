@@ -308,7 +308,8 @@ animate_plotly(ggt, fps = 5)
 
 
 ## A 1D grand tour from tourr
-gt_path <- save_history(data = dat, tour_path = grand_tour(d = 1), max_bases = 10)
+gt_path <- save_history(
+  data = dat, tour_path = grand_tour(d = 1), max_bases = 10)
 
 ## Composing the display of the tour
 ggt2 <- ggtour(gt_path, angle = .15) +

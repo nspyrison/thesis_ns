@@ -1,10 +1,13 @@
-# Appendix {#ch-appendix}
+# (APPENDIX) Appendix {-#ch-appendix}
+<!-- # Appendix {#ch-appendix} -->
 
 <!-- Does something for LaTeX output -->
 \appendix
 
+# Supplementary material for radial tour user study
 
-## Accompanying tool: radial tour application {#sec:spinifex}
+
+## Accompanying radial tour application {#sec:spinifex}
 
 An accompanying application illustrates the radial tour. The __R__ package, __spinifex__, [@spyrison_spinifex_2020] is an open-source and now contains a __shiny__ [@chang_shiny_2021] application allowing users to apply various preprocessing tasks and interactively explore their data via interactive radial tour. Example datasets are provided with the ability to upload data. The `html` widget produced is a more interactive variant relative to the one used in the user study. Screen captures and more details are provided in the appendix. Run the following __R__ code will run the application locally.
 
@@ -13,6 +16,24 @@ An accompanying application illustrates the radial tour. The __R__ package, __sp
 install.packages("spinifex", dependencies = TRUE)
 ## Run interactive app demonstrating the radial tour:
 spinifex::run_app()
+
+## Set format and fonts for pdf vs html:
+if(knitr::is_html_output()){
+  fmt      <- "html"
+  fnt      <- 12L
+  mod_comp <- readRDS("./figures/ch4_tab1_model_comp_ls_html.rds")
+  ## Escape HTML formatting of * multiplication
+  mod_comp$modelComp_MarksByEval$`Fixed effects` <-
+      gsub("[*]", "\\\\*", mod_comp$modelComp_MarksByEval$`Fixed effects`)
+  mod_comp$modelComp_TimeByEval$`Fixed effects`  <-
+      gsub("[*]", "\\\\*", mod_comp$modelComp_TimeByEval$`Fixed effects`)
+}else{
+  fmt      <- "latex"
+  fnt      <- 10L
+  mod_comp <- readRDS("./figures/ch4_tab1_model_comp_ls_latex.rds")
+}
+esc_comp <- FALSE ## Comparisons, with bolding 
+esc_coef <- TRUE  ## Coefficients, with % and *
 ```
 
 ```{r radialTourAppPg1, out.width="100%", fig.show="asis", fig.cap = "Process data tab, interactively loads or select data, check which variables to project, and optionally scale columns by standard deviation."}
@@ -28,7 +49,7 @@ nsSafeIncGraphic("./figures/ch4_zapp_fig5_app_pg2.PNG")
 The second tab, Figure \@ref(fig:radialTourAppPg2) contains interaction for selecting the manipulation variable, and non-numeric columns can be used to change the color and shape of the data points in the projection. The radial tour is created in real-time, animated as an interactive __plotly__ `html` widget. The application offers users a fast, intuitive introduction elucidating what the radial tour does and some of the features offered.
 
 
-## User study extended analysis {#sec:appendix}
+## Extended analysis {#sec:appendix}
 
 <!-- segue to extended analysis -->
 This section covers peripheral and extended analysis. First, the demographics of the participants is covered. Then a parallel modeling analysis on log response time is conducted. Lastly, the effect ranges and marginal effects of the random effect of the participants and data simulation are examined.
@@ -52,9 +73,9 @@ As a secondary explanatory variable response time is considered. Response time i
 ```{r timeCompTbl, fig.cap = "Use the caption arg in kable(), not this."}
 kableExtra::kbl(
   mod_comp[[2]], format = fmt, align = c("l", rep("l", 2), rep("c", 5)),
-  booktabs = TRUE, linesep = "", row.names = FALSE, escape = esc_comp,
+  booktabs = TRUE, linesep = "", escape = esc_comp,
   caption = "Model performance regressing on log response time [seconds], $\\widehat{Y_2}$ random effect models, where each includes random effect terms for participants and simulations. There is a simplar trade-off where AIC/BIC prefer the simplest factor model, while $R^2$ and RMSE are the largest in the full multiplicative model. The model $\\alpha \\cdot \\beta + \\gamma + \\delta$ model is selected to examine further as it has relatively high marginal $R^2$ while having much less complexity than the complete interaction model. Conditional $R^2$ includes the random effects, while marginal does not.") %>%
-  kableExtra::kable_classic(font_size = fnt) #bootstrap_options = "striped", 
+  kableExtra::kable_classic(font_size = fnt)
 ```
 
 <!-- Y2 coeffiecients -->
@@ -65,7 +86,7 @@ kableExtra::kbl(
   kableExtra::pack_rows("Factor", 2, 3) %>%
   kableExtra::pack_rows("Fixed effects", 4, 8) %>%
   kableExtra::pack_rows("Interactions", 9, 12) %>%
-  kableExtra::kable_classic(font_size = fnt) #bootstrap_options = "striped", 
+  kableExtra::kable_classic(font_size = fnt)
 ```
 
 
@@ -89,217 +110,4 @@ Similarly, figure \@ref(fig:figTeffectRange) shows the Gelman simulations and ma
 nsSafeIncGraphic("./figures/ch4_zapp_fig3_T_effect_range.pdf")
 ```
 
-
-<!-- !!!LATEX TABLES WILL NOT WORK IN HTML, need conditional kbl formating... -->
-```{r}
-glossary_df <- data.frame(
-  Term = c("observation", "variable", "data", "basis", "projection", "tour",
-           "Intrinsic data dimensionality", "Nonlinear model"),
-  Notation = c(
-    "$n$", "$p$", "$X_{n \\times p}$", "$A_{p \\times d}$",
-    "$Y_{n \\times d} = X_{n \\times p} \\cdot A_{p \\times d}$", "", "$iid$", ""),
-  Alias = c(
-    "instance, item, row (of data)", "feature, column (of data)",
-    "", "", "embedding", "", "", "black-box model"),
-  Description = c(
-    "A unit being measured across the variables",
-    "A measure taken across all observations",
-    "We dicuss complete quantitative matrices",
-    "Of linear projections, linear component mapping of $p$ down to $d$ dimensions",
-    "The resulting space the data multiplied by the basis",
-    "A dynamic linear projection animated over small changes in the projection basis",
-    "The minimal dimensionality data can be represented with",
-    "A model with numerous or interactive terms that cause an interpretabilty issue")
-)
-
-vimeo_link_df <- data.frame(
-  Reference = c(
-    "Figure \\@ref(fig:ch1fig3)", "Figure \\@ref(fig:ch2fig4)", 
-    "Figure \\@ref(fig:casepenguins)", "Figure \\@ref(fig:casechocolates)", 
-    "Figure \\@ref(fig:casechocolatesinverse)", "Figure \\@ref(fig:casefifa)", 
-    "Figure \\@ref(fig:caseames)"),
-  Description = c(
-    "radial tour, penguins", "grand tour, penguins", "cheem,  penguins", 
-    "cheem,  chocolates", "cheem,  chocolates (inverse)", "cheem, fifa", 
-    "cheem, ames housing 2018"),
-  Link = c("[vimeo.com/676723431](https://vimeo.com/676723431)",
-           "[vimeo.com/676723441](https://vimeo.com/676723441)",
-           "[vimeo.com/666431172](https://vimeo.com/666431172)",
-           "[vimeo.com/666431143](https://vimeo.com/666431143)",
-           "[vimeo.com/666431148](https://vimeo.com/666431148)",
-           "[vimeo.com/666431163](https://vimeo.com/666431163)",
-           "[vimeo.com/666431134](https://vimeo.com/666431134)")
-)
-
-supp_mats_df <- data.frame(
-  Context = c(
-    #"spinifex", 
-    "spinifex", "spinifex", 
-    #"cheem", 
-    "cheem", "thesis", "thesis", "thesis"),
-  Description = c(
-    #"CRAN Link", 
-    "vignette, Getting started with spinifex", 
-    "vignette, Ggproto api", 
-    #"CRAN Link", 
-    "vignette, Getting started with cheem", 
-    "repository", "thesis, pdf format", "thesis, html format"),
-  Link = c(
-    #"[CRAN.R-project.org/package=spinifex](https://CRAN.R-project.org/package=spinifex)",
-    "[nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html](https://nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html)",
-    "[nspyrison.github.io/spinifex/articles/ggproto-api.html](https://nspyrison.github.io/spinifex/articles/ggproto-api.html)",
-    #"[CRAN.R-project.org/package=cheem](https://CRAN.R-project.org/package=cheem)",
-    "[nspyrison.github.io/cheem/articles/getting-started-with-cheem.html](https://nspyrison.github.io/cheem/articles/getting-started-with-cheem.html)",
-    "[github.com/nspyrison/thesis_ns](https://github.com/nspyrison/thesis_ns)",
-    "[github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf)",
-    "[https://nspyrison.github.io/thesis_ns/](https://nspyrison.github.io/thesis_ns/)")
-)
-
-## Set format and fonts for pdf vs html:
-if(knitr::is_html_output()){
-  fmt <- "html"
-  fnt <- 12L
-  esc <- FALSE ## HTML likes FALSE in vimeolinks
-}else{
-  fmt <- "latex"
-  fnt <- 10L
-  esc <- TRUE #FALSE ## latex needs \ escaping on urls to use false.
-  #supp_mats_df$Link <- gsub("_", "\_", supp_mats_df$Link) 
-}
-```
-
-## Glossary {#sec-glossary}
-
-```{r glossary, fig.cap = "Use the caption arg in kable(), not this."}
-kableExtra::kbl(
-    glossary_df, format = fmt, align = rep("l", 4),
-    booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc,
-    caption = "Glossary of terms") %>%
-  kableExtra::kable_classic(font_size = fnt)
-```
-
-
-## Animated tour links
-
-```{r vimeolinks, fig.cap = "Use the caption arg in kable(), not this."}
-kableExtra::kbl(
-    vimeo_link_df, format = fmt, align = rep("l", 3),
-    booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc,
-    caption = "Animated tour links in this thesis") %>%
-  kableExtra::kable_classic(font_size = fnt)
-```
-
-
-## Supplementary material
-
-```{r suppmats, fig.cap = "Use the caption arg in kable(), not this."}
-kableExtra::kbl(
-    supp_mats_df, format = fmt, align = rep("l", 3),
-    booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc,
-    caption = "Supplementary material") %>%
-  kableExtra::kable_classic(font_size = fnt)
-```
-
-
-<!---
-## Notation {#sec:notation}
-
-Tour notation varies across articles and authors. In my work, I use the following:
-
-* $n$, number of observations in the data.
-* $p$, number of numeric variables, the dimensionality of data space.
-* $d$, the dimensionality of projection space.
-* $\textbf{X}_{[n,~p]}$, a data matrix in variable-space, $\textbf{X} \in \mathbb{R}^{p}$. Typically centered, scaled, and optionally sphered.
-* $\textbf{A}_{[p,~d]}$, an orthonormal matrix (columns are independant, at right angles with eachother and each normalized to a length of 1). This is the linear combination of variables from the orignal space to a lower embedding space. That is, the orientation of the variables, mapping from   $p-$ to $d-$space.
-* $\textbf{Y}_{[n,~d]}$, projected data matrix in projection-space, $\textbf{Y} \in \mathbb{R}^{d}$.
-    * In chapter 
-* Reference axes, a display showing how each variables coefficient(s) contribute to a projection. Either on its own axis (1D) or relative to a unit circle (2D).
-* Geometric objects are referred to in generalized dimensions; the use of the term plane is not necessarily a 2D surface, but a hyperplane in the arbitrary dimensions of the projection space.
--->
-
-<!-- 
-## Data visualization terminology {#sec:terminology}
-
-* 2D - representation of data in 2 dimensions, without the use of depth perception cues and minimal aesthetic mapping (such as color, size, and height) to data points.
-* 2.5D - following the definition given in @ware_designing_2000: visualizations that are essentially 2D but select depth cues are used to provide some suggestion of 3D. However, the term 2.5D is commonly used for several meanings *due to the ambiguous use of 2.5D, this document errs on the side stating 3D with descriptions of depth cues used*.
-* 3D - visualizations of 3 dimensions with liberal use of depth cues unless otherwise qualified.
-* Depth perception cues - an indication that indicates the depth to an observer, including:
-    * linear perspective - the property of parallel lines converging on a vanishing point.
-    * aerial perspective - objects that far away have lower contrast and color saturation due to light scattering in the atmosphere.
-    * occultation (or interposition) - where closer objects partially block the view of further objects.
-    * motion perspective/parallax - closer objects, move across the field of view faster than further objects.
-    * accommodation - the change of focal length due to change in the shape of the eye. Effective for distances of less than 2 meters.
-    * binocular stereopsis/disparity - the use of 2 images of slightly varied angles from the horizontal distance of the eyes. The disparity for distant objects is small, but it is significant for nearby objects.
-    * binocular convergence - The ocular-motor cue due to stereopsis focusing on the same objects. Convergence is effective for distances up to 10 meters.
-* Virtual reality (VR) - an immersive experience of computer-generated sensory input.
-* Augmented reality (AR) - view of physical spaces with augmenting/ supplementing sensory input of information.
-* Mixed reality (MR) - a mix of physical and virtual realities with objects from both interacting in real time. This differs from AR by the flow of interaction; AR augments physical reality while MR has reciprocating interactions.
-* Extended reality (XR) - any degree of virtual, augmented, or mixed reality.
-* Scatterplot matrices (SPLOMs) - matrix display of pair-wise 2D scatterplots, sometimes with 1D density on the diagonal.
-* Human-in-the-loop - any model that requires human interaction [@karwowski_international_2006]. 
--->
-
-<!--
-### Tour taxonomy; path generation {#sec:path_generation}
-
-A fundamental aspect of tours is the path of rotation. There are four primary distinctions of tour path generation [@buja_computational_2005]: random choice, data-driven, precomputed choice, and manual control.
-
-* Random choice, *grand tour*, constrained random walks $p$-space. Paths are constrained for changes in direction small enough to maintain continuity and aid in user comprehension
-    + torus-surface [@asimov_grand_1985]
-    + at-random [@asimov_grand_1985]
-    + random-walk [@asimov_grand_1985]
-    + *local tour* [@wickham_tourr_2011], a sort of grand tour on a leash, such that it goes to a nearby random projection before returning to the original position and iterating to a new nearby projection.
-* Data-driven, *guided tour*, optimizing some objective function/index within the projection-space, called projection pursuit (PP) [@hurley_analyzing_1990], including the following indexes:
-    + holes [@cook_projection_1993] - moves points away from the center.
-    + cmass [@cook_projection_1993] - moves points toward the center.
-    + lda [@lee_projection_2005] - linear discriminant analysis, seeks a projection where 2 or more classes are most separated.
-    + pda [@lee_projection_2010] - penalized discriminant analysis for use in highly correlated variables when classification is needed.
-    + convex [@laa_using_2019] - the ratio of the area of convex and alpha hulls.
-    + skinny [@laa_using_2019] - the ratio of the perimeter distance to the area of the alpha hull.
-    + stringy [@laa_using_2019] - based on the minimum spanning tree (MST), the diameter of the MST over the length of the MST.
-    + dcor2D [@grimm_mbgraphic:_2017; @laa_using_2019] - distance correlation that finds linear and nonlinear dependencies between variables.
-    + splines2D [@grimm_mbgraphic:_2017; @laa_using_2019] - measure of nonlinear dependence by fitting spline models.
-    + other user-defined objective indices can be applied to the framework provided in the *tourr* package @wickham_tourr_2011.
-    + Another data-drive tour is the *dependence tour*, a combination of $n$ independent 1D tours. A vector describes the axis each variable will be displayed on. for example $c(1, 1, 2, 2)$ is a 4- to 2D tour with the first 2 variables on the first axis, and the remaining on the second.
-        - *correlation tour* [@buja_data_1987], a special case of the dependence tour, analogous to canonical correlation analysis.
-* Precomputed choice, *planned tour*, in which the path has already been generated or defined.
-    + *little tour* [@mcdonald_interactive_1982], where every permutation of variables is stepped through in order, analogous to brute-force or exhaustive search.
-    + a saved path of any other tour, typically an array of basis targets to interpolate between.
-* Manual control, *manual tour*, a constrained rotation on selected manipulation variable and magnitude [@cook_manual_1997]. Typically used to explore the local area after identifying an interesting feature, perhaps via guided tour.
-    + radial, fix angle of contribution, change magnetude radially.
-    + oblique, along an oblique path of a draged cursor
-    + 
-
-
-### Interpolation
-
-NOTE: Search 'Interpolator' in Wickham’s tourr paper
-After target bases are identified, the frames in-between need to be filled in. There are several methods to do so:
-
-* Geodesic - via Gram-Schmidt process
-* Givens rotations
-* Householder reflections
-.
-
-### Tour software
-
-Tours have yet to be widely adopted, due in part, to the fact that print and static pdf output does not accommodate dynamic viewing. Conceptual abstraction and technically density have also hampered user growth. Due to low levels of adoption and the rapid advancement of technology support and maintenance of such implementations give them a particularly short life span. Despite the small user base, there have been a fair number of tour implementations, including:
-<!-- See Wickham’s thesis and C2 paper for partial lists. 
-
-* spinifex [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex) -- R package, all platforms.
-* tourr [@wickham_tourr_2011] -- R package, all platforms.
-* CyrstalVision [@wegman_visual_2003] -- for Windows.
-* GGobi [@swayne_ggobi:_2003] -- for Linux and Windows.
-* DAVIS [@huh_davis:_2002] -- Java based, with GUI.
-* ORCA [@sutherland_orca:_2000] -- Extensible toolkit built in Java.
-* VRGobi [@nelson_xgobi_1999] -- for use with the C2, tours in stereoscopic 3D displays.
-* ExplorN [@carr_explorn:_1996] -- for SGI Unix.
-* ExploRe [@hardle_xplore:_1995]
-* XGobi [@swayne_xgobi:_1991] -- for Linux, Unix, and Windows (via emulation).
-* XLispStat [@tierney_lisp-stat:_1990] -- for Unix and Windows.
-* Explor4 [@carr_explor4:_1988] -- Four-dimensional data using stereo-ray glyphs.
-* Prim-9 [@asimov_grand_1985;@fisherkeller_prim-9:_1974] -- on an internal operating system.
-* liminal
-* cheem
--->
 

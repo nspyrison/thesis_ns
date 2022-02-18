@@ -208,13 +208,17 @@ div.csl-indent {
 <li class="chapter" data-level="6.2" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#limitations"><i class="fa fa-check"></i><b>6.2</b> Limitations</a></li>
 <li class="chapter" data-level="6.3" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#future-work"><i class="fa fa-check"></i><b>6.3</b> Future work</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="A-supplementary-material-for-radial-tour-user-study.html"><a href="A-supplementary-material-for-radial-tour-user-study.html"><i class="fa fa-check"></i><b>A</b> Supplementary material for radial tour user study</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#sec:spinifex"><i class="fa fa-check"></i><b>7.1</b> Accompanying tool: radial tour application</a></li>
-<li class="chapter" data-level="7.2" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#sec:appendix"><i class="fa fa-check"></i><b>7.2</b> User study extended analysis</a></li>
-<li class="chapter" data-level="7.3" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#sec-glossary"><i class="fa fa-check"></i><b>7.3</b> Glossary</a></li>
-<li class="chapter" data-level="7.4" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#animated-tour-links"><i class="fa fa-check"></i><b>7.4</b> Animated tour links</a></li>
-<li class="chapter" data-level="7.5" data-path="7-ch-appendix.html"><a href="7-ch-appendix.html#supplementary-material"><i class="fa fa-check"></i><b>7.5</b> Supplementary material</a></li>
+<li class="chapter" data-level="A.1" data-path="A-supplementary-material-for-radial-tour-user-study.html"><a href="A-supplementary-material-for-radial-tour-user-study.html#sec:spinifex"><i class="fa fa-check"></i><b>A.1</b> Accompanying radial tour application</a></li>
+<li class="chapter" data-level="A.2" data-path="A-supplementary-material-for-radial-tour-user-study.html"><a href="A-supplementary-material-for-radial-tour-user-study.html#sec:appendix"><i class="fa fa-check"></i><b>A.2</b> Extended analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="B-overall-appendix.html"><a href="B-overall-appendix.html"><i class="fa fa-check"></i><b>B</b> Overall appendix</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="B-overall-appendix.html"><a href="B-overall-appendix.html#sec-glossary"><i class="fa fa-check"></i><b>B.1</b> Glossary</a></li>
+<li class="chapter" data-level="B.2" data-path="B-overall-appendix.html"><a href="B-overall-appendix.html#animated-tour-links"><i class="fa fa-check"></i><b>B.2</b> Animated tour links</a></li>
+<li class="chapter" data-level="B.3" data-path="B-overall-appendix.html"><a href="B-overall-appendix.html#supplementary-material"><i class="fa fa-check"></i><b>B.3</b> Supplementary material</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 <li class="divider"></li>
@@ -440,16 +444,17 @@ Figure 3.3: Select frames highlight the animation of a radial manual tour manipu
 <span id="cb1-18"><a href="3-ch-spinifex.html#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-19"><a href="3-ch-spinifex.html#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="3-ch-spinifex.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="do">## A 1D grand tour from tourr</span></span>
-<span id="cb1-21"><a href="3-ch-spinifex.html#cb1-21" aria-hidden="true" tabindex="-1"></a>gt_path <span class="ot">&lt;-</span> <span class="fu">save_history</span>(<span class="at">data =</span> dat, <span class="at">tour_path =</span> <span class="fu">grand_tour</span>(<span class="at">d =</span> <span class="dv">1</span>), <span class="at">max_bases =</span> <span class="dv">10</span>)</span>
-<span id="cb1-22"><a href="3-ch-spinifex.html#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="3-ch-spinifex.html#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="do">## Composing the display of the tour</span></span>
-<span id="cb1-24"><a href="3-ch-spinifex.html#cb1-24" aria-hidden="true" tabindex="-1"></a>ggt2 <span class="ot">&lt;-</span> <span class="fu">ggtour</span>(gt_path, <span class="at">angle =</span> .<span class="dv">15</span>) <span class="sc">+</span></span>
-<span id="cb1-25"><a href="3-ch-spinifex.html#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">proto_default</span>(<span class="at">aes_args      =</span> <span class="fu">list</span>(<span class="at">color =</span> clas, <span class="at">fill =</span> clas)) <span class="sc">+</span></span>
-<span id="cb1-26"><a href="3-ch-spinifex.html#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">proto_basis1d</span>() <span class="sc">+</span></span>
-<span id="cb1-27"><a href="3-ch-spinifex.html#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">proto_origin1d</span>()</span>
-<span id="cb1-28"><a href="3-ch-spinifex.html#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="3-ch-spinifex.html#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="do">## Animating</span></span>
-<span id="cb1-30"><a href="3-ch-spinifex.html#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">animate_plotly</span>(ggt2, <span class="at">fps =</span> <span class="dv">5</span>)</span></code></pre></div>
+<span id="cb1-21"><a href="3-ch-spinifex.html#cb1-21" aria-hidden="true" tabindex="-1"></a>gt_path <span class="ot">&lt;-</span> <span class="fu">save_history</span>(</span>
+<span id="cb1-22"><a href="3-ch-spinifex.html#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> dat, <span class="at">tour_path =</span> <span class="fu">grand_tour</span>(<span class="at">d =</span> <span class="dv">1</span>), <span class="at">max_bases =</span> <span class="dv">10</span>)</span>
+<span id="cb1-23"><a href="3-ch-spinifex.html#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="3-ch-spinifex.html#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="do">## Composing the display of the tour</span></span>
+<span id="cb1-25"><a href="3-ch-spinifex.html#cb1-25" aria-hidden="true" tabindex="-1"></a>ggt2 <span class="ot">&lt;-</span> <span class="fu">ggtour</span>(gt_path, <span class="at">angle =</span> .<span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb1-26"><a href="3-ch-spinifex.html#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">proto_default</span>(<span class="at">aes_args      =</span> <span class="fu">list</span>(<span class="at">color =</span> clas, <span class="at">fill =</span> clas)) <span class="sc">+</span></span>
+<span id="cb1-27"><a href="3-ch-spinifex.html#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">proto_basis1d</span>() <span class="sc">+</span></span>
+<span id="cb1-28"><a href="3-ch-spinifex.html#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">proto_origin1d</span>()</span>
+<span id="cb1-29"><a href="3-ch-spinifex.html#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="3-ch-spinifex.html#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="do">## Animating</span></span>
+<span id="cb1-31"><a href="3-ch-spinifex.html#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">animate_plotly</span>(ggt2, <span class="at">fps =</span> <span class="dv">5</span>)</span></code></pre></div>
 </div>
 <div id="functions" class="section level3" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> Functions</h3>
