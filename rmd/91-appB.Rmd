@@ -52,7 +52,6 @@ if(knitr::is_html_output()){
   fnt <- 12L
   esc <- FALSE ## HTML likes FALSE in vimeolinks
 }else{
-  glossary_df   <- glossary_df[, c(1, 3)] ## Drop Notation
   vimeo_link_df <- vimeo_link_df[, 2:3] ## Drop references
   fmt <- "latex"
   fnt <- 10L
