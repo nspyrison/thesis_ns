@@ -246,6 +246,7 @@ div.csl-indent {
 <!-- !!!LATEX TABLES WILL NOT WORK IN HTML, need to use kbl... -->
 <div id="sec-glossary" class="section level2" number="8.1">
 <h2><span class="header-section-number">B.1</span> Glossary</h2>
+<p>This thesis was written with statistics terminology. This glossary helps to bridge the language used here to be more accessible to machine learning audiences.</p>
 <table class=" lightable-classic" style="font-size: 12px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:glossary">Table B.1: </span>Glossary of terms
@@ -256,13 +257,7 @@ div.csl-indent {
 Term
 </th>
 <th style="text-align:left;">
-Notation
-</th>
-<th style="text-align:left;">
 Alias
-</th>
-<th style="text-align:left;">
-Description
 </th>
 </tr>
 </thead>
@@ -272,13 +267,7 @@ Description
 observation
 </td>
 <td style="text-align:left;">
-<span class="math inline">\(n\)</span>
-</td>
-<td style="text-align:left;">
 instance, item, case, row (of data)
-</td>
-<td style="text-align:left;">
-A unit being measured across the variables.
 </td>
 </tr>
 <tr>
@@ -286,114 +275,7 @@ A unit being measured across the variables.
 variable
 </td>
 <td style="text-align:left;">
-<span class="math inline">\(p\)</span>
-</td>
-<td style="text-align:left;">
 feature, column (of data)
-</td>
-<td style="text-align:left;">
-A measure taken across all observations.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-data
-</td>
-<td style="text-align:left;">
-<span class="math inline">\(X_{n \times p}\)</span>
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-<span class="math inline">\(n\)</span> observations of <span class="math inline">\(p\)</span> variables, a complete quantitative matrix.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-basis
-</td>
-<td style="text-align:left;">
-<span class="math inline">\(A_{p \times d}\)</span>
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Of linear projections, an othorgonal component mapping of <span class="math inline">\(p\)</span> down to <span class="math inline">\(d\)</span> dimensions.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-biplot
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Visual representation of the basis, showing the direction and magnitude the variable contribute inscribed in a unit circle.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-projection
-</td>
-<td style="text-align:left;">
-<span class="math inline">\(Y_{n \times d} = X_{n \times p} \cdot A_{p \times d}\)</span>
-</td>
-<td style="text-align:left;">
-embedding
-</td>
-<td style="text-align:left;">
-The resulting space the data multiplied by the basis.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-tour
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-A dynamic linear projection animated over small changes to the projection basis.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-geodesic interpolation
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Creating intermediate basis frames along the shortest path of possible bases.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-intrinsic data dimensionality
-</td>
-<td style="text-align:left;">
-<span class="math inline">\(iid\)</span>
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-The minimal dimensionality data can be represented by.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-nonlinear model
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-A model with numerous, polynomial, or interacting terms that can be difficult to interpret.
 </td>
 </tr>
 <tr>
@@ -401,12 +283,7 @@ A model with numerous, polynomial, or interacting terms that can be difficult to
 explanatory variables
 </td>
 <td style="text-align:left;">
-</td>
-<td style="text-align:left;">
 dependant/input variable, predictors, covariates
-</td>
-<td style="text-align:left;">
-The variables used to predict the response variable.
 </td>
 </tr>
 <tr>
@@ -414,24 +291,7 @@ The variables used to predict the response variable.
 response variable
 </td>
 <td style="text-align:left;">
-</td>
-<td style="text-align:left;">
 predicted/dependant/target/output variable
-</td>
-<td style="text-align:left;">
-The varaible to be precidicted with the explanatory variables.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-local explanation
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Approximation of the linear variable importance of a model in the vicinity of one observation.
 </td>
 </tr>
 </tbody>
@@ -465,7 +325,7 @@ Figure <a href="1-ch-introduction.html#fig:ch1fig3">1.2</a>
 radial tour, penguins
 </td>
 <td style="text-align:left;">
-<a href="https://vimeo.com/676723431">vimeo.com/676723431</a>
+<a href="https://vimeo.com/676723431" class="uri">https://vimeo.com/676723431</a>
 </td>
 </tr>
 <tr>
@@ -476,7 +336,7 @@ Figure <a href="2-ch-background.html#fig:ch2fig4">2.4</a>
 grand tour, penguins
 </td>
 <td style="text-align:left;">
-<a href="https://vimeo.com/676723441">vimeo.com/676723441</a>
+<a href="https://vimeo.com/676723441" class="uri">https://vimeo.com/676723441</a>
 </td>
 </tr>
 <tr>
@@ -487,7 +347,7 @@ Figure <a href="5-ch-cheem.html#fig:casepenguins">5.4</a>
 cheem, penguins
 </td>
 <td style="text-align:left;">
-<a href="https://vimeo.com/666431172">vimeo.com/666431172</a>
+<a href="https://vimeo.com/666431172" class="uri">https://vimeo.com/666431172</a>
 </td>
 </tr>
 <tr>
@@ -498,7 +358,7 @@ Figure <a href="5-ch-cheem.html#fig:casechocolates">5.6</a>
 cheem, chocolates
 </td>
 <td style="text-align:left;">
-<a href="https://vimeo.com/666431143">vimeo.com/666431143</a>
+<a href="https://vimeo.com/666431143" class="uri">https://vimeo.com/666431143</a>
 </td>
 </tr>
 <tr>
@@ -509,7 +369,7 @@ Figure <a href="5-ch-cheem.html#fig:casechocolatesinverse">5.7</a>
 cheem, chocolates (inverse)
 </td>
 <td style="text-align:left;">
-<a href="https://vimeo.com/666431148">vimeo.com/666431148</a>
+<a href="https://vimeo.com/666431148" class="uri">https://vimeo.com/666431148</a>
 </td>
 </tr>
 <tr>
@@ -520,7 +380,7 @@ Figure <a href="5-ch-cheem.html#fig:casefifa">5.8</a>
 cheem, fifa
 </td>
 <td style="text-align:left;">
-<a href="https://vimeo.com/666431163">vimeo.com/666431163</a>
+<a href="https://vimeo.com/666431163" class="uri">https://vimeo.com/666431163</a>
 </td>
 </tr>
 <tr>
@@ -531,7 +391,7 @@ Figure <a href="5-ch-cheem.html#fig:caseames">5.9</a>
 cheem, ames housing 2018
 </td>
 <td style="text-align:left;">
-<a href="https://vimeo.com/666431134">vimeo.com/666431134</a>
+<a href="https://vimeo.com/666431134" class="uri">https://vimeo.com/666431134</a>
 </td>
 </tr>
 </tbody>
@@ -546,9 +406,6 @@ cheem, ames housing 2018
 <thead>
 <tr>
 <th style="text-align:left;">
-Context
-</th>
-<th style="text-align:left;">
 Description
 </th>
 <th style="text-align:left;">
@@ -559,68 +416,50 @@ Link
 <tbody>
 <tr>
 <td style="text-align:left;">
-spinifex
+spinifex vignette, Getting started with spinifex
 </td>
 <td style="text-align:left;">
-vignette, Getting started with spinifex
-</td>
-<td style="text-align:left;">
-<a href="https://nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html">nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html</a>
+shorturl.at/kpvDM
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-spinifex
+spinifex vignette, Ggproto api
 </td>
 <td style="text-align:left;">
-vignette, Ggproto api
-</td>
-<td style="text-align:left;">
-<a href="https://nspyrison.github.io/spinifex/articles/ggproto-api.html">nspyrison.github.io/spinifex/articles/ggproto-api.html</a>
+shorturl.at/pqFS8
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-cheem
+cheem vignette, Getting started with cheem
 </td>
 <td style="text-align:left;">
-vignette, Getting started with cheem
-</td>
-<td style="text-align:left;">
-<a href="https://nspyrison.github.io/cheem/articles/getting-started-with-cheem.html">nspyrison.github.io/cheem/articles/getting-started-with-cheem.html</a>
+shorturl.at/kqsF0
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-thesis
+thesis repository
 </td>
 <td style="text-align:left;">
-repository
-</td>
-<td style="text-align:left;">
-<a href="https://github.com/nspyrison/thesis_ns">github.com/nspyrison/thesis_ns</a>
+shorturl.at/clqvB
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-thesis
-</td>
 <td style="text-align:left;">
 thesis, pdf format
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf">github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf</a>
+shorturl.at/uBYZ5
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-thesis
-</td>
-<td style="text-align:left;">
 thesis, html format
 </td>
 <td style="text-align:left;">
-<a href="https://nspyrison.github.io/thesis_ns/">https://nspyrison.github.io/thesis_ns/</a>
+shorturl.at/dftCN
 </td>
 </tr>
 </tbody>

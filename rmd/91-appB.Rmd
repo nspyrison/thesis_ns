@@ -3,34 +3,12 @@
 <!-- !!!LATEX TABLES WILL NOT WORK IN HTML, need to use kbl... -->
 ```{r}
 glossary_df <- data.frame(
-  Term = c("observation", "variable", "data", "basis", "biplot", 
-           "projection", "tour", "geodesic interpolation",
-           "intrinsic data dimensionality", "nonlinear model", 
-           "explanatory variables", "response variable",
-           "local explanation"),
-  Notation = c(
-    "$n$", "$p$", "$X_{n \\times p}$", "$A_{p \\times d}$",
-    "", "$Y_{n \\times d} = X_{n \\times p} \\cdot A_{p \\times d}$", 
-    "", "", "$iid$", "", "", "", ""),
+  Term = c("observation", "variable", 
+           "explanatory variables", "response variable"),
   Alias = c(
     "instance, item, case, row (of data)", "feature, column (of data)",
-    "", "", "", "embedding", "", "", "", "", 
     "dependant/input variable, predictors, covariates", 
-    "predicted/dependant/target/output variable", ""),
-  Description = c(
-    "A unit being measured across the variables.",
-    "A measure taken across all observations.",
-    "$n$ observations of $p$ variables, a complete quantitative matrix.",
-    "Of linear projections, an othorgonal component mapping of $p$ down to $d$ dimensions.",
-    "Visual representation of the basis, showing the direction and magnitude the variable contribute inscribed in a unit circle.", 
-    "The resulting space the data multiplied by the basis.",
-    "A dynamic linear projection animated over small changes to the projection basis.",
-    "Creating intermediate basis frames along the shortest path of possible bases.",
-    "The minimal dimensionality data can be represented by.",
-    "A model with numerous, polynomial, or interacting terms that can be difficult to interpret.",
-    "The variables used to predict the response variable.",
-    "The varaible to be precidicted with the explanatory variables.",
-    "Approximation of the linear variable importance of a model in the vicinity of one observation.")
+    "predicted/dependant/target/output variable")
 )
 
 vimeo_link_df <- data.frame(
@@ -43,37 +21,29 @@ vimeo_link_df <- data.frame(
     "radial tour, penguins", "grand tour, penguins", "cheem,  penguins", 
     "cheem,  chocolates", "cheem,  chocolates (inverse)", "cheem, fifa", 
     "cheem, ames housing 2018"),
-  Link = c("[vimeo.com/676723431](https://vimeo.com/676723431)",
-           "[vimeo.com/676723441](https://vimeo.com/676723441)",
-           "[vimeo.com/666431172](https://vimeo.com/666431172)",
-           "[vimeo.com/666431143](https://vimeo.com/666431143)",
-           "[vimeo.com/666431148](https://vimeo.com/666431148)",
-           "[vimeo.com/666431163](https://vimeo.com/666431163)",
-           "[vimeo.com/666431134](https://vimeo.com/666431134)")
+  Link = c("https://vimeo.com/676723431",
+           "https://vimeo.com/676723441",
+           "https://vimeo.com/666431172",
+           "https://vimeo.com/666431143",
+           "https://vimeo.com/666431148",
+           "https://vimeo.com/666431163",
+           "https://vimeo.com/666431134")
 )
 
+## SPINFEX Vignnettes not hosted, pkgdown site missing menu banner...
 supp_mats_df <- data.frame(
-  Context = c(
-    #"spinifex", 
-    "spinifex", "spinifex", 
-    #"cheem", 
-    "cheem", "thesis", "thesis", "thesis"),
   Description = c(
-    #"CRAN Link", 
-    "vignette, Getting started with spinifex", 
-    "vignette, Ggproto api", 
-    #"CRAN Link", 
-    "vignette, Getting started with cheem", 
-    "repository", "thesis, pdf format", "thesis, html format"),
+    "spinifex vignette, Getting started with spinifex", 
+    "spinifex vignette, Ggproto api", 
+    "cheem vignette, Getting started with cheem", 
+    "thesis repository", "thesis, pdf format", "thesis, html format"),
   Link = c(
-    #"[CRAN.R-project.org/package=spinifex](https://CRAN.R-project.org/package=spinifex)",
-    "[nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html](https://nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html)",
-    "[nspyrison.github.io/spinifex/articles/ggproto-api.html](https://nspyrison.github.io/spinifex/articles/ggproto-api.html)",
-    #"[CRAN.R-project.org/package=cheem](https://CRAN.R-project.org/package=cheem)",
-    "[nspyrison.github.io/cheem/articles/getting-started-with-cheem.html](https://nspyrison.github.io/cheem/articles/getting-started-with-cheem.html)",
-    "[github.com/nspyrison/thesis_ns](https://github.com/nspyrison/thesis_ns)",
-    "[github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf)",
-    "[https://nspyrison.github.io/thesis_ns/](https://nspyrison.github.io/thesis_ns/)")
+  "shorturl.at/kpvDM", #"https://nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html",
+  "shorturl.at/pqFS8", #"https://nspyrison.github.io/spinifex/articles/ggproto-api.html",
+  "shorturl.at/kqsF0", #"https://nspyrison.github.io/cheem/articles/getting-started-with-cheem.html",
+  "shorturl.at/clqvB", #"https://github.com/nspyrison/thesis_ns",
+  "shorturl.at/uBYZ5", #"https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf",
+  "shorturl.at/dftCN") #"https://nspyrison.github.io/thesis_ns/")
 )
 
 ## Set format and fonts for pdf vs html:
@@ -82,18 +52,22 @@ if(knitr::is_html_output()){
   fnt <- 12L
   esc <- FALSE ## HTML likes FALSE in vimeolinks
 }else{
+  glossary_df   <- glossary_df[, c(1, 3)] ## Drop Notation
+  vimeo_link_df <- vimeo_link_df[, 2:3] ## Drop references
   fmt <- "latex"
   fnt <- 10L
   esc <- TRUE #FALSE ## latex needs \ escaping on urls to use false.
-  #supp_mats_df$Link <- gsub("_", "\_", supp_mats_df$Link) 
+  #supp_mats_df$Link <- gsub("_", "\\_", supp_mats_df$Link) 
 }
 ```
 
 ## Glossary {#sec-glossary}
 
+This thesis was written with statistics terminology. This glossary helps to bridge the language used here to be more accessible to machine learning audiences.
+
 ```{r glossary, fig.cap = "Use the caption arg in kable(), not this."}
 kableExtra::kbl(
-    glossary_df, format = fmt, align = rep("l", 4),
+    glossary_df, format = fmt,
     booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc,
     caption = "Glossary of terms") %>%
   kableExtra::kable_classic(font_size = fnt)
@@ -104,7 +78,7 @@ kableExtra::kbl(
 
 ```{r vimeolinks, fig.cap = "Use the caption arg in kable(), not this."}
 kableExtra::kbl(
-    vimeo_link_df, format = fmt, align = rep("l", 3),
+    vimeo_link_df, format = fmt,
     booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc,
     caption = "Animated tour links") %>%
   kableExtra::kable_classic(font_size = fnt)
@@ -115,7 +89,7 @@ kableExtra::kbl(
 
 ```{r suppmats, fig.cap = "Use the caption arg in kable(), not this."}
 kableExtra::kbl(
-    supp_mats_df, format = fmt, align = rep("l", 3),
+    supp_mats_df, format = fmt,
     booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc,
     caption = "Supplementary material") %>%
   kableExtra::kable_classic(font_size = fnt)
