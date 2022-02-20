@@ -1,6 +1,11 @@
+<!-- Print bib before appendix -->
 # Bibliography {-}
 
 <div id="refs"></div>
+
+
+<!-- ELSE use this at end to print html bib -->
+<!-- `r if (knitr::is_html_output()) '# Bibliography {-}'` -->
 
 
 # (APPENDIX) Appendix {-#ch-appendix}
@@ -69,7 +74,7 @@ nsSafeIncGraphic("./figures/ch4_zapp_fig1_survey_demograpics.pdf")
 ```
 
 
-### Response time regression
+### Response time
 
 <!-- Time as secondary interest, Y2 -->
 As a secondary explanatory variable response time is considered. Response time is first log transformed to remove its right skew. The same modeling procedure is repeated for this response. 1) Compare the performance of a battery of all additive and multiplicative models. Table \@ref(tab:timeCompTbl) shows the higher level performance of these models over increasing model complexity. 2) Select the model with the same effect terms, $\alpha \cdot \beta + \gamma + \delta$, and examine its coefficients, displayed in Table \@ref(tab:timeCoefTbl).

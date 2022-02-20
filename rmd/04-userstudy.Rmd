@@ -12,10 +12,10 @@ The previous chapter introduced the package __spinifex__ which gave us the means
 In Chapters \@ref(ch-introduction) and \@ref(ch-background) have introduced PCA, the grand tour, and radial tour. This chapter describes a within-participants user study evaluating efficacy of these techniques. A supervised classification task is devised where participants evaluate variable attribution of the separation between two classes. An accuracy measure is defined to use as the response variable. Data were collected from 108 crowdsourced participants, who performed two trials of each visual for 648 trials in total.
 
 <!-- thesis_ns introduction -->
-The user influence over a basis, uniquely available in the radial tour, is crucial to testing variable sensitivity to the structure visible in projection. If the contribution of a variable is reduced and the feature disappears, then it is said that the variable is sensitive to that structure. For example, Figure \@ref(fig:figClSep) shows two frames of simulated data. Panel (a) has identified separation between the two clusters. The contributions in panel (b) show no such cluster separation. The former has a large contribution to V2 in the direction of separation, while it is negligible in the right frame. Because of this it is said that V2 is sensitive to the separation of the clusters.
+The user influence over a basis, uniquely available in the radial tour, is crucial to testing variable sensitivity to the structure visible in projection. If the contribution of a variable is reduced and the feature disappears, then it is said that the variable is sensitive to that structure. For example, Figure \@ref(fig:figClSep) shows two projections of simulated data. Panel (a) has identified separation between the two clusters. The contributions in panel (b) show no such cluster separation. The former has a large contribution to V2 in the direction of separation, while it is negligible in the right panel. Because of this it is said that V2 is sensitive to the separation of the clusters.
 
-```{r figClSep, echo = F, out.width = "100%", fig.cap = "Illustration of cluster separation. Panel (a) shows clear separation in V2 and no separation in the direction of V3. While V1 and v4 have relatively small contributions to the frame. Panel (b) has a random basis with a minimal contribution from V2, and no separation between the cluster means is resolved."}
-knitr::include_graphics("./figures/ch4_fig1_cl_sep.pdf")
+```{r figClSep, echo = F, out.width = "100%", fig.cap = "Illustration of cluster separation. Panel (a) shows clear separation in V2 and no separation in the direction of V3. While V1 and v4 have relatively small contributions in the basis. Panel (b) has a random basis with a minimal contribution from V2, and no separation between the cluster means is resolved."}
+nsSafeIncGraphic("./figures/ch4_fig1_cl_sep.pdf")
 ```
 
 <!--- black-box models-->
@@ -37,7 +37,7 @@ An experiment was constructed to assess the performance of the radial tour relat
 PCA will be used as a baseline for comparison as it is the most commonly used linear embedding. The grand tour will act as a secondary control that will help evaluate the benefit of animation without influencing its path. Lastly, the radial tour should perform best as it benefits from animation and user control.
 
 <!-- Prior expectations -->
-Then for some subset of tasks, we expect to find that the radial tour performs most accurately. In the appendix, section \@ref(sec:appendix), regresses on the log response time. Due to the absence of inputs, the grand tour may lead to faster response time than the alternatives since users can focus all of their attention on interpreting the fixed path. Conversely, we are less sure about the accuracy of such limited grand tours as there is no objective function in selecting the bases; it is possible that the random selection of the target bases altogether avoids bases showing cluster separation. However, given that the data dimensionality was modest, it seems plausible that the grand tour coincidentally regularly crossed frames with the correct information for the task.
+Then for some subset of tasks, we expect to find that the radial tour performs most accurately. In the appendix, section \@ref(sec:appendix), regresses on the log response time. Due to the absence of inputs, the grand tour may lead to faster response time than the alternatives since users can focus all of their attention on interpreting the fixed path. Conversely, we are less sure about the accuracy of such limited grand tours as there is no objective function in selecting the bases; it is possible that the random selection of the target bases altogether avoids bases showing cluster separation. However, given that the data dimensionality was modest, it seems plausible that the grand tour coincidentally regularly crossed bases with the correct information for the task.
 
 <!-- Explicit hypothesis tests -->
 An experimental factors and definition of an accuracy measure are given below. The null hypothesis can be stated as:
@@ -101,7 +101,7 @@ Where accuracy, $A$, is defined as:
 \end{equation*}
 
 
-Where $I(j)$ is the indicator function, the binary response for variable $j$. Figure \@ref(fig:figBiplotScoring) shows one frame of a simulation with its observed variable separation (wide bars), expected uniform separation (dashed line), and accuracy if selected (thin lines).
+Where $I(j)$ is the indicator function, the binary response for variable $j$. Figure \@ref(fig:figBiplotScoring) shows one projection of a simulation with its observed variable separation (wide bars), expected uniform separation (dashed line), and accuracy if selected (thin lines).
 
 ```{r, figBiplotScoring, out.width="100%", fig.cap = "Illustration of how accuracy is measured. (L), Scatterplot and biplot of PC1 by PC4 of a simulated data set (R) illustration of cluster separation between the means of the green circles and orange triangles. Bars indicate observed cluster separation and (red/green) lines show the accuracy weight of the variable if selected. The horizontal dashed line is $1 / p$, the expected value. The weights equal the signed square of the difference between each variable value and the dashed line."}
 nsSafeIncGraphic("./figures/ch4_fig4_accuracy_measure.pdf")
@@ -288,8 +288,8 @@ Data visualization is an integral part understanding relationships in data, and 
 <!-- Recap study -->
 This paper discussed a with-in participant user study ($n=108$) comparing the efficacy of three linear projection techniques. The participants performed a supervised cluster task, explicitly identifying which variables contribute to separating two target clusters. This was evaluated evenly over four experimental factors. In summary, mixed model regression finds strong evidence that using the radial tour leads to a sizable accuracy increase. In the extended analysis, there is significant evidence for a change in response time, with PCA being fastest, then the grand tour, followed by the radial tour. The effect sizes on accuracy are large relative to the change from the other experimental factors, though smaller than the random effect of the participant. The radial tour was subjectively preferred, leading to more confidence in answers, and increased ease of use than the alternatives.
 
-<!-- Discussion and going further -->
-There are several ways that this study could be extended. In addition to expanding the support of the experimental factors, more exciting directions include: changing the task, visualizations used, and experience level of the target population. It is difficult to achieve good coverage given the number of possible permutations. Keep in mind the traffic volume and low effort of responses from participants when crowdsourcing.
+<!-- Future work -->
+There are several ways that this study could be extended. In addition to expanding the support of the experimental factors, more exciting directions include: changing the task, visualizations used, and experience level of the target population. It is difficult to achieve good coverage given the number of possible permutations. <!---Keep in mind the traffic volume and low effort of responses from participants when crowdsourcing.-->
 
 
 

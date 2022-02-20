@@ -1,4 +1,0 @@
-<!-- HTML version:  Print bibliography--> 
-<!-- !!! printing references before Appendix, not using this -->
-<!-- `r if (knitr::is_html_output()) '# Bibliography {-}'` -->
-

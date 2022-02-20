@@ -8,11 +8,6 @@ knit: "bookdown::render_book"
 <!-- Summary of work and importance -->
 Most data are multivariate. This thesis makes important contributions to interactive visualization of data where all variables are quantitative. The methods are built on dynamic animation of linear projections, called tours. The thesis developed the radial tour, illustrating that it improved understanding variable importance in higher dimensional data and can be used to better understand black-box models for XAI.
 
-<!-- Context -->
-<!--  We know that visualizing data is more robust than numerical summarization alone. It allows the analyst to get a feel for the data rapidly, check for erroneous values, and confirm model assumptions. But visualizing data spaces becomes increasingly complex as dimensionality increases. Static linear dimension reduction has been widely used to extend the dimensionality of spaces viewed. Dynamic animations of linear projections, tours, further increase the perceptible information of linearly reduced spaces. Manual tours novelly allow the analyst to steer contributions of the basis. The work outlined in this thesis makes several contributions to multivariate data visualization focusing on manual tours. -->
-
-<!-- Chapter \@ref(ch-spinifex) introduced the __spinifex__ package, which facilitates user-controlled manual tours and layered composition and exporting animations of any tour, interoperable with __tourr__. The radial, manual tour sizably improves the accuracy on a variable attribution in a cluster separation task compared with PCA and the grand tour. Chapter \@ref(ch-userstudy) covers the within-participants user study that led to this conclusion. Finally, I apply the radial tour to increase the interpretability of nonlinear models by using it to explore the support of local explanations in the package __cheem__ is discussed in Chapter \@ref(ch-cheem). -->
-
 
 ## Contributions
 
@@ -47,17 +42,16 @@ Below, we discuss a number of limitations with this work in chapter order. The f
 
 <!-- 1_Manual tours in 1- & 2D -->
 Manual tours (and radial tours) are limited in several ways. For instance, the work currently lists rotation matrices for 1- and 2D manual tours.<!-- 2_only 1var at a time--> Another limitation is that they only change one variable at a time. This can be cumbersome and timely if many variables need to be zeroed or otherwise changed.<!-- 3_Ink tank display --> The radial tour moves in three segments (full contribution-no contribution-initial contribution). It may be more approachable to directly relate the fraction of the slider to the magnitude of the variable's contribution.
+<!-- >> 4_Pedagogical side of manual tours for newcomers; not on limitation side, mention more on the future work side. -->
 
-<!-- __spinifex, layered composition -->
-<!-- 4_Layered tour composition --> 
-Setting aside the manual tour, there are several extensions to the layered composition of tours in __spinifex__, such as extending the type of geometric display. Because the manual tour is currently defined for $d \in [1,2]$ projections, the geometric display for $d>2$ __tourr__-made tours are under-supported.<!-- 5_Sterescopic 3D & XR --> Most tour implementations are made with 2D monitors in mind. It would be nice to have implementations for extended reality with a stereoscopic head-mounted display.
+<!-- 5_d>2 tour composition --> 
+Setting aside the manual tour, there are several extensions to the layered composition of tours in __spinifex__, such as extending the type of geometric display. Because the manual tour is currently defined for $d \in [1,2]$ projections, the geometric display for $d>2$ __tourr__-made tours are under-supported.<!-- 6_d=2 proto extensions, 7_Sterescopic 3D & XR --> Most tour implementations are made with 2D monitors in mind. It would be nice to have implementations for extended reality with a stereoscopic head-mounted display.
 
-<!-- 6_User study -->
-The user study evaluating the radial tour has several intrinsic limitations. It only considered discrete 2d PCA, grand tour, and the manual tour for supervised cluster separation for various levels of experimental factors affecting the data.
-<!-- >> 7_Pedagogical side of manual tours for newcomers; not on limitation side, mention more on the future work side. -->
+<!-- 8_User study -->
+The user study evaluating the radial tour has several intrinsic limitations from the choice of visuals and levels of the experimental factors. It only considered discrete 2D PCA, grand tour, and the manual tour for supervised cluster separation on mostly linear clusters in four and six dimensions. Trials we collected online due to the ongoing COVID-19 pandemic.
 
-<!--8_cheem, and model/explanation types-->
-The cheem analysis was illustrated on random forest models using the tree SHAP explanations. The __cheem__ package handles several other tree-based models, though the analysis should be generalized to a wider base of models and compatible explanations.<!--9_data:quantitative matrices--> We also focus on quantitative matrices. This could be generalized to accommodate text, image, or time-series data.<!--10_Extending explanations and a user study-->
+<!--9_cheem, and model/explanation types-->
+The cheem analysis was illustrated on random forest models using the tree SHAP explanations. The __cheem__ package handles several other tree-based models, though the analysis should be generalized to a wider base of models and compatible explanations.<!--10_data:quantitative matrices--> We also focus on quantitative matrices. This could be generalized to accommodate text, image, or time-series data.<!--11_Extending explanations and a user study-->
 There is also no comparison evaluating the value of cheem analysis. It would be interesting to measure the benefit of cheem over local explanations or other observation-level evaluations of a model. 
 
 
@@ -65,7 +59,6 @@ There is also no comparison evaluating the value of cheem analysis. It would be 
 
 This section purposes possible directions to address or extend from the limitations outlined above.
 
-<!-- __Manual tours -->
 <!-- 1_3D manual tour -->
 Chapter \@ref(ch-spinifex) included the scaffolding to extend manual tours beyond 2D. Namely, this would require the use Rodrigues' rotation formula [@rodrigues_lois_1840] to defining another angle of rotation. The 3D projection would initialize a 4D manipulation space and use three input angles to control the contribution in the first three components. Another display dimension may benefit the detection and understanding of the higher dimensional structure, while we would also expect longer interaction time and less intuitive input.
 
@@ -75,30 +68,29 @@ In addition to the manual tour controlling the contribution of a single variable
 <!-- 3_Ink tank display -->
 Currently, the radial tour creates three segments (increase-decrease-increase of magnitude). An "ink tank" display for a manual tour may be more intuitive than the current approach. For this, the  magnitude of variable contribution would match the progress of an animation slider. The first frame would contain zero variable contribution, and the last would have a complete contribution. The starting frame could be the original contribution that would also be exaggerated or annotated to refer against.
 
-<!-- 6_Pedagogical side of manual tours for newcomers. -->
-This last point is adjacent to the pedagogical side of tours. The user-steering of the manual tour provides a way to play with projections and test hypotheses making it a good candidate as a learning tool. An interactive application built for learning and exploring projection techniques would be a great introductory tool.
+<!-- 4_Pedagogical side of manual tours for newcomers. -->
+This last point is adjacent to the pedagogical side of tours and linear projections more broadly. The user-steering of the manual tour provides a way to play with projections and test hypotheses making it a good candidate as a learning tool. An interactive application built for teaching and exploring projection techniques would be a boon to scholars.
 
-<!-- 4_geom/protos for d>2 -->
+<!-- 5_geom/protos for d>2 -->
 Extending the output dimensions of some tours is relatively easy to do. The display in __spinifex__  has focused on $d \in [1, 2]$. Additional functions could be added to facilitate the geometric display of parallel coordinate, Chernoff faces, glyph-based, or pixel-based visuals. For the reasons mentioned in Chapter \@ref(ch-background), these displays are potentially best used with data with relatively few observations and many variables.
 
-<!-- 5_2D tour composition --> 
+<!-- 6_2D tour composition --> 
 There are also several extensions to the display of 1 & 2D tours including: tabular displaying the numeric values of the basis, drawing of lines around convex and alpha hulls, and a _high-density region_ displays with progressive density rugs, or a combination of point and density contour display where the bulk of the data is shown as density contour, while the outermost observations are displayed as points [@hyndman_computing_1996; @ohara-wild_gghdr_2022].
 
-<!-- 6_Sterescopic 3D & XR -->
+<!-- 7_Sterescopic 3D & XR -->
 It may be interesting to experience tours as 3D scatterplots in extended reality with stereoscopically true head tracking may be fruitful. @nelson_xgobi_1999 explore 2D tours in virtual reality. Other works view 3D scatterplot tours on 2D displays [@yang_3d_1999; @yang_interactive_2000]. It would be interesting to see modern implementations using WebGL, Mozilla A-frame, or Unity. One concern would be keeping hardware and software as generalized as possible.
 
-<!-- 7_User study -->
-There are some ways that the user-study evaluating the radial tour could be extended. Besides changing the support of the experimental factors to the user study, it would be more interesting to compare different tasks or other visualization techniques. The performed user study crowdsourced participants with little exposure to linear projections. It would be interesting to compare the results from more experienced participants.
+<!-- 8_User study -->
+There are some ways that the user-study evaluating the radial tour could be extended. The Data could be changed to involve nonlinear shapes, outliers, or varying density and dimensionality. Besides changing the support of the experimental factors to the user study, it may be more interesting to evaluate across different tasks or compare other visualization techniques --- scatterplot matrices, parallel coordinate plots, or ridge plots of principal components may be realistic. The performed user study crowdsourced participants with little exposure to linear projections. It would be interesting to compare the results from more experienced participants.
 
-<!-- 8_cheem, and model/explantion types -->
+<!-- 9_cheem, and model/explanation types -->
 The outlined cheem analysis can be generally applied models and local explanations. While the package __cheem__ currently calculates tree SHAP for tree-based models supported by __treeshap__ [@kominsarczyk_treeshap_2021]. This could be generalized more broadly to other models and local explanations. Those facilitated by `DALEX::explain()` seems to be an excellent direction to extend [@biecek_dalex_2018; @biecek_explanatory_2021]. However, processing runtime is a looming obstacle that is exasperated when moving away from computationally efficient explanations. Alternatively, other statistics may better show the structure identified in the attribution space from the explanations.
 
-<!-- 9_cheem, scope/context of data -->
+<!-- 10_cheem, scope/context of data -->
 In the cheem analysis, we had focused primarily on continuous numeric predictors. Perhaps this analysis could be extended to image, text, or time series analysis. The global view may remain helpful in summary and identification while observation-level exploration would likely need to change to fit the context of the data, be it saliency map, word-level contextual sentiment analysis, or other. <!--The presence of covariates in these cases may prove essential to having meaningful variable importance to test variable sensitivity of the structure of the explanation. -->
 
-<!-- 10_Extending explanations and a user study -->
+<!-- 11_cheem user study -->
 A user study would help elucidate the benefit of cheem analysis over local explanations or observation-specific analysis of a model. Our analysis can highlight the unique attribution of a selected observation against peers and to test the sensitivity of that attribution. Perhaps a task identifying variable sensitivity to a prediction may be appropriate.
-
 
 
 <!-- XXX TODO: more grep searches for broken stuff '??', '-cap', '00', 'ref' -->

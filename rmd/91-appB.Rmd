@@ -4,15 +4,19 @@
 ```{r}
 glossary_df <- data.frame(
   Term = c("observation", "variable", "data", "basis", "biplot", 
-           "projection", "tour", "Geodesic interpolation",
-           "Intrinsic data dimensionality", "Nonlinear model", "Local explanation"),
+           "projection", "tour", "geodesic interpolation",
+           "intrinsic data dimensionality", "nonlinear model", 
+           "explanatory variables", "response variable",
+           "local explanation"),
   Notation = c(
     "$n$", "$p$", "$X_{n \\times p}$", "$A_{p \\times d}$",
     "", "$Y_{n \\times d} = X_{n \\times p} \\cdot A_{p \\times d}$", 
-    "", "", "$iid$", "", ""),
+    "", "", "$iid$", "", "", "", ""),
   Alias = c(
-    "instance, item, row (of data)", "feature, column (of data)",
-    "", "", "", "embedding", "", "", "", "", ""),
+    "instance, item, case, row (of data)", "feature, column (of data)",
+    "", "", "", "embedding", "", "", "", "", 
+    "dependant/input variable, predictors, covariates", 
+    "predicted/dependant/target/output variable", ""),
   Description = c(
     "A unit being measured across the variables.",
     "A measure taken across all observations.",
@@ -24,6 +28,8 @@ glossary_df <- data.frame(
     "Creating intermediate basis frames along the shortest path of possible bases.",
     "The minimal dimensionality data can be represented by.",
     "A model with numerous, polynomial, or interacting terms that can be difficult to interpret.",
+    "The variables used to predict the response variable.",
+    "The varaible to be precidicted with the explanatory variables.",
     "Approximation of the linear variable importance of a model in the vicinity of one observation.")
 )
 
