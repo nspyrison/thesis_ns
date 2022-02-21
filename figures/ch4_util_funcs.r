@@ -17,12 +17,12 @@ require("dplyr")
 ### Originally pivot_longer_resp_ans_tbl.r -----
 require("magrittr")
 
-#' @example
-#' ans_tbl <- readRDS(file = "./apps/spinifex_study/www/ans_tbl.rds")
+#' @examples
+#' #ans_tbl <- readRDS(file = "./apps/spinifex_study/www/ans_tbl.rds")
+#' ans_tbl <- readRDS("./data/ans_tbl.rds")
 #' tgt <- ans_tbl %>% dplyr::filter(sim_nm == "EEV_p6_33_66_rep2")
 #' dat_longer <- pivot_longer_resp_ans_tbl(tgt)
 #'
-
 ## Pivot variables longer and join (cbind)
 pivot_longer_resp_ans_tbl <- function(dat){
   ## Fix col if dat was only from ans_tbl needed

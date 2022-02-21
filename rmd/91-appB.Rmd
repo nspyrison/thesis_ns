@@ -38,12 +38,12 @@ supp_mats_df <- data.frame(
     "cheem vignette, Getting started with cheem", 
     "thesis repository", "thesis, pdf format", "thesis, html format"),
   Link = c(
-  "shorturl.at/kpvDM", #"https://nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html",
-  "shorturl.at/pqFS8", #"https://nspyrison.github.io/spinifex/articles/ggproto-api.html",
-  "shorturl.at/kqsF0", #"https://nspyrison.github.io/cheem/articles/getting-started-with-cheem.html",
-  "shorturl.at/clqvB", #"https://github.com/nspyrison/thesis_ns",
-  "shorturl.at/uBYZ5", #"https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf",
-  "shorturl.at/dftCN") #"https://nspyrison.github.io/thesis_ns/")
+  "https://shorturl.at/kpvDM", #"https://nspyrison.github.io/spinifex/articles/getting-started-with-spinifex.html",
+  "https://shorturl.at/pqFS8", #"https://nspyrison.github.io/spinifex/articles/ggproto-api.html",
+  "https://shorturl.at/kqsF0", #"https://nspyrison.github.io/cheem/articles/getting-started-with-cheem.html",
+  "https://shorturl.at/clqvB", #"https://github.com/nspyrison/thesis_ns",
+  "https://shorturl.at/uBYZ5", #"https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf",
+  "https://shorturl.at/dftCN") #"https://nspyrison.github.io/thesis_ns/")
 )
 
 ## Set format and fonts for pdf vs html:

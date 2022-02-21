@@ -93,7 +93,7 @@ kableExtra::kbl(
 kableExtra::kbl(
   mod_coef[[2]], booktabs = TRUE, linesep = "", format = fmt, escape = esc_coef,
   caption = "Model coefficients for log response time [seconds] $\\widehat{Y_2} = \\alpha \\cdot \\beta + \\gamma + \\delta$, with factor = pca, location = 0/100\\%, shape = EEE, and dim = 4 held as baselines. Location = 50/50\\% is the fixed term with the strongest evidence and takes less time. In contrast, the interaction term location = 50/50\\%:shape = EEV has the most evidence and takes much longer on average.") %>%
-  kableExtra::pack_rows("Factor", 2, 3) %>%
+  kableExtra::pack_rows("Visual", 2, 3) %>%
   kableExtra::pack_rows("Fixed effects", 4, 8) %>%
   kableExtra::pack_rows("Interactions", 9, 12) %>%
   kableExtra::kable_classic(font_size = fnt)

@@ -70,41 +70,42 @@ ggsave("./figures/ch4_fig1_cl_sep.pdf", ClSep,
        device = "pdf", width = 6, height = 2.5, units = "in")
 
 
-# fig2_pca_scatterplotmatrix -----
-source("./figures/ch4_util_funcs.r")
-if(F)
-  file.edit("./figures/ch4_util_funcs.r")
-
-.sim_nm <- "EEV_p6_33_66_rep2" #"EEV_p6_0_1_rep3"
-.fp  <- paste0("./data/", .sim_nm, ".rda")
-## Make data plot
-load(.fp, envir = globalenv())
-dat  <- get(.sim_nm)
-clas <- as.factor(attr(dat, "cluster"))
-
-pca_obj  <- prcomp(dat)
-pca_proj <- as.data.frame(cbind(pca_obj$x[, 1:4], as.factor(clas)))
-
-gg_pca <- GGally::ggpairs(
-  pca_proj,
-  mapping = aes(color = clas, fill = clas, shape = clas),
-  columns = 1:4,
-  #diag = "blank",
-  upper = "blank",
-  lower = list(continuous = wrap("points", alpha = 0.7, size = 1)),
-  columnLabels = paste0("PC", 1:4)) +
-  theme_bw() +
-  theme(axis.ticks = element_blank(),
-        axis.text  = element_blank()) +
-  scale_color_brewer(palette = "Dark2") +
-  scale_fill_brewer( palette = "Dark2")
-
-ggsave("./figures/ch4_fig2_pca_splom.pdf", gg_pca, device = "pdf",
-       width = .w / 2, height = .w / 2, units = .u)
+# # fig2_pca_scatterplotmatrix -----
+# source("./figures/ch4_util_funcs.r")
+# if(F)
+#   file.edit("./figures/ch4_util_funcs.r")
+#
+# .sim_nm <- "EEV_p6_33_66_rep2" #"EEV_p6_0_1_rep3"
+# .fp  <- paste0("./data/", .sim_nm, ".rda")
+# ## Make data plot
+# load(.fp, envir = globalenv())
+# dat  <- get(.sim_nm)
+# clas <- as.factor(attr(dat, "cluster"))
+#
+# pca_obj  <- prcomp(dat)
+# pca_proj <- as.data.frame(cbind(pca_obj$x[, 1:4], as.factor(clas)))
+#
+# gg_pca <- GGally::ggpairs(
+#   pca_proj,
+#   mapping = aes(color = clas, fill = clas, shape = clas),
+#   columns = 1:4,
+#   #diag = "blank",
+#   upper = "blank",
+#   lower = list(continuous = wrap("points", alpha = 0.7, size = 1)),
+#   columnLabels = paste0("PC", 1:4)) +
+#   theme_bw() +
+#   theme(axis.ticks = element_blank(),
+#         axis.text  = element_blank()) +
+#   scale_color_brewer(palette = "Dark2") +
+#   scale_fill_brewer( palette = "Dark2")
+#
+# ggsave("./figures/ch4_fig2_pca_splom.pdf", gg_pca, device = "pdf",
+#        width = .w / 2, height = .w / 2, units = .u)
 
 
 # fig3_exp_factors -----
-{## Setup
+## Setup 2 -----
+{
   library(ggforce)
   library(ggplot2)
   library(ggExtra)
@@ -309,7 +310,7 @@ load(tgt_fp, envir = globalenv())
 dat  <- EEV_p6_33_66_rep2
 bas  <- basis_pca(dat, d = 4)[, c(1, 4)]
 clas <- attr(dat, "cluster")
-source("./figures/ch4_util_funcs.r") ## Redundant
+source("./figures/ch4_util_funcs.r") ## Ensure pivot_longer_resp_ans_tbl available
 if(F)
   file.edit("./figures/ch4_util_funcs.r")
 
@@ -324,16 +325,16 @@ proj <- as.matrix(dat) %*% bas %>% as.data.frame()
           plot.subtitle = element_text(hjust = 0.5),
           legend.position = "off",
           axis.title.y = element_text(angle = 90)) +
+    scale_color_brewer(palette = "Dark2") +
+    scale_fill_brewer( palette = "Dark2") +
     labs(subtitle = "Visual: PCA, location: 33/66%, \n Shape: EEV, dimension: 6 & 4 clusters",
          x = "PC1", y = "PC4", color = "color", shape = "shape"))
 
 
 ## right pane, w and acc bars ----
-ans_tbl <- readRDS("./data/ans_tbl.rds")
-sub <- ans_tbl %>% dplyr::filter(sim_nm == tgt_sim_nm)
+ans_tbl    <- readRDS("./data/ans_tbl.rds")
+sub        <- ans_tbl %>% dplyr::filter(sim_nm == tgt_sim_nm)
 sub_longer <- pivot_longer_resp_ans_tbl(dat = sub)
-sub_longer$weight[c(3,5)]   <- sub_longer$weight[c(3,5)] / sum(sub_longer$weight[c(3,5)])
-sub_longer$weight[c(-3,-5)] <- -sub_longer$weight[c(-3,-5)] / sum(sub_longer$weight[c(-3,-5)])
 
 gg2 <- ggplot() + theme_bw() +
   ggproto_ans_plot(sub_longer) +
@@ -363,7 +364,7 @@ ggsave("./figures/ch4_fig4_accuracy_measure.pdf", final, "pdf",
 
 
 
-# Setup2 ----
+# Setup 3 ----
 {
   require(ggpubr)
   my_ggpubr <- function(
@@ -415,11 +416,12 @@ ggsave("./figures/ch4_fig4_accuracy_measure.pdf", final, "pdf",
 
 # ch4_fig6_ABcd_violins -----
 {
-  dat_qual <- readRDS("./data/dat_qual.rds")
-  .lp      <- theme(legend.position = "off")
-  .yl      <- ylab("")
-  .visual  <- my_ggpubr(dat_qual, x = "Visual", y = "Marks") + .lp + ylab("Accuracy")
-  .lvls    <- c("0/100", "33/66", "50/50%")
+  dat_qual <- readRDS("./data/dat_qual.rds") %>%
+    rename(Visual = Factor)
+  .lp       <- theme(legend.position = "off")
+  .yl       <- ylab("")
+  .visual   <- my_ggpubr(dat_qual, x = "Visual", y = "Marks") + .lp + ylab("Accuracy")
+  .lvls     <- c("0/100", "33/66", "50/50%")
   dat_qual_loc <- dat_qual %>%
     mutate(Location = factor(.lvls[as.integer(Location)], levels = .lvls))
   levels(dat_qual_loc$Location)
@@ -427,14 +429,14 @@ ggsave("./figures/ch4_fig4_accuracy_measure.pdf", final, "pdf",
   .shape    <- my_ggpubr(dat_qual,     x = "Shape",    y = "Marks") + .lp + .yl
   .dim      <- my_ggpubr(dat_qual,     x = "Dim",      y = "Marks") + .lp + .yl
   .VisualLocation <- my_ggpubr_facet(
-    dat_qual, x = "Visual", y = "Marks", facet = "Location") + ylab("Accuracy")
+    dat_qual, x = "Visual", y = "Marks", facet = "Location") + ylab("Accuracy") +
+    theme(legend.position = "bottom", legend.direction = "horizontal")
 
   title <- cowplot::ggdraw() +
     cowplot::draw_label(
       "Violin plots of the terms for accuracy: Y1^ = \u03b1 * \u03b2 + \u03b3 + \u03b4",
       x = .5, y = .75, hjust = .5, vjust = 1)
-  top <- cowplot::plot_grid(
-    .visual, .location, .shape, .dim, nrow = 1)
+  top <- cowplot::plot_grid(.visual, .location, .shape, .dim, nrow = 1)
   gc()
   (violin_ABcd <-
       cowplot::plot_grid(title, top, .VisualLocation + ggtitle("", ""),
@@ -447,12 +449,12 @@ ggsave("./figures/ch4_fig6_ABcd_violins.pdf",
 
 # ch4_fig7_subjective_measures -----
 ## Follow the loose setup of _analysis.rmd:
-.u = "in"
-.w = 6.25
-.h = 9
-.l_lvls <- c("most disagree", "disagree", "neutral", "agree", "most agree")
+.u <- "in"
+.w <- 6.25
+.h <- 9
+.l_lvls      <- c("most disagree", "disagree", "neutral", "agree", "most agree")
 survey_wider <- readRDS("./data/survey_wider.rds")
-str(survey_wider)
+#str(survey_wider)
 
 {
   ## pivot_longer within visual
@@ -500,7 +502,7 @@ subjective_longer <- subjective_longer %>%
                             percent = 100 * tmp[, 2] / sum(tmp[, 2]))
     survey_agg <<- rbind(survey_agg, .this_agg)
   })
-  str(survey_agg)
+  #str(survey_agg)
 
   ## Format likert questions
   likert_q_nms <- colnames(survey_wider[, 11:22])
@@ -513,7 +515,7 @@ subjective_longer <- subjective_longer %>%
                     from = c("like", "ease", "confidence", "familar"),
                     to = c("preference", "ease of use", "confidence", "familiarity")) %>%
     factor()
-  str(likert)
+  #str(likert)
 }
 
 ## Likert plots -----
@@ -539,7 +541,8 @@ subjective_longer <- subjective_longer %>%
   df = subjective_longer, x = "visual", y = "value", facet = "measure",
   y_pval_coef = .032,  ## Subjective wants .032
   ylim_max_coef = .6) +  ## Subjective wants .6
-  labs(x = "Visual", y = "Response", fill = "Visual"))
+  labs(x = "Visual", y = "Response", fill = "Visual") +
+    theme(legend.position = "bottom", legend.direction = "horizontal"))
 figSubjectiveMeasures_w.violin_hori <-  cowplot::plot_grid(
   subjectiveMeasures, measure_violins, ncol = 2)
 

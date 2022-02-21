@@ -252,9 +252,9 @@ kableExtra::kbl(
   x = mod_coef[[1]], format = fmt, 
   booktabs = TRUE, linesep = "", escape = esc_coef,
   caption = "The task accuracy model coefficients for $\\widehat{Y} = \\alpha \\cdot \\beta + \\gamma + \\delta$, with visual = pca, location = 0/100\\%, shape = EEE, and dim = 4 held as baselines. Visual being radial is the fixed term with the strongest evidence supporting the hypothesis. Interacting with the location term there is evidence suggesting radial performs worse with 33/66\\% mixing.") %>%
-  kableExtra::pack_rows("visual", 2, 3) %>%
-  kableExtra::pack_rows("fixed effects", 4, 8) %>%
-  kableExtra::pack_rows("interactions", 9, 12) %>%
+  kableExtra::pack_rows("Visual", 2, 3) %>%
+  kableExtra::pack_rows("Fixed effects", 4, 8) %>%
+  kableExtra::pack_rows("Interactions", 9, 12) %>%
   kableExtra::kable_classic(font_size = fnt)
 ```
 
