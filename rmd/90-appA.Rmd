@@ -59,7 +59,7 @@ nsSafeIncGraphic("./figures/ch4_zapp_fig5_app_pg2.PNG")
 The second tab, Figure \@ref(fig:radialTourAppPg2) contains interaction for selecting the manipulation variable, and non-numeric columns can be used to change the color and shape of the data points in the projection. The radial tour is created in real-time, animated as an interactive __plotly__ `html` widget. The application offers users a fast, intuitive introduction elucidating what the radial tour does and some of the features offered.
 
 
-## Extended analysis {#sec:appendix}
+## Extended analysis {#sec:extanalysis}
 
 <!-- segue to extended analysis -->
 This section covers peripheral and extended analysis. First, the demographics of the participants is covered. Then a parallel modeling analysis on log response time is conducted. Lastly, the effect ranges and marginal effects of the random effect of the participants and data simulation are examined.
