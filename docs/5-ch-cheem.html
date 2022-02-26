@@ -184,7 +184,7 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html"><i class="fa fa-check"></i><b>3</b> A User-Controlled Manual Tour for Animated Linear Projections</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html#sec:algorithm"><i class="fa fa-check"></i><b>3.1</b> Algorithm</a></li>
-<li class="chapter" data-level="3.2" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html#oblique-cursor-movement"><i class="fa fa-check"></i><b>3.2</b> Oblique cursor movement</a></li>
+<li class="chapter" data-level="3.2" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html#sec:oblique"><i class="fa fa-check"></i><b>3.2</b> Oblique cursor movement</a></li>
 <li class="chapter" data-level="3.3" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html#sec:pkgstructure"><i class="fa fa-check"></i><b>3.3</b> Package structure</a></li>
 <li class="chapter" data-level="3.4" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html#sec:usecases"><i class="fa fa-check"></i><b>3.4</b> Use cases</a></li>
 <li class="chapter" data-level="3.5" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html#sec:discussion"><i class="fa fa-check"></i><b>3.5</b> Discussion</a></li>
@@ -333,13 +333,13 @@ Figure 5.3: Overview of the cheem viewer for regression task highlighting the di
 <div id="installation-and-getting-started" class="section level3" number="5.2.8">
 <h3><span class="header-section-number">5.2.8</span> Installation and getting started</h3>
 <p>The package can be installed from GitHub using the following <strong>R</strong> code:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="5-ch-cheem.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install remotes if absent</span></span>
-<span id="cb3-2"><a href="5-ch-cheem.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">require</span>(<span class="st">&quot;remotes&quot;</span>) <span class="sc">==</span> <span class="cn">FALSE</span>) <span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
-<span id="cb3-3"><a href="5-ch-cheem.html#cb3-3" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install.packages</span>(<span class="st">&quot;cheem&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-4"><a href="5-ch-cheem.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;cheem&quot;</span>)</span>
-<span id="cb3-5"><a href="5-ch-cheem.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">run_app</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="5-ch-cheem.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install remotes if absent</span></span>
+<span id="cb4-2"><a href="5-ch-cheem.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">require</span>(<span class="st">&quot;remotes&quot;</span>) <span class="sc">==</span> <span class="cn">FALSE</span>) <span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
+<span id="cb4-3"><a href="5-ch-cheem.html#cb4-3" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install.packages</span>(<span class="st">&quot;cheem&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-4"><a href="5-ch-cheem.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;cheem&quot;</span>)</span>
+<span id="cb4-5"><a href="5-ch-cheem.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">run_app</span>()</span></code></pre></div>
 <p>To process your data, you will need to use the <code>treeshap</code> package, which can be installed from GitHub:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="5-ch-cheem.html#cb4-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;ModelOriented/treeshap&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="5-ch-cheem.html#cb5-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;ModelOriented/treeshap&#39;</span>)</span></code></pre></div>
 <p>Follow the examples provided with the package to compute the local explainers (see <code>?cheem_ls</code>). The application uses the returned objects from a from <code>cheem_ls()</code> call. Alternatively, the cheem viewer shiny app can be directly accessed at <a href="https://ebsmonash.shinyapps.io/cheem_initial/">ebsmonash.shinyapps.io/cheem_initial/</a>.</p>
 </div>
 </div>

@@ -418,32 +418,46 @@ ggsave("./figures/ch4_fig4_accuracy_measure.pdf", final, "pdf",
 {
   dat_qual <- readRDS("./data/dat_qual.rds") %>%
     rename(Visual = Factor)
-  .lp       <- theme(legend.position = "off")
-  .yl       <- ylab("")
-  .visual   <- my_ggpubr(dat_qual, x = "Visual", y = "Marks") + .lp + ylab("Accuracy")
-  .lvls     <- c("0/100", "33/66", "50/50%")
+  .lvls <- c("0/100", "33/66", "50/50%")
   dat_qual_loc <- dat_qual %>%
     mutate(Location = factor(.lvls[as.integer(Location)], levels = .lvls))
   levels(dat_qual_loc$Location)
-  .location <- my_ggpubr(dat_qual_loc, x = "Location", y = "Marks") + .lp + .yl
-  .shape    <- my_ggpubr(dat_qual,     x = "Shape",    y = "Marks") + .lp + .yl
-  .dim      <- my_ggpubr(dat_qual,     x = "Dim",      y = "Marks") + .lp + .yl
+
+  .lp       <- list(
+    theme(legend.position = "bottom", legend.direction = "vertical",
+          legend.spacing = unit(0, "npc"),
+          #legend.text = element_text(size=6),
+          legend.margin = margin(-.05,0,-.01,0, "npc"),
+          legend.box.margin = margin(0,0,0,0, "npc"),
+          plot.margin = margin(0,0,0,0, "npc")),
+    labs(color = "", fill = "")
+  )
+  .visual   <- my_ggpubr(dat_qual, x = "Visual", y = "Marks") + .lp + ylab("Accuracy")
+  .location <- my_ggpubr(dat_qual_loc, x = "Location", y = "Marks") + .lp + ylab("")
+  .shape    <- my_ggpubr(dat_qual,     x = "Shape",    y = "Marks") + .lp + ylab("")
+  .dim      <- my_ggpubr(dat_qual,     x = "Dim",      y = "Marks") + .lp + ylab("")
   .VisualLocation <- my_ggpubr_facet(
     dat_qual, x = "Visual", y = "Marks", facet = "Location") + ylab("Accuracy") +
-    theme(legend.position = "bottom", legend.direction = "horizontal")
+    theme(legend.position = "bottom", legend.direction = "horizontal",
+          plot.margin = unit(x = c(-.11, 0, 0, 0), units = "npc"))
 
   title <- cowplot::ggdraw() +
     cowplot::draw_label(
       "Violin plots of the terms for accuracy: Y1^ = \u03b1 * \u03b2 + \u03b3 + \u03b4",
       x = .5, y = .75, hjust = .5, vjust = 1)
   top <- cowplot::plot_grid(.visual, .location, .shape, .dim, nrow = 1)
+  require(patchwork)
+  top_pw <- .visual + .location + .shape + .dim + plot_layout(nrow = 1)
   gc()
   (violin_ABcd <-
-      cowplot::plot_grid(title, top, .VisualLocation + ggtitle("", ""),
-                         ncol = 1, rel_heights = c(.1, 1, 1.4)))
+      cowplot::plot_grid(title, top_pw, .VisualLocation + ggtitle("", ""),
+                         ncol = 1, rel_heights = c(.15, 1.4, 1.4)))
 }
 ggsave("./figures/ch4_fig6_ABcd_violins.pdf",
        violin_ABcd, device = cairo_pdf,
+       width = .w, height = .w, unit = .u)
+ggsave("./figures/ch4_fig6_ABcd_violins.png",
+       violin_ABcd, device = "png",
        width = .w, height = .w, unit = .u)
 
 

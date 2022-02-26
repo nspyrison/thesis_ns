@@ -6,38 +6,38 @@ knit: "bookdown::render_book"
 # A Study on the Benefit of a User-Controlled Radial Tour for Variable Importance for Structure in High-Dimensional Data {#ch-userstudy}
 
 <!-- Segue -->
-The previous chapter introduced the package __spinifex__, which gave us the means to perform radial tours. There is no evidence to support that the user-controlled steering of the radial tour leads to better perception than traditional methods. Therefore, this chapter discusses the user study to elucidate the efficacy of the radial tour.
+The previous chapter introduced the package __spinifex__, which gave us the means to perform radial tours. However, there is no evidence to suggest that the user-controlled steering of the radial tour leads to better perception than traditional methods. Therefore, this chapter discusses the user study to elucidate the efficacy of the radial tour.
 
 <!-- Abstract -->
-Chapters \@ref(ch-introduction) and \@ref(ch-background) introduced PCA, the grand tour, and the radial tour. This chapter describes a within-participants user study evaluating the efficacy of these techniques. A supervised classification task is devised where participants evaluate variable attribution of the separation between two classes. An accuracy measure is defined to use as the response variable. Data were collected from 108 crowdsourced participants, who performed two trials with each visual for 648 trials in total.
+Chapters \@ref(ch-introduction) and \@ref(ch-background) introduced PCA, the grand tour, and the radial tour. This chapter describes a within-participants user study evaluating the efficacy of these techniques. A supervised classification task is devised where participants evaluate variable attribution of the separation between two classes. An accuracy measure is defined as a response variable. Data were collected from 108 crowdsourced participants, who performed two trials with each visual for 648 trials in total.
 
 <!-- thesis_ns introduction -->
-The user influence over a basis, uniquely available in the radial tour, is crucial to testing variable sensitivity to the structure visible in projection. If the contribution of a variable is reduced and the feature disappears, then it is said that the variable is sensitive to that structure. For example, Figure \@ref(fig:figClSep) shows two projections of simulated data. Panel (a) has identified separation between the two clusters and primarily in the direction of the contribution from V2. Because of this, it is said that V2 is sensitive to the separation of the clusters. Many other bases do not reveal this cluster separation such as panel (b). 
+The user influence over a basis is crucial to testing variable sensitivity to the structure visible in projection and uniquely available in the radial tour. If the contribution of a variable is reduced and the feature disappears, then it is said that the variable is sensitive to that structure. For example, Figure \@ref(fig:figClSep) shows two projections of simulated data. Panel (a) has identified separation between the two clusters and primarily in the direction of the contribution from V2. Many other bases do not reveal this cluster separation, such as panel (b) that has a small contribution from V2. Because of this, it is said that V2 is sensitive to the separation of the clusters. 
 
-```{r figClSep, echo = F, out.width = "100%", fig.cap = "Illustration of cluster separation. Panel (a) shows clear separation in V2 and no separation in the direction of V3. While V1 and v4 have relatively small contributions in the basis. Panel (b) has a random basis with a minimal contribution from V2, and no separation between the cluster means is resolved."}
+```{r figClSep, echo = F, out.width = "100%", fig.cap = "Illustration of cluster separation. Panel (a) shows clear separation in the direction of V2 and no separation in the direction of V3. While the contributions of V1 and v4 are relatively small, and contributed little to this orientation. Panel (b) has a minimal contribution from V2, and no separation between the cluster means is resolved."}
 nsSafeIncGraphic("./figures/ch4_fig1_cl_sep.pdf")
 ```
 
 <!--- black-box models-->
-Knowing which variables to use is also important for statistical modeling and their interpretations. Models are becoming increasingly complex, and the nonlinear interactions of the terms cause an opaqueness to model interpretability. Exploratory Artificial Intelligence [XAI, @adadi_peeking_2018; @arrieta_explainable_2020] is an emerging field that extends the interpretability of such black-box models. Multivariate data visualization is essential for exploring features spaces and communicating interpretations of models [@biecek_dalex_2018; @biecek_explanatory_2021; @wickham_visualizing_2015].
+Understanding which variables to use is also important to statistical modeling and their interpretations. Models are becoming increasingly complex, and the nonlinear interactions of their terms cause an opaqueness to model interpretability. Exploratory Artificial Intelligence [XAI, @adadi_peeking_2018; @arrieta_explainable_2020] is an emerging field that extends the interpretability of such models. Multivariate data visualization is essential for exploring features spaces and communicating interpretations of models [@biecek_dalex_2018; @biecek_explanatory_2021; @wickham_visualizing_2015].
 
 <!-- Structure of the paper -->
-The chapter is structured as follows. Section \@ref(sec:userstudy) describes the experimental factors, task, and accuracy measure used. The results of the study are discussed in Section \@ref(sec:results). Conclusions and potential future directions are discussed in Section \@ref(sec:conclusion). The software used for the study is described in Section \@ref(sec:spinifex).
+This chapter is structured as follows. Section \@ref(sec:userstudy) describes the implementation of the user study; its visual methods, experimental factors, task, accuracy measure used standardization and randomization of the experiment. The results of the study are discussed in Section \@ref(sec:results). Conclusions and potential future directions are discussed in Section \@ref(sec:conclusion). The software used for the study and extended analysis are provided in the appendix under Section \@ref(sec:spinifex).
 
 
 ## User study {#sec:userstudy}
 
 <!-- Overview of visual -->
-An experiment was constructed to assess the performance of the radial tour relative to the grand tour and PCA for interpreting the variable attribution contributing to separation between two clusters. <!-- Introduce experimental factors --> Data were simulated across three experimental factors: cluster shape, location of the cluster separation, and data dimensionality. Participant responses were collected using a web application and crowdsourced through prolific.co, [@palan_prolific_2018] an alternative to MTurk.
+An experiment was constructed to assess the performance of the radial tour relative to the grand tour and PCA for interpreting the variable attribution contributing to separation between two clusters. <!-- Introduce experimental factors --> Data were simulated across three experimental factors: location of the cluster separation, cluster shape, and data dimensionality. Participant responses were collected using a web application and crowdsourced through prolific.co, [@palan_prolific_2018] an alternative to MTurk.
 
 
 ### Objective {#sec:objective}
 
 <!-- Rational for visual levels -->
-PCA will be used as a baseline for comparison as it is the most commonly used linear embedding. The grand tour will act as a secondary control that will help evaluate the benefit of animation without influencing its path. Lastly, the radial tour should perform best as it benefits from animation and user control.
+PCA will be used as a baseline for comparison as it is the most commonly used linear embeddings. It will use static discrete jumps between orthogonal components. The grand tour will act as a secondary control that will help evaluate the benefit of observation trackability between nearby animation frames but without user-control of its path. Lastly, the radial tour will be compared which benefits from the continuity of animation and user control of the basis.
 
 <!-- Prior expectations -->
-Then for some subset of tasks, we expect to find that the radial tour performs most accurately. In the appendix, section \@ref(sec:extanalysis), regresses the log response time. Due to the absence of inputs, the grand tour may lead to a faster response time than the alternatives since users can focus all of their attention on interpreting the fixed path. Conversely, we are less sure about the accuracy of such limited grand tours as there is no objective function in selecting the bases; it is possible that the random selection of the target bases altogether avoids bases showing cluster separation. However, given that the data dimensionality was modest, it seems plausible that the grand tour coincidentally regularly crossed bases with the correct information for the task.
+Then for some subset of tasks, we expect to find that the radial tour performs most accurately. Conversely, we are less sure about the accuracy of such limited grand tours as there is no objective function in selecting the bases; it is possible that the random selection of the target bases altogether avoids bases showing cluster separation. However, given that the data dimensionality is modest, it seems plausible that the grand tour coincidentally regularly crossed bases with the correct information for the task.
 
 <!-- Explicit hypothesis tests -->
 Experimental factors and definition of an accuracy measure are given below. The null hypothesis can be stated as:
@@ -51,18 +51,18 @@ Experimental factors and definition of an accuracy measure are given below. The 
 ### Experimental factors {#sec:expfactors}
 
 <!-- Introduction to experimental factors -->
-In addition to the visual, data are simulated across three experimental factors. First, the _location_ of the separation between clusters by mixing a signal and a noise variable at different ratios. Secondly, the _shape_ of the clusters reflects varying distributions of the data. And third, the _dimension_-ality of the data. The levels within each of the factors are described below, and Figure \@ref(fig:figExpFactors) gives a visual representation.
+In addition to the visual method, data are simulated across three experimental factors. First, the _location_ of the separation between clusters is controlled by mixing a signal and a noise variable at different ratios. Secondly, the _shape_ of the clusters reflects varying distributions of the data. And third, the _dimension_-ality of the data is also tested. The levels within each of the factors are described below, and Figure \@ref(fig:figExpFactors) gives a visual representation.
 
 <!-- Illustration of experimental factors -->
-```{r figExpFactors, out.width='100%', fig.cap = "Illustration of the experimental factors, the parameter space of the independent variables, the support of our study."}
+```{r figExpFactors, out.width='100%', fig.cap = "Illustration of the experimental factors, the parameter space of the independent variables."}
 nsSafeIncGraphic("./figures/ch4_fig3_exp_factors.pdf")
 ```
 
 <!-- Location mixing -->
-The _location_ of the separation of the clusters is at the heart of the measure. It would be good to test a few varying levels. To test the sensitivity, noise, and signal-containing variables are mixed. The separation between clusters are mixed at the following percentages: 0/100% (not mixed), 33/66%, 50/50% (evenly mixed).
+The _location_ of the separation between the clusters is at the heart of the measure. It would be good to test a few varying levels. To test the sensitivity, a noise, and signal-containing variable are mixed. The separation between clusters are mixed at the following percentages: 0/100% (not mixed), 33/66%, 50/50% (evenly mixed).
 
 <!-- Shape, vc matrix -->
-In selecting the _shape_ of the clusters, the convention given by @scrucca_mclust_2016 is followed. They describe 14 variants of model families containing three clusters. The model family name is the abbreviation of the clusters respective volume, shape, and orientation. The levels are either _E_qual or _V_ary. The models EEE, EEV, and EVV are used. For Instance, in the EEV model, the volume and shape of clusters are constant, while the shape's orientation varied. The EVV model is further modified by moving four-fifths of the data out in a "V" or banana-like shape.
+In selecting the _shape_ of the clusters, the convention given by @scrucca_mclust_2016 is followed. They describe 14 variants of model families containing three clusters. The model family name is the abbreviation of the clusters respective volume, shape, and orientation. The levels are either *E*qual or *V*ary. The models EEE, EEV, and EVV are used. For Instance, in the EEV model, the volume and shape of clusters are constant, while the shape's orientation varied. The EVV model is further modified by moving four-fifths of the data out in a ">" or banana-like shape.
 
 <!-- Dimensionality -->
 _Dimension_-ality is tested at two modest levels: four dimensions containing three
@@ -72,31 +72,30 @@ clusters and six with four clusters. Such modest dimensionality is required to l
 ### Task and evaluation {#sec:task}
 
 <!-- segue to task and evaluation -->
-With our hypothesis formulated and data at hand, let us turn our attention to the task and how to evaluate it. Regardless of the visual method, the display elements are held constant, shown as a 2D scatterplot with an axis biplot to its left. Observations were supervised with the cluster level mapped to color and shape.
+With our hypothesis formulated and data at hand, let us turn our attention to the task and how to evaluate it. Regardless of the visual method, the display elements are held constant, shown as a 2D scatterplot with a biplot [@gabriel_biplot_1971] to its left. A biplot is a visual depiction of the variable contributions from the basis inscribed in a unit circle. Observations were supervised with cluster membership mapped to (colorblind safe) colors and shape.
 
 <!-- Geom, clusters, explicit task -->
-Participants were asked to "check any/all variables that contribute more than average to the cluster separation green circles and orange triangles," which was further explained in the explanatory video as 'mark any and all variable that carries more than their fair share of the weight, or one quarter in the case of four variables'.
+Participants were asked to "check any/all variables that contribute more than average to the cluster separation green circles and orange triangles," which was further explained in the explanatory video as "mark any and all variable that carries more than their fair share of the weight, or one quarter in the case of four variables".
 
 <!-- Instruction and video -->
-The instructions iterated several times in the video was: 1) use the input controls to find a frame that contains separation between the clusters of green circles and orange triangles, 2) look at the orientation of the variable contributions in the gray circle (biplot axes orientation), and 3) select all variables that contribute more than uniformed distributed cluster separation in the scatterplot. Independent with experimental level, participants were limited to 60 seconds for each evaluation of this task. This restriction did not impact many participants as the 25th, 50th, 75th quantiles of the response time were about 7, 21, and 30 seconds, respectively.
+The instructions were iterated several times in the video was: 1) use the input controls to find a frame that contains separation between the clusters of green circles and orange triangles, 2) look at the orientation of the variable contributions in the gray circle (biplot axes orientation), and 3) select all variables that contribute more than uniformed distributed cluster separation in the scatterplot. Independent with experimental level, participants were limited to 60 seconds for each evaluation of this task. This restriction did not impact many participants as the 25th, 50th, 75th quantiles of the response time were about 7, 21, and 30 seconds, respectively.
 
 <!-- Evaluating measure -->
-The evaluation measure of this task was designed with a few features in mind: 1) the sum of squares of the individual variable weights should be one, 2) symmetric about zero, that is, without preference to under- or over-guessing 3) heavier than linear weight with increasing distance from a uniform height. The following measure is defined for evaluating the task with these in mind.
+The accuracy measure of this task was designed with a couple features in mind. 1) symmetric about the expected value, that is, without preference to under- or over-guessing. 2) heavier than linear weight with increasing value from the expected value. The following measure is defined for evaluating the task.
 
-Let a data $\textbf{X}_{n,~p,~k}$ be a simulation containing clusters of observations of different distributions. Where $n$ is the number of observations, $p$ is the number of variables, and $k$ indicates the observation's cluster. Cluster membership is exclusive; an observation cannot belong to more than one cluster.
+<!-- Notation -->
+Let the data $\textbf{X}_{n,~p,~k}$ be a simulation containing clusters of observations of different distributions. Where $n$ is the number of observations, $p$ is the number of variables, and $k$ indicates the observation's cluster. Cluster membership is exclusive; an observation cannot belong to more than one cluster.
 
 <!-- W, weights -->
-The weights, $w$, is a vector explaining the variable-wise difference between two clusters. Namely, the difference of each variable between clusters, as a proportion of the total difference, less $1/p$, the expected cluster separation if it were uniformly distributed. <!-- R, participant responses -->Participant responses are a logical value for each variable - whether or not the participant thinks each variable separates the two clusters more than uniformly distributed separation.
+The weights, $w$, is a vector, the variable-wise difference between the mean of two clusters of less $1/p$, the expected cluster separation if it were uniformly distributed. Accuracy, $A$ is defined as the signed square of these weights if selected by the participant. Participant responses are a logical value for each variable --- whether or not the participant thinks each variable separates the two clusters more than uniformly distributed separation.
 
 <!-- __v2 measure sq__ -->
 \begin{equation*}
-  w_{j} = \frac{(\overline{X}_{\cdot, j=1, k=1} - \overline{X}_{\cdot, 1, 2}, ~...~ 
+  w_{j} = \frac{
+    (\overline{X}_{\cdot, j=1, k=1} - \overline{X}_{\cdot, 1, 2}, ~...~ 
     (\overline{X}_{\cdot, p, 1} - \overline{X}_{\cdot, p, 2})}
-    {\sum_{j=1}^{p}(|\overline{X}_{\cdot, j, k=1} - \overline{X}_{\cdot, j, 2}|)} - \frac{1}{p} \\
-\end{equation*}
-
-Where accuracy, $A$, is defined as:
-
+    {\sum_{j=1}^{p}(|\overline{X}_{\cdot, j, k=1} - \overline{X}_{\cdot, j, 2}|)} - \frac{1}{p}
+\end{equation*} <!-- don't ask... -->
 \begin{equation*}
   A = \sum_{j=1}^{p}I(j) \cdot sign(w_j) \cdot w^2
 \end{equation*}
@@ -112,13 +111,13 @@ nsSafeIncGraphic("./figures/ch4_fig4_accuracy_measure.pdf")
 ### Visual design standardization {#sec:standardization}
 
 <!-- Background for methodology, application here -->
-The visuals are tested within-participant, with each visual being evaluated twice by each participant. The order that experimental factors are experienced is controlled with the assignment, as illustrated in Figure \@ref(fig:figParmeterizationExample). Below discusses the design standardization and input uniqueness within each visual.
+The visual methods are tested within-participant, with each visual being evaluated twice by each participant. The order that experimental factors are experienced is randomized with the assignment, as illustrated in Figure \@ref(fig:figParmeterizationExample). Below discusses the design standardization and unique input associated with each visual.
 
 <!-- Aesthetic standardization -->
-The visualization methods were standardized wherever possible. Data were displayed as 2D scatterplots with biplots [@gabriel_biplot_1971], a visual with variable contributions inscribed on a unit circle. All aesthetic values (colors, shapes, sizes, absence of legend, and axis titles) were constant. Variable contributions were always shown left of the scatterplot embeddings with their aesthetic values consistent. What did vary between visuals were their inputs.
+The visualization methods were standardized wherever possible. Data were displayed as 2D scatterplots with biplots. All aesthetic values (colors, shapes, sizes, absence of legend, and axis titles) were constant. Variable contributions were always shown left of the scatterplot embeddings with their aesthetic values consistent. What did vary between visuals were their inputs.
 
 <!-- PCA -->
-PCA inputs allowed users to select between the top four principal components for both axes regardless of the data dimensionality (four or six). Data were simulated to have cluster separation within the 2nd to 4th components. Cluster separation was sampled to not bury signal in 5th and 6th components (not selectable in PCA input) in the interest of simplicity and time.<!-- Grand tours --> There was no user input for the grand tour; users were instead shown a 15-second animation of the same randomly selected path. Participants could view the same clip up to four times within the time limit.<!-- Radial tours --> Radial tours were also displayed at five frames per second with a step size of 0.1 radians between interpolated frames. Users were able to swap between variables. Selecting a new variable resets the animation where the new variable is manipulated to a complete contribution, zeroed contribution, and then back to its initial contribution. The complete animation of any variable takes about 20 seconds and is almost entirely in the projection frame at around six seconds. The starting basis was initialized to a half-clock design, where the variables were evenly distributed in half of the circle. This design was created to be variable agnostic while maximizing the independence of the variables.
+PCA allowed users to select between the top four principal components for each axes regardless of the data dimensionality (four or six). Upon changing an axis the visual would change to the new view of orthogonal components without displaying intermediate bases. <!--Data were simulated to have cluster separation within the 2nd to 4th components. Cluster separation was sampled to not bury signal in 5th and 6th components (not selectable in PCA input) in the interest of simplicity and time.--><!-- Grand tours --> There was no user input for the grand tour; users were instead shown a 15-second animation of the same randomly selected path (variables containing cluster separation were shuffled after simulation). Participants could view the same clip up to four times within the time limit.<!-- Radial tours --> Radial tours allowed participants to select the  manipulation variable.<!--The complete animation of any variable takes about 20 seconds and is almost entirely in the projection frame at around six seconds.--> The starting basis was initialized to a half-clock design, where the variables were evenly distributed in half of the circle. This design was created to be variable agnostic while maximizing the independence of the variables. Selecting a new variable resets the animation where the new variable is manipulated to a complete contribution, zeroed contribution, and then back to its initial contribution.  Animation and interpolation parameters were held constant across grand and radial tour (five frames per second with a step size of 0.1 radians between interpolated frames). 
 
 
 ### Data simulation
@@ -127,16 +126,16 @@ PCA inputs allowed users to select between the top four principal components for
 Each dimension is distributed initially as $\mathcal{N}(0, 1)$, given the covariance set by the shape factor. Clusters were initially separated by a distance of two before location mixing. Signal variables had a correlation of 0.9 when they had equal orientation and -0.9 when their orientations varies. Noise variables were restricted to zero correlation. Each cluster is simulated with 140 observations and is offset in a variable that did not distinguish previous variables.
  
 <!-- Apply shape and location transformations -->
-Clusters of the EVV shape are transformed to the banana-chevron shape (illustrated in figure \@ref(fig:figExpFactors), shape row). Then location mixing is applied by post-multiplying a (2x2) rotation matrix to the signal variable and a noise variable for the clusters in question.<!-- Preprocess and replicate and save --> All variables are then standardized by standard deviation. The rows and columns are then shuffled randomly. The observation's cluster and order of shuffling are attached to the data and saved.
+Clusters of the EVV shape are transformed to the banana-chevron shape (illustrated in figure \@ref(fig:figExpFactors), shape row). Then location mixing is applied by post-multiplying a  rotation matrix to the signal variable and a noise variable for the clusters in question.<!-- Preprocess and replicate and save --> All variables are then standardized by standard deviations away from the mean. The columns are then shuffled randomly.  
 
 <!-- Iterating over visual -->
-Each of these replications is then iterated with each level of the visual. For PCA, projections were saved for each of the 12 pairs of the top four principal components. A grand tour basis path is saved for each dimensionality level. The data from each simulation is then projected through its corresponding bases path. Each simulation's variable order was previously shuffled to randomize variables containing cluster separation. The radial tour starts at either the four or six-variable "half-clock" basis. Each variable has a uniform contribution in the right half with no variable contributing in the opposite direction. This acts to minimize the dependence between variable contributions. A radial tour is then produced for each variable and saved as a `gif`.
+Each of these replications is then iterated with each level of the visual. For PCA, projections were saved (to `png`) for each of the 12 pairs of the top four principal components. A grand tour basis path is saved for each dimensionality level. The data from each simulation is then projected through its corresponding bases path and saved to `gif` file. The radial tour starts at either the four or six-variable "half-clock" basis. A radial tour is then produced for each variable and saved as a `gif`.
 
 
 ### Randomized assignment
 
 <!-- Introduction -->
-Now, with simulation and their artifacts in hand, we explain how the experimental factors are assigned and illustrate how this is experienced from a participant's perspective.
+Now, with simulation and their artifacts in hand, this section covers how the experimental factors are assigned and demonstrate how this is experienced from the participant's perspective.
 
 <!-- Periods, exp factor assignment -->
 The study is sectioned into three periods. Each period is linked to a randomized level of visual and location. The order of dimension and shape are of secondary interest and are held constant in increasing order of difficulty; four then six dimensions and EEE, EEV, then EVV-banana, respectively.
@@ -145,7 +144,7 @@ The study is sectioned into three periods. Each period is linked to a randomized
 Each period starts with an untimed training task at the simplest remaining experimental levels; location = 0/100%, shape = EEE, and four dimensions with three clusters. This serves to introduce and familiarize participants with input and visual differences. After the training, the participant performs two trials with the same visual and location level across the increasing difficulty of dimension and shape. The plot was removed after 60 seconds, though participants rarely reached this limit.
 
 <!-- visual*location nested latin square -->
-The order of the visual and location levels is randomized with a nested Latin square where all levels of the visuals are exhausted before advancing to the next level of location. That requires $3!^2 = 36$ participants to evaluate all permutations of the experimental factors once. This randomization controls for potential learning effects the participant may receive. Figure \@ref(fig:figParmeterizationExample) illustrates how an arbitrary participant experiences the experimental factors.
+The order of the visual and location levels is randomized with a nested Latin square where all levels of the visuals are exhausted before advancing to the next level of location. This requires $3!^2 = 36$ participants to evaluate all permutations of the experimental factors once. This randomization controls for potential learning effects the participant may receive. Figure \@ref(fig:figParmeterizationExample) illustrates how an arbitrary participant experiences the experimental factors.
 
 <!-- Nested latin square assignment -->
 ```{r figParmeterizationExample, out.width="100%", fig.cap = "Illustration of how a hypothetical participant 63 is assigned experimental factors. Each of the six visual order permutations is exhausted before iterating to the next permutation of location order."}
@@ -154,12 +153,12 @@ nsSafeIncGraphic("./figures/ch4_fig5_randomization_MANUAL.PNG")
 ```
 
 <!-- Pilot study; 3 even evaluations of each -->
-Through pilot studies sampled by convenience (information technology and statistics Ph.D. students attending Monash University). It was estimated that three full evaluations are needed to power the study properly, a total of $N = 3 \cdot 3!^2 = 108$ participants.
+Through pilot studies sampled by convenience (information technology and statistics Ph.D. students attending Monash University), it was estimated that three full evaluations are needed to power the study properly, a total of $N = 3 \times 3!^2 = 108$ participants.
 
 
 ### Participants {#sec:articipants}
 
-$N = 108$ participants were recruited via prolific.co [@palan_prolific_2018]. Participants are restricted based on their claimed education requiring that they have completed at least an undergraduate degree (some 58,700 of the 150,400 users at the time). This restriction is used on the premise that linear projections and biplot displays will not be regularly used for consumption by general audiences. There is also the implicit filter that Prolific participants must be at least 18 years of age and implicit biases of timezone, location, and language. Participants were compensated for their time at \pounds 7.50 per hour, whereas the mean duration of the survey was about 16 minutes. Previous knowledge or familiarity was minimal, as validated in the follow-up survey. The appendix contains a heatmap distribution of age and education paneled across preferred pronouns of the participants that completed the survey, who are relatively young, well educated, and slightly more likely to identify as males.
+$N = 108$ participants were recruited via prolific.co [@palan_prolific_2018]. Participants are restricted based on their claimed education requiring that they have completed at least an undergraduate degree (some 58,700 of the 150,400 users at the time). This restriction is used on the premise that linear projections and biplot displays will not be regularly used for consumption by general audiences. There is also the implicit filter that Prolific participants must be at least 18 years of age and implicit biases of timezone, location, and language. Participants were compensated for their time at \pounds 7.50 per hour, whereas the mean duration of the survey was about 16 minutes. Previous knowledge or familiarity was minimal, as validated in the follow-up survey. The appendix Section \@ref(sec:demographics) contains a heatmap distribution of age and education paneled across preferred pronouns of the participants that completed the survey, who are relatively young, well educated, and slightly more likely to identify as males.
 
 
 ### Data collection
@@ -168,14 +167,14 @@ $N = 108$ participants were recruited via prolific.co [@palan_prolific_2018]. Pa
 Data were recorded in __shiny__ application and written to a Google Sheet after each third of the study. Especially at the start of the study, participants experienced adverse network conditions due to the volume of participants hitting the application with modest allocated resources. In addition to this, API read/write limitations further hindered data collection. To mitigate this, the number of participants were throttled and over-collect survey trials until three evaluations were collected for all permutation levels.
 
 <!-- Preprocessing steps -->
-The processing steps were minimal. The data were formatted and then filtered to only the latest three complete studies of each experimental factor, which should have experienced the least adverse network conditions. The bulk of the studies removed were partial data and a few over-sampled permutations. This brings us to the 108 studies described in the paper, from which models and aggregation tables were built. The post-study surveys were similarly decoded to human-readable format and then filtered to include only those 84 associated with the final 108 studies.
+The processing steps were minimal. The data were formatted and then filtered to the latest three complete studies of each experimental factor, which should have experienced the least adverse network conditions. The bulk of the studies removed were partial data and a few over-sampled permutations. This brings us to the 108 studies described in the paper, from which models and aggregation tables were built. The post-study surveys were similarly decoded to human-readable format and then filtered to include only those 84 associated with the final 108 studies.
 
 The code, response files, their analyses, and the study application are publicly available at; \url{https://github.com/nspyrison/spinifex_study}.
 
 
 ## Results {#sec:results}
 
-To recap, the primary response variable is task accuracy, as defined in section \@ref(sec:task). The parallel analysis of the log response time is provided in the appendix. Two primary data sets were collected; the user study evaluations and the post-study survey. The former is the 108 participants with the experimental factors: visual, location of the cluster separation signal, the shape of variance-covariance matrix, and the dimensionality of the data. Experimental factors and randomization were discussed in section \@ref(sec:expfactors). The survey was completed by 84 of these 108 people. It collected demographic information (preferred pronoun, age, and education), and subjective measures for each visual (preference, familiarity, ease of use, and confidence).
+To recap, the primary response variable is accuracy, as defined in Section \@ref(sec:task). The parallel analysis of the log response time is provided in the appendix, Section \@ref(sec:responsetime). Two primary data sets were collected; the user study evaluations and the post-study survey. The former is the 108 participants with the experimental factors: visual, location of the cluster separation signal, the shape of variance-covariance matrix, and the dimensionality of the data. Experimental factors and randomization were discussed in section \@ref(sec:expfactors). A followup survey was completed by 84 of these 108 people. It collected demographic information (preferred pronoun, age, and education), and subjective measures for each visual (preference, familiarity, ease of use, and confidence).
 
 Below a battery of mixed regression models is built to examine the degree of the evidence and the size of the effects from the experimental factors. Then, Likert plots and rank-sum tests to compare the subjective measures between the visuals.
 
@@ -183,7 +182,7 @@ Below a battery of mixed regression models is built to examine the degree of the
 ### Accuracy
 
 <!-- Introduce regression model, explaining accuracy, and random effect term -->
-To quantify the contribution of the experimental factors to the accuracy, a linear mixed-effects models were fit. All models have a random effect term on the participant and the simulation. These terms explain the error attributed to the individual participant's effect and variation due to the random sampling data.
+To quantify the contribution of the experimental factors to the accuracy, a mixed-effects models were fit. All models have a random effect term on the participant and the simulation. These terms explain the amount of error that can attributed to the individual participant's effect and variation due to the random sampling data.
 
 <!-- Building a battery of models -->
 In building a set of models to test, a base model with only the visual term is compared with the full linear model term and progressively interacting an additional experimental factor. The models with three and four interacting variables are rank deficient; there is not enough varying information in the data to explain all interacting terms.
@@ -194,19 +193,20 @@ $$
 \textbf{Fixed effects}           &\textbf{Full model} \\
 \alpha                           &\widehat{Y} = \mu + \alpha_i + \textbf{Z} + \textbf{W} + \epsilon \\
 \alpha + \beta + \gamma + \delta &\widehat{Y} = \mu + \alpha_i + \beta_j + \gamma_k + \delta_l + \textbf{Z} + \textbf{W} + \epsilon \\
-\alpha \cdot \beta + \gamma + \delta &\widehat{Y} = \mu + \alpha_i \cdot \beta_j + \gamma_k + \delta_l + \textbf{Z} + \textbf{W} + \epsilon \\
-\alpha \cdot \beta \cdot \gamma + \delta &\widehat{Y} = \mu + \alpha_i \cdot \beta_j \cdot \gamma_k + \delta_l + \textbf{Z} + \textbf{W} + \epsilon \\
-\alpha \cdot \beta \cdot \gamma \cdot \delta &\widehat{Y} = \mu + \alpha_i \cdot \beta_j \cdot \gamma_k \cdot \delta_l + \textbf{Z} + \textbf{W} + \epsilon
+\alpha \times \beta + \gamma + \delta &\widehat{Y} = \mu + \alpha_i \times \beta_j + \gamma_k + \delta_l + \textbf{Z} + \textbf{W} + \epsilon \\
+\alpha \times \beta \times \gamma + \delta &\widehat{Y} = \mu + \alpha_i \times \beta_j \times \gamma_k + \delta_l + \textbf{Z} + \textbf{W} + \epsilon \\
+\alpha \times \beta \times \gamma \times \delta &\widehat{Y} = \mu + \alpha_i \times \beta_j \times \gamma_k \times \delta_l + \textbf{Z} + \textbf{W} + \epsilon
 \end{array}
 $$
+<!-- !!!Extra Escape character in html version -->
 $$
 \begin{array}{ll}
 \text{where }
+&\mu \text{, the intercept of the model} \\
 &\alpha_i \text{, fixed term for visual}~|~i\in (\text{pca, grand, radial}) \\
-&\beta_j  \text{, fixed term for location}~|~j\in (\text{0/100\%, 33/66\%, 50/50\%}) \text{ \% noise/signal mixing} \\
+&\beta_j  \text{, fixed term for location}~|~j\in (\text{0/100\%, 33/66\%, 50/50\%}) \text{  noise/signal mixing} \\
 &\gamma_k \text{, fixed term for shape}~|~k\in (\text{EEE, EEV, EVV banana}) \text{ model shapes} \\
 &\delta_l \text{, fixed term for dimension}~|~l\in (\text{4 variables \& 3 cluster, 6 variables \& 4 clusters}) \\
-&\mu \text{ is the intercept of the model including the mean of random effect} \\
 &\textbf{Z} \sim \mathcal{N}(0,~\tau), \text{ the error of the random effect of participant} \\
 &\textbf{W} \sim \mathcal{N}(0,~\upsilon), \text{ the error of the random effect of simulation} \\
 &\epsilon   \sim \mathcal{N}(0,~\sigma), \text{ the remaining error in the model} \\
@@ -238,7 +238,7 @@ esc_coef <- TRUE  ## Coefficients, with % and *
 kableExtra::kbl(
   mod_comp[[1]], format = fmt, align = c("l", rep("l", 2), rep("c", 5)),
   booktabs = TRUE, linesep = "", escape = esc_comp,
-  caption = "Model performance of random effect models regressing accuracy. Each model includes a random effect term of the participant explaining the individual's influence on accuracy. Complex models perform better in terms of $R^2$ and RMSE, yet AIC and BIC penalize their large number of fixed effects in favor of the much simpler model containing only the visuals. Conditional $R^2$ includes the random effects, while marginal does not.") %>%
+  caption = "Model performance of random effect models regressing accuracy. Complex models perform better in terms of $R^2$ and RMSE, yet AIC and BIC penalize their large number of fixed effects in favor of the much simpler model containing only the visuals. Conditional $R^2$ includes error explained by the random effects, while marginal does not.") %>%
   kableExtra::kable_classic(font_size = fnt)
 ```
 
@@ -252,7 +252,7 @@ mod_coef <- readRDS("./figures/ch4_tab2_model_coef_ls.rds")
 kableExtra::kbl(
   x = mod_coef[[1]], format = fmt, 
   booktabs = TRUE, linesep = "", escape = esc_coef,
-  caption = "The task accuracy model coefficients for $\\widehat{Y} = \\alpha \\cdot \\beta + \\gamma + \\delta$, with visual = pca, location = 0/100\\%, shape = EEE, and dim = 4 held as baselines. Visual being radial is the fixed term with the strongest evidence supporting the hypothesis. Interacting with the location term, there is evidence suggesting radial performs with mininimal improvement for 33/66\\% location mixing.") %>%
+  caption = "The task accuracy model coefficients for $\\widehat{Y} = \\alpha \\times \\beta + \\gamma + \\delta$, with visual = pca, location = 0/100\\%, shape = EEE, and dim = 4 held as baselines. Visual being radial is the fixed term with the strongest evidence supporting the hypothesis. Interacting with the location term, there is evidence suggesting radial performs with mininimal improvement for 33/66\\% location mixing.") %>%
   kableExtra::pack_rows("Visual", 2, 3) %>%
   kableExtra::pack_rows("Fixed effects", 4, 8) %>%
   kableExtra::pack_rows("Interactions", 9, 12) %>%
@@ -260,13 +260,13 @@ kableExtra::kbl(
 ```
 
 <!-- Model selection and coefficients -->
-Table \@ref(tab:marksCompTbl) compares the model summaries across increasing complexity. The $\alpha \cdot \beta + \gamma + \delta$ model to is selected to examine in more detail. Table \@ref(tab:marksCoefTbl) looks at the coefficients for this model.
+Table \@ref(tab:marksCompTbl) compares the model summaries across increasing complexity. The $\alpha \times \beta + \gamma + \delta$ model to is selected to examine in more detail as it has relatively high condition $R^2$ and not overly complex interacting terms. Table \@ref(tab:marksCoefTbl) looks at the coefficients for this model. There is strong evidence suggesting a relatively large increase in accuracy from the radial tour, though there is evidence that almost of increase is lost under 33/66% mixing.
 
 <!-- Conditional effects of variables -->
-We also want to visually examine the conditional variables in the model. Figure \@ref(fig:figMarksABcd) examines violin plots of accuracy by visual with panels distinguishing location (vertical) and shape (horizontal). On average, the use of the radial tour increases the accuracy, especially when the location of signal mixing is not 33/66%.
+We also want to visually examine the conditional variables in the model. Figure \@ref(fig:figMarksABcd) examines violin plots of accuracy by visual with panels distinguishing location (vertical) and shape (horizontal).
 
 <!-- Violin plots and test overlay for Y1 visuals -->
-```{r, figMarksABcd, out.width="100%", fig.cap = "Violin plots of terms of the model $\\widehat{Y} = \\alpha \\cdot \\beta + \\gamma + \\delta$. Overlaid with global significance from the Kruskal-Wallis test and pairwise significance from the Wilcoxon test, both are non-parametric, ranked-sum tests suitable for handling discrete data. Participants are more confident and find the radial tour easier to use than the grand tour. Participants claim low familiarity, as expected from crowdsourced participants. Radial is more preferred compared with either alternative for this task."}
+```{r, figMarksABcd, out.width="100%", fig.cap = "Violin plots of terms of the model $\\widehat{Y} = \\alpha \\times \\beta + \\gamma + \\delta$. Overlaid with global significance from the Kruskal-Wallis test and pairwise significance from the Wilcoxon test, both are non-parametric, ranked-sum tests. Viewing marginal accuracy of the terms coberated the primary findings that use of the radial tour leads to a significant increase in accurcay, at least over PCA, and this effect is particularly well support when no location mixing is applied."}
 nsSafeIncGraphic("./figures/ch4_fig6_ABcd_violins.pdf")
 ```
 
@@ -276,7 +276,7 @@ nsSafeIncGraphic("./figures/ch4_fig6_ABcd_violins.pdf")
 <!-- Introduce subjective measures from n=84 survey responses -->
 The 84 evaluations of the post-study survey also collect four subjective measures for each visual. Figure \@ref(fig:figSubjectiveMeasures) shows the Likert plots, or stacked percentage bar plots, alongside violin plots with the same non-parametric, ranked sum tests previously used. Participants preferred to use radial for this task. Participants were also more confident of their answers and found radial tours easier than grand tours. All visuals have reportedly low familiarity, as expected from crowdsourced participants.
 
-```{r figSubjectiveMeasures, out.width="100%", fig.show="asis", fig.cap = "The subjective measures of the 84 responses of the post-study survey, five discrete Likert scale levels of agreement (L) Likert plots (stacked percent bar plots) with (R) violin plots of the same measures. Violin plots are overlaid with global significance from the Kruskal-Wallis test and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests."}
+```{r figSubjectiveMeasures, out.width="100%", fig.show="asis", fig.cap = "The subjective measures of the 84 responses of the post-study survey, five discrete Likert scale levels of agreement (L) Likert plots (stacked percent bar plots) with (R) violin plots of the same measures. Violin plots are overlaid with global significance from the Kruskal-Wallis test and pairwise significance from the Wilcoxon test, both are non-parametric, ranked sum tests. Participants are more confident using the radial tour and find it easier to use relative to the grand tour. The radial tour is the most preffered visual."}
 nsSafeIncGraphic("./figures/ch4_fig7_subjective_measures.pdf")
 ```
 
@@ -287,15 +287,8 @@ nsSafeIncGraphic("./figures/ch4_fig7_subjective_measures.pdf")
 Data visualization is an integral part of understanding relationships in data and how models are fitted. However, thorough exploration of data in high dimensions becomes difficult. Previous methods offer no means for an analyst to impact the projection basis. The manual tour provides a mechanism for changing the contribution of a selected variable to the basis. Giving analysts such control should facilitate the exploration of variable-level sensitivity to the identified structure.
 
 <!-- Recap study -->
-This paper discussed a with-in participant user study ($n=108$) comparing the efficacy of three linear projection techniques. The participants performed a supervised cluster task, explicitly identifying which variables contribute to the separation of two target clusters. This was evaluated evenly over four experimental factors. In summary, mixed model regression finds strong evidence that using the radial tour sizably increases accuracy. In the extended analysis, there is significant evidence for a change in response time, with PCA being fastest, then the grand tour, followed by the radial tour. The effect sizes on accuracy are large relative to the change from the other experimental factors, though smaller than the random effect of the participant. The radial tour was subjectively preferred, leading to more confidence in answers, and increased ease of use than the alternatives.
+This paper discussed a with-in participant user study ($n=108$) comparing the efficacy of three linear projection techniques: PCA, grand tour, and radial tour. The participants performed a supervised cluster task, explicitly identifying which variables contribute to the separation of two target clusters. This was evaluated evenly over four experimental factors. In summary, mixed model regression finds strong evidence that using the radial tour sizably increases accuracy especially with the location of cluster separation is not mixed at 33/66%. The effect sizes on accuracy are large relative to the change from the other experimental factors and the random effect of data simulation, though smaller than the random effect of the participant. The radial tour was subjectively preferred of the three visual.
 
 <!-- Future work -->
-There are several ways that this study could be extended. In addition to expanding the support of the experimental factors, more exciting directions include: introducing a new task, visualizations used, and experience level of the target population. It is difficult to achieve good coverage given the number of possible permutations. <!---Keep in mind the traffic volume and low effort of responses from participants when crowdsourcing.-->
+There are several ways that this study could be extended. In addition to expanding the support of the experimental factors, more exciting directions include: introducing a new task, visualizations used, and experience level of the target population. It is difficult to achieve good coverage given the number of possible experimental factors.
 
-
-
-<!-- ## References -->
-
-<!-- <div id="refs"></div> -->
-
-<!-- Adds a bib section at the end of every chapter -->

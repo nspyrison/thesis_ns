@@ -7,7 +7,7 @@ glossary_df <- data.frame(
            "explanatory variables", "response variable"),
   Alias = c(
     "instance, item, case, row (of data)", "feature, column (of data)",
-    "dependant/input variable, predictors, covariates", 
+    "independant/input variable, predictors, covariates", 
     "predicted/dependant/target/output variable")
 )
 
@@ -62,7 +62,7 @@ if(knitr::is_html_output()){
 
 ## Glossary {#sec-glossary}
 
-This thesis was written with statistics terminology. This glossary helps to bridge the language used here to be more accessible to machine learning audiences.
+This thesis was written with statistics terminology. This glossary helps bridge the language used here to be more accessible to machine learning audiences.
 
 ```{r glossary, fig.cap = "Use the caption arg in kable(), not this."}
 kableExtra::kbl(
