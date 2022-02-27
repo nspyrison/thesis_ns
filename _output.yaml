@@ -7,7 +7,7 @@ bookdown::gitbook:
   toc_depth: 2
   config:
     toc:
-      collapse: none
+      collapse: section
       before: |
         <li><strong><a href="./"> </a></strong></li>
       after: |

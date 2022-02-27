@@ -324,7 +324,7 @@ ggplot2::ggsave(
     ggtitle("Global view") + theme(legend.position  = "bottom",
                                    legend.direction = "horizontal")
   .bas <- basis_attr_df(penguins_ls$attr_df, prim_obs)
-  .mv  <- which(colnames(penguins_ls$attr_df) == "f_l")
+  .mv  <- which(colnames(penguins_ls$attr_df) == "fl")
   ## Cheem tour for stills
   mt_interp <- manual_tour(basis = .bas, manip_var = .mv) %>%
     spinifex:::interpolate_manual_tour(angle = .15) ## app is .15

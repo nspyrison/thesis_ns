@@ -198,7 +198,7 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html"><i class="fa fa-check"></i><b>5</b> Exploring Local Explanations of Nonlinear Models Using the Radial tour</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:shap"><i class="fa fa-check"></i><b>5.1</b> SHAP and tree SHAP local explanations</a></li>
-<li class="chapter" data-level="5.2" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:cheemviwer"><i class="fa fa-check"></i><b>5.2</b> The cheem viewer</a></li>
+<li class="chapter" data-level="5.2" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:cheemviewer"><i class="fa fa-check"></i><b>5.2</b> The cheem viewer</a></li>
 <li class="chapter" data-level="5.3" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:casestudies"><i class="fa fa-check"></i><b>5.3</b> Case studies</a></li>
 <li class="chapter" data-level="5.4" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:cheemdiscussion"><i class="fa fa-check"></i><b>5.4</b> Discussion</a></li>
 </ul></li>
@@ -246,10 +246,10 @@ div.csl-indent {
 <div id="sec:spinifex" class="section level2" number="7.1">
 <h2><span class="header-section-number">A.1</span> Accompanying radial tour application</h2>
 <p>An accompanying application illustrates the radial tour. The <strong>R</strong> package, <strong>spinifex</strong>, <span class="citation">(<a href="bibliography.html#ref-spyrison_spinifex_2020" role="doc-biblioref">Spyrison and Cook 2020</a>)</span> is an open-source and now contains a <strong>shiny</strong> <span class="citation">(<a href="bibliography.html#ref-chang_shiny_2021" role="doc-biblioref">W. Chang et al. 2021</a>)</span> application allowing users to apply various preprocessing tasks and interactively explore their data via interactive radial tour. Example datasets are provided with the ability to upload data. The <code>html</code> widget produced is a more interactive variant relative to the one used in the user study. Screen captures and more details are provided in the appendix. Run the following <strong>R</strong> code will run the application locally.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="A-supplementary-material-for-radial-tour-user-study.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Download:</span></span>
-<span id="cb6-2"><a href="A-supplementary-material-for-radial-tour-user-study.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;spinifex&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-3"><a href="A-supplementary-material-for-radial-tour-user-study.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Run interactive app demonstrating the radial tour:</span></span>
-<span id="cb6-4"><a href="A-supplementary-material-for-radial-tour-user-study.html#cb6-4" aria-hidden="true" tabindex="-1"></a>spinifex<span class="sc">::</span><span class="fu">run_app</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="A-supplementary-material-for-radial-tour-user-study.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Download:</span></span>
+<span id="cb5-2"><a href="A-supplementary-material-for-radial-tour-user-study.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;spinifex&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-3"><a href="A-supplementary-material-for-radial-tour-user-study.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Run interactive app demonstrating the radial tour:</span></span>
+<span id="cb5-4"><a href="A-supplementary-material-for-radial-tour-user-study.html#cb5-4" aria-hidden="true" tabindex="-1"></a>spinifex<span class="sc">::</span><span class="fu">run_app</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:radialTourAppPg1"></span>
 <img src="figures/ch4_zapp_fig4_app_pg1.PNG" alt="Process data tab, interactively loads or select data, check which variables to project, and optionally scale columns by standard deviation." width="100%"  />
 <p class="caption">
@@ -830,7 +830,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "none"
+"collapse": "section"
 }
 });
 });
