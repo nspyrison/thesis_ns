@@ -122,14 +122,18 @@ The above-described method and application are implemented as an open-source __R
 The package can be installed from GitHub using the following __R__ code:
 
 ```{r eval=FALSE, echo=TRUE}
-# Install remotes if absent
-if(require("remotes") == FALSE) install.packages("remotes")
-remotes::install.packages("cheem", dependencies = TRUE)
+install.packages("cheem", dependencies = TRUE)
 library("cheem")
 run_app()
 ```
 
-Follow the examples provided with the package to compute the local explainers (see `?cheem_ls`). The application uses the returned objects from a from `cheem_ls()` call. Alternatively, the cheem viewer shiny app can be directly accessed at [ebsmonash.shinyapps.io/cheem_initial/](https://ebsmonash.shinyapps.io/cheem_initial/).
+Alternatively, 
+
+- a version of the cheem viewer shiny app can be directly accessed at [ebsmonash.shinyapps.io/cheem_initial/](https://ebsmonash.shinyapps.io/cheem_initial/). 
+- the development version of the package is available at https://github.com/nspyrison/cheem, and 
+- documentation of the package can be found at https://nspyrison.github.io/cheem/. 
+
+Follow the examples provided with the package to compute the local explainers (using `?cheem_ls`). The application expects the output returned by `cheem_ls()`, saved to an .rds file with `saveRDS()`, to be uploaded.
 
 
 ## Case studies {#sec:casestudies}
@@ -205,7 +209,7 @@ Comparing the attribution with the CO (dotted line), large discrepancies in Sodi
 <!-- Data description -->
 The 2020 season FIFA data [@leone_fifa_2020; @biecek_dalex_2018] contains many skill measurements of soccer/football players and wage information. Nine higher-level skill groupings were identified and aggregated from highly correlated variables. A random forest model is fit from these predictors, regressing player wages [2020 euros]. The model was fit from 5000 observations before being thinned to 500 players to mitigate occlusion and render time. Continuing from the exploration in section \@ref(sec:explanations), we are interested to see the difference in attribution based on the exogenous player position. That is, the model should be able to use multiple linear profiles to better predict the wages from different field positions of players despite not having this information. A leading offensive fielder (L. Messi) is compared with a top defensive fielder (V. van Dijk). The same observations were used in figure \@ref(fig:shapdistrbd).
 
-(ref:casefifa-cap) FIFA 2020 data, a random forest model, regresses wages [2020 Euros] from nine aggregated skill measurements. The PO is a star offensive player (L. Messi) compared with a top defensive player (V. van Dijk). Three variables with low attribution from both players are removed. The attribution projection starts with the selected observation on the right. The contribution to defense (`def`) is varied. The star offensive player is not distinguished in the horizontal direction. At this point, defensive players have been rotated to the highest horizontal value. (A video of the animated radial tour can be found at [vimeo.com/666431163](https://vimeo.com/666431163).)
+(ref:casefifa-cap) Exploring the wages (euros) relative to skill measurements in the FIFA 2020 data. Star offensive player (L. Messi) is the PO and he is compared with a top defensive player (V. van Dijk). The attribution projection is shown at left, and it can be seen that this combination of variables produces a view where Messi has very high predicted (and observed) wages. Defense (`def`) is the chosen variable to vary. It starts off very low, and as its contribution is increased (right plot) it can be seen that Messi's predicted wages decrease dramatically. The increased contribution in defense comes at the expense of offensive and reaction skills. The interpretation is that indeed, Messi's high wages are most attributable to his offensive and reaction skills, as initially provided by the local explanation. (A video of the animated radial tour can be found at [vimeo.com/666431163](https://vimeo.com/666431163).)
 ```{r casefifa, echo=F, out.width = "100%", fig.cap = "(ref:casefifa-cap)"}
 nsSafeIncGraphic("./figures/ch5_fig8_case_fifa.png")
 ```
@@ -217,7 +221,7 @@ The contribution from `def` will be varied to contrast with offensive skills. As
 
 ### Ames housing 2018, sales price regression
 
-Ames 2018, housing data was subset to North Ames (the neighborhood with the most house sales). The remaining are 338 house sales. A random forest model has regressed this price with the variables Lot Area (`LtA`), Overall Quality (`Qlt`), Year the house was Built (`YrB`), Living Area (`LvA`), number of Bathrooms (`Bth`), number of Bedrooms (`Bdr`), the total number of Rooms (`Rms`), Year the Garage was Built (`GYB`), and Garage Area (`GrA`). Using interaction from the global view, a house with an extreme negative residual and an accurate observation with a similar prediction are selected.
+Ames 2018, housing data was subset to North Ames (the neighborhood with the most house sales). The remaining are 338 house sales. A random forest model has fitted this price [USD] with the property variables: Lot Area (`LtA`), Overall Quality (`Qlt`), Year the house was Built (`YrB`), Living Area (`LvA`), number of Bathrooms (`Bth`), number of Bedrooms (`Bdr`), the total number of Rooms (`Rms`), Year the Garage was Built (`GYB`), and Garage Area (`GrA`). Using interaction from the global view, a house with an extreme negative residual and an accurate instance with a similar prediction are selected.
 
 (ref:caseames-cap) Exploring an observation with a large residual as the PO from fitting sales price [USD] to other variables in the Ames housing 2018. The sale price of the PO was under-predicted. The local explanation indicates a sizable attribution to Lot Area (`LtA`). The CO has a similar predicted sales price and smaller residual and has minimal attribution to Lot Area. In the attribution projection, the PO has a higher sales price than the CO. Reducing the contribution of Lot Area brings these two prices in line. This suggests if the model did not consider Lot Area, then the two houses would be quite similar. That is, the large residual is due to a lack of factoring in the Lot Area for the prediction of PO's sales price. (A video showing the animation is at [vimeo.com/666431134](https://vimeo.com/666431134).)
 ```{r caseames, echo=F, out.width="100%", fig.cap = "(ref:caseames-cap)"}
