@@ -9,7 +9,7 @@ knit: "bookdown::render_book"
 The previous chapter introduced the package __spinifex__, which gave us the means to perform radial tours. However, there is no evidence suggesting that the radial tour's user-controlled steering leads to a better perception than traditional methods. Therefore, this chapter discusses the user study to elucidate the efficacy of the radial tour.
 
 <!-- Abstract -->
-Chapters \@ref(ch-introduction) and \@ref(ch-background) introduced PCA, the grand tour, and the radial tour. This chapter describes a within-participants user study evaluating the efficacy of these techniques. A supervised classification task is devised where participants evaluate variable attribution of the separation between two classes. An accuracy measure is defined as a response variable. Data were collected from 108 crowdsourced participants, who performed two trials with each visual for 648 trials in total.
+Chapters \@ref(ch-introduction) and \@ref(ch-background) introduced PCA, the grand tour, and the radial tour. This chapter describes a within-participants user study evaluating the efficacy of these techniques. A supervised classification task is designed where participants evaluate variable attribution of the separation between two classes. An accuracy measure is defined as a response variable. Data were collected from 108 crowdsourced participants, who performed two trials with each visual for 648 trials in total.
 
 <!-- thesis_ns introduction -->
 The user influence over a basis is crucial to testing variable sensitivity to the structure visible in projection and uniquely available in the radial tour. If the contribution of a variable is reduced, and the feature disappears, then it is said that the variable is sensitive to that structure. For example, Figure \@ref(fig:figClSep) shows two projections of simulated data. Panel (a) has identified separation between the two clusters and primarily in the direction of the contribution from V2. Many other bases do not reveal this cluster separation, such as panel (b) with a small contribution from V2. Because of this, it is said that V2 is sensitive to the separation of the clusters. 
@@ -65,8 +65,7 @@ The _location_ of the separation between the clusters is at the heart of the mea
 In selecting the _shape_ of the clusters, the convention given by @scrucca_mclust_2016 is followed. They describe 14 variants of model families containing three clusters. The model family name is the abbreviation of the clusters respective volume, shape, and orientation. The levels are either *E*qual or *V*ary. The models EEE, EEV, and EVV are used. For instance, in the EEV model, the volume and shape of clusters are constant, while the shape's orientation varies. The EVV model is modified by moving four-fifths of the data out in a ">" or banana-like shape.
 
 <!-- Dimensionality -->
-_Dimension_-ality is tested at two modest levels: four dimensions containing three
-clusters and six with four clusters. Such modest dimensionality is required to limit the difficulty and search space to make the task realistic for crowdsourcing.
+_Dimension_-ality is tested at two modest levels: four dimensions containing three clusters and six with four clusters. Such modest dimensionality is required to limit the difficulty and search space to make the task realistic for crowdsourcing.
 
 
 ### Task and evaluation {#sec:task}
@@ -169,7 +168,7 @@ Data were recorded in __shiny__ application and written to a Google Sheet after 
 <!-- Preprocessing steps -->
 The processing steps were minimal. The data were formatted and then filtered to the latest three complete studies of each experimental factor, which should have experienced the least adverse network conditions. The bulk of the studies removed were partial data and a few over-sampled permutations. This brings us to the 108 studies described in the paper, from which models and aggregation tables were built. The post-study surveys were similarly decoded to human-readable format and then filtered to include only those 84 associated with the final 108 studies.
 
-The code, response files, their analyses, and the study application are publicly available at; \url{https://github.com/nspyrison/spinifex_study}.
+The code, response files, their analyses, and the study application are publicly available at \url{https://github.com/nspyrison/spinifex_study}.
 
 
 ## Results {#sec:results}
