@@ -6,7 +6,7 @@ rmd_subdir: ["Rmd/"]
 output_dir: docs
 delete_merged_file: true
 
-## Or specify files list, more controlled troubleshooting
+## Or specify file list in place of rmd_subdir:, more controlled troubleshooting
 # rmd_files: [
 #    "index.Rmd",
 #    "second.Rmd"

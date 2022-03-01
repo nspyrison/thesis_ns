@@ -1,18 +1,3 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
-```{r include=FALSE}
-knitr::opts_chunk$set(
-  echo  = FALSE, 
-  cache = FALSE,
-  cache.lazy = FALSE,
-  #out.width = "100%", ## this is % of page width, not % of figure size.
-  out.extra = '', fig.show='hold', fig.align='center'
-)
-```
-
 `r if (knitr::is_html_output()) '<!--'`
 
 # Copyright notice {- #ch-copyright}
@@ -20,6 +5,5 @@ knitr::opts_chunk$set(
 \textcopyright { }Nicholas Spyrison (\number\the\year).
 
 I certify that I have made all reasonable efforts to secure copyright permissions for third-party content included in this thesis and have not knowingly added copyright content to my work without the owner's permission.
-
 
 `r if (knitr::is_html_output()) '-->'`

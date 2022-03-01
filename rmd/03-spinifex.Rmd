@@ -13,7 +13,7 @@ Dynamic low-dimensional linear projections of multivariate data known as _tours_
 <!-- Segue merged into abstract and outline -->
 
 <!-- Chapter outline -->
-The chapter is organized as follows. Section \@ref(sec:algorithm) provides an illustrated detailed description of a 2D manual tour and fills in the previously absent details to solve the 3D rotation matrix used in 2D manual tours. This proves a scaffolding for the extension to solving a 4D rotation matrix for a 3D manual tour. Section \@ref(sec:oblique) includes compact Algorithms for capturing oblique movements from a cursor. Section \@ref(sec:pkgstructure) discusses the functions and code usage to perform radial tours and layered display of tours. Section \@ref(sec:usecases) illustrates a use case of the radial tour facilitating sensitivity analysis on high-energy physics experiments [@wang_mapping_2018]. Section \@ref(sec:discussion) concluded with a discussion of this chapter.
+The chapter is organized as follows. Section \@ref(sec:algorithm) provides an illustrated detailed description of a 2D manual tour and fills in the previously absent details to solve the 3D rotation matrix used in 2D manual tours. This proves a scaffolding for the extension to solving a 4D rotation matrix for a 3D manual tour. Section \@ref(sec:oblique) includes compact Algorithms for capturing oblique movements from a cursor. Section \@ref(sec:pkgstructure) discusses the functions and code usage to perform radial tours and compose a layered display of tours. Section \@ref(sec:usecases) illustrates a use case of the radial tour facilitating sensitivity analysis on high-energy physics experiments [@wang_mapping_2018]. Section \@ref(sec:discussion) concluded with a discussion of this chapter.
 
 
 <!-- Algorithm outline -->
@@ -57,7 +57,7 @@ The flea data (@lubischew_use_1962), available in the __tourr__ package [@wickha
 <!-- Projection basis -->
 An initial 2D projection basis must be provided. A suggested way to start is to identify an interesting projection using a projection pursuit guided tour. The holes index is used to find a 2D projection of the flea data, which shows three separated species groups. Figure \@ref(fig:ch3fig1) shows the initial projection of the data. On the left, a biplot [@gabriel_biplot_1971] illustrates the projection basis ($\textbf{A}$), showing each variable's magnitude and direction of contribution to the projection. The right side shows the projected data, $\textbf{Y}_{[n,~2]} ~=~ \textbf{X}_{[n,~p]} \textbf{A}_{[p,~2]}$. The color and shape of points are mapped to the flea species.
 
-```{r ch3fig1, fig.cap = "Biplot of the initial 2D projection of normalized flea data. The basis is depicted on the left and resulting data projection is on the right. The color and shape of data points are mapped to the flea beetle species. The basis was produced by a projection pursuit guided tour with the holes index. The contribution of the variables `aede2` and `tars1` approximately contrasts the other variables. The visible structure in the projection is the three species clusters."}
+```{r ch3fig1, fig.cap = "Biplot of the initial 2D projection of normalized flea data. The basis is depicted on the left and, the resulting data projection is on the right. The color and shape of data points are mapped to the flea beetle species. The basis was produced by a projection pursuit guided tour with the holes index. The contribution of the variables `aede2` and `tars1` approximately contrasts the other variables. The visible structure in the projection is the three species clusters."}
 nsSafeIncGraphic("./figures/ch3_fig1_biplot.pdf")
 ```
 
@@ -65,7 +65,7 @@ nsSafeIncGraphic("./figures/ch3_fig1_biplot.pdf")
 #### Step 1) Choose manip variable
 
 <!-- select a manip var-->
-In figure \@ref(fig:ch3fig1) the contribution of the variables `tars1` and `aede2` mostly contrast the contribution of the other four variables. These two variables combined contribute in the direction where the purple cluster is separated from the other two clusters. The variable `aede2` is selected as the manip var, the variable whoes contribution is being changed. The aspect being explored is: how important is this variable to separating the clusters in this projection?
+In figure \@ref(fig:ch3fig1) the contribution of the variables `tars1` and `aede2` mostly contrast the contribution of the other four variables. These two variables combined contribute in the direction where the purple cluster is separated from the other two clusters. The variable `aede2` is selected as the manip var, the variable whose contribution is being changed. The aspect being explored is: how important is this variable to separating the clusters in this projection?
 
 
 #### Step 2) Create the 3D manip space
@@ -163,7 +163,7 @@ nsSafeIncGraphic("./figures/ch3_fig3_filmstrip.pdf")
 
 <!-- Sequence of $\phi_i$ -->
 1. Set the initial value of $\phi_1$ and $\theta$: $\phi_1 = \cos^{-1}{\sqrt{A_{k1}^2+A_{k2}^2}}$, $\theta = \tan^{-1}\frac{A_{k2}}{A_{k1}}$. Where $\phi_1$ is the angle between $\textbf{e}$ and its shadow in $\textbf{A}$.
-2. Set an angle increment ($\Delta_\phi$) that sets the step size for the animation, to rotate the manip var into and out of the projection. The package __spinifex__ uses of angle increment, rather than some steps to control the movement to be consistent with the tour algorithm as implemented in __tourr__.
+2. Set an angle increment ($\Delta_\phi$) that sets the step size for the animation, to rotate the manip var into and out of the projection. The package __spinifex__ uses an angle increment, rather than number of frames to control the movement to be consistent with the tour algorithm as implemented in __tourr__.
 3. Step towards $0$, where the manip var is entirely in the projection plane.
 4. Step towards $\pi/2$, where the manip variable has no contribution to the projection.
 5. Step back to $\phi_1$.
@@ -382,7 +382,7 @@ vignette("ggproto_api")
 ## Use cases {#sec:usecases}
 
 <!-- Introduction of data and original chapter -->
-@wang_mapping_2018 introduces a new tool, PDFSense, to visualize the sensitivity of hadronic experiments to nucleon structure. The parameter-space of these experiments lies in 56 dimensions, and are approximated as the ten first principal components. 
+@wang_mapping_2018 introduce a new tool, PDFSense, to visualize the sensitivity of hadronic experiments to nucleon structure. The parameter-space of these experiments lies in 56 dimensions, and are approximated as the ten first principal components. 
 
 <!-- grand tours on the same data -->
 @cook_dynamical_2018 illustrate using the grand tour to explore this component reduced space. Tours can better resolve the shape of clusters, intra-cluster detail, and lead to better outlier detection than PDFSense & TFEP (TensorFlow embedded projections) or traditional static embeddings. Building on this, the manual tour is used to examine the sensitivity of structure in a projection to different parameters. Bases from the grand tour identified in the previous work are used as the initial basis.

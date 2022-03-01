@@ -177,10 +177,7 @@
 \def\@title{}\def\@author{}
 \def\authorname{\@author}
 \def\@degrees{}
-\def\@submitdate{\ifcase\the\month\or
-  January\or February\or March\or April\or May\or June\or
-  July\or August\or September\or October\or November\or December\fi
-  \space \number\the\year}
+\def\@submitdate{\number\the\year}
 
 \def\titlepage{{\sf
     \thispagestyle{empty}
@@ -198,21 +195,7 @@
     \begin{center}
         A thesis submitted for the degree of \degreetitle { }at\\
         Monash University in \@submitdate\\
-        Department of Human-Centred Computing\\
-
-        %{\LARGE\@author}\\[0.2cm]
-        % Supervisors:\\
-        % Prof. Kimbal Marriott,\\
-        % Prof. Dianne Cook\\[0.2cm]
-        %\vfill\vfill
-        %%\includegraphics[width=3cm]{template/crest}
-        %Faculty of Information Technology\\
-        %Department of Human-Centred Computing\\
-        %Monash University\\
-        %Australia
-    \end{center}
-        \begin{center}\large
-        \@submitdate
+        Department of Human-Centred Computing
     \end{center}
     \newpage\thispagestyle{empty}\newpage}}
 

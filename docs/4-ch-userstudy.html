@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 A Study on the Benefit of a User-Controlled Radial Tour for Variable Attribution of Structure | Interactive and dynamic visualization of high-dimensional data via animated linear projections</title>
-  <meta name="description" content="Chapter 4 A Study on the Benefit of a User-Controlled Radial Tour for Variable Attribution of Structure | Interactive and dynamic visualization of high-dimensional data via animated linear projections" />
+  <title>Chapter 4 A Study on the Benefit of a User-Controlled Radial Tour for Variable Attribution of Structure | Interactive and dynamic visualization of high-dimensional data</title>
+  <meta name="description" content="Chapter 4 A Study on the Benefit of a User-Controlled Radial Tour for Variable Attribution of Structure | Interactive and dynamic visualization of high-dimensional data" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 A Study on the Benefit of a User-Controlled Radial Tour for Variable Attribution of Structure | Interactive and dynamic visualization of high-dimensional data via animated linear projections" />
+  <meta property="og:title" content="Chapter 4 A Study on the Benefit of a User-Controlled Radial Tour for Variable Attribution of Structure | Interactive and dynamic visualization of high-dimensional data" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 A Study on the Benefit of a User-Controlled Radial Tour for Variable Attribution of Structure | Interactive and dynamic visualization of high-dimensional data via animated linear projections" />
+  <meta name="twitter:title" content="Chapter 4 A Study on the Benefit of a User-Controlled Radial Tour for Variable Attribution of Structure | Interactive and dynamic visualization of high-dimensional data" />
   
   
   
@@ -236,7 +236,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Interactive and dynamic visualization of high-dimensional data via animated linear projections</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Interactive and dynamic visualization of high-dimensional data</a>
           </h1>
         </div>
 
@@ -247,7 +247,7 @@ div.csl-indent {
 <div id="ch-userstudy" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> A Study on the Benefit of a User-Controlled Radial Tour for Variable Attribution of Structure</h1>
 <!-- Segue -->
-<p>The previous chapter introduced the package <strong>spinifex</strong>, which gave us the means to perform radial tours. However, there is no evidence suggesting that the radial tour’s user-controlled steering leads to a better perception than traditional methods. Therefore, this chapter discusses the user study to elucidate the efficacy of the radial tour.</p>
+<p>The previous chapter introduced the package <strong>spinifex</strong>, which provides the means to perform radial tours. However, there is no evidence suggesting that the radial tour’s user-controlled steering leads to a better perception than traditional methods. Therefore, this chapter discusses the user study to elucidate the efficacy of the radial tour.</p>
 <!-- Abstract -->
 <p>Chapters <a href="1-ch-introduction.html#ch-introduction">1</a> and <a href="2-ch-background.html#ch-background">2</a> introduced PCA, the grand tour, and the radial tour. This chapter describes a within-participants user study evaluating the efficacy of these techniques. A supervised classification task is designed where participants evaluate variable attribution of the separation between two classes. An accuracy measure is defined as a response variable. Data were collected from 108 crowdsourced participants, who performed two trials with each visual for 648 trials in total.</p>
 <!-- thesis_ns introduction -->
@@ -261,7 +261,7 @@ Figure 4.1: Illustration of cluster separation. Panel (a) shows clear separation
 <!--- black-box models-->
 <p>Understanding which variables to use is also important to statistical modeling and their interpretations. Models are becoming increasingly complex, and the nonlinear interactions of their terms cause an opaqueness to model interpretability. Exploratory Artificial Intelligence <span class="citation">(XAI, <a href="bibliography.html#ref-adadi_peeking_2018" role="doc-biblioref">Adadi and Berrada 2018</a>; <a href="bibliography.html#ref-arrieta_explainable_2020" role="doc-biblioref">Arrieta et al. 2020</a>)</span> is an emerging field that extends the interpretability of such models. Multivariate data visualization is essential for exploring features spaces and communicating interpretations of models <span class="citation">(<a href="bibliography.html#ref-biecek_dalex_2018" role="doc-biblioref">Biecek 2018</a>; <a href="bibliography.html#ref-biecek_explanatory_2021" role="doc-biblioref">Biecek and Burzykowski 2021</a>; <a href="bibliography.html#ref-wickham_visualizing_2015" role="doc-biblioref">Wickham, Cook, and Hofmann 2015</a>)</span>.</p>
 <!-- Structure of the paper -->
-<p>This chapter is structured as follows. Section <a href="4-ch-userstudy.html#sec:userstudy">4.1</a> describes the implementation of the user study; its visual methods, experimental factors, task, accuracy measure used standardization and randomization of the experiment. The results of the study are discussed in Section <a href="4-ch-userstudy.html#sec:results">4.2</a>. Conclusions and potential future directions are discussed in Section <a href="4-ch-userstudy.html#sec:conclusion">4.3</a>. An accompanying application and extended analysis are provided in the appendix under Section <a href="A-supplementary-material-for-radial-tour-user-study.html#sec:spinifex">A.1</a>.</p>
+<p>This chapter is structured as follows. Section <a href="4-ch-userstudy.html#sec:userstudy">4.1</a> describes the implementation of the user study; its visual methods, experimental factors, task, accuracy measure used standardization, and randomization of the experiment. The results of the study are discussed in Section <a href="4-ch-userstudy.html#sec:results">4.2</a>. Conclusions and potential future directions are discussed in Section <a href="4-ch-userstudy.html#sec:conclusion">4.3</a>. An accompanying application and extended analysis are provided in the appendix under Section <a href="A-supplementary-material-for-radial-tour-user-study.html#sec:spinifex">A.1</a>.</p>
 <div id="sec:userstudy" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> User study</h2>
 <!-- Overview of visual -->
@@ -282,7 +282,7 @@ Figure 4.1: Illustration of cluster separation. Panel (a) shows clear separation
 <div id="sec:expfactors" class="section level3" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Experimental factors</h3>
 <!-- Introduction to experimental factors -->
-<p>In addition to the visual method, data are simulated across three experimental factors. First, the <em>location</em> of the separation between clusters is controlled by mixing a signal and a noise variable at different ratios. Secondly, the <em>shape</em> of the clusters reflects varying distributions of the data. And third, the <em>dimension</em>-ality of the data is also tested. The levels within each factor are described below, and Figure <a href="4-ch-userstudy.html#fig:figExpFactors">4.2</a> gives a visual representation.</p>
+<p>In addition to the visual method, data are simulated across three experimental factors. First, the <em>location</em> of the separation between clusters is controlled by mixing a signal and a noise variable at different ratios. Secondly, the <em>shape</em> of the clusters reflect varying distributions of the data. And third, the <em>dimension</em>-ality of the data is also tested. The levels within each factor are described below, and Figure <a href="4-ch-userstudy.html#fig:figExpFactors">4.2</a> gives a visual representation.</p>
 <!-- Illustration of experimental factors -->
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figExpFactors"></span>
 <img src="figures/ch4_fig3_exp_factors.png" alt="Illustration of the experimental factors, the parameter space of the independent variables." width="100%"  />
@@ -293,7 +293,7 @@ Figure 4.2: Illustration of the experimental factors, the parameter space of the
 <!-- Location mixing -->
 <p>The <em>location</em> of the separation between the clusters is at the heart of the measure. It would be good to test a few varying levels. To test the sensitivity, a noise, and signal-containing variable are mixed. The separation between clusters are mixed at the following percentages: 0/100% (not mixed), 33/66%, 50/50% (evenly mixed).</p>
 <!-- Shape, vc matrix -->
-<p>In selecting the <em>shape</em> of the clusters, the convention given by <span class="citation"><a href="bibliography.html#ref-scrucca_mclust_2016" role="doc-biblioref">Scrucca et al.</a> (<a href="bibliography.html#ref-scrucca_mclust_2016" role="doc-biblioref">2016</a>)</span> is followed. They describe 14 variants of model families containing three clusters. The model family name is the abbreviation of the clusters respective volume, shape, and orientation. The levels are either <em>E</em>qual or <em>V</em>ary. The models EEE, EEV, and EVV are used. For instance, in the EEV model, the volume and shape of clusters are constant, while the shape’s orientation varies. The EVV model is modified by moving four-fifths of the data out in a “&gt;” or banana-like shape.</p>
+<p>In selecting the <em>shape</em> of the clusters, the convention given by <span class="citation"><a href="bibliography.html#ref-scrucca_mclust_2016" role="doc-biblioref">Scrucca et al.</a> (<a href="bibliography.html#ref-scrucca_mclust_2016" role="doc-biblioref">2016</a>)</span> is followed. They describe 14 variants of model families containing three clusters. The model family name is the abbreviation of the cluster’s respective volume, shape, and orientation. The levels are either <em>E</em>qual or <em>V</em>ary. The models EEE, EEV, and EVV are used. For instance, in the EEV model, the volume and shape of clusters are constant, while the shape’s orientation varies. The EVV model is modified by moving four-fifths of the data out in a “&gt;” or banana-like shape.</p>
 <!-- Dimensionality -->
 <p><em>Dimension</em>-ality is tested at two modest levels: four dimensions containing three clusters and six with four clusters. Such modest dimensionality is required to limit the difficulty and search space to make the task realistic for crowdsourcing.</p>
 </div>
@@ -374,7 +374,7 @@ Figure 4.4: Illustration of how a hypothetical participant 63 is assigned experi
 <div id="data-collection" class="section level3" number="4.1.8">
 <h3><span class="header-section-number">4.1.8</span> Data collection</h3>
 <!-- App, data collection, network issues -->
-<p>Data were recorded in <strong>shiny</strong> application and written to a Google Sheet after each third of the study. Especially at the start of the study, participants experienced adverse network conditions due to the volume of participants hitting the application with modest allocated resources. In addition to this, API read/write limitations further hindered data collection. To mitigate this, the number of participants were throttled and over-collect survey trials until three evaluations were collected for all permutation levels.</p>
+<p>Data were recorded in <strong>shiny</strong> application and written to a Google Sheet after each third of the study. Especially at the start of the study, participants experienced adverse network conditions due to the volume of participants hitting the application with modest allocated resources. In addition to this, API read/write limitations further hindered data collection. To mitigate this, the number of participants was throttled and over-collect survey trials until three evaluations were collected for all permutation levels.</p>
 <!-- Preprocessing steps -->
 <p>The processing steps were minimal. The data were formatted and then filtered to the latest three complete studies of each experimental factor, which should have experienced the least adverse network conditions. The bulk of the studies removed were partial data and a few over-sampled permutations. This brings us to the 108 studies described in the paper, from which models and aggregation tables were built. The post-study surveys were similarly decoded to human-readable format and then filtered to include only those 84 associated with the final 108 studies.</p>
 <p>The code, response files, their analyses, and the study application are publicly available at .</p>
@@ -382,7 +382,7 @@ Figure 4.4: Illustration of how a hypothetical participant 63 is assigned experi
 </div>
 <div id="sec:results" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Results</h2>
-<p>To recap, the primary response variable is accuracy, as defined in Section <a href="4-ch-userstudy.html#sec:task">4.1.3</a>. The parallel analysis of the log response time is provided in the appendix, Section <a href="A-supplementary-material-for-radial-tour-user-study.html#sec:responsetime">A.2.2</a>. Two primary data sets were collected; the user study evaluations and the post-study survey. The former is the 108 participants with the experimental factors: visual, location of the cluster separation signal, the shape of variance-covariance matrix, and the dimensionality of the data. Experimental factors and randomization were discussed in section <a href="4-ch-userstudy.html#sec:expfactors">4.1.2</a>. A followup survey was completed by 84 of these 108 people. It collected demographic information (preferred pronoun, age, and education), and subjective measures for each visual (preference, familiarity, ease of use, and confidence).</p>
+<p>To recap, the primary response variable is accuracy, as defined in Section <a href="4-ch-userstudy.html#sec:task">4.1.3</a>. The parallel analysis of the log response time is provided in the appendix, Section <a href="A-supplementary-material-for-radial-tour-user-study.html#sec:responsetime">A.2.2</a>. Two primary data sets were collected; the user study evaluations and the post-study survey. The former is the 108 participants with the experimental factors: visual, location of the cluster separation signal, the shape of variance-covariance matrix, and the dimensionality of the data. Experimental factors and randomization were discussed in section <a href="4-ch-userstudy.html#sec:expfactors">4.1.2</a>. A follow-up survey was completed by 84 of these 108 people. It collected demographic information (preferred pronoun, age, and education), and subjective measures for each visual (preference, familiarity, ease of use, and confidence).</p>
 <p>Below a battery of mixed regression models is built to examine the degree of the evidence and the size of the effects from the experimental factors. Then, Likert plots and rank-sum tests to compare the subjective measures between the visuals.</p>
 <div id="accuracy" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Accuracy</h3>
@@ -900,9 +900,9 @@ Visualradial:Location50/50%
 <p>We also want to visually examine the conditional variables in the model. Figure <a href="4-ch-userstudy.html#fig:figMarksABcd">4.5</a> examines violin plots of accuracy by visual with panels distinguishing location (vertical) and shape (horizontal).</p>
 <!-- Violin plots and test overlay for Y1 visuals -->
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figMarksABcd"></span>
-<img src="figures/ch4_fig6_ABcd_violins.png" alt="Violin plots of terms of the model $\widehat{Y} = \alpha \times \beta + \gamma + \delta$. Overlaid with global significance from the Kruskal-Wallis test and pairwise significance from the Wilcoxon test, both are non-parametric, ranked-sum tests. Viewing marginal accuracy of the terms corroborate the primary findings that use of the radial tour leads to a significant increase in accuracy, at least over PCA, and this effect is particularly well support when no location mixing is applied." width="100%"  />
+<img src="figures/ch4_fig6_ABcd_violins.png" alt="Violin plots of terms of the model $\widehat{Y} = \alpha \times \beta + \gamma + \delta$. Overlaid with global significance from the Kruskal-Wallis test and pairwise significance from the Wilcoxon test, both are non-parametric, ranked-sum tests. Viewing marginal accuracy of the terms corroborate the primary findings that use of the radial tour leads to a significant increase in accuracy, at least over PCA, and this effect is particularly well supported when no location mixing is applied." width="100%"  />
 <p class="caption">
-Figure 4.5: Violin plots of terms of the model <span class="math inline">\(\widehat{Y} = \alpha \times \beta + \gamma + \delta\)</span>. Overlaid with global significance from the Kruskal-Wallis test and pairwise significance from the Wilcoxon test, both are non-parametric, ranked-sum tests. Viewing marginal accuracy of the terms corroborate the primary findings that use of the radial tour leads to a significant increase in accuracy, at least over PCA, and this effect is particularly well support when no location mixing is applied.
+Figure 4.5: Violin plots of terms of the model <span class="math inline">\(\widehat{Y} = \alpha \times \beta + \gamma + \delta\)</span>. Overlaid with global significance from the Kruskal-Wallis test and pairwise significance from the Wilcoxon test, both are non-parametric, ranked-sum tests. Viewing marginal accuracy of the terms corroborate the primary findings that use of the radial tour leads to a significant increase in accuracy, at least over PCA, and this effect is particularly well supported when no location mixing is applied.
 </p>
 </div>
 </div>
@@ -923,7 +923,7 @@ Figure 4.6: The subjective measures of the 84 responses of the post-study survey
 <!-- Context -->
 <p>Data visualization is an integral part of understanding relationships in data and how models are fitted. However, thorough exploration of data in high dimensions becomes difficult. Previous methods offer no means for an analyst to impact the projection basis. The manual tour provides a mechanism for changing the contribution of a selected variable to the basis. Giving analysts such control should facilitate the exploration of variable-level sensitivity to the identified structure.</p>
 <!-- Recap study -->
-<p>This paper discussed a with-in participant user study (<span class="math inline">\(n=108\)</span>) comparing the efficacy of three linear projection techniques: PCA, grand tour, and radial tour. The participants performed a supervised cluster task, explicitly identifying which variables contribute to the separation of two target clusters. This was evaluated evenly over four experimental factors. In summary, mixed model regression finds strong evidence that using the radial tour sizably increases accuracy, especially with the location of cluster separation is not mixed at 33/66%. The effect sizes on accuracy are large relative to the change from the other experimental factors and the random effect of data simulation, though smaller than the random effect of the participant. The radial tour was most preferred of the three visuals.</p>
+<p>This paper discussed a with-in participant user study (<span class="math inline">\(n=108\)</span>) comparing the efficacy of three linear projection techniques: PCA, grand tour, and radial tour. The participants performed a supervised cluster task, explicitly identifying which variables contribute to the separation of two target clusters. This was evaluated evenly over four experimental factors. In summary, mixed model regression finds strong evidence that using the radial tour sizably increases accuracy, especially with the location of cluster separation is not mixed at 33/66%. The effect sizes on accuracy are large relative to the change from the other experimental factors and the random effect of data simulation, though smaller than the random effect of the participant. The radial tour was the most preferred of the three visuals.</p>
 <!-- Future work -->
 <p>There are several ways that this study could be extended. In addition to expanding the support of the experimental factors, more exciting directions include: introducing a new task, visualizations used, and experience level of the target population. It is difficult to achieve good coverage given the number of possible experimental factors.</p>
 

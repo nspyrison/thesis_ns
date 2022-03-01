@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 A User-Controlled Manual Tour for Animated Linear Projections | Interactive and dynamic visualization of high-dimensional data via animated linear projections</title>
-  <meta name="description" content="Chapter 3 A User-Controlled Manual Tour for Animated Linear Projections | Interactive and dynamic visualization of high-dimensional data via animated linear projections" />
+  <title>Chapter 3 A User-Controlled Manual Tour for Animated Linear Projections | Interactive and dynamic visualization of high-dimensional data</title>
+  <meta name="description" content="Chapter 3 A User-Controlled Manual Tour for Animated Linear Projections | Interactive and dynamic visualization of high-dimensional data" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 A User-Controlled Manual Tour for Animated Linear Projections | Interactive and dynamic visualization of high-dimensional data via animated linear projections" />
+  <meta property="og:title" content="Chapter 3 A User-Controlled Manual Tour for Animated Linear Projections | Interactive and dynamic visualization of high-dimensional data" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 A User-Controlled Manual Tour for Animated Linear Projections | Interactive and dynamic visualization of high-dimensional data via animated linear projections" />
+  <meta name="twitter:title" content="Chapter 3 A User-Controlled Manual Tour for Animated Linear Projections | Interactive and dynamic visualization of high-dimensional data" />
   
   
   
@@ -236,7 +236,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Interactive and dynamic visualization of high-dimensional data via animated linear projections</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Interactive and dynamic visualization of high-dimensional data</a>
           </h1>
         </div>
 
@@ -251,7 +251,7 @@ div.csl-indent {
 <!-- ## Introduction -->
 <!-- Segue merged into abstract and outline -->
 <!-- Chapter outline -->
-<p>The chapter is organized as follows. Section <a href="3-ch-spinifex.html#sec:algorithm">3.1</a> provides an illustrated detailed description of a 2D manual tour and fills in the previously absent details to solve the 3D rotation matrix used in 2D manual tours. This proves a scaffolding for the extension to solving a 4D rotation matrix for a 3D manual tour. Section <a href="3-ch-spinifex.html#sec:oblique">3.2</a> includes compact Algorithms for capturing oblique movements from a cursor. Section <a href="3-ch-spinifex.html#sec:pkgstructure">3.3</a> discusses the functions and code usage to perform radial tours and layered display of tours. Section <a href="3-ch-spinifex.html#sec:usecases">3.4</a> illustrates a use case of the radial tour facilitating sensitivity analysis on high-energy physics experiments <span class="citation">(<a href="bibliography.html#ref-wang_mapping_2018" role="doc-biblioref">Wang et al. 2018</a>)</span>. Section <a href="3-ch-spinifex.html#sec:discussion">3.5</a> concluded with a discussion of this chapter.</p>
+<p>The chapter is organized as follows. Section <a href="3-ch-spinifex.html#sec:algorithm">3.1</a> provides an illustrated detailed description of a 2D manual tour and fills in the previously absent details to solve the 3D rotation matrix used in 2D manual tours. This proves a scaffolding for the extension to solving a 4D rotation matrix for a 3D manual tour. Section <a href="3-ch-spinifex.html#sec:oblique">3.2</a> includes compact Algorithms for capturing oblique movements from a cursor. Section <a href="3-ch-spinifex.html#sec:pkgstructure">3.3</a> discusses the functions and code usage to perform radial tours and compose a layered display of tours. Section <a href="3-ch-spinifex.html#sec:usecases">3.4</a> illustrates a use case of the radial tour facilitating sensitivity analysis on high-energy physics experiments <span class="citation">(<a href="bibliography.html#ref-wang_mapping_2018" role="doc-biblioref">Wang et al. 2018</a>)</span>. Section <a href="3-ch-spinifex.html#sec:discussion">3.5</a> concluded with a discussion of this chapter.</p>
 <!-- Algorithm outline -->
 <div id="sec:algorithm" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Algorithm</h2>
@@ -289,16 +289,16 @@ div.csl-indent {
 <!-- Projection basis -->
 <p>An initial 2D projection basis must be provided. A suggested way to start is to identify an interesting projection using a projection pursuit guided tour. The holes index is used to find a 2D projection of the flea data, which shows three separated species groups. Figure <a href="3-ch-spinifex.html#fig:ch3fig1">3.1</a> shows the initial projection of the data. On the left, a biplot <span class="citation">(<a href="bibliography.html#ref-gabriel_biplot_1971" role="doc-biblioref">Gabriel 1971</a>)</span> illustrates the projection basis (<span class="math inline">\(\textbf{A}\)</span>), showing each variable’s magnitude and direction of contribution to the projection. The right side shows the projected data, <span class="math inline">\(\textbf{Y}_{[n,~2]} ~=~ \textbf{X}_{[n,~p]} \textbf{A}_{[p,~2]}\)</span>. The color and shape of points are mapped to the flea species.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch3fig1"></span>
-<img src="figures/ch3_fig1_biplot.png" alt="Biplot of the initial 2D projection of normalized flea data. The basis is depicted on the left and resulting data projection is on the right. The color and shape of data points are mapped to the flea beetle species. The basis was produced by a projection pursuit guided tour with the holes index. The contribution of the variables `aede2` and `tars1` approximately contrasts the other variables. The visible structure in the projection is the three species clusters." width="100%"  />
+<img src="figures/ch3_fig1_biplot.png" alt="Biplot of the initial 2D projection of normalized flea data. The basis is depicted on the left and, the resulting data projection is on the right. The color and shape of data points are mapped to the flea beetle species. The basis was produced by a projection pursuit guided tour with the holes index. The contribution of the variables `aede2` and `tars1` approximately contrasts the other variables. The visible structure in the projection is the three species clusters." width="100%"  />
 <p class="caption">
-Figure 3.1: Biplot of the initial 2D projection of normalized flea data. The basis is depicted on the left and resulting data projection is on the right. The color and shape of data points are mapped to the flea beetle species. The basis was produced by a projection pursuit guided tour with the holes index. The contribution of the variables <code>aede2</code> and <code>tars1</code> approximately contrasts the other variables. The visible structure in the projection is the three species clusters.
+Figure 3.1: Biplot of the initial 2D projection of normalized flea data. The basis is depicted on the left and, the resulting data projection is on the right. The color and shape of data points are mapped to the flea beetle species. The basis was produced by a projection pursuit guided tour with the holes index. The contribution of the variables <code>aede2</code> and <code>tars1</code> approximately contrasts the other variables. The visible structure in the projection is the three species clusters.
 </p>
 </div>
 </div>
 <div id="step-1-choose-manip-variable" class="section level4" number="3.1.2.2">
 <h4><span class="header-section-number">3.1.2.2</span> Step 1) Choose manip variable</h4>
 <!-- select a manip var-->
-<p>In figure <a href="3-ch-spinifex.html#fig:ch3fig1">3.1</a> the contribution of the variables <code>tars1</code> and <code>aede2</code> mostly contrast the contribution of the other four variables. These two variables combined contribute in the direction where the purple cluster is separated from the other two clusters. The variable <code>aede2</code> is selected as the manip var, the variable whoes contribution is being changed. The aspect being explored is: how important is this variable to separating the clusters in this projection?</p>
+<p>In figure <a href="3-ch-spinifex.html#fig:ch3fig1">3.1</a> the contribution of the variables <code>tars1</code> and <code>aede2</code> mostly contrast the contribution of the other four variables. These two variables combined contribute in the direction where the purple cluster is separated from the other two clusters. The variable <code>aede2</code> is selected as the manip var, the variable whose contribution is being changed. The aspect being explored is: how important is this variable to separating the clusters in this projection?</p>
 </div>
 <div id="step-2-create-the-3d-manip-space" class="section level4" number="3.1.2.3">
 <h4><span class="header-section-number">3.1.2.3</span> Step 2) Create the 3D manip space</h4>
@@ -389,7 +389,7 @@ Figure 3.3: Select frames of a radial tour manipulating <code>aede2</code>: (1) 
 <!-- Sequence of $\phi_i$ -->
 <ol style="list-style-type: decimal">
 <li>Set the initial value of <span class="math inline">\(\phi_1\)</span> and <span class="math inline">\(\theta\)</span>: <span class="math inline">\(\phi_1 = \cos^{-1}{\sqrt{A_{k1}^2+A_{k2}^2}}\)</span>, <span class="math inline">\(\theta = \tan^{-1}\frac{A_{k2}}{A_{k1}}\)</span>. Where <span class="math inline">\(\phi_1\)</span> is the angle between <span class="math inline">\(\textbf{e}\)</span> and its shadow in <span class="math inline">\(\textbf{A}\)</span>.</li>
-<li>Set an angle increment (<span class="math inline">\(\Delta_\phi\)</span>) that sets the step size for the animation, to rotate the manip var into and out of the projection. The package <strong>spinifex</strong> uses of angle increment, rather than some steps to control the movement to be consistent with the tour algorithm as implemented in <strong>tourr</strong>.</li>
+<li>Set an angle increment (<span class="math inline">\(\Delta_\phi\)</span>) that sets the step size for the animation, to rotate the manip var into and out of the projection. The package <strong>spinifex</strong> uses an angle increment, rather than number of frames to control the movement to be consistent with the tour algorithm as implemented in <strong>tourr</strong>.</li>
 <li>Step towards <span class="math inline">\(0\)</span>, where the manip var is entirely in the projection plane.</li>
 <li>Step towards <span class="math inline">\(\pi/2\)</span>, where the manip variable has no contribution to the projection.</li>
 <li>Step back to <span class="math inline">\(\phi_1\)</span>.</li>
@@ -763,7 +763,7 @@ static gpplot faceting on the frames of the animation
 <div id="sec:usecases" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Use cases</h2>
 <!-- Introduction of data and original chapter -->
-<p><span class="citation"><a href="bibliography.html#ref-wang_mapping_2018" role="doc-biblioref">Wang et al.</a> (<a href="bibliography.html#ref-wang_mapping_2018" role="doc-biblioref">2018</a>)</span> introduces a new tool, PDFSense, to visualize the sensitivity of hadronic experiments to nucleon structure. The parameter-space of these experiments lies in 56 dimensions, and are approximated as the ten first principal components.</p>
+<p><span class="citation"><a href="bibliography.html#ref-wang_mapping_2018" role="doc-biblioref">Wang et al.</a> (<a href="bibliography.html#ref-wang_mapping_2018" role="doc-biblioref">2018</a>)</span> introduce a new tool, PDFSense, to visualize the sensitivity of hadronic experiments to nucleon structure. The parameter-space of these experiments lies in 56 dimensions, and are approximated as the ten first principal components.</p>
 <!-- grand tours on the same data -->
 <p><span class="citation"><a href="bibliography.html#ref-cook_dynamical_2018" role="doc-biblioref">Cook, Laa, and Valencia</a> (<a href="bibliography.html#ref-cook_dynamical_2018" role="doc-biblioref">2018</a>)</span> illustrate using the grand tour to explore this component reduced space. Tours can better resolve the shape of clusters, intra-cluster detail, and lead to better outlier detection than PDFSense &amp; TFEP (TensorFlow embedded projections) or traditional static embeddings. Building on this, the manual tour is used to examine the sensitivity of structure in a projection to different parameters. Bases from the grand tour identified in the previous work are used as the initial basis.</p>
 <!-- Data structure -->

@@ -1,7 +1,7 @@
 <!-- Short abstract for MGRO/Bridges: -->
 <!-- currently 98 words, may need to be cut to 100 -->
 <!--
-As the dimensionality of data increases, so does the difficulty in their visualization. Traditional linear projections view discrete pairs of linear components. Tours are a class of linear projections that animate over small changes to the projection. The manual tour uniquely enables an analyst to steer a path of bases. This thesis discusses a package that facilitates their creation. A user study finds the manual tour outperforms traditional visualizations on a variable attribution task. This work introduces a novel approach to examine the support of nonlinear model explanations with the radial tour. An accompanying package facilitates this analysis.
+As the dimensionality of data increases, so does the difficulty of comprehensive visualization. Traditional linear projections view discrete pairs of linear components. Tours are a class of linear projections that animate over small changes to the projection. The manual tour uniquely enables an analyst to steer a path of bases. This thesis discusses a package that facilitates their creation. A user study finds the manual tour outperforms traditional visualizations on a variable attribution task. This work introduces a novel approach to examine the support of nonlinear model explanations with the radial tour. An accompanying package facilitates this analysis.
 -->
 
 <!-- at 409 words out of 500, good -->
