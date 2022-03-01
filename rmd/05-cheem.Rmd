@@ -99,14 +99,11 @@ A tooltip displays observation number/name and classification information while 
 
 It is vital to mitigate the render time of visuals, especially when users may want to iterate many explorations. All computational operations should be prepared before runtime. The work remaining when an application is run solely reacts to inputs and rendering visuals and tables. Below discusses the steps and details of the reprocessing. 
 
-(ref:citeRf) [@liaw_classification_2002]
-(ref:citeTs) [@kominsarczyk_treeshap_2021]
-\begin{itemize}
-	\item \textbf{Data:} predictors and response are unscaled complete numerical matrix. Most models and local explanations are scale-invariant.
-	\item \textbf{Model:} any model and compatible explanation could be explored with this method. Currently, random forest models are applied via the package \textbf{randomForest} (ref:citeRf), compatibility tree SHAP. Modest hyperparameters are used, namely: 125 trees, number variables randomly sampled at each split, mtry = $\sqrt{p}$ or $p/3$ for classification and regression, and minimum size of terminal nodes $max(1, n/500)$ or $max(5, n/500)$ for classification and regression. 
-	\item \textbf{Local explanation:} Tree SHAP is calculated for \emph{each} observation using the package \textbf{treeshap} (ref:citeTs). This implementation aggregates exhaustively over all trees' attribution and does not fit interactions of variables.
-	\item \textbf{Cheem viewer:} after the model and full explanation space are calculated, each variable is scaled by standard deviations away from the mean to achieve common support for visuals. Statistics for mapping to color are computed on the scaled spaces.
-\end{itemize}
+<!-- Switch to rmd bullets, as was missing html version... -->
+- __Data:__ predictors and response are unscaled complete numerical matrix. Most models and local explanations are scale-invariant.
+- __Model:__ any model and compatible explanation could be explored with this method. Currently, random forest models are applied via the package __randomForest__ [@liaw_classification_2002], compatibility tree SHAP. Modest hyperparameters are used, namely: 125 trees, number variables randomly sampled at each split, mtry = $\sqrt{p}$ or $p/3$ for classification and regression, and minimum size of terminal nodes $max(1, n/500)$ or $max(5, n/500)$ for classification and regression. 
+- __Local explanation:__ Tree SHAP is calculated for _each_ observation using the package __treeshap__ [@kominsarczyk_treeshap_2021]. This implementation aggregates exhaustively over all trees' attribution and does not fit interactions of variables.
+- __Cheem viewer:__ after the model and full explanation space are calculated, each variable is scaled by standard deviations away from the mean to achieve common support for visuals. Statistics for mapping to color are computed on the scaled spaces.
 
 <!-- Note on time of execution -->
 The time to preprocess the data will vary significantly with the complexity of the  model and local explanation. For reference, the FIFA data contained 5000 observations of nine explanatory variables took 2.5 seconds to fit a random forest model of modest hyperparameters. Extracting the tree SHAP values of each observation took 270 seconds total. PCA and statistics of the variables and attributions took 2.8 seconds. These runtimes were from a non-parallelized R session on a modern laptop, but suffice to say that most of the time will be spent on the local attribution. An increase in model complexity or data dimensionality will quickly become an obstacle. Its reduced computational complexity makes tree SHAP an excellent candidate to start. (Alternatively, the package __fastshap__ [@greenwell_fastshap_2020] claims extremely low runtimes, attributed to fewer calls to the prediction function, partial implementation in C++, and efficient use of logical subsetting.)
@@ -146,6 +143,7 @@ To illustrate the cheem method, it is applied to modern datasets, two classifica
 The Palmer penguins data [@gorman_ecological_2014; @horst_palmerpenguins_2020] was collected on three species of penguins foraging near Palmer Station, Antarctica. The data was publicly available to substitute for the overly-used iris data and is quite similar in form. After removing incomplete observations, there are 333 observations of four physical measurements, bill length (`bl`), bill depth (`bd`), flipper length (`fl`), body mass (`bm`), for this illustration. A random forest model was fit with species as the response variable.
 
 (ref:casepenguins-cap) Examining the SHAP values for a random forest model classifying Palmer penguin species. The PO is a Gentoo (purple) penguin that is misclassified as a Chinstrap (orange), marked as an asterisk in (a), and the dashed vertical line in (b). The radial view shows varying the contribution of `fl` from the initial attribution projection (b, left), which produces a linear combination where the PO is more probably (higher density value) a Chinstrap than a Gentoo (b, right). (The animation of the radial tour is at [vimeo.com/666431172](https://vimeo.com/666431172).)
+
 ```{r casepenguins, echo=F, out.width="100%", fig.cap = "(ref:casepenguins-cap)"}
 nsSafeIncGraphic("./figures/ch5_fig4_case_penguins.png")
 ```
@@ -153,6 +151,7 @@ nsSafeIncGraphic("./figures/ch5_fig4_case_penguins.png")
 Figure \@ref(fig:casepenguins) shows plots from the cheem viewer for exploring the random forest model on the penguins data. Panel (a) shows the global view, and panel (b) shows several 1D projections generated with the radial tour. Penguin 243, a Gentoo (purple), is the PO because it has been misclassified as a Chinstrap (orange).
 
 (ref:casepenguinsblfl-cap) Checking what is learned from the cheem viewer. This is a plot of flipper length (`fl`) and bill length (`bl`), where an asterisk highlights the PO. A Gentoo (purple) misclassified as a Chinstrap (orange). The PO has an unusually small `fl` length which is why it is confused with a Chinstrap.
+
 ```{r casepenguinsblfl, echo=F, out.width="100%", fig.cap = "(ref:casepenguinsblfl-cap)"}
 nsSafeIncGraphic("./figures/ch5_fig5_case_penguins_BlFl.png")
 ```
@@ -173,6 +172,7 @@ The chocolates dataset consists of 88 observations of ten nutritional measuremen
 It could be interesting to examine the nutritional properties of any dark chocolates that have been misclassified as milk. A reason to do this is that a dark chocolate, nutritionally more like milk, should not be considered a healthy alternative. It is interesting to explore which nutritional variables contribute most to misclassification.
 
 (ref:casechocolates-cap) Examining the local explanation for a PO which is dark (orange) chocolate incorrectly predicted to be milk (green). From the attribution projection, this chocolate correctly looks more like dark than milk, which suggests that the local explanation does not help understand the prediction for this observation. So, the contribution of Sugar is varied --- reducing it corresponds primarily with increasing Fiber. When Sugar is zero, Fiber contributes strongly towards the left. In this particular view, the PO is closer to the bulk of the milk chocolates, suggesting that the prediction put a lot of importance on Fiber. This chocolate is a rare dark chocolate without any Fiber leading to it being mistaken for a milk chocolate. (A video of the tour animation can be found at [vimeo.com/666431143](https://vimeo.com/666431143).)
+
 ```{r casechocolates, echo=F, out.width="100%", fig.cap = "(ref:casechocolates-cap)"}
 nsSafeIncGraphic("./figures/ch5_fig6_case_chocolates.png")
 ```
@@ -193,6 +193,7 @@ From the density plot, which is the attribution projection corresponding to the 
 It would also be interesting to explore an inverse misclassification. In this case, a milk chocolate is selected while it was misclassified as a dark chocolate. Chocolate 84 is just this case and is compared with a correctly predicted milk chocolate (observation 71). The corresponding global view and radial tour frames are shown in Figure \@ref(fig:casechocolatesinverse).
 
 (ref:casechocolatesinverse-cap) Examining the local interpretation for a PO which is milk (green) chocolate incorrectly predicted to be dark (orange). In the attribution projection, the PO could be either milk or dark. Sodium and Fiber have the largest differences in attributed variable importance, with low values relative to other milk chocolates. The lack of importance attributed to these variables is suspected of contributing to the mistake, so the contribution of Sodium is varied. If Sodium had a larger contribution to the prediction (like in this view). the PO would look more like other milk chocolates. (A video of the tour animation can be found at [vimeo.com/666431148](https://vimeo.com/666431148).)
+
 ```{r casechocolatesinverse, echo=F, out.width="100%", fig.cap = "(ref:casechocolatesinverse-cap)"}
 nsSafeIncGraphic("./figures/ch5_fig7_case_chocolates_inverse.png")
 ```
@@ -210,6 +211,7 @@ Comparing the attribution with the CO (dotted line), large discrepancies in Sodi
 The 2020 season FIFA data [@leone_fifa_2020; @biecek_dalex_2018] contains many skill measurements of soccer/football players and wage information. Nine higher-level skill groupings were identified and aggregated from highly correlated variables. A random forest model is fit from these predictors, regressing player wages [2020 euros]. The model was fit from 5000 observations before being thinned to 500 players to mitigate occlusion and render time. Continuing from the exploration in section \@ref(sec:explanations), we are interested to see the difference in attribution based on the exogenous player position. That is, the model should be able to use multiple linear profiles to better predict the wages from different field positions of players despite not having this information. A leading offensive fielder (L. Messi) is compared with a top defensive fielder (V. van Dijk). The same observations were used in figure \@ref(fig:shapdistrbd).
 
 (ref:casefifa-cap) Exploring the wages (euros) relative to skill measurements in the FIFA 2020 data. Star offensive player (L. Messi) is the PO and he is compared with a top defensive player (V. van Dijk). The attribution projection is shown at left, and it can be seen that this combination of variables produces a view where Messi has very high predicted (and observed) wages. Defense (`def`) is the chosen variable to vary. It starts off very low, and as its contribution is increased (right plot) it can be seen that Messi's predicted wages decrease dramatically. The increased contribution in defense comes at the expense of offensive and reaction skills. The interpretation is that indeed, Messi's high wages are most attributable to his offensive and reaction skills, as initially provided by the local explanation. (A video of the animated radial tour can be found at [vimeo.com/666431163](https://vimeo.com/666431163).)
+
 ```{r casefifa, echo=F, out.width = "100%", fig.cap = "(ref:casefifa-cap)"}
 nsSafeIncGraphic("./figures/ch5_fig8_case_fifa.png")
 ```
@@ -224,6 +226,7 @@ The contribution from `def` will be varied to contrast with offensive skills. As
 Ames 2018, housing data was subset to North Ames (the neighborhood with the most house sales). The remaining are 338 house sales. A random forest model has fitted this price [USD] with the property variables: Lot Area (`LtA`), Overall Quality (`Qlt`), Year the house was Built (`YrB`), Living Area (`LvA`), number of Bathrooms (`Bth`), number of Bedrooms (`Bdr`), the total number of Rooms (`Rms`), Year the Garage was Built (`GYB`), and Garage Area (`GrA`). Using interaction from the global view, a house with an extreme negative residual and an accurate instance with a similar prediction are selected.
 
 (ref:caseames-cap) Exploring an observation with a large residual as the PO from fitting sales price [USD] to other variables in the Ames housing 2018. The sale price of the PO was under-predicted. The local explanation indicates a sizable attribution to Lot Area (`LtA`). The CO has a similar predicted sales price and smaller residual and has minimal attribution to Lot Area. In the attribution projection, the PO has a higher sales price than the CO. Reducing the contribution of Lot Area brings these two prices in line. This suggests if the model did not consider Lot Area, then the two houses would be quite similar. That is, the large residual is due to a lack of factoring in the Lot Area for the prediction of PO's sales price. (A video showing the animation is at [vimeo.com/666431134](https://vimeo.com/666431134).)
+
 ```{r caseames, echo=F, out.width="100%", fig.cap = "(ref:caseames-cap)"}
 nsSafeIncGraphic("./figures/ch5_fig9_case_ames2018.png")
 ```

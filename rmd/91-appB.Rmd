@@ -1,4 +1,4 @@
-# Overall appendix
+# General appendix
 
 <!-- !!!LATEX TABLES WILL NOT WORK IN HTML, need to use kbl... -->
 ```{r}

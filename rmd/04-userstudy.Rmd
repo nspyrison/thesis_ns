@@ -3,7 +3,7 @@ chapter: 4
 knit: "bookdown::render_book"
 ---
 
-# A Study on the Benefit of a User-Controlled Radial Tour for Variable Importance for Structure in High-Dimensional Data {#ch-userstudy}
+# A Study on the Benefit of a User-Controlled Radial Tour for Variable Attribution of Structure {#ch-userstudy}
 
 <!-- Segue -->
 The previous chapter introduced the package __spinifex__, which gave us the means to perform radial tours. However, there is no evidence suggesting that the radial tour's user-controlled steering leads to a better perception than traditional methods. Therefore, this chapter discusses the user study to elucidate the efficacy of the radial tour.

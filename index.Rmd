@@ -12,11 +12,11 @@ link-citations: yes
 ## Ensure html gitbook always takes .png figures.
 #' @examples
 #' nsSafeIncGraphic("./figures/ch2_fig1_penguin_splom.pdf")
-nsSafeIncGraphic <- function(fp = "./dummy/figures/filepath.pdf"){
+nsSafeIncGraphic <- function(fp = "./dummy/figures/filepath.pdf", ...){
   ## If html output and ends in .pdf, change to .png instead
   if(knitr::is_html_output() & substr(fp, nchar(fp) - 3L,  nchar(fp)) == ".pdf")
       fp <- paste0(substr(fp, 1L,  nchar(fp) - 4L), ".png")
-  knitr::include_graphics(fp)
+  knitr::include_graphics(fp, ...)
 }
 
 options("knitr.graphics.auto_pdf" = TRUE)
@@ -48,7 +48,7 @@ knit_hooks$set(output = function(x, options) {
 
 This is the website for my PhD thesis at Monash University, Australia.
 
-A `pdf` version can be found [here](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf), and the code creating it can be found on [github](https://github.com/nspyrison/thesis_ns).
+A `pdf` version with proper rendering can be found [here](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf), and the code creating thesis work can be found on [github](https://github.com/nspyrison/thesis_ns).
 
 `r Sys.Date()`
 

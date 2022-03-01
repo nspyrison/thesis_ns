@@ -1,6 +1,16 @@
 # Preface {-}
 
 This thesis has been written using R Markdown with the bookdown package [@xie_bookdown:_2016]. All materials required to compile the thesis are available at [github.com/nspyrison/thesis_monash_phd](https://github.com/nspyrison/thesis_monash_phd). Versions are made available as `html` and `pdf` at [nspyrison.github.io/thesis_ns/](https://nspyrison.github.io/thesis_ns/) and [github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf), respectively.
-<!-- The renv package has been used to create a reproducible environment to build the thesis from source (Ushey, 2019). -->
 
 
+## License {-}
+
+```{r, out.width="88px", out.height="31px", fig.align="left"}
+nsSafeIncGraphic("./figures/ch0_license.PNG")
+```
+
+This code and packages produced art licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+
+<!-- The following line is required to re-set page numbering after preliminary material. Do not remove -->
+\clearpage\pagenumbering{arabic}\setcounter{page}{0}

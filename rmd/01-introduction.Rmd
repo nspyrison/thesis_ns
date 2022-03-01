@@ -6,12 +6,7 @@ knit: "bookdown::render_book"
 # Introduction {#ch-introduction}
 
 <!-- Exploratory data analysis -->
-Exploratory Data Analysis (EDA) is the process of the initial summarization and visualization of a dataset. EDA is a critical first step that includes checking for realistic values, identifying improper data formats, and revealing insights [@tukey_exploratory_1977]. @wickham_r_2017 describes the analyst workflow as a series of discrete steps. The data is imported and cleaned before entering into an iterated cycle of transformation, visualization, and modeling. This work focuses on the visualization step, specifically for quantitative multivariate data. <!-- Implementing packages also facilitates transformation and modeling while these aspects are not the primary contributions. -->
-
-<!-- (ref:ch1fig1-cap) Data analysis workflow [@wickham_r_2017]. This work focuses primarily on visualization of multivariate data. -->
-<!-- ```{r ch1fig1, echo=F, out.width="100%", fig.cap = "(ref:ch1fig1-cap)"} -->
-<!-- nsSafeIncGraphic("./figures/ch1_fig1_data_analysis_workflow.PNG") -->
-<!-- ``` -->
+Exploratory Data Analysis (EDA) is the process of the initial summarization and visualization of a dataset. EDA is a critical first step that includes checking for realistic values, identifying improper data formats, and revealing insights [@tukey_exploratory_1977]. @wickham_r_2017 describes the analyst workflow as a series of discrete steps. The data is imported and cleaned before entering into an iterated cycle of transformation, visualization, and modeling. This work focuses on the visualization step, specifically for quantitative multivariate data.
 
 <!-- Dimensionality increases, making data viz hard -->
 Multivariate data is ubiquitous in contemporary data sets. Multivariate data is found in physics, biology, social sciences, and manufacturing, to name a few [@wang_mapping_2018; @huber_orchestrating_2015; @brown_confirmatory_2015; @evans_multivariate_2017, respectively]. As the number of variables in the data increases, it becomes increasingly difficult to visualize this space and reveal the structure contained in the data. This thesis addresses the visualization and analysis of multivariate data.
@@ -23,6 +18,7 @@ One of the most common and successful approaches to visualize multivariate data 
 Linear projections define new variables called components, which are a linear combination of the original variables. This is essentially an orientation of the direction of the axes. A basis is an orthonormal matrix that maps the variable to the component output space. The basis of a linear projection is frequently illustrated with a biplot [@gabriel_biplot_1971]. The biplot shows the magnitude and angle each variable contributes to the resulting display dimensions inscribed in a unit circle, such as in Figure \@ref(fig:ch1fig2). Traditional axes-based visuals look at 1- to 3D views of orthogonal variables. In contrast, viewing linear combinations of these variables can reveal features that exist in more than three dimensions. 
 
 (ref:ch1fig2-cap) Two linear projections of penguins data. Biplot circles depict the basis indicating the direction and magnitude of the variable contributions. In the left panel, the direction of separation between the orange and green clusters is in the direction that `bl` contributes, meaning that this variable is sensitive to the separation of this cluster. The purple cluster's separation is attributed primarily to `bd` and smaller contributions from  `fl` and `bm`. Many other linear orientations do not resolve structures of interest, such as cluster separation (right panel). The Palmer Penguin data [@gorman_ecological_2014; @horst_palmerpenguins_2020] measures four physical variables: bill length (`bl`), bill depth (`bd`), flipper length (`fl`), and body mass (`bm`) for three species of penguins.
+
 ```{r ch1fig2, echo=F, out.width="100%", fig.cap = "(ref:ch1fig2-cap)"}
 nsSafeIncGraphic("./figures/ch1_fig2_penguin_cl_sep.png")
 ```
@@ -40,6 +36,7 @@ Originally component spaces and the original tour have no means to influence the
 The manual tour allows the analyst to control the angle and magnitude that a variable contributes to the projection. However, influencing the magnitude is more meaningful as angular manipulations effectively rotate a projection, changing the relative position but not the amounts of the variables. Because of this, this work focuses on a specific manual tour, the _radial tour_, where the manipulation angle is fixed, but a variable's magnitude is changed along the radius. Figure \@ref(fig:ch1fig3) shows a radial tour of the penguins data varying the contribution of bill length. The left panel has a total contribution from `bl`, while the middle panel shows half contribution, and bill length has been removed from the right panel. The separation between orange and green clusters was in the direction that `bl` contributed and when this contribution is removed, so too is the separation of the clusters. Because of this, this variable is said to be sensitive to the separation of these two clusters.
 
 (ref:ch1fig3-cap) A radial tour changing the contribution of bill length (`bl`). When bill length has a considerable contribution, the clusters of orange and green are separated (left and middle). When its contribution is removed, the clusters overlap (right). Because of this, we say that bill length is sensitive to the separation of these two species. An animated version can be viewed at [vimeo.com/676723431](https://vimeo.com/676723431).
+
 ```{r ch1fig3, echo=F, out.width="100%", fig.cap = "(ref:ch1fig3-cap)"}
 nsSafeIncGraphic("./figures/ch1_fig3_penguin_manualtour.png")
 ```

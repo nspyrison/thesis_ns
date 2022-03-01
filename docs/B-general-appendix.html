@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>B General appendix | Interactive and dynamic visualization of high-dimensional data via animated linear projections</title>
+  <meta name="description" content="B General appendix | Interactive and dynamic visualization of high-dimensional data via animated linear projections" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="B General appendix | Interactive and dynamic visualization of high-dimensional data via animated linear projections" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="B General appendix | Interactive and dynamic visualization of high-dimensional data via animated linear projections" />
+  
+  
+  
+
+<meta name="author" content="Nicholas S Spyrison" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="A-supplementary-material-for-radial-tour-user-study.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="template/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./"> </a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-ch-introduction.html"><a href="1-ch-introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1-ch-introduction.html"><a href="1-ch-introduction.html#research-questions"><i class="fa fa-check"></i><b>1.1</b> Research questions</a></li>
+<li class="chapter" data-level="1.2" data-path="1-ch-introduction.html"><a href="1-ch-introduction.html#methodology"><i class="fa fa-check"></i><b>1.2</b> Methodology</a></li>
+<li class="chapter" data-level="1.3" data-path="1-ch-introduction.html"><a href="1-ch-introduction.html#contributions"><i class="fa fa-check"></i><b>1.3</b> Contributions</a></li>
+<li class="chapter" data-level="1.4" data-path="1-ch-introduction.html"><a href="1-ch-introduction.html#thesis-structure"><i class="fa fa-check"></i><b>1.4</b> Thesis structure</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-ch-background.html"><a href="2-ch-background.html"><i class="fa fa-check"></i><b>2</b> Background</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2-ch-background.html"><a href="2-ch-background.html#motivation"><i class="fa fa-check"></i><b>2.1</b> Motivation</a></li>
+<li class="chapter" data-level="2.2" data-path="2-ch-background.html"><a href="2-ch-background.html#multivariate-visualization"><i class="fa fa-check"></i><b>2.2</b> Multivariate visualization</a></li>
+<li class="chapter" data-level="2.3" data-path="2-ch-background.html"><a href="2-ch-background.html#linear-projections"><i class="fa fa-check"></i><b>2.3</b> Linear projections</a></li>
+<li class="chapter" data-level="2.4" data-path="2-ch-background.html"><a href="2-ch-background.html#evaluating-multivariate-data-visualization"><i class="fa fa-check"></i><b>2.4</b> Evaluating multivariate data visualization</a></li>
+<li class="chapter" data-level="2.5" data-path="2-ch-background.html"><a href="2-ch-background.html#nonlinear-models"><i class="fa fa-check"></i><b>2.5</b> Nonlinear models</a></li>
+<li class="chapter" data-level="2.6" data-path="2-ch-background.html"><a href="2-ch-background.html#sec:explanations"><i class="fa fa-check"></i><b>2.6</b> Local explanations</a></li>
+<li class="chapter" data-level="2.7" data-path="2-ch-background.html"><a href="2-ch-background.html#conclusion"><i class="fa fa-check"></i><b>2.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html"><i class="fa fa-check"></i><b>3</b> A User-Controlled Manual Tour for Animated Linear Projections</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html#sec:algorithm"><i class="fa fa-check"></i><b>3.1</b> Algorithm</a></li>
+<li class="chapter" data-level="3.2" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html#sec:oblique"><i class="fa fa-check"></i><b>3.2</b> Oblique cursor movement</a></li>
+<li class="chapter" data-level="3.3" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html#sec:pkgstructure"><i class="fa fa-check"></i><b>3.3</b> Package structure</a></li>
+<li class="chapter" data-level="3.4" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html#sec:usecases"><i class="fa fa-check"></i><b>3.4</b> Use cases</a></li>
+<li class="chapter" data-level="3.5" data-path="3-ch-spinifex.html"><a href="3-ch-spinifex.html#sec:discussion"><i class="fa fa-check"></i><b>3.5</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html"><i class="fa fa-check"></i><b>4</b> A Study on the Benefit of a User-Controlled Radial Tour for Variable Attribution of Structure</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:userstudy"><i class="fa fa-check"></i><b>4.1</b> User study</a></li>
+<li class="chapter" data-level="4.2" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:results"><i class="fa fa-check"></i><b>4.2</b> Results</a></li>
+<li class="chapter" data-level="4.3" data-path="4-ch-userstudy.html"><a href="4-ch-userstudy.html#sec:conclusion"><i class="fa fa-check"></i><b>4.3</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html"><i class="fa fa-check"></i><b>5</b> Exploring Local Explanations of Nonlinear Models Using the Radial tour</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:shap"><i class="fa fa-check"></i><b>5.1</b> SHAP and tree SHAP local explanations</a></li>
+<li class="chapter" data-level="5.2" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:cheemviewer"><i class="fa fa-check"></i><b>5.2</b> The cheem viewer</a></li>
+<li class="chapter" data-level="5.3" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:casestudies"><i class="fa fa-check"></i><b>5.3</b> Case studies</a></li>
+<li class="chapter" data-level="5.4" data-path="5-ch-cheem.html"><a href="5-ch-cheem.html#sec:cheemdiscussion"><i class="fa fa-check"></i><b>5.4</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#contributions-1"><i class="fa fa-check"></i><b>6.1</b> Contributions</a></li>
+<li class="chapter" data-level="6.2" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#limitations"><i class="fa fa-check"></i><b>6.2</b> Limitations</a></li>
+<li class="chapter" data-level="6.3" data-path="6-ch-conclusion.html"><a href="6-ch-conclusion.html#future-work"><i class="fa fa-check"></i><b>6.3</b> Future work</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="A-supplementary-material-for-radial-tour-user-study.html"><a href="A-supplementary-material-for-radial-tour-user-study.html"><i class="fa fa-check"></i><b>A</b> Supplementary material for radial tour user study</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="A-supplementary-material-for-radial-tour-user-study.html"><a href="A-supplementary-material-for-radial-tour-user-study.html#sec:spinifex"><i class="fa fa-check"></i><b>A.1</b> Accompanying radial tour application</a></li>
+<li class="chapter" data-level="A.2" data-path="A-supplementary-material-for-radial-tour-user-study.html"><a href="A-supplementary-material-for-radial-tour-user-study.html#sec:extanalysis"><i class="fa fa-check"></i><b>A.2</b> Extended analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="B-general-appendix.html"><a href="B-general-appendix.html"><i class="fa fa-check"></i><b>B</b> General appendix</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="B-general-appendix.html"><a href="B-general-appendix.html#sec-glossary"><i class="fa fa-check"></i><b>B.1</b> Glossary</a></li>
+<li class="chapter" data-level="B.2" data-path="B-general-appendix.html"><a href="B-general-appendix.html#animated-tour-links"><i class="fa fa-check"></i><b>B.2</b> Animated tour links</a></li>
+<li class="chapter" data-level="B.3" data-path="B-general-appendix.html"><a href="B-general-appendix.html#supplementary-material"><i class="fa fa-check"></i><b>B.3</b> Supplementary material</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><strong><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></strong></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Interactive and dynamic visualization of high-dimensional data via animated linear projections</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="general-appendix" class="section level1" number="8">
+<h1><span class="header-section-number">B</span> General appendix</h1>
+<!-- !!!LATEX TABLES WILL NOT WORK IN HTML, need to use kbl... -->
+<div id="sec-glossary" class="section level2" number="8.1">
+<h2><span class="header-section-number">B.1</span> Glossary</h2>
+<p>This thesis was written with statistics terminology. This glossary helps bridge the language used here to be more accessible to machine learning audiences.</p>
+<table class=" lightable-classic" style="font-size: 12px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:glossary">Table B.1: </span>Glossary of terms
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Term
+</th>
+<th style="text-align:left;">
+Alias
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+observation
+</td>
+<td style="text-align:left;">
+instance, item, case, row (of data)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+variable
+</td>
+<td style="text-align:left;">
+feature, column (of data)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explanatory variables
+</td>
+<td style="text-align:left;">
+independant/input variable, predictors, covariates
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+response variable
+</td>
+<td style="text-align:left;">
+predicted/dependant/target/output variable
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="animated-tour-links" class="section level2" number="8.2">
+<h2><span class="header-section-number">B.2</span> Animated tour links</h2>
+<table class=" lightable-classic" style="font-size: 12px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:vimeolinks">Table B.2: </span>Animated tour links
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Reference
+</th>
+<th style="text-align:left;">
+Description
+</th>
+<th style="text-align:left;">
+Link
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Figure <a href="1-ch-introduction.html#fig:ch1fig3">1.2</a>
+</td>
+<td style="text-align:left;">
+radial tour, penguins
+</td>
+<td style="text-align:left;">
+<a href="https://vimeo.com/676723431" class="uri">https://vimeo.com/676723431</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Figure <a href="2-ch-background.html#fig:ch2fig4">2.4</a>
+</td>
+<td style="text-align:left;">
+grand tour, penguins
+</td>
+<td style="text-align:left;">
+<a href="https://vimeo.com/676723441" class="uri">https://vimeo.com/676723441</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Figure <a href="5-ch-cheem.html#fig:casepenguins">5.4</a>
+</td>
+<td style="text-align:left;">
+cheem, penguins
+</td>
+<td style="text-align:left;">
+<a href="https://vimeo.com/666431172" class="uri">https://vimeo.com/666431172</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Figure <a href="5-ch-cheem.html#fig:casechocolates">5.6</a>
+</td>
+<td style="text-align:left;">
+cheem, chocolates
+</td>
+<td style="text-align:left;">
+<a href="https://vimeo.com/666431143" class="uri">https://vimeo.com/666431143</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Figure <a href="5-ch-cheem.html#fig:casechocolatesinverse">5.7</a>
+</td>
+<td style="text-align:left;">
+cheem, chocolates (inverse)
+</td>
+<td style="text-align:left;">
+<a href="https://vimeo.com/666431148" class="uri">https://vimeo.com/666431148</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Figure <a href="5-ch-cheem.html#fig:casefifa">5.8</a>
+</td>
+<td style="text-align:left;">
+cheem, fifa
+</td>
+<td style="text-align:left;">
+<a href="https://vimeo.com/666431163" class="uri">https://vimeo.com/666431163</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Figure <a href="5-ch-cheem.html#fig:caseames">5.9</a>
+</td>
+<td style="text-align:left;">
+cheem, ames housing 2018
+</td>
+<td style="text-align:left;">
+<a href="https://vimeo.com/666431134" class="uri">https://vimeo.com/666431134</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="supplementary-material" class="section level2" number="8.3">
+<h2><span class="header-section-number">B.3</span> Supplementary material</h2>
+<table class=" lightable-classic" style="font-size: 12px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:suppmats">Table B.3: </span>Supplementary material
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Description
+</th>
+<th style="text-align:left;">
+Link
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+spinifex vignette, Getting started with spinifex
+</td>
+<td style="text-align:left;">
+<a href="https://shorturl.at/dgBOT" class="uri">https://shorturl.at/dgBOT</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+spinifex vignette, Ggproto api
+</td>
+<td style="text-align:left;">
+<a href="https://shorturl.at/mwBP6" class="uri">https://shorturl.at/mwBP6</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cheem vignette, Getting started with cheem
+</td>
+<td style="text-align:left;">
+<a href="https://shorturl.at/kqsF0" class="uri">https://shorturl.at/kqsF0</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+thesis repository
+</td>
+<td style="text-align:left;">
+<a href="https://shorturl.at/clqvB" class="uri">https://shorturl.at/clqvB</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+thesis, pdf format
+</td>
+<td style="text-align:left;">
+<a href="https://shorturl.at/uBYZ5" class="uri">https://shorturl.at/uBYZ5</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+thesis, html format
+</td>
+<td style="text-align:left;">
+<a href="https://shorturl.at/dftCN" class="uri">https://shorturl.at/dftCN</a>
+</td>
+</tr>
+</tbody>
+</table>
+<!--
+### Tour taxonomy; path generation {#sec:path_generation}
+
+A fundamental aspect of tours is the path of rotation. There are four primary distinctions of tour path generation [@buja_computational_2005]: random choice, data-driven, precomputed choice, and manual control.
+
+* Random choice, *grand tour*, constrained random walks $p$-space. Paths are constrained for changes in direction small enough to maintain continuity and aid in user comprehension
+    + torus-surface [@asimov_grand_1985]
+    + at-random [@asimov_grand_1985]
+    + random-walk [@asimov_grand_1985]
+    + *local tour* [@wickham_tourr_2011], a sort of grand tour on a leash, such that it goes to a nearby random projection before returning to the original position and iterating to a new nearby projection.
+* _guided tour_, optimizes an objective function/index of the projection using projection pursuit (PP) [@hurley_analyzing_1990], including the following implemented indexes:
+    + holes [@cook_projection_1993] - moves points away from the center.
+    + cmass [@cook_projection_1993] - moves points toward the center.
+    + lda [@lee_projection_2005] - linear discriminant analysis, seeks a projection where 2 or more classes are most separated.
+    + pda [@lee_projection_2010] - penalized discriminant analysis for use in highly correlated variables when classification is needed.
+    + convex [@laa_using_2019] - the ratio of the area of convex and alpha hulls.
+    + skinny [@laa_using_2019] - the ratio of the perimeter distance to the area of the alpha hull.
+    + stringy [@laa_using_2019] - based on the minimum spanning tree (MST), the diameter of the MST over the length of the MST.
+    + dcor2D [@grimm_mbgraphic:_2017; @laa_using_2019] - distance correlation that finds linear and nonlinear dependencies between variables.
+    + splines2D [@grimm_mbgraphic:_2017; @laa_using_2019] - measure of nonlinear dependence by fitting spline models.
+    + other user-defined objective indices can be applied to the framework provided in the *tourr* package @wickham_tourr_2011.
+    + Another data-drive tour is the *dependence tour*, a combination of $n$ independent 1D tours. A vector describes the axis each variable will be displayed on. for example $c(1, 1, 2, 2)$ is a 4- to 2D tour with the first 2 variables on the first axis, and the remaining on the second.
+        - *correlation tour* [@buja_data_1987], a special case of the dependence tour, analogous to canonical correlation analysis.
+* Precomputed choice, *planned tour*, in which the path has already been generated or defined.
+    + *little tour* [@mcdonald_interactive_1982], where every permutation of variables is stepped through in order, analogous to brute-force or exhaustive search.
+    + a saved path of any other tour, typically an array of basis targets to interpolate between.
+* Manual control, *manual tour*, a constrained rotation on selected manipulation variable and magnitude [@cook_manual_1997]. Typically used to explore the local area after identifying an interesting feature, perhaps via guided tour.
+    + radial, fix angle of contribution, change magnitude radially.
+    + oblique, along an oblique path of a dragged cursor
+
+
+### Interpolation
+
+NOTE: Search 'Interpolator' in Wickham’s tourr paper
+After target bases are identified, the frames in-between need to be filled in. There are several methods to do so:
+
+* Geodesic - via Gram-Schmidt process
+* Givens rotations
+* Householder reflections
+.
+
+### Tour software
+
+Tours have yet to be widely adopted, due in part, to the fact that print and static pdf output does not accommodate dynamic viewing. Conceptual abstraction and technically density have also hampered user growth. Due to low levels of adoption and the rapid advancement of technology support and maintenance of such implementations give them a particularly short life span. Despite the small user base, there have been a fair number of tour implementations, including:
+<!-- See Wickham’s thesis and C2 paper for partial lists. 
+
+* spinifex [github.com/nspyrison/spinifex](https://github.com/nspyrison/spinifex) -- R package, all platforms.
+* tourr [@wickham_tourr_2011] -- R package, all platforms.
+* CyrstalVision [@wegman_visual_2003] -- for Windows.
+* GGobi [@swayne_ggobi:_2003] -- for Linux and Windows.
+* DAVIS [@huh_davis:_2002] -- Java based, with GUI.
+* ORCA [@sutherland_orca:_2000] -- Extensible toolkit built in Java.
+* VRGobi [@nelson_xgobi_1999] -- for use with the C2, tours in stereoscopic 3D displays.
+* ExplorN [@carr_explorn:_1996] -- for SGI Unix.
+* ExploRe [@hardle_xplore:_1995]
+* XGobi [@swayne_xgobi:_1991] -- for Linux, Unix, and Windows (via emulation).
+* XLispStat [@tierney_lisp-stat:_1990] -- for Unix and Windows.
+* Explor4 [@carr_explor4:_1988] -- Four-dimensional data using stereo-ray glyphs.
+* Prim-9 [@asimov_grand_1985;@fisherkeller_prim-9:_1974] -- on an internal operating system.
+* liminal
+* cheem
+-->
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="A-supplementary-material-for-radial-tour-user-study.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

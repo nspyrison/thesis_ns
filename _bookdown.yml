@@ -2,24 +2,12 @@ book_filename: "thesis_ns"
 language:
   ui:
     chapter_name: "Chapter "
-# Specify Rmd files by...
-## directory:
 rmd_subdir: ["Rmd/"]
-## Or manual list, more controlled troubleshooting
-# rmd_files: [
-#    "index.Rmd",
-# #   "Rmd/_main.Rmd",
-# #   "Rmd/00-a-copyright.Rmd",
-# #   #"Rmd/00-b-abstract.Rmd",
-#    "Rmd/00-c-declaration.Rmd",
-# #   "Rmd/00-d-acknowldge.Rmd",
-# #   "Rmd/00-e-preface.Rmd",
-# #   # "Rmd/01-introduction.Rmd",
-# #   # "Rmd/02-background.rmd",
-# #   # "Rmd/03-spinifex.Rmd",
-# #   # "Rmd/04-userstudy.Rmd",
-# #   # "Rmd/05-cheem.Rmd",
-# #   # "Rmd/06-conclusion.Rmd",
-#    "Rmd/90-appA.Rmd"]
 output_dir: docs
 delete_merged_file: true
+
+## Or specify files list, more controlled troubleshooting
+# rmd_files: [
+#    "index.Rmd",
+#    "second.Rmd"
+# ]

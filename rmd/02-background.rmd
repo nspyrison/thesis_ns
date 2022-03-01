@@ -16,6 +16,7 @@ The last chapter discussed the importance of data visualization despite the comp
 Visualization is much more robust than numerical summarization alone [@anscombe_graphs_1973; @matejka_same_2017]. Figure \@ref(fig:ch2fig1) illustrates this. The data sets have a quite different structure revealed in their visualization but not in the summary statistics. All data sets have the same means, standard deviations, and correlation.
 
 (ref:ch2fig1-cap) The datasaurus dozen is a modern data set illustrating Anscombe's point that summary statistics cannot always adequately summarize data content. Patterns in the scatterplots are evident despite the data having the same summary statistics. Unless the data is plotted, one would never know that there were such radical differences.
+
 ```{r ch2fig1, echo=F, out.width="100%", fig.cap = "(ref:ch2fig1-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig1_datasaurus.png")
 ```
@@ -42,6 +43,7 @@ In this thesis, we are concerned with the visualization of multivariate data. Sp
 An analyst could look at $p$-univariate histograms or density curves. Extending this idea, pairs of variables can be exhaustively viewed. Combining these brings us to scatterplot matrices, also known as SPLOM [@chambers_graphical_1983]. In a scatterplot matrix, variables are arranged across the columns and rows. The diagonal elements show univariate densities, while off-diagonal positions show scatterplot pairs, as in Figure \@ref(fig:penguinsplom). This is useful for getting a handle on the range of the variables but is not going to scale well when the number of variables $p$ is large. Such visualization will only partially resolve features that could be better show information from more dimensions.
 
 (ref:penguinsplom-cap) A scatterplot matrix shows univariate densities and all pairs of bivariate scatterplots. The panels show partial cluster separation, indicating that these variables contain discerning information. This approach is suitable for quickly exploring the range of the data but will not reveal features in more than two dimensions. It is a good exploratory visual but does not scale well with increasing variables.
+
 ```{r penguinsplom, echo=F, out.width="100%", fig.cap = "(ref:penguinsplom-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig2_penguin_splom.pdf")
 ```
@@ -59,6 +61,7 @@ In scatterplot matrices, each observation repeated across all panels. In contras
 Parallel coordinate plots scale much better with dimensions than scatterplot matrices but more poorly with observations. They also suffer from an asymmetry with the variable order. That is, changing the order of the variables may lead to very different conclusions. The $x$-axis is also used to display variables rather than the values of the observations. This restricts the amount of information that can be interpreted between variables. @munzner_visualization_2014 asserts that position is the more human-perceptible channel for encoding information; we should prefer to reserve it for distinguishing between values of the observations rather than the arrangement of variables.
 
 (ref:penguinpcp-cap) Parallel coordinate plots put variables on a common scale and position them side-by-side with lines connecting observations. Some variation between the clusters can be seen corroborating their importance to explaining cluster separation. This approach scales relatively well with the number of variables but poorly with the number of observations.
+
 ```{r penguinpcp, echo=F, out.width="100%", fig.cap = "(ref:penguinpcp-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig3_penguin_pcp.pdf")
 ```
@@ -110,6 +113,7 @@ Regardless of the type of tour, they generate a sequence of target bases, and th
 Originally in a _grand_ tour [@asimov_grand_1985], several target bases are randomly selected. Figure \@ref(fig:ch2fig4) illustrates six frames of a grand tour. The grand tour is suitable for exploratory data analysis in that it will show bases with widely varying contributions but lacks a means of steering the tour and controlling the choice of bases.
 
 (ref:ch2fig4-cap) Frames from a grand tour. Biplots (grey circles) illustrate the direction and magnitude that variables contribute. In the grand tour, target bases are selected randomly. Tours animate linear projections over small changes in the basis. The observation permanence between frames is an essential distinction in tours. An animation can be viewed at [vimeo.com/676723441](https://vimeo.com/676723441).
+
 ```{r ch2fig4, echo=F, out.width="100%", fig.cap = "(ref:ch2fig4-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig4_penguin_grandtour.png")
 ```
@@ -121,6 +125,7 @@ In contrast, the _manual tour_ [@cook_manual_1997] allows the analyst to change 
 Figure \@ref(fig:ch2fig5) illustrates the same radial tour shown in the previous chapter across three geometric displays designed to overcome occlusion issues when there are a large number of observations. The use of density contours and aggregated heatmap displays help to mitigate the occlusion of dense observations and is compatible with any scatterplot display.
 
 (ref:ch2fig5-cap) Radial tour across three geometric displays. Changing the point opcacity or geometric display to density contours or aggregated heatmap are common ways to mitigate occlusion caused by dense observations. The radial tour removes the contribution of `bl` and, with it, the separation between the orange and green clusters. Heatmap display is not the best choice to show supervised cluster separation but can be helpful to see structure in dense data.
+
 ```{r ch2fig5, echo=F, out.width="100%", fig.cap = "(ref:ch2fig5-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig5_penguin_manualtour_geoms.pdf")
 ```
@@ -169,6 +174,7 @@ Explainable Artificial Intelligence (XAI) is an emerging field of research that 
 Consider a highly nonlinear model. It can be hard to determine which variables in the data are sensitive to changes in the classification or sizable changes in a residual. Local explanations shed light on these situations by approximating linear variable importance in the vicinity of a single observation. Figure \@ref(fig:ch2fig6) motivates local explanations where the analyst wants to know the variable attribution for a particular observation close to the classification boundary in a nonlinear model.
 
 (ref:ch2fig6-cap) Illustration of a nonlinear classification model. An analyst may want to know the variable importance in the vicinity of the highlighted red cross. Understanding this attribution elucidates how the variables influence this point that is precariously close to the classification boundary. Local explanations approximate this linear attribution in the vicinity of one observation. Figure from @ribeiro_why_2016.
+
 ```{r ch2fig6, echo=F, out.width="50%", fig.cap = "(ref:ch2fig6-cap)"}
 nsSafeIncGraphic("./figures/ch2_fig6_ribeiro16fig.PNG")
 ```
