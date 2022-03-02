@@ -30,13 +30,13 @@
     V1 = rnorm(n = .n, mean = 0, sd = 1),
     V2 = rnorm(n = .n, mean = 0, sd = 1),
     V3 = rnorm(n = .n, mean = 0, sd = 1),
-    v4 = rnorm(n = .n, mean = 0, sd = 1)
+    V4 = rnorm(n = .n, mean = 0, sd = 1)
   )
   cl2  <- data.frame(
     V1 = rnorm(n = .n, mean = 0, sd = 1),
     V2 = rnorm(n = .n, mean = 4, sd = 1),
     V3 = rnorm(n = .n, mean = 0, sd = 3),
-    v4 = rnorm(n = .n, mean = 0, sd = 1)
+    V4 = rnorm(n = .n, mean = 0, sd = 1)
   )
   dat2  <- rbind(cl1, cl2)
   clas2 <- rep(c("A", "B"), each = .n)
