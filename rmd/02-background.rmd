@@ -7,13 +7,13 @@ knit: "bookdown::render_book"
 # Background {#ch-background}
 
 <!-- Structure -->
-The last chapter discussed the importance of data visualization despite the complexity of viewing high-dimensional data and outlined the research questions to be addressed around the user-control of the radial tour. This chapter first motivates data visualization in general and the importance of interaction. It continues on illustrating common visualizations for quantitative multivariate data before turning to dimension reduction, including further discussion of tours. Then empirical evaluations of multivariate visuals are covered. The chapter concludes with nonlinear models and the extension of their interpretation with local explanations.
+The last chapter discussed the importance of data visualization despite the complexity of viewing high-dimensional data and outlined the research questions to be addressed around the user-control of the radial tour. This chapter first motivates data visualization in general and the importance of interaction. It continues on to illustrat common visualizations for quantitative multivariate data before turning to dimension reduction, including further discussion of tours. Then empirical evaluations of multivariate visuals are covered. The chapter concludes with nonlinear models and the extension of their interpretation with local explanations.
 
 
 ## Motivation
 
 <!-- Better than numerical summarization alone -->
-Visualization is much more robust than numerical summarization alone [@anscombe_graphs_1973; @matejka_same_2017]. Figure \@ref(fig:ch2fig1) illustrates this. The data sets have a quite different structure revealed in their visualization but not in the summary statistics. All data sets have the same means, standard deviations, and correlation.
+Visualization is much more robust than numerical summarization alone [@anscombe_graphs_1973; @matejka_same_2017]. Figure \@ref(fig:ch2fig1) illustrates this. The data sets have a quite different structure revealed in their visualization, while they contain the same summary statistics. All data sets have the same means, standard deviations, and correlation.
 
 (ref:ch2fig1-cap) The datasaurus dozen is a modern data set illustrating Anscombe's point that summary statistics cannot always adequately summarize data content. Patterns in the scatterplots are evident despite the data having the same summary statistics. Unless the data is plotted, one would never know that there were such radical differences.
 
@@ -49,7 +49,7 @@ nsSafeIncGraphic("./figures/ch2_fig2_penguin_splom.pdf")
 ```
 
 <!-- scaling with n -->
-As $n$ increases, scatterplot displays also suffer from occlusion as the points overlay each other. This is typically addressed in a few ways. One method is to decrease points' opacity, allowing more layers to be seen. Another approach is to change the geometric display, such as 2D density contour or an aggregated heatmap (illustrated in Figure \@ref(fig:ch2fig5)). Aggregated displays typically render faster and scale better with increasing observations. Or, if needed, visualization can be performed on a representative subset of the data.
+As $n$ increases, scatterplot displays also suffer from occlusion as the points overlay each other. This is typically addressed in a few ways. One method is to decrease points' opacity, allowing more layers to be seen. Another approach is to change the geometric display, such as a 2D density contour or an aggregated heatmap (illustrated in Figure \@ref(fig:ch2fig5)). Aggregated displays typically render faster and scale better with increasing observations. Or, if needed, visualization can be performed on a representative subset of the data.
 
 
 ### Parallel coordinate plots
@@ -94,7 +94,7 @@ One way dimension reduction is used is to project multivariate data onto 1-, 2-,
 
 ## Linear projections
 
-Linear projections map a higher $p$-dimensional space onto a smaller $d$-space with an affine mapping (where parallel lines stay parallel). A projection is the resulting space of the data multiplied by a _basis_ $Y_{n \times d} = X_{n \times p} \cdot A_{p \times d}$. This basis is an orthonormal matrix that explains the orientation and magnitudes that variables contribute to the resulting space. This basis is often illustrated as a biplot [@gabriel_biplot_1971], where variable contributions are inscribed in a unit circle showing the direction and the magnitude of contribution as presented in the previous chapter and in Figure \@ref(fig:ch2fig4).
+Linear projections map a higher $p$-dimensional space onto a smaller $d$-space with an affine mapping (where parallel lines stay parallel). A projection is the resulting space of the data multiplied by a _basis_ $Y_{n \times d} = X_{n \times p} \cdot A_{p \times d}$. This basis is an orthonormal matrix that explains the orientation and magnitudes that variables contribute to the resulting space. This basis is often illustrated as a biplot [@gabriel_biplot_1971], where variable contributions are inscribed in a unit circle showing the direction and the magnitude of contribution as presented in the previous chapter and Figure \@ref(fig:ch2fig4).
 
 
 <!-- PCA -->
@@ -104,13 +104,13 @@ A standard linear projection is principal component analysis [PCA, @pearson_liii
 ### Tours, animated linear projections {#sec:tour}
 
 <!-- Segue from barstool -->
-In a static linear projection, there is only one basis. However, a single projection may not reveal the structure of interest. In contrast to this, a data visualization tour shows multiple projections by animating between small changes in the basis. In the shadow analogy, structural information of an object is gained by watching its shadow change due to its rotation. An analyst similarly gains structural information by watching a  continuous projection over changes to the basis (essentially a rotation of the data). There are various types of tours that are classified by the generation of their basis paths. We enumerate a few related to this work. A more comprehensive discussion and review of tours can be found in the works of @cook_grand_2008 and @lee_state_2021.
+In a static linear projection, there is only one basis. However, a single projection may not reveal the structure of interest. In contrast, a data visualization tour shows multiple projections by animating between small changes in the basis. In the shadow analogy, structural information of an object is gained by watching its shadow change due to its rotation. An analyst similarly gains structural information by watching a  continuous projection over changes to the basis (essentially a rotation of the data). There are various types of tours that are classified by the generation of their basis paths. We enumerate a few related to this work. A more comprehensive discussion and review of tours can be found in the works of @cook_grand_2008 and @lee_state_2021.
 
 <!-- Interpolation bases -->
 Regardless of the type of tour, they generate a sequence of target bases, and then the tour must interpolate intermediate bases between consecutive bases. This interpolation is performed along a geodesic path between the bases. Geodesic refers to the shortest path (on a $p$-sphere of possible bases). This ends up being slightly curved in 2D representation for the same reason that flight paths appear curved on maps. The interpolation of bases at small enough angles is foundational for the trackability of observations between frames.
 
 <!-- Grand tour -->
-Originally in a _grand_ tour [@asimov_grand_1985], several target bases are randomly selected. Figure \@ref(fig:ch2fig4) illustrates six frames of a grand tour. The grand tour is suitable for exploratory data analysis in that it will show bases with widely varying contributions but lacks a means of steering the tour and controlling the choice of bases.
+Originally in a _grand_ tour [@asimov_grand_1985], several target bases are randomly selected. Figure \@ref(fig:ch2fig4) illustrates six frames of a grand tour. The grand tour is suitable for exploratory data analysis. It will show bases with widely varying contributions but lacks a means of steering the tour and controlling the choice of bases.
 
 (ref:ch2fig4-cap) Frames from a grand tour. Biplots (grey circles) illustrate the direction and magnitude that variables contribute. In the grand tour, target bases are selected randomly. Tours animate linear projections over small changes in the basis. The observation permanence between frames is an essential distinction in tours. An animation can be viewed at [vimeo.com/676723441](https://vimeo.com/676723441).
 
@@ -147,7 +147,7 @@ Other studies have investigated the relative benefits of projecting to 2- or 3D 
 Some studies use an expert or cohort coding. @sedlmair_empirical_2013 instead use two expert coders to evaluate 75 datasets and four dimension reduction techniques across 2D scatterplots, 2D scatterplot matrices, and interactive 3D scatterplots. They suggest a tiered guidance approach finding that 2D scatterplots are often sufficient to resolve a feature. If not, try an alternative dimension reduction technique before going to scatterplot matrix display or concluding a true negative. They find that interactive 3D scatterplots help in relatively rare cases. @lewis_behavioral_2012 compare across three cohorts: experts, uninformed novices, and informed novices ($n=5+15+16=36$). Participants were asked their opinion of the quality of nine different embedding for each of several data sets. Expert opinion is reportedly more consistent than the novice groups, though this is confounded with the different sample sizes. Interestingly, cohort responses correlated with different quality metrics. Positive ratings from the expert group correlated strongest with the Trustworthiness metric.
 
 <!-- Nonlinear DR quality review -->
-Tours are absent from studies calculable quality measures. However, @nelson_xgobi_1999 compare scatterplots of grand tours on a 2D monitor with 3D display (stereoscopic, not head-mounted) over $n=15$ participants. Participants perform clusters detection, dimensionality, and radial sparseness tasks on six-dimensional data. They find that stereoscopic 3D leads to more accuracy for cluster identification, though interaction time greatly increased in the 3D case.
+Tours are absent from studies calculable quality measures. However, @nelson_xgobi_1999 compare scatterplots of grand tours on a 2D monitor with a 3D display (stereoscopic, not head-mounted) over $n=15$ participants. Participants perform clusters detection, dimensionality, and radial sparseness tasks on six-dimensional data. They find that stereoscopic 3D leads to more accuracy for cluster identification, though interaction time greatly increased in the 3D case.
 
 
 ## Nonlinear models 

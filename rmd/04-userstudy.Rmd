@@ -22,7 +22,7 @@ nsSafeIncGraphic("./figures/ch4_fig1_cl_sep.pdf")
 Understanding which variables to use is also important to statistical modeling and their interpretations. Models are becoming increasingly complex, and the nonlinear interactions of their terms cause an opaqueness to model interpretability. Exploratory Artificial Intelligence [XAI, @adadi_peeking_2018; @arrieta_explainable_2020] is an emerging field that extends the interpretability of such models. Multivariate data visualization is essential for exploring features spaces and communicating interpretations of models [@biecek_dalex_2018; @biecek_explanatory_2021; @wickham_visualizing_2015].
 
 <!-- Structure of the paper -->
-This chapter is structured as follows. Section \@ref(sec:userstudy) describes the implementation of the user study; its visual methods, experimental factors, task, accuracy measure used standardization, and randomization of the experiment. The results of the study are discussed in Section \@ref(sec:results). Conclusions and potential future directions are discussed in Section \@ref(sec:conclusion). An accompanying application and extended analysis are provided in the appendix under Section \@ref(sec:spinifex).
+This chapter is structured as follows. Section \@ref(sec:userstudy) describes the implementation of the user study; its visual methods, experimental factors, task, accuracy measure used standardization, and randomization of the experiment. The results of the study are discussed in Section \@ref(sec:results). Conclusions and potential future directions are discussed in Section \@ref(sec:conclusion). An accompanying application and extended analysis are provided in the appendix under Section \@ref(sec:extanalysis).
 
 
 ## User study {#sec:userstudy}
@@ -40,7 +40,7 @@ PCA will be used as a baseline for comparison as it is the most commonly used li
 Then for some subset of tasks, we expect to find that the radial tour performs most accurately. Conversely, we are less sure about the accuracy of such limited grand tours as there is no objective function in selecting the bases; it is possible that the random selection of the target bases altogether avoids bases showing cluster separation. However, given that the data dimensionality is modest, it seems plausible that the grand tour coincidentally regularly crossed bases with the correct information for the task.
 
 <!-- Explicit hypothesis tests -->
-Experimental factors and the definition of an accuracy measure are given below. The null hypothesis can be stated as:
+Experimental factors and the definition of an accuracy measure are given below. The hypothesis can be stated as:
 
 \begin{align*}
   &H_0: \text{accuracy does not change across the visual methods} \\
@@ -51,7 +51,7 @@ Experimental factors and the definition of an accuracy measure are given below. 
 ### Experimental factors {#sec:expfactors}
 
 <!-- Introduction to experimental factors -->
-In addition to the visual method, data are simulated across three experimental factors. First, the _location_ of the separation between clusters is controlled by mixing a signal and a noise variable at different ratios. Secondly, the _shape_ of the clusters reflect varying distributions of the data. And third, the _dimension_-ality of the data is also tested. The levels within each factor are described below, and Figure \@ref(fig:figExpFactors) gives a visual representation.
+In addition to the visual method, data are simulated across three experimental factors. First, the _location_ of the separation between clusters is controlled by mixing a signal and a noise variable at different ratios. Secondly, the _shape_ of the clusters reflects varying distributions of the data. And third, the _dimension_-ality of the data is also tested. The levels within each factor are described below, and Figure \@ref(fig:figExpFactors) gives a visual representation.
 
 <!-- Illustration of experimental factors -->
 ```{r figExpFactors, out.width='100%', fig.cap = "Illustration of the experimental factors, the parameter space of the independent variables."}

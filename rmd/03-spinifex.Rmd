@@ -22,7 +22,7 @@ The chapter is organized as follows. Section \@ref(sec:algorithm) provides an il
 The types of manipulations of the manual tour can be thought of in several ways:
 
 - *radial*: fix the direction of contribution, and allow the magnitude to change.
-- *angular*: fix the magnitude, and allow the angle or direction of the contribution to vary.
+- *angular*: fix the magnitude, and allow the angle direction of contribution to vary.
 - *horizontal*, *vertical*: changing the contribution in horizontal or vertical directions.
 - *oblique*: paths deviating from these movements, such as being captured from the movement of a cursor.
 
@@ -57,7 +57,7 @@ The flea data (@lubischew_use_1962), available in the __tourr__ package [@wickha
 <!-- Projection basis -->
 An initial 2D projection basis must be provided. A suggested way to start is to identify an interesting projection using a projection pursuit guided tour. The holes index is used to find a 2D projection of the flea data, which shows three separated species groups. Figure \@ref(fig:ch3fig1) shows the initial projection of the data. On the left, a biplot [@gabriel_biplot_1971] illustrates the projection basis ($\textbf{A}$), showing each variable's magnitude and direction of contribution to the projection. The right side shows the projected data, $\textbf{Y}_{[n,~2]} ~=~ \textbf{X}_{[n,~p]} \textbf{A}_{[p,~2]}$. The color and shape of points are mapped to the flea species.
 
-```{r ch3fig1, fig.cap = "Biplot of the initial 2D projection of normalized flea data. The basis is depicted on the left and, the resulting data projection is on the right. The color and shape of data points are mapped to the flea beetle species. The basis was produced by a projection pursuit guided tour with the holes index. The contribution of the variables `aede2` and `tars1` approximately contrasts the other variables. The visible structure in the projection is the three species clusters."}
+```{r ch3fig1, fig.cap = "Biplot of the initial 2D projection of normalized flea data. The basis is depicted on the left, and the resulting data projection is on the right. The color and shape of data points are mapped to the flea beetle species. The basis was produced by a projection pursuit guided tour with the holes index. The contribution of the variables `aede2` and `tars1` approximately contrasts the other variables. The visible structure in the projection is the three species clusters."}
 nsSafeIncGraphic("./figures/ch3_fig1_biplot.pdf")
 ```
 
@@ -163,7 +163,7 @@ nsSafeIncGraphic("./figures/ch3_fig3_filmstrip.pdf")
 
 <!-- Sequence of $\phi_i$ -->
 1. Set the initial value of $\phi_1$ and $\theta$: $\phi_1 = \cos^{-1}{\sqrt{A_{k1}^2+A_{k2}^2}}$, $\theta = \tan^{-1}\frac{A_{k2}}{A_{k1}}$. Where $\phi_1$ is the angle between $\textbf{e}$ and its shadow in $\textbf{A}$.
-2. Set an angle increment ($\Delta_\phi$) that sets the step size for the animation, to rotate the manip var into and out of the projection. The package __spinifex__ uses an angle increment, rather than number of frames to control the movement to be consistent with the tour algorithm as implemented in __tourr__.
+2. Set an angle increment ($\Delta_\phi$) that sets the step size for the animation, to rotate the manip var into and out of the projection. The package __spinifex__ uses an angle increment rather than number of frames to control the movement to be consistent with the tour algorithm as implemented in __tourr__.
 3. Step towards $0$, where the manip var is entirely in the projection plane.
 4. Step towards $\pi/2$, where the manip variable has no contribution to the projection.
 5. Step back to $\phi_1$.
@@ -174,7 +174,7 @@ In each of the steps 3-5, a small step may be added to ensure that the endpoints
 #### Step 5) Projecting the data {#sec:display}
 
 <!-- the reminder of basis operation and now apply data -->
-The operation of a manual tour is defined on the projection bases. Only when the data plot needs to be made, the data is projected through the relevant basis. 
+The operation of a manual tour is defined on the projection bases. Only when the presentation needs, is the data projected through the relevant bases. 
 
 \begin{align*}
   \textbf{Y}^{(i)}_{[n,~3]} &= \textbf{X}_{[n,~p]} \textbf{M}_{[p,~3]} \textbf{R}^{(i)}_{[3,3]}
@@ -385,10 +385,10 @@ vignette("ggproto_api")
 @wang_mapping_2018 introduce a new tool, PDFSense, to visualize the sensitivity of hadronic experiments to nucleon structure. The parameter-space of these experiments lies in 56 dimensions, and are approximated as the ten first principal components. 
 
 <!-- grand tours on the same data -->
-@cook_dynamical_2018 illustrate using the grand tour to explore this component reduced space. Tours can better resolve the shape of clusters, intra-cluster detail, and lead to better outlier detection than PDFSense & TFEP (TensorFlow embedded projections) or traditional static embeddings. Building on this, the manual tour is used to examine the sensitivity of structure in a projection to different parameters. Bases from the grand tour identified in the previous work are used as the initial basis.
+@cook_dynamical_2018 illustrate using the grand tour to explore this component reduced space. Tours can better resolve the shape of clusters, intra-cluster detail, and lead to better outlier detection than PDFSense & TFEP (TensorFlow embedded projections) or traditional static embeddings. Building on this, the manual tour examines the sensitivity of structure in a projection to different parameters. Bases from the grand tour identified in the previous work are used as the initial basis.
 
 <!-- Data structure -->
-The data has a hierarchical structure with top-level clusters; DIS, VBP, and jet. Each cluster is a particular class of experiments, each with many experimental datasets. In consideration of data occlusion, we conduct manual tours on subsets of the DIS and jet clusters. This explores the structure's sensitivity to each of the variables in turn, and we present the subjectively best and worst variable to manipulate for identifying dimensionality of the clusters and describing the range of the clusters.
+The data has a hierarchical structure with top-level clusters; DIS, VBP, and jet. Each cluster is a particular class of experiments, each with many experimental datasets. In consideration of data occlusion, we conduct manual tours on subsets of the DIS and jet clusters. This explores the structure's sensitivity to each of the variables in turn. The subjectively most and least sensitive variables are illustrated for identifying dimensionality of the clusters and describing the range of the clusters.
 
 
 ### Jet cluster
@@ -432,7 +432,7 @@ nsSafeIncGraphic("./figures/ch3_fig7_DIS_worse_pc2.pdf")
 ## Discussion {#sec:discussion}
 
 <!-- Summary of spinifex -->
-Dynamic linear projections of numeric multivariate data, tours, play an important role in data visualization; they extend the dimensionality of visuals to peek into high-dimensional data and parameter spaces. This research has taken the manual tour algorithm, specifically the radial rotation, used in GGobi [@swayne_ggobi:_2003] to interactively rotate a variable into or out of a 2D projection and modified it to create an animation that performs the same task. It is most helpful in examining the importance of variables and how the structure in the projection is sensitive or not to specific variables. This functionality is made available in the package __spinifex__. Which also extends the geometric display and export formats interoperable with the __tourr__ package.
+Dynamic linear projections of numeric multivariate data, tours, play an essential role in data visualization; they extend the dimensionality of visuals to peek into high-dimensional data and parameter spaces. This research has taken the manual tour algorithm, specifically the radial rotation, used in GGobi [@swayne_ggobi:_2003] to interactively rotate a variable into or out of a 2D projection and modified it to create an animation that performs the same task. It is most helpful in examining the importance of variables and how the structure in the projection is sensitive or not to specific variables. This functionality is made available in the package __spinifex__. Which also extends the geometric display and export formats interoperable with the __tourr__ package.
 
 <!-- Summary of application -->
 The original conception of the grand tour was motivated by problems in physics [@asimov_grand_1985] Thus, the use case was fitting. The radial tour was used to explore the sensitivity of variable contributions to the separation of different experiments in high-energy particle physics. These tools can be applied quite broadly to many multivariate data analysis problems.

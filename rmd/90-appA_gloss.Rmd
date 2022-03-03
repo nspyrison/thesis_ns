@@ -14,9 +14,15 @@
 <!-- Does something for LaTeX output -->
 \appendix
 
+# Appendix
+
 
 <!-- !!!LATEX TABLES WILL NOT WORK IN HTML, need to use kbl... -->
 ```{r}
+require(tibble)
+require(kableExtra)
+require(magrittr)
+
 glossary_df <- data.frame(
   Term = c("observation", 
            "variable", 
@@ -24,7 +30,7 @@ glossary_df <- data.frame(
            "response variable"),
   Alias = c(
     "instance, item, case, row (of data)", "feature, column (of data)",
-    "independent-/input- variable, predictors, covariates", 
+    "independent-/input- variables, predictors, covariates", 
     "predicted-/dependent-/target-/output- variable")
 )
 
@@ -40,113 +46,127 @@ thesis_df <- tibble::tribble(
 
 ch3_df <- tibble::tribble(
   ~Content,                                                   ~Link,
-  "spinifex documentation website",                           "https://nspyrison.github.io/spinifex/",
-  "spinifex vignette, Getting started with spinifex",         "https://shorturl.at/dgBOT", 
+  "spinifex documentation website",                           "https://shorturl.at/fmoL3",
+  #"https://nspyrison.github.io/spinifex/",
+  "Vignette: Getting started with spinifex",                  "https://shorturl.at/dgBOT", 
   #"https://nspyrison.github.io/spinifex/articles/getting_started_with_spinifex.html",
-  "spinifex vignette, Ggproto api",                           "https://shorturl.at/mwBP6",
+  "Vignette: Ggproto api",                                    "https://shorturl.at/mwBP6",
   #"https://nspyrison.github.io/spinifex/articles/ggproto_api.html",
   "Fleas, radial tour animation, Figure \\@ref(fig:ch3fig3)", "https://shorturl.at/yQT38",
   #"https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/flea_radialtour_mvar5.gif"
-  "Jet cluster, radial tour on PC1",                          "https://shorturl.at/qIXZ8",
+  "Jet cluster, varying PC1",                          "https://shorturl.at/qIXZ8",
   #[PC1](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc1.gif),
-  "Jet cluster, radial tour on PC2",                          "https://shorturl.at/ertFV",
+  "Jet cluster, varying PC2",                          "https://shorturl.at/ertFV",
   #[PC2](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc2.gif),
-  "Jet cluster, radial tour on PC3, Figure \\@ref(fig:ch3fig5) -- least sensitive", "https://shorturl.at/ehX68",
+  "Jet cluster, varying PC3, Figure \\@ref(fig:ch3fig5) -- least sensitive", "https://shorturl.at/ehX68",
   #least sensitive[PC3](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc3.gif)
-  "Jet cluster, radial tour on PC4, Figure \\@ref(fig:ch3fig4) -- most senstive",   "https://shorturl.at/bcwN5",
+  "Jet cluster, varying PC4, Figure \\@ref(fig:ch3fig4) -- most sensitive",  "https://shorturl.at/bcwN5",
   #most senitive[PC4](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc4.gif)
-  "DIS cluster, radial tour on PC1",                          "https://shorturl.at/cdqN4",
+  "DIS cluster, varying PC1",                          "https://shorturl.at/cdqN4",
   #[PC1](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc1.gif), 
-  "DIS cluster, radial tour on PC2, Figure \\@ref(fig:ch3fig7) -- least sensitive", "https://shorturl.at/yzT13",
+  "DIS cluster, varying PC2, Figure \\@ref(fig:ch3fig7) -- least sensitive", "https://shorturl.at/yzT13",
   #least sensitive [PC2](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc2.gif),
-  "DIS cluster, radial tour on PC3",                          "https://shorturl.at/kvwS8",
+  "DIS cluster, varying PC3",                          "https://shorturl.at/kvwS8",
   #[PC3](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc3.gif),
-  "DIS cluster, radial tour on PC4",                          "https://shorturl.at/dowHN",
+  "DIS cluster, varying PC4",                          "https://shorturl.at/dowHN",
   #[PC4](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc4.gif),
-  "DIS cluster, radial tour on PC5",                          "https://shorturl.at/insHR",
+  "DIS cluster, varying PC5",                          "https://shorturl.at/insHR",
   #[PC5](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc5.gif), 
-  "DIS cluster, radial tour on PC6, Figure \\@ref(fig:ch3fig6) -- most senstive",   "https://shorturl.at/ckGHS",
+  "DIS cluster, varying PC6, Figure \\@ref(fig:ch3fig6) -- most sensitive",   "https://shorturl.at/ckGHS",
   #most sensitive [PC6](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc6.gif).
 )
 
 ch5_df <- tibble::tribble(
-  ~Content,                                                                    ~Link,
-  "cheem vignette, Getting started with cheem",                                "https://shorturl.at/kqsF0",
-  "cheem documentation website",                                               "https://nspyrison.github.io/cheem/",
-  "Penguins cheem radial tour, Figure \\@ref(fig:casepenguins)",               "https://vimeo.com/666431172",
-  "Chocolates, cheem radial tour, Figure \\@ref(fig:casechocolates)",          "https://vimeo.com/666431143",
-  "Chocolates2, cheem radial tour, Figure \\@ref(fig:casechocolatesinverse)",  "https://vimeo.com/666431148",
-  "FIFA 2020, cheem radial tour, Figure \\@ref(fig:casefifa)",                 "https://vimeo.com/666431163",
-  "North Ames housing prices, cheem radial tour, Figure \\@ref(fig:caseames)", "https://vimeo.com/666431134",
+  ~Content,                                                           ~Link,
+  "cheem documentation website",                                      "https://shorturl.at/xyC59",
+  "Vignette: Getting started with cheem",                       "https://shorturl.at/kqsF0",
+  "Penguins animation, Figure \\@ref(fig:casepenguins)",              "https://vimeo.com/666431172",
+  "Chocolates, animation, Figure \\@ref(fig:casechocolates)",         "https://vimeo.com/666431143",
+  "Chocolates2, animation, Figure \\@ref(fig:casechocolatesinverse)", "https://vimeo.com/666431148",
+  "FIFA 2020, animation, Figure \\@ref(fig:casefifa)",                "https://vimeo.com/666431163",
+  "Ames house prices, animation, Figure \\@ref(fig:caseames)",        "https://vimeo.com/666431134",
 )
+
+
 
 ## Set format and fonts for pdf vs html:
 if(knitr::is_html_output()){
   fmt <- "html"
   fnt <- 12L
-  esc <- FALSE ## HTML likes FALSE in vimeolinks
+  fnt2 <- 12L
+  esc <- FALSE
 }else{
   fmt <- "latex"
   fnt <- 10L
-  esc <- FALSE ## latex needs \ escaping on urls to use false.
-  thesis_df$Content <- gsub("\\@", "\\\\@", thesis_df$Content)
-  ch3_df$Content    <- gsub("\\@", "\\\\@", ch3_df$Content)
-  ch5_df$Content    <- gsub("\\@", "\\\\@", ch5_df$Content)
+  fnt2 <- 8L
+  esc <- FALSE ## latex needs \_ escaping in urls to use false.
+  
+  ## Use \@ for hardcoded rmarkdown , \\@ for format="html" or "simple" (html or pdf), and \\\\@ with format = "latex"
+  # thesis_df$Content <- gsub("\\@", "\\\\@", thesis_df$Content)
+  # ch3_df$Content    <- gsub("\\@", "\\\\@", ch3_df$Content)
+  # ch5_df$Content    <- gsub("\\@", "\\\\@", ch5_df$Content)
 }
 ```
 
-# Glossary {#sec-glossary}
+## Glossary {#sec-glossary}
 
 This thesis was written with statistics terminology. This glossary helps bridge the language used here to be more accessible to machine learning audiences.
 
+
 ```{r glossary, fig.cap = "Use the caption arg in kable(), not this."}
-kableExtra::kbl(
-    glossary_df, format = fmt,
-    booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc) %>%
-  kableExtra::kable_classic(font_size = fnt)
+knitr::kable(glossary_df, format = "simple")
+
+# kableExtra::kbl(
+#   glossary_df, format = fmt,
+#   booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc) %>%
+# kableExtra::kable_classic(font_size = fnt2)
 ```
 
 
-# Supplementary material
+## Supplementary material
 
-Below collects links of animations related to the content as well as vignettes and related documentation. The content for chapter 4 continues with a bit of an extended analysis looking at the visual displays in the user study, the participant demographics, and a parallel analysis regressing of log time.
+Below collects links of documentation, code vignettes, and animations related to the content. The content for chapter 4 continues with a bit of an extended analysis looking at the visual displays in the user study, the participant demographics, and a parallel analysis regressing of log time.
 
 
-## Thesis
+### Thesis
 
 ```{r fig.cap = "Use the caption arg in kable(), not this."}
-kableExtra::kbl(
-  thesis_df, format = fmt,
-  booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc) %>%
-  kableExtra::kable_classic(font_size = fnt)
+knitr::kable(thesis_df, format = "simple")
+
+# kableExtra::kbl(
+#   thesis_df, format = fmt,
+#   booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc) %>%
+#   kableExtra::kable_classic(font_size = fnt2)
 ```
 
 
-## Chapter 3, spinifex links
+### Chapter 3, spinifex links
 
 ```{r fig.cap = "Use the caption arg in kable(), not this."}
-kableExtra::kbl(
-  ch3_df, format = fmt,
-  booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc) %>%
-  kableExtra::kable_classic(font_size = fnt)
+knitr::kable(ch3_df, format = "simple")
+
+# kableExtra::kbl(
+#   ch3_df, format = fmt,
+#   booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc) %>%
+#   kableExtra::kable_classic(font_size = fnt2)
 ```
 
 
-## Chapter 4, user study extended analysis {#sec:extanalysis}
+### Chapter 4, user study extended analysis {#sec:extanalysis}
 
 <!-- segue to extended analysis -->
-This section covers extended analysis. First, an illustrations of the different visuals are provided. Then, the demographics of the participants is covered. Lastly, a parallel modeling analysis on log response time is conducted.
+This section covers extended analysis. First, it illustrations of the different visuals are provided. Then, the participant demographics is covered. Lastly, a parallel modeling analysis on log response time is conducted.
 
 
-### Illustrations of visual methods
+#### Illustrations of visual methods
 
-Below illustrates the three visual methods evaluated in the user study. Data was collected from a __shiny__ application, and used pre-rendered `gif` files based on the selected inputs.
+Below illustrates the three visual methods evaluated in the user study. Data was collected from a __shiny__ application, and pre-rendered `gif` files were displayed based on the selected inputs
 
-```{r out.width="100%", fig.cap = "Examples of application for PCA, grand tour, and radial tour."}
+```{r out.width="100%", fig.cap = "Examples of the application displays for PCA, grand tour, and radial tour."}
 nsSafeIncGraphic("./figures/ch4_zapp_study_app_combined.PNG")
 ```
 
-### Survey participant demographics {#sec:demographics}
+#### Survey participant demographics {#sec:demographics}
 
 The target population is relatively well-educated people, as linear projections may prove difficult for generalized consumption. Hence Prolific.co participants are restricted to those with an undergraduate degree (58,700 of the 150,400 users at the study time). From this cohort, 108 performed a complete study. Of these participants, 84 submitted the post-study survey, represented in the following heatmap. All participants were compensated for their time at \pounds 7.50 per hour, with a mean time of about 16 minutes. Figure \@ref(fig:figSurveyDemographics) shows a heat map of the demographics for these 84 participants.
 
@@ -157,7 +177,7 @@ nsSafeIncGraphic("./figures/ch4_zapp_fig1_survey_demograpics.pdf")
 ### Response time {#sec:responsetime}
 
 <!-- Time as secondary interest, Y2 -->
-As a secondary explanatory variable response time is considered. Response time is first log transformed to remove its right skew. The same modeling procedure is repeated for this response. 1) Compare the performance of a battery of all additive and multiplicative models. Table \@ref(tab:timeCompTbl) shows the higher level performance of these models over increasing model complexity. 2) Select the model with the same effect terms, $\alpha \times \beta + \gamma + \delta$, with relatively high conditional $R^2$ without becoming overly complex from interaction. The coefficients of this model are displayed in Table \@ref(tab:timeCoefTbl).
+As a secondary explanatory variable, response time is considered. Response time is first log-transformed to remove its right skew. The same modeling procedure is repeated for this response. 1) Compare the performance of a battery of all additive and multiplicative models. Table \@ref(tab:timeCompTbl) shows the higher level performance of these models over increasing model complexity. 2) Select the model with the same effect terms, $\alpha \times \beta + \gamma + \delta$, with relatively high conditional $R^2$ without becoming overly complex from interaction. The coefficients of this model are displayed in Table \@ref(tab:timeCoefTbl).
 
 <!-- Y2 model comparisons, continue to use ABcd -->
 ```{r timeCompTbl, fig.cap = "Use the caption arg in kable(), not this."}
@@ -243,13 +263,15 @@ kableExtra::kbl(
 <!-- The second tab, Figure \@ref(fig:radialTourAppPg2) contains interaction for selecting the manipulation variable, and non-numeric columns can be used to change the color and shape of the data points in the projection. The radial tour is created in real-time, animated as an interactive __plotly__ `html` widget. The application offers users a fast, intuitive introduction elucidating what the radial tour does and some of the features offered. -->
 
 
-## Chapter 5, cheem links
+### Chapter 5, cheem links
 
 ```{r fig.cap = "Use the caption arg in kable(), not this."}
-kableExtra::kbl(
-  ch5_df, format = fmt,
-  booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc) %>%
-  kableExtra::kable_classic(font_size = fnt)
+knitr::kable(ch5_df, format = "simple")
+
+# kableExtra::kbl(
+#   ch5_df, format = fmt,
+#   booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc) %>%
+#   kableExtra::kable_classic(font_size = fnt2)
 ```
 
 
