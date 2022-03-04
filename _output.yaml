@@ -14,6 +14,7 @@ bookdown::gitbook:
         <li><strong><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></strong></li>
     download: no
     sharing: no
+  pandoc_args: [ "--csl", "template/rjournal.csl" ]
 bookdown::pdf_book:
   template: template/monashthesis.tex
   dev: "pdf"
@@ -22,7 +23,8 @@ bookdown::pdf_book:
   fig_width: 6.3
   keep_tex: no
   number_sections: yes
+  citation_package: default
   pandoc_args: [
-    "--top-level-division=chapter"
+    "--top-level-division=chapter", "--csl", "template/rjournal.csl"
   ]
 #  citation_package: biblatex ## removed trying to bringing references before appendix

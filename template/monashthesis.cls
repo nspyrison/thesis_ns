@@ -110,7 +110,7 @@
 
 %% BIBLIOGRAPHY
 \usepackage[style=authoryear-comp, backend=biber, natbib=true]{biblatex}
-% el al. settings, Kim wanted maxnames=2
+% el al. settings, Kim wanted maxnames=2,
 \ExecuteBibliographyOptions{bibencoding=utf8,minnames=1,maxnames=2, maxbibnames=99,dashed=false,terseinits=true,giveninits=true,uniquename=false,uniquelist=false,doi=false, isbn=false,url=true,sortcites=false}
 
 \DeclareFieldFormat{url}{\url{#1}}

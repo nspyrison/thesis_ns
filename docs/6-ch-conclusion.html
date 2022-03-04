@@ -213,10 +213,13 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="A-appendix.html"><a href="A-appendix.html"><i class="fa fa-check"></i><b>A</b> Appendix</a>
+<li class="chapter" data-level="A" data-path="A-sec-glossary.html"><a href="A-sec-glossary.html"><i class="fa fa-check"></i><b>A</b> Glossary</a></li>
+<li class="chapter" data-level="B" data-path="B-supplementary-material.html"><a href="B-supplementary-material.html"><i class="fa fa-check"></i><b>B</b> Supplementary material</a>
 <ul>
-<li class="chapter" data-level="A.1" data-path="A-appendix.html"><a href="A-appendix.html#sec-glossary"><i class="fa fa-check"></i><b>A.1</b> Glossary</a></li>
-<li class="chapter" data-level="A.2" data-path="A-appendix.html"><a href="A-appendix.html#supplementary-material"><i class="fa fa-check"></i><b>A.2</b> Supplementary material</a></li>
+<li class="chapter" data-level="B.1" data-path="B-supplementary-material.html"><a href="B-supplementary-material.html#thesis"><i class="fa fa-check"></i><b>B.1</b> Thesis</a></li>
+<li class="chapter" data-level="B.2" data-path="B-supplementary-material.html"><a href="B-supplementary-material.html#chapter-3-spinifex-links"><i class="fa fa-check"></i><b>B.2</b> Chapter 3, spinifex links</a></li>
+<li class="chapter" data-level="B.3" data-path="B-supplementary-material.html"><a href="B-supplementary-material.html#sec:extanalysis"><i class="fa fa-check"></i><b>B.3</b> Chapter 4, user study extended analysis</a></li>
+<li class="chapter" data-level="B.4" data-path="B-supplementary-material.html"><a href="B-supplementary-material.html#chapter-5-cheem-links"><i class="fa fa-check"></i><b>B.4</b> Chapter 5, cheem links</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><strong><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></strong></li>
@@ -293,7 +296,7 @@ There is also no comparison evaluating the value of cheem analysis. It would be 
 <!-- 6_2D tour composition -->
 <p>There are also several extensions to the display of 1 &amp; 2D tours, including tabular displaying the numeric values of the basis, drawing of lines around convex and alpha hulls, and a <em>high-density region</em> displays with progressive density rugs, or a combination of point and density contour display where the bulk of the data is shown as density contour, while the outermost observations are displayed as points <span class="citation">(<a href="bibliography.html#ref-hyndman_computing_1996" role="doc-biblioref">Hyndman 1996</a>; <a href="bibliography.html#ref-ohara-wild_gghdr_2022" role="doc-biblioref">O’Hara-Wild et al. 2022</a>)</span>.</p>
 <!-- 7_Sterescopic 3D & XR -->
-<p>It may be interesting to experience tours as 3D scatterplots in extended reality with stereoscopically accurate head-tracking may be fruitful. <span class="citation"><a href="bibliography.html#ref-nelson_xgobi_1999" role="doc-biblioref">Nelson, Cook, and Cruz-Neira</a> (<a href="bibliography.html#ref-nelson_xgobi_1999" role="doc-biblioref">1998</a>)</span> explore 2D tours in virtual reality. Other works view 3D scatterplot tours on 2D displays <span class="citation">(<a href="bibliography.html#ref-yang_3d_1999" role="doc-biblioref">Yang 1999</a>, <a href="bibliography.html#ref-yang_interactive_2000" role="doc-biblioref">2000</a>)</span>. It would be interesting to see modern implementations using WebGL, Mozilla A-frame, or Unity. One concern would be keeping hardware and software as generalized as possible.</p>
+<p>It may be interesting to experience tours as 3D scatterplots in extended reality with stereoscopically accurate head-tracking may be fruitful. <span class="citation"><a href="bibliography.html#ref-nelson_xgobi_1999" role="doc-biblioref">Nelson et al.</a> (<a href="bibliography.html#ref-nelson_xgobi_1999" role="doc-biblioref">1998</a>)</span> explore 2D tours in virtual reality. Other works view 3D scatterplot tours on 2D displays <span class="citation">(<a href="bibliography.html#ref-yang_3d_1999" role="doc-biblioref">Yang 1999</a>, <a href="bibliography.html#ref-yang_interactive_2000" role="doc-biblioref">2000</a>)</span>. It would be interesting to see modern implementations using WebGL, Mozilla A-frame, or Unity. One concern would be keeping hardware and software as generalized as possible.</p>
 <!-- 8_User study -->
 <p>There are some ways that the user-study evaluating the radial tour could be extended. The data could be changed to involve nonlinear shapes, outliers, or varying density and dimensionality. Besides changing the support of the experimental factors to the user study, it may be more interesting to evaluate across different tasks or compare other visualization techniques — scatterplot matrices, parallel coordinate plots, or ridge plots of principal component approximations may be realistic. The performed user study crowdsourced participants with little exposure to linear projections. It would be interesting to compare the results from more experienced participants.</p>
 <!-- 9_cheem, and model/explanation types -->
@@ -302,7 +305,7 @@ There is also no comparison evaluating the value of cheem analysis. It would be 
 <p>In the cheem analysis, we had focused primarily on continuous quantitative predictors. Perhaps this analysis could be extended to image, text, or time series analysis. The global view may remain helpful in summary and identification while observation-level exploration would likely need to change to fit the context of the data, be it saliency map, word-level contextual sentiment analysis, or other. <!--The presence of covariates in these cases may prove essential to having meaningful variable importance to test variable sensitivity of the structure of the explanation. --></p>
 <!-- 11_cheem user study -->
 <p>A user study would help elucidate the benefit of cheem analysis over local explanations or observation-specific analysis of a model. Our analysis can highlight the unique attribution of a selected observation against peers and test the sensitivity of that attribution. Perhaps a task identifying variable sensitivity to a prediction may be appropriate.</p>
-<!-- XXX TODO: more grep searches for broken stuff '??', '-cap', '00', 'ref' -->
+<!-- XXX TODO: more grep searches for broken stuff '??', '-cap', 'ref' -->
 <!-- XXX TODO: more astrogrep 'paper', convert to chapter or equiv -->
 <!-- XXX TODO: Does Cheem chapter still use instance/feature over observation/variable? -->
 
