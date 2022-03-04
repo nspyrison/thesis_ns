@@ -6,14 +6,14 @@ knit: "bookdown::render_book"
 # A User-Controlled Manual Tour for Animated Linear Projections {#ch-spinifex}
 
 <!-- Abstract -->
-Dynamic low-dimensional linear projections of multivariate data known as _tours_ are essential for exploring multivariate data and models. The __R__ package __tourr__ facilitates several types of tours: grand, guided, little, local, and frozen. Each of these can be viewed in a development environment, or their basis path can be saved for later consumption. This chapter describes a new package, __spinifex__, which creates _manual tours_ [@cook_grand_1995] of multivariate data. In a manual tour, an analyst controls the contribution of a variable to the projection. Controlled manipulation is important to explore a variable's sensitivity to the structure of an identified feature. The _radial tour_ is a sub-variant that fixes the contribution angle and alters the magnitude along the radius. The radial tour is applied to particle physics data to illustrate the structure's sensitivity in a projection to specific variable contributions. Additionally, this package creates a ggproto API for composing any tour that mirrors the layered additive approach of __ggplot2__. Tours can then be animated and exported to various formats with __plotly__ or __gganimate__.
+Dynamic low-dimensional linear projections of multivariate data known as _tours_ were introduced in chapter 2. They are an important tool for extending the visualization of multivariate data. The __R__ package __tourr__ facilitates several types of tours: grand, guided, little, local, and frozen. Each of these can be viewed in a development environment, or their basis path can be saved for later consumption. This chapter describes a new package, __spinifex__, which creates _manual tours_ [@cook_grand_1995] of multivariate data. We apply __spinifex__ to particle physics data to illustrate the structure's sensitivity in a projection to specific variable contributions. Additionally, this package creates a ggproto API for composing any tour that mirrors the layered additive approach of __ggplot2__. Tours can then be animated and exported to various formats with __plotly__ or __gganimate__.
 
 <!-- ## Introduction -->
 
 <!-- Segue merged into abstract and outline -->
 
 <!-- Chapter outline -->
-The chapter is organized as follows. Section \@ref(sec:algorithm) provides an illustrated detailed description of a 2D manual tour and fills in the previously absent details to solve the 3D rotation matrix used in 2D manual tours. This proves a scaffolding for the extension to solving a 4D rotation matrix for a 3D manual tour. Section \@ref(sec:oblique) includes compact Algorithms for capturing oblique movements from a cursor. Section \@ref(sec:pkgstructure) discusses the functions and code usage to perform radial tours and compose a layered display of tours. Section \@ref(sec:usecases) illustrates a use case of the radial tour facilitating sensitivity analysis on high-energy physics experiments [@wang_mapping_2018]. Section \@ref(sec:discussion) concluded with a discussion of this chapter.
+The chapter is organized as follows. Section \@ref(sec:algorithm) provides an illustrated detailed description of a 2D manual tour and fills in the previously absent details to solve the 3D rotation matrix used in 2D manual tours. This proves a scaffolding for the extension to solving a 4D rotation matrix for a 3D manual tour. Section \@ref(sec:oblique) includes compact algorithms for capturing oblique movements from a cursor. Section \@ref(sec:pkgstructure) discusses the functions and code usage to perform radial tours and compose a layered display of tours. Section \@ref(sec:usecases) illustrates a use case of the radial tour facilitating sensitivity analysis on high-energy physics experiments [@wang_mapping_2018]. Section \@ref(sec:discussion) concluded with a discussion of this chapter.
 
 
 <!-- Algorithm outline -->
@@ -33,7 +33,7 @@ Angular manipulations are homomorphic in that they show the same information whi
 
 The notation used to describe the algorithm for a 2D radial manual tour is as follows:
 
-- $\textbf{X}$, the data, an $n \times p$ numeric matrix to be projected.
+- $\textbf{X}$, the data, an $n \times p$ quantitative matrix to be projected.
 - $\textbf{A}$, any orthonormal projection basis, $p \times d$ matrix, describing the projection from $\mathbb{R}^p \Rightarrow \mathbb{R}^d$.
 - $k$, is the index of the manipulation variable or manip var for short.
 - $\textbf{e}$, a 1D basis vector of length $p$, with 1 in the $k$-th position and 0 elsewhere.
@@ -65,7 +65,7 @@ nsSafeIncGraphic("./figures/ch3_fig1_biplot.pdf")
 #### Step 1) Choose manip variable
 
 <!-- select a manip var-->
-In figure \@ref(fig:ch3fig1) the contribution of the variables `tars1` and `aede2` mostly contrast the contribution of the other four variables. These two variables combined contribute in the direction where the purple cluster is separated from the other two clusters. The variable `aede2` is selected as the manip var, the variable whose contribution is being changed. The aspect being explored is: how important is this variable to separating the clusters in this projection?
+In figure \@ref(fig:ch3fig1) the contribution of the variables `tars1` and `aede2` mostly contrast the contribution of the other four variables. These two variables combined contribute in the direction where the purple cluster is separated from the other two clusters. The variable `aede2` is selected as the manip var,  whose contribution is changed. The aspect being explored is: how important is this variable to separating the clusters in this projection?
 
 
 #### Step 2) Create the 3D manip space
@@ -163,7 +163,7 @@ nsSafeIncGraphic("./figures/ch3_fig3_filmstrip.pdf")
 
 <!-- Sequence of $\phi_i$ -->
 1. Set the initial value of $\phi_1$ and $\theta$: $\phi_1 = \cos^{-1}{\sqrt{A_{k1}^2+A_{k2}^2}}$, $\theta = \tan^{-1}\frac{A_{k2}}{A_{k1}}$. Where $\phi_1$ is the angle between $\textbf{e}$ and its shadow in $\textbf{A}$.
-2. Set an angle increment ($\Delta_\phi$) that sets the step size for the animation, to rotate the manip var into and out of the projection. The package __spinifex__ uses an angle increment rather than number of frames to control the movement to be consistent with the tour algorithm as implemented in __tourr__.
+2. Set an angle increment ($\Delta_\phi$), the step size between interpolated frames. The package __spinifex__ uses an angle increment rather than the number of frames to control the movement to be consistent with the tour algorithm as implemented in __tourr__.
 3. Step towards $0$, where the manip var is entirely in the projection plane.
 4. Step towards $\pi/2$, where the manip variable has no contribution to the projection.
 5. Step back to $\phi_1$.
@@ -174,7 +174,7 @@ In each of the steps 3-5, a small step may be added to ensure that the endpoints
 #### Step 5) Projecting the data {#sec:display}
 
 <!-- the reminder of basis operation and now apply data -->
-The operation of a manual tour is defined on the projection bases. Only when the presentation needs, is the data projected through the relevant bases. 
+The operation of a manual tour is defined on the projection bases. Only when the presentation is needed, is the data projected through the relevant bases. 
 
 \begin{align*}
   \textbf{Y}^{(i)}_{[n,~3]} &= \textbf{X}_{[n,~p]} \textbf{M}_{[p,~3]} \textbf{R}^{(i)}_{[3,3]}
@@ -276,7 +276,7 @@ if(knitr::is_html_output())
 
 ## Package structure {#sec:pkgstructure}
 
-In addition to facilitating the manual tour, the other primary function is to facilitate the layered composition of tours interoperability with tours from __tourr__. This package attempts to abstract the complexity of dealing with a varying number of frames and replicating the length of arguments. We use a layered composition approach to tours similar to __ggplot2__ [@wickham_ggplot2_2016]. The resulting displays then be animated with __plotly__ [@sievert_interactive_2020] or __gganimate__ [@pedersen_gganimate_2020]. This section describes the functions available in the package, their usage, and how to install and get up and running.
+In addition to facilitating the manual tour, the other primary function of the __spinifex__ package facilitates the layered composition of tours interoperably with tours from __tourr__. This package attempts to abstract the complexity of dealing with a varying number of frames and replicating the length of arguments. We use a layered composition approach to tours similar to __ggplot2__ [@wickham_ggplot2_2016]. The resulting displays are then animated with __plotly__ [@sievert_interactive_2020] or __gganimate__ [@pedersen_gganimate_2020]. This section describes the functions available in the package, their usage, and how to install and get up and running.
 
 
 ### Usage {#sec:usage}
@@ -385,10 +385,10 @@ vignette("ggproto_api")
 @wang_mapping_2018 introduce a new tool, PDFSense, to visualize the sensitivity of hadronic experiments to nucleon structure. The parameter-space of these experiments lies in 56 dimensions, and are approximated as the ten first principal components. 
 
 <!-- grand tours on the same data -->
-@cook_dynamical_2018 illustrate using the grand tour to explore this component reduced space. Tours can better resolve the shape of clusters, intra-cluster detail, and lead to better outlier detection than PDFSense & TFEP (TensorFlow embedded projections) or traditional static embeddings. Building on this, the manual tour examines the sensitivity of structure in a projection to different parameters. Bases from the grand tour identified in the previous work are used as the initial basis.
+@cook_dynamical_2018 illustrate using the grand tour to explore this component reduced space. Tours can better resolve the shape of clusters, intra-cluster detail, and lead to better outlier detection than PDFSense & TFEP (TensorFlow embedded projections) or traditional static embeddings. Building on this, the manual tour examines the sensitivity of a variable's contribution to the structure in a projection. A basis identified with the grand tour identified in the previous work are used as the initial basis.
 
 <!-- Data structure -->
-The data has a hierarchical structure with top-level clusters; DIS, VBP, and jet. Each cluster is a particular class of experiments, each with many experimental datasets. In consideration of data occlusion, we conduct manual tours on subsets of the DIS and jet clusters. This explores the structure's sensitivity to each of the variables in turn. The subjectively most and least sensitive variables are illustrated for identifying dimensionality of the clusters and describing the range of the clusters.
+The data has a hierarchical structure with top-level clusters; DIS, VBP, and jet. Each cluster is a particular class of experiments, each with many experimental datasets (observation points). In consideration of data occlusion, we conduct manual tours on subsets of the DIS and jet clusters. This explores the structure's sensitivity to each of the variables in turn. The subjectively most and least sensitive variables are illustrated for identifying the clusters' dimensionality and describing the clusters' range.
 
 
 ### Jet cluster
@@ -397,7 +397,7 @@ The data has a hierarchical structure with top-level clusters; DIS, VBP, and jet
 The jet cluster resides in a smaller dimensionality than the full set of experiments, with four principal components explaining 95% of the variation in the cluster [@cook_dynamical_2018]. The data within this 4D embedding is a further subset to ATLAS7old and ATLAS7new, focuses on two groups that occupy different parts of the subspace. Radial manual tours controlling contributions from PC4 and PC3 are shown in Figures \@ref(fig:ch3fig4) and \@ref(fig:ch3fig5), respectively. The difference in shape can be interpreted as the experiments probing different phase spaces. Back-transforming the principal components to the original variables can be done for a more detailed interpretation.
 
 <!-- discussion of findings and which is more insightful -->
-When PC4 is removed from the projection (Figure \@ref(fig:ch3fig4)), the difference between the two groups is removed, indicating that PC4 is essential for separating types of experiments. However, eliminating PC3 from the projection (Figure \@ref(fig:ch3fig5)) does not affect the structure, meaning PC3 is not essential for distinguishing experiments. Animations for the remaining PCs can be viewed at the following links: [PC1](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc1.gif), [PC2](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc2.gif), [PC3](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc3.gif), and [PC4](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc4.gif). It can be seen that only PC4 is vital for viewing the difference in these two experiments.
+When PC4 is removed from the projection (Figure \@ref(fig:ch3fig4)), the difference between the two groups is removed, indicating that PC4 is essential for separating types of experiments. However, eliminating PC3 from the projection (Figure \@ref(fig:ch3fig5)) does not affect the structure, meaning PC3 is not essential for distinguishing experiments. Animations varying the contributions of all components can be viewed at the following links: [PC1](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc1.gif), [PC2](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc2.gif), [PC3](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc3.gif), and [PC4](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc4.gif). It can be seen that only PC4 is vital for viewing the difference in these two experiments.
 
 <!-- JetClusterGood -->
 ```{r ch3fig4, fig.cap="Select frames from a radial tour of PC4 within the jet cluster, with color indicating experiment type: ATLAS7new (green) and ATLAS7old (orange). When PC4 is removed from the projection (frame 10), there is little difference between the clusters, suggesting that PC4 is vital for distinguishing the experiments."}
@@ -413,7 +413,7 @@ nsSafeIncGraphic("./figures/ch3_fig5_jet_worse_pc3.pdf")
 ### DIS cluster
 
 <!-- introduce DIS cluster -->
-Following @cook_dynamical_2018, PCA is used to explore the DIS cluster, and the first six principal components are used, which contain 48% of the full sample variation. The contributions of PC6 and PC2 are explored in Figures \@ref(fig:ch3fig6) and \@ref(fig:ch3fig7), respectively. Three experiments are examined: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange).
+Following @cook_dynamical_2018, PCA is used to explore the DIS cluster, and the first six principal components are used, containing 48% of the full sample variation. The contributions of PC6 and PC2 are explored in Figures \@ref(fig:ch3fig6) and \@ref(fig:ch3fig7), respectively. Three experiments are examined: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange).
 
 <!-- comparison of the DIS cluster -->
 Both PC2 and PC6 contribute to the projection similarly. When PC6 is rotated into the projection, variation in the DIS HERA1+2 is greatly reduced. When PC2 is removed from the projection, dimuon SIDIS becomes more distinct. Even though both variables contribute similarly to the original projection, their contributions have quite different effects on the structure of each cluster and the distinction between clusters. Animations of all of the principal components can be viewed from the links: [PC1](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc1.gif), [PC2](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc2.gif), [PC3](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc3.gif), [PC4](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc4.gif), [PC5](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc5.gif), and [PC6](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc6.gif).
@@ -432,7 +432,7 @@ nsSafeIncGraphic("./figures/ch3_fig7_DIS_worse_pc2.pdf")
 ## Discussion {#sec:discussion}
 
 <!-- Summary of spinifex -->
-Dynamic linear projections of numeric multivariate data, tours, play an essential role in data visualization; they extend the dimensionality of visuals to peek into high-dimensional data and parameter spaces. This research has taken the manual tour algorithm, specifically the radial rotation, used in GGobi [@swayne_ggobi:_2003] to interactively rotate a variable into or out of a 2D projection and modified it to create an animation that performs the same task. It is most helpful in examining the importance of variables and how the structure in the projection is sensitive or not to specific variables. This functionality is made available in the package __spinifex__. Which also extends the geometric display and export formats interoperable with the __tourr__ package.
+Dynamic linear projections of quantitative multivariate data, tours, play an essential role in data visualization; they extend the dimensionality of visuals to peek into high-dimensional data and parameter spaces. This research has taken the manual tour algorithm, specifically the radial rotation, used in GGobi [@swayne_ggobi:_2003] to interactively rotate a variable into or out of a 2D projection and modified it to create an animation that performs the same task. It is most helpful in examining the importance of variables and how the structure in the projection is sensitive or not to specific variables. This functionality is made available in the package __spinifex__. Which also extends the geometric display and export formats interoperable with the __tourr__ package.
 
 <!-- Summary of application -->
 The original conception of the grand tour was motivated by problems in physics [@asimov_grand_1985] Thus, the use case was fitting. The radial tour was used to explore the sensitivity of variable contributions to the separation of different experiments in high-energy particle physics. These tools can be applied quite broadly to many multivariate data analysis problems.

@@ -155,7 +155,7 @@ knitr::kable(ch3_df, format = "simple")
 ### Chapter 4, user study extended analysis {#sec:extanalysis}
 
 <!-- segue to extended analysis -->
-This section covers extended analysis. First, it illustrations of the different visuals are provided. Then, the participant demographics is covered. Lastly, a parallel modeling analysis on log response time is conducted.
+This section covers extended analysis. First, it illustrations of the different visuals are provided. Then, the participant demographics are covered. Lastly, a parallel modeling analysis on log response time is conducted.
 
 
 #### Illustrations of visual methods
