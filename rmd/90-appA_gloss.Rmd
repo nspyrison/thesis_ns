@@ -77,7 +77,9 @@ ch3_df <- tibble::tribble(
 ch5_df <- tibble::tribble(
   ~Content,                                                           ~Link,
   "cheem documentation website",                                      "https://shorturl.at/xyC59",
-  "Vignette: Getting started with cheem",                       "https://shorturl.at/kqsF0",
+  "Vignette: Getting started with cheem",                             "https://shorturl.at/kqsF0",
+  "cheem view applicaition",                                          "https://shorturl.at/iuSX5",
+  #"https://ebsmonash.shinyapps.io/cheem_initial/",
   "Penguins animation, Figure \\@ref(fig:casepenguins)",              "https://vimeo.com/666431172",
   "Chocolates, animation, Figure \\@ref(fig:casechocolates)",         "https://vimeo.com/666431143",
   "Chocolates2, animation, Figure \\@ref(fig:casechocolatesinverse)", "https://vimeo.com/666431148",

@@ -44,7 +44,7 @@ if(FALSE){
 ```
 
 <!-- cheem -->
-Given a compatible model, the __cheem__ package calculated the tree SHAP local explanations with __treeshap__. Functions perform the preprocessing to calculate the local explanations of all observations with several statistics that help describe the separability of data and attribution space. This processed object is then used to produce two novel visuals that are composed using  __spinifex__ and __ggplot2__ before being rendered with interaction with __plotly__. An interactive graphical user interface is made with __shiny__, using these visuals to facilitate the outlined cheem analysis. Several preprocessed datasets are included and allow analysts to upload their data after processing. This package was recently published to [CRAN](https://CRAN.R-project.org/package=cheem) and has a corresponding [pkgdown site](https://nspyrison.github.io/cheem/).
+Given a compatible model, the __cheem__ package calculated the tree SHAP local explanations with __treeshap__. Functions perform the preprocessing to calculate the local explanations of all observations with several statistics that help describe the separability of data and attribution space. This processed object is then used to produce two novel visuals that are composed using  __spinifex__ and __ggplot2__ before being rendered with interaction with __plotly__. An interactive graphical user interface is made with __shiny__, using these visuals to facilitate the outlined cheem analysis. Several preprocessed datasets are included and allow analysts to upload their data after processing. This package was recently published at [CRAN](https://CRAN.R-project.org/package=cheem) and has a corresponding [pkgdown site](https://nspyrison.github.io/cheem/).
 
 
 ## Limitations
@@ -106,5 +106,6 @@ A user study would help elucidate the benefit of cheem analysis over local expla
 
 <!-- XXX TODO: more grep searches for broken stuff '??', '-cap', 'ref' -->
 <!-- XXX TODO: more astrogrep 'paper', convert to chapter or equiv -->
-<!-- XXX TODO: Does Cheem chapter still use instance/feature over observation/variable? -->
+<!-- XXX TODO: Does CRAN cheem url exist; https://CRAN.R-project.org/package=cheem  ? -->
+
 
