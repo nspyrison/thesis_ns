@@ -396,7 +396,7 @@ ggsave("./figures/ch4_fig4_accuracy_measure.pdf", final, "pdf",
           #legend.text = element_text(size=6),
           legend.margin = margin(-.05,0,-.01,0, "npc"),
           legend.box.margin = margin(0,0,0,0, "npc"),
-          plot.margin = margin(0,0,0,0, "npc")),
+          plot.margin = margin(1,1,1,1, "pt")),
     labs(color = "", fill = "")
   )
   .visual   <- my_ggpubr(dat_qual, x = "Visual", y = "Marks") + .lp + ylab("Accuracy")
@@ -412,7 +412,6 @@ ggsave("./figures/ch4_fig4_accuracy_measure.pdf", final, "pdf",
     cowplot::draw_label(
       "Violin plots of the terms for accuracy: Y1^ = \u03b1 * \u03b2 + \u03b3 + \u03b4",
       x = .5, y = .75, hjust = .5, vjust = 1)
-  top <- cowplot::plot_grid(.visual, .location, .shape, .dim, nrow = 1)
   require(patchwork)
   top_pw <- .visual + .location + .shape + .dim + plot_layout(nrow = 1)
   gc()
