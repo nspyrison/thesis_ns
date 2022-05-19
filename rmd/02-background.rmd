@@ -7,7 +7,7 @@ knit: "bookdown::render_book"
 # Background {#ch-background}
 
 <!-- Structure -->
-The last chapter discussed the importance of data visualization despite the complexity of viewing high-dimensional data and outlined the research questions to be addressed around the user-control of the radial tour. This chapter first motivates data visualization in general and the importance of interaction. It continues to illustrate common visualizations for quantitative multivariate data before turning to dimension reduction, including further discussion of tours. Then empirical evaluations of multivariate visuals are covered. The chapter concludes with nonlinear models and the extension of their interpretation with local explanations.
+The previous chapter discussed the importance of data visualization despite the complexity of viewing high-dimensional data and outlined the research questions to be addressed around the user-control of the radial tour. This chapter first motivates data visualization in general and the importance of interaction. It continues to illustrate common visualizations for quantitative multivariate data before turning to dimension reduction, including further discussion of tours. Then empirical evaluations of multivariate visuals are covered. The chapter concludes with nonlinear models and the extension of their interpretation with local explanations.
 
 
 ## Motivation
@@ -133,8 +133,8 @@ nsSafeIncGraphic("./figures/ch2_fig5_penguin_manualtour_geoms.pdf")
 
 ## Evaluating multivariate data visualization
 
-<!-- quanatative surveys (calculable metrics) -->
-Definitions and surveys of quality metrics for the distortion of nonlinear reduction are given in @bertini_quality_2011. The latest, most comprehensive quantitative surveys are discussed in @espadoto_toward_2021 and @nonato_multidimensional_2018. The former compares 44 dimension reduction techniques across 18 datasets over seven metrics. While the former papers mention tours, they are absent from quantitative surveys.
+<!-- quantitative surveys (calculable metrics) -->
+Definitions and surveys of quality metrics for the distortion of nonlinear reduction are given by @bertini_quality_2011. The latest, most comprehensive quantitative surveys are discussed by @espadoto_toward_2021 and @nonato_multidimensional_2018. The former compares 44 dimension reduction techniques across 18 datasets over seven metrics. While the former papers mention tours, they are absent from quantitative surveys.
 
 <!-- Orthogonal variables -->
 Some studies compare visualizations across complete contributions of variables.
@@ -159,7 +159,7 @@ So far, the thesis has focused on exploratory data analysis. Another core part o
 Nonlinear models have many or complex interactive terms, which cause an opaqueness to the interpretation of the variables. This difficulty in interpreting the terms in complex nonlinear models sometimes leads to them being referred to as black box models. Despite the potentially better performance of nonlinear models, their use is not without controversy [@oneil_weapons_2016; @kodiyan_overview_2019]. And the loss of interpretation presents a challenge.
 
 <!-- Interpretability & baises -->
-Interpretability is vital for exploring and protecting against potential biases in any model (e.g. sex -- @dastin_amazon_2018; @duffy_apple_2019, race -- @larson_how_2016, and age -- @diaz_addressing_2018). For instance, models regularly pick up on biases in the training data where such classes correlate with changes in the response variable. This bias is then built into the model. Variable-level (feature-level) interpretability of models is essential in evaluating and addressing such biases.
+Interpretability is vital for exploring and protecting against potential biases in any model, e.g. bias against sex [@dastin_amazon_2018; @duffy_apple_2019], race [@larson_how_2016], and age [@diaz_addressing_2018]. For instance, models regularly pick up on biases in the training data where such classes correlate with changes in the response variable. This bias is then built into the model. Variable-level (feature-level) interpretability of models is essential in evaluating and addressing such biases.
 
 <!-- Interpretability & data drift -->
 Another concern is data drift, where a shift in the range of the explanatory variables (features or predictors). Some nonlinear models are sensitive to this and do not extrapolate well outside the support of the training data [@espadoto_toward_2021]. Maintaining variable interpretability is also essential to address issues arising from data drift.
@@ -173,10 +173,10 @@ Explainable Artificial Intelligence (XAI) is an emerging field of research that 
 <!-- Reminder of local explanation -->
 Consider a highly nonlinear model. It can be hard to determine which variables in the data are sensitive to changes in the classification or sizable changes in a residual. Local explanations shed light on these situations by approximating linear variable importance in the vicinity of a single observation. Figure \@ref(fig:ch2fig6) motivates local explanations where the analyst wants to know the variable attribution for a particular observation close to the classification boundary in a nonlinear model.
 
-(ref:ch2fig6-cap) Illustration of a nonlinear classification model. An analyst may want to know the variable importance in the vicinity of the highlighted red cross. Understanding this attribution elucidates how the variables influence this point that is precariously close to the classification boundary. Local explanations approximate this linear attribution in the vicinity of one observation. Figure from @ribeiro_why_2016.
+(ref:ch2fig6-cap) Illustration of a nonlinear classification model. An analyst may want to know the variable importance if an observation is precariously close to the classification boundary. Local explanations approximate this linear attribution in the vicinity of one observation.
 
-```{r ch2fig6, echo=F, out.width="50%", fig.cap = "(ref:ch2fig6-cap)"}
-nsSafeIncGraphic("./figures/ch2_fig6_ribeiro16fig.PNG")
+```{r ch2fig6, echo=F, out.width="100%", fig.cap = "(ref:ch2fig6-cap)"}
+nsSafeIncGraphic("./figures/ch2_fig6_nonlinear.PNG")
 ```
 
 <!-- Taxonomy of local explanations -->

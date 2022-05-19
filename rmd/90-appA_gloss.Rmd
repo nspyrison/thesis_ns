@@ -22,64 +22,68 @@ require(kableExtra)
 require(magrittr)
 
 glossary_df <- data.frame(
-  Term = c("observation", 
-           "variable", 
-           "explanatory variables", 
+  Term = c("observation",
+           "variable",
+           "explanatory variables",
            "response variable"),
   Alias = c(
     "instance, item, case, row (of data)", "feature, column (of data)",
-    "independent-/input- variables, predictors, covariates", 
+    "independent-/input- variables, predictors, covariates",
     "predicted-/dependent-/target-/output- variable")
 )
 
-## SPINFEX Vignnettes not hosted, pkgdown site missing menu banner...
 thesis_df <- tibble::tribble(
   ~Content,                                           ~Link,
-  "thesis repository",                                "https://shorturl.at/clqvB",
-  "thesis, pdf format",                               "https://shorturl.at/uBYZ5",
-  "thesis, html format",                              "https://shorturl.at/dftCN",
+  "thesis repository",                                "https://tinyurl.com/bddbs6sr", 
+  #https://github.com/nspyrison/thesis_ns
+  "thesis, pdf format",                               "https://tinyurl.com/5c54s7bf",
+  #https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf
+  "thesis, html format",                              "https://tinyurl.com/2p8m92bs",
+  #https://nspyrison.github.io/thesis_ns/
   "Penguins radial tour, Figure \\@ref(fig:ch1fig3)", "https://vimeo.com/676723431",
   "Penguins grand tour, Figure \\@ref(fig:ch2fig4)",  "https://vimeo.com/676723441",
 )
 
 ch3_df <- tibble::tribble(
   ~Content,                                                   ~Link,
-  "spinifex documentation website",                           "https://shorturl.at/fmoL3",
+  "spinifex documentation website",                           "https://tinyurl.com/2p82e782",
   #"https://nspyrison.github.io/spinifex/",
-  "Vignette: Getting started with spinifex",                  "https://shorturl.at/dgBOT", 
+  "Vignette: Getting started with spinifex",                  "https://tinyurl.com/2p98cfwh", 
   #"https://nspyrison.github.io/spinifex/articles/getting_started_with_spinifex.html",
-  "Vignette: Ggproto api",                                    "https://shorturl.at/mwBP6",
+  "Vignette: Ggproto api",                                    "https://tinyurl.com/2p8m6cmc",
   #"https://nspyrison.github.io/spinifex/articles/ggproto_api.html",
-  "Fleas, radial tour animation, Figure \\@ref(fig:ch3fig3)", "https://shorturl.at/yQT38",
+  "Fleas, radial tour animation, Figure \\@ref(fig:ch3fig3)", "https://tinyurl.com/3t6w7psf",
   #"https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/flea_radialtour_mvar5.gif"
-  "Jet cluster, varying PC1",                          "https://shorturl.at/qIXZ8",
+  "Jet cluster, varying PC1",                                 "https://tinyurl.com/ye252yxb",
   #[PC1](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc1.gif),
-  "Jet cluster, varying PC2",                          "https://shorturl.at/ertFV",
+  "Jet cluster, varying PC2",                                 "https://tinyurl.com/ye252yxb",
   #[PC2](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc2.gif),
-  "Jet cluster, varying PC3, Figure \\@ref(fig:ch3fig5) -- least sensitive", "https://shorturl.at/ehX68",
+  "Jet cluster, varying PC3, Figure \\@ref(fig:ch3fig5) -- least sensitive", "https://tinyurl.com/4wv3j92k",
   #least sensitive[PC3](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc3.gif)
-  "Jet cluster, varying PC4, Figure \\@ref(fig:ch3fig4) -- most sensitive",  "https://shorturl.at/bcwN5",
+  "Jet cluster, varying PC4, Figure \\@ref(fig:ch3fig4) -- most sensitive",  "https://tinyurl.com/yckwdb5s",
   #most senitive[PC4](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc4.gif)
-  "DIS cluster, varying PC1",                          "https://shorturl.at/cdqN4",
+  "DIS cluster, varying PC1",                                 "https://tinyurl.com/2wz377vh",
   #[PC1](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc1.gif), 
-  "DIS cluster, varying PC2, Figure \\@ref(fig:ch3fig7) -- least sensitive", "https://shorturl.at/yzT13",
+  "DIS cluster, varying PC2, Figure \\@ref(fig:ch3fig7) -- least sensitive", "https://tinyurl.com/2hrxfdje",
   #least sensitive [PC2](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc2.gif),
-  "DIS cluster, varying PC3",                          "https://shorturl.at/kvwS8",
+  "DIS cluster, varying PC3",                                 "https://tinyurl.com/ms683n2e",
   #[PC3](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc3.gif),
-  "DIS cluster, varying PC4",                          "https://shorturl.at/dowHN",
+  "DIS cluster, varying PC4",                                 "https://tinyurl.com/yhm244f7",
   #[PC4](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc4.gif),
-  "DIS cluster, varying PC5",                          "https://shorturl.at/insHR",
+  "DIS cluster, varying PC5",                                 "https://tinyurl.com/4p5n3s77",
   #[PC5](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc5.gif), 
-  "DIS cluster, varying PC6, Figure \\@ref(fig:ch3fig6) -- most sensitive",   "https://shorturl.at/ckGHS",
+  "DIS cluster, varying PC6, Figure \\@ref(fig:ch3fig6) -- most sensitive",  "https://tinyurl.com/mvcn2a8v",
   #most sensitive [PC6](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc6.gif).
 )
 
 ch5_df <- tibble::tribble(
   ~Content,                                                           ~Link,
-  "cheem documentation website",                                      "https://shorturl.at/xyC59",
-  "Vignette: Getting started with cheem",                             "https://shorturl.at/kqsF0",
-  "cheem view applicaition",                                          "https://shorturl.at/iuSX5",
-  #"https://ebsmonash.shinyapps.io/cheem_initial/",
+  "cheem documentation website",                                      "https://tinyurl.com/4avspber",
+  #https://nspyrison.github.io/cheem/
+  "Vignette: Getting started with cheem",                             "https://tinyurl.com/2p85sm4c",
+  #https://nspyrison.github.io/cheem/articles/getting-started-with-cheem.html
+  "cheem view applicaition",                                          "https://tinyurl.com/2hubrts7",
+  #https://ebsmonash.shinyapps.io/cheem_initial/
   "Penguins animation, Figure \\@ref(fig:casepenguins)",              "https://vimeo.com/666431172",
   "Chocolates, animation, Figure \\@ref(fig:casechocolates)",         "https://vimeo.com/666431143",
   "Chocolates2, animation, Figure \\@ref(fig:casechocolatesinverse)", "https://vimeo.com/666431148",
@@ -91,15 +95,15 @@ ch5_df <- tibble::tribble(
 
 ## Set format and fonts for pdf vs html:
 if(knitr::is_html_output()){
-  fmt <- "html"
-  fnt <- 12L
+  fmt  <- "html"
+  fnt  <- 12L
   fnt2 <- 12L
-  esc <- FALSE
-}else{
-  fmt <- "latex"
-  fnt <- 10L
+  esc  <- FALSE
+}else{ ## Latex PDF
+  fmt  <- "latex"
+  fnt  <- 10L
   fnt2 <- 8L
-  esc <- FALSE ## latex needs \_ escaping in urls to use false.
+  esc  <- FALSE ## latex needs \_ escaping in urls to use false.
   
   ## Use \@ for hardcoded rmarkdown , \\@ for format="html" or "simple" (html or pdf), and \\\\@ with format = "latex"
   # thesis_df$Content <- gsub("\\@", "\\\\@", thesis_df$Content)
@@ -125,7 +129,7 @@ knitr::kable(glossary_df, format = "simple")
 
 # Supplementary material
 
-Below collects links of documentation, code vignettes, and animations related to the content. The content for chapter 4 continues with a bit of an extended analysis looking at the visual displays in the user study, the participant demographics, and a parallel analysis regressing of log time.
+Below collects links of documentation, code vignettes, and animations related to the content. The content for Chapter \@ref(ch-userstudy) continues with a bit of an extended analysis looking at the visual displays in the user study, the participant demographics, and a parallel analysis regressing of log time.
 
 
 ## Thesis
@@ -160,7 +164,7 @@ This section covers extended analysis. First, it illustrations of the different 
 
 ### Illustrations of visual methods
 
-Below illustrates the three visual methods evaluated in the user study. Data was collected from a __shiny__ application, and pre-rendered `gif` files were displayed based on the selected inputs
+Below illustrates the three visual methods evaluated in the user study. Data was collected from a __shiny__ application, and pre-rendered `gif` files were displayed based on the selected inputs.
 
 ```{r out.width="100%", fig.cap = "Examples of the application displays for PCA, grand tour, and radial tour."}
 nsSafeIncGraphic("./figures/ch4_zapp_study_app_combined.PNG")

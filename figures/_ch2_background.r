@@ -169,3 +169,17 @@ zero_hex <- ggtour(bas_zero, X, .3) +
 ggsave("./figures/ch2_fig5_penguin_manualtour_geoms.pdf", pw, device = "pdf",
        width = 6, height = 3.6, units = "in")
 
+
+# Setup3 -----
+library(ggplot2)
+## consisitent base theme
+
+p <- ggplot(mtcars, aes(mpg, mpg)) +
+  theme_bw() +
+  theme(axis.title = element_blank(),
+        axis.text  = element_blank(),
+        axis.ticks = element_blank())
+
+ggsave("./figures/ch2_fig6_nonlinear_base.png", p, device = "png",
+       width = 6.2, height = 4.2, units = "in")
+

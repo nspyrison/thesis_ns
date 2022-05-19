@@ -6,7 +6,7 @@ knit: "bookdown::render_book"
 # A User-Controlled Manual Tour for Animated Linear Projections {#ch-spinifex}
 
 <!-- Abstract -->
-Dynamic low-dimensional linear projections of multivariate data known as _tours_ were introduced in chapter 2. They are an important tool for extending the visualization of multivariate data. The __R__ package __tourr__ facilitates several types of tours: grand, guided, little, local, and frozen. Each of these can be viewed in a development environment, or their basis path can be saved for later consumption. This chapter describes a new package, __spinifex__, which creates _manual tours_ [@cook_grand_1995] of multivariate data. We apply __spinifex__ to particle physics data to illustrate the structure's sensitivity in a projection to specific variable contributions. Additionally, this package creates a ggproto API for composing any tour that mirrors the layered additive approach of __ggplot2__. Tours can then be animated and exported to various formats with __plotly__ or __gganimate__.
+Dynamic low-dimensional linear projections of multivariate data known as _tours_ were introduced in Chapter 2. They are an important tool for extending the visualization of multivariate data. The __R__ package __tourr__ facilitates several types of tours: grand, guided, little, local, and frozen. Each of these can be viewed in a development environment, or their basis path can be saved for later consumption. This chapter describes a new package, __spinifex__, which creates _manual tours_ [@cook_grand_1995] of multivariate data. We apply __spinifex__ to particle physics data to illustrate the structure's sensitivity in a projection to specific variable contributions. Additionally, this package creates a ggproto API for composing any tour that mirrors the layered additive approach of __ggplot2__. Tours can then be animated and exported to various formats with __plotly__ or __gganimate__.
 
 <!-- ## Introduction -->
 
@@ -52,7 +52,7 @@ The algorithm operates entirely on projection bases and incorporates the data on
 #### Step 0) Setup
 
 <!-- describe data. -->
-The flea data (@lubischew_use_1962), available in the __tourr__ package [@wickham_tourr:_2011], is used to illustrate the algorithm. The data contains 74 observations of six variables, physical measurements of flea beetles. Each observation belongs to one of three species. Each variable is normalized to a common range of [0, 1].
+The flea data [@lubischew_use_1962], available in the __tourr__ package [@wickham_tourr:_2011], is used to illustrate the algorithm. The data contains 74 observations of six variables, physical measurements of flea beetles. Each observation belongs to one of three species. Each variable is normalized to a common range of [0, 1].
 
 <!-- Projection basis -->
 An initial 2D projection basis must be provided. A suggested way to start is to identify an interesting projection using a projection pursuit guided tour. The holes index is used to find a 2D projection of the flea data, which shows three separated species groups. Figure \@ref(fig:ch3fig1) shows the initial projection of the data. On the left, a biplot [@gabriel_biplot_1971] illustrates the projection basis ($\textbf{A}$), showing each variable's magnitude and direction of contribution to the projection. The right side shows the projected data, $\textbf{Y}_{[n,~2]} ~=~ \textbf{X}_{[n,~p]} \textbf{A}_{[p,~2]}$. The color and shape of points are mapped to the flea species.
@@ -96,7 +96,7 @@ The basis vector corresponding to the manip var (red line in Figure \@ref(fig:ch
 For a radial tour, fix $\theta$, the angle describing rotation within the horizontal projection plane, and compute a sequence for $\phi$, defining movement out of this plane. This will change $\phi$ from the initial value, $\phi_1$, the angle between $\textbf{e}$ and its shadow in $\textbf{A}$, to a maximum of $0$ (manip var entirely in projection), then to a minimum of $\pi/2$ (manip var orthogonal to the projection), before returning to $\phi_1$.
 
 <!-- define the rotation matrix -->
-Rotations in 3D can be defined by the axes they pivot on. Rotation within the projection, $\theta$, is rotation around the $Z$-axis. Out-of-projection rotation, $\phi$, is the rotation around an axis on the $XY$ plane, $\textbf{U}$, orthogonal to $\textbf{e}$. Given these axes, the rotation matrix, $\textbf{R}$, can be written as follows, using Rodrigues' rotation formula (originally published in @rodrigues_lois_1840):
+Rotations in 3D can be defined by the axes they pivot on. Rotation within the projection, $\theta$, is rotation around the $Z$-axis. Out-of-projection rotation, $\phi$, is the rotation around an axis on the $XY$ plane, $\textbf{U}$, orthogonal to $\textbf{e}$. Given these axes, the rotation matrix, $\textbf{R}$, can be written as follows, using Rodrigues' rotation formula [originally published in @rodrigues_lois_1840]:
 
   \begin{align*}
     \textbf{R}_{[3,~3]} 

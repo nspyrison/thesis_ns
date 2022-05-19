@@ -6,7 +6,7 @@ knit: "bookdown::render_book"
 # Introduction {#ch-introduction}
 
 <!-- Exploratory data analysis -->
-Exploratory Data Analysis (EDA) is the process of the initial summarization and visualization of a dataset. EDA is a critical first step that includes checking for realistic values, identifying improper data formats, and revealing insights [@tukey_exploratory_1977]. @wickham_r_2017 describes the analyst workflow as a series of discrete steps. The data is imported and cleaned before entering into an iterated cycle of transformation, visualization, and modeling. This work focuses on the visualization step, specifically for quantitative multivariate data.
+Exploratory Data Analysis (EDA) is the process of the initial summarization and visualization of a dataset. EDA is a critical first step that includes checking for realistic values, identifying improper data formats, and revealing insights [@tukey_exploratory_1977]. @wickham_r_2017 describe the analyst workflow as a series of discrete steps. The data is imported and cleaned before entering into an iterated cycle of transformation, visualization, and modeling. This work focuses on the visualization step, specifically for quantitative multivariate data.
 
 <!-- Dimensionality increases, making data viz hard -->
 Multivariate data is ubiquitous in contemporary data sets. Multivariate data is found in physics, biology, social sciences, and manufacturing, to name a few [@wang_mapping_2018; @huber_orchestrating_2015; @brown_confirmatory_2015; @evans_multivariate_2017, respectively]. As the number of variables in the data increases, it becomes increasingly difficult to visualize this space and reveal the structure contained in the data. This thesis addresses the visualization and analysis of multivariate data.
@@ -49,20 +49,21 @@ Discerning variable sensitivity to the structure is crucial to understanding whi
 
 __Can the radial tour, with user-steering of the basis, help analysts' understanding of the variable sensitivity to structure in the projection?__
 
-While @cook_manual_1997 sketched the theoretical basis for the manual (and hence radial) tour, some details are missing. Furthermore, there is a lack of publicly available implementation, fully-featured interface design, implementation notes, and have no evaluation of its performance over alternatives.
+Which is sectioned into the three following questions.
 
 RQ 1. __How do we define and implement a user interface and interactions for the radial tours to add and remove variables smoothly from 1- and 2D linear data projections?__
+
+While @cook_manual_1997 sketched the theoretical basis for the manual (and hence radial) tour, some details are missing. Furthermore, there is a lack of publicly available implementation, fully-featured interface design, implementation notes, and have no evaluation of its performance over alternatives.
+
+RQ 2. __Does the use of the interactive radial tour improve analysts' understanding of the relationship between variables and structure in 2D linear projections compared to existing approaches?__
 
 <!-- Most perceptible way to visualize multivariate spaces -->
 At present, the radial tour is not used by analysts. Instead, they would use a single projection to understand the structure, almost always principal components analysis [PCA, @pearson_liii._1901], which chooses the basis that shows the most variation. Another approach is to use a _grand tour_ [@asimov_grand_1985]. The grand tour animates many interpolated frames between randomly selected target bases. Neither PCA nor the grand tour provides a means for manually manipulating a desired variable's contribution to the basis. We wish to investigate if the basis-steering of the radial tour facilitates a better understanding of variable sensitivity to the structure. 
 
-RQ 2. __Does the use of the interactive radial tour improve analysts' understanding of the relationship between variables and structure in 2D linear projections compared to existing approaches?__
+RQ 3. __Can the radial tours be used in conjunction with local explanations to improve the interpretability of black-box models?__
 
 <!-- Interpretability crisis of the nonlinear models -->
 Complex nonlinear models are also being applied more frequently to predict or classify from many predictors. While these models lead to increased accuracy over linear models, they suffer from a loss of the interpretability of their variables. One aspect of eXplainable Artificial Intelligence [XAI, @adadi_peeking_2018; @arrieta_explainable_2020] tries to preserve the interpretability of such models through local explanations. These explanations are essentially linear variable importance in the vicinity of one observation of a model. That is, the extent that variables help the model explain the difference between the observed means and an observation's prediction. The user control from the radial tour potentially allows an analyst to better understand the model and the support of these local explanations.
-
-RQ 3. __Can the radial tours be used in conjunction with local explanations to improve the interpretability of black-box models?__
-
 
 ## Methodology
 

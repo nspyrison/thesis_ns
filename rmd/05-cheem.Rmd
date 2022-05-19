@@ -140,7 +140,7 @@ To illustrate the cheem method, it is applied to modern datasets, two classifica
 
 ### Palmer penguin, species classification
 
-The penguins data was introduced in the Introduction and used for illustration in the Background chapter. This data contains 333 observations of four physical measurements, bill length (`bl`), bill depth (`bd`), flipper length (`fl`), body mass (`bm`). A random forest model was fit with species as the response variable. Tree SHAP values were calculated for every observation.
+The penguins data was introduced in the Introduction and Background. This data contains 333 observations of four physical measurements, bill length (`bl`), bill depth (`bd`), flipper length (`fl`), body mass (`bm`). A random forest model was fit with species as the response variable. Tree SHAP values were calculated for every observation.
 
 (ref:casepenguins-cap) Examining the tree SHAP values for a random forest model classifying Palmer penguin species. The PO is a Gentoo (purple) penguin that is misclassified as a Chinstrap (orange), marked as an asterisk in (a), and the dashed vertical line in (b). The radial view shows varying the contribution of `fl` from the initial attribution projection (b, left), which produces a linear combination where the PO is more probably (higher density value) a Chinstrap than a Gentoo (b, right). (The animation of the radial tour is at [vimeo.com/666431172](https://vimeo.com/666431172).)
 
