@@ -22,14 +22,7 @@ In addition to the research discussed in the thesis, other notable contributions
 
 \textbf{Student name:} Nicholas Spyrison
 
-<!-- to add signature, uncomment and move these between student name and date -->
-\textbf{Student signature:}
-
-```{r, out.width = "33%", fig.align = "left"}
-nsSafeIncGraphic("./figures/ch0_signature.PNG")
-```
-
-\textbf{Date:} `r as.Date("2022-03-11")`
+\textbf{Date:} `r as.Date("2022-05-25")`
 
 `r if (knitr::is_html_output()) '-->'`
 
@@ -46,7 +39,7 @@ nsSafeIncGraphic("./figures/ch0_signature.PNG")
 <!-- \noindent -->
 <!-- The undersigned hereby certify that the above declaration correctly reflects the nature and extent of the student's co-authors' contribution to this work. -->
 
-<!-- \textbf{Main Supervisor name:} Kimbal Marriott -->
+<!-- \textbf{Main Supervisor name:} Kim Marriott -->
 
 <!-- \textbf{Main Supervisor signature:} -->
 
