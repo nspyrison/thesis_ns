@@ -103,9 +103,10 @@ In the cheem analysis, we had focused primarily on continuous quantitative predi
 <!-- 11_cheem user study -->
 A user study would help elucidate the benefit of cheem analysis over local explanations or observation-specific analysis of a model. Our analysis can highlight the unique attribution of a selected observation against peers and test the sensitivity of that attribution. Perhaps a task identifying variable sensitivity to a prediction may be appropriate.
 
+<!-- Checks for errors before submission: -->
+<!-- -html format doesn't work with \url{}. -->
+<!-- -more grep searches for broken stuff '??', '-cap', 'ref' -->
+<!-- -more astrogrep 'paper', convert to chapter or equiv -->
 
-<!-- XXX TODO: more grep searches for broken stuff '??', '-cap', 'ref' -->
-<!-- XXX TODO: more astrogrep 'paper', convert to chapter or equiv -->
-<!-- XXX TODO: Does CRAN cheem url exist; https://CRAN.R-project.org/package=cheem  ? -->
 
 

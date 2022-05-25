@@ -93,7 +93,7 @@ nsSafeIncGraphic("./figures/ch0_signature.PNG")
 <!-- \noindent -->
 <!-- The undersigned hereby certify that the above declaration correctly reflects the nature and extent of the student's co-authors' contribution to this work. -->
 
-<!-- \textbf{Main Supervisor name:} Kimbal Marriott -->
+<!-- \textbf{Main Supervisor name:} Kim Marriott -->
 
 <!-- \textbf{Main Supervisor signature:} -->
 

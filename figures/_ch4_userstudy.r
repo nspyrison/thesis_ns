@@ -50,23 +50,18 @@
 
 ##4 plot and save
 (ClSep1 <- ggtour(bas2[, c(3, 4)], dat2) +
-    proto_basis() +
-    proto_point(aes_args = list(color = clas2, shape = clas2)) +
-    theme(plot.title    = element_text(face = "bold"),
-          panel.border  = element_rect(size = .4, color = "grey20", fill = NA),
-          panel.spacing = unit(0L, "points")) +
-    labs(title = "a", color = "Cluster", shape = "Cluster"))
+   proto_basis() +
+   proto_point(aes_args = list(color = clas2, shape = clas2)) +
+   labs(color = "Cluster", shape = "Cluster", title= "a") +
+   theme(panel.border = element_rect(fill = NA)))
 (ClSep2 <- ggtour(rand, dat2) +
     proto_basis() +
     proto_point(aes_args = list(color = clas2, shape = clas2)) +
-    theme(legend.position = "off",
-          plot.title    = element_text(face = "bold"),
-          panel.border  = element_rect(size = .4, color = "grey20", fill = NA),
-          panel.spacing = unit(0L, "points")) +
-    labs(title = "b")
-)
-(ClSep <- ClSep1 + ClSep2)
-ggsave("./figures/ch4_fig1_cl_sep.pdf", ClSep,
+    labs(color = "Cluster", shape = "Cluster", title= "b") +
+    theme(legend.position = "none",
+          panel.border = element_rect(fill = NA)))
+(pw <- ClSep1 + ClSep2)
+ggsave("./figures/ch4_fig1_cl_sep.pdf", pw,
        device = "pdf", width = 6, height = 2.5, units = "in")
 
 
