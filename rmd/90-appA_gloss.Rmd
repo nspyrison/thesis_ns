@@ -22,14 +22,21 @@ require(kableExtra)
 require(magrittr)
 
 glossary_df <- data.frame(
-  Term = c("observation",
+  Term = c("data",
+           "observation",
            "variable",
+           "Basis",
+           "linear projection",
            "explanatory variables",
            "response variable"),
-  Alias = c(
-    "instance, item, case, row (of data)", "feature, column (of data)",
-    "independent-/input- variables, predictors, covariates",
-    "predicted-/dependent-/target-/output- variable")
+  Alias = c(" - ",
+            "instance, item, case, row (of data)",
+            "feature, column (of data)",
+            "linear combination of variables, their orientations",
+            "linear embedding",
+            "independent-/input- variables, predictors, covariates",
+            "predicted-/dependent-/target-/output- variable"),
+  Terminology = NA ## Specified later for formatting
 )
 
 thesis_df <- tibble::tribble(
@@ -92,8 +99,15 @@ ch5_df <- tibble::tribble(
 )
 
 
-
 ## Set format and fonts for pdf vs html:
+glossary_df$Terminology <- c(
+    "$X_{n \\times p}$",
+    "$X_{i \\times .} | i \\in [1, n]$",
+    "$X_{. \\times j} | j \\in [1, p]$",
+    "$A_{p \\times d} | A$  is orthonormal",
+    "$Y_{n \\times d} = X_{n \\times p} \\times A_{p \\times d}$",
+    "not used",
+    "not used")
 if(knitr::is_html_output()){
   fmt  <- "html"
   fnt  <- 12L
@@ -104,6 +118,7 @@ if(knitr::is_html_output()){
   fnt  <- 10L
   fnt2 <- 8L
   esc  <- FALSE ## latex needs \_ escaping in urls to use false.
+  #glossary_df$Terminology <- c(rep(1,7))
   
   ## Use \@ for hardcoded rmarkdown , \\@ for format="html" or "simple" (html or pdf), and \\\\@ with format = "latex"
   # thesis_df$Content <- gsub("\\@", "\\\\@", thesis_df$Content)
@@ -112,18 +127,18 @@ if(knitr::is_html_output()){
 }
 ```
 
-# Glossary {#sec-glossary}
+# Glossary & terminology {#sec-glossary}
 
-This thesis was written with statistics terminology. This glossary helps bridge the language used here to be more accessible to machine learning audiences.
+This thesis was written with statistics terms. This glossary helps bridge the language used here to be more accessible to machine learning audiences.
 
 
 ```{r glossary, fig.cap = "Use the caption arg in kable(), not this."}
-knitr::kable(glossary_df, format = "simple")
+# knitr::kable(glossary_df, format = "simple")
 
-# kableExtra::kbl(
-#   glossary_df, format = fmt,
-#   booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc) %>%
-# kableExtra::kable_classic(font_size = fnt2)
+kableExtra::kbl(
+  glossary_df, format = fmt,
+  booktabs = TRUE, longtable = TRUE, linesep = "", escape = FALSE) %>%
+kableExtra::kable_classic(font_size = fnt2)
 ```
 
 
@@ -178,6 +193,7 @@ The target population is relatively well-educated people, as linear projections 
 nsSafeIncGraphic("./figures/ch4_zapp_fig1_survey_demograpics.pdf")
 ```
 
+
 ### Response time {#sec:responsetime}
 
 <!-- Time as secondary interest, Y2 -->
@@ -220,6 +236,13 @@ kableExtra::kbl(
   kableExtra::pack_rows("Fixed effects", 4, 8) %>%
   kableExtra::pack_rows("Interactions", 9, 12) %>%
   kableExtra::kable_classic(font_size = fnt)
+```
+
+
+## Chapter 5, cheem links
+
+```{r fig.cap = "Use the caption arg in kable(), not this."}
+knitr::kable(ch5_df, format = "simple")
 ```
 
 
@@ -267,16 +290,7 @@ kableExtra::kbl(
 <!-- The second tab, Figure \@ref(fig:radialTourAppPg2) contains interaction for selecting the manipulation variable, and non-numeric columns can be used to change the color and shape of the data points in the projection. The radial tour is created in real-time, animated as an interactive __plotly__ `html` widget. The application offers users a fast, intuitive introduction elucidating what the radial tour does and some of the features offered. -->
 
 
-## Chapter 5, cheem links
 
-```{r fig.cap = "Use the caption arg in kable(), not this."}
-knitr::kable(ch5_df, format = "simple")
-
-# kableExtra::kbl(
-#   ch5_df, format = fmt,
-#   booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc) %>%
-#   kableExtra::kable_classic(font_size = fnt2)
-```
 
 
 

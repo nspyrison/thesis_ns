@@ -218,7 +218,7 @@ if(knitr::is_html_output()){
   fmt      <- "html"
   fnt      <- 12L
   mod_comp <- readRDS("./figures/ch4_tab1_model_comp_ls_html.rds")
-  ## Escape HTML formating of * multiplication
+  ## Escape HTML formatting of * multiplication
   mod_comp$modelComp_MarksByEval$`Fixed effects` <-
       gsub("[*]", "\\\\*", mod_comp$modelComp_MarksByEval$`Fixed effects`)
   mod_comp$modelComp_TimeByEval$`Fixed effects`  <-
@@ -228,8 +228,9 @@ if(knitr::is_html_output()){
   fnt      <- 10L
   mod_comp <- readRDS("./figures/ch4_tab1_model_comp_ls_latex.rds")
 }
-esc_comp <- FALSE ## Comparisons, with bolding 
+esc_comp <- FALSE ## Comparisons, with bolding
 esc_coef <- TRUE  ## Coefficients, with % and *
+colnames(mod_comp[[1]][2:3]) <- c("No. terms", "No. levels")
 
 ## Return
 kableExtra::kbl(
