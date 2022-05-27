@@ -25,7 +25,7 @@ glossary_df <- data.frame(
   Term = c("data",
            "observation",
            "variable",
-           "Basis",
+           "basis",
            "linear projection",
            "explanatory variables",
            "response variable"),
@@ -36,7 +36,13 @@ glossary_df <- data.frame(
             "linear embedding",
             "independent-/input- variables, predictors, covariates",
             "predicted-/dependent-/target-/output- variable"),
-  Terminology = NA ## Specified later for formatting
+  Terminology = c("$X_{n \\times p}$",
+                  "$X_{i \\times .} | i \\in [1, n]$",
+                  "$X_{. \\times j} | j \\in [1, p]$",
+                  "$A_{p \\times d} | A$  is orthonormal",
+                  "$Y_{n \\times d} = X_{n \\times p} \\times A_{p \\times d}$",
+                  "not used",
+                  "not used")
 )
 
 thesis_df <- tibble::tribble(
@@ -100,14 +106,6 @@ ch5_df <- tibble::tribble(
 
 
 ## Set format and fonts for pdf vs html:
-glossary_df$Terminology <- c(
-    "$X_{n \\times p}$",
-    "$X_{i \\times .} | i \\in [1, n]$",
-    "$X_{. \\times j} | j \\in [1, p]$",
-    "$A_{p \\times d} | A$  is orthonormal",
-    "$Y_{n \\times d} = X_{n \\times p} \\times A_{p \\times d}$",
-    "not used",
-    "not used")
 if(knitr::is_html_output()){
   fmt  <- "html"
   fnt  <- 12L
@@ -118,7 +116,6 @@ if(knitr::is_html_output()){
   fnt  <- 10L
   fnt2 <- 8L
   esc  <- FALSE ## latex needs \_ escaping in urls to use false.
-  #glossary_df$Terminology <- c(rep(1,7))
   
   ## Use \@ for hardcoded rmarkdown , \\@ for format="html" or "simple" (html or pdf), and \\\\@ with format = "latex"
   # thesis_df$Content <- gsub("\\@", "\\\\@", thesis_df$Content)
@@ -133,11 +130,9 @@ This thesis was written with statistics terms. This glossary helps bridge the la
 
 
 ```{r glossary, fig.cap = "Use the caption arg in kable(), not this."}
-# knitr::kable(glossary_df, format = "simple")
-
 kableExtra::kbl(
   glossary_df, format = fmt,
-  booktabs = TRUE, longtable = TRUE, linesep = "", escape = FALSE) %>%
+  booktabs = TRUE, longtable = TRUE, linesep = "", escape = esc) %>%
 kableExtra::kable_classic(font_size = fnt2)
 ```
 
@@ -177,9 +172,9 @@ knitr::kable(ch3_df, format = "simple")
 This section covers extended analysis. First, it illustrations of the different visuals are provided. Then, the participant demographics are covered. Lastly, a parallel modeling analysis on log response time is conducted.
 
 
-### Illustrations of visual methods
+### Visual methods
 
-Below illustrates the three visual methods evaluated in the user study. Data was collected from a __shiny__ application, and pre-rendered `gif` files were displayed based on the selected inputs.
+Below illustrates the three visual methods evaluated in the user study. Data was collected from a __shiny__ application, and pre-rendered `gif` files were displayed based on the selected inputs. The instructional video that the participants were shown at the start of the study can be viewed at https://vimeo.com/712674984.
 
 ```{r out.width="100%", fig.cap = "Examples of the application displays for PCA, grand tour, and radial tour."}
 nsSafeIncGraphic("./figures/ch4_zapp_study_app_combined.PNG")

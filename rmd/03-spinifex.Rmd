@@ -39,7 +39,7 @@ The notation used to describe the algorithm for a 2D radial manual tour is as fo
 - $\textbf{e}$, a 1D basis vector of length $p$, with 1 in the $k$-th position and 0 elsewhere.
 - $\textbf{R}$, the $d+1$-D rotation matrix, performs unconstrained 3D rotations within the manip space, $\textbf{M}$.
 - $\theta$, the angle of in-projection rotation, for example, on the reference axes; $c_\theta, s_\theta$ are its cosine and sine.
-- $\phi$, the angle of out-of-projection rotation, into the manip space; $c_\phi, s_\phi$ are its cosine and sine. The initial value for animation purposes is $\phi_1$.
+- $\phi$, the angle of out-of-projection rotation into the manip space; $c_\phi, s_\phi$ are its cosine and sine. The initial value for animation purposes is $\phi_1$.
 - $\textbf{U}$, the axis of rotation for out-of-projection rotation orthogonal to $\textbf{e}$.
 - $\textbf{Y} = \textbf{X} \times \textbf{A}$, the resulting data projection through the manip space, $\textbf{M}$, and rotation matrix, $\textbf{R}$.
 
@@ -52,7 +52,7 @@ The algorithm operates entirely on projection bases and incorporates the data on
 #### Step 0) Setup
 
 <!-- describe data. -->
-The flea data [@lubischew_use_1962], available in the __tourr__ package [@wickham_tourr:_2011], is used to illustrate the algorithm. The data contains 74 observations of six variables, physical measurements of flea beetles. Each observation belongs to one of three species. Each variable is normalized to a common range of [0, 1].
+The flea data [@lubischew_use_1962], available in the __tourr__ package [@wickham_tourr:_2011], is used to illustrate the algorithm. The data contains 74 observations of six variables, each a physical measurement of the flea beetles. Each observation belongs to one of three species. Each variable is normalized to a common range of [0, 1].
 
 <!-- Projection basis -->
 An initial 2D projection basis must be provided. A suggested way to start is to identify an interesting projection using a projection pursuit guided tour. The holes index is used to find a 2D projection of the flea data, which shows three separated species groups. Figure \@ref(fig:ch3fig1) shows the initial projection of the data. On the left, a biplot [@gabriel_biplot_1971] illustrates the projection basis ($\textbf{A}$), showing each variable's magnitude and direction of contribution to the projection. The right side shows the projected data, $\textbf{Y}_{[n,~2]} ~=~ \textbf{X}_{[n,~p]} \textbf{A}_{[p,~2]}$. The color and shape of points are mapped to the flea species.
@@ -82,7 +82,7 @@ Initialize a zero vector, $\textbf{e}$, of length $p$, and set the $k$-th elemen
 <!-- What the manip space provides -->
 The manip space provides a 3D projection from $p$-dimensional space, where the coefficient of the manip var can range completely between [0, 1]. This 3D space serves as the medium to rotate the projection basis relative to the selected manipulation variable. Figure \@ref(fig:ch3fig2) illustrates this 3D manip space with the manip var highlighted. This representation is produced by calling the `view_manip_space()` function. This diagram is purely used to help explain the algorithm.
 
-```{r ch3fig2, fig.cap = "Illustration of a 3D manip space, the projection plane is shown as a blue circle extending into and out of the display. A manipulation direction is initialized, the red circle, orthogonal to the projection plane. This allows the selected variable, `aede2`, to change its contribution to the projection plane. The other variables' contributions rotate into this space, preserving the orthogonal basis, but are omitted in the manipulation dimension for simplicity."}
+```{r ch3fig2, fig.cap = "Illustration of a 3D manip space. The projection plane is shown as a blue circle extending into and out of the display. A manipulation direction is initialized, the red circle, orthogonal to the projection plane. This allows the selected variable, `aede2`, to change its contribution to the projection plane. The other variables' contributions rotate into this space, preserving the orthogonal basis, but are omitted in the manipulation dimension for simplicity."}
 nsSafeIncGraphic("./figures/ch3_fig2_manip_sp.pdf")
 ```
 
@@ -202,7 +202,7 @@ In a move abbreviated way, we can think about the algorithm for 1D and 2D obliqu
     \item $\text{dist}_y$ = vertical distance of the cursor movement;
 \end{itemize}
 \Ensure $||\textbf{A} - \textbf{e}|| >$ tolerance \\
-Initialize the manipulation space, Gram-Schmidt process orthonormalizing $\textbf{e}$ on $\textbf{A}$:
+Initialize the manipulation space; apply the Gram-Schmidt process to orthonormalize $\textbf{e}$ on $\textbf{A}$:
 \State $\textbf{M} \gets \textbf{e} - <\textbf{e}, \textbf{A}> \textbf{A}$ \\
 Initialize change in magnitude, $\phi$, as a function of the horizontal cursor movement: \\
 \State $\phi \gets \frac{\text{dist}_x}{\text{size of plot}_x},~~~c_\phi = cos(\phi), ~~~s_\phi = sin(\phi)$ \\
@@ -335,7 +335,7 @@ funcs_tib <- tibble::tribble(
   "processing", "scale_01/sd",        "-",                   "scale each column to [0,1]/std dev away from the mean",
   "processing", "basis_pca/olda/...", "Rdimtools::do.*",     "basis of orthogonal component spaces",
   "processing", "basis_half_circle",  "-",                   "basis with uniform contribution across half of a circle",
-  "processing", "basis_guided",       "tourr::guided_tour",  "silently return the basis from a guided tour",
+  "processing", "basis_guided",       "tourr::guided_tour",  "silently returns the basis from a guided tour",
   "tour path",  "manual_tour",        "-",                   "basis and interpolation information for a manual tour",
   "tour path",  "save_history",       "tourr::save_history", "silent, extended wrapper returning other tour arrays",
   "display",     "ggtour",            "ggplot2::ggplot",     "canvas and initialization for a tour animation",
@@ -343,13 +343,13 @@ funcs_tib <- tibble::tribble(
   "display",     "proto_density/2d",  "geom_density/2d",     "adds density curve/2d contours",
   "display",     "proto_hex",         "geom_hex",            "adds hexagonal heatmap of observations",
   "display",     "proto_basis/1d",    "-",                   "adds adding basis visual in a unit-circle/-rectangle",
-  "display",     "proto_origin/1d",   "-",                   "adds reference mark in the center of the data",
+  "display",     "proto_origin/1d",   "-",                   "adds a reference mark in the center of the data",
   "display",     "proto_default/1d",  "-",                   "wrapper for proto_* point + basis + origin",
   "display",     "facet_wrap_tour",   "ggplot2::facet_wrap", "facets on the levels of variable",
   "display",     "append_fixed_y",    "-",                   "add/overwrite a fixed vertical position",
   "animation",  "animate_plotly",     "plotly::ggplotly",    "render as an interactive hmtl widget",
   "animation",  "animate_gganimate",  "gganimate::animate",  "render as a gif, mp4, or other video formats",
-  "animation",  "filmstrip",          "-",                   "static gpplot faceting on the frames of the animation"
+  "animation",  "filmstrip",          "-",                   "static ggplot faceting on the frames of the animation"
 )
 
 if(knitr::is_html_output()) fmt <- "html" else fmt <- "latex"
@@ -385,7 +385,7 @@ vignette("ggproto_api")
 @wang_mapping_2018 introduce a new tool, PDFSense, to visualize the sensitivity of hadronic experiments to nucleon structure. The parameter-space of these experiments lies in 56 dimensions, and are approximated as the ten first principal components. 
 
 <!-- grand tours on the same data -->
-@cook_dynamical_2018 illustrate using the grand tour to explore this component reduced space. Tours can better resolve the shape of clusters, intra-cluster detail, and lead to better outlier detection than PDFSense & TFEP (TensorFlow embedded projections) or traditional static embeddings. Building on this, the manual tour examines the sensitivity of a variable's contribution to the structure in a projection. A basis identified with the grand tour identified in the previous work are used as the initial basis.
+@cook_dynamical_2018 illustrate using the grand tour to explore this component-reduced space. Tours can better resolve the shape of clusters, intra-cluster detail, and lead to better outlier detection than PDFSense, TFEP (TensorFlow embedded projections), or traditional static embeddings. Building on this, the manual tour examines the sensitivity of a variable's contribution to the structure in a projection. A basis identified with the grand tour identified in the previous work is used as the initial basis.
 
 <!-- Data structure -->
 The data has a hierarchical structure with top-level clusters; DIS, VBP, and jet. Each cluster is a particular class of experiments, each with many experimental datasets (observation points). In consideration of data occlusion, we conduct manual tours on subsets of the DIS and jet clusters. This explores the structure's sensitivity to each of the variables in turn. The subjectively most and least sensitive variables are illustrated for identifying the clusters' dimensionality and describing the clusters' range.
@@ -394,13 +394,13 @@ The data has a hierarchical structure with top-level clusters; DIS, VBP, and jet
 ### Jet cluster
 
 <!-- jet cluster, explain dimensionality -->
-The jet cluster resides in a smaller dimensionality than the full set of experiments, with four principal components explaining 95% of the variation in the cluster [@cook_dynamical_2018]. The data within this 4D embedding is a further subset to ATLAS7old and ATLAS7new, focuses on two groups that occupy different parts of the subspace. Radial manual tours controlling contributions from PC4 and PC3 are shown in Figures \@ref(fig:ch3fig4) and \@ref(fig:ch3fig5), respectively. The difference in shape can be interpreted as the experiments probing different phase spaces. Back-transforming the principal components to the original variables can be done for a more detailed interpretation.
+The jet cluster resides in a smaller dimensionality than the full set of experiments, with four principal components explaining 95% of the variation in the cluster [@cook_dynamical_2018]. The data within this 4D embedding is classified to ATLAS7old and ATLAS7new, focusing on two groups that occupy different parts of the subspace. Radial manual tours controlling contributions from PC4 and PC3 are shown in Figures \@ref(fig:ch3fig4) and \@ref(fig:ch3fig5), respectively. The difference in shape can be interpreted as the experiments probing different phase spaces. Back-transforming the principal components to the original variables can be done for a more detailed interpretation.
 
 <!-- discussion of findings and which is more insightful -->
 When PC4 is removed from the projection (Figure \@ref(fig:ch3fig4)), the difference between the two groups is removed, indicating that PC4 is essential for separating types of experiments. However, eliminating PC3 from the projection (Figure \@ref(fig:ch3fig5)) does not affect the structure, meaning PC3 is not essential for distinguishing experiments. Animations varying the contributions of all components can be viewed at the following links: [PC1](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc1.gif), [PC2](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc2.gif), [PC3](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc3.gif), and [PC4](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/jetcluster_manualtour_pc4.gif). It can be seen that only PC4 is vital for viewing the difference in these two experiments.
 
 <!-- JetClusterGood -->
-```{r ch3fig4, fig.cap="Select frames from a radial tour of PC4 within the jet cluster, with color indicating experiment type: ATLAS7new (green) and ATLAS7old (orange). When PC4 is removed from the projection (frame 10), there is little difference between the clusters, suggesting that PC4 is vital for distinguishing the experiments."}
+```{r ch3fig4, fig.cap="Select frames from a radial tour of PC4 within the jet cluster, with color indicating experiment type: ATLAS7new (green) and ATLAS7old (orange). When PC4 is removed from the projection (frame 10), and there is little difference between the clusters, suggesting that PC4 is vital for distinguishing the experiments."}
 nsSafeIncGraphic("./figures/ch3_fig4_jet_better_pc4.pdf")
 ```
 
@@ -413,13 +413,13 @@ nsSafeIncGraphic("./figures/ch3_fig5_jet_worse_pc3.pdf")
 ### DIS cluster
 
 <!-- introduce DIS cluster -->
-Following @cook_dynamical_2018, PCA is used to explore the DIS cluster, and the first six principal components are used, containing 48% of the full sample variation. The contributions of PC6 and PC2 are explored in Figures \@ref(fig:ch3fig6) and \@ref(fig:ch3fig7), respectively. Three experiments are examined: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange).
+Following @cook_dynamical_2018, PCA is used to explore the DIS cluster. The first six principal components are used, containing 48% of the full sample variation. The contributions of PC6 and PC2 are explored in Figures \@ref(fig:ch3fig6) and \@ref(fig:ch3fig7), respectively. Three experiments are examined: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange).
 
 <!-- comparison of the DIS cluster -->
 Both PC2 and PC6 contribute to the projection similarly. When PC6 is rotated into the projection, variation in the DIS HERA1+2 is greatly reduced. When PC2 is removed from the projection, dimuon SIDIS becomes more distinct. Even though both variables contribute similarly to the original projection, their contributions have quite different effects on the structure of each cluster and the distinction between clusters. Animations of all of the principal components can be viewed from the links: [PC1](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc1.gif), [PC2](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc2.gif), [PC3](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc3.gif), [PC4](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc4.gif), [PC5](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc5.gif), and [PC6](https://github.com/nspyrison/spinifex_paper/blob/master/paper/gifs/discluster_manualtour_pc6.gif).
 
 <!-- DISclusterGood -->
-```{r ch3fig6, fig.cap = "Select frames from a radial tour exploring the sensitivity that PC6 has on the structure of the DIS cluster, with color indicating experiment type: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange). DIS HERA1+2 is distributed in a cross-shaped plane, and charm SIDIS occupies the center of this cross, and dimuon SIDIS is a linear cluster crossing DIS HERA1+2. As the contribution of PC6 is increased, DIS HERA1+2 becomes almost singular in one direction (frame 5), indicating that this cluster has minimal variability in the direction of PC6."}
+```{r ch3fig6, fig.cap = "Select frames from a radial tour exploring the sensitivity that PC6 has on the structure of the DIS cluster, with color indicating experiment type: DIS HERA1+2 (green), dimuon SIDIS (purple), and charm SIDIS (orange). DIS HERA1+2 is distributed in a cross-shape, with charm SIDIS occupying the center. Dimuon SIDIS is a linear cluster crossing DIS HERA1+2. As the contribution of PC6 is increased, DIS HERA1+2 becomes almost singular in one direction (frame 5), indicating that this cluster has minimal variability in the direction of PC6."}
 nsSafeIncGraphic("./figures/ch3_fig6_DIS_better_pc6.pdf")
 ```
 
