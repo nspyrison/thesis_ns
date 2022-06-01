@@ -372,7 +372,6 @@ Figure 4.4: Illustration of how a hypothetical participant 63 is assigned experi
 <p>Data were recorded by a <strong>shiny</strong> application and written to a Google Sheet after each third of the study. Especially at the start of the study, participants experienced adverse network conditions due to the volume of participants hitting the application with modest allocated resources. In addition to this, API read/write limitations further hindered data collection. To mitigate this, the number of participants was throttled, and over-collect survey trials until three evaluations were collected for all permutation levels.</p>
 <!-- Preprocessing steps -->
 <p>The processing steps were minimal. The data were formatted and then filtered to the latest three complete studies of each experimental factor, which should have experienced the least adverse network conditions. The bulk of the studies removed were partial data and a few over-sampled permutations. This brings us to the 108 studies described in the chapter, from which models and aggregation tables were built. The post-study surveys were similarly decoded in human-readable format. Of the 108 participants, 84 also completed the follow-up survey.</p>
-<p>The code, response files, their analyses, and the study application are publicly available at <a href="https://github.com/nspyrison/spinifex_study" class="uri">https://github.com/nspyrison/spinifex_study</a>.</p>
 </div>
 </div>
 <div id="sec:results" class="section level2" number="4.2">
@@ -921,6 +920,8 @@ Figure 4.6: The subjective measures of the 84 responses to the post-study survey
 <p>This chapter discussed a with-in participant user study (<span class="math inline">\(n=108\)</span>) comparing the efficacy of three linear projection techniques: PCA, grand tour, and radial tour. The participants performed a supervised cluster task, explicitly identifying which variables contribute to separating two target clusters. This was evaluated evenly over four experimental factors. In summary, mixed model regression finds strong evidence that using the radial tour sizably increases accuracy, especially with cluster separation location not being mixed at 33/66%. The effect sizes on accuracy are large relative to the change from the other experimental factors and the random effect of data simulation, though smaller than the random effect of the participant. The radial tour was the most preferred of the three visuals.</p>
 <!-- Future work -->
 <p>There are several ways that this study could be extended. In addition to expanding the support of the experimental factors, more exciting directions include: introducing a new task, visualizations used, and the experience level of the target population. It is difficult to achieve good coverage given the number of possible experimental factors.</p>
+<!-- Acknowledgements -->
+<p>The code, response files, their analyses, and the study application are publicly available at <a href="https://github.com/nspyrison/spinifex_study" class="uri">https://github.com/nspyrison/spinifex_study</a>. The participant instruction video can be viewed at <a href="https://vimeo.com/712674984" class="uri">https://vimeo.com/712674984</a>.</p>
 
 </div>
 </div>

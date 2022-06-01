@@ -155,7 +155,7 @@ So far, the thesis has focused on exploratory data analysis. Another core part o
 <!-- nonlinear leading to interpretability issues -->
 Nonlinear models have many or complex interactive terms, which cause an opaqueness to the interpretation of the variables. This difficulty in interpreting the terms in complex nonlinear models sometimes leads to them being referred to as black box models. Despite the potentially better performance of nonlinear models, their use is not without controversy [@oneil_weapons_2016; @kodiyan_overview_2019]. And the loss of interpretation presents a challenge.
 
-<!-- Interpretability & baises -->
+<!-- Interpretability & biases -->
 Interpretability is vital for exploring and protecting against potential biases in any model, e.g. bias against sex [@dastin_amazon_2018; @duffy_apple_2019], race [@larson_how_2016], and age [@diaz_addressing_2018]. For instance, models regularly pick up on biases in the training data where such classes correlate with changes in the response variable. This bias is then built into the model. Variable-level (feature-level) interpretability of models is essential in evaluating and addressing such biases.
 
 <!-- Interpretability & data drift -->
