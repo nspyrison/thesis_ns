@@ -12,7 +12,7 @@ Exploratory Data Analysis (EDA) is the process of the initial summarization and 
 Multivariate data is ubiquitous in contemporary data sets. Multivariate data is found in physics, biology, social sciences, and manufacturing, to name a few [@wang_mapping_2018; @huber_orchestrating_2015; @brown_confirmatory_2015; @evans_multivariate_2017, respectively]. As the number of variables in the data increases, it becomes increasingly difficult to visualize this space and reveal the structure contained in the data. This thesis addresses the visualization and analysis of multivariate data.
 
 <!-- Shadow analogy segue to linear proj. -->
-One of the most common and successful approaches to visualize multivariate data is to use linear projection, which approximates $p$-dimensional data in fewer dimensions. This reduced spaces are typically viewed as 1-3D visuals. In the same way that a 3D object casts a 2D shadow, these projections show one orientation of data onto a lower plane.
+One of the most common and successful approaches to visualize multivariate data is to use linear projection, which approximates $p$-dimensional data in fewer dimensions. This reduced space are typically viewed as 1-3D visuals. In the same way that a 3D object casts a 2D shadow, these projections show one orientation of data onto a lower plane.
 
 <!-- Linear projections -->
 Linear projections define new variables called components, which are a linear combination of the original variables. This is essentially an orientation of the direction of the axes. A basis is an orthonormal matrix that maps the variable to the component output space. The basis of a linear projection is frequently illustrated with a biplot [@gabriel_biplot_1971]. The biplot shows the magnitude and angle each variable contributes to the resulting display dimensions inscribed in a unit circle, such as in Figure \@ref(fig:ch1fig2). Traditional axes-based visuals look at 1- to 3D views of orthogonal variables. In contrast, viewing linear combinations of these variables can reveal features that exist in more than three dimensions. 
@@ -23,14 +23,14 @@ Linear projections define new variables called components, which are a linear co
 nsSafeIncGraphic("./figures/ch1_fig2_penguin_cl_sep.png")
 ```
 
-<!-- Talk about features, structure and sensitivity -->
+<!-- Talk about features, structure, and sensitivity -->
 There are many features that an analyst may be interested in when analyzing multivariate data. Shape, spread, cluster separation, outliers, and irregularities are the most common. Not all basis orientations will reveal the features in the data. Thus the choice of basis is essential. Furthermore, the analyst is interested in understanding the variables that reveal features. For instance, Figure \@ref(fig:ch1fig2) shows two linear projections of penguin data. The color and shape of the data points distinguish the three penguin species. The linear projection used in the left panel contains a significant separation of the clusters, while the right panel does not show differences between the species clusters.
 
 <!-- Tours, animated linear projections -->
-Therefore, it makes sense for an analyst to explore many projections with very different bases. However, it can be challenging to link observations across large discrete jumps to other projections with no intermediate information. The _tour_ is a dynamic visualization that overcomes this difficulty [@cook_grand_2008; @lee_state_2021]. It is a class of linear projections that animate over small changes to the projection basis. A vital feature of the tour is the visual permanence and trackability of the points through the frames. In the shadow analogy, an object such as a barstool will cast a circular shadow if the light is directly above the seat. However, such a shadow does not give the observer sufficient information as it could arise from any number of shapes that contain circular profiles: spheres, cylinders, or circles. However, if the stool was rotated, its legs show in the shadow, giving an intuitive interpretation of the object. Similarly, the rotation of a data object yields information about its structure.
+Therefore, it makes sense for an analyst to explore many projections with very different bases. However, it can be challenging to link observations across large discrete jumps to other projections with no intermediate information. The _tour_ is a dynamic visualization that overcomes this difficulty [@cook_grand_2008; @lee_state_2021]. It is a class of linear projections that animate over small changes to the projection basis. A vital feature of the tour is the visual permanence and trackability of the points through the frames. In the shadow analogy, an object such as a barstool will cast a circular shadow if the light is directly above the seat. However, such a shadow does not give the observer sufficient information as it could arise from any number of shapes that contain circular profiles: spheres, cylinders, or circles. However, if the stool was rotated, its legs would show in the shadow, giving an intuitive interpretation of the object. Similarly, the rotation of a data object yields information about its structure.
 
 <!-- Manual tour -->
-Traditional methods of viewing component spaces and the original tour have no means to influence the path of its bases. @cook_manual_1997 introduce the _manual tour_, offering user control over the basis. By selecting a variable and initializing an additional manipulation dimension onto a projection, the contribution of the variable can be controlled through a rotation of the manipulation space. This user-controlled steering enables the analyst to explore what happens to the structure when one variable is removed or the contribution of another is increased.
+Traditional methods of viewing component spaces and the original tour have no means to influence the path of its bases. @cook_manual_1997 introduce the _manual tour_, offering user control over the basis. By selecting a variable and initializing an additional manipulation dimension onto a projection, the contribution of the variable can be controlled through a rotation of the manipulation space. The user-controlled steering enables the analyst to assess the variable sensitivity to the structure identified in a projection.
 
 <!-- Radial tour -->
 The manual tour allows the analyst to control the angle and magnitude that a variable contributes to the projection. However, influencing the magnitude is more meaningful as angular manipulations effectively rotate a projection, changing the relative position but not the amounts of the variables. Because of this, this work focuses on a specific manual tour, the _radial tour_. In this tour, the manipulation angle is fixed, but a variable’s magnitude changes (along the contribution radius to the basis). Figure \@ref(fig:ch1fig3) shows a radial tour of the penguins data varying the contribution of bill length. The left panel has a total contribution from `bl`, while the middle panel shows half contribution, and bill length has been removed in the right panel. The separation between orange and green clusters was in the direction of the contribution of `bl` and when this contribution is removed, so too is the separation of the clusters. Because of this, this variable is said to be sensitive to the separation of these two clusters.
@@ -53,7 +53,7 @@ Which is sectioned into the three following questions.
 
 RQ 1. __How do we define and implement a user interface and interactions for the radial tours to add and remove variables smoothly from 1- and 2D linear data projections?__
 
-@cook_manual_1997 laid out the theoretical work for the manual (and hence radial) tour, some details are light. Furthermore, there is an absence of a publicly available implementation, fully-featured interface design, implementation notes, and evaluation of performance over alternatives.
+@cook_manual_1997 laid out the theoretical work for the manual (and hence radial) tour, while some details are light. Furthermore, there is an absence of a publicly available implementation, fully-featured interface design, implementation notes, and performance evaluation over alternatives.
 
 RQ 2. __Does the use of the interactive radial tour improve analysts' understanding of the relationship between variables and structure in 2D linear projections compared to existing approaches?__
 
@@ -63,7 +63,7 @@ At present, the radial tour is not used by analysts. Instead, they would use a s
 RQ 3. __Can the radial tours be used in conjunction with local explanations to improve the interpretability of black-box models?__
 
 <!-- Interpretability crisis of the nonlinear models -->
-Complex nonlinear models are also being applied more frequently to predict or classify from many predictors. While these models lead to increased accuracy over linear models, they suffer from a loss of the interpretability of their variables. One aspect of eXplainable Artificial Intelligence [XAI, @adadi_peeking_2018; @arrieta_explainable_2020] tries to preserve the interpretability of such models through local explanations. These explanations are essentially linear variable importance in the vicinity of one observation of a model. That is, the extent to which variables help the model explain the difference between the observed means and an observation's prediction. The user control from the radial tour potentially allows an analyst to understand better the model and the support of these local explanations.
+Complex nonlinear models are also being applied more frequently to predict or classify from many predictors. While these models lead to increased accuracy over linear models, they suffer from a loss of the interpretability of their variables. One aspect of eXplainable Artificial Intelligence [XAI, @adadi_peeking_2018; @arrieta_explainable_2020] tries to preserve the interpretability of such models through local explanations. These explanations are essentially linear variable importance in the vicinity of one observation of a model. That is, the extent to which variables help the model explain the difference between the observed means and an observation's prediction. The user control from the radial tour potentially allows an analyst to better understand the model and the range of these local explanations.
 
 ## Methodology
 
@@ -71,7 +71,7 @@ The research corresponding to RQ 1 entails _algorithm & software design_ [@klein
 
 To address RQ 2, _experimental design_ [@winer_statistical_1962] is used. A task and measure must be defined that is suitable to evaluate the radial tour against alternatives. The experimental factors and their levels must be selected and randomly assigned as a randomized controlled trial to measure the efficacy of user-controlled radial tours compared with two benchmark methods.
 
-The research responding to RQ 3 involves _design science_ [@hevner_design_2004]. It is not obvious how to combine a radial tour with a nonlinear model. A local explanation approximates the linear variable importance in the vicinity of one observation. Two novel interactive visualizations need to be developed. The first should visually facilitate the selection of observations to explore. The second should extend the biplot to show the distribution of local explanations from all observations  while a radial tour is created starting from the attribution of one observation. This will examine the variable sensitivity to the structure identified in the local explanation.
+The research responding to RQ 3 involves _design science_ [@hevner_design_2004]. It is not obvious how to combine a radial tour with a nonlinear model. A local explanation approximates the linear variable importance in the vicinity of one observation. Two novel interactive visualizations need to be developed. The first should visually facilitate the selection of observations to explore. The second should extend the biplot to show the distribution of local explanations from all observations while a radial tour is created starting from the attribution of one observation. This will examine the variable sensitivity to the structure identified in the local explanation.
 
 
 ## Contributions
@@ -82,7 +82,7 @@ The contributions resulting from the research to address these research question
 ### Scientific knowledge
 
 - Radial tour algorithm
-    - Refined and clarified the steps to producing a radial tour based on the use of the Rodrigues' rotation formula [@rodrigues_lois_1840].
+    - Refined and clarified the steps to producing a radial tour based on  Rodrigues' rotation formula [@rodrigues_lois_1840].
     - Provides new examples of usage.
 - A user study comparing the radial tour's efficacy against two alternatives --- PCA and the grand tour. This is the first empirical evaluation of the radial tour.
     - Creation of supervised classification task to assess the variable attribution to the separation of two clusters.
@@ -107,7 +107,7 @@ The contributions resulting from the research to address these research question
     - Interactive __shiny__ [@chang_shiny_2021] application to preprocess data and explore. Users can choose from six supplied datasets or upload their own.
     - Vignettes and code examples help users get up to speed.
 - __cheem__, an __R__ package that facilitates the exploration of local explanations of nonlinear models through the radial tour.
-    - Preprocessing: given a tree-based model, calculate the tree SHAP local explanation [via __treeshap__, @kominsarczyk_treeshap_2021] of all observations, and calculate statistics that accent the separability of this space.
+    - Preprocessing: given a tree-based model, calculate the tree SHAP local explanation [via __treeshap__, @kominsarczyk_treeshap_2021] of all observations and statistics that accent the separability of this space.
     - Visualization of approximations of the data space, attribution space, and residual plot side-by-side with linked brushing, hover tooltips, and tabular display facilitates the selection of observations to explore.
     - Use of the radial tour changes variable contribution to test the support of the variable contribution in agreement with the explanation.
     - Interactive application facilitates this analysis for several prepared datasets or user preprocessed data.

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Abstract | Interactive and dynamic visualization of high-dimensional data</title>
   <meta name="description" content="Abstract | Interactive and dynamic visualization of high-dimensional data" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Abstract | Interactive and dynamic visualization of high-dimensional data" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="acknowledgments.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -241,14 +240,14 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="abstract" class="section level1 unnumbered">
-<h1>Abstract</h1>
+<div id="abstract" class="section level1 unnumbered hasAnchor">
+<h1>Abstract<a href="abstract.html#abstract" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <!-- EDA, motivation, linear projections, tours -->
 <p>Visualizing data is crucial for exploratory data analysis, checking assumptions, and validating model performance. However, visualization quickly becomes complex as the dimensionality of the data or features increases. Traditionally, linear projections have been used to view discrete pairs of components to mitigate this complexity. Data visualization <em>tours</em> are a class of dynamic linear projections that animate many linear projections over small changes to the projection basis. The permanence of observations between nearby frames potentially conveys more information than discrete orthogonal frames alone.</p>
 <!-- manual tours and spinifex -->
 <p>Tours are categorized by the path of their bases. <em>Manual tours</em> uniquely allow for user-controlled steering of a path of bases, where the contributions of individual variables can be changed. The <em>radial tour</em> is a specific case of the manual tour, which freezes the angle of movement but allows the magnitude to be varied. The radial tour is central to the work covered in this thesis. Chapter <a href="3-ch-spinifex.html#ch-spinifex">3</a> clarifies the theoretical basis of the radial tour. The details of implementation and illustration of its use are provided. It introduces an open-source <strong>R</strong> package that facilitates creating these tours with various display choices and user controls.</p>
 <!-- user study -->
-<p>Allowing the analyst to steer a path in the radial tour should enable a better understanding of the variable importance to any structure revealed in a projection. Chapter <a href="4-ch-userstudy.html#ch-userstudy">4</a> discusses a within-participant user study comparing the radial tour with current practices: principal component analysis (PCA) and the original tour type without steering. The <span class="math inline">\(n=108\)</span> crowdsourced participants performed a variable attribution task describing the separation between clusters. The results find that the radial tour leads to a more accurate variable attribution. Participants also reported that the radial tour was their preferred visualization method.</p>
+<p>The user steering of the radial tour should allow the analyst to better understanding of the variable importance to any structure revealed in a projection. Chapter <a href="4-ch-userstudy.html#ch-userstudy">4</a> discusses a within-participant user study comparing the radial tour with current practices: principal component analysis (PCA) and the original tour type without steering. The <span class="math inline">\(n=108\)</span> crowdsourced participants performed a variable attribution task describing the separation between clusters. The results find that the radial tour leads to a more accurate variable attribution. Participants also reported that the radial tour was their preferred visualization method.</p>
 <!-- cheem -->
 <p>Nonlinear modeling techniques are sometimes referred to as black-box models due to the difficulty of interpreting the model terms. Recent research in Explainable Artificial Intelligence (XAI) tries to bring interpretability to these models through <em>local explanations</em>. Local explanations are a class of techniques that approximate the linear-variable importance for prediction at one point in the data. Chapter <a href="5-ch-cheem.html#ch-cheem">5</a> provides a new approach for exploring the variable sensitivity of local explanations using the radial tour. Local explanations can be considered projection bases. The radial tour is used to vary the contribution of a variable to assess its importance for any particular prediction. This novel analysis is illustrated using four contemporary data examples covering classification and regression. An accompanying <strong>R</strong> package provides a graphical user interface (GUI) for conducting this analysis.</p>
 
@@ -261,7 +260,7 @@ I hereby declare that this thesis contains no material which has been accepted f
 
 ## Publication as part of this thesis {-}
 
-The work corresponding to Chapter \@ref(ch-spinifex) has been accepted for publication in _The R Journal_ [@spyrison_spinifex_2020]. While respective studies discussed in Chapters \@ref(ch-userstudy) and \@ref(ch-cheem) have not yet been submitted.
+The work corresponding to Chapter \@ref(ch-spinifex) has been accepted for publication in _The R Journal_ [@spyrison_spinifex_2020]. The respective user study discussed in Chapters \@ref(ch-userstudy) has not yet been submitted. The contents of Chapter \@ref(ch-cheem) have been submitted to the _Journal of Machine Learning Research_ in May 2022.
 
 I have renumbered and updated sections of the published paper to generate a consistent presentation within the thesis. The code illustrated has been adjusted to highlight the new ggproto API. Introductory and background content has been moved to their respective thesis chapters.
  
@@ -270,13 +269,14 @@ I have renumbered and updated sections of the published paper to generate a cons
 
 In addition to the research discussed in the thesis, other notable contributions during my candidature include:
 
+- _Animated Linear Projections_, Invited to write an article for INFORMS magazine, OR/MS Tomorrow. to be printed next issue, 2022 Q1&2.
 - _The state-of-the-art on tours for dynamic visualization of high-dimensional data_ [@lee_state_2021]. A WIREs Computational Statistics Review of current tour methods. I contributed the writing and visuals discussing manual tours.
 - _"Is IEEE VIS that good?" On key factors in the initial assessment of manuscript and venue quality_ [@spyrison_is_2021]. This alt.VIS workshop paper covers a survey of IEEE VIS authors, how they source articles, decide which to read, and evaluate venue quality. There is low evidence that sentiment changes across academic positions for these topics and provided a discussion on the effects of the "publish or perish" environment, standard author and journal metrics, and difficulty in publishing "null" findings and replication studies.
-- _Intraday effect of COVID-19 restrictions on Melbourne electricity consumption_ [@barrow_changes_2020]. In this Melbourne Datathon entry, we corroborate that the Victorian interday effect on energy consumption did not change but novelly find that the _intraday_ distribution of energy consumption does change. There is a statistically significant change in the height between the morning and evening peak energy consumption. We posit this is due to less strict schedules associated with working from home, absence of commute time, and other employment changes. This work was awarded 1st place of hundreds of entries in the insights category of the Melbourne 2020 Datathon.
+- _Intraday effect of COVID-19 restrictions on Melbourne electricity consumption_ [@barrow_changes_2020]. In this Melbourne Datathon entry, we corroborate that the Victorian interday effect on energy consumption did not change but novelly find that _intraday_ distribution does change. There is a statistically significant change in the height between the morning and evening peak energy consumption. We posit this is due to less strict schedules associated with working from home, absence of commute time, and other employment changes. This work was awarded 1st place of hundreds of entries in the insights category of the Melbourne 2020 Datathon.
 
 \textbf{Student name:} Nicholas Spyrison
 
-\textbf{Date:} 2022-05-25
+\textbf{Date:} 2022-06-03
 
 -->
 <!-- to add signature, uncomment and move these between student name and date  -->

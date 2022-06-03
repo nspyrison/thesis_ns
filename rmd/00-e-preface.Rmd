@@ -1,6 +1,6 @@
 # Preface {-}
 
-This thesis has been written using R Markdown with the bookdown package [@xie_bookdown:_2016]. All materials required to compile the thesis are available at [github.com/nspyrison/thesis_monash_phd](https://github.com/nspyrison/thesis_monash_phd). Versions are made available as `html` and `pdf` at [nspyrison.github.io/thesis_ns/](https://nspyrison.github.io/thesis_ns/) and [github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf), respectively.
+This thesis has been written using R Markdown with the __bookdown__ package [@xie_bookdown:_2016]. All materials required to compile the thesis are available at [github.com/nspyrison/thesis_monash_phd](https://github.com/nspyrison/thesis_monash_phd). Versions are made available as `html` and `pdf` at [nspyrison.github.io/thesis_ns/](https://nspyrison.github.io/thesis_ns/) and [github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf](https://github.com/nspyrison/thesis_ns/blob/master/docs/thesis_ns.pdf), respectively.
 
 
 ## License {-}
